@@ -5,6 +5,7 @@ import { pickText } from '../../lib/text';
 import { dateOnly, dubaiDate, questionKey } from '../../lib/topic-progress';
 import type { Rating } from '../../lib/storage';
 import { RichText } from '../content/RichText';
+import { FrenchText } from '../ui/FrenchText';
 import { useBodyT, useTopicContext } from './context';
 import { MdxWarning } from './MdxWarning';
 import '../content/ui.css';
@@ -59,10 +60,12 @@ export function Question({ id }: { id?: string }) {
       {question.stimulus ? (
         <div className="foma-question__stimulus">
           <p className="foma-question__label">{t('question.stimulus')}</p>
+          <FrenchText text={question.stimulus} rich />
           <RichText text={pickText(question.stimulus, lang)} />
         </div>
       ) : null}
 
+      <FrenchText text={question.prompt} rich className="foma-question__prompt" />
       <RichText className="foma-question__prompt" text={pickText(question.prompt, lang)} />
 
       {hints.length > 0 ? (
@@ -96,6 +99,7 @@ export function Question({ id }: { id?: string }) {
           {question.model ? (
             <div>
               <p className="foma-question__label">{t('question.model')}</p>
+              <FrenchText text={question.model} rich />
               <RichText text={pickText(question.model, lang)} />
             </div>
           ) : null}

@@ -9,6 +9,7 @@ import { dateOnly, topicKey } from '../../lib/topic-progress';
 import { publicUrl } from '../../lib/topic-text';
 import type { GlobalState } from '../../lib/storage';
 import { LinkList } from '../content/SourceList';
+import { FrenchText } from '../ui/FrenchText';
 import { TopicChips } from './TopicChips';
 import '../content/ui.css';
 import './subject.css';
@@ -21,6 +22,7 @@ interface Props {
 }
 
 // The topics of a subject in teaching order: code, title, priority, minutes, mock scope, the student's progress.
+// A French title (the French subject) is the first line of the link, above the English or Russian one.
 // A topic whose text is not ready in the chosen language shows its public reading links instead.
 export function TopicList({ pack, topics, progress, contentLang }: Props) {
   const { t, i18n } = useTranslation('subject');
@@ -45,6 +47,7 @@ export function TopicList({ pack, topics, progress, contentLang }: Props) {
             <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
               <span className="foma-code-label">{topic.code}</span>
               <Link to={ROUTES.topic(subject, topic.id)} className="text-lg font-semibold underline underline-offset-2 [overflow-wrap:anywhere]">
+                <FrenchText text={topic.title} />
                 {pickText(topic.title, uiLang)}
               </Link>
             </div>

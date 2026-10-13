@@ -7,6 +7,7 @@ import { pickText } from '../../lib/text';
 import { InlineText } from '../content/RichText';
 import { SourceItem } from '../content/SourceList';
 import { isFixturePack } from '../sims/catalog';
+import { FrenchText } from '../ui/FrenchText';
 import '../content/ui.css';
 import './glossary.css';
 
@@ -26,7 +27,8 @@ function simHref(id: string): string {
 }
 
 // One term of the glossary. The English term and definition come first (the exam is in English); the Russian
-// term and definition are below them. Then the syllabus code, papers, example, pitfall, source and links.
+// term and definition are below them. A French term (the French subject) is the first line of the heading, above
+// the English one. Then the syllabus code, papers, example, pitfall, source and links.
 export const GlossaryEntry = memo(function GlossaryEntry({ term, lang, subject, topics }: Props) {
   const { t } = useTranslation('glossary');
   const titleId = useId();
@@ -34,7 +36,10 @@ export const GlossaryEntry = memo(function GlossaryEntry({ term, lang, subject, 
   return (
     <article className="gl-entry" aria-labelledby={titleId}>
       <header>
-        <h3 id={titleId} className="gl-entry__term" lang="en">{term.term.en}</h3>
+        <h3 id={titleId} className="gl-entry__term" lang="en">
+          <FrenchText text={term.term} />
+          {term.term.en}
+        </h3>
         <div className="gl-entry__chips">
           <span className="foma-chip">{t('entry.syllabus', { code: term.syllabus })}</span>
           {term.papers.length > 0 ? <span className="foma-chip">{t('entry.papers', { papers: term.papers.join(', ') })}</span> : null}

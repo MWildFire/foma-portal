@@ -18,6 +18,7 @@ import { SubjectBar } from '../components/subject/SubjectHeader';
 import { SubjectNotFound } from '../components/subject/SubjectNotFound';
 import { TopicChips } from '../components/subject/TopicChips';
 import { TopicProgressControls } from '../components/subject/TopicProgressControls';
+import { FrenchText } from '../components/ui/FrenchText';
 import { ROUTES } from '../config/routes';
 import { getSubject } from '../content/registry';
 import { pickText } from '../lib/text';
@@ -133,7 +134,10 @@ export function TopicPage() {
       <BreadcrumbsNav crumbs={[{ label: subjectTitle, to: ROUTES.subject(subject) }, { label: pickText(topic.title, uiLang) }]} />
       <SubjectBar pack={pack} />
 
-      <TopicHero title={pickText(topic.title, uiLang)} eyebrow={<span className="foma-code-label">{t('page.code', { code: topic.code })}</span>}>
+      <TopicHero
+        title={<><FrenchText text={topic.title} />{pickText(topic.title, uiLang)}</>}
+        eyebrow={<span className="foma-code-label">{t('page.code', { code: topic.code })}</span>}
+      >
         <TopicChips topic={topic} />
       </TopicHero>
 

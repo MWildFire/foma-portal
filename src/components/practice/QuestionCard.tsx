@@ -8,6 +8,7 @@ import { ROUTES } from '../../config/routes';
 import { pickText } from '../../lib/text';
 import { dateOnly } from '../../lib/topic-progress';
 import { RichText } from '../content/RichText';
+import { FrenchText } from '../ui/FrenchText';
 import '../content/ui.css';
 import './fields.css';
 import './practice.css';
@@ -76,10 +77,12 @@ export const QuestionCard = memo(function QuestionCard({ question, index, lang, 
       {question.stimulus ? (
         <div className="study-q__stimulus">
           <p className="study-label">{t('q.stimulus')}</p>
+          <FrenchText text={question.stimulus} rich className="study-rich" />
           <RichText className="study-rich" text={pickText(question.stimulus, lang)} />
         </div>
       ) : null}
 
+      <FrenchText text={question.prompt} rich className="study-rich study-q__prompt" />
       <RichText className="study-rich study-q__prompt" text={pickText(question.prompt, lang)} />
 
       {hints.length > 0 ? (
@@ -113,6 +116,7 @@ export const QuestionCard = memo(function QuestionCard({ question, index, lang, 
           {question.model ? (
             <div>
               <p className="study-label">{t('q.model')}</p>
+              <FrenchText text={question.model} rich className="study-rich" />
               <RichText className="study-rich" text={pickText(question.model, lang)} />
             </div>
           ) : null}

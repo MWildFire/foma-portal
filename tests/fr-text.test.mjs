@@ -1,5 +1,6 @@
 import test, { after, before } from 'node:test';
 import assert from 'node:assert/strict';
+import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { createServer } from 'vite';
 import { createElement } from 'react';
@@ -15,6 +16,7 @@ import { frenchOf, pickText } from '../src/lib/text.ts';
 const root = join(import.meta.dirname, '..');
 let server;
 let i18n;
+let example;
 const loaded = {};
 
 before(async () => {
@@ -30,9 +32,17 @@ before(async () => {
     ssr: { resolve: { conditions: ['module-sync', 'module', 'node', 'development|production'], externalConditions: ['node', 'module-sync'] } },
   });
   i18n = (await server.ssrLoadModule('/src/i18n/index.ts')).default;
+  example = (await server.ssrLoadModule('/src/content/registry.ts')).getSubject('_example');
   await new Promise(resolve => setTimeout(resolve, 20));
   const files = {
     FrenchText: '/src/components/ui/FrenchText.tsx',
+    TermCard: '/src/components/ui/TermCard.tsx',
+    TopicContextProvider: '/src/components/mdx/context.tsx',
+    Question: '/src/components/mdx/Question.tsx',
+    PracticeView: '/src/components/practice/PracticeView.tsx',
+    GlossaryView: '/src/components/glossary/GlossaryView.tsx',
+    TopicList: '/src/components/subject/TopicList.tsx',
+    TopicPage: '/src/pages/TopicPage.tsx',
   };
   for (const [name, path] of Object.entries(files)) loaded[name] = (await server.ssrLoadModule(path))[name];
 });
@@ -81,6 +91,39 @@ const stripTags = html => html.replace(/<[^>]*>/g, '');
 // The texts of the elements that carry lang="fr", in page order, with their tags removed.
 const frenchParts = html => [...html.matchAll(/<(span|div) [^>]*\blang="fr"[^>]*>(.*?)<\/\1>/g)].map(match => stripTags(match[2]));
 const inOrder = (html, first, second) => html.indexOf(first) !== -1 && html.indexOf(first) < html.indexOf(second);
+
+// ---- a small French subject to draw
+
+const topic = (id, order, extra = {}) => ({
+  id, subject: 'fr', code: `T.${order}`, title: L(`Topic ${id}`, `Тема ${id}`), papers: ['P1'], order, minutes: 30, priority: 1,
+  inMockScope: 'yes', outcomes: [], termIds: [], questionIds: [], sources: [], ...extra,
+});
+const question = (id, extra = {}) => ({
+  id, subject: 'fr', topicIds: ['t1'], paper: 'P1', marks: 10, command: 'Write', origin: 'original',
+  prompt: L(`Prompt of ${id}`, `Условие ${id}`),
+  markscheme: L(`Markscheme of ${id}`, `Критерии ${id}`),
+  ...extra,
+});
+const term = (id, extra = {}) => ({
+  id, term: L(`term ${id}`, `термин ${id}`), def: L(`English definition of ${id}`, `Русское определение ${id}`),
+  syllabus: `S.${id}`, papers: ['P1'], src: { kind: 'textbook', title: 'Course book', locator: 'ch. 1, p. 10' }, ...extra,
+});
+const pack = (overrides = {}) => ({
+  meta: { id: 'fr', title: L('French B SL', 'Французский B SL'), level: 'SL', color: 'teal' },
+  syllabus: [], topics: [topic('t1', 1), topic('t2', 2)], topicBodies: {}, terms: [], formulas: [],
+  questions: [], cases: [], papers: [], sims: {},
+  ...overrides,
+});
+
+// A question with French text in the three places that show it. The model answer sits behind a button, so a server
+// render never shows it; the other two are drawn as soon as the page opens.
+const frenchQuestion = () => question('fq1', {
+  stimulus: L('You read this message.', 'Вы прочли сообщение.', 'Salut ! Tu viens samedi ?'),
+  prompt: L('Write a reply.', 'Напишите ответ.', 'Écris une réponse à Paul.'),
+  model: L('Hi Paul, yes!', 'Привет, Поль, да!', 'Salut Paul, oui !'),
+});
+const FRENCH_STIMULUS = 'Salut ! Tu viens samedi ?';
+const FRENCH_PROMPT = 'Écris une réponse à Paul.';
 
 // ---- the helper
 
@@ -133,5 +176,131 @@ test('FrenchText draws nothing without a French text, whatever the mode', async 
   for (const text of [L('to be', 'быть'), L('to be', 'быть', ''), L('to be', 'быть', '   '), undefined]) {
     assert.equal(await view('FrenchText', { text }), '');
     assert.equal(await view('FrenchText', { text, rich: true, className: 'study-rich' }), '');
+  }
+});
+
+// ---- questions
+
+test('practice: a question with French text shows the French stimulus and prompt before the English ones', async () => {
+  const html = await view('PracticeView', { pack: pack({ questions: [frenchQuestion()] }) }, '/s/fr/practice');
+  assert.deepEqual(frenchParts(html), [FRENCH_STIMULUS, FRENCH_PROMPT], 'two French elements, in page order');
+  assert.ok(inOrder(html, FRENCH_STIMULUS, 'You read this message.'), 'French stimulus, then English');
+  assert.ok(inOrder(html, 'You read this message.', FRENCH_PROMPT), 'the stimulus comes before the prompt');
+  assert.ok(inOrder(html, FRENCH_PROMPT, 'Write a reply.'), 'French prompt, then English');
+  assert.ok(!html.includes('Salut Paul, oui'), 'the model answer waits behind the button');
+});
+
+test('practice in Russian: the French text still comes first, the Russian text follows it', async () => {
+  const html = await view('PracticeView', { pack: pack({ questions: [frenchQuestion()] }) }, '/s/fr/practice', { lang: 'ru' });
+  assert.deepEqual(frenchParts(html), [FRENCH_STIMULUS, FRENCH_PROMPT]);
+  assert.ok(inOrder(html, FRENCH_STIMULUS, 'Вы прочли сообщение.'));
+  assert.ok(inOrder(html, FRENCH_PROMPT, 'Напишите ответ.'));
+  assert.ok(!html.includes('Write a reply.'), 'English is not shown with a Russian UI, as before');
+});
+
+test('practice: a question without French text is drawn as before, with no French element', async () => {
+  const html = await view('PracticeView', { pack: pack({ questions: [question('q1')] }) }, '/s/fr/practice');
+  assert.ok(html.includes('<div class="rich-text study-rich study-q__prompt"><p class="my-2 first:mt-0 last:mb-0">Prompt of q1</p></div>'));
+  assert.ok(!html.includes('lang="fr"'));
+  assert.ok(!html.includes('foma-fr'));
+});
+
+test('practice: only the question that has French text gets a French element', async () => {
+  const html = await view('PracticeView', { pack: pack({ questions: [question('q1'), frenchQuestion(), question('q2')] }) }, '/s/fr/practice');
+  assert.deepEqual(frenchParts(html), [FRENCH_STIMULUS, FRENCH_PROMPT]);
+  assert.ok(inOrder(html, 'Prompt of q1', FRENCH_STIMULUS));
+  assert.ok(inOrder(html, 'Write a reply.', 'Prompt of q2'));
+});
+
+// <Question id="..."/> inside a topic text gets its pack and language from the topic context.
+const inTopic = (element, contentLang = 'en') => createElement(
+  loaded.TopicContextProvider,
+  { value: { subjectId: 'fr', topicId: 't1', pack: pack({ questions: [frenchQuestion(), question('q1')] }), contentLang, uiLang: contentLang } },
+  element,
+);
+
+test('topic text, <Question>: the French stimulus and prompt come before the English ones', async () => {
+  const html = await draw(inTopic(createElement(loaded.Question, { id: 'fq1' })));
+  assert.deepEqual(frenchParts(html), [FRENCH_STIMULUS, FRENCH_PROMPT]);
+  assert.ok(inOrder(html, FRENCH_STIMULUS, 'You read this message.'));
+  assert.ok(inOrder(html, FRENCH_PROMPT, 'Write a reply.'));
+  assert.ok(html.includes('<div lang="fr" class="foma-fr foma-fr--rich"><div class="rich-text foma-question__prompt">'), 'the French prompt has the prompt style');
+  const russian = await draw(inTopic(createElement(loaded.Question, { id: 'fq1' }), 'ru'), '/', { lang: 'ru' });
+  assert.deepEqual(frenchParts(russian), [FRENCH_STIMULUS, FRENCH_PROMPT]);
+  assert.ok(inOrder(russian, FRENCH_PROMPT, 'Напишите ответ.'));
+});
+
+test('topic text, <Question>: a question without French text has no French element', async () => {
+  const html = await draw(inTopic(createElement(loaded.Question, { id: 'q1' })));
+  assert.ok(html.includes('<div class="rich-text foma-question__prompt"><p class="my-2 first:mt-0 last:mb-0">Prompt of q1</p></div>'));
+  assert.ok(!html.includes('lang="fr"'));
+  assert.ok(!html.includes('foma-fr'));
+});
+
+// The model answer is behind a button, so a server render cannot show it. This reads the two question components and
+// checks that each of the three fields is drawn through FrenchText, in rich mode, before the English or Russian text.
+test('both question components draw the French stimulus, prompt and model answer before the UI-language text', () => {
+  for (const file of ['src/components/mdx/Question.tsx', 'src/components/practice/QuestionCard.tsx']) {
+    const source = readFileSync(join(root, file), 'utf8');
+    for (const field of ['stimulus', 'prompt', 'model']) {
+      const french = `<FrenchText text={question.${field}} rich`;
+      assert.ok(source.includes(french), `${file}: ${field} is drawn through FrenchText, in rich mode`);
+      assert.ok(inOrder(source, french, `pickText(question.${field}, lang)`), `${file}: the French ${field} comes before the English or Russian one`);
+    }
+  }
+});
+
+// ---- terms
+
+test('term card: the French term is a line of its own above the English one', async () => {
+  const html = await view('TermCard', { term: term('etre', { term: L('to be', 'быть (to be)', 'être') }) });
+  assert.deepEqual(frenchParts(html), ['être']);
+  assert.ok(html.includes('<span lang="fr" class="foma-fr foma-term__label">être</span><span class="foma-term__label">to be (быть)</span>'));
+});
+
+test('term card: a term without French text has one label and no French element', async () => {
+  const html = await view('TermCard', { term: term('etre', { term: L('to be', 'быть (to be)') }) });
+  assert.equal((html.match(/foma-term__label/g) ?? []).length, 1);
+  assert.ok(html.includes('<span class="foma-term__label">to be (быть)</span>'));
+  assert.ok(!html.includes('lang="fr"'));
+});
+
+test('glossary list: the French term is in the heading before the English term; other terms are unchanged', async () => {
+  const terms = [term('a'), term('etre', { term: L('to be', 'быть', 'être') })];
+  const html = await view('GlossaryView', { pack: pack({ terms }) }, '/s/fr/terms');
+  assert.deepEqual(frenchParts(html), ['être']);
+  assert.match(html, /<h3 id="[^"]*" class="gl-entry__term" lang="en"><span lang="fr" class="foma-fr">être<\/span>to be<\/h3>/);
+  assert.match(html, /<h3 id="[^"]*" class="gl-entry__term" lang="en">term a<\/h3>/, 'the heading of a term without French is as before');
+});
+
+// ---- topic titles
+
+test('topic list: the French title is a line of its own in the link, before the English or Russian title', async () => {
+  const p = pack({ topics: [topic('t1', 1, { title: L('Daily life', 'Повседневная жизнь', 'La vie quotidienne') }), topic('t2', 2)] });
+  const props = { pack: p, topics: p.topics, progress: {}, contentLang: 'en' };
+  const html = await view('TopicList', props, '/s/fr');
+  assert.deepEqual(frenchParts(html), ['La vie quotidienne']);
+  assert.match(html, /<a [^>]*><span lang="fr" class="foma-fr">La vie quotidienne<\/span>Daily life<\/a>/);
+  assert.match(html, /<a [^>]*>Topic t2<\/a>/, 'a topic without French text is as before');
+  const russian = await view('TopicList', props, '/s/fr', { lang: 'ru' });
+  assert.match(russian, /<a [^>]*><span lang="fr" class="foma-fr">La vie quotidienne<\/span>Повседневная жизнь<\/a>/);
+});
+
+test('topic page: the heading shows the French title first; the breadcrumb and the outcomes are unchanged', async () => {
+  const meta = example.topics.find(item => item.id === 'example-topic');
+  const original = meta.title;
+  const pattern = '/s/:subject/t/:topic';
+  const url = '/s/_example/t/example-topic';
+  try {
+    const before = await draw(createElement(loaded.TopicPage), url, { pattern });
+    assert.ok(before.includes('>Example topic: demand and elasticity</h1>'), 'the heading is the English title only');
+    assert.ok(!before.includes('lang="fr"'));
+    meta.title = { ...original, fr: 'Exemple : la demande' };
+    const html = await draw(createElement(loaded.TopicPage), url, { pattern });
+    assert.deepEqual(frenchParts(html), ['Exemple : la demande']);
+    assert.match(html, /<h1 [^>]*><span lang="fr" class="foma-fr">Exemple : la demande<\/span>Example topic: demand and elasticity<\/h1>/);
+    assert.ok(!html.includes('>Exemple : la demande</span></nav>'), 'the breadcrumb keeps the UI language only');
+  } finally {
+    meta.title = original;
   }
 });

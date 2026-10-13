@@ -5,6 +5,7 @@ import { pickText } from '../../lib/text';
 import { InlineText } from '../content/RichText';
 import { SourceItem } from '../content/SourceList';
 import { useLangT } from '../content/useLangT';
+import { FrenchText } from './FrenchText';
 import '../content/ui.css';
 
 interface Props {
@@ -14,7 +15,8 @@ interface Props {
 }
 
 // A term: "EN term (RU term)", the English definition first (the exam is in English), the Russian one below,
-// then example, pitfall and source. It is built from spans only, so it is valid inside a paragraph too.
+// then example, pitfall and source. A French term (the French subject) is a line of its own above the label.
+// It is built from spans only, so it is valid inside a paragraph too.
 export function TermCard({ term, lang }: Props) {
   const { t, lang: lng } = useLangT(lang);
   return (
@@ -23,6 +25,7 @@ export function TermCard({ term, lang }: Props) {
         <BookMarked size={14} aria-hidden="true" />
         {t('term.kind')}
       </span>
+      <FrenchText text={term.term} className="foma-term__label" />
       <span className="foma-term__label">{termLabel(term.term)}</span>
       <span className="foma-term__def" lang="en">
         <span className="foma-tag">EN</span> <InlineText text={term.def.en} />

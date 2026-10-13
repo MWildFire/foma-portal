@@ -1,7 +1,8 @@
 import type { ReactNode } from 'react';
 
 interface TopicHeroProps {
-  title: string;
+  /** A string, or a node when the title has more than one line (a French title above the English one). */
+  title: ReactNode;
   intro?: string;
   icon?: ReactNode;
   /** Small line above the title: a topic code, a paper name. */
