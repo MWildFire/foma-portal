@@ -18,7 +18,7 @@ const topic: TopicMeta = {
   ],
   termIds: [],
   questionIds: ['core-2-2-b1', 'core-essay-1-1', 'core-essay-3-1'],
-  caseIds: [],
+  caseIds: ['core-2-2-case-australia', 'core-1-1-case-japan', 'core-1-3-case-china', 'core-1-2-case-dubai', 'core-3-1-case-brazil-soy'],
   sources: [
     { kind: 'ib-guide', title: 'Geography guide (2017), Paper 2 structure, command terms and Section C markbands' },
     { kind: 'web', title: 'IB Documents mirror: Geography past papers, Paper 2, May 2019 to November 2025 (own tally of sessions, marks and subtopics)', url: 'https://ibdocs.re/past-papers-by-subject/geography' },
