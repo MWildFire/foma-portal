@@ -9,8 +9,8 @@ export const questions: Question[] = [
     marks: 4,
     command: 'Express',
     prompt: {
-      en: 'Express z = -2 + 2i in the form r e^(iθ), where r > 0 and -π < θ ≤ π. Give r correct to 3 significant figures, and θ in radians correct to 3 decimal places.',
-      ru: 'Запишите z = -2 + 2i в виде r e^(iθ), где r > 0 и -π < θ ≤ π. Дайте r с точностью до 3 значащих цифр, а θ в радианах — с точностью до 3 знаков после запятой.',
+      en: 'Express z = -2 + 2i in the form $r e^{i\\theta}$, where r > 0 and -π < θ ≤ π. Give r correct to 3 significant figures, and θ in radians correct to 3 decimal places.',
+      ru: 'Запишите z = -2 + 2i в виде $r e^{i\\theta}$, где r > 0 и -π < θ ≤ π. Дайте r с точностью до 3 значащих цифр, а θ в радианах — с точностью до 3 знаков после запятой.',
     },
     markscheme: {
       en: 'M1: r = |z| = sqrt((-2)^2 + 2^2) = sqrt(8). A1: r = 2.83 (3 significant figures). M1: z lies in the second quadrant, so θ = π - arctan(2/2) = 3π/4. A1: θ = 2.356 radians (3 decimal places).',
@@ -28,8 +28,8 @@ export const questions: Question[] = [
     marks: 4,
     command: 'Find',
     prompt: {
-      en: 'Let z = 2 cis 25° and w = 1.5 cis 40°, where cis θ = cos θ + i sin θ. Find the modulus and the argument, in degrees, of z^3/w. Give the modulus correct to 3 significant figures and the argument correct to 1 decimal place.',
-      ru: 'Пусть z = 2 cis 25° и w = 1,5 cis 40°, где cis θ = cos θ + i sin θ. Найдите модуль и аргумент (в градусах) числа z^3/w. Модуль дайте с точностью до 3 значащих цифр, аргумент — с точностью до 1 знака после запятой.',
+      en: 'Let z = 2 cis 25° and w = 1.5 cis 40°, where cis θ = cos θ + i sin θ. Find the modulus and the argument, in degrees, of $z^{3}/w$. Give the modulus correct to 3 significant figures and the argument correct to 1 decimal place.',
+      ru: 'Пусть z = 2 cis 25° и w = 1,5 cis 40°, где cis θ = cos θ + i sin θ. Найдите модуль и аргумент (в градусах) числа $z^{3}/w$. Модуль дайте с точностью до 3 значащих цифр, аргумент — с точностью до 1 знака после запятой.',
     },
     markscheme: {
       en: 'M1: |z^3/w| = |z|^3 / |w| = 2^3 / 1.5. A1: modulus 5.33 (3 significant figures). M1: arg(z^3/w) = 3 x 25 - 40 = 35 degrees, since arguments add and subtract. A1: argument 35.0 degrees (1 decimal place).',

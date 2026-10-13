@@ -9,8 +9,8 @@ export const questions: Question[] = [
     marks: 3,
     command: 'Calculate',
     prompt: {
-      en: 'The mass of one grain of sand is 2.5 × 10^(-4) grams. A bag contains 4.8 × 10^6 grains of sand. Calculate the total mass of the sand in the bag, in grams. Give your answer in standard form a × 10^k, where 1 ≤ a < 10. Write down the value of a, correct to 2 decimal places, and the value of k.',
-      ru: 'Масса одной песчинки равна 2,5 × 10^(-4) грамма. В мешке 4,8 × 10^6 песчинок. Вычислите общую массу песка в мешке в граммах. Запишите ответ в стандартном виде a × 10^k, где 1 ≤ a < 10. Укажите значение a с точностью до 2 знаков после запятой и значение k.',
+      en: 'The mass of one grain of sand is $2.5 \\times 10^{-4}$ grams. A bag contains $4.8 \\times 10^{6}$ grains of sand. Calculate the total mass of the sand in the bag, in grams. Give your answer in standard form $a \\times 10^{k}$, where 1 ≤ a < 10. Write down the value of a, correct to 2 decimal places, and the value of k.',
+      ru: 'Масса одной песчинки равна $2{,}5 \\times 10^{-4}$ грамма. В мешке $4{,}8 \\times 10^{6}$ песчинок. Вычислите общую массу песка в мешке в граммах. Запишите ответ в стандартном виде $a \\times 10^{k}$, где 1 ≤ a < 10. Укажите значение a с точностью до 2 знаков после запятой и значение k.',
     },
     markscheme: {
       en: 'M1: total mass = 2.5 × 4.8 × 10^(-4 + 6) = 12 × 10^2 grams. M1: 12 × 10^2 = 1.2 × 10^3, which is in standard form. A1: a = 1.20 and k = 3.',
@@ -104,8 +104,8 @@ export const questions: Question[] = [
     marks: 2,
     command: 'Write down',
     prompt: {
-      en: 'The function f is defined by f(x) = x^3 + x^2 - 6x, for -2 ≤ x ≤ 2. Use your GDC to sketch the graph of y = f(x). Write down the coordinates of the local minimum point, giving each coordinate correct to 2 decimal places.',
-      ru: 'Функция f задана формулой f(x) = x^3 + x^2 - 6x при -2 ≤ x ≤ 2. Используйте GDC, чтобы построить график y = f(x). Запишите координаты точки локального минимума, каждую координату с точностью до 2 знаков после запятой.',
+      en: 'The function f is defined by $f(x) = x^{3} + x^{2} - 6x$, for -2 ≤ x ≤ 2. Use your GDC to sketch the graph of y = f(x). Write down the coordinates of the local minimum point, giving each coordinate correct to 2 decimal places.',
+      ru: 'Функция f задана формулой $f(x) = x^{3} + x^{2} - 6x$ при -2 ≤ x ≤ 2. Используйте GDC, чтобы построить график y = f(x). Запишите координаты точки локального минимума, каждую координату с точностью до 2 знаков после запятой.',
     },
     markscheme: {
       en: 'A1: x = 1.12 at the local minimum (f′(x) = 3x^2 + 2x - 6 = 0 gives x = (-2 + √76)/6 = 1.1196...). A1: y = -4.06, so the local minimum point is (1.12, -4.06).',
@@ -237,8 +237,8 @@ export const questions: Question[] = [
     marks: 3,
     command: 'Show that',
     prompt: {
-      en: 'The curve C has equation y = f(x), where f(x) = x^2 + 3x. The points P and Q lie on C, with x-coordinates 2 and 2 + h, where h ≠ 0. Show that the gradient of the chord PQ is 7 + h. Hence find the gradient of C at P, by letting h tend to 0.',
-      ru: 'Кривая C задана уравнением y = f(x), где f(x) = x^2 + 3x. Точки P и Q лежат на C, их абсциссы равны 2 и 2 + h, где h ≠ 0. Покажите, что угловой коэффициент хорды PQ равен 7 + h. Затем найдите угловой коэффициент кривой C в точке P, устремив h к 0.',
+      en: 'The curve C has equation y = f(x), where $f(x) = x^{2} + 3x$. The points P and Q lie on C, with x-coordinates 2 and 2 + h, where h ≠ 0. Show that the gradient of the chord PQ is 7 + h. Hence find the gradient of C at P, by letting h tend to 0.',
+      ru: 'Кривая C задана уравнением y = f(x), где $f(x) = x^{2} + 3x$. Точки P и Q лежат на C, их абсциссы равны 2 и 2 + h, где h ≠ 0. Покажите, что угловой коэффициент хорды PQ равен 7 + h. Затем найдите угловой коэффициент кривой C в точке P, устремив h к 0.',
     },
     markscheme: {
       en: 'M1: gradient of the chord = (f(2 + h) - f(2))/h, where f(2) = 10. A1: f(2 + h) = (2 + h)^2 + 3(2 + h) = 10 + 7h + h^2, so the gradient = (7h + h^2)/h = 7 + h (AG). A1: as h tends to 0, the gradient of the chord tends to 7, so the gradient of C at P is 7.',
@@ -256,8 +256,8 @@ export const questions: Question[] = [
     marks: 3,
     command: 'Determine',
     prompt: {
-      en: 'The function f is defined by f(x) = x^3 - 3x^2 - 9x + 4, for all real x. Determine the x-coordinate of the local minimum point of the graph of f. Justify your answer using the sign of f′(x).',
-      ru: 'Функция f задана формулой f(x) = x^3 - 3x^2 - 9x + 4 для всех действительных x. Определите x-координату точки локального минимума графика f. Обоснуйте ответ, используя знак f′(x).',
+      en: 'The function f is defined by $f(x) = x^{3} - 3x^{2} - 9x + 4$, for all real x. Determine the x-coordinate of the local minimum point of the graph of f. Justify your answer using the sign of f′(x).',
+      ru: 'Функция f задана формулой $f(x) = x^{3} - 3x^{2} - 9x + 4$ для всех действительных x. Определите x-координату точки локального минимума графика f. Обоснуйте ответ, используя знак f′(x).',
     },
     markscheme: {
       en: 'M1: f′(x) = 3x^2 - 6x - 9 = 3(x + 1)(x - 3). A1: f′(x) = 0 at x = -1 and x = 3. R1: f′(x) < 0 for -1 < x < 3 and f′(x) > 0 for x > 3, so f′ changes sign from negative to positive at x = 3, which gives a local minimum at x = 3.',
@@ -275,8 +275,8 @@ export const questions: Question[] = [
     marks: 3,
     command: 'Find',
     prompt: {
-      en: 'The daily cost, in AED, of baking x trays of bread in a bakery is C(x) = 0.02x^3 - 0.6x^2 + 12x + 500, for 0 ≤ x ≤ 30. Find the rate of change of the cost with respect to x when x = 12. Give the units of your answer.',
-      ru: 'Ежедневные издержки пекарни (в AED) на выпечку x лотков хлеба равны C(x) = 0,02x^3 - 0,6x^2 + 12x + 500 при 0 ≤ x ≤ 30. Найдите скорость изменения издержек по отношению к x при x = 12. Укажите единицы измерения ответа.',
+      en: 'The daily cost, in AED, of baking x trays of bread in a bakery is $C(x) = 0.02x^{3} - 0.6x^{2} + 12x + 500$, for 0 ≤ x ≤ 30. Find the rate of change of the cost with respect to x when x = 12. Give the units of your answer.',
+      ru: 'Ежедневные издержки пекарни (в AED) на выпечку x лотков хлеба равны $C(x) = 0{,}02x^{3} - 0{,}6x^{2} + 12x + 500$ при 0 ≤ x ≤ 30. Найдите скорость изменения издержек по отношению к x при x = 12. Укажите единицы измерения ответа.',
     },
     markscheme: {
       en: 'M1: differentiate term by term: C′(x) = 0.06x^2 - 1.2x + 12. A1: the constant term 500 differentiates to 0, and all coefficients are correct. A1: C′(12) = 0.06 × 144 - 1.2 × 12 + 12 = 6.24, so the cost rises by AED 6.24 per extra tray.',
