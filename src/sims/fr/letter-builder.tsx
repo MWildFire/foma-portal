@@ -30,7 +30,7 @@ const BLOCKS: Record<BlockId, Block> = {
   },
   body2: {
     label: { en: 'Body paragraph 2', ru: 'Абзац 2' },
-    text: "Si vous l'acceptez, je pourrais participer à la préparation des commandes et au conseil des clients, sous votre supervision. Je m'engage à respecter les horaires et le règlement de l'entreprise.",
+    text: "Si vous l'acceptez, je pourrais participer à la préparation des commandes et au conseil aux clients, sous votre supervision. Je m'engage à respecter les horaires et le règlement de l'entreprise.",
   },
   request: {
     label: { en: 'Request', ru: 'Просьба' },
@@ -122,7 +122,7 @@ export default function LetterBuilder({ lang }: { lang: Lang }) {
                 <span style={{ display: 'flex', gap: 6 }}>
                   <button
                     type="button"
-                    style={button}
+                    style={index === 0 ? { ...button, opacity: 0.4, cursor: 'default' } : button}
                     disabled={index === 0}
                     onClick={() => move(index, -1)}
                     aria-label={`${copy.up}: ${label}`}
@@ -131,7 +131,7 @@ export default function LetterBuilder({ lang }: { lang: Lang }) {
                   </button>
                   <button
                     type="button"
-                    style={button}
+                    style={index === order.length - 1 ? { ...button, opacity: 0.4, cursor: 'default' } : button}
                     disabled={index === order.length - 1}
                     onClick={() => move(index, 1)}
                     aria-label={`${copy.down}: ${label}`}
