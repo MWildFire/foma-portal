@@ -8,6 +8,7 @@ account-id guard). The account is shared with other projects: everything here is
 | File | Purpose |
 |---|---|
 | `versions.tf` `backend.tf` `variables.tf` | provider, S3 state backend, inputs |
+| `state-bucket.tf` | lifecycle of the hand-made state bucket: older state versions expire after 90 days, 5 newest kept |
 | `storage.tf` | private site bucket: versioning, SSE, OAC-only read, 30-day old-version expiry |
 | `cdn.tf` | distribution, OAC, CachingOptimized, HTTP/2+3, PriceClass_200 |
 | `auth.tf` `auth-function.js.tftpl` | viewer-request function: www to apex redirect, then Basic Auth |
@@ -28,7 +29,8 @@ aws s3api put-bucket-encryption --bucket $B --server-side-encryption-configurati
 ```
 The bucket is private (all public access blocked), versioned and encrypted (AES256). The state
 holds SHA-256 digests of the Basic Auth headers, not the passwords. Versions written before that
-change still hold the old base64 strings, so keep the bucket private and never copy the state out.
+change still hold the old base64 strings until the 90-day rule in `state-bucket.tf` removes them.
+Keep the bucket private and never copy the state out.
 
 ## Passwords
 `infra/auth.auto.tfvars` (gitignored; see `auth.auto.tfvars.example`) holds `foma_password` and
