@@ -30,7 +30,7 @@ test('malformed nested values are dropped and valid ones kept', () => {
   assert.deepEqual(state.terms, { 'geo/t': { box: 4, due: '2026-10-14' } });
   assert.deepEqual(state.questions, { 'geo/q1': { rating: 'partial', at: '2026-10-13' } });
   assert.deepEqual(state.blocks, { b1: '2026-10-13' });
-  assert.deepEqual(state.settings.accessArrangements, { extraTime: true, separateRoom: false });
+  assert.deepEqual(state.settings.accessArrangements, { extraTime: true, separateRoom: false, room: 'unknown' });
   assert.deepEqual(state.settings.dailyLoadMinutes, { sat: 270, sun: 0 });
 });
 
@@ -42,4 +42,24 @@ test('a saved state loads back unchanged', () => {
   state.settings.dailyLoadMinutes = { fri: 120 };
   saveState(state);
   assert.deepEqual(loadState(), state);
+});
+
+test('extra time is on by default and the room survives a reload', () => {
+  assert.deepEqual(normalizeState({}).settings.accessArrangements, { extraTime: true, separateRoom: false, room: 'unknown' });
+  assert.deepEqual(
+    normalizeState({ settings: { accessArrangements: { extraTime: false, room: 'SpHal2' } } }).settings.accessArrangements,
+    { extraTime: false, separateRoom: false, room: 'SpHal2' },
+  );
+  assert.deepEqual(
+    normalizeState({ settings: { accessArrangements: { room: 'ACC2' } } }).settings.accessArrangements,
+    { extraTime: true, separateRoom: true, room: 'ACC2' },
+  );
+  assert.deepEqual(
+    normalizeState({ settings: { accessArrangements: { separateRoom: true } } }).settings.accessArrangements,
+    { extraTime: true, separateRoom: true, room: 'ACC2' },
+  );
+  assert.deepEqual(
+    normalizeState({ settings: { accessArrangements: { room: 'Hall 3' } } }).settings.accessArrangements,
+    { extraTime: true, separateRoom: false, room: 'unknown' },
+  );
 });

@@ -28,6 +28,9 @@ export interface PastPaperProgress {
   scores?: Record<string, number>;  // marks the student gave each item, by its index in the paper: '0', '1', …
 }
 
+// The exam room [redacted] sits in: ACC2 (access arrangements), the main hall, or not known yet (the school has not said).
+export type AccessRoom = 'ACC2' | 'SpHal2' | 'unknown';
+
 export interface GlobalState {
   version: typeof STORAGE_SCHEMA_VERSION;
   topics: Record<string, TopicProgress>;       // key: `${subject}/${topicId}`
@@ -36,7 +39,7 @@ export interface GlobalState {
   pastPapers: Record<string, PastPaperProgress>; // key: `${subject}/${pastPaperId}`
   blocks: Record<string, string>;              // plan block id -> ISO date when done
   settings: {
-    accessArrangements: { extraTime: boolean; separateRoom: boolean };
+    accessArrangements: { extraTime: boolean; separateRoom: boolean; room: AccessRoom };
     dailyLoadMinutes: Partial<Record<Weekday, number>>;   // overrides of the default load; absent = default
   };
 }
@@ -50,7 +53,7 @@ export function emptyState(): GlobalState {
     pastPapers: {},
     blocks: {},
     settings: {
-      accessArrangements: { extraTime: false, separateRoom: false },
+      accessArrangements: { extraTime: true, separateRoom: false, room: 'unknown' },
       dailyLoadMinutes: {},
     },
   };
@@ -125,11 +128,13 @@ export function normalizeState(raw: unknown): GlobalState {
   state.pastPapers = mapRecord(raw.pastPapers, pastPaperOf);
   state.blocks = mapRecord(raw.blocks, value => (typeof value === 'string' ? value : null));
   const settings = isRecord(raw.settings) ? raw.settings : {};
-  const access = isRecord(settings.accessArrangements) ? settings.accessArrangements : {};
-  state.settings.accessArrangements = {
-    extraTime: access.extraTime === true,
-    separateRoom: access.separateRoom === true,
-  };
+  // Extra time is on unless it was switched off. The room is the saved one; an old save with only the separateRoom
+  // flag means ACC2 when the flag is true, and not known otherwise.
+  const access: Record<string, unknown> = isRecord(settings.accessArrangements) ? settings.accessArrangements : {};
+  const room: AccessRoom = access.room === 'ACC2' || access.room === 'SpHal2' || access.room === 'unknown'
+    ? access.room
+    : access.separateRoom === true ? 'ACC2' : 'unknown';
+  state.settings.accessArrangements = { extraTime: access.extraTime !== false, separateRoom: room === 'ACC2', room };
   state.settings.dailyLoadMinutes = loadOf(settings.dailyLoadMinutes);
   return state;
 }
