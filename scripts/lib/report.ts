@@ -5,6 +5,7 @@ export type Severity = 'error' | 'warning' | 'info';
 // Short name of the rule that produced a finding (printed in brackets, easy to grep).
 export type Rule =
   | 'load'
+  | 'planner'
   | 'ids'
   | 'refs'
   | 'mdx-files'

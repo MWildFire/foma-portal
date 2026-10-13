@@ -2,16 +2,18 @@
 // this file (Node's test runner cannot load JSON or import.meta.glob).
 import examsJson from '../../data/exams.json';
 import quotasJson from '../../data/plan-quotas.json';
-import { listSubjects, loadSubjects } from '../content/registry';
-import type { SubjectPack } from '../contract/pack';
-import type { PastPaperRef } from '../contract/types';
+import termIdsBySubject from 'virtual:term-ids';
+import { listSubjects, loadTopicIndexes } from '../content/registry';
+import type { TopicIndex } from '../contract/pack';
+import type { PastPaperRef, SubjectId } from '../contract/types';
 import { parseExams, parseQuotas } from './calendar';
 import type { ExamsFile, PlannerSubject, QuotasFile } from './types';
 
 export const EXAMS: ExamsFile = parseExams(examsJson);
 export const QUOTAS: QuotasFile = parseQuotas(quotasJson);
 
-// What the planner reads from the content: every subject's topics and terms, and every subject's past papers.
+// What the planner reads from the content: every subject's topics and term ids, and every subject's past papers.
+// The topic indexes are read, not the subject packs: the terms and questions are not needed to plan a day.
 export interface PlannerContent {
   subjects: PlannerSubject[];
   pastPapers: PastPaperRef[];
@@ -25,24 +27,24 @@ export function getPlannerContent(): PlannerContent | undefined {
   return loaded;
 }
 
-// Loads the planner's content once. The example subject is not planned, so its pack is not loaded here.
+// Loads the planner's content once. The example subject is not planned, so its index is not loaded here.
 export function loadPlannerContent(): Promise<PlannerContent> {
   if (loaded) return Promise.resolve(loaded);
   if (!loading) {
-    loading = loadSubjects(listSubjects().map(meta => meta.id)).then(packs => {
-      loaded = toPlannerContent(packs);
+    loading = loadTopicIndexes(listSubjects().map(meta => meta.id)).then(indexes => {
+      loaded = toPlannerContent(indexes);
       return loaded;
     });
   }
   return loading;
 }
 
-function toPlannerContent(packs: SubjectPack[]): PlannerContent {
+function toPlannerContent(indexes: { id: SubjectId; index: TopicIndex }[]): PlannerContent {
   return {
-    subjects: packs.map(pack => ({
-      id: pack.meta.id,
-      termIds: pack.terms.map(term => term.id),
-      topics: pack.topics.map(topic => ({
+    subjects: indexes.map(({ id, index }) => ({
+      id,
+      termIds: termIdsBySubject[id] ?? [],
+      topics: index.topics.map(topic => ({
         id: topic.id,
         subject: topic.subject,
         title: topic.title,
@@ -54,9 +56,9 @@ function toPlannerContent(packs: SubjectPack[]): PlannerContent {
         termIds: topic.termIds,
         questionCount: topic.questionIds.length,
         links: topic.links ?? [],
-        ready: { en: Boolean(pack.topicBodies[topic.id]?.en), ru: Boolean(pack.topicBodies[topic.id]?.ru) },
+        ready: { en: Boolean(index.bodies[topic.id]?.en), ru: Boolean(index.bodies[topic.id]?.ru) },
       })),
     })),
-    pastPapers: packs.flatMap(pack => pack.pastPapers),
+    pastPapers: indexes.flatMap(({ index }) => index.pastPapers),
   };
 }

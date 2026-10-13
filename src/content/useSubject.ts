@@ -1,6 +1,6 @@
-import { useEffect, useReducer, useState } from 'react';
-import type { SubjectPack } from '../contract/pack';
-import { getLoadedSubject, hasSubject, loadSubject, loadSubjects } from './registry';
+import { useEffect, useMemo, useReducer, useState } from 'react';
+import type { SubjectPack, TopicIndex } from '../contract/pack';
+import { getLoadedSubject, getLoadedTopicIndex, hasSubject, loadSubject, loadTopicIndex } from './registry';
 
 export interface SubjectState {
   pack: SubjectPack | undefined; // undefined for an unknown subject, and while the pack is loading
@@ -35,18 +35,21 @@ export function useSubject(id: string | undefined): SubjectState {
   return { pack, loading: known !== undefined && pack === undefined && failed !== known };
 }
 
-// Several packs at once (the report and the simulation gallery). undefined until every one of them is loaded.
-export function useSubjects(ids: readonly string[]): SubjectPack[] | undefined {
-  const wanted = ids.filter(id => hasSubject(id));
-  const key = wanted.join('|');
-  const loaded = wanted.map(id => getLoadedSubject(id));
-  const ready = loaded.every((pack): pack is SubjectPack => pack !== undefined) ? loaded : undefined;
-  const [, rerender] = useReducer((count: number) => count + 1, 0);
+// Several modules at once: undefined until every one of them is loaded. The result keeps its identity between
+// renders, so a component that memoises on it does not start over on every render.
+function useAllLoaded<T>(ids: readonly string[], read: (id: string) => T | undefined, load: (id: string) => Promise<unknown>): T[] | undefined {
+  const key = ids.join('|');
+  const [version, rerender] = useReducer((count: number) => count + 1, 0);
+  const values = useMemo(() => {
+    const found = ids.map(id => read(id));
+    return found.every((value): value is T => value !== undefined) ? found : undefined;
+    // `key` is the list of ids; `version` moves when a load has finished.
+  }, [key, version]);
 
   useEffect(() => {
-    if (ready) return undefined;
+    if (values) return undefined;
     let active = true;
-    loadSubjects(wanted).then(
+    Promise.all(ids.map(id => load(id))).then(
       () => {
         if (active) rerender();
       },
@@ -55,8 +58,24 @@ export function useSubjects(ids: readonly string[]): SubjectPack[] | undefined {
     return () => {
       active = false;
     };
-    // The key stands for the list of ids, which is rebuilt on every render.
-  }, [key, ready === undefined]);
+    // The effect runs again when the ids change or when the values have arrived.
+  }, [key, values === undefined]);
 
-  return ready;
+  return values;
+}
+
+// Several packs at once (the report). undefined until every one of them is loaded.
+export function useSubjects(ids: readonly string[]): SubjectPack[] | undefined {
+  return useAllLoaded(
+    ids.filter(id => hasSubject(id)),
+    getLoadedSubject,
+    loadSubject,
+  );
+}
+
+// The topic indexes of several subjects (the simulation gallery), each with its subject id.
+export function useTopicIndexes(ids: readonly string[]): { id: string; index: TopicIndex }[] | undefined {
+  const known = ids.filter(id => hasSubject(id));
+  const indexes = useAllLoaded(known, getLoadedTopicIndex, loadTopicIndex);
+  return useMemo(() => indexes?.map((index, position) => ({ id: known[position], index })), [indexes]);
 }

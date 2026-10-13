@@ -27,3 +27,11 @@ export interface SubjectPack {
   listening: ListeningTrack[];                    // content/<s>/listening/*.ts: recordings and their questions (no script)
   sims: Partial<Record<SimId, () => Promise<{ default: SimComponent }>>>;
 }
+
+// content/<s>/topic-index.ts: the light part of a subject, read on the first screen by the planner and the simulation
+// gallery. It holds the topic metadata, the past-paper links and which topic bodies exist, and nothing else.
+export interface TopicIndex {
+  topics: TopicMeta[];                                  // sorted by order
+  pastPapers: PastPaperRef[];
+  bodies: Record<string, { en: boolean; ru: boolean }>; // topic id -> the MDX bodies that exist
+}

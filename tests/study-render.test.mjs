@@ -31,8 +31,9 @@ before(async () => {
   i18n = (await server.ssrLoadModule('/src/i18n/index.ts')).default;
   const registry = await server.ssrLoadModule('/src/content/registry.ts');
   example = await registry.loadSubject('_example');
-  // The pages draw a placeholder until their packs are in memory, so the drawing tests load every real pack first.
+  // The pages draw a placeholder until their data is in memory, so the drawing tests load it all first.
   await registry.loadSubjects(registry.listSubjects().map(meta => meta.id));
+  await registry.loadTopicIndexes([...registry.listSubjects().map(meta => meta.id), '_example']);
   await new Promise(resolve => setTimeout(resolve, 20));
   const files = {
     PracticePage: '/src/pages/PracticePage.tsx',
