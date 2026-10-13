@@ -14,8 +14,8 @@ export const papers: PaperGuide[] = [
     minutes: 75,
     marks: 25,
     structure: {
-      en: 'One extended response question: choose one of the three essays. Part (a) is worth 10 marks (Explain, with a labelled diagram). Part (b) is worth 15 marks (Discuss, with evaluation). Total: 25 marks in 75 minutes.',
-      ru: 'Один вопрос с развёрнутым ответом: выберите одно из трёх эссе. Часть (a) — 10 баллов (Explain, с подписанной диаграммой). Часть (b) — 15 баллов (Discuss, с оценкой). Всего: 25 баллов за 75 минут.',
+      en: 'Three questions; choose one. Part (a) is worth 10 marks and usually asks you to explain (Explain, sometimes Distinguish), often with a labelled diagram (AD/AS is the most common). Part (b) is worth 15 marks and asks you to discuss or evaluate (Discuss or Evaluate), with real-world examples. Total: 25 marks in 75 minutes (94 minutes with +25% extra time).',
+      ru: 'Три вопроса, выберите один. Часть (a) — 10 баллов, обычно «Explain» (иногда «Distinguish»), часто с подписанной диаграммой (чаще всего модель совокупного спроса и совокупного предложения, AD/AS). Часть (b) — 15 баллов, «Discuss» или «Evaluate», с примерами из реальной жизни. Всего: 25 баллов за 75 минут (94 минуты с доп. временем +25%).',
     },
     strategy: {
       en: 'Plan for about five minutes: write the key definitions, sketch the diagram, choose one real-world example with figures, and note the evaluation points (short run and long run, stakeholders, assumptions). In part (a), define the terms, draw the labelled diagram and explain the chain of effects step by step. In part (b), set out the case for and against using the example, and end with a judgement that answers the question.',
@@ -25,11 +25,11 @@ export const papers: PaperGuide[] = [
       en: 'Knowledge and understanding: accurate definitions and a labelled diagram. Application: a real-world example with figures and a named place. Analysis: chains of reasoning (if ... then ... so ...). Evaluation: short-run and long-run effects, stakeholders, assumptions and a justified judgement.',
       ru: 'Знание и понимание: точные определения и подписанная диаграмма. Применение: пример из реальной жизни с цифрами и названием места. Анализ: цепочки рассуждений (если ... то ... значит ...). Оценка: краткосрочные и долгосрочные эффекты, заинтересованные стороны, допущения и обоснованное суждение.',
     },
-    commandTerms: ['Explain', 'Discuss'],
+    commandTerms: ['Explain', 'Distinguish', 'Discuss', 'Evaluate', 'Examine'],
     timedSets: [
       {
         id: 'p1-one-essay',
-        title: { en: 'One essay, 75 minutes (choose one of three)', ru: 'Одно эссе, 75 минут (выберите одно из трёх)' },
+        title: { en: 'One essay, 75 minutes (94 with +25% extra time; choose one of three)', ru: 'Одно эссе, 75 минут (94 с доп. временем +25%; выберите одно из трёх)' },
         questionIds: ['p1-essay-01', 'p1-essay-02', 'p1-essay-03'],
         minutes: 75,
       },
