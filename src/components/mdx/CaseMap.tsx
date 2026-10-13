@@ -1,7 +1,9 @@
 import { lazy, Suspense } from 'react';
 import type { CaseStudy } from '../../contract/types';
+import { useLoadTimedOut } from '../../lib/load-timeout';
 import { pickText } from '../../lib/text';
 import { parseIdList } from '../../lib/topic-text';
+import { SubjectLoadError } from '../subject/SubjectLoadError';
 import type { MappableCase } from './CaseMapView';
 import { useBodyT, useTopicContext } from './context';
 import { MdxWarning } from './MdxWarning';
@@ -12,6 +14,13 @@ const CaseMapView = lazy(() => import('./CaseMapView'));
 
 const hasCoordinates = (study: CaseStudy): study is MappableCase =>
   typeof study.lat === 'number' && Number.isFinite(study.lat) && typeof study.lng === 'number' && Number.isFinite(study.lng);
+
+// The placeholder while the map's chunk loads. After the load timeout it becomes the load error, with a retry.
+function CaseMapLoading({ label }: { label: string }) {
+  const timedOut = useLoadTimedOut(true);
+  if (timedOut) return <SubjectLoadError cause={new Error('load timeout')} />;
+  return <p role="status" className="m-0 text-sm text-[var(--color-muted)]">{label}</p>;
+}
 
 // <CaseMap ids="lagos,mumbai"/>: a map of the cases that have coordinates, with a text list under it.
 export function CaseMap({ ids }: { ids?: string }) {
@@ -40,7 +49,7 @@ export function CaseMap({ ids }: { ids?: string }) {
       {onMap.length > 0 ? (
         <>
           <SafeContent>
-            <Suspense fallback={<p role="status" className="m-0 text-sm text-[var(--color-muted)]">{t('caseMap.loading')}</p>}>
+            <Suspense fallback={<CaseMapLoading label={t('caseMap.loading')} />}>
               <CaseMapView cases={onMap} lang={lang} label={t('caseMap.label')} />
             </Suspense>
           </SafeContent>

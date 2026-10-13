@@ -23,11 +23,19 @@ import { FrenchText } from '../components/ui/FrenchText';
 import { ROUTES } from '../config/routes';
 import { useSubject } from '../content/useSubject';
 import { PageLoading } from '../components/layout/PageLoading';
+import { useLoadTimedOut } from '../lib/load-timeout';
 import { pickText, textsIn } from '../lib/text';
 import { langsOf, toLang, type ContentLang } from '../lib/topic-lang';
 import { publicUrl, showsSource } from '../lib/topic-text';
 import '../components/content/ui.css';
 import '../components/subject/subject.css';
+
+// The placeholder while the MDX file of one language loads. After the load timeout it becomes the load error.
+function BodyLoading({ label }: { label: string }) {
+  const timedOut = useLoadTimedOut(true);
+  if (timedOut) return <SubjectLoadError cause={new Error('load timeout')} />;
+  return <p role="status" className="m-0 text-[var(--color-muted)]">{label}</p>;
+}
 
 // The compiled MDX body of one language. The MDX file is loaded when it is first shown. The MDX components get
 // their subject, topic, pack and languages from the context, not from props.
@@ -45,7 +53,7 @@ function LoadedBody({ pack, topic, lang, uiLang }: { pack: SubjectPack; topic: T
       <MDXProvider components={mdxComponents}>
         <div className="foma-prose">
           <SafeContent>
-            <Suspense fallback={<p role="status" className="m-0 text-[var(--color-muted)]">{t('page.loading')}</p>}>
+            <Suspense fallback={<BodyLoading label={t('page.loading')} />}>
               <Body />
             </Suspense>
           </SafeContent>

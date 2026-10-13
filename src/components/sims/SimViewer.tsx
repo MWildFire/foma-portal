@@ -4,8 +4,10 @@ import { useTranslation } from 'react-i18next';
 import { RotateCcw, TriangleAlert, X } from 'lucide-react';
 import type { Lang } from '../../contract/types';
 import { ROUTES } from '../../config/routes';
+import { useLoadTimedOut } from '../../lib/load-timeout';
 import { pickText } from '../../lib/text';
 import { lazyOnce } from '../mdx/lazy';
+import { SubjectLoadError } from '../subject/SubjectLoadError';
 import type { SimEntry } from './catalog';
 import '../content/ui.css';
 import '../practice/fields.css';
@@ -44,6 +46,13 @@ class SimBoundary extends Component<BoundaryProps, { failed: boolean }> {
       </div>
     );
   }
+}
+
+// The status line while the simulation loads. After the load timeout it becomes the load error, with a retry.
+function SimViewerLoading({ label }: { label: string }) {
+  const timedOut = useLoadTimedOut(true);
+  if (timedOut) return <SubjectLoadError cause={new Error('load timeout')} />;
+  return <p role="status" className="study-muted">{label}</p>;
 }
 
 interface Props {
@@ -97,7 +106,7 @@ export function SimViewer({ entry, lang, subjectTitle, onClose }: Props) {
 
       <div className="sim-viewer__stage" lang={lang}>
         <SimBoundary key={entry.id} message={t('error')} reloadLabel={t('reload')}>
-          <Suspense fallback={<p role="status" className="study-muted">{t('loading')}</p>}>
+          <Suspense fallback={<SimViewerLoading label={t('loading')} />}>
             <Loaded lang={lang} />
           </Suspense>
         </SimBoundary>
