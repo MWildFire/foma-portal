@@ -2,6 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {
   NO_FILTERS,
+  TIMER_KEEP_MS,
   WARN_SECONDS,
   allowedMinutes,
   createTimer,
@@ -24,6 +25,9 @@ import {
   splitRedo,
   startTimer,
   tickTimer,
+  timerFromStored,
+  timerStorageKey,
+  timerToStored,
   withChosen,
   withFilter,
   withoutFilters,
@@ -249,6 +253,73 @@ test('the warning covers the last five minutes of a running or paused clock', ()
   assert.equal(isWarning({ ...at(120), status: 'paused', endsAt: null }), true);
   assert.equal(isWarning({ ...at(120), status: 'idle', endsAt: null }), false);
   assert.equal(isWarning({ ...at(0), status: 'done', endsAt: null }), false);
+});
+
+// ---- a countdown that survives a reload
+
+const TOTAL = 45 * 60_000;
+const store = (timer, savedAt = T0) => timerToStored(timer, savedAt);
+
+test('the saved countdown has one key per subject and set', () => {
+  assert.equal(timerStorageKey('geo', 'mock-1'), 'foma-portal-timer-v1:geo/mock-1');
+  assert.notEqual(timerStorageKey('geo', 'a'), timerStorageKey('math', 'a'));
+});
+
+test('a running countdown goes on from its end moment after a reload', () => {
+  const running = startTimer(createTimer(45), T0);
+  const back = timerFromStored(store(running), TOTAL, T0 + 10 * 60_000);
+  assert.equal(back.status, 'running');
+  assert.equal(back.endsAt, running.endsAt);
+  assert.equal(secondsLeft(back), 35 * 60, 'the ten minutes while the page was closed are counted');
+});
+
+test('a running countdown whose end has passed is over', () => {
+  const running = startTimer(createTimer(45), T0);
+  const back = timerFromStored(store(running), TOTAL, T0 + 46 * 60_000);
+  assert.equal(back.status, 'done');
+  assert.equal(secondsLeft(back), 0);
+  assert.equal(back.endsAt, null);
+});
+
+test('a paused countdown keeps its time, however long the page was closed', () => {
+  const paused = pauseTimer(startTimer(createTimer(45), T0), T0 + 5 * 60_000);
+  const back = timerFromStored(store(paused, T0 + 5 * 60_000), TOTAL, T0 + 3 * 60 * 60_000);
+  assert.equal(back.status, 'paused');
+  assert.equal(secondsLeft(back), 40 * 60);
+});
+
+test('a finished countdown comes back as finished', () => {
+  const done = tickTimer(startTimer(createTimer(45), T0), T0 + 50 * 60_000);
+  assert.equal(done.status, 'done');
+  assert.deepEqual(timerFromStored(store(done, T0 + 50 * 60_000), TOTAL, T0 + 51 * 60_000), { status: 'done', totalMs: TOTAL, remainingMs: 0, endsAt: null });
+});
+
+test('a countdown is not restored when it cannot be trusted', () => {
+  const running = startTimer(createTimer(45), T0);
+  const raw = store(running);
+  assert.equal(timerFromStored(null, TOTAL, T0), null);
+  assert.equal(timerFromStored('', TOTAL, T0), null);
+  assert.equal(timerFromStored('{not json', TOTAL, T0), null);
+  assert.equal(timerFromStored('42', TOTAL, T0), null);
+  assert.equal(timerFromStored('null', TOTAL, T0), null);
+  assert.equal(timerFromStored(raw, 57 * 60_000, T0), null, 'another length of time (the set or the extra-time setting changed)');
+  assert.equal(timerFromStored(raw, TOTAL, T0 + TIMER_KEEP_MS + 1), null, 'older than eight hours');
+  assert.equal(timerFromStored(raw, TOTAL, T0 - 10 * 60_000), null, 'saved in the future: the clock of the device changed');
+  assert.equal(timerFromStored(store(createTimer(45)), TOTAL, T0), null, 'an idle clock has nothing to restore');
+  const damaged = (change) => JSON.stringify({ ...JSON.parse(raw), ...change });
+  for (const change of [{ status: 'finished' }, { totalMs: 'x' }, { savedAt: null }, { endsAt: 'soon' }, { endsAt: T0 + 10 * TOTAL }, { remainingMs: -1 }]) {
+    assert.equal(timerFromStored(damaged(change), TOTAL, T0), null, JSON.stringify(change));
+  }
+  const paused = store(pauseTimer(running, T0 + 1000), T0 + 1000);
+  assert.equal(timerFromStored(JSON.stringify({ ...JSON.parse(paused), remainingMs: TOTAL * 2 }), TOTAL, T0 + 2000), null, 'more time left than the whole set');
+});
+
+test('a restored countdown can be paused, resumed and reset like a new one', () => {
+  const back = timerFromStored(store(startTimer(createTimer(45), T0)), TOTAL, T0 + 60_000);
+  const paused = pauseTimer(back, T0 + 120_000);
+  assert.equal(paused.status, 'paused');
+  assert.equal(secondsLeft(paused), 43 * 60);
+  assert.deepEqual(resetTimer(paused), createTimer(45));
 });
 
 // ---- ratings and the mistake log

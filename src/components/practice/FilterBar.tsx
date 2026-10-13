@@ -1,4 +1,4 @@
-import { useId } from 'react';
+import { useId, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { hasFilters, type FilterOptions, type PracticeFilters } from '../../lib/practice';
 import { FilterSelect } from './fields';
@@ -22,11 +22,17 @@ interface Props {
 export function FilterBar({ filters, options, topicTitle, shown, total, onChange, onClear }: Props) {
   const { t } = useTranslation(['practice', 'subject']);
   const headingId = useId();
+  const firstSelect = useRef<HTMLSelectElement>(null);
+  // The "Clear filters" button disappears when the filters are cleared. The focus goes to the first select, not to the top of the page.
+  const clear = (): void => {
+    onClear();
+    firstSelect.current?.focus();
+  };
   return (
     <section aria-labelledby={headingId} className="study-panel">
       <h2 id={headingId} className="study-h2">{t('filters.heading')}</h2>
       <div className="study-fields">
-        <FilterSelect label={t('filters.paper')} value={filters.paper} onChange={value => onChange('paper', value)}>
+        <FilterSelect label={t('filters.paper')} value={filters.paper} onChange={value => onChange('paper', value)} selectRef={firstSelect}>
           <option value="">{t('filters.all')}</option>
           {options.papers.map(item => (
             <option key={item.value} value={item.value}>
@@ -49,7 +55,7 @@ export function FilterBar({ filters, options, topicTitle, shown, total, onChange
       </div>
       <p role="status" className="study-status">{t('filters.shown', { shown, total })}</p>
       {hasFilters(filters) ? (
-        <button type="button" className="foma-btn" onClick={onClear}>{t('filters.clear')}</button>
+        <button type="button" className="foma-btn" onClick={clear}>{t('filters.clear')}</button>
       ) : null}
     </section>
   );

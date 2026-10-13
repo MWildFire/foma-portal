@@ -1,4 +1,4 @@
-import { useCallback, useId, useMemo, useRef } from 'react';
+import { useCallback, useId, useMemo, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import type { SubjectPack } from '../../contract/pack';
@@ -14,6 +14,7 @@ import {
   ratingCounts,
   ratingKey,
   splitRedo,
+  timerStorageKey,
   withChosen,
   withFilter,
   withoutFilters,
@@ -29,6 +30,7 @@ import { FilterBar } from './FilterBar';
 import { QuestionCard } from './QuestionCard';
 import { TimedPanel } from './TimedPanel';
 import { StatGrid } from './fields';
+import { clearStoredTimer } from './timerStorage';
 import '../content/ui.css';
 import './fields.css';
 import './practice.css';
@@ -87,12 +89,17 @@ export function PracticeView({ pack }: { pack: SubjectPack }) {
   const active = useMemo(() => sets.find(set => set.id === requestedSet), [sets, requestedSet]);
   const inSet = useMemo(() => (active ? questionsOfSet(active, pack.questions) : null), [active, pack.questions]);
 
-  // "To redo" is decided when the page opens or the filters change. A rating given now moves a question the next
-  // time, so the cards do not jump under the student's finger while they read a markscheme.
+  // "To redo" is decided when the page opens, when the filters change, and when the student goes into or out of timed
+  // mode. A rating given in between moves a question the next time, so the cards do not jump under the student's
+  // finger while they read a markscheme. (The list is kept in state, not in a memo: a memo may be thrown away.)
   const progress = state.questions;
-  const progressRef = useRef(progress);
-  progressRef.current = progress;
-  const redoIds = useMemo(() => wrongIds(subject, filtered, progressRef.current), [subject, filtered]);
+  const snapshotKey = `${subject}|${filters.paper}|${filters.topic}|${filters.command}|${active?.id ?? ''}`;
+  const [snapshot, setSnapshot] = useState(() => ({ key: snapshotKey, ids: wrongIds(subject, filtered, progress) }));
+  let redoIds = snapshot.ids;
+  if (snapshot.key !== snapshotKey) {
+    redoIds = wrongIds(subject, filtered, progress);
+    setSnapshot({ key: snapshotKey, ids: redoIds });
+  }
   const parts = useMemo(() => splitRedo(filtered, redoIds), [filtered, redoIds]);
   const counts = ratingCounts(subject, pack.questions, progress);
 
@@ -111,14 +118,17 @@ export function PracticeView({ pack }: { pack: SubjectPack }) {
   const clearFilters = useCallback((): void => {
     setParams(previous => withoutFilters(previous), { replace: true });
   }, [setParams]);
+  const activeId = active?.id ?? '';
   const chooseSet = useCallback((id: string): void => {
+    // Leaving a set or choosing another one is a decision to stop that paper: its saved countdown is forgotten.
+    if (activeId && activeId !== id) clearStoredTimer(timerStorageKey(subject, activeId));
     setParams(previous => {
       const next = new URLSearchParams(previous);
       if (id) next.set('set', id);
       else next.delete('set');
       return next;
     }, { replace: true });
-  }, [setParams]);
+  }, [setParams, subject, activeId]);
 
   const listProps = { lang, subject, topicIndex, progress, onRate };
 
@@ -133,21 +143,24 @@ export function PracticeView({ pack }: { pack: SubjectPack }) {
         </section>
       ) : (
         <>
-          <section aria-labelledby={summaryId}>
-            <h2 id={summaryId} className="study-h2">{t('summary.heading')}</h2>
-            <StatGrid
-              tiles={[
-                { key: 'total', label: t('summary.total'), value: counts.total },
-                { key: 'right', label: t('summary.right'), value: counts.right },
-                { key: 'partial', label: t('summary.partial'), value: counts.partial },
-                { key: 'wrong', label: t('summary.wrong'), value: counts.wrong },
-                { key: 'unrated', label: t('summary.unrated'), value: counts.unrated },
-              ]}
-            />
-          </section>
+          {active ? null : (
+            <section aria-labelledby={summaryId}>
+              <h2 id={summaryId} className="study-h2">{t('summary.heading')}</h2>
+              <StatGrid
+                tiles={[
+                  { key: 'total', label: t('summary.total'), value: counts.total },
+                  { key: 'right', label: t('summary.right'), value: counts.right },
+                  { key: 'partial', label: t('summary.partial'), value: counts.partial },
+                  { key: 'wrong', label: t('summary.wrong'), value: counts.wrong },
+                  { key: 'unrated', label: t('summary.unrated'), value: counts.unrated },
+                ]}
+              />
+            </section>
+          )}
 
           <div>
             <TimedPanel
+              subject={subject}
               sets={sets}
               active={active}
               requestedId={requestedSet}

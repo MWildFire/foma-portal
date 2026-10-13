@@ -1,7 +1,8 @@
 import { useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { BreadcrumbsNav } from '../components/layout/BreadcrumbsNav';
-import { usePageTitle, useScrollToTop } from '../components/content/usePageTitle';
+import { usePageTitle } from '../components/content/usePageTitle';
+import { useScrollToTopOnArrival } from '../components/practice/pageScroll';
 import { FormulasView } from '../components/formulas/FormulasView';
 import { SubjectBar } from '../components/subject/SubjectHeader';
 import { SubjectNotFound } from '../components/subject/SubjectNotFound';
@@ -17,7 +18,7 @@ export function FormulasPage() {
   const subjectTitle = pack ? pickText(pack.meta.title, i18n.language) : '';
 
   usePageTitle(pack ? `${t('title')} | ${subjectTitle}` : t('notFound.title', { ns: 'subject' }), t('brand', { ns: 'common' }));
-  useScrollToTop(subject);
+  useScrollToTopOnArrival(subject);
 
   if (!pack) return <SubjectNotFound />;
 

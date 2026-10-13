@@ -1,6 +1,7 @@
 import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { usePageTitle, useScrollToTop } from '../components/content/usePageTitle';
+import { usePageTitle } from '../components/content/usePageTitle';
+import { useScrollToTopOnArrival } from '../components/practice/pageScroll';
 import { SimsView } from '../components/sims/SimsView';
 import { getSubject, listSubjects } from '../content/registry';
 
@@ -13,7 +14,7 @@ export function SimsPage() {
   }, []);
 
   usePageTitle(t('title'), t('brand', { ns: 'common' }));
-  useScrollToTop('sims');
+  useScrollToTopOnArrival('sims');
 
   return <SimsView packs={packs} />;
 }

@@ -256,6 +256,49 @@ export function isWarning(timer: TimerState): boolean {
 }
 
 // ---------------------------------------------------------------------------------------------------------------
+// A running countdown survives a reload (a phone that discards a background tab, a pulled-down page). It is saved
+// when it starts, pauses or ends, as the moment it ends, and read again when the page opens.
+
+/** A saved countdown older than this is forgotten. */
+export const TIMER_KEEP_MS = 8 * 60 * 60 * 1000;
+
+// One saved countdown per timed set.
+export function timerStorageKey(subject: string, setId: string): string {
+  return `foma-portal-timer-v1:${subject}/${setId}`;
+}
+
+export function timerToStored(timer: TimerState, now: number): string {
+  return JSON.stringify({ status: timer.status, totalMs: timer.totalMs, remainingMs: timer.remainingMs, endsAt: timer.endsAt, savedAt: now });
+}
+
+const finite = (value: unknown): value is number => typeof value === 'number' && Number.isFinite(value);
+
+// The countdown to continue with, or null when there is nothing usable: no value, damaged text, another length of
+// time (the set or the extra-time setting changed), too old, or numbers that make no sense. A countdown that was
+// running goes on from its end moment, and is over if that moment has passed.
+export function timerFromStored(raw: string | null | undefined, totalMs: number, now: number): TimerState | null {
+  if (!raw) return null;
+  let data: unknown;
+  try {
+    data = JSON.parse(raw);
+  } catch {
+    return null;
+  }
+  if (typeof data !== 'object' || data === null) return null;
+  const saved = data as Record<string, unknown>;
+  if (saved.status !== 'running' && saved.status !== 'paused' && saved.status !== 'done') return null;
+  if (!finite(saved.totalMs) || saved.totalMs !== totalMs || !finite(saved.savedAt)) return null;
+  if (now - saved.savedAt > TIMER_KEEP_MS || saved.savedAt - now > 5 * 60_000) return null;
+  if (saved.status === 'done') return { status: 'done', totalMs, remainingMs: 0, endsAt: null };
+  if (!finite(saved.remainingMs) || saved.remainingMs < 0 || saved.remainingMs > totalMs) return null;
+  if (saved.status === 'paused') return { status: 'paused', totalMs, remainingMs: saved.remainingMs, endsAt: null };
+  if (!finite(saved.endsAt) || saved.endsAt - now > totalMs + 1000) return null;
+  const remainingMs = Math.max(0, saved.endsAt - now);
+  if (remainingMs === 0) return { status: 'done', totalMs, remainingMs: 0, endsAt: null };
+  return { status: 'running', totalMs, remainingMs, endsAt: saved.endsAt };
+}
+
+// ---------------------------------------------------------------------------------------------------------------
 // Ratings and the mistake log
 
 // The key in storage.questions.

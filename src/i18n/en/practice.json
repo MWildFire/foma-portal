@@ -43,7 +43,7 @@
     "start": "Start the timer",
     "pause": "Pause",
     "resume": "Resume",
-    "reset": "Start over",
+    "reset": "Reset the timer",
     "warn": "5 minutes or less left. Start wrapping up.",
     "over": "Time is up. Stop writing, then check your answers with the markscheme."
   },

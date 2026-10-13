@@ -1,32 +1,46 @@
-import { useId, type ReactNode } from 'react';
+import { useEffect, useId, useRef, type ReactNode, type RefObject } from 'react';
 import '../content/ui.css';
 import './fields.css';
 
 // Small building blocks shared by the study pages (practice, glossary, formulas): a labelled select, a labelled
 // search box and a row of count tiles.
 
-export function FilterSelect({ label, value, onChange, children }: {
+// A labelled select. The browser keeps the choice itself (the select is not "controlled"), and the choice is copied
+// to the element only when `value` says something else. This matters when the value comes from the address: the
+// router changes the address in a React transition, which takes a moment, and a controlled select would jump back
+// to the old choice for that moment and then forward again.
+export function FilterSelect({ label, value, onChange, children, selectRef }: {
   label: string;
   value: string;
   onChange: (value: string) => void;
   children: ReactNode;
+  /** To put the focus on the select from outside. */
+  selectRef?: RefObject<HTMLSelectElement>;
 }) {
   const id = useId();
+  const own = useRef<HTMLSelectElement>(null);
+  const ref = selectRef ?? own;
+  useEffect(() => {
+    const element = ref.current;
+    if (element && element.value !== value) element.value = value;
+  });
   return (
     <div className="study-field">
       <label htmlFor={id} className="study-field__label">{label}</label>
-      <select id={id} className="study-input" value={value} onChange={event => onChange(event.target.value)}>
+      <select id={id} ref={ref} className="study-input" defaultValue={value} onChange={event => onChange(event.target.value)}>
         {children}
       </select>
     </div>
   );
 }
 
-export function SearchField({ label, value, placeholder, onChange }: {
+export function SearchField({ label, value, placeholder, onChange, inputRef }: {
   label: string;
   value: string;
   placeholder?: string;
   onChange: (value: string) => void;
+  /** To put the focus on the box from outside. */
+  inputRef?: RefObject<HTMLInputElement>;
 }) {
   const id = useId();
   return (
@@ -34,6 +48,7 @@ export function SearchField({ label, value, placeholder, onChange }: {
       <label htmlFor={id} className="study-field__label">{label}</label>
       <input
         id={id}
+        ref={inputRef}
         type="search"
         className="study-input"
         value={value}

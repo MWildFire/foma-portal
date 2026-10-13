@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { Hourglass, TriangleAlert } from 'lucide-react';
 import { ROUTES } from '../../config/routes';
-import { PAPER_IDS, allowedMinutes, extraMinutes, type TimedSetInfo } from '../../lib/practice';
+import { PAPER_IDS, allowedMinutes, extraMinutes, timerStorageKey, type TimedSetInfo } from '../../lib/practice';
 import { pickText } from '../../lib/text';
 import { Clock } from './Clock';
 import { FilterSelect } from './fields';
@@ -12,6 +12,7 @@ import './fields.css';
 import './practice.css';
 
 interface Props {
+  subject: string;
   sets: readonly TimedSetInfo[];
   /** The set chosen in the address or in the list. */
   active: TimedSetInfo | undefined;
@@ -30,7 +31,7 @@ interface Props {
 // Timed mode: choose a set and run the clock. It returns the picker panel and, for a chosen set, the clock as a
 // second element. The clock sticks to the top of the screen while the student scrolls through the questions, so
 // the page must put both elements in the same container as the question list.
-export function TimedPanel({ sets, active, requestedId, extraTime, lang, questionCount, missing, onSelect }: Props) {
+export function TimedPanel({ subject, sets, active, requestedId, extraTime, lang, questionCount, missing, onSelect }: Props) {
   const { t } = useTranslation(['practice', 'subject']);
   const headingId = useId();
   const allowed = active ? allowedMinutes(active.minutes, extraTime) : 0;
@@ -106,7 +107,7 @@ export function TimedPanel({ sets, active, requestedId, extraTime, lang, questio
         ) : null}
       </section>
 
-      {active ? <Clock key={`${active.id}:${allowed}`} minutes={allowed} /> : null}
+      {active ? <Clock key={`${active.id}:${allowed}`} minutes={allowed} storageKey={timerStorageKey(subject, active.id)} /> : null}
     </>
   );
 }
