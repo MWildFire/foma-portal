@@ -6,7 +6,7 @@ import { MdxWarning } from './MdxWarning';
 import { SafeContent } from './SafeContent';
 
 // <Sim id="econ.supply-demand"/>: loads the simulation from the subject pack when it is first shown.
-// The simulation gets the UI language as `lang`.
+// The simulation gets the language of the body it sits in (contentLang), not the UI language.
 export function Sim({ id }: { id?: string }) {
   const ctx = useTopicContext();
   const { t } = useBodyT();
@@ -18,7 +18,7 @@ export function Sim({ id }: { id?: string }) {
     <div className="foma-sim" role="group" aria-label={t('sim.label', { id })}>
       <SafeContent>
         <Suspense fallback={<p role="status" className="m-0 text-sm text-[var(--color-muted)]">{t('sim.loading')}</p>}>
-          <Loaded lang={ctx.uiLang} />
+          <Loaded lang={ctx.contentLang} />
         </Suspense>
       </SafeContent>
     </div>

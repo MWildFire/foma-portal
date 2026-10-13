@@ -11,7 +11,7 @@ export interface TopicContextValue {
   pack: SubjectPack;
   /** Language of the body being rendered. In EN+RU mode each column has its own provider. */
   contentLang: Lang;
-  /** Language of the app UI (the switch in the header). Simulations get this one. */
+  /** Language of the app UI (the switch in the header). Nothing in a topic body reads it: simulations get contentLang. */
   uiLang: Lang;
 }
 

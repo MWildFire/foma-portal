@@ -1,9 +1,10 @@
 import test, { after, before } from 'node:test';
 import assert from 'node:assert/strict';
 import { join } from 'node:path';
+import { Writable } from 'node:stream';
 import { createServer } from 'vite';
 import { createElement } from 'react';
-import { renderToString } from 'react-dom/server';
+import { renderToPipeableStream, renderToString } from 'react-dom/server';
 import { MemoryRouter } from 'react-router-dom';
 import { primaryTermIn, shownLangs, termLabelIn, textsIn } from '../src/lib/text.ts';
 import { showsSource, termLabel, termLabelRu } from '../src/lib/topic-text.ts';
@@ -90,6 +91,8 @@ before(async () => {
   loaded.GlossaryView = (await server.ssrLoadModule('/src/components/glossary/GlossaryView.tsx')).GlossaryView;
   loaded.CardBack = (await server.ssrLoadModule('/src/components/glossary/FlashcardDeck.tsx')).CardBack;
   loaded.TermCard = (await server.ssrLoadModule('/src/components/ui/TermCard.tsx')).TermCard;
+  loaded.Sim = (await server.ssrLoadModule('/src/components/mdx/Sim.tsx')).Sim;
+  loaded.TopicContextProvider = (await server.ssrLoadModule('/src/components/mdx/context.tsx')).TopicContextProvider;
 });
 
 after(async () => {
@@ -123,6 +126,27 @@ async function draw(element, url, { lang = 'en', content } = {}) {
   await i18n.changeLanguage(lang);
   const values = content ? { 'foma-content-lang': content } : {};
   return withStorage(values, () => renderToString(createElement(MemoryRouter, { initialEntries: [url] }, element)));
+}
+
+// Like draw, but it waits for the lazy parts (a simulation is loaded when it is first shown), which renderToString does not.
+function drawWhenReady(element) {
+  return new Promise((resolve, reject) => {
+    let html = '';
+    const sink = new Writable({
+      write(chunk, _encoding, done) {
+        html += chunk;
+        done();
+      },
+    });
+    sink.on('finish', () => resolve(html));
+    sink.on('error', reject);
+    const { pipe } = renderToPipeableStream(element, {
+      onAllReady() {
+        pipe(sink);
+      },
+      onShellError: reject,
+    });
+  });
 }
 
 const topic = (id, termIds) => ({
@@ -235,4 +259,16 @@ test('term card: an own-notes source is left out', async () => {
   const html = await draw(createElement(loaded.TermCard, { term: term('demand', { src: { kind: 'own', title: 'Internal note' } }), lang: 'en' }), '/');
   assert.ok(!html.includes('Internal note'));
   assert.doesNotMatch(html, /Source(<!-- -->)?:/);
+});
+
+// ---- a simulation: the language of the body it sits in
+
+test('a simulation gets the language of the body it sits in, not the UI language', async () => {
+  const Echo = ({ lang }) => createElement('span', null, `sim-lang:${lang}`);
+  const simPack = { meta: { id: 'econ' }, sims: { 'econ.echo': async () => ({ default: Echo }) } };
+  const drawSim = (contentLang, uiLang) => drawWhenReady(createElement(loaded.TopicContextProvider, {
+    value: { subjectId: 'econ', topicId: 't1', pack: simPack, contentLang, uiLang },
+  }, createElement(loaded.Sim, { id: 'econ.echo' })));
+  assert.match(await drawSim('en', 'ru'), /sim-lang:en/, 'an English body with the UI in Russian: English simulation');
+  assert.match(await drawSim('ru', 'en'), /sim-lang:ru/, 'a Russian body with the UI in English: Russian simulation');
 });
