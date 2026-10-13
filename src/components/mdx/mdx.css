@@ -1,6 +1,6 @@
 /* Styles of the MDX topic body. Colours come from src/index.css and src/components/content/ui.css.
    Plain HTML elements from the MDX are mapped to small components (elements.tsx) that carry these classes,
-   so every rule here is one class deep and does not depend on the order of the stylesheets. */
+   so the rules are plain class selectors and do not depend on the order of the stylesheets. */
 
 /* Reading column: Literata, 17 px, about 60ch per line (roughly 70 characters). Cards may use the full width. */
 .foma-prose {
@@ -21,6 +21,11 @@
 /* Cards that hold running text stay as narrow as the text column (about 70 characters per line). */
 .foma-prose :is(.foma-card, .foma-callout, .foma-reveal) {
   max-width: 40rem;
+}
+
+/* Display formulas ($$...$$) are centred in the text column, not in the wider page column. */
+.foma-prose .katex-display {
+  max-width: 60ch;
 }
 
 .foma-p {
