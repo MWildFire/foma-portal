@@ -30,6 +30,26 @@ const TOPIC_BY_CODE = {
 // Command labels from FomaCS that are not in the IB command-term table (Oxford 2025, pp. 602-603) map to the closest term.
 const COMMAND_MAP = { 'Compare and contrast': 'Compare', Contrast: 'Distinguish', 'Identify + describe': 'Identify' };
 
+// IB stems name their command word. These FomaCS prompts are bare questions, so the mapped command is added to the stem.
+const STEM_OVERRIDES = {
+  'port-a2-3-q1b': {
+    en: 'Identify the primary factor that limited transmission speed in older star networks built around a hub instead of a switch.',
+    ru: 'Укажите, что в старых «звёздах» на хабе (вместо коммутатора) было главным фактором, влиявшим на скорость.',
+  },
+  'port-a2-3-q3b': {
+    en: 'Identify the application that relies almost exclusively on a client-server model.',
+    ru: 'Укажите приложение, которое почти полностью опирается на модель «клиент-сервер».',
+  },
+  'port-a2-3-q4': {
+    en: 'Identify the network model that blockchain technology uses.',
+    ru: 'Укажите сетевую модель, которую использует технология блокчейн.',
+  },
+  'port-a2-3-q5b': {
+    en: 'Identify the method that operates at Layer 3 to divide an IP address space.',
+    ru: 'Укажите метод, который работает на 3-м уровне для деления пространства IP-адресов.',
+  },
+};
+
 const sandbox = { window: {} };
 vm.runInNewContext(readFileSync(source, 'utf8'), sandbox, { filename: source });
 const items = sandbox.window.QUIZ_DATA;
@@ -62,7 +82,9 @@ for (const item of items) {
   seen.add(id);
   const command = COMMAND_MAP[item.command] || item.command;
   commands.set(command, (commands.get(command) || 0) + 1);
-  const prompt = { en: toMarkdown(item.q.en), ru: toMarkdown(item.q.ru) };
+  const prompt = STEM_OVERRIDES[id] || { en: toMarkdown(item.q.en), ru: toMarkdown(item.q.ru) };
+  // FomaCS writes "Contrast" in the stem, which the table maps to Distinguish; the stem must use the same word.
+  if (item.command === 'Contrast') prompt.en = prompt.en.replace(/^Contrast\b/, 'Distinguish');
   const markscheme = { en: joinBullets(item.model.en), ru: joinBullets(item.model.ru) };
   if (!markscheme.en || !markscheme.ru) problems.push(`${id}: empty model answer`);
   perTopic.set(topicId, (perTopic.get(topicId) || 0) + 1);

@@ -67,8 +67,8 @@ export const questions: Question[] = [
     marks: 2,
     command: 'Calculate',
     prompt: {
-      en: 'A programmer finds the 8-bit pattern 11010110 in a memory dump. Convert it to hexadecimal, and then to denary. Show your working.',
-      ru: 'Программист находит в дампе памяти 8-битный шаблон 11010110. Переведите его в шестнадцатеричную систему, а затем в десятичную. Покажите ход решения.',
+      en: 'A programmer finds the 8-bit pattern 11010110 in a memory dump. Calculate its hexadecimal value, and then its denary value. Show your working.',
+      ru: 'Программист находит в дампе памяти 8-битный шаблон 11010110. Вычислите его шестнадцатеричное значение, а затем десятичное. Покажите ход решения.',
     },
     markscheme: {
       en: '[1] split into nibbles 1101 and 0110, giving D and 6, so the hexadecimal value is D6. [1] D6 = 13 × 16 + 6 = 214 in denary.',

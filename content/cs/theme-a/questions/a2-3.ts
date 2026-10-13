@@ -29,11 +29,11 @@ export const questions: Question[] = [
     command: 'Describe',
     prompt: {
       en: 'A home network has six devices, and all of them reach the internet through one router with a single public IP address. Describe what happens to the source address of an outgoing request sent by one of the devices, and how the reply is returned to that device.',
-      ru: 'В домашней сети шесть устройств, и все они выходят в интернет через один роутер с одним публичным IP-адресом. Опишите, что происходит с исходным адресом исходящего запроса одного из устройств и как ответ возвращается на это устройство.',
+      ru: 'В домашней сети шесть устройств, и все они выходят в интернет через один маршрутизатор с одним публичным IP-адресом. Опишите, что происходит с исходным адресом исходящего запроса одного из устройств и как ответ возвращается на это устройство.',
     },
     markscheme: {
       en: '[1] The router replaces the device\'s private source IP address with its own public address before the packet leaves the network. [1] It also changes the source port number and records the mapping (private address and port to public address and port) in its NAT table. [1] When the reply arrives, the router uses the NAT table to send it back to the correct private device.',
-      ru: '[1] Роутер заменяет частный исходный IP-адрес устройства своим публичным адресом до того, как пакет покинет сеть. [1] Он также меняет номер исходного порта и записывает соответствие (частный адрес и порт — публичный адрес и порт) в таблицу NAT. [1] Когда приходит ответ, роутер по таблице NAT отправляет его нужному частному устройству.',
+      ru: '[1] Маршрутизатор заменяет частный исходный IP-адрес устройства своим публичным адресом до того, как пакет покинет сеть. [1] Он также меняет номер исходного порта и записывает соответствие (частный адрес и порт — публичный адрес и порт) в таблицу NAT. [1] Когда приходит ответ, маршрутизатор по таблице NAT отправляет его нужному частному устройству.',
     },
     origin: 'original',
   },
