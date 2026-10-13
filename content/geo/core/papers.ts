@@ -25,6 +25,10 @@ export const papers: PaperGuide[] = [
       ru: 'Баллы зависят от командного слова. Describe и identify награждают точные признаки рисунка или места. Explain и suggest — причину, связанную с данными. Examine, discuss и evaluate — обе стороны аргумента и суждение. Раздел C оценивается по уровням markband: знание, применение, анализ и оценка.',
     },
     commandTerms: ['Describe', 'Explain', 'Outline', 'Identify', 'State', 'Calculate', 'Suggest', 'Examine', 'Discuss', 'Evaluate', 'To what extent', 'Using the infographic'],
+    asked: {
+      en: 'In the 13 past sessions (16 papers) subtopic 1.2 appears in every session, then 1.3, 3.2 and 3.3; 2.3 is the least frequent. Section A is mostly Explain (75 items), then Suggest and Describe. Every Section C essay is a "To what extent" question. Counts and cases are on the Paper 2 page.',
+      ru: 'В 13 прошлых сессиях (16 пейперов) подтема 1.2 есть в каждой сессии, затем 1.3, 3.2 и 3.3; реже всего — 2.3. В разделе A чаще всего Explain (75 заданий), затем Suggest и Describe. Каждое эссе раздела C — вопрос «To what extent». Цифры и кейсы — на странице «Что спрашивают на Paper 2».',
+    },
     timedSets: [
       {
         id: 'core-p2-timed-1',
