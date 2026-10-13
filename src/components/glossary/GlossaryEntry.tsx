@@ -5,7 +5,7 @@ import type { Term, TopicMeta } from '../../contract/types';
 import { ROUTES } from '../../config/routes';
 import { pickText, primaryTermIn, shownLangs, textsIn } from '../../lib/text';
 import type { ContentLang } from '../../lib/topic-lang';
-import { showsSource } from '../../lib/topic-text';
+import { showsSource, termLabelRu } from '../../lib/topic-text';
 import { InlineText } from '../content/RichText';
 import { SourceItem } from '../content/SourceList';
 import { isFixturePack } from '../sims/catalog';
@@ -36,7 +36,8 @@ export const GlossaryEntry = memo(function GlossaryEntry({ term, mode, subject, 
   const titleId = useId();
   const langs = shownLangs(mode);
   const primary = primaryTermIn(term.term, mode);
-  const russianTerm = term.term.ru.trim();
+  // The Russian term with the English one in brackets: «стандартный вид (standard form)» (decision 6).
+  const russianTerm = term.term.ru.trim() ? termLabelRu(term.term) : '';
   return (
     <article className="gl-entry" aria-labelledby={titleId}>
       <header>

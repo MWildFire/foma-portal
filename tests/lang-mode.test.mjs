@@ -193,10 +193,10 @@ test('glossary, RU: the Russian term with the English one in brackets, and the R
   assert.ok(!html.includes('A price rise cuts demand.'), 'no English example');
 });
 
-test('glossary, EN+RU: both definitions, English first, with the Russian term in bold under the English one', async () => {
+test('glossary, EN+RU: both definitions, English first, the Russian term in bold with the English one in brackets', async () => {
   const html = await glossary([term('demand', EXAMPLE)], '/s/econ/terms', { content: 'en+ru' });
   assert.ok(html.indexOf(EN_DEF) !== -1 && html.indexOf(EN_DEF) < html.indexOf(RU_DEF));
-  assert.match(html, /<strong>спрос<\/strong> — (<!-- -->)?Количество/);
+  assert.match(html, /<strong>спрос \(demand\)<\/strong> — (<!-- -->)?Количество/);
   assert.ok(html.includes('A price rise cuts demand.') && html.includes('Рост цены снижает спрос.'));
 });
 
@@ -293,6 +293,11 @@ test('an English term card and glossary entry have no Russian, even with the UI 
   const entry = await draw(createElement(loaded.GlossaryEntry, { term: term('demand', EXAMPLE), mode: 'en', subject: 'econ', topics: [] }), '/', { lang: 'ru' });
   assert.ok(entry.includes(EN_DEF) && entry.includes('A price rise cuts demand.'));
   assert.ok(!CYRILLIC.test(entry), 'the entry follows the mode, not the UI language');
+});
+
+test('a glossary entry in EN and RU names the Russian term with the English term in brackets', async () => {
+  const entry = await draw(createElement(loaded.GlossaryEntry, { term: term('demand', EXAMPLE), mode: 'en+ru', subject: 'econ', topics: [] }), '/');
+  assert.ok(entry.includes('спрос (demand)'), 'the Russian line reads "спрос (demand)", as a label does in Russian');
 });
 
 test('an own-notes source is not drawn by a source list or a source item, in any language', async () => {
