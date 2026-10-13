@@ -6,6 +6,9 @@ import type { Lang } from '../../contract/types';
 // York University and the Footprint Data Foundation). Data year 2023.
 // Source: national and world public data workbook, sheets national_data and world_data (released 22 April 2026, version 1.0).
 // The Footprint Data Foundation bulk workbook of the same edition gives identical values for the countries and the world shown.
+// Population base: the NFA uses the population of the UN popstat database (China 1,454 million in 2023 in the workbook),
+// which differs from other UN estimates for some countries. Per-person values are rounded to two decimals, so totals
+// divided by per-person values can differ from the implied population by a few tenths of a percent.
 // Footprint = footprint of production (efp) for every country and the world. The consumption footprint (efc) is not
 // published for the UAE in this edition (quality flag "+"), so production is used throughout for comparability.
 // Per-person values are stored as published (two decimals). Totals are whole global hectares (gha), as published;
@@ -39,7 +42,7 @@ const COUNTRIES_WITH_FOOTPRINT = 183;
 // Qatar consumption footprint 2023, gha per person (national_data, efc_total_percapita), for the comparison note.
 const QATAR_CONSUMPTION_PC = 12.06;
 
-// Footprint ÷ biocapacity, computed from the file's totals. Both use the same population, so this equals the ratio of the
+// Footprint ÷ biocapacity, computed from the file's totals. Both are NFA totals, so this equals the ratio of the
 // per-person values up to rounding. A ratio above 1 means the footprint is above the biocapacity: ecological overshoot.
 const ratio = (c: Country) => c.efTot / c.bcTot;
 const isOvershoot = (c: Country) => ratio(c) > 1;

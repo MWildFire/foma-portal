@@ -32,8 +32,8 @@ export const questions: Question[] = [
     marks: 3,
     command: 'Calculate',
     prompt: {
-      en: 'The UN International Resource Panel reports that global material extraction rose from 30 billion tonnes in 1970 to 106.6 billion tonnes in 2024. Calculate the percentage increase in global material extraction over this period. Show your working.',
-      ru: 'Международная группа по ресурсам ООН (IRP) сообщает, что мировая добыча материалов выросла с 30 млрд тонн в 1970 году до 106,6 млрд тонн в 2024 году. Рассчитайте процентный рост мировой добычи материалов за этот период. Покажите ход решения.',
+      en: 'The UN International Resource Panel reports that global material extraction rose from 30 billion tonnes in 1970 to an estimated 106.6 billion tonnes in 2024. Calculate the percentage increase in global material extraction over this period. Show your working.',
+      ru: 'Международная группа по ресурсам ООН (IRP) сообщает, что мировая добыча материалов выросла с 30 млрд тонн в 1970 году до оценочных 106,6 млрд тонн в 2024 году. Рассчитайте процентный рост мировой добычи материалов за этот период. Покажите ход решения.',
     },
     markscheme: {
       en: '1 mark: increase = 106.6 − 30 = 76.6 billion tonnes; 1 mark: percentage increase = 76.6 ÷ 30 × 100 = 255.3% (accept 255%); 1 mark: the 2024 value is 3.55 times the 1970 value (106.6 ÷ 30), so extraction has more than tripled (IRP, Global Resources Outlook 2024). Accept any correct working with units.',

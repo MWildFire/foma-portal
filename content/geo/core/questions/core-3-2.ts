@@ -33,8 +33,8 @@ export const questions: Question[] = [
     marks: 3,
     command: 'Calculate',
     prompt: {
-      en: 'The FAO reports that deforestation was 17.6 million hectares a year in 1990–2000 and 10.9 million hectares a year in 2015–2025 (FAO, Global Forest Resources Assessment 2025). Calculate the fall in the annual rate, in million hectares per year, and the percentage fall. Show your working.',
-      ru: 'По данным ФАО, обезлесение составляло 17,6 млн га в год в 1990–2000 годах и 10,9 млн га в год в 2015–2025 годах (ФАО, Global Forest Resources Assessment 2025). Рассчитайте снижение годовых темпов в млн га в год и процентное снижение. Покажите ход решения.',
+      en: 'The FAO’s Global Forest Resources Assessment 2025 reports that deforestation was 17.6 million hectares a year in 1990–2000 and 10.9 million hectares a year in 2015–2025 (FAO, Global Forest Resources Assessment 2025). Calculate the fall in the annual rate, in million hectares per year, and the percentage fall. Show your working.',
+      ru: 'По данным Глобальной оценки лесных ресурсов 2025 (ФАО), обезлесение составляло 17,6 млн га в год в 1990–2000 годах и 10,9 млн га в год в 2015–2025 годах (ФАО, Global Forest Resources Assessment 2025). Рассчитайте снижение годовых темпов в млн га в год и процентное снижение. Покажите ход решения.',
     },
     markscheme: {
       en: '1 mark: fall = 17.6 − 10.9 = 6.7 million hectares per year; 1 mark: percentage fall = 6.7 ÷ 17.6 × 100 = 38.1% (accept 38%); 1 mark: working shown, with units (million hectares per year, %) and the answer to one decimal place.',
