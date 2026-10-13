@@ -1,0 +1,24 @@
+import type { TopicMeta } from '../../../src/contract/types';
+
+const topic: TopicMeta = {
+  id: 'concept-communication',
+  subject: 'eng',
+  code: 'C.CO',
+  title: { en: 'Key concept: communication', ru: 'Ключевое понятие: коммуникация' },
+  papers: ['P1', 'P2'],
+  order: 20,
+  minutes: 30,
+  priority: 2,
+  inMockScope: 'yes',
+  outcomes: [
+    { en: 'I can say who speaks to whom, and through what medium', ru: 'Могу назвать, кто с кем говорит и через какое средство' },
+    { en: 'I can find subtext and say what a text withholds from the reader', ru: 'Могу найти подтекст (subtext) и назвать, что текст утаивает от читателя' },
+    { en: 'I can tell a soliloquy, an aside and an apostrophe apart, and say who hears each one', ru: 'Могу различать монолог наедине с собой (soliloquy), реплику в сторону (aside) и апострофу (apostrophe) и сказать, кто слышит каждую из них' },
+    { en: 'I can explain dramatic irony as a gap between what the audience knows and what a character knows', ru: 'Могу объяснить драматическую иронию (dramatic irony) как разрыв между знанием зрителя и знанием персонажа' },
+  ],
+  termIds: ['subtext', 'soliloquy', 'aside', 'apostrophe', 'direct-address', 'audience', 'dramatic-irony'],
+  questionIds: ['chk-concept-communication-1', 'chk-concept-communication-2'],
+  sources: [{ kind: 'own', title: 'Written for this portal from the key concept list of the IB English A: Literature course' }],
+};
+
+export default topic;
