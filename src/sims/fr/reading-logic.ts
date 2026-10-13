@@ -4,7 +4,7 @@ import type { ExamPaper, ExamsFile } from '../../planner/types.ts';
 
 // Pure logic for the reading practice (Paper 2). The component reads the passages and items at build time and passes
 // them in, so scripts/fr-reading-logic.test.mjs can check this file with node:test.
-// French answers are compared without accents, capitals, apostrophe variants or final punctuation. English short answers
+// French answers keep their accents; capitals, apostrophe variants or final punctuation do not count. English short answers
 // pass when every key word of the answer is in the student's words (any order, common endings; see sameWord).
 
 // What the logic reads from a passage (content/fr/reading/*.ts) and from an item (content/fr/questions/reading-*.ts).
@@ -71,11 +71,25 @@ const ENDINGS = ['', 's', 'es', 'd', 'ed', 'ing'];
 
 const TRUE_FALSE_KEYS = TRUE_FALSE.map(value => normaliseFrench(value));
 
-// Accents, capitals, apostrophe variants and punctuation do not count in a French answer.
+// For the vrai / faux / non mentionné labels: accents, capitals, apostrophe variants and punctuation do not count.
 export function normaliseFrench(text: string): string {
   return text
     .normalize('NFD')
     .replace(/[̀-ͯ]/g, '')
+    .toLowerCase()
+    .replace(/œ/g, 'oe')
+    .replace(/æ/g, 'ae')
+    .replace(/[’`´]/g, "'")
+    .replace(/[.,;:!?«»“”"()…]/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+// A French answer keeps its accents ("mer" is not "mère", "ou" is not "où"); capitals, apostrophe variants and
+// punctuation do not count.
+function frenchKey(text: string): string {
+  return text
+    .normalize('NFC')
     .toLowerCase()
     .replace(/œ/g, 'oe')
     .replace(/æ/g, 'ae')
@@ -120,9 +134,9 @@ export function checkAnswer(item: ItemLike, typed: string): boolean {
 const ELISION = /^(?:d|l|qu|n|s|j|m|t)'\s*/;
 
 export function frenchMatches(expected: string, typed: string): boolean {
-  const wanted = normaliseFrench(expected);
+  const wanted = frenchKey(expected);
   if (wanted === '') return false;
-  const given = normaliseFrench(typed);
+  const given = frenchKey(typed);
   return given === wanted || (!wanted.includes("'") && given.replace(ELISION, '') === wanted);
 }
 

@@ -51,12 +51,18 @@ test('normaliseFrench ignores accents, capitals, apostrophe variants and final p
   assert.equal(normaliseFrench('« Œuvre » !'), 'oeuvre');
 });
 
-test('a French answer matches in any accent, capital or spacing, and nothing else', () => {
-  assert.ok(frenchMatches('dépasse', 'DEPASSE'));
-  assert.ok(frenchMatches('réutilisable', ' reutilisable '));
+test('a French answer keeps its accents; capitals, spacing and apostrophe variants do not count', () => {
+  assert.ok(frenchMatches('dépasse', ' Dépasse '));
+  assert.ok(frenchMatches('réutilisable', 'Réutilisable'));
   assert.ok(frenchMatches('dans six mois', 'Dans  six mois.'));
-  assert.ok(frenchMatches('leurs propres boîtes', 'leurs propres boites'));
+  assert.ok(frenchMatches("l'école", 'L’École'));
+  assert.ok(checkAnswer(item('réutilisable'), 'réutilisable'));
+  assert.ok(!frenchMatches('dépasse', 'DEPASSE'), 'a missing accent is a wrong answer');
+  assert.ok(!frenchMatches('réutilisable', 'reutilisable'));
+  assert.ok(!frenchMatches('leurs propres boîtes', 'leurs propres boites'));
+  assert.ok(!frenchMatches('mère', 'mer'), 'mer and mère are different words');
   assert.ok(!frenchMatches('dépasse', 'dépasses'));
+  assert.ok(!checkAnswer(item('réutilisable'), 'reutilisable'));
   assert.ok(!frenchMatches('panne', ''));
 });
 
