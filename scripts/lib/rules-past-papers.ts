@@ -1,11 +1,12 @@
-import { matchExam } from './duration.ts';
 import { list, textOf } from './model.ts';
 import type { Pos, Report } from './report.ts';
 import { findDuplicates, idSets, type DataCtx } from './rules-data.ts';
 
 // Rules for content/<s>/**/pastpapers.ts (PastPaperRef in src/contract/types.ts). The portal links to the IB PDFs on
-// ibdocs.re and adds its own guide, so these rules check the links, the session, the timing and that every item points
-// at a topic of the same subject. The guide's English and Russian text is checked by checkTexts in rules-data.ts.
+// ibdocs.re and adds its own guide, so these rules check the links, the session and that every item points at a topic
+// of the same subject. Minutes are not compared with data/exams.json: past sessions print their own time on the cover
+// (60 or 75 minutes, see S2 and S7 requests), and sections carry their own time. The guide's English and Russian text
+// is checked by checkTexts in rules-data.ts.
 
 const PAPERS = ['P1', 'P2', 'P3'];
 const LEVELS = ['SL', 'HL', 'SLHL'];
@@ -15,9 +16,10 @@ const ID_PATTERN = /^[a-z0-9]+(-[a-z0-9]+)*$/;   // kebab-case, for example geo-
 const SESSION_PATTERN = /^[MN]\d{2}$/;           // May or November session with a two-digit year: M24, N23
 
 const isPositiveInteger = (value: unknown): boolean => Number.isInteger(value) && (value as number) > 0;
+const MINUTES_RANGE = [5, 240];   // a paper, or a section of one, lasts between these
 
 export function checkPastPapers(r: Report, ctx: DataCtx): void {
-  const { subject, pack, where, exams } = ctx;
+  const { subject, pack, where } = ctx;
   const refs = list(pack.pastPapers);
   const topics = idSets(pack).topics;
   const duplicates = findDuplicates(refs.map(ref => textOf(ref.id)));
@@ -36,22 +38,9 @@ export function checkPastPapers(r: Report, ctx: DataCtx): void {
     if (!SESSION_PATTERN.test(textOf(ref.session))) fail(`session must look like M24 or N23 (got ${JSON.stringify(ref.session)})`);
     if (!isPositiveInteger(ref.marks)) fail(`marks must be a whole number above 0 (got ${JSON.stringify(ref.marks)})`);
 
-    if (!isPositiveInteger(ref.minutes)) {
-      fail(`minutes must be a whole number above 0 (got ${JSON.stringify(ref.minutes)})`);
-    } else if (exams) {
-      const paper = textOf(ref.paper);
-      const part = typeof ref.part === 'string' ? ref.part : undefined;
-      // A part without a row of its own (for example option G of Geography P1) is timed like the whole paper.
-      let match = matchExam(exams, { subject, paper, part });
-      if (match.kind === 'none' && part) match = matchExam(exams, { subject, paper });
-      if (match.kind === 'single' && match.exam.minutes !== ref.minutes) {
-        fail(`minutes is ${ref.minutes}, but data/exams.json (${match.exam.id}) says ${match.exam.minutes}`, where.within(at, ['minutes']));
-      } else if (match.kind === 'parts') {
-        const parts = match.exams.map(exam => exam.part || exam.id).join(', ');
-        fail(`${paper} is sat in parts (${parts}); set "part" to one of them`);
-      } else if (match.kind === 'none') {
-        r.warn(subject, 'past-paper', `${label}: this paper is not listed in data/exams.json, so its minutes were not checked`, at);
-      }
+    const minutes = ref.minutes;
+    if (typeof minutes !== 'number' || !Number.isInteger(minutes) || minutes < MINUTES_RANGE[0] || minutes > MINUTES_RANGE[1]) {
+      fail(`minutes must be a whole number from ${MINUTES_RANGE[0]} to ${MINUTES_RANGE[1]} (got ${JSON.stringify(minutes)})`);
     }
 
     list(ref.items).forEach((item, index) => {

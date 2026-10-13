@@ -57,7 +57,7 @@ export interface PastPaperRef {
   session: string;               // 'M24' | 'N23'
   level: 'SL' | 'HL' | 'SLHL'; tz?: string;
   files: { kind: 'questions' | 'resources' | 'markscheme' | 'audio'; url: string }[];   // url: https://ibdocs.re/... only
-  minutes: number;               // time of this paper in data/exams.json (the school's mock); +25% is added by the portal
+  minutes: number;               // time printed on the paper cover for that session (sections carry their own); +25% is added by the portal
   marks: number;
   items: { q: string; marks: number; topicIds: string[]; command?: string; option?: string; inMockScope?: boolean }[];
   guide?: L;                     // our own write-up: how to answer, what earns marks, where marks are lost
