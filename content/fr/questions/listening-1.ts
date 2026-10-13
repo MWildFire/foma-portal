@@ -261,8 +261,8 @@ export const questions: FrQuestion[] = [
       fr: "Écrivez vrai, faux ou non mentionné, et citez les mots de l'enregistrement qui le prouvent. Il y a un parking gratuit pour le festival.",
     },
     markscheme: {
-      en: "Answer: non mentionné. Car parking is never mentioned. Turn 4 talks about a free shuttle, not a car park: « La navette gratuite part de la sortie est de la gare toutes les trente minutes. »",
-      ru: "Ответ: non mentionné. О парковке не говорится. Реплика 4 говорит о бесплатном шаттле (navette), а не о парковке: « La navette gratuite part de la sortie est de la gare toutes les trente minutes. »",
+      en: "Answer: non mentionné. Car parking is never mentioned. Turn 4 talks about a free shuttle, not a car park: « La navette gratuite part de la sortie située à l'est de la gare toutes les trente minutes. »",
+      ru: "Ответ: non mentionné. О парковке не говорится. Реплика 4 говорит о бесплатном шаттле (navette), а не о парковке: « La navette gratuite part de la sortie située à l'est de la gare toutes les trente minutes. »",
     },
     answer: 'non mentionné',
     origin: 'original',
@@ -337,12 +337,12 @@ export const questions: FrQuestion[] = [
     command: 'State',
     prompt: {
       en: "Answer in French, in one word. How many minutes apart does the free shuttle leave?",
-      ru: "Ответьте по-французски, одним словом. Через сколько минут отправляется бесплатный шаттл?",
+      ru: "Ответьте по-французски, одним словом. Через каждые сколько минут отправляется бесплатный шаттл?",
       fr: "Répondez en français, en un seul mot. Toutes les combien de minutes part la navette gratuite ?",
     },
     markscheme: {
-      en: "Answer: trente. Turn 4 (announcement): « La navette gratuite part de la sortie est de la gare toutes les trente minutes. »",
-      ru: "Ответ: trente. Реплика 4 (объявление): « La navette gratuite part de la sortie est de la gare toutes les trente minutes. »",
+      en: "Answer: trente. Turn 4 (announcement): « La navette gratuite part de la sortie située à l'est de la gare toutes les trente minutes. »",
+      ru: "Ответ: trente. Реплика 4 (объявление): « La navette gratuite part de la sortie située à l'est de la gare toutes les trente minutes. »",
     },
     answer: 'trente',
     origin: 'original',
@@ -498,9 +498,9 @@ export const questions: FrQuestion[] = [
     marks: 1,
     command: 'Identify',
     prompt: {
-      en: "Choose A, B or C. How do the shops earn money from the app? A) They pay a monthly subscription. B) They pay a small commission on each order. C) They pay a fixed fee for each delivery.",
-      ru: "Выберите A, B или C. Как магазины зарабатывают на приложении? A) Они платят ежемесячную подписку. B) Они платят небольшую комиссию с каждого заказа. C) Они платят фиксированную плату за каждую доставку.",
-      fr: "Choisissez A, B ou C. Comment les commerçants gagnent-ils de l'argent avec l'application ? A) ils paient un abonnement mensuel B) ils versent une petite commission sur chaque commande C) ils paient des frais fixes pour chaque livraison.",
+      en: "Choose A, B or C. How does the app earn money from the shops? A) They pay a monthly subscription. B) They pay a small commission on each order. C) They pay a fixed fee for each delivery.",
+      ru: "Выберите A, B или C. Как приложение зарабатывает на магазинах? A) Они платят ежемесячную подписку. B) Они платят небольшую комиссию с каждого заказа. C) Они платят фиксированную плату за каждую доставку.",
+      fr: "Choisissez A, B ou C. Comment l'application gagne-t-elle de l'argent avec les commerçants ? A) ils paient un abonnement mensuel B) ils versent une petite commission sur chaque commande C) ils paient des frais fixes pour chaque livraison",
     },
     markscheme: {
       en: "Answer: B. Turn 6 (Adrien): « Les commerçants, eux, versent une petite commission sur chaque commande. » No subscription or fixed fee is mentioned.",
@@ -518,9 +518,9 @@ export const questions: FrQuestion[] = [
     marks: 1,
     command: 'Identify',
     prompt: {
-      en: "Choose A, B or C. What is the main technical problem in rural areas? A) the battery of the phones B) the size of the screens C) the internet connection",
-      ru: "Выберите A, B или C. Какая главная техническая проблема в сельской местности? A) батарея телефонов B) размер экранов C) интернет-соединение",
-      fr: "Choisissez A, B ou C. Quel est le principal problème technique dans les zones rurales ? A) la batterie des téléphones B) la taille des écrans C) la connexion internet",
+      en: "Choose A, B or C. Which technical problem does Adrien mention in rural areas? A) the battery of the phones B) the size of the screens C) the internet connection",
+      ru: "Выберите A, B или C. Какую техническую проблему Адриан упоминает в сельской местности? A) батарея телефонов B) размер экранов C) интернет-соединение",
+      fr: "Choisissez A, B ou C. Quel problème technique Adrien mentionne-t-il dans les zones rurales ? A) la batterie des téléphones B) la taille des écrans C) la connexion internet",
     },
     markscheme: {
       en: "Answer: C. Turn 10 (Adrien): « Dans les zones rurales, la connexion est parfois mauvaise ». The battery and the screen size are not mentioned.",

@@ -9,7 +9,7 @@ export const track: ListeningTrack = {
   level: 'B2',
   genre: 'interview',
   turns: [
-    { speaker: 'Julie', voice: 'Lea', fr: "Bonjour Adrien, merci d'avoir accepté cet entretien. Pour commencer, pouvez-vous nous expliquer ce que fait votre application ?" },
+    { speaker: 'Julie', voice: 'Lea', fr: "Bonjour Adrien, merci d'avoir accepté cet entretien. Vous êtes jeune ingénieur : pour commencer, pouvez-vous nous expliquer ce que fait votre application ?" },
     { speaker: 'Adrien', voice: 'Remi', fr: "Bien sûr. Courses Simples aide les personnes âgées à faire leurs courses sans sortir de chez elles. On choisit ses produits dans les commerces du quartier, et une personne du magasin prépare la commande et la livre. L'idée, c'est que l'application soit assez simple pour qu'un grand-père ou une grand-mère puisse s'en servir sans aide." },
     { speaker: 'Julie', voice: 'Lea', fr: "D'où vient cette idée ?" },
     { speaker: 'Adrien', voice: 'Remi', fr: "De mon grand-père, en fait. Il ne voulait plus aller seul au supermarché, parce que les grandes surfaces le fatiguaient beaucoup. Et les applis de livraison classiques sont compliquées : des menus partout, des petits boutons... On a donc passé des mois à simplifier l'écran, pour qu'il n'y ait qu'un seul bouton géant." },

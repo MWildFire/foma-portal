@@ -18,7 +18,7 @@ export const track: ListeningTrack = {
     { speaker: 'Léa', voice: 'Lea', fr: "Un peu, oui. Je comprends beaucoup de choses, mais je parle très mal. Du coup, j'ai décidé de l'apprendre sérieusement. Je veux parler avec ma grand-mère sans que ma mère traduise tout le temps. C'est mon vrai projet pour cette année." },
     { speaker: 'Rémi', voice: 'Remi', fr: "Ah, c'est une très bonne idée. Et ta grand-mère, elle est contente ?" },
     { speaker: 'Léa', voice: 'Lea', fr: "Oh oui, elle adore ! Elle me corrige tout le temps. Mon frère, par contre, il s'en fiche. Il dit que le français suffit, et de toute façon, il n'ira jamais au Portugal." },
-    { speaker: 'Rémi', voice: 'Remi', fr: "Ben, moi, je trouve ça dommage. Le portugais, c'est une belle langue. Et le breton, j'aimerais bien l'apprendre un jour, mais c'est difficile. Bon, on commande ? Je t'invite !" },
+    { speaker: 'Rémi', voice: 'Remi', fr: "Ben, moi, je trouve ça dommage. Le portugais, c'est une belle langue. Et le breton, j'aimerais bien l'apprendre un jour, mais c'est difficile. Bon, on prend un café ? Je t'invite !" },
   ],
   questionIds: ['l1-q01', 'l1-q02', 'l1-q03', 'l1-q04', 'l1-q05', 'l1-q06', 'l1-q07', 'l1-q08', 'l1-q09', 'l1-q10'],
   audio: '/audio/fr/l1-racines.mp3',
