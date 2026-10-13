@@ -478,8 +478,8 @@ export const terms: FrTerm[] = [
   },
   {
     id: 'v-t4-052',
-    term: { en: 'local associations', ru: 'местные объединения', fr: 'le tissu associatif' },
-    def: { en: 'the network of local groups and associations that serve a community', ru: 'сеть местных групп и ассоциаций, которые работают на благо сообщества' },
+    term: { en: 'voluntary sector', ru: 'сфера общественных объединений', fr: 'le tissu associatif' },
+    def: { en: 'the network of groups and associations that serve a community', ru: 'сеть групп и ассоциаций, которые работают на благо сообщества' },
     example: { en: 'The local associations organise a market and a sports day every year.', ru: 'Местные ассоциации каждый год организуют рынок и спортивный день.', fr: 'Le tissu associatif du quartier organise chaque année un marché et une journée sportive.' },
     syllabus: 'T4',
     papers: ['P1', 'P2'],
@@ -628,7 +628,7 @@ export const terms: FrTerm[] = [
     id: 'v-t4-068',
     term: { en: 'disadvantaged', ru: 'неблагополучный', fr: 'défavorisé' },
     def: { en: 'having fewer opportunities or resources than most people in society', ru: 'имеющий меньше возможностей и ресурсов, чем большинство людей в обществе' },
-    example: { en: 'The school offers extra lessons to disadvantaged pupils.', ru: 'Школа предлагает дополнительные занятия ученикам из неблагополучных семей.', fr: "L'école propose des cours supplémentaires aux élèves défavorisés." },
+    example: { en: 'The school offers extra lessons to disadvantaged pupils.', ru: 'Школа предлагает дополнительные занятия уязвимым ученикам.', fr: "L'école propose des cours supplémentaires aux élèves défavorisés." },
     syllabus: 'T4',
     papers: ['P1', 'P2'],
     src: own,
@@ -745,7 +745,7 @@ export const terms: FrTerm[] = [
   },
   {
     id: 'v-t4-081',
-    term: { en: 'documentary report', ru: 'репортаж', fr: 'le reportage' },
+    term: { en: 'news report', ru: 'репортаж', fr: 'le reportage' },
     def: { en: 'a film or article that presents real events and facts in detail', ru: 'фильм или статья, которые подробно показывают реальные события и факты' },
     example: { en: 'The report about homeless families was broadcast on television last night.', ru: 'Репортаж о бездомных семьях показали по телевизору вчера вечером.', fr: 'Le reportage sur les familles sans-abri a été diffusé hier soir à la télévision.' },
     syllabus: 'T4',
@@ -793,7 +793,7 @@ export const terms: FrTerm[] = [
   {
     id: 'v-t4-086',
     term: { en: 'parade', ru: 'парад, шествие', fr: 'un défilé' },
-    def: { en: 'a procession of people, floats or bands moving through a street', ru: 'шествие людей, украшенных платформ или оркестров по улице' },
+    def: { en: 'a procession of people, floats or bands moving through a street', ru: 'шествие людей, карнавальных платформ и оркестров, движущееся по улице' },
     example: { en: 'Hundreds of people watched the carnival parade through the centre.', ru: 'Сотни людей смотрели, как карнавальное шествие проходит через центр.', fr: 'Des centaines de personnes ont regardé le défilé du carnaval dans le centre-ville.' },
     syllabus: 'T4',
     papers: ['P1', 'P2'],
@@ -819,7 +819,7 @@ export const terms: FrTerm[] = [
   },
   {
     id: 'v-t4-089',
-    term: { en: 'festive dinner', ru: 'праздничный ужин', fr: 'le réveillon' },
+    term: { en: 'festive late supper', ru: 'праздничный поздний ужин', fr: 'le réveillon' },
     def: { en: "a festive late meal on Christmas Eve or New Year's Eve", ru: 'праздничный поздний ужин в сочельник или в канун Нового года' },
     example: { en: 'Every year we hold a big festive dinner with the whole family.', ru: 'Каждый год мы устраиваем большой праздничный ужин со всей семьёй.', fr: 'Chaque année, nous faisons un grand réveillon avec toute la famille.' },
     syllabus: 'T4',
