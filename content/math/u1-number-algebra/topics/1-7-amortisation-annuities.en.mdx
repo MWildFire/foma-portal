@@ -16,7 +16,7 @@ The <Term id="outstanding-balance"/> after $j$ instalments is the loan compounde
 
 <Formula id="outstanding-balance-formula"/>
 
-<Callout kind="gdc">Use a financial solver to find an instalment or a future value. Use a table of values for the balance to produce an amortisation table with one row per instalment. Enter the number of payments and the rate per payment period, and keep money paid and money received with opposite signs, as the solver expects.</Callout>
+<Callout kind="gdc">On a Calculator page, open `Menu → Finance → Finance Solver` and use `tab` to fill the fields: for 60 monthly instalments on a loan of 60000 at 6% a year, `N = 60`, `I(%) = 6` (the annual rate), `PV = 60000`, `FV = 0`, `PpY = 12`, `CpY = 12` and `PmtAt = END`. Then `tab` to `Pmt` and press `enter`; a positive `PV` gives a negative `Pmt` (about `−1159.97` here), so quote the instalment as a positive amount. For a table of payments, use `amortTbl(` from the Amortization item of the Finance menu.</Callout>
 
 ## Worked example
 

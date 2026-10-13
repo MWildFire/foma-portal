@@ -8,7 +8,7 @@ A <Term id="system-linear-equations"/> has two or three linear equations in the 
 
 <Formula id="linear-system-three-unknowns"/>
 
-<Callout kind="gdc">Use the system-of-equations solver of your GDC for two or three unknowns. Enter each equation as its coefficients and its constant term, then read the values of the unknowns. If the GDC reports that there is no unique solution, treat that as a finding about the system, not as a fault in your entry.</Callout>
+<Callout kind="gdc">On a Calculator page, open `Menu → Algebra → Solve System of Linear Equations`, enter the equations, and read the values of the unknowns. As a check, store the coefficients as a matrix `a` and the constants as a column `b`; then `simult(a,b)` returns the solution as a column. If the calculator gives no unique solution, treat that as a finding about the system, not as a fault in your entry.</Callout>
 
 A system with no solution is an <Term id="inconsistent-system"/>: its equations contradict each other, so no set of values satisfies all of them.
 
@@ -18,7 +18,7 @@ A <Term id="polynomial-root"/> is a value $x$ that makes a polynomial $p(x)$ equ
 
 For a quadratic, the exact roots come from the <Formula id="quadratic-formula-roots"/>. For any polynomial, technology finds the real roots numerically.
 
-<Callout kind="gdc">Use the polynomial root function of your GDC, or find the x-intercepts of the graph of $y=p(x)$ with the zero function. Compare the list of roots with a sketch of the graph, which shows how many to expect.</Callout>
+<Callout kind="gdc">On a Calculator page, `polyRoots(x^3-x-1,x)` lists the real roots of the polynomial (press `►` after each exponent), or use `Menu → Algebra → Polynomial Tools`. Alternatively, graph $y=p(x)$ on a Graphs page and use `Menu → Analyze Graph → Zero` with a lower and an upper bound around each x-intercept. Compare the roots with a sketch of the graph, which shows how many to expect.</Callout>
 
 ## Worked example
 
