@@ -7,7 +7,7 @@ export const questions: Question[] = [
     topicIds: ['4-19-markov-chains'],
     paper: 'P1',
     marks: 3,
-    command: 'State, Find',
+    command: 'Find',
     prompt: {
       en: 'A Markov chain has a transition matrix whose first column is (0.8, 0.2) and whose second column is (0.3, 0.7). The first state is provider A and the second is provider B. Columns give the current state and rows give the next state. At the start, all customers use provider A. Find the proportion of customers using provider A and the proportion using provider B after two months.',
       ru: 'Матрица переходов цепи Маркова имеет первый столбец (0,8; 0,2) и второй столбец (0,3; 0,7). Первое состояние — провайдер A, второе — провайдер B. Столбцы задают текущее состояние, строки — следующее. В начале все клиенты пользуются провайдером A. Найдите долю клиентов, пользующихся провайдером A, и долю пользующихся провайдером B через два месяца.',
