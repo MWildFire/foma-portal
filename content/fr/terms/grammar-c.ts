@@ -160,8 +160,8 @@ export const terms: FrTerm[] = [
     id: 'gr-comparatif-quantite',
     term: { en: 'comparative of quantity', ru: 'сравнение количества', fr: 'le comparatif de quantité' },
     def: {
-      en: "expresses an amount: more or fewer of something, with 'of' and no 'than' before a number.",
-      ru: 'выражает количество: больше или меньше чего-либо, с предлогом «of» и без «чем» перед числом.',
+      en: "expresses an amount: more or fewer of something, with 'de' (not 'que') before a number.",
+      ru: 'выражает количество: больше или меньше чего-либо, с предлогом «de» (а не «que») перед числом.',
     },
     example: {
       en: 'There are more than twenty students in the class.',
