@@ -32,6 +32,13 @@ i18n
       lookupLocalStorage: 'foma-lang',
       caches: ['localStorage'],
     },
-  });
+  })
+  .then(() => syncDocumentLang(i18n.language));
+
+// The document language follows the UI language, so screen readers and hyphenation use the right one.
+function syncDocumentLang(language: string): void {
+  document.documentElement.lang = language.toLowerCase().startsWith('ru') ? 'ru' : 'en';
+}
+i18n.on('languageChanged', syncDocumentLang);
 
 export default i18n;
