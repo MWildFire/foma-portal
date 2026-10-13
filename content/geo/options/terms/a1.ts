@@ -2,7 +2,7 @@ import type { Term } from '../../../../src/contract/types';
 
 // Option A, A.1: definitions in our own words, aligned with the key elements of the programme (guide 2017).
 // Examples are added only where the figure, its year and its source are checked (see cases/a1.ts).
-const SRC = { kind: 'thinkib' as const, title: 'ThinkIB, Option A: Drainage Basin Hydrology and Geomorphology (page 43412)', locator: 'The Water Budget; River Processes; Upper, Middle and Lower Course Landforms' };
+const SRC = { kind: 'thinkib' as const, title: 'Option A: Drainage Basin Hydrology and Geomorphology (page 43412)', locator: 'The Water Budget; River Processes; Upper, Middle and Lower Course Landforms' };
 
 export const terms: Term[] = [
   {

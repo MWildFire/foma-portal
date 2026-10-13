@@ -62,12 +62,12 @@ const topic: TopicMeta = {
   caseIds: ['a-netherlands-room-river', 'a-boscastle-flash-2004', 'a-pakistan-floods-2022'],
   sources: [
     { kind: 'ib-guide', title: 'Geography guide (2017), Option A: Freshwater', locator: 'A.2' },
-    { kind: 'thinkib', title: 'ThinkIB, Option A: Floods and Flood Mitigation (page 43867)', locator: 'Flood Mitigation Strategies; Flood Prediction; Hydrographs and Floods' },
+    { kind: 'thinkib', title: 'Option A: Floods and Flood Mitigation (page 43867)', locator: 'Flood Mitigation Strategies; Flood Prediction; Hydrographs and Floods' },
   ],
   links: [
-    { title: 'ThinkIB eBook, Option A: Floods and Flood Mitigation (page 43867)', url: 'https://student.thinkib.net/geography/' },
-    { title: 'ThinkIB task: Flood Mitigation Strategies, reading (18 Sep 2026)', url: 'https://student.thinkib.net/geography/task/1335192/flood-mitigation-strategies' },
-    { title: 'ThinkIB task: Flood Mitigation Strategies (21 Sep 2026)', url: 'https://student.thinkib.net/geography/task/1336856/flood-mitigation-strategies' },
+    { title: 'ThinkIB: Floods and Flood Mitigation (43867)', url: 'https://student.thinkib.net/geography/' },
+    { title: 'ThinkIB: Flood Mitigation Strategies (18.09.2026)', url: 'https://student.thinkib.net/geography/task/1335192/flood-mitigation-strategies' },
+    { title: 'ThinkIB: Flood Mitigation Strategies (21.09.2026)', url: 'https://student.thinkib.net/geography/task/1336856/flood-mitigation-strategies' },
   ],
 };
 

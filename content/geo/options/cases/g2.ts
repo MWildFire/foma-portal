@@ -13,8 +13,8 @@ export const cases: CaseStudy[] = [
     lat: 42.33167,
     lng: -83.04583,
     facts: {
-      en: "Detroit's population peaked at 1,849,568 in 1950 and fell to 639,111 at the 2020 census, a loss of 1,210,457 people or 65.4%. The decline is usually linked to the loss of car-manufacturing jobs and to residents moving to the suburbs, which left many empty buildings in the inner city.",
-      ru: 'Население Детройта достигло пика в 1 849 568 человек по переписи 1950 года и сократилось до 639 111 человек по переписи 2020 года: потеря составила 1 210 457 человек, или 65,4%. Спад обычно связывают с потерей рабочих мест в автомобилестроении и переездом жителей в пригороды, из-за чего в центре осталось много пустующих зданий.',
+      en: "Detroit's population peaked at 1,849,568 in 1950 and fell to 639,111 at the 2020 census, a loss of 1,210,457 people or 65.4%. The decline is usually linked to the loss of car-manufacturing jobs and to residents moving to the suburbs.",
+      ru: 'Население Детройта достигло пика в 1 849 568 человек по переписи 1950 года и сократилось до 639 111 человек по переписи 2020 года: потеря составила 1 210 457 человек, или 65,4%. Спад обычно связывают с потерей рабочих мест в автомобилестроении и переездом жителей в пригороды.',
     },
     usedFor: ['g2-urban-change'],
     src: [

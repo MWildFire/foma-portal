@@ -2,7 +2,7 @@ import type { Term } from '../../../../src/contract/types';
 
 // Option A, A.2: definitions in our own words, aligned with the key elements of the programme (guide 2017).
 // Locators point to the ThinkIB eBook section of this unit (section level; page locators come from the S1 map).
-const SRC = { kind: 'thinkib' as const, title: 'ThinkIB, Option A: Floods and Flood Mitigation (page 43867)', locator: 'Flood Mitigation Strategies; Flood Prediction; Hydrographs and Floods' };
+const SRC = { kind: 'thinkib' as const, title: 'Option A: Floods and Flood Mitigation (page 43867)', locator: 'Flood Mitigation Strategies; Flood Prediction; Hydrographs and Floods' };
 
 export const terms: Term[] = [
   {

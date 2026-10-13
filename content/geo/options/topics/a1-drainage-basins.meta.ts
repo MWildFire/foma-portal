@@ -68,10 +68,10 @@ const topic: TopicMeta = {
   caseIds: ['a-rhine-basin', 'a-mekong-basin', 'a-amazon-basin', 'a-uae-wadi-floods-2024'],
   sources: [
     { kind: 'ib-guide', title: 'Geography guide (2017), Option A: Freshwater', locator: 'A.1' },
-    { kind: 'thinkib', title: 'ThinkIB, Option A: Drainage Basin Hydrology and Geomorphology (page 43412)', locator: 'The Water Budget; River Processes; Upper, Middle and Lower Course Landforms' },
+    { kind: 'thinkib', title: 'Option A: Drainage Basin Hydrology and Geomorphology (page 43412)', locator: 'The Water Budget; River Processes; Upper, Middle and Lower Course Landforms' },
   ],
   links: [
-    { title: 'ThinkIB eBook, Option A: Drainage Basin Hydrology and Geomorphology (page 43412)', url: 'https://student.thinkib.net/geography/' },
+    { title: 'ThinkIB: Drainage Basin Hydrology and Geomorphology (43412)', url: 'https://student.thinkib.net/geography/' },
   ],
 };
 

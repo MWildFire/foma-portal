@@ -13,8 +13,8 @@ export const cases: CaseStudy[] = [
     lat: 19.076,
     lng: 72.8777,
     facts: {
-      en: 'On 26 July 2005 the Indian Meteorological Department station at Santacruz recorded 944 mm of rain in 24 hours, the wettest day on record for Mumbai, and 644 mm fell between 8 am and 8 pm. Local trains stopped and roads flooded across the city. Death tolls differ between sources: about 1,094 deaths across Maharashtra is the figure most often cited, so check each figure against its source before quoting it.',
-      ru: '26 июля 2005 года метеостанция Santacruz Индийского метеорологического департамента (IMD) зафиксировала 944 мм осадков за 24 часа — самый дождливый день в истории Мумбаи; 644 мм выпали между 8 и 20 часами. Остановились пригородные поезда, затопило улицы города. Число погибших называют разное: чаще всего приводят около 1 094 человек по всему штату Махараштра, поэтому цифры стоит проверять по источнику.',
+      en: 'On 26 July 2005 the Indian Meteorological Department station at Santacruz recorded 944 mm of rain in 24 hours, the wettest day on record for Mumbai, and 644 mm fell between 8 am and 8 pm. Local trains stopped and roads flooded across the city. Death tolls differ between sources: one source gives about 1,094 deaths across Maharashtra, so check each figure against its source before quoting it.',
+      ru: '26 июля 2005 года метеостанция Santacruz Индийского метеорологического департамента (IMD) зафиксировала 944 мм осадков за 24 часа — самый дождливый день в истории Мумбаи; 644 мм выпали между 8 и 20 часами. Остановились пригородные поезда, затопило улицы города. Число погибших называют разное: источник приводит около 1 094 человек по всему штату Махараштра, поэтому цифры стоит проверять по источнику.',
     },
     usedFor: ['g3-urban-stress'],
     src: [
@@ -31,7 +31,7 @@ export const cases: CaseStudy[] = [
     lat: -6.2088,
     lng: 106.8456,
     facts: {
-      en: 'Jakarta is still sinking by about 1 to 15 cm a year, and the ground at Pluit had sunk about 4 m by 2015. According to ITB research reported by The Jakarta Post in December 2019, the subsidence rate in Muara Baru, North Jakarta, fell from about 20 to 26 cm a year to 10 to 12 cm a year. A UGM study (2024) links the significant subsidence to rapid urbanisation and intensive groundwater extraction, and on the coast it adds to tidal flooding.',
+      en: 'Jakarta is still sinking by about 1 to 15 cm a year, and the ground at Pluit had sunk about 4 m by 2015. According to ITB research reported by The Jakarta Post in December 2019, the subsidence rate in Muara Baru, North Jakarta, fell from about 20 to 26 cm a year to 10 to 12 cm a year. A UGM study (2024) links the significant subsidence to rapid urbanisation and intensive groundwater extraction, and its abstract points to the coastal regions of North Jakarta.',
       ru: 'Джакарта продолжает опускаться примерно на 1–15 см в год, а к 2015 году поверхность в районе Плуит (Pluit) опустилась примерно на 4 м. По исследованию ITB, о котором в декабре 2019 года писала The Jakarta Post, в Муара-Бару (Северная Джакарта) темп просадки снизился примерно с 20–26 см до 10–12 см в год. Исследование UGM (2024) связывает значительную просадку с быстрой урбанизацией и интенсивной откачкой грунтовых вод; на побережье просадка усиливает затопление в прилив.',
     },
     usedFor: ['g3-urban-stress'],

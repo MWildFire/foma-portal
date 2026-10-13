@@ -44,8 +44,8 @@ export const cases: CaseStudy[] = [
     lat: 6.5244,
     lng: 3.3792,
     facts: {
-      en: 'The Lagos urban agglomeration grew from about 4.8 million people in 1990 to 13.5 million in 2018, and the UN projects 20.6 million by 2030 (UN World Urbanization Prospects 2018; the 2025 revision may give different figures). It is one of three African megacities in 2018, with Cairo and Kinshasa, and its population grew by about 3.2% a year in 2015–2020. Growth on this scale outpaces the supply of formal housing and services, so informal settlements are a major form of housing in the city.',
-      ru: 'Агломерация Лагоса выросла с примерно 4,8 млн человек в 1990 году до 13,5 млн в 2018 году; ООН прогнозирует 20,6 млн к 2030 году (UN WUP 2018, более новые редакции ООН могут давать другие цифры). Это один из трёх африканских мегаполисов 2018 года вместе с Каиром и Киншасой; в 2015–2020 годах население росло примерно на 3,2% в год. Такой рост опережает создание формального жилья и услуг, поэтому неформальные поселения — важная часть жилого фонда города.',
+      en: 'The Lagos urban agglomeration grew from about 4.8 million people in 1990 to 13.5 million in 2018, and the UN projects 20.6 million by 2030 (UN World Urbanization Prospects 2018; the 2025 revision may give different figures). It is one of three African megacities in 2018, with Cairo and Kinshasa, and its population grew by about 3.2% a year in 2015–2020. Growth on this scale outpaces the supply of formal housing and services.',
+      ru: 'Агломерация Лагоса выросла с примерно 4,8 млн человек в 1990 году до 13,5 млн в 2018 году; ООН прогнозирует 20,6 млн к 2030 году (UN WUP 2018, более новые редакции ООН могут давать другие цифры). Это один из трёх африканских мегаполисов 2018 года вместе с Каиром и Киншасой; в 2015–2020 годах население росло примерно на 3,2% в год. Такой рост опережает создание формального жилья и услуг.',
     },
     usedFor: ['g1-urban-variety'],
     src: [

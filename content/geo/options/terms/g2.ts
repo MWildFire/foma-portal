@@ -2,7 +2,7 @@ import type { SourceRef, Term } from '../../../../src/contract/types';
 
 // G.2 Changing urban systems. Definitions are written in our own words from the Option G key elements.
 // Locators point to the ThinkIB eBook section of this unit (section level; page locators come from the S1 map).
-const SRC: SourceRef = { kind: 'thinkib', title: 'ThinkIB, Option G: Urban Environments (pages 37518, 37556, 37580)', locator: 'Changing Urban Systems; Urbanization; Urban System Growth and Lagos' };
+const SRC: SourceRef = { kind: 'thinkib', title: 'Option G: Urban Environments (pages 37518, 37556, 37580)', locator: 'Changing Urban Systems; Urbanization; Urban System Growth and Lagos' };
 
 export const terms: Term[] = [
   {

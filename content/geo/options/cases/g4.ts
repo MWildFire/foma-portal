@@ -34,8 +34,8 @@ export const cases: CaseStudy[] = [
     lat: 55.6761,
     lng: 12.5683,
     facts: {
-      en: 'In 2023, 27% of all trips in Copenhagen were made by bicycle and 45% of trips to work or study, against a target of 50% by 2025 (DTU Transport Survey 2023). The work and study share fell to 34% in 2021, during the pandemic, and recovered to 43% in 2022, while the cycle superhighways in the municipality grew from 35 km in 2020 to 64 km in 2023.',
-      ru: 'В 2023 году на велосипеде совершалось 27% всех поездок в Копенгагене и 45% поездок на работу или учёбу при цели 50% к 2025 году (опрос DTU 2023). Доля поездок на работу или учёбу упала до 34% в 2021 году, в период пандемии, и выросла до 43% в 2022 году, а протяжённость велосипедных супермагистралей в муниципалитете выросла с 35 км в 2020 году до 64 км в 2023 году.',
+      en: 'In 2023, 27% of all trips in Copenhagen were made by bicycle and 45% of trips to work or study, against a target of 50% by 2025 (DTU Transport Survey 2023). The work and study share fell to 34% in 2021 and recovered to 43% in 2022 (the 2024 report changed how trips are counted, so this series is only indicative), while the cycle superhighways in the municipality grew from 35 km in 2020 to 64 km in 2023.',
+      ru: 'В 2023 году на велосипеде совершалось 27% всех поездок в Копенгагене и 45% поездок на работу или учёбу при цели 50% к 2025 году (опрос DTU 2023). Доля поездок на работу или учёбу упала до 34% в 2021 году и выросла до 43% в 2022 году (в отчёте за 2024 год изменён способ учёта поездок, поэтому ряд можно сравнивать лишь ориентировочно), а протяжённость велосипедных супермагистралей в муниципалитете выросла с 35 км в 2020 году до 64 км в 2023 году.',
     },
     usedFor: ['g4-sustainable-cities'],
     src: [

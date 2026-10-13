@@ -61,10 +61,10 @@ const topic: TopicMeta = {
   caseIds: ['g-mumbai-floods-2005', 'g-jakarta-subsidence', 'g-kibera', 'g-phoenix-heat'],
   sources: [
     { kind: 'ib-guide', title: 'Geography guide (2017), Option G: Urban environments', locator: 'G.3' },
-    { kind: 'thinkib', title: 'ThinkIB, Option G: Urban Environments (pages 37520, 37586, 37591)', locator: 'Urban Environmental and Social Stress; Urban Micro-climates; Managing Urban Social Deprivation and Crime' },
+    { kind: 'thinkib', title: 'Option G: Urban Environments (pages 37520, 37586, 37591)', locator: 'Urban Environmental and Social Stress; Urban Micro-climates; Managing Urban Social Deprivation and Crime' },
   ],
   links: [
-    { title: 'ThinkIB eBook, Option G: Urban Environments (pages 37520, 37586, 37591)', url: 'https://student.thinkib.net/geography/' },
+    { title: 'ThinkIB: Urban Environments (37520, 37586, 37591)', url: 'https://student.thinkib.net/geography/' },
   ],
 };
 

@@ -60,11 +60,11 @@ const topic: TopicMeta = {
   sims: ['geo.opt-g-transport'],
   sources: [
     { kind: 'ib-guide', title: 'Geography guide (2017), Option G: Urban environments', locator: 'G.4' },
-    { kind: 'thinkib', title: 'ThinkIB, Option G: Urban Environments (pages 37521, 37639, 37641, 37654, 37666)', locator: 'Sustainable Urban Systems; Urban Growth; Resilient Cities; Ecocity Design and Environmental Strategies; Smart Cities' },
+    { kind: 'thinkib', title: 'Option G: Urban Environments (pages 37521, 37639, 37641, 37654, 37666)', locator: 'Sustainable Urban Systems; Urban Growth; Resilient Cities; Ecocity Design and Environmental Strategies; Smart Cities' },
   ],
   links: [
-    { title: 'ThinkIB eBook, Option G: Urban Environments (pages 37521, 37639, 37641, 37654, 37666)', url: 'https://student.thinkib.net/geography/' },
-    { title: 'ThinkIB task: Resilient Cities (23 Jan 2026)', url: 'https://student.thinkib.net/geography/task/1158376/resilient-cities' },
+    { title: 'ThinkIB: Urban Environments (37521, 37639, 37641, 37654, 37666)', url: 'https://student.thinkib.net/geography/' },
+    { title: 'ThinkIB: Resilient Cities (23.01.2026)', url: 'https://student.thinkib.net/geography/task/1158376/resilient-cities' },
   ],
 };
 

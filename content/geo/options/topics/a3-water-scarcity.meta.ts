@@ -65,10 +65,10 @@ const topic: TopicMeta = {
   caseIds: ['a-cape-town-drought-2018', 'a-bangladesh-arsenic', 'a-toledo-2014', 'a-aral-sea'],
   sources: [
     { kind: 'ib-guide', title: 'Geography guide (2017), Option A: Freshwater', locator: 'A.3' },
-    { kind: 'thinkib', title: 'ThinkIB, Option A: Water Scarcity and Water Quality (page 44021)', locator: 'Water Scarcity; Conflicts and Resolutions in the Mekong River Basin; Environmental Consequences of Agriculture' },
+    { kind: 'thinkib', title: 'Option A: Water Scarcity and Water Quality (page 44021)', locator: 'Water Scarcity; Conflicts and Resolutions in the Mekong River Basin; Environmental Consequences of Agriculture' },
   ],
   links: [
-    { title: 'ThinkIB eBook, Option A: Water Scarcity and Water Quality (page 44021)', url: 'https://student.thinkib.net/geography/' },
+    { title: 'ThinkIB: Water Scarcity and Water Quality (44021)', url: 'https://student.thinkib.net/geography/' },
   ],
 };
 

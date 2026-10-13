@@ -68,10 +68,10 @@ const topic: TopicMeta = {
   caseIds: ['a-uae-desalination', 'a-singapore-four-taps', 'a-gerd-nile', 'a-indus-treaty', 'a-snwtp-china', 'a-ogallala-aquifer'],
   sources: [
     { kind: 'ib-guide', title: 'Geography guide (2017), Option A: Freshwater', locator: 'A.4' },
-    { kind: 'thinkib', title: 'ThinkIB, Option A: Water Management Futures (section not yet checked)', locator: 'Water Management Futures' },
+    { kind: 'thinkib', title: 'Option A: Water Management Futures (section not yet checked)', locator: 'Water Management Futures' },
   ],
   links: [
-    { title: 'ThinkIB eBook, Option A: Water Management Futures (page ID not exported yet)', url: 'https://student.thinkib.net/geography/' },
+    { title: 'ThinkIB: Water Management Futures', url: 'https://student.thinkib.net/geography/' },
   ],
 };
 
