@@ -27,10 +27,11 @@ export const syllabus: SyllabusItem[] = [
   { code: 'C.TR', title: { en: 'Key concept: transformation', ru: 'Ключевое понятие: трансформация (transformation)' }, papers: ['P1', 'P2'] },
   { code: 'C.RE', title: { en: 'Key concept: representation', ru: 'Ключевое понятие: репрезентация (representation)' }, papers: ['P1', 'P2'] },
 
-  // Paper 2: comparative essay (105 min, 30 marks: A 0–10, B 0–10, C 0–5, D 0–5)
+  // Paper 2: comparative essay (105 min, 25 marks: A, B1, B2, C, D of 5 marks each)
   { code: 'P2.PL', title: { en: 'Planning a comparative essay in 10 minutes', ru: 'Планирование сравнительного эссе за 10 минут' }, papers: ['P2'] },
-  { code: 'P2.A', title: { en: 'Criterion A: knowledge, understanding and interpretation of the prompt and of both works', ru: 'Критерий A: знание, понимание и интерпретация задания и обоих произведений' }, papers: ['P2'] },
-  { code: 'P2.B', title: { en: 'Criterion B: analysis of authorial choices and comparison of the two works', ru: 'Критерий B: анализ авторских решений и сравнение двух произведений' }, papers: ['P2'] },
+  { code: 'P2.A', title: { en: 'Criterion A: understanding of the prompt and of both works', ru: 'Критерий A: понимание задания и обоих произведений' }, papers: ['P2'] },
+  { code: 'P2.B1', title: { en: 'Criterion B1: analysis of authorial choices', ru: 'Критерий B1: анализ авторских решений' }, papers: ['P2'] },
+  { code: 'P2.B2', title: { en: 'Criterion B2: comparison of the two works', ru: 'Критерий B2: сравнение двух произведений' }, papers: ['P2'] },
   { code: 'P2.C', title: { en: 'Criterion C: focus and organisation of the essay', ru: 'Критерий C: фокус и организация эссе' }, papers: ['P2'] },
   { code: 'P2.D', title: { en: 'Criterion D: language of the essay', ru: 'Критерий D: язык эссе' }, papers: ['P2'] },
 ];

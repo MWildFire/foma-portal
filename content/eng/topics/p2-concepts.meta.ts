@@ -13,7 +13,7 @@ const topic: TopicMeta = {
   outcomes: [
     { en: 'I can name the main and the second concept of a Paper 2 prompt', ru: 'Могу назвать главный и второй концепт задания Paper 2' },
     { en: 'I know which concepts led and supported the prompts of 2023–2025, and why representation leads most often', ru: 'Знаю, какие концепты вели и поддерживали задания 2023–2025 годов, и почему чаще всего ведёт репрезентация' },
-    { en: 'For each concept, I can say what a point must show to earn criterion B marks', ru: 'Для каждого концепта могу сказать, что пункт должен показать, чтобы получить баллы по критерию B' },
+    { en: 'For each concept, I can say what a point must show to earn criteria B1 and B2 marks', ru: 'Для каждого концепта могу сказать, что пункт должен показать, чтобы получить баллы по критериям B1 и B2' },
     { en: 'I can join two concepts in one thesis, so that the second one supports the first', ru: 'Могу соединить два концепта в одном тезисе так, чтобы второй поддерживал первый' },
   ],
   termIds: ['argument', 'theme', 'literary-device', 'juxtaposition'],
