@@ -30,6 +30,7 @@ export function Clock({ minutes }: { minutes: number }) {
     setTimer(current => change(current, now));
   };
 
+  const clock = formatClock(secondsLeft(timer));
   const warning = isWarning(timer);
   const over = timer.status === 'done';
   const message = over ? t('timed.over') : warning ? t('timed.warn') : '';
@@ -37,7 +38,7 @@ export function Clock({ minutes }: { minutes: number }) {
   return (
     <div className="study-clock" data-state={timer.status} data-warning={warning ? 'true' : undefined}>
       <div className="study-clock__row">
-        <p className="study-clock__time" role="timer" aria-label={t('timed.clock')}>{formatClock(secondsLeft(timer))}</p>
+        <p className="study-clock__time" role="timer" aria-label={`${t('timed.clock')}: ${clock}`}>{clock}</p>
         <p className="study-clock__state">{t(`timed.state.${timer.status}`)}</p>
       </div>
       <div className="foma-btn-row">

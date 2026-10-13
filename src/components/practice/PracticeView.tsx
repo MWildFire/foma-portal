@@ -35,6 +35,8 @@ import './practice.css';
 
 interface ListProps {
   questions: readonly Question[];
+  /** How many questions come before this list, so the numbers go on from the list above. */
+  offset?: number;
   lang: Lang;
   subject: string;
   topicIndex: ReadonlyMap<string, TopicMeta>;
@@ -42,14 +44,14 @@ interface ListProps {
   onRate: (questionId: string, rating: Rating) => void;
 }
 
-function QuestionList({ questions, progress, subject, ...rest }: ListProps) {
+function QuestionList({ questions, offset = 0, progress, subject, ...rest }: ListProps) {
   return (
     <ol className="study-list">
       {questions.map((question, position) => {
         const saved = progress[ratingKey(subject, question.id)];
         return (
           <li key={question.id}>
-            <QuestionCard question={question} index={position + 1} subject={subject} rating={saved?.rating} ratedAt={saved?.at} {...rest} />
+            <QuestionCard question={question} index={offset + position + 1} subject={subject} rating={saved?.rating} ratedAt={saved?.at} {...rest} />
           </li>
         );
       })}
@@ -133,7 +135,6 @@ export function PracticeView({ pack }: { pack: SubjectPack }) {
           <section aria-labelledby={summaryId}>
             <h2 id={summaryId} className="study-h2">{t('summary.heading')}</h2>
             <StatGrid
-              label={t('summary.heading')}
               tiles={[
                 { key: 'total', label: t('summary.total'), value: counts.total },
                 { key: 'right', label: t('summary.right'), value: counts.right },
@@ -194,7 +195,7 @@ export function PracticeView({ pack }: { pack: SubjectPack }) {
                         <h2 id={listId} className="study-h2">
                           {t(parts.redo.length > 0 ? 'list.headingOther' : 'list.heading', { n: parts.rest.length })}
                         </h2>
-                        <QuestionList questions={parts.rest} {...listProps} />
+                        <QuestionList questions={parts.rest} offset={parts.redo.length} {...listProps} />
                       </section>
                     ) : null}
                   </>

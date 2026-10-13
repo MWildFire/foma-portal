@@ -44,6 +44,9 @@ export function FlashcardDeck({ subject, terms, progress, today, lang, nextDue, 
   const [revealed, setRevealed] = useState(false);
   const [last, setLast] = useState<{ term: string; box: number; due: string } | null>(null);
   const revealButton = useRef<HTMLButtonElement>(null);
+  const answersBox = useRef<HTMLDivElement>(null);
+  const focusAnswers = useRef(false);
+  const answeredIds = useRef(new Set<string>());
   const answerLabelId = useId();
   const progressId = useId();
 
@@ -55,10 +58,16 @@ export function FlashcardDeck({ subject, terms, progress, today, lang, nextDue, 
   const current = queue[0];
   const total = answered.length + queue.length;
 
-  const reveal = useCallback((): void => setRevealed(true), []);
+  // When the button that was pressed disappears, the focus would fall back to the top of the page. So if the button
+  // had the focus, it goes to the answers (the box itself, not a button: a second Space must not answer).
+  const reveal = useCallback((): void => {
+    focusAnswers.current = document.activeElement !== null && document.activeElement === revealButton.current;
+    setRevealed(true);
+  }, []);
 
   const answer = useCallback((value: Answer): void => {
-    if (!current) return;
+    if (!current || answeredIds.current.has(current.id)) return;
+    answeredIds.current.add(current.id);
     const saved = onAnswer(current, value);
     setLast({ term: current.term.en, box: saved.box, due: saved.due });
     setAnswered(list => [...list, current.id]);
@@ -74,7 +83,7 @@ export function FlashcardDeck({ subject, terms, progress, today, lang, nextDue, 
       if (event.key === ' ' || event.code === 'Space') {
         if (matches(event.target, INTERACTIVE)) return;
         event.preventDefault();
-        setRevealed(true);
+        reveal();
         return;
       }
       if (!revealed || matches(event.target, TEXT_FIELD)) return;
@@ -85,7 +94,13 @@ export function FlashcardDeck({ subject, terms, progress, today, lang, nextDue, 
     };
     window.addEventListener('keydown', onKeyDown);
     return () => window.removeEventListener('keydown', onKeyDown);
-  }, [current, revealed, answer]);
+  }, [current, revealed, answer, reveal]);
+
+  // The definition has appeared: move the focus to the answers if the reveal button had it (see reveal above).
+  useEffect(() => {
+    if (revealed && focusAnswers.current) answersBox.current?.focus({ preventScroll: true });
+    focusAnswers.current = false;
+  }, [revealed]);
 
   // After an answer the button that was pressed is gone. Put the focus on the next card, so a keyboard user can
   // go on with Space. Not on the first card: the page should open where it always does.
@@ -158,7 +173,7 @@ export function FlashcardDeck({ subject, terms, progress, today, lang, nextDue, 
         </div>
 
         {revealed ? (
-          <div className="gl-card__answers">
+          <div ref={answersBox} tabIndex={-1} className="gl-card__answers">
             <p id={answerLabelId} className="study-q__label">{t('cards.answerHeading')}</p>
             <div role="group" aria-labelledby={answerLabelId} className="foma-btn-row">
               {ANSWERS.map((value, index) => {

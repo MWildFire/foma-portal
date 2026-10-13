@@ -56,9 +56,9 @@ export interface Tile {
 
 // Count tiles. The label comes first in the markup (so a screen reader says "Due today: 3"); the number is shown
 // above it. The words are always written, the tiles do not rely on colour.
-export function StatGrid({ tiles, label }: { tiles: readonly Tile[]; label: string }) {
+export function StatGrid({ tiles }: { tiles: readonly Tile[] }) {
   return (
-    <dl className="study-stats" aria-label={label}>
+    <dl className="study-stats">
       {tiles.map(tile => (
         <div key={tile.key} className="study-stat">
           <dt>

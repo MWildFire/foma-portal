@@ -103,7 +103,7 @@ export function GlossaryView({ pack }: { pack: SubjectPack }) {
         <>
           <section aria-labelledby={statsId}>
             <h2 id={statsId} className="study-h2">{t('stats.heading')}</h2>
-            <StatGrid label={t('stats.heading')} tiles={tiles} />
+            <StatGrid tiles={tiles} />
           </section>
 
           <div role="group" aria-label={t('modes.label')} className="foma-btn-row gl-modes">
