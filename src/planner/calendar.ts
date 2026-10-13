@@ -2,8 +2,7 @@
 // Pure module: the JSON is passed in as a parameter (data.ts loads it for the app, tests read it from disk).
 import type { PaperId, SubjectId } from '../contract/types.ts';
 import type { ExamPaper, ExamsFile, QuotaDay, QuotasFile, TimedEntry } from './types.ts';
-// The .ts extension is what Node's test runner needs; tsconfig.json does not allow it for value imports, hence the ignores.
-// @ts-ignore TS5097
+// The .ts extension is what Node's test runner needs.
 import { addDays, dubaiEpoch, isDate, parseClock } from './dates.ts';
 
 export const SUBJECT_IDS: SubjectId[] = ['geo', 'math', 'econ', 'cs', 'eng', 'fr'];

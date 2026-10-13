@@ -1,10 +1,8 @@
 // Checking a progress code before it replaces the progress on this device.
 // The code itself is made and read by src/lib/transfer.ts; this file only decides what to tell the student.
 import type { ProgressPack } from '../lib/transfer.ts';
-// The .ts extensions are what Node's test runner needs; tsconfig.json does not allow them for value imports, hence the ignores.
-// @ts-ignore TS5097
+// The .ts extensions are what Node's test runner needs.
 import { decodeProgress } from '../lib/transfer.ts';
-// @ts-ignore TS5097
 import { STORAGE_KEY } from '../lib/storage.ts';
 
 export type ImportProblem = 'empty' | 'invalid' | 'no-progress' | 'damaged';

@@ -2,12 +2,9 @@
 import type { SubjectId } from '../contract/types.ts';
 import type { GlobalState, PlanBlock, Rag, Weekday } from './types.ts';
 import type { Interval } from './queue.ts';
-// The .ts extensions are what Node's test runner needs; tsconfig.json does not allow them for value imports, hence the ignores.
-// @ts-ignore TS5097
+// The .ts extensions are what Node's test runner needs.
 import { parseBlockId } from './blocks.ts';
-// @ts-ignore TS5097
 import { addInterval, isCovered } from './queue.ts';
-// @ts-ignore TS5097
 import { MAX_DAILY_LOAD } from './loads.ts';
 
 const topicKeyOf = (block: PlanBlock): string | null =>

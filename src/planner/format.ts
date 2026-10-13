@@ -1,7 +1,6 @@
 // Dates and times for display. Calendar days are shown for the Dubai date itself, whatever zone the device is in.
 import type { Weekday } from '../lib/storage.ts';
-// The .ts extension is what Node's test runner needs; tsconfig.json does not allow it for value imports, hence the ignore.
-// @ts-ignore TS5097
+// The .ts extension is what Node's test runner needs.
 import { WEEKDAY_KEYS, addDays, formatClock, isDate, parseClock } from './dates.ts';
 
 // long: "Monday 26 October"; short: "Mon 26 Oct"; day: "26 October" (reads well inside a sentence in both languages);

@@ -14,20 +14,13 @@ import type {
   BlockKind, ExamPaper, Plan, PlanBlock, PlanDay, PlannerInput, PlannerTopic, QuotaDay, RecallInfo, TimedEntry, Unplaced, Weekday,
 } from './types.ts';
 import type { Interval } from './queue.ts';
-// The .ts extensions are what Node's test runner needs; tsconfig.json does not allow them for value imports, hence the ignores.
-// @ts-ignore TS5097
+// The .ts extensions are what Node's test runner needs.
 import { ROUTES } from '../config/routes.ts';
-// @ts-ignore TS5097
 import { addDays, dateRange, weekdayOf } from './dates.ts';
-// @ts-ignore TS5097
 import { EXAM_EVENING_MINUTES, SUBJECT_IDS, examsOn, extendedMinutes, lastExamDate, lastExamOverall, sittingPapers } from './calendar.ts';
-// @ts-ignore TS5097
 import { paperBlockId, parseBlockId, practiceBlockId, recallBlockId, studyBlockId, timedBlockId, topicBlockId } from './blocks.ts';
-// @ts-ignore TS5097
 import { UNIT_MINUTES, addInterval, effectiveMinutes, firstGap, isCovered, topicQueue } from './queue.ts';
-// @ts-ignore TS5097
 import { buildRecall } from './recall.ts';
-// @ts-ignore TS5097
 import { shareFairly } from './share.ts';
 
 const STEP = 5;                 // all quotas and slices are multiples of 5 minutes

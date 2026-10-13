@@ -1,7 +1,6 @@
 // Countdown to the next exam. Pure: the current time is a parameter.
 import type { ExamPaper, ExamsFile } from './types.ts';
-// The .ts extension is what Node's test runner needs; tsconfig.json does not allow it for value imports, hence the ignore.
-// @ts-ignore TS5097
+// The .ts extension is what Node's test runner needs.
 import { examEndMs, examStartClock, examStartMs } from './calendar.ts';
 
 export interface NextExam {

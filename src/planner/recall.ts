@@ -2,7 +2,6 @@
 // French vocabulary and English devices come up more often: they get twice the share of a crowded recall.
 import type { SubjectId } from '../contract/types.ts';
 import type { GlobalState, PlannerSubject, RecallInfo, RecallSubject } from './types.ts';
-// @ts-ignore TS5097
 import { shareFairly } from './share.ts';
 
 const ORDER: SubjectId[] = ['geo', 'math', 'econ', 'cs', 'eng', 'fr'];
