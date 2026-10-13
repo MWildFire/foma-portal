@@ -1,0 +1,50 @@
+import type { TopicMeta } from '../../../../src/contract/types';
+
+const topic: TopicMeta = {
+  id: 'core-1-3-challenges-opportunities',
+  subject: 'geo',
+  code: 'core-1.3',
+  title: { en: 'Challenges and opportunities', ru: 'Вызовы и возможности' },
+  papers: ['P2'],
+  order: 3,
+  minutes: 40,
+  priority: 1,
+  inMockScope: 'yes',
+  outcomes: [
+    { en: 'I can explain how an ageing population and a youth bulge create both challenges and opportunities', ru: 'Могу объяснить, как старение населения и демографическая волна молодёжи создают и вызовы, и возможности' },
+    { en: 'I can calculate the total dependency ratio and interpret a change in it', ru: 'Могу рассчитать общий коэффициент демографической нагрузки и объяснить его изменение' },
+    { en: 'I can evaluate pronatalist and antinatalist population policies using a named example', ru: 'Могу оценить пронаталистскую и антинаталистскую демографическую политику на названном примере' },
+    { en: 'I can assess how migration can help or harm the economy of a country', ru: 'Могу оценить, как миграция может помогать или вредить экономике страны' },
+  ],
+  termIds: [
+    'core-ageing-population',
+    'core-working-age-population',
+    'core-total-dependency-ratio',
+    'core-child-dependency-ratio',
+    'core-old-age-dependency-ratio',
+    'core-youth-bulge',
+    'core-demographic-dividend',
+    'core-replacement-level-fertility',
+    'core-pronatalist-policy',
+    'core-antinatalist-policy',
+    'core-brain-gain',
+    'core-diaspora',
+    'core-silver-economy',
+    'core-pay-as-you-go-pension',
+    'core-long-term-care',
+  ],
+  sims: ['geo.core-dependency-ratio'],
+  questionIds: ['core-1-3-a1', 'core-1-3-a2', 'core-1-3-a3', 'core-1-3-a4', 'core-1-3-a5', 'core-1-3-b1'],
+  caseIds: ['core-1-3-case-china', 'core-1-3-case-singapore', 'core-1-3-case-philippines'],
+  sources: [
+    { kind: 'ib-guide', title: 'Geography guide (2017), core 1.3' },
+    { kind: 'web', title: 'UN DESA, World Population Prospects 2024 (Medium variant), population by age group and total fertility rate', url: 'https://population.un.org/wpp/' },
+    { kind: 'web', title: 'World Bank, World Development Indicators (SP.DYN.TFRT.IN; BX.TRF.PWKR.DT.GD.ZS)', url: 'https://data.worldbank.org/indicator/SP.DYN.TFRT.IN' },
+    { kind: 'web', title: 'Global Government Forum, report of the Higher School of Economics on Russia’s maternity capital', url: 'https://www.globalgovernmentforum.com/russian-scheme-to-raise-the-countrys-fertility-rate-flawed-report-finds/' },
+    { kind: 'web', title: 'Portfolio.hu, Hungary’s tax system in 2020 (lifetime income-tax exemption for mothers of four)', url: 'https://www.portfolio.hu/en/economy/20200101/hungarys-tax-system-in-2020-changes-like-weve-never-seen-before-411307' },
+    { kind: 'web', title: 'Economic Research Forum, working paper on Iran’s family planning programme (started 1989)', url: 'https://erf.org.eg/publications/repression-and-revival-of-the-family-planning-program-and-its-impact-on-the-fertility-levels-and-demographic-transition-in-the-islamic-republic-of-iran/' },
+    { kind: 'web', title: 'Wikipedia, One-child policy (1980 start; 1 January 2016 change; disputed 400 million claim)', url: 'https://en.wikipedia.org/wiki/One-child_policy' },
+  ],
+};
+
+export default topic;

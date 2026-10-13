@@ -1,0 +1,51 @@
+import type { TopicMeta } from '../../../../src/contract/types';
+
+const topic: TopicMeta = {
+  id: 'core-2-3-responding-climate-change',
+  subject: 'geo',
+  code: 'core-2.3',
+  title: { en: 'Responding to global climate change', ru: 'Реагирование на глобальное изменение климата' },
+  papers: ['P2'],
+  order: 7,
+  minutes: 45,
+  priority: 1,
+  inMockScope: 'yes',
+  outcomes: [
+    { en: 'I can distinguish mitigation from adaptation and give one example of each', ru: 'Могу отличить смягчение последствий (mitigation) от адаптации и привести по одному примеру каждого' },
+    { en: 'I can describe the main international agreements (UNFCCC, Kyoto Protocol, Paris Agreement) and what they require', ru: 'Могу описать основные международные соглашения (РКИК ООН, Киотский протокол, Парижское соглашение) и их требования' },
+    { en: 'I can evaluate local and national responses by cost, effectiveness and equity', ru: 'Могу оценить местные и национальные меры по стоимости, эффективности и справедливости' },
+    { en: 'I can explain why a response succeeds or fails in a named case', ru: 'Могу объяснить, почему мера оказалась успешной или неудачной, на названном примере' },
+  ],
+  termIds: [
+    'core-mitigation',
+    'core-adaptation',
+    'core-renewable-energy',
+    'core-energy-efficiency',
+    'core-carbon-pricing',
+    'core-emissions-trading',
+    'core-afforestation',
+    'core-carbon-capture-and-storage',
+    'core-flood-defence',
+    'core-early-warning-system',
+    'core-nature-based-solutions',
+    'core-managed-retreat',
+    'core-nationally-determined-contribution',
+    'core-loss-and-damage',
+    'core-common-but-differentiated-responsibilities',
+  ],
+  questionIds: ['core-2-3-a1', 'core-2-3-a2', 'core-2-3-a3', 'core-2-3-a4', 'core-2-3-a5', 'core-2-3-b1'],
+  caseIds: ['core-2-3-case-netherlands-delta-works', 'core-2-3-case-dubai-solar-park', 'core-2-3-case-pakistan-floods'],
+  sources: [
+    { kind: 'ib-guide', title: 'Geography guide (2017), core 2.3' },
+    { kind: 'web', title: 'IPCC AR6 WGIII (2022), Annex I: Glossary (mitigation, adaptation, afforestation, carbon capture and storage, carbon dioxide removal, renewable energy, energy efficiency, nature-based solutions, solar radiation modification)', url: 'https://www.ipcc.ch/report/ar6/wg3/downloads/report/IPCC_AR6_WGIII_Annex-I.pdf' },
+    { kind: 'web', title: 'IPCC SROCC (2019), Glossary (planned relocation, also termed managed retreat; early warning systems)', url: 'https://www.ipcc.ch/srocc/chapter/glossary/' },
+    { kind: 'web', title: 'UNFCCC, United Nations Framework Convention on Climate Change (1992), text (Articles 2 and 3)', url: 'https://unfccc.int/resource/docs/convkp/conveng.pdf' },
+    { kind: 'web', title: 'UNFCCC, Kyoto Protocol (1997), text (Article 3.1)', url: 'https://unfccc.int/resource/docs/convkp/kpeng.pdf' },
+    { kind: 'web', title: 'UNFCCC, Paris Agreement (2015), text (Articles 2, 4, 8 and 9)', url: 'https://unfccc.int/sites/default/files/resource/parisagreement_publication.pdf' },
+    { kind: 'web', title: 'UNFCCC, The Paris Agreement: adoption on 12 December 2015 and entry into force on 4 November 2016', url: 'https://unfccc.int/process-and-meetings/the-paris-agreement' },
+    { kind: 'web', title: 'Ember, Yearly Electricity Data (Global), last updated 15 September 2026 (Figure 1 and Section B)', url: 'https://ember-energy.org/data/yearly-electricity-data/' },
+    { kind: 'web', title: 'Our World in Data, annual CO2 emissions by country, based on Global Carbon Project data (Section A question 2)', url: 'https://ourworldindata.org/grapher/annual-co2-emissions-per-country' },
+  ],
+};
+
+export default topic;

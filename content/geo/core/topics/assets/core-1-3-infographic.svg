@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" role="img" aria-labelledby="t1 d1">
+  <title id="t1">Old-age dependency ratio for Japan, South Korea and Nigeria, 2024 and 2050 (projected)</title>
+  <desc id="d1">Bar chart. Japan rises from 50.7 in 2024 to 73.1 in 2050. South Korea rises from 27.5 to 75.6. Nigeria rises from 5.5 to 7.0. Total fertility rate in 2024: Japan 1.22, South Korea 0.73, Nigeria 4.38.</desc>
+  <rect x="0" y="0" width="640" height="400" fill="#ffffff"/>
+  <text x="320" y="30" font-family="Helvetica, Arial, sans-serif" font-size="17" font-weight="bold" fill="#1b1b1b" text-anchor="middle">Old-age dependency ratio, 2024 and 2050 (projected)</text>
+  <text x="320" y="50" font-family="Helvetica, Arial, sans-serif" font-size="12" fill="#444444" text-anchor="middle">People aged 65 and over per 100 people aged 15 to 64</text>
+  <rect x="430" y="64" width="14" height="14" fill="#9fb8cc"/>
+  <text x="450" y="76" font-family="Helvetica, Arial, sans-serif" font-size="12" fill="#1b1b1b">2024</text>
+  <rect x="500" y="64" width="14" height="14" fill="#1f4e79"/>
+  <text x="520" y="76" font-family="Helvetica, Arial, sans-serif" font-size="12" fill="#1b1b1b">2050 (projected)</text>
+  <line x1="80" y1="90" x2="620" y2="90" stroke="#d9d9d9" stroke-width="1"/>
+  <line x1="80" y1="150" x2="620" y2="150" stroke="#d9d9d9" stroke-width="1"/>
+  <line x1="80" y1="210" x2="620" y2="210" stroke="#d9d9d9" stroke-width="1"/>
+  <line x1="80" y1="270" x2="620" y2="270" stroke="#d9d9d9" stroke-width="1"/>
+  <line x1="80" y1="330" x2="620" y2="330" stroke="#555555" stroke-width="2"/>
+  <line x1="80" y1="90" x2="80" y2="330" stroke="#555555" stroke-width="1"/>
+  <text x="72" y="94" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#444444" text-anchor="end">80</text>
+  <text x="72" y="154" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#444444" text-anchor="end">60</text>
+  <text x="72" y="214" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#444444" text-anchor="end">40</text>
+  <text x="72" y="274" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#444444" text-anchor="end">20</text>
+  <text x="72" y="334" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#444444" text-anchor="end">0</text>
+  <text transform="rotate(-90 22 210)" x="22" y="210" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#444444" text-anchor="middle">Ratio per 100 people aged 15 to 64</text>
+  <rect x="140" y="177.9" width="52" height="152.1" fill="#9fb8cc"/>
+  <rect x="208" y="110.7" width="52" height="219.3" fill="#1f4e79"/>
+  <rect x="310" y="247.5" width="52" height="82.5" fill="#9fb8cc"/>
+  <rect x="378" y="103.2" width="52" height="226.8" fill="#1f4e79"/>
+  <rect x="480" y="313.5" width="52" height="16.5" fill="#9fb8cc"/>
+  <rect x="548" y="309" width="52" height="21" fill="#1f4e79"/>
+  <text x="166" y="171.9" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" fill="#1b1b1b" text-anchor="middle">50.7</text>
+  <text x="234" y="104.7" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" fill="#1b1b1b" text-anchor="middle">73.1</text>
+  <text x="336" y="241.5" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" fill="#1b1b1b" text-anchor="middle">27.5</text>
+  <text x="404" y="97.2" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" fill="#1b1b1b" text-anchor="middle">75.6</text>
+  <text x="506" y="307.5" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" fill="#1b1b1b" text-anchor="middle">5.5</text>
+  <text x="574" y="303" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" fill="#1b1b1b" text-anchor="middle">7.0</text>
+  <text x="200" y="350" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="bold" fill="#1b1b1b" text-anchor="middle">Japan</text>
+  <text x="370" y="350" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="bold" fill="#1b1b1b" text-anchor="middle">South Korea</text>
+  <text x="540" y="350" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="bold" fill="#1b1b1b" text-anchor="middle">Nigeria</text>
+  <text x="200" y="368" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#444444" text-anchor="middle">Total fertility rate 2024: 1.22</text>
+  <text x="370" y="368" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#444444" text-anchor="middle">Total fertility rate 2024: 0.73</text>
+  <text x="540" y="368" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#444444" text-anchor="middle">Total fertility rate 2024: 4.38</text>
+  <text x="320" y="390" font-family="Helvetica, Arial, sans-serif" font-size="10.5" fill="#444444" text-anchor="middle">Source: UN DESA, World Population Prospects 2024 (Medium variant), 2024 and 2050 projection</text>
+</svg>

@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" role="img" aria-label="Bar chart: energy use per person by income group, 2000 and 2024">
+  <title>Energy use per person by income group, 2000 and 2024</title>
+  <desc>Grouped bars of energy use per person in kilograms of oil equivalent. High income: 4,873 in 2000 and 4,454 in 2024. Middle income: 759 in 2000 and 1,438 in 2024. Low income: 398 in 2000 and 362 in 2024. Source: World Bank, indicator EG.USE.PCAP.KG.OE, data to 2024.</desc>
+  <text x="320" y="24" text-anchor="middle" font-size="16" font-weight="bold" fill="#222">Energy use per person by income group, 2000 and 2024</text>
+  <rect x="90" y="38" width="14" height="14" fill="#9db7cf"/>
+  <text x="110" y="50" font-size="12" fill="#222">2000</text>
+  <rect x="160" y="38" width="14" height="14" fill="#2f5d8a"/>
+  <text x="180" y="50" font-size="12" fill="#222">2024</text>
+  <line x1="90" y1="278" x2="610" y2="278" stroke="#e3e3e3" stroke-width="1"/>
+  <line x1="90" y1="226" x2="610" y2="226" stroke="#e3e3e3" stroke-width="1"/>
+  <line x1="90" y1="174" x2="610" y2="174" stroke="#e3e3e3" stroke-width="1"/>
+  <line x1="90" y1="122" x2="610" y2="122" stroke="#e3e3e3" stroke-width="1"/>
+  <line x1="90" y1="70" x2="610" y2="70" stroke="#e3e3e3" stroke-width="1"/>
+  <text x="82" y="334" text-anchor="end" font-size="11" fill="#555">0</text>
+  <text x="82" y="282" text-anchor="end" font-size="11" fill="#555">1,000</text>
+  <text x="82" y="230" text-anchor="end" font-size="11" fill="#555">2,000</text>
+  <text x="82" y="178" text-anchor="end" font-size="11" fill="#555">3,000</text>
+  <text x="82" y="126" text-anchor="end" font-size="11" fill="#555">4,000</text>
+  <text x="82" y="74" text-anchor="end" font-size="11" fill="#555">5,000</text>
+  <text transform="translate(22 200) rotate(-90)" text-anchor="middle" font-size="12" fill="#555">kg of oil equivalent per person</text>
+  <rect x="116" y="76.6" width="60" height="253.4" fill="#9db7cf"/>
+  <rect x="184" y="98.4" width="60" height="231.6" fill="#2f5d8a"/>
+  <rect x="286" y="290.5" width="60" height="39.5" fill="#9db7cf"/>
+  <rect x="354" y="255.2" width="60" height="74.8" fill="#2f5d8a"/>
+  <rect x="456" y="309.3" width="60" height="20.7" fill="#9db7cf"/>
+  <rect x="524" y="311.2" width="60" height="18.8" fill="#2f5d8a"/>
+  <text x="146" y="70.6" text-anchor="middle" font-size="12" fill="#222">4,873</text>
+  <text x="214" y="92.4" text-anchor="middle" font-size="12" fill="#222">4,454</text>
+  <text x="316" y="284.5" text-anchor="middle" font-size="12" fill="#222">759</text>
+  <text x="384" y="249.2" text-anchor="middle" font-size="12" fill="#222">1,438</text>
+  <text x="486" y="303.3" text-anchor="middle" font-size="12" fill="#222">398</text>
+  <text x="554" y="305.2" text-anchor="middle" font-size="12" fill="#222">362</text>
+  <line x1="90" y1="330" x2="610" y2="330" stroke="#555" stroke-width="1.5"/>
+  <line x1="90" y1="70" x2="90" y2="330" stroke="#555" stroke-width="1.5"/>
+  <text x="180" y="350" text-anchor="middle" font-size="13" fill="#222">High income</text>
+  <text x="350" y="350" text-anchor="middle" font-size="13" fill="#222">Middle income</text>
+  <text x="520" y="350" text-anchor="middle" font-size="13" fill="#222">Low income</text>
+  <text x="90" y="384" font-size="11" fill="#555">Source: World Bank, World Development Indicators, indicator EG.USE.PCAP.KG.OE (data to 2024).</text>
+</svg>
