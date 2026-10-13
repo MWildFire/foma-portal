@@ -104,7 +104,11 @@ async function main() {
     questionIds.add(id);
     check(Number.isInteger(question.marks) && question.marks > 0, `question "${id}": marks must be a whole number above 0`);
     check(pick(question.markscheme, 'en').trim() !== '' && pick(question.markscheme, 'ru').trim() !== '', `question "${id}": markscheme needs en and ru`);
-    if (question.command === 'Write') {
+    // Classified by paper first: a P2 item; else a P1 task (command Write); else a quick check (an answer, not on P2).
+    if (question.paper === 'P2') {
+      p2Items++;
+      check(question.answer !== undefined && question.answer !== '', `P2 item "${id}" has no answer key`);
+    } else if (question.command === 'Write') {
       p1Tasks++;
       const prompt = pick(question.prompt, 'fr');
       check(prompt.trim() !== '', `P1 task "${id}": prompt.fr is empty`);
@@ -121,8 +125,7 @@ async function main() {
       check(/A\)[\s\S]*B\)[\s\S]*C\)/.test(prompt) || question.paper === 'P2', `quick check "${id}": prompt.fr needs options "A) … B) … C) …"`);
       check(question.answer !== '' && (question.paper !== 'P1' || ['A', 'B', 'C'].includes(question.answer)), `quick check "${id}": answer must be A, B or C`);
     } else {
-      p2Items++;
-      check(question.answer !== undefined && question.answer !== '', `P2 item "${id}" has no answer key`);
+      check(false, `question "${id}" is neither a P2 item, a P1 task nor a quick check`);
     }
   }
   notes.push(`questions: P1 tasks ${p1Tasks}, quick checks ${quickChecks}, P2 items ${p2Items}`);

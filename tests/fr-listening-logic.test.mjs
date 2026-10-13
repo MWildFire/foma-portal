@@ -1,4 +1,4 @@
-// node --test scripts/fr-listening-logic.test.mjs
+// node --test tests/fr-listening-logic.test.mjs
 // Checks the pure logic of the listening player, and checks it against the real tracks and questions (content/fr/).
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -72,7 +72,7 @@ test('questionsForTrack keeps the Paper 2 items of the same section, sorted by i
 
 test('normalizeAnswer ignores case, spacing, typographic apostrophes and final punctuation, but not accents', () => {
   assert.equal(normalizeAnswer('  Trois   ANS. '), 'trois ans');
-  assert.equal(normalizeAnswer('L’école'), "l'école");
+  assert.equal(normalizeAnswer('Aujourd’hui'), "aujourd'hui");
   assert.equal(normalizeAnswer('Non  mentionné'), 'non mentionné');
   assert.notEqual(normalizeAnswer('Québec'), normalizeAnswer('Quebec'));
 });
@@ -85,6 +85,24 @@ test('isCorrect compares letters, true/false words and short answers, and never 
   assert.equal(isCorrect('salle des fêtes', 'Salle des fêtes.'), true);
   assert.equal(isCorrect('deux', ''), false);
   assert.equal(isCorrect('', ''), false);
+});
+
+test('a numeral from 0 to 100 matches its French word, and other numbers are kept', () => {
+  assert.equal(isCorrect('40', 'quarante'), true);
+  assert.equal(isCorrect('quarante', '40'), true);
+  assert.equal(isCorrect('3 mois', 'trois mois'), true);
+  assert.equal(isCorrect('2', 'Deux.'), true);
+  assert.equal(isCorrect('80', 'quatre-vingts'), true);
+  assert.equal(isCorrect('40', 'cinquante'), false);
+  assert.equal(normalizeAnswer('2024'), '2024');
+});
+
+test('a leading article or preposition is ignored, the other words are not', () => {
+  assert.equal(isCorrect('la salle des fêtes', 'salle des fêtes'), true);
+  assert.equal(isCorrect('au Québec', 'Québec'), true);
+  assert.equal(isCorrect('les collégiens', 'Collégiens'), true);
+  assert.equal(isCorrect('au Québec', 'Montréal'), false);
+  assert.equal(isCorrect('la salle des fêtes', 'gymnase'), false);
 });
 
 test('optionLetters reads the options of a prompt, and falls back to A to C', () => {

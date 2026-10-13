@@ -1,4 +1,4 @@
-// node --test scripts/fr-connector-logic.test.mjs
+// node --test tests/fr-connector-logic.test.mjs
 // Checks the pure logic of the connector sort against the real connector file (content/fr/terms/connectors.ts).
 import { test } from 'node:test';
 import assert from 'node:assert/strict';

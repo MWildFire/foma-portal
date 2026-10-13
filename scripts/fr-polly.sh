@@ -20,6 +20,13 @@ if [[ $# -ne 1 ]]; then
   exit 2
 fi
 
+# A track id is the file name of content/fr/listening/<id>.ts (for example l1-racines). Anything else, such as a path,
+# is refused here, before any temporary folder is made.
+if [[ "$1" != "all" && ! "$1" =~ ^l[0-9]+-[a-z0-9-]+$ ]]; then
+  echo "usage: $0 <track-id|all>, for example $0 l1-racines" >&2
+  exit 2
+fi
+
 for tool in aws ffmpeg ffprobe node; do
   if ! command -v "$tool" >/dev/null 2>&1; then
     echo "missing tool: $tool" >&2

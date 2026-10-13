@@ -1,7 +1,7 @@
 import type { FrQuestion, ListeningTrack } from '../../../content/fr/types';
 
 // Pure logic for the listening player (listening-player.tsx). The real tracks and questions are checked by
-// scripts/fr-listening-logic.test.mjs.
+// tests/fr-listening-logic.test.mjs.
 
 // The pause between the two plays of a recording, in seconds. Exam style: every recording is played twice.
 export const PAUSE_SECONDS = 30;
@@ -59,9 +59,42 @@ export function optionLetters(prompt: string): string[] {
   return letters.length >= 2 ? letters : ['A', 'B', 'C'];
 }
 
-// Case, spacing, typographic apostrophes and final punctuation do not matter; accents and letters do.
+// French words for the whole numbers 0 to 100 (2 is "deux", 80 is "quatre-vingts").
+const UNITS = ['zéro', 'un', 'deux', 'trois', 'quatre', 'cinq', 'six', 'sept', 'huit', 'neuf', 'dix', 'onze', 'douze', 'treize', 'quatorze', 'quinze', 'seize', 'dix-sept', 'dix-huit', 'dix-neuf'];
+const TENS = ['', '', 'vingt', 'trente', 'quarante', 'cinquante', 'soixante'];
+
+function frenchNumber(n: number): string {
+  if (n === 100) return 'cent';
+  if (n < 20) return UNITS[n];
+  if (n < 70) {
+    const unit = n % 10;
+    const tens = TENS[Math.floor(n / 10)];
+    if (unit === 0) return tens;
+    return unit === 1 ? `${tens} et un` : `${tens}-${UNITS[unit]}`;
+  }
+  if (n < 80) return n === 71 ? 'soixante et onze' : `soixante-${UNITS[n - 60]}`;
+  if (n === 80) return 'quatre-vingts';
+  return `quatre-vingt-${UNITS[n - 80]}`;
+}
+
+// Digits from 0 to 100 are read as French words ("3 mois" is "trois mois"). Other numbers are kept as they are.
+function numeralsToWords(text: string): string {
+  return text.replace(/(?<![\p{L}\p{N}])\d+(?![\p{L}\p{N}])/gu, digits => {
+    const n = Number(digits);
+    return n <= 100 && String(n) === digits ? frenchNumber(n) : digits;
+  });
+}
+
+// One leading article or preposition is ignored: "la salle des fêtes" and "salle des fêtes" are the same answer.
+function withoutLeadingWord(text: string): string {
+  const rest = text.replace(/^(?:(?:le|la|les|un|une|des|du|de|au|aux|en)\s+|(?:l|d)'\s*)/, '');
+  return rest === '' ? text : rest;
+}
+
+// Case, spacing, typographic apostrophes and final punctuation do not matter; accents and letters do. Numerals from 0
+// to 100 match their French words, and one leading article or preposition is ignored.
 export function normalizeAnswer(text: string): string {
-  return text
+  const plain = text
     .normalize('NFC')
     .replace(/[’`´]/g, "'")
     .replace(/\s+/g, ' ')
@@ -69,6 +102,7 @@ export function normalizeAnswer(text: string): string {
     .replace(/[.,;:!?]+$/, '')
     .trim()
     .toLowerCase();
+  return withoutLeadingWord(numeralsToWords(plain));
 }
 
 export function isCorrect(answer: string, response: string): boolean {

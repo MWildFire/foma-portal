@@ -98,10 +98,15 @@ export default function ListeningPlayer({ lang }: { lang: Lang }) {
     if (audioRef.current) audioRef.current.playbackRate = speed;
   }, [speed]);
 
-  useEffect(() => () => {
-    if (timerRef.current !== null) window.clearTimeout(timerRef.current);
-    audioRef.current?.pause();
-  }, []);
+  // The audio element is replaced when the track changes (key={track.id}). By the time a cleanup runs, audioRef.current is
+  // empty, so the element is kept in a local variable and paused on unmount or when the track changes.
+  useEffect(() => {
+    const audio = audioRef.current;
+    return () => {
+      if (timerRef.current !== null) window.clearTimeout(timerRef.current);
+      audio?.pause();
+    };
+  }, [track]);
 
   const clearTimer = (): void => {
     if (timerRef.current !== null) window.clearTimeout(timerRef.current);
@@ -206,11 +211,11 @@ export default function ListeningPlayer({ lang }: { lang: Lang }) {
             <li key={item.id} style={{ border: `1px solid ${border}`, borderRadius: 8, padding: '8px 10px' }}>
               <fieldset style={{ ...plain, display: 'grid', gap: 6 }}>
                 <legend>
-                  <strong>{index + 1}. <span lang="fr">{item.prompt.fr}</span></strong>
+                  <strong>{index + 1}. <span lang="fr" style={{ whiteSpace: 'pre-line' }}>{item.prompt.fr}</span></strong>
                 </legend>
                 <details>
                   <summary>{copy.translation}</summary>
-                  <p style={{ margin: '4px 0 0' }}>{item.prompt[lang]}</p>
+                  <p style={{ margin: '4px 0 0', whiteSpace: 'pre-line' }}>{item.prompt[lang]}</p>
                 </details>
                 <div style={row}>
                   {kind === 'text' ? (

@@ -1,4 +1,4 @@
-// node --test scripts/fr-conjugation-logic.test.mjs
+// node --test tests/fr-conjugation-logic.test.mjs
 // Checks the pure logic of the conjugation trainer against the real drill files (content/fr/grammar/conjugation*.ts).
 import { test } from 'node:test';
 import assert from 'node:assert/strict';

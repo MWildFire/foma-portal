@@ -1,4 +1,4 @@
-// node --test scripts/fr-reading-logic.test.mjs
+// node --test tests/fr-reading-logic.test.mjs
 // Checks the pure logic of the reading practice against the real passages and items (content/fr/reading, content/fr/questions).
 import { test } from 'node:test';
 import assert from 'node:assert/strict';

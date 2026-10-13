@@ -1,4 +1,4 @@
-// node --test scripts/fr-ssml.test.mjs
+// node --test tests/fr-ssml.test.mjs
 // Checks the SSML built for the Polly voices. Pure functions only: no AWS call and no file is written.
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
