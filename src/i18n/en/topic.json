@@ -92,6 +92,10 @@
   "table": {
     "label": "Table"
   },
+  "region": {
+    "formula": "Scrollable formula",
+    "code": "Scrollable code"
+  },
   "warn": {
     "outside": "{{name}} works only inside a topic page.",
     "noId": "(no id given)",

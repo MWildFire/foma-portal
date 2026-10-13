@@ -1,5 +1,6 @@
 import { useMemo } from 'react';
 import katex from 'katex';
+import { useBodyT } from '../mdx/context';
 
 const cache = new Map<string, string | null>();
 
@@ -18,12 +19,14 @@ export function texToHtml(tex: string, display: boolean): string | null {
   return html;
 }
 
-// A formula. Display mode scrolls inside its own box on a narrow screen. A broken formula shows its source
-// text instead of crashing the page.
+// A formula. Display mode scrolls inside its own box on a narrow screen; that box can take the keyboard focus and has
+// a name for screen readers, so the keyboard can scroll it. A broken formula shows its source text instead of
+// crashing the page.
 export function Tex({ tex, display = false }: { tex: string; display?: boolean }) {
+  const { t } = useBodyT();
   const html = useMemo(() => texToHtml(tex, display), [tex, display]);
   if (html === null) return <code className="break-words">{tex}</code>;
   return display
-    ? <span className="block max-w-full overflow-x-auto" dangerouslySetInnerHTML={{ __html: html }} />
+    ? <span className="block max-w-full overflow-x-auto" tabIndex={0} role="region" aria-label={t('region.formula')} dangerouslySetInnerHTML={{ __html: html }} />
     : <span dangerouslySetInnerHTML={{ __html: html }} />;
 }

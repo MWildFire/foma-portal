@@ -14,7 +14,11 @@ export const Li = (props: ComponentProps<'li'>) => <li {...props} className="fom
 export const Quote = (props: ComponentProps<'blockquote'>) => <blockquote {...props} className="foma-quote" />;
 export const Hr = (props: ComponentProps<'hr'>) => <hr {...props} className="foma-hr" />;
 export const Code = (props: ComponentProps<'code'>) => <code {...props} className="foma-code" />;
-export const Pre = (props: ComponentProps<'pre'>) => <pre {...props} className="foma-pre" />;
+// A code block scrolls sideways on a narrow screen, so it is a named region the keyboard can reach.
+export function Pre(props: ComponentProps<'pre'>) {
+  const { t } = useBodyT();
+  return <pre {...props} className="foma-pre" tabIndex={0} role="region" aria-label={t('region.code')} />;
+}
 export const Th = (props: ComponentProps<'th'>) => <th {...props} className="foma-th" />;
 export const Td = (props: ComponentProps<'td'>) => <td {...props} className="foma-td" />;
 
