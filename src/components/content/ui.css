@@ -77,6 +77,17 @@
   line-height: 1.5;
 }
 
+/* French text drawn before the English or Russian text of the same item (src/components/ui/FrenchText.tsx). A term or
+   a title takes its own line; a prompt, a stimulus or a model answer is a block with the usual gap below it (the
+   margin of the text inside merges with it, so the gap is the same as between two paragraphs). */
+.foma-fr {
+  display: block;
+}
+
+.foma-fr--rich {
+  margin: 0 0 0.75rem;
+}
+
 /* Buttons. 44 px minimum height for touch; a selected toggle (aria-pressed) is filled and carries a check mark. */
 .foma-btn {
   display: inline-flex;

@@ -1,5 +1,6 @@
 export type Lang = 'en' | 'ru';
-export type L = { en: string; ru: string };   // короткий текст; inline Markdown; формулы $...$
+// `fr` (French text) is set only for the French subject; every other subject leaves it out.
+export type L = { en: string; ru: string; fr?: string };   // короткий текст; inline Markdown; формулы $...$
 export type SubjectId = 'geo' | 'math' | 'econ' | 'cs' | 'eng' | 'fr';
 export type PaperId = 'P1' | 'P2' | 'P3';
 export type SimId = `${SubjectId}.${string}`; // 'econ.supply-demand' = src/sims/econ/supply-demand.tsx
