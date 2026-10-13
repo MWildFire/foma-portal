@@ -334,7 +334,7 @@ export const terms: FrTerm[] = [
   {
     id: 'v-t2-036',
     term: { en: 'surprised, amazed', ru: 'удивлённый', fr: 'étonné' },
-    def: { en: 'feeling surprise at something unexpected', ru: 'испытывающий удивление, часто приятное' },
+    def: { en: 'feeling surprise at something unexpected', ru: 'испытывающий удивление от неожиданного' },
     example: { en: 'The tourists were amazed by the beauty of the landscape.', ru: 'Туристы были поражены красотой пейзажа.', fr: 'Les touristes étaient étonnés par la beauté du paysage.' },
     syllabus: 'T2',
     papers: ['P1', 'P2'],
