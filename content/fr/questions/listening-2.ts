@@ -2,7 +2,7 @@ import type { FrQuestion } from '../types';
 
 // Listening items for tracks l5 to l8 (paper 2). Each track has 10 items: 3 vrai / faux /
 // non mentionné (Identify), 3 multiple choice (Identify), 2 short answers (State), 1 matching (Match) and 1 note
-// completion (Note). topicIds stay empty until the topic listening-strategy exists (Task 19).
+// completion (Note). topicIds point to the topic listening-strategy.
 
 export const questions: FrQuestion[] = [
   // ---- l5: radio report on rainwater at school ----
