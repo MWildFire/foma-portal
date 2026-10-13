@@ -10,3 +10,5 @@ infra/*.tfvars
 sources
 .DS_Store
 *.tsbuildinfo
+*.tfplan
+*.tfvars.json
