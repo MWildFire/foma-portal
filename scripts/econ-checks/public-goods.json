@@ -1,5 +1,5 @@
 {
   "checks": [
-    { "question": "econ-public-goods-01", "fn": "ratio", "args": { "a": 4, "b": 6 } }
+    { "question": "econ-public-goods-01", "fn": "ratio", "args": { "a": 4, "b": 6 }, "roles": { "a": "market provides 4", "b": "socially optimal quantity is 6" } }
   ]
 }

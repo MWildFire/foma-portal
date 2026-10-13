@@ -1,6 +1,6 @@
 {
   "checks": [
-    { "question": "econ-benefits-of-trade-01", "fn": "ratio", "args": { "a": 150, "b": 60 } },
-    { "question": "econ-benefits-of-trade-02", "fn": "ratio", "args": { "a": 60, "b": 40 } }
+    { "question": "econ-benefits-of-trade-01", "fn": "ratio", "args": { "a": 150, "b": 60 }, "roles": { "a": "Country C can produce 150", "b": "rice or 60" } },
+    { "question": "econ-benefits-of-trade-02", "fn": "ratio", "args": { "a": 60, "b": 40 }, "roles": { "a": "rice or 60", "b": "Country D can produce 40" } }
   ]
 }

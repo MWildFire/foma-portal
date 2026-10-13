@@ -1,8 +1,8 @@
 {
   "checks": [
-    { "question": "econ-monopoly-and-natural-monopoly-01", "fn": "mr_mc_quantity", "args": { "a": 60, "b": 2, "mc": 20 } },
-    { "question": "econ-monopoly-and-natural-monopoly-02", "fn": "profit", "args": { "p": 40, "q": 10, "total_cost": 260 } },
-    { "question": "econ-monopoly-and-natural-monopoly-03", "fn": "total_revenue", "args": { "p": 36, "q": 12 } },
-    { "question": "econ-monopoly-and-natural-monopoly-04", "fn": "triangle", "args": { "base": 10, "height": 20 } }
+    { "question": "econ-monopoly-and-natural-monopoly-01", "fn": "mr_mc_quantity", "args": { "a": 60, "b": 2, "mc": 20 }, "roles": { "a": "P = 60", "b": "P = 60 - 2", "mc": "marginal cost is constant at AED 20" } },
+    { "question": "econ-monopoly-and-natural-monopoly-02", "fn": "profit", "args": { "p": 40, "q": 10, "total_cost": 260 }, "roles": { "p": "at a price of AED 40", "q": "sells 10", "total_cost": "total cost of producing 10 units is AED 260" } },
+    { "question": "econ-monopoly-and-natural-monopoly-03", "fn": "total_revenue", "args": { "p": 36, "q": 12 }, "roles": { "p": "lowers the price to AED 36", "q": "it sells 12" } },
+    { "question": "econ-monopoly-and-natural-monopoly-04", "fn": "triangle", "args": { "base": 10, "height": 20 }, "roles": { "base": "derived: 20 - 10", "height": "derived: 40 - 20" } }
   ]
 }

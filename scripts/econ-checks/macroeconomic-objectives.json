@@ -1,9 +1,9 @@
 {
   "checks": [
-    { "question": "econ-macroeconomic-objectives-01", "fn": "cpi", "args": { "basket_now": 1725, "basket_base": 1500 } },
-    { "question": "econ-macroeconomic-objectives-02", "fn": "inflation", "args": { "index_now": 121.8, "index_before": 115.0 } },
-    { "question": "econ-macroeconomic-objectives-03", "fn": "unemployment_rate", "args": { "unemployed": 184, "labour_force": 3250 } },
-    { "question": "econ-macroeconomic-objectives-04", "fn": "real_gdp", "args": { "nominal": 14300, "deflator": 115.5 } },
-    { "question": "econ-macroeconomic-objectives-05", "fn": "inflation", "args": { "index_now": 101.5, "index_before": 104.0 } }
+    { "question": "econ-macroeconomic-objectives-01", "fn": "cpi", "args": { "basket_now": 1725, "basket_base": 1500 }, "roles": { "basket_now": "(2020 = 100) and 1725", "basket_base": "costs 1500" } },
+    { "question": "econ-macroeconomic-objectives-02", "fn": "inflation", "args": { "index_now": 121.8, "index_before": 115.0 }, "roles": { "index_now": "and 121.8", "index_before": "consumer price index was 115.0" } },
+    { "question": "econ-macroeconomic-objectives-03", "fn": "unemployment_rate", "args": { "unemployed": 184, "labour_force": 3250 }, "roles": { "unemployed": "labour force and 184", "labour_force": "Of these, 3250" } },
+    { "question": "econ-macroeconomic-objectives-04", "fn": "real_gdp", "args": { "nominal": 14300, "deflator": 115.5 }, "roles": { "nominal": "In 2025 the monthly salary is 14300", "deflator": "the price index is 115.5" } },
+    { "question": "econ-macroeconomic-objectives-05", "fn": "inflation", "args": { "index_now": 101.5, "index_before": 104.0 }, "roles": { "index_now": "to 101.5", "index_before": "from 104.0" } }
   ]
 }

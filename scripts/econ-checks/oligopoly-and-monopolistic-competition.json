@@ -1,6 +1,6 @@
 {
   "checks": [
-    { "question": "econ-oligopoly-and-monopolistic-competition-01", "fn": "profit", "args": { "p": 12, "q": 300, "total_cost": 2400 } },
-    { "question": "econ-oligopoly-and-monopolistic-competition-02", "fn": "total_revenue", "args": { "p": 10, "q": 450 } }
+    { "question": "econ-oligopoly-and-monopolistic-competition-01", "fn": "profit", "args": { "p": 12, "q": 300, "total_cost": 2400 }, "roles": { "p": "sells 300 units at AED 12", "q": "sells 300", "total_cost": "total cost of producing 300 units is AED 2400" } },
+    { "question": "econ-oligopoly-and-monopolistic-competition-02", "fn": "total_revenue", "args": { "p": 10, "q": 450 }, "roles": { "p": "cuts the price to AED 10", "q": "sales rise to 450" } }
   ]
 }

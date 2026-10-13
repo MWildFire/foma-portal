@@ -1,8 +1,8 @@
 {
   "checks": [
-    { "question": "econ-income-and-cross-elasticity-01", "fn": "yed", "args": { "q1": 8, "q2": 12, "y1": 4000, "y2": 5000 } },
-    { "question": "econ-income-and-cross-elasticity-02", "fn": "yed", "args": { "q1": 20, "q2": 23, "y1": 6000, "y2": 5400 } },
-    { "question": "econ-income-and-cross-elasticity-03", "fn": "xed", "args": { "q1": 300, "q2": 345, "pb1": 10.0, "pb2": 12.0 } },
-    { "question": "econ-income-and-cross-elasticity-04", "fn": "xed", "args": { "q1": 200, "q2": 170, "pb1": 40.0, "pb2": 50.0 } }
+    { "question": "econ-income-and-cross-elasticity-01", "fn": "yed", "args": { "q1": 8, "q2": 12, "y1": 4000, "y2": 5000 }, "roles": { "q1": "rise from 8", "q2": "to 12", "y1": "rises from AED 4000", "y2": "to AED 5000" } },
+    { "question": "econ-income-and-cross-elasticity-02", "fn": "yed", "args": { "q1": 20, "q2": 23, "y1": 6000, "y2": 5400 }, "roles": { "q1": "rise from 20", "q2": "to 23", "y1": "falls from AED 6000", "y2": "to AED 5400" } },
+    { "question": "econ-income-and-cross-elasticity-03", "fn": "xed", "args": { "q1": 300, "q2": 345, "pb1": 10.0, "pb2": 12.0 }, "roles": { "q1": "rise from 300", "q2": "to 345", "pb1": "rises from AED 10.00", "pb2": "to AED 12.00" } },
+    { "question": "econ-income-and-cross-elasticity-04", "fn": "xed", "args": { "q1": 200, "q2": 170, "pb1": 40.0, "pb2": 50.0 }, "roles": { "q1": "fall from 200", "q2": "to 170", "pb1": "rises from AED 40.00", "pb2": "to AED 50.00" } }
   ]
 }

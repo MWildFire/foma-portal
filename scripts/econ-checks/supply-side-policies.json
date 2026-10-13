@@ -1,5 +1,5 @@
 {
   "checks": [
-    { "question": "econ-supply-side-policies-01", "fn": "ratio", "args": { "a": 150, "b": 600 } }
+    { "question": "econ-supply-side-policies-01", "fn": "ratio", "args": { "a": 150, "b": 600 }, "roles": { "a": "port adds AED 150", "b": "government spends AED 600" } }
   ]
 }

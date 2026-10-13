@@ -1,5 +1,5 @@
 {
   "checks": [
-    { "question": "econ-monetary-policy-01", "fn": "pct_change", "args": { "old": 5.0, "new": 4.5 } }
+    { "question": "econ-monetary-policy-01", "fn": "pct_change", "args": { "old": 5.0, "new": 4.5 }, "roles": { "old": "from 5.0", "new": "to 4.5" } }
   ]
 }

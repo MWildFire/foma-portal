@@ -1,5 +1,5 @@
 {
   "checks": [
-    { "question": "econ-equity-and-market-failure-01", "fn": "ratio", "args": { "a": 45000, "b": 150000 } }
+    { "question": "econ-equity-and-market-failure-01", "fn": "ratio", "args": { "a": 45000, "b": 150000 }, "roles": { "a": "pays AED 45000", "b": "Person B earns AED 150000" } }
   ]
 }

@@ -1,6 +1,6 @@
 {
   "checks": [
-    { "question": "econ-ad-as-model-and-business-cycle-01", "fn": "output_gap", "args": { "actual": 470, "potential": 500 } },
-    { "question": "econ-ad-as-model-and-business-cycle-02", "fn": "ratio", "args": { "a": 30, "b": 2.5 } }
+    { "question": "econ-ad-as-model-and-business-cycle-01", "fn": "output_gap", "args": { "actual": 470, "potential": 500 }, "roles": { "actual": "actual real GDP is AED 470", "potential": "potential output of an economy is AED 500" } },
+    { "question": "econ-ad-as-model-and-business-cycle-02", "fn": "ratio", "args": { "a": 30, "b": 2.5 }, "roles": { "a": "deflationary gap of AED 30", "b": "government spending multiplier is 2.5" } }
   ]
 }

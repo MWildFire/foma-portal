@@ -1,9 +1,9 @@
 {
   "checks": [
-    { "question": "econ-multiplier-01", "fn": "mps", "args": { "mpc": 0.75 } },
-    { "question": "econ-multiplier-02", "fn": "multiplier", "args": { "mps": 0.2, "mpt": 0.1, "mpm": 0.2 } },
-    { "question": "econ-multiplier-03", "fn": "multiplier_from_mpc", "args": { "mpc": 0.6 } },
-    { "question": "econ-multiplier-04", "fn": "ratio", "args": { "a": 40, "b": 0.4 } },
-    { "question": "econ-multiplier-05", "fn": "ratio", "args": { "a": 15, "b": 0.25 } }
+    { "question": "econ-multiplier-01", "fn": "mps", "args": { "mpc": 0.75 }, "roles": { "mpc": "(MPC) is 0.75" } },
+    { "question": "econ-multiplier-02", "fn": "multiplier", "args": { "mps": 0.2, "mpt": 0.1, "mpm": 0.2 }, "roles": { "mps": "MPS = 0.2", "mpt": "MPT = 0.1", "mpm": "MPM = 0.2" } },
+    { "question": "econ-multiplier-03", "fn": "multiplier_from_mpc", "args": { "mpc": 0.6 }, "roles": { "mpc": "propensity to consume of 0.6" } },
+    { "question": "econ-multiplier-04", "fn": "ratio", "args": { "a": 40, "b": 0.4 }, "roles": { "a": "Investment rises by AED 40", "b": "propensities to save, tax and import is 0.4" } },
+    { "question": "econ-multiplier-05", "fn": "ratio", "args": { "a": 15, "b": 0.25 }, "roles": { "a": "Government spending rises by AED 15", "b": "propensity to save of 0.25" } }
   ]
 }

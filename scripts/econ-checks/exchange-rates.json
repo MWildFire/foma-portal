@@ -1,9 +1,9 @@
 {
   "checks": [
-    { "question": "econ-exchange-rates-01", "fn": "convert", "args": { "amount": 500, "rate": 3.6725 } },
-    { "question": "econ-exchange-rates-02", "fn": "pct_change", "args": { "old": 3.6725, "new": 3.30 } },
-    { "question": "econ-exchange-rates-03", "fn": "convert", "args": { "amount": 500, "rate": 3.30 } },
-    { "question": "econ-exchange-rates-04", "fn": "ratio", "args": { "a": 4407, "b": 5000 } },
-    { "question": "econ-exchange-rates-05", "fn": "convert", "args": { "amount": 320, "rate": 4.70 } }
+    { "question": "econ-exchange-rates-01", "fn": "convert", "args": { "amount": 500, "rate": 3.6725 }, "roles": { "amount": "to buy USD 500", "rate": "keeps the dirham at 3.6725" } },
+    { "question": "econ-exchange-rates-02", "fn": "pct_change", "args": { "old": 3.6725, "new": 3.30 }, "roles": { "old": "from 3.6725", "new": "to 3.30" } },
+    { "question": "econ-exchange-rates-03", "fn": "convert", "args": { "amount": 500, "rate": 3.30 }, "roles": { "amount": "how many AED USD 500", "rate": "floating rate of 3.30" } },
+    { "question": "econ-exchange-rates-04", "fn": "ratio", "args": { "a": 4407, "b": 5000 }, "roles": { "a": "which is AED 4407", "b": "same laptop costs AED 5000" } },
+    { "question": "econ-exchange-rates-05", "fn": "convert", "args": { "amount": 320, "rate": 4.70 }, "roles": { "amount": "pays GBP 320", "rate": "hypothetical rate of 4.70" } }
   ]
 }

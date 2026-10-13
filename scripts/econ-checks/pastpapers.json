@@ -7,6 +7,10 @@
     "old": 20,
     "new": 16
    },
+   "roles": {
+    "old": "from 20",
+    "new": "to 16"
+   },
    "answer": "-20.0"
   },
   {
@@ -15,6 +19,10 @@
    "args": {
     "old": 400,
     "new": 440
+   },
+   "roles": {
+    "old": "quantity 400",
+    "new": "new quantity = 440"
    },
    "answer": "10.0"
   },
@@ -27,6 +35,12 @@
     "p1": 20,
     "p2": 16
    },
+   "roles": {
+    "q1": "before: 20 × 400",
+    "q2": "new quantity = 440",
+    "p1": "falls from 20",
+    "p2": "to 16"
+   },
    "answer": "-0.5"
   },
   {
@@ -35,6 +49,10 @@
    "args": {
     "p": 16,
     "q": 440
+   },
+   "roles": {
+    "p": "to 16",
+    "q": "new quantity = 440"
    },
    "answer": "7040"
   },
@@ -45,6 +63,10 @@
     "p": 20,
     "q": 400
    },
+   "roles": {
+    "p": "before: 20",
+    "q": "before: 20 × 400"
+   },
    "answer": "8000"
   },
   {
@@ -53,6 +75,10 @@
    "args": {
     "tax_revenue": -40,
     "spending": 70
+   },
+   "roles": {
+    "tax_revenue": "current account -40",
+    "spending": "services 70"
    },
    "answer": "-110"
   },
@@ -63,6 +89,10 @@
     "tax_revenue": -110,
     "spending": 8
    },
+   "roles": {
+    "tax_revenue": "-40 - 70 = -110",
+    "spending": "income 8"
+   },
    "answer": "-118"
   },
   {
@@ -71,6 +101,10 @@
    "args": {
     "tax_revenue": -118,
     "spending": -6
+   },
+   "roles": {
+    "tax_revenue": "-110 - 8 = -118",
+    "spending": "transfers -6"
    },
    "answer": "-112"
   },
@@ -81,6 +115,10 @@
     "tax_revenue": 600,
     "spending": 320
    },
+   "roles": {
+    "tax_revenue": "GDP 600",
+    "spending": "consumption 320"
+   },
    "answer": "280"
   },
   {
@@ -89,6 +127,10 @@
    "args": {
     "tax_revenue": 280,
     "spending": 90
+   },
+   "roles": {
+    "tax_revenue": "600 - 320 = 280",
+    "spending": "investment 90"
    },
    "answer": "190"
   },
@@ -99,6 +141,10 @@
     "tax_revenue": 190,
     "spending": 110
    },
+   "roles": {
+    "tax_revenue": "280 - 90 = 190",
+    "spending": "government spending 110"
+   },
    "answer": "80"
   },
   {
@@ -107,6 +153,10 @@
    "args": {
     "tax_revenue": 150,
     "spending": 80
+   },
+   "roles": {
+    "tax_revenue": "exports 150",
+    "spending": "190 - 110 = 80"
    },
    "answer": "70"
   },
@@ -117,6 +167,10 @@
     "tax_revenue": 540,
     "spending": 500
    },
+   "roles": {
+    "tax_revenue": "GNI 540",
+    "spending": "GDP 500"
+   },
    "answer": "40"
   },
   {
@@ -126,6 +180,10 @@
     "old": 60,
     "new": 57
    },
+   "roles": {
+    "old": "from 60",
+    "new": "to 57"
+   },
    "answer": "-5.0"
   },
   {
@@ -134,6 +192,10 @@
    "args": {
     "old": 2000,
     "new": 2200
+   },
+   "roles": {
+    "old": "from 2000",
+    "new": "to 2200"
    },
    "answer": "10.0"
   },
@@ -146,6 +208,12 @@
     "y1": 2000,
     "y2": 2200
    },
+   "roles": {
+    "q1": "from 60",
+    "q2": "to 57",
+    "y1": "from 2000",
+    "y2": "to 2200"
+   },
    "answer": "-0.50"
   },
   {
@@ -155,6 +223,10 @@
     "old": 30,
     "new": 24
    },
+   "roles": {
+    "old": "from 30",
+    "new": "to 24"
+   },
    "answer": "-20.0"
   },
   {
@@ -163,6 +235,10 @@
    "args": {
     "old": 100,
     "new": 140
+   },
+   "roles": {
+    "old": "quantity 100",
+    "new": "new quantity = 140"
    },
    "answer": "40.0"
   },
@@ -175,6 +251,12 @@
     "p1": 30,
     "p2": 24
    },
+   "roles": {
+    "q1": "before: 30 × 100",
+    "q2": "new quantity = 140",
+    "p1": "from 30",
+    "p2": "to 24"
+   },
    "answer": "-2.0"
   },
   {
@@ -183,6 +265,10 @@
    "args": {
     "p": 24,
     "q": 140
+   },
+   "roles": {
+    "p": "to 24",
+    "q": "new quantity = 140"
    },
    "answer": "3360"
   },
@@ -193,6 +279,10 @@
     "p": 30,
     "q": 100
    },
+   "roles": {
+    "p": "before: 30",
+    "q": "before: 30 × 100"
+   },
    "answer": "3000"
   },
   {
@@ -201,6 +291,10 @@
    "args": {
     "tax_revenue": -40,
     "spending": -60
+   },
+   "roles": {
+    "tax_revenue": "current account -40",
+    "spending": "goods -60"
    },
    "answer": "20"
   },
@@ -211,6 +305,10 @@
     "tax_revenue": 20,
     "spending": 10
    },
+   "roles": {
+    "tax_revenue": "-40 - (-60) = 20",
+    "spending": "income 10"
+   },
    "answer": "10"
   },
   {
@@ -219,6 +317,10 @@
    "args": {
     "tax_revenue": 10,
     "spending": -8
+   },
+   "roles": {
+    "tax_revenue": "20 - 10 = 10",
+    "spending": "transfers -8"
    },
    "answer": "18"
   },
@@ -229,6 +331,10 @@
     "tax_revenue": 200,
     "spending": 260
    },
+   "roles": {
+    "tax_revenue": "exports 200",
+    "spending": "imports 260"
+   },
    "answer": "-60"
   },
   {
@@ -237,6 +343,10 @@
    "args": {
     "tax_revenue": 700,
     "spending": 120
+   },
+   "roles": {
+    "tax_revenue": "GDP 700",
+    "spending": "investment 120"
    },
    "answer": "580"
   },
@@ -247,6 +357,10 @@
     "tax_revenue": 580,
     "spending": 130
    },
+   "roles": {
+    "tax_revenue": "700 - 120 = 580",
+    "spending": "government spending 130"
+   },
    "answer": "450"
   },
   {
@@ -255,6 +369,10 @@
    "args": {
     "tax_revenue": 450,
     "spending": -60
+   },
+   "roles": {
+    "tax_revenue": "580 - 130 = 450",
+    "spending": "200 - 260 = -60"
    },
    "answer": "510"
   },
@@ -265,6 +383,10 @@
     "old": 50,
     "new": 52
    },
+   "roles": {
+    "old": "from 50",
+    "new": "to 52"
+   },
    "answer": "4.0"
   },
   {
@@ -273,6 +395,10 @@
    "args": {
     "old": 1000,
     "new": 1100
+   },
+   "roles": {
+    "old": "from 1000",
+    "new": "to 1100"
    },
    "answer": "10.0"
   },
@@ -285,6 +411,12 @@
     "y1": 1000,
     "y2": 1100
    },
+   "roles": {
+    "q1": "from 50",
+    "q2": "to 52",
+    "y1": "from 1000",
+    "y2": "to 1100"
+   },
    "answer": "0.40"
   },
   {
@@ -296,6 +428,12 @@
     "net_income": -150,
     "net_transfers": -20
    },
+   "roles": {
+    "exports": "Example (illustrative): 1420",
+    "imports": "1420 - 960",
+    "net_income": "+ (-150",
+    "net_transfers": "+ (-20"
+   },
    "answer": "290"
   },
   {
@@ -304,6 +442,10 @@
    "args": {
     "tax_revenue": 900,
     "spending": 300
+   },
+   "roles": {
+    "tax_revenue": "Example (illustrative): 900",
+    "spending": "900 - 300"
    },
    "answer": "600"
   },
@@ -314,6 +456,10 @@
     "tax_revenue": 600,
     "spending": 200
    },
+   "roles": {
+    "tax_revenue": "900 - 300 = 600",
+    "spending": "600 - 200"
+   },
    "answer": "400"
   },
   {
@@ -322,6 +468,10 @@
    "args": {
     "tax_revenue": 400,
     "spending": -100
+   },
+   "roles": {
+    "tax_revenue": "600 - 200 = 400",
+    "spending": "400 - (-100"
    },
    "answer": "500"
   },
@@ -332,6 +482,10 @@
     "p": 4.0,
     "q": 300
    },
+   "roles": {
+    "p": "Example (illustrative): 4.0",
+    "q": "4.0 × 300"
+   },
    "answer": "1200"
   },
   {
@@ -340,6 +494,10 @@
    "args": {
     "p": 6.0,
     "q": 180
+   },
+   "roles": {
+    "p": "and 6.0",
+    "q": "6.0 × 180"
    },
    "answer": "1080"
   },
@@ -350,6 +508,10 @@
     "tax_revenue": 1080,
     "spending": 1200
    },
+   "roles": {
+    "tax_revenue": "6.0 × 180 = 1080",
+    "spending": "4.0 × 300 = 1200"
+   },
    "answer": "-120"
   },
   {
@@ -359,6 +521,10 @@
     "old": 400,
     "new": 340
    },
+   "roles": {
+    "old": "quantity 400",
+    "new": "to 340"
+   },
    "answer": "-15.0"
   },
   {
@@ -367,6 +533,10 @@
    "args": {
     "old": 20,
     "new": 24
+   },
+   "roles": {
+    "old": "price 20",
+    "new": "to 24"
    },
    "answer": "20.0"
   },
@@ -379,6 +549,12 @@
     "p1": 20,
     "p2": 24
    },
+   "roles": {
+    "q1": "quantity 400",
+    "q2": "to 340",
+    "p1": "price 20",
+    "p2": "to 24"
+   },
    "answer": "-0.75"
   },
   {
@@ -387,6 +563,10 @@
    "args": {
     "base": 60,
     "height": 4
+   },
+   "roles": {
+    "base": "Example (illustrative): 60",
+    "height": "60 × 4"
    },
    "answer": "120"
   },
@@ -397,6 +577,10 @@
     "base": 640,
     "height": 5.5
    },
+   "roles": {
+    "base": "120; 640",
+    "height": "640 × 5.5"
+   },
    "answer": "1760"
   },
   {
@@ -405,6 +589,10 @@
    "args": {
     "nominal": 4680,
     "deflator": 156.0
+   },
+   "roles": {
+    "nominal": "Example (illustrative): 4680",
+    "deflator": "4680 × 100 / 156.0"
    },
    "answer": "3000"
   },
@@ -415,6 +603,10 @@
     "a": 3000,
     "b": 72.0
    },
+   "roles": {
+    "a": "156.0 = 3000",
+    "b": "3000 / 72.0"
+   },
    "answer": "41.667"
   },
   {
@@ -423,6 +615,10 @@
    "args": {
     "amount": 41.667,
     "rate": 1000
+   },
+   "roles": {
+    "amount": "72.0 = 41.667",
+    "rate": "41.667 × 1000"
    },
    "answer": "41667"
   },
@@ -433,6 +629,10 @@
     "index_now": 330.0,
     "index_before": 200.0
    },
+   "roles": {
+    "index_now": "(330.0",
+    "index_before": "(330.0 - 200.0"
+   },
    "answer": "65.0"
   },
   {
@@ -441,6 +641,10 @@
    "args": {
     "a": 330.0,
     "b": 200.0
+   },
+   "roles": {
+    "a": "because 330.0",
+    "b": "330.0 / 200.0"
    },
    "answer": "1.65"
   },
@@ -451,6 +655,10 @@
     "a": 64000,
     "b": 15.5
    },
+   "roles": {
+    "a": "Example (illustrative): 64000",
+    "b": "64000 / 15.5"
+   },
    "answer": "4129.03"
   },
   {
@@ -459,6 +667,10 @@
    "args": {
     "a": 7200,
     "b": 1.2
+   },
+   "roles": {
+    "a": "illustrative, r = 0.2): 7200",
+    "b": "7200 / 1.2"
    },
    "answer": "6000"
   },
@@ -469,6 +681,10 @@
     "t": 0.2,
     "q": 6000
    },
+   "roles": {
+    "t": "tax = 0.2",
+    "q": "0.2 × 6000"
+   },
    "answer": "1200"
   },
   {
@@ -477,6 +693,10 @@
    "args": {
     "t": 0.2,
     "q": 7200
+   },
+   "roles": {
+    "t": "Mistake: 0.2",
+    "q": "0.2 × 7200"
    },
    "answer": "1440"
   },
@@ -487,6 +707,10 @@
     "amount": 1.5,
     "rate": 1000
    },
+   "roles": {
+    "amount": "GDP 1.5",
+    "rate": "first (× 1000"
+   },
    "answer": "1500"
   },
   {
@@ -495,6 +719,10 @@
    "args": {
     "gni": 1500,
     "population": 0.75
+   },
+   "roles": {
+    "gni": "trillion (1500",
+    "population": "population 0.75"
    },
    "answer": "2000"
   },
@@ -505,6 +733,10 @@
     "amount": 1.62,
     "rate": 1000
    },
+   "roles": {
+    "amount": "GDP 1.62",
+    "rate": "first (× 1000"
+   },
    "answer": "1620"
   },
   {
@@ -513,6 +745,10 @@
    "args": {
     "gni": 1620,
     "population": 0.8
+   },
+   "roles": {
+    "gni": "trillion (1620",
+    "population": "population 0.8"
    },
    "answer": "2025"
   },
@@ -523,6 +759,10 @@
     "old": 2000,
     "new": 2025
    },
+   "roles": {
+    "old": "give USD 2000",
+    "new": "give USD 2025"
+   },
    "answer": "1.25"
   },
   {
@@ -531,6 +771,10 @@
    "args": {
     "nominal": 380,
     "deflator": 115
+   },
+   "roles": {
+    "nominal": "nominal GDP 380",
+    "deflator": "deflator 115"
    },
    "answer": "330.43"
   },
@@ -541,6 +785,10 @@
     "amount": 330.43,
     "rate": 1000
    },
+   "roles": {
+    "amount": "real GDP 330.43",
+    "rate": "330.43 × 1000"
+   },
    "answer": "330430"
   },
   {
@@ -549,6 +797,10 @@
    "args": {
     "gni": 330430,
     "population": 22
+   },
+   "roles": {
+    "gni": "× 1000 = 330430",
+    "population": "population 22"
    },
    "answer": "15019.55"
   },
@@ -561,6 +813,12 @@
     "net_income": -60,
     "net_transfers": 25
    },
+   "roles": {
+    "exports": "Example (illustrative): 820",
+    "imports": "820 - 950",
+    "net_income": "+ (-60",
+    "net_transfers": "+ 25"
+   },
    "answer": "-165"
   },
   {
@@ -569,6 +827,10 @@
    "args": {
     "a": 6600,
     "b": 27.5
+   },
+   "roles": {
+    "a": "Example (illustrative): 6600",
+    "b": "6600 / 27.5"
    },
    "answer": "240.0"
   },
@@ -579,6 +841,10 @@
     "a": 6600,
     "b": 33.0
    },
+   "roles": {
+    "a": "USD; 6600",
+    "b": "6600 / 33.0"
+   },
    "answer": "200.0"
   },
   {
@@ -587,6 +853,10 @@
    "args": {
     "tax_revenue": 200.0,
     "spending": 240.0
+   },
+   "roles": {
+    "tax_revenue": "33.0 = 200.0",
+    "spending": "27.5 = 240.0"
    },
    "answer": "-40.0"
   },
@@ -597,6 +867,10 @@
     "tax_revenue": 400,
     "spending": -150
    },
+   "roles": {
+    "tax_revenue": "Example (illustrative): 400",
+    "spending": "subtracting -150"
+   },
    "answer": "550"
   },
   {
@@ -605,6 +879,10 @@
    "args": {
     "amount": 4.0,
     "rate": 1.1
+   },
+   "roles": {
+    "amount": "1.1): 4.0",
+    "rate": "so 1.1"
    },
    "answer": "4.4"
   },
@@ -615,6 +893,10 @@
     "p": 4.0,
     "q": 320
    },
+   "roles": {
+    "p": "1.1): 4.0",
+    "q": "4.0 × 320"
+   },
    "answer": "1280"
   },
   {
@@ -623,6 +905,10 @@
    "args": {
     "p": 4.4,
     "q": 290
+   },
+   "roles": {
+    "p": "1.1 = 4.4",
+    "q": "4.4 × 290"
    },
    "answer": "1276"
   },
@@ -633,6 +919,10 @@
     "tax_revenue": 1276,
     "spending": 1280
    },
+   "roles": {
+    "tax_revenue": "4.4 × 290 = 1276",
+    "spending": "4.0 × 320 = 1280"
+   },
    "answer": "-4"
   },
   {
@@ -641,6 +931,10 @@
    "args": {
     "base": 2.0,
     "height": 66
+   },
+   "roles": {
+    "base": "Example (illustrative): 1/2 × 2.0",
+    "height": "1/2 × 2.0 × 66"
    },
    "answer": "66"
   },
@@ -651,6 +945,10 @@
     "base": 1.5,
     "height": 66
    },
+   "roles": {
+    "base": "Example (illustrative): 1/2 × 1.5",
+    "height": "1/2 × 1.5 × 66"
+   },
    "answer": "49.5"
   },
   {
@@ -658,6 +956,9 @@
    "fn": "multiplier_from_mpc",
    "args": {
     "mpc": 0.6
+   },
+   "roles": {
+    "mpc": "c = 0.6"
    },
    "answer": "2.5"
   },
@@ -668,6 +969,10 @@
     "amount": 3.0,
     "rate": 2.5
    },
+   "roles": {
+    "amount": "EUR 3.0",
+    "rate": "at most 2.5"
+   },
    "answer": "7.5"
   },
   {
@@ -677,6 +982,10 @@
     "old": 300,
     "new": 350
    },
+   "roles": {
+    "old": "quantity 300",
+    "new": "to 350"
+   },
    "answer": "16.67"
   },
   {
@@ -685,6 +994,10 @@
    "args": {
     "old": 40,
     "new": 44
+   },
+   "roles": {
+    "old": "price 40",
+    "new": "to 44"
    },
    "answer": "10.00"
   },
@@ -697,6 +1010,12 @@
     "p1": 40,
     "p2": 44
    },
+   "roles": {
+    "q1": "quantity 300",
+    "q2": "to 350",
+    "p1": "price 40",
+    "p2": "to 44"
+   },
    "answer": "1.67"
   },
   {
@@ -705,6 +1024,10 @@
    "args": {
     "p": 50,
     "q": 1200
+   },
+   "roles": {
+    "p": "price 50",
+    "q": "quantity 1200"
    },
    "answer": "60000"
   },
@@ -715,6 +1038,10 @@
     "nominal": 1000,
     "deflator": 130
    },
+   "roles": {
+    "nominal": "nominal GDP 1000",
+    "deflator": "deflator 130"
+   },
    "answer": "769.23"
   },
   {
@@ -723,6 +1050,10 @@
    "args": {
     "a": 520,
     "b": 0.35
+   },
+   "roles": {
+    "a": "nominal GDP 520",
+    "b": "population 0.35"
    },
    "answer": "1485.71"
   },
@@ -733,6 +1064,10 @@
     "tax_revenue": 1000,
     "spending": 50
    },
+   "roles": {
+    "tax_revenue": "GDP 1000",
+    "spending": "outflow of 50"
+   },
    "answer": "950"
   },
   {
@@ -742,6 +1077,10 @@
     "tax_revenue": 1200,
     "spending": 40
    },
+   "roles": {
+    "tax_revenue": "GDP 1200",
+    "spending": "outflow of 40"
+   },
    "answer": "1160"
   },
   {
@@ -750,6 +1089,10 @@
    "args": {
     "tax_revenue": 1160,
     "spending": 950
+   },
+   "roles": {
+    "tax_revenue": "the change is 1160",
+    "spending": "50 = 950"
    },
    "answer": "210"
   },
@@ -762,6 +1105,12 @@
     "net_income": -2.0,
     "net_transfers": 1.5
    },
+   "roles": {
+    "exports": "exports of goods plus net services 10.0",
+    "imports": "imports 12.5",
+    "net_income": "income -2.0",
+    "net_transfers": "transfers 1.5"
+   },
    "answer": "-3.00"
   },
   {
@@ -770,6 +1119,10 @@
    "args": {
     "a": 250,
     "b": 100
+   },
+   "roles": {
+    "a": "price 250",
+    "b": "rate of 100"
    },
    "answer": "2.50"
   },
@@ -780,6 +1133,10 @@
     "nominal": 600,
     "real": 480
    },
+   "roles": {
+    "nominal": "nominal GDP 600",
+    "real": "and real GDP 480"
+   },
    "answer": "125.00"
   },
   {
@@ -788,6 +1145,10 @@
    "args": {
     "a": 480,
     "b": 0.36
+   },
+   "roles": {
+    "a": "real GDP 480",
+    "b": "population 0.36"
    },
    "answer": "1333.33"
   },
@@ -798,6 +1159,10 @@
     "amount": 0.5,
     "rate": 72
    },
+   "roles": {
+    "amount": "illustrative): 0.5",
+    "rate": "at 72"
+   },
    "answer": "36.00"
   },
   {
@@ -806,6 +1171,10 @@
    "args": {
     "tax_revenue": 9.0,
     "spending": 12.0
+   },
+   "roles": {
+    "tax_revenue": "exports 9.0",
+    "spending": "imports 12.0"
    },
    "answer": "-3.00"
   },
@@ -818,6 +1187,12 @@
     "net_income": -1.5,
     "net_transfers": 2.5
    },
+   "roles": {
+    "exports": "goods exports 9.0",
+    "imports": "imports 12.0",
+    "net_income": "income -1.5",
+    "net_transfers": "transfers 2.5"
+   },
    "answer": "-2.0"
   },
   {
@@ -826,6 +1201,10 @@
    "args": {
     "tax_revenue": -1.0,
     "spending": -2.0
+   },
+   "roles": {
+    "tax_revenue": "account of -1.0",
+    "spending": "(-2.0"
    },
    "answer": "1.00"
   },
@@ -836,6 +1215,10 @@
     "nominal": 1000,
     "deflator": 120
    },
+   "roles": {
+    "nominal": "nominal GDP 1000",
+    "deflator": "deflator 120"
+   },
    "answer": "833.33"
   },
   {
@@ -844,6 +1227,10 @@
    "args": {
     "a": 833.33,
     "b": 0.5
+   },
+   "roles": {
+    "a": "real GDP 833.33",
+    "b": "population 0.5"
    },
    "answer": "1666.66"
   },
@@ -854,6 +1241,10 @@
     "a": 300000,
     "b": 60
    },
+   "roles": {
+    "a": "illustrative): 300000",
+    "b": "at 60"
+   },
    "answer": "5000.00"
   },
   {
@@ -862,6 +1253,10 @@
    "args": {
     "base": 60,
     "height": 4.0
+   },
+   "roles": {
+    "base": "before 1/2 × 60",
+    "height": "1/2 × 60 × 4.0"
    },
    "answer": "120"
   },
@@ -872,6 +1267,10 @@
     "base": 80,
     "height": 5.0
    },
+   "roles": {
+    "base": "after 1/2 × 80",
+    "height": "1/2 × 80 × 5.0"
+   },
    "answer": "200"
   },
   {
@@ -880,6 +1279,10 @@
    "args": {
     "tax_revenue": 200,
     "spending": 120
+   },
+   "roles": {
+    "tax_revenue": "after 1/2 × 80 × 5.0 = 200",
+    "spending": "before 1/2 × 60 × 4.0 = 120"
    },
    "answer": "80"
   },
@@ -890,6 +1293,10 @@
     "p": 60.0,
     "q": 250
    },
+   "roles": {
+    "p": "Example (illustrative): 60.0",
+    "q": "60.0 × 250"
+   },
    "answer": "15000"
   },
   {
@@ -898,6 +1305,10 @@
    "args": {
     "p": 55.0,
     "q": 350
+   },
+   "roles": {
+    "p": "15000; 55.0",
+    "q": "55.0 × 350"
    },
    "answer": "19250"
   },
@@ -908,6 +1319,10 @@
     "tax_revenue": 19250,
     "spending": 15000
    },
+   "roles": {
+    "tax_revenue": "change = 19250",
+    "spending": "60.0 × 250 = 15000"
+   },
    "answer": "4250"
   },
   {
@@ -916,6 +1331,10 @@
    "args": {
     "a": 4250,
     "b": 100
+   },
+   "roles": {
+    "a": "15000 = 4250",
+    "b": "4250 / 100"
    },
    "answer": "42.5"
   },
@@ -927,6 +1346,11 @@
     "q": 350,
     "total_cost": 17000
    },
+   "roles": {
+    "p": "Example (illustrative): 55.0",
+    "q": "55.0 × 350",
+    "total_cost": "55.0 × 350 - 17000"
+   },
    "answer": "2250"
   },
   {
@@ -937,6 +1361,11 @@
     "q": 450,
     "total_cost": 21000
    },
+   "roles": {
+    "p": "2250; 50.0",
+    "q": "50.0 × 450",
+    "total_cost": "50.0 × 450 - 21000"
+   },
    "answer": "1500"
   },
   {
@@ -945,6 +1374,10 @@
    "args": {
     "tax_revenue": 1500,
     "spending": 2250
+   },
+   "roles": {
+    "tax_revenue": "change = 1500",
+    "spending": "17000 = 2250"
    },
    "answer": "-750"
   },
@@ -955,6 +1388,10 @@
     "tax_revenue": 18000,
     "spending": -3000
    },
+   "roles": {
+    "tax_revenue": "Example (illustrative): 18000",
+    "spending": "18000 - (-3000"
+   },
    "answer": "21000"
   },
   {
@@ -963,6 +1400,10 @@
    "args": {
     "a": 21000,
     "b": 480
+   },
+   "roles": {
+    "a": "AC = 21000",
+    "b": "21000 / 480"
    },
    "answer": "43.75"
   },
@@ -973,6 +1414,10 @@
     "p": 135,
     "q": 3
    },
+   "roles": {
+    "p": "3 × 135",
+    "q": "item A 3"
+   },
    "answer": "405"
   },
   {
@@ -981,6 +1426,10 @@
    "args": {
     "p": 310,
     "q": 2
+   },
+   "roles": {
+    "p": "2 × 310",
+    "q": "item B 2"
    },
    "answer": "620"
   },
@@ -991,6 +1440,10 @@
     "tax_revenue": 405,
     "spending": -620
    },
+   "roles": {
+    "tax_revenue": "item A 3 × 135 = 405",
+    "spending": "405 - (-620"
+   },
    "answer": "1025"
   },
   {
@@ -999,6 +1452,10 @@
    "args": {
     "basket_now": 1025,
     "basket_base": 880
+   },
+   "roles": {
+    "basket_now": "Example (illustrative): 1025",
+    "basket_base": "1025 / 880"
    },
    "answer": "116.48"
   },
@@ -1009,6 +1466,10 @@
     "index_now": 116.48,
     "index_before": 111.2
    },
+   "roles": {
+    "index_now": "(116.48",
+    "index_before": "(116.48 - 111.20"
+   },
    "answer": "4.75"
   },
   {
@@ -1017,6 +1478,10 @@
    "args": {
     "tax_revenue": 1.8,
     "spending": 4.75
+   },
+   "roles": {
+    "tax_revenue": "Example (illustrative): 1.8",
+    "spending": "1.8 - 4.75"
    },
    "answer": "-2.95"
   },
@@ -1027,6 +1492,10 @@
     "amount": 400,
     "rate": 120.25
    },
+   "roles": {
+    "amount": "USD 400",
+    "rate": "at 120.25"
+   },
    "answer": "48100.00"
   },
   {
@@ -1035,6 +1504,10 @@
    "args": {
     "amount": 400,
     "rate": 240.5
+   },
+   "roles": {
+    "amount": "USD 400",
+    "rate": "at 240.5"
    },
    "answer": "96200.00"
   },
@@ -1045,6 +1518,10 @@
     "amount": 2.0,
     "rate": 4.0
    },
+   "roles": {
+    "amount": "YED 2.0",
+    "rate": "a 4.0"
+   },
    "answer": "8.00"
   },
   {
@@ -1053,6 +1530,10 @@
    "args": {
     "amount": 2000,
     "rate": 5.0
+   },
+   "roles": {
+    "amount": "illustrative): 2000",
+    "rate": "and 5.0"
    },
    "answer": "10000.00"
   },
@@ -1063,6 +1544,10 @@
     "nominal": 550,
     "real": 500
    },
+   "roles": {
+    "nominal": "nominal GDP 550",
+    "real": "real GDP 500"
+   },
    "answer": "110.00"
   },
   {
@@ -1071,6 +1556,10 @@
    "args": {
     "old": 100,
     "new": 110
+   },
+   "roles": {
+    "old": "a base of 100",
+    "new": "a deflator of 110.00"
    },
    "answer": "10.00"
   },
@@ -1081,6 +1570,10 @@
     "old": 20,
     "new": 18
    },
+   "roles": {
+    "old": "fall from 20",
+    "new": "to 18"
+   },
    "answer": "-10.00"
   },
   {
@@ -1089,6 +1582,10 @@
    "args": {
     "amount": -0.5,
     "rate": -10
+   },
+   "roles": {
+    "amount": "a PED of -0.5",
+    "rate": "× -10.00"
    },
    "answer": "5.00"
   },
@@ -1099,6 +1596,10 @@
     "old": 2300.0,
     "new": 2415.0
    },
+   "roles": {
+    "old": "(2415.0 - 2300.0",
+    "new": "(2415.0"
+   },
    "answer": "5.0"
   },
   {
@@ -1108,6 +1609,10 @@
     "tax_revenue": 6.5,
     "spending": 3.2
    },
+   "roles": {
+    "tax_revenue": "Example (illustrative): 6.5",
+    "spending": "6.5 - 3.2"
+   },
    "answer": "3.3"
   },
   {
@@ -1116,6 +1621,10 @@
    "args": {
     "tax_revenue": 540.0,
     "spending": 610.0
+   },
+   "roles": {
+    "tax_revenue": "Example (illustrative): 540.0",
+    "spending": "540.0 - 610.0"
    },
    "answer": "-70.0"
   },
@@ -1128,6 +1637,12 @@
     "net_income": -25.0,
     "net_transfers": -40.0
    },
+   "roles": {
+    "exports": "-5.0): 540.0",
+    "imports": "540.0 - 610.0",
+    "net_income": "net income -25.0",
+    "net_transfers": "net transfers -40.0"
+   },
    "answer": "-135.0"
   },
   {
@@ -1136,6 +1651,10 @@
    "args": {
     "tax_revenue": -135.0,
     "spending": 5.0
+   },
+   "roles": {
+    "tax_revenue": "gives -135.0",
+    "spending": "-135.0 - 5.0"
    },
    "answer": "-140.0"
   },
@@ -1146,6 +1665,10 @@
     "amount": -140.0,
     "rate": -1
    },
+   "roles": {
+    "amount": "financial account = -140.0",
+    "rate": "× (-1"
+   },
    "answer": "140.0"
   },
   {
@@ -1154,6 +1677,10 @@
    "args": {
     "old": 6.4,
     "new": 6.1
+   },
+   "roles": {
+    "old": "(6.10 - 6.40",
+    "new": "(6.10"
    },
    "answer": "-4.69"
   },
@@ -1164,6 +1691,10 @@
     "a": 40,
     "b": 20
    },
+   "roles": {
+    "a": "Country X 40",
+    "b": "Country X 40 / 20"
+   },
    "answer": "2.0"
   },
   {
@@ -1172,6 +1703,10 @@
    "args": {
     "a": 30,
     "b": 10
+   },
+   "roles": {
+    "a": "Country Y 30",
+    "b": "Country Y 30 / 10"
    },
    "answer": "3.0"
   },
@@ -1183,6 +1718,11 @@
     "q": 3,
     "total_cost": 15.0
    },
+   "roles": {
+    "p": "Example (illustrative): 8.0",
+    "q": "8.0 × 3",
+    "total_cost": "8.0 × 3 - 15.0"
+   },
    "answer": "9.0"
   },
   {
@@ -1191,6 +1731,10 @@
    "args": {
     "tax_revenue": 60.0,
     "spending": 52.0
+   },
+   "roles": {
+    "tax_revenue": "(60.0",
+    "spending": "(60.0 - 52.0"
    },
    "answer": "8.0"
   },
@@ -1201,6 +1745,10 @@
     "a": 8.0,
     "b": 1
    },
+   "roles": {
+    "a": "derived: 60.0 - 52.0",
+    "b": "/ 1"
+   },
    "answer": "8.0"
   },
   {
@@ -1209,6 +1757,10 @@
    "args": {
     "tax_revenue": 5,
     "spending": -10
+   },
+   "roles": {
+    "tax_revenue": "Example (illustrative): 5",
+    "spending": "5 - (-10"
    },
    "answer": "15"
   },
@@ -1219,6 +1771,10 @@
     "tax_revenue": 15,
     "spending": -15
    },
+   "roles": {
+    "tax_revenue": "(-10) = 15",
+    "spending": "15 - (-15"
+   },
    "answer": "30"
   },
   {
@@ -1228,6 +1784,10 @@
     "tax_revenue": 150.0,
     "spending": 120.0
    },
+   "roles": {
+    "tax_revenue": "base = 150.0",
+    "spending": "150.0 - 120.0"
+   },
    "answer": "30.0"
   },
   {
@@ -1236,6 +1796,10 @@
    "args": {
     "base": 30.0,
     "height": 2.0
+   },
+   "roles": {
+    "base": "base = 150.0 - 120.0 = 30.0",
+    "height": "height = 2.0"
    },
    "answer": "30.0"
   }

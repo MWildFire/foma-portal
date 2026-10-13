@@ -1,9 +1,9 @@
 {
   "checks": [
-    { "question": "econ-measuring-economic-activity-01", "fn": "real_gdp", "args": { "nominal": 2400, "deflator": 120 } },
-    { "question": "econ-measuring-economic-activity-02", "fn": "gdp_deflator", "args": { "nominal": 1365, "real": 1300 } },
-    { "question": "econ-measuring-economic-activity-03", "fn": "pct_change", "args": { "old": 1800, "new": 1854 } },
-    { "question": "econ-measuring-economic-activity-04", "fn": "ratio", "args": { "a": 1200, "b": 9.6 } },
-    { "question": "econ-measuring-economic-activity-05", "fn": "gdp_expenditure", "args": { "c": 600, "i": 150, "g": 250, "x": 400, "m": 300 } }
+    { "question": "econ-measuring-economic-activity-01", "fn": "real_gdp", "args": { "nominal": 2400, "deflator": 120 }, "roles": { "nominal": "Nominal GDP in a country is AED 2400", "deflator": "the GDP deflator is 120" } },
+    { "question": "econ-measuring-economic-activity-02", "fn": "gdp_deflator", "args": { "nominal": 1365, "real": 1300 }, "roles": { "nominal": "nominal GDP is AED 1365", "real": "real GDP is AED 1300" } },
+    { "question": "econ-measuring-economic-activity-03", "fn": "pct_change", "args": { "old": 1800, "new": 1854 }, "roles": { "old": "Real GDP of Country X was AED 1800", "new": "and AED 1854" } },
+    { "question": "econ-measuring-economic-activity-04", "fn": "ratio", "args": { "a": 1200, "b": 9.6 }, "roles": { "a": "a GDP of AED 1200", "b": "a population of 9.6" } },
+    { "question": "econ-measuring-economic-activity-05", "fn": "gdp_expenditure", "args": { "c": 600, "i": 150, "g": 250, "x": 400, "m": 300 }, "roles": { "c": "Consumption is AED 600", "i": "investment AED 150", "g": "government spending AED 250", "x": "exports AED 400", "m": "imports AED 300" } }
   ]
 }

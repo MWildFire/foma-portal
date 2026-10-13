@@ -1,10 +1,10 @@
 {
   "checks": [
-    { "question": "econ-government-taxes-subsidies-price-controls-01", "fn": "tax_revenue", "args": { "t": 2.5, "q": 1200 } },
-    { "question": "econ-government-taxes-subsidies-price-controls-02", "fn": "consumer_share", "args": { "pes": 2.0, "ped": 0.5 } },
-    { "question": "econ-government-taxes-subsidies-price-controls-03", "fn": "triangle", "args": { "base": 30, "height": 4 } },
-    { "question": "econ-government-taxes-subsidies-price-controls-04", "fn": "rectangle", "args": { "base": 5000, "height": 0.4 } },
-    { "question": "econ-government-taxes-subsidies-price-controls-05", "fn": "excess_demand", "args": { "a": 300, "b": 10, "c": 60, "d": 20, "p": 6 } },
-    { "question": "econ-government-taxes-subsidies-price-controls-06", "fn": "excess_demand", "args": { "a": 300, "b": 10, "c": 60, "d": 20, "p": 9 } }
+    { "question": "econ-government-taxes-subsidies-price-controls-01", "fn": "tax_revenue", "args": { "t": 2.5, "q": 1200 }, "roles": { "t": "specific tax of AED 2.50", "q": "After the tax, 1200" } },
+    { "question": "econ-government-taxes-subsidies-price-controls-02", "fn": "consumer_share", "args": { "pes": 2.0, "ped": 0.5 }, "roles": { "pes": "elasticity of supply of a good is 2.0", "ped": "absolute value of its price elasticity of demand is 0.5" } },
+    { "question": "econ-government-taxes-subsidies-price-controls-03", "fn": "triangle", "args": { "base": 30, "height": 4 }, "roles": { "base": "reduces the quantity sold by 30", "height": "specific tax of AED 4" } },
+    { "question": "econ-government-taxes-subsidies-price-controls-04", "fn": "rectangle", "args": { "base": 5000, "height": 0.4 }, "roles": { "base": "on each of the 5000", "height": "subsidy of AED 0.40" } },
+    { "question": "econ-government-taxes-subsidies-price-controls-05", "fn": "excess_demand", "args": { "a": 300, "b": 10, "c": 60, "d": 20, "p": 6 }, "roles": { "a": "Qd = 300", "b": "Qd = 300 - 10", "c": "Qs = 60", "d": "Qs = 60 + 20", "p": "maximum price of AED 6" } },
+    { "question": "econ-government-taxes-subsidies-price-controls-06", "fn": "excess_demand", "args": { "a": 300, "b": 10, "c": 60, "d": 20, "p": 9 }, "roles": { "a": "Qd = 300", "b": "Qd = 300 - 10", "c": "Qs = 60", "d": "Qs = 60 + 20", "p": "minimum price of AED 9" } }
   ]
 }

@@ -1,5 +1,5 @@
 {
   "checks": [
-    { "question": "econ-asymmetric-information-01", "fn": "ratio", "args": { "a": 800, "b": 200 } }
+    { "question": "econ-asymmetric-information-01", "fn": "ratio", "args": { "a": 800, "b": 200 }, "roles": { "a": "With symmetric information, 800", "b": "only 200" } }
   ]
 }

@@ -1,6 +1,6 @@
 {
   "checks": [
-    { "question": "econ-measuring-development-01", "fn": "gni_per_capita", "args": { "gni": 45000, "population": 3.1 } },
-    { "question": "econ-measuring-development-02", "fn": "ratio", "args": { "a": 14516, "b": 2350 } }
+    { "question": "econ-measuring-development-01", "fn": "gni_per_capita", "args": { "gni": 45000, "population": 3.1 }, "roles": { "gni": "income (GNI) of USD 45000", "population": "a population of 3.1" } },
+    { "question": "econ-measuring-development-02", "fn": "ratio", "args": { "a": 14516, "b": 2350 }, "roles": { "a": "Country A has a GNI per capita of USD 14516", "b": "country B has a GNI per capita of USD 2350" } }
   ]
 }

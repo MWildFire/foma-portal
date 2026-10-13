@@ -1,8 +1,8 @@
 {
   "checks": [
-    { "question": "econ-externalities-01", "fn": "linear_quantity", "args": { "a": 40, "b": 2, "c": -8, "d": 2 } },
-    { "question": "econ-externalities-02", "fn": "linear_quantity", "args": { "a": 40, "b": 2, "c": -20, "d": 2 } },
-    { "question": "econ-externalities-03", "fn": "triangle", "args": { "base": 6, "height": 6 } },
-    { "question": "econ-externalities-04", "fn": "tax_revenue", "args": { "t": 6, "q": 10 } }
+    { "question": "econ-externalities-01", "fn": "linear_quantity", "args": { "a": 40, "b": 2, "c": -8, "d": 2 }, "roles": { "a": "Qd = 40", "b": "Qd = 40 - 2", "c": "Qs = -8", "d": "Qs = -8 + 2" } },
+    { "question": "econ-externalities-02", "fn": "linear_quantity", "args": { "a": 40, "b": 2, "c": -20, "d": 2 }, "roles": { "a": "Qd = 40", "b": "Qd = 40 - 2", "c": "Qs = -20", "d": "Qs = -20 + 2" } },
+    { "question": "econ-externalities-03", "fn": "triangle", "args": { "base": 6, "height": 6 }, "roles": { "base": "derived: 16 - 10", "height": "external cost is AED 6" } },
+    { "question": "econ-externalities-04", "fn": "tax_revenue", "args": { "t": 6, "q": 10 }, "roles": { "t": "Pigouvian tax of AED 6", "q": "falls to the socially optimal 10" } }
   ]
 }

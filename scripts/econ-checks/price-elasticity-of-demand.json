@@ -1,9 +1,9 @@
 {
   "checks": [
-    { "question": "econ-price-elasticity-of-demand-01", "fn": "ped", "args": { "q1": 500, "q2": 400, "p1": 4.0, "p2": 4.4 } },
-    { "question": "econ-price-elasticity-of-demand-02", "fn": "ped", "args": { "q1": 800, "q2": 760, "p1": 2.0, "p2": 2.5 } },
-    { "question": "econ-price-elasticity-of-demand-03", "fn": "total_revenue", "args": { "p": 5.0, "q": 380 } },
-    { "question": "econ-price-elasticity-of-demand-04", "fn": "pct_change", "args": { "old": 1200, "new": 1050 } },
-    { "question": "econ-price-elasticity-of-demand-05", "fn": "ped", "args": { "q1": 120, "q2": 150, "p1": 9.0, "p2": 8.1 } }
+    { "question": "econ-price-elasticity-of-demand-01", "fn": "ped", "args": { "q1": 500, "q2": 400, "p1": 4.0, "p2": 4.4 }, "roles": { "q1": "sales fall from 500", "q2": "to 400", "p1": "rises from AED 4.00", "p2": "to AED 4.40" } },
+    { "question": "econ-price-elasticity-of-demand-02", "fn": "ped", "args": { "q1": 800, "q2": 760, "p1": 2.0, "p2": 2.5 }, "roles": { "q1": "sales fall from 800", "q2": "to 760", "p1": "from AED 2.00", "p2": "to AED 2.50" } },
+    { "question": "econ-price-elasticity-of-demand-03", "fn": "total_revenue", "args": { "p": 5.0, "q": 380 }, "roles": { "p": "to AED 5.00", "q": "rise from 300 to 380" } },
+    { "question": "econ-price-elasticity-of-demand-04", "fn": "pct_change", "args": { "old": 1200, "new": 1050 }, "roles": { "old": "falls from AED 1200", "new": "to AED 1050" } },
+    { "question": "econ-price-elasticity-of-demand-05", "fn": "ped", "args": { "q1": 120, "q2": 150, "p1": 9.0, "p2": 8.1 }, "roles": { "q1": "sales rise from 120", "q2": "to 150", "p1": "falls from AED 9.00", "p2": "to AED 8.10" } }
   ]
 }

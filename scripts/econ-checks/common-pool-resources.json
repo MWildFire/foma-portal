@@ -1,5 +1,5 @@
 {
   "checks": [
-    { "question": "econ-common-pool-resources-01", "fn": "ratio", "args": { "a": 1200, "b": 40 } }
+    { "question": "econ-common-pool-resources-01", "fn": "ratio", "args": { "a": 1200, "b": 40 }, "roles": { "a": "sustainable catch of a bay is 1200", "b": "shared equally among 40" } }
   ]
 }

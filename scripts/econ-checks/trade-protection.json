@@ -1,8 +1,8 @@
 {
   "checks": [
-    { "question": "econ-trade-protection-01", "fn": "tax_revenue", "args": { "t": 4, "q": 15000 } },
-    { "question": "econ-trade-protection-02", "fn": "triangle", "args": { "base": 12000, "height": 2.5 } },
-    { "question": "econ-trade-protection-03", "fn": "rectangle", "args": { "base": 25000, "height": 3.2 } },
-    { "question": "econ-trade-protection-04", "fn": "rectangle", "args": { "base": 35000, "height": 2.4 } }
+    { "question": "econ-trade-protection-01", "fn": "tax_revenue", "args": { "t": 4, "q": 15000 }, "roles": { "t": "specific tariff of AED 4", "q": "After the tariff, 15000" } },
+    { "question": "econ-trade-protection-02", "fn": "triangle", "args": { "base": 12000, "height": 2.5 }, "roles": { "base": "imports fall by 12000", "height": "A tariff of AED 2.50" } },
+    { "question": "econ-trade-protection-03", "fn": "rectangle", "args": { "base": 25000, "height": 3.2 }, "roles": { "base": "import quota of 25000", "height": "domestic price by AED 3.20" } },
+    { "question": "econ-trade-protection-04", "fn": "rectangle", "args": { "base": 35000, "height": 2.4 }, "roles": { "base": "After the subsidy, 35000", "height": "export subsidy of AED 2.40" } }
   ]
 }

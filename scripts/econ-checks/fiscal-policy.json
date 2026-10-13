@@ -1,6 +1,6 @@
 {
   "checks": [
-    { "question": "econ-fiscal-policy-01", "fn": "budget_balance", "args": { "tax_revenue": 540, "spending": 610 } },
-    { "question": "econ-fiscal-policy-02", "fn": "multiplier", "args": { "mps": 0.2, "mpt": 0.25, "mpm": 0.15 } }
+    { "question": "econ-fiscal-policy-01", "fn": "budget_balance", "args": { "tax_revenue": 540, "spending": 610 }, "roles": { "tax_revenue": "Tax revenue is AED 540", "spending": "government spending is AED 610" } },
+    { "question": "econ-fiscal-policy-02", "fn": "multiplier", "args": { "mps": 0.2, "mpt": 0.25, "mpm": 0.15 }, "roles": { "mps": "marginal propensity to save is 0.2", "mpt": "marginal propensity to tax is 0.25", "mpm": "marginal propensity to import is 0.15" } }
   ]
 }

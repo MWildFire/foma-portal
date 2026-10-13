@@ -194,6 +194,58 @@ def numbers_in(text):
     return values
 
 
+def normalise(text):
+    # Quotes are matched on the same reading as numbers_in: unicode minus and en dash become "-", no-break spaces become spaces.
+    text = text.replace('−', '-').replace('–', '-').replace(' ', ' ').replace(' ', ' ')
+    return re.sub(r'\s+', ' ', text).strip()
+
+
+# A change or a direction in the prompt: the sign is part of the answer (-20% is not 20%).
+SIGN_CUE = re.compile(r'\b(rises?|rose|falls?|fell|increases?|decreases?|minus sign)\b|\bfrom\b.*?\bto\b', re.IGNORECASE)
+
+# A role worked out from two stated numbers, e.g. "derived: 16 - 10" (operators: - + x /).
+DERIVED = re.compile(r'derived:\s*(-?\d+(?:\.\d+)?)\s*([-+x/])\s*(-?\d+(?:\.\d+)?)')
+
+
+def check_roles(entry, texts, where, failures):
+    # Each argument must be tied to the text it comes from. The role is a quote from the prompt or guide that ends with
+    # the argument's number, e.g. "from AED 4.00" for the old price. The quote must occur in the text, so an argument
+    # placed under the wrong role fails here even when the answer happens to match.
+    args = entry.get('args', {})
+    name = entry.get('question') or entry.get('ref')
+    roles = entry.get('roles')
+    if not isinstance(roles, dict) or set(roles) != set(args):
+        failures.append(f"{where}: {name}: roles must quote the text for every argument ({', '.join(args) or 'none'})")
+        return False
+    haystacks = [normalise(text) for text in texts if text]
+    ok = True
+    for key, quote in roles.items():
+        quoted = normalise(str(quote))
+        derived = DERIVED.fullmatch(quoted)
+        if derived:
+            # A value worked out from two numbers the text states, e.g. "derived: 16 - 10" for a gap between 16 and 10.
+            a, op, b = float(derived.group(1)), derived.group(2), float(derived.group(3))
+            result = {'-': a - b, '+': a + b, 'x': a * b, '/': a / b if b else None}[op]
+            if result is None or abs(result - float(args[key])) > 1e-9:
+                failures.append(f"{where}: {name}: role {key} \"{quote}\" gives {result}, but {key} = {args[key]}")
+                ok = False
+            elif not all(any(abs(x - number) < 1e-9 for text in texts if text for x in numbers_in(text)) for number in (a, b)):
+                failures.append(f"{where}: {name}: role {key} \"{quote}\" uses a number that the prompt or guide text does not state")
+                ok = False
+            continue
+        found = numbers_in(quoted)
+        if not found:
+            failures.append(f"{where}: {name}: role {key} quote \"{quote}\" has no number")
+            ok = False
+        elif abs(found[-1] - float(args[key])) > 1e-9:
+            failures.append(f"{where}: {name}: role {key} quote \"{quote}\" ends with {found[-1]:g}, but {key} = {args[key]}")
+            ok = False
+        elif not any(quoted in haystack for haystack in haystacks):
+            failures.append(f"{where}: {name}: role {key} quote \"{quote}\" is not in the prompt or guide text")
+            ok = False
+    return ok
+
+
 def field_text(question, dotted):
     current = question
     for part in dotted.split('.'):
@@ -264,7 +316,7 @@ def check_guide(entry, pastpapers, where, failures):
     if not rounds_to(value, answer):
         failures.append(f"{where}: {ref_id}: {name}{args} = {value:.6f}, which is not {answer} at {decimals_of(answer)} decimal places")
         return False
-    ok = True
+    ok = check_roles(entry, [field_text(ref, field) for field in entry.get('in', GUIDE_FIELDS)], where, failures)
     for field in entry.get('in', GUIDE_FIELDS):
         numbers = numbers_in(field_text(ref, field))
         missing = [key for key, arg in args.items() if not any(abs(x - float(arg)) < 1e-9 for x in numbers)]
@@ -295,12 +347,13 @@ def main():
     passed = 0
 
     checked = {entry.get('question') for entry in checks}
+    with_expect = {entry.get('question') for entry in checks if 'expect_in' in entry}
     for question in questions:
         answer = question.get('answer')
         if answer not in (None, '') and question['id'] not in checked:
             failures.append(f"{question['id']}: answer {answer} has no check entry in scripts/econ-checks/")
-        if question.get('command') == 'Calculate' and answer in (None, '') and question['id'] not in checked:
-            failures.append(f"{question['id']}: Calculate question has neither an answer nor a check entry in scripts/econ-checks/")
+        if question.get('command') == 'Calculate' and answer in (None, '') and question['id'] not in with_expect:
+            failures.append(f"{question['id']}: Calculate question has neither an answer nor an expect_in check in scripts/econ-checks/")
 
     for entry in checks:
         where = entry['_file']
@@ -324,14 +377,7 @@ def main():
             failures.append(f"{where}: {qid}: {name}{args} cannot be computed ({error})")
             continue
 
-        shown = ' '.join(
-            field_text(question, path) for path in ('prompt.en', 'prompt.ru', 'stimulus.en', 'stimulus.ru')
-        )
-        shown_numbers = numbers_in(shown)
-        missing = [key for key, arg in args.items() if not any(abs(x - float(arg)) < 1e-9 for x in shown_numbers)]
-        if missing:
-            failures.append(f"{where}: {qid}: argument(s) {', '.join(missing)} are not written in the prompt or stimulus")
-            continue
+        check_roles(entry, [field_text(question, path) for path in ('prompt.en', 'prompt.ru', 'stimulus.en', 'stimulus.ru')], where, failures)
 
         answer = question.get('answer')
         compared = False
@@ -348,10 +394,11 @@ def main():
         if 'expect_in' in entry:
             compared = True
             tolerance = entry.get('tol', max(0.005, abs(value) * 0.002))
+            signed = entry.get('signed', bool(SIGN_CUE.search(field_text(question, 'prompt.en') + ' ' + field_text(question, 'stimulus.en'))))
             found = False
             for field in entry['expect_in']:
                 for number in numbers_in(field_text(question, field)):
-                    if entry.get('signed'):
+                    if signed:
                         matches = abs(number - value) <= tolerance
                     else:
                         matches = abs(abs(number) - abs(value)) <= tolerance

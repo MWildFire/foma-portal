@@ -1,5 +1,5 @@
 {
   "checks": [
-    { "question": "econ-demand-01", "fn": "pct_change", "args": { "old": 400, "new": 460 } }
+    { "question": "econ-demand-01", "fn": "pct_change", "args": { "old": 400, "new": 460 }, "roles": { "old": "rises from 400", "new": "to 460" } }
   ]
 }
