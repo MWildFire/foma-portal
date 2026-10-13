@@ -238,7 +238,7 @@ export const terms: FrTerm[] = [
   },
   {
     id: 'gr-ne-jamais-plus',
-    term: { en: 'negations: ne … jamais, ne … plus', ru: 'отрицания «ne … jamais» и «ne … plus»', fr: 'les négations « ne … jamais » et « ne … plus »' },
+    term: { en: 'negations: never, no longer', ru: 'отрицания «ne … jamais» и «ne … plus»', fr: 'les négations « ne … jamais » et « ne … plus »' },
     def: {
       en: "two-part negations that wrap the verb in the same way as 'not', meaning 'never' and 'no longer'.",
       ru: 'отрицания из двух частей, которые стоят вокруг глагола так же, как «не»: «никогда» и «больше не».',
@@ -280,8 +280,8 @@ export const terms: FrTerm[] = [
     id: 'gr-ni-ni',
     term: { en: 'negation: ni … ni', ru: 'отрицание «ni … ni»', fr: 'la négation « ni … ni »' },
     def: {
-      en: "means 'neither … nor'; the verb keeps its negative, and nouns after 'ni' drop their article.",
-      ru: 'значит «ни … ни»; глагол сохраняет «не», а существительные после «ни» теряют неопределённый артикль.',
+      en: "means 'neither … nor'; the verb keeps its negative, and nouns after 'ni' drop any indefinite or partitive article.",
+      ru: 'значит «ни … ни»; глагол сохраняет отрицание, а существительные после «ni» теряют неопределённый или партитивный артикль.',
     },
     example: {
       en: 'I have neither a brother nor a sister.',
