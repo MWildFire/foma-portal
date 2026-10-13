@@ -42,6 +42,7 @@ const topic: TopicMeta = {
     { kind: 'web', title: 'UN DESA Population Division, World Population Prospects 2024 (Medium variant)', url: 'https://population.un.org/wpp/' },
     { kind: 'web', title: 'UNDP, Human Development Report 2025 (HDI 2023 values)', url: 'https://hdr.undp.org/sites/default/files/2025_HDR/HDR25_Composite_indices_complete_time_series.csv' },
     { kind: 'web', title: 'World Bank, GNI per capita, Atlas method (NY.GNP.PCAP.CD)', url: 'https://data.worldbank.org/indicator/NY.GNP.PCAP.CD' },
+    { kind: 'web', title: 'World Bank, WDI EN.POP.DNST (population density per km² of land), Bangladesh and Mongolia, 2024', url: 'https://data.worldbank.org/indicator/EN.POP.DNST' },
   ],
 };
 

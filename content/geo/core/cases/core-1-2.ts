@@ -92,4 +92,26 @@ export const cases: CaseStudy[] = [
       },
     ],
   },
+  {
+    id: 'core-1-2-case-somalia',
+    subject: 'geo',
+    title: {
+      en: 'Somalia: drought, conflict and forced movement',
+      ru: 'Сомали: засуха, конфликт и вынужденное перемещение',
+    },
+    place: 'Somalia',
+    scale: 'national',
+    years: '2025',
+    lat: 5.15,
+    lng: 46.2,
+    facts: {
+      en: 'Forced movement here has environmental and political push factors. IDMC counted 3,347,000 internally displaced people from conflict and insecurity at the end of 2025; new displacements in 2025 were 214,000 from conflict and 335,000 from disasters (IDMC, Global Report on Internal Displacement 2026). UNHCR (Somalia Protection and Solutions Monitoring Network, Annual Report 2025) reports 344,688 displacements from drought, which is emerging as the leading cause, and 230,428 displacements (35%) from conflict and insecurity.',
+      ru: 'Вынужденное перемещение здесь вызвано и экологическими, и политическими факторами выталкивания. IDMC насчитал 3 347 000 внутренне перемещённых людей из-за конфликта и небезопасности на конец 2025 года; новые перемещения в 2025 году составили 214 000 из-за конфликтов и 335 000 из-за стихийных бедствий (IDMC, Global Report on Internal Displacement 2026). UNHCR (Somalia Protection and Solutions Monitoring Network, годовой отчёт за 2025 год) сообщает о 344 688 перемещениях из-за засухи, которая становится главной причиной, и о 230 428 перемещениях (35%) из-за конфликта и небезопасности.',
+    },
+    usedFor: ['core-1-2-changing-populations'],
+    src: [
+      { kind: 'web', title: 'IDMC, Global Report on Internal Displacement 2026 (annex table, p. 49)', url: 'https://api.internal-displacement.org/sites/default/files/publications/documents/IDMC-GRID-2026-Global-Report-on-Internal-Displacement.pdf' },
+      { kind: 'web', title: 'UNHCR, Somalia Protection and Solutions Monitoring Network, Annual Report 2025 (pp. 2–3)', url: 'https://data.unhcr.org/es/documents/download/122295' },
+    ],
+  },
 ];

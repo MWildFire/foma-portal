@@ -35,7 +35,7 @@ const topic: TopicMeta = {
   ],
   sims: ['geo.core-push-pull'],
   questionIds: ['core-1-2-b1', 'core-1-2-a1', 'core-1-2-a2', 'core-1-2-a5'],
-  caseIds: ['core-1-2-case-lagos', 'core-1-2-case-shenzhen', 'core-1-2-case-dubai'],
+  caseIds: ['core-1-2-case-lagos', 'core-1-2-case-shenzhen', 'core-1-2-case-dubai', 'core-1-2-case-somalia'],
   sources: [
     { kind: 'ib-guide', title: 'Geography guide (2017), core 1.2' },
     { kind: 'web', title: 'UN DESA Population Division, World Urbanization Prospects 2025: Summary of Results (2025)', url: 'https://desapublications.un.org/publications/world-urbanization-prospects-2025-summary-results' },

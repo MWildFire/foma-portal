@@ -35,7 +35,7 @@ const topic: TopicMeta = {
   ],
   sims: ['geo.core-dependency-ratio'],
   questionIds: ['core-1-3-a2', 'core-1-3-a4', 'core-1-3-b1'],
-  caseIds: ['core-1-3-case-china', 'core-1-3-case-singapore', 'core-1-3-case-philippines'],
+  caseIds: ['core-1-3-case-china', 'core-1-3-case-singapore', 'core-1-3-case-philippines', 'core-1-3-case-vietnam'],
   sources: [
     { kind: 'ib-guide', title: 'Geography guide (2017), core 1.3' },
     { kind: 'web', title: 'UN DESA, World Population Prospects 2024 (Medium variant), population by age group and total fertility rate', url: 'https://population.un.org/wpp/' },
