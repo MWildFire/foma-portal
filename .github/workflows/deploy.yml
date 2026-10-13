@@ -6,6 +6,13 @@ on:
     paths-ignore: ['ops/**']
   workflow_dispatch:
 
+# A newer run cancels an older one before the older run can deploy, so builds that finish
+# out of order cannot overwrite newer code. Keyed by ref, so a manual run from another
+# branch cannot cancel a main deploy.
+concurrency:
+  group: deploy-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   # Read-only token and no OIDC: nothing that runs here (npm ci, tests, build
   # scripts) can request a token or assume the deploy role.
@@ -54,10 +61,6 @@ jobs:
     permissions:
       contents: read
       id-token: write
-    # Job level, so a manual run from another branch cannot cancel a main deploy.
-    concurrency:
-      group: deploy-main
-      cancel-in-progress: true
     env:
       BUCKET: ${{ vars.S3_BUCKET }}
       CF_ID: ${{ vars.CF_DISTRIBUTION_ID }}
