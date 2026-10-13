@@ -19,7 +19,8 @@ locals {
   github_oidc_provider_arn = var.create_github_oidc_provider ? aws_iam_openid_connect_provider.github[0].arn : data.aws_iam_openid_connect_provider.github[0].arn
 }
 
-# Only the main branch of this one repository may assume the role.
+# Only the main branch of this one repository may assume the role. The sub claim
+# uses GitHub's immutable format, see var.github_oidc_sub_prefix.
 data "aws_iam_policy_document" "deploy_trust" {
   statement {
     sid     = "GitHubActionsMainBranch"
@@ -40,7 +41,7 @@ data "aws_iam_policy_document" "deploy_trust" {
     condition {
       test     = "StringEquals"
       variable = "token.actions.githubusercontent.com:sub"
-      values   = ["repo:${var.github_repo}:ref:refs/heads/main"]
+      values   = ["${var.github_oidc_sub_prefix}:ref:refs/heads/main"]
     }
   }
 }

@@ -10,10 +10,15 @@ variable "domain_name" {
   default     = "fomalearningportal.academy"
 }
 
-variable "github_repo" {
-  description = "GitHub repository (owner/name) whose main branch may assume the deploy role."
+# GitHub issues OIDC tokens for this repository with the immutable subject format
+# (owner and repository ids), so a name-based "repo:owner/name:..." condition never
+# matches. The ids are public identifiers, not secrets. To re-check, run
+#   gh api repos/MWildFire/foma-portal/actions/oidc/customization/sub
+# and copy sub_claim_prefix.
+variable "github_oidc_sub_prefix" {
+  description = "Prefix of the GitHub OIDC sub claim for this repository (immutable format with owner and repo ids). Only its main branch may assume the deploy role."
   type        = string
-  default     = "MWildFire/foma-portal"
+  default     = "repo:MWildFire@28848477/foma-portal@1416563569"
 }
 
 variable "custom_domain_enabled" {

@@ -13,7 +13,7 @@ account-id guard). The account is shared with other projects: everything here is
 | `auth.tf` `auth-function.js.tftpl` | viewer-request function: www to apex redirect, then Basic Auth |
 | `headers.tf` | HSTS, nosniff, Referrer-Policy, `X-Robots-Tag: noindex, nofollow` |
 | `dns.tf` | Route 53 zone (step 1); ACM, validation, A/AAAA aliases (step 2) |
-| `iam.tf` | deploy role, trust only `repo:MWildFire/foma-portal:ref:refs/heads/main` |
+| `iam.tf` | deploy role, trusts only the `main` branch of this repo (immutable OIDC `sub`) |
 
 ## State bucket (once, by hand)
 Terraform cannot create the bucket that holds its own state (name is literal in `backend.tf`):
@@ -62,6 +62,12 @@ gh variable set AWS_ROLE_ARN --repo MWildFire/foma-portal --body "$(terraform ou
 gh variable set S3_BUCKET --repo MWildFire/foma-portal --body "$(terraform output -raw site_bucket)"
 gh variable set CF_DISTRIBUTION_ID --repo MWildFire/foma-portal --body "$(terraform output -raw distribution_id)"
 ```
+The role trusts only the immutable `sub` of this repo's `main` branch,
+`repo:MWildFire@28848477/foma-portal@1416563569:ref:refs/heads/main` (this repo has immutable subject
+claims, so a name-based `repo:owner/name:...` never matches). Re-check with
+`gh api repos/MWildFire/foma-portal/actions/oidc/customization/sub` and keep `github_oidc_sub_prefix`
+in `variables.tf` equal to its `sub_claim_prefix`.
+
 Everything except `index.html` is uploaded as immutable (one year), so file names in `dist/` must
 be content-hashed. Only `index.html` is `no-cache` and invalidated.
 
