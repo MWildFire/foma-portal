@@ -1,0 +1,49 @@
+import type { TopicMeta } from '../../../../src/contract/types';
+
+const topic: TopicMeta = {
+  id: 'macroeconomic-objectives',
+  subject: 'econ',
+  code: '3.3',
+  title: { en: 'Macroeconomic objectives', ru: 'Макроэкономические цели' },
+  papers: ['P1', 'P2', 'P3'],
+  order: 33,
+  minutes: 60,
+  priority: 1,
+  inMockScope: 'unknown',
+  outcomes: [
+    { en: 'I can define the CPI and calculate it from basket costs with a base year', ru: 'Могу определить ИПЦ и рассчитать его по стоимости набора с базовым годом' },
+    { en: 'I can calculate the inflation rate and the unemployment rate', ru: 'Могу рассчитать темп инфляции и уровень безработицы' },
+    { en: 'I can distinguish demand-pull and cost-push inflation, and the three types of unemployment', ru: 'Могу различать инфляцию спроса и инфляцию издержек, а также три типа безработицы' },
+    { en: 'I can draw and explain the short-run and long-run Phillips curve', ru: 'Могу нарисовать и объяснить краткосрочную и долгосрочную кривую Филлипса' },
+    { en: 'I can explain the trade-offs between macroeconomic objectives', ru: 'Могу объяснить компромиссы между макроэкономическими целями' },
+  ],
+  termIds: [
+    'consumer-price-index',
+    'inflation',
+    'demand-pull-inflation',
+    'cost-push-inflation',
+    'unemployment',
+    'frictional-unemployment',
+    'structural-unemployment',
+    'cyclical-unemployment',
+    'phillips-curve',
+    'natural-rate-of-unemployment',
+    'business-cycle',
+    'potential-output',
+  ],
+  formulaIds: ['cpi', 'inflation-rate', 'unemployment-rate'],
+  sims: ['econ.phillips-sr', 'econ.phillips-lr'],
+  questionIds: [
+    'econ-macroeconomic-objectives-01',
+    'econ-macroeconomic-objectives-02',
+    'econ-macroeconomic-objectives-03',
+    'econ-macroeconomic-objectives-04',
+    'econ-macroeconomic-objectives-05',
+    'econ-macroeconomic-objectives-06',
+    'econ-macroeconomic-objectives-07',
+    'econ-macroeconomic-objectives-08',
+  ],
+  sources: [{ kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 3.3' }],
+};
+
+export default topic;

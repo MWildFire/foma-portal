@@ -1,0 +1,45 @@
+import type { TopicMeta } from '../../../../src/contract/types';
+
+const topic: TopicMeta = {
+  id: 'monetary-policy',
+  subject: 'econ',
+  code: '3.5',
+  title: { en: 'Monetary policy', ru: 'Монетарная политика' },
+  papers: ['P1', 'P2', 'P3'],
+  order: 35,
+  minutes: 45,
+  priority: 1,
+  inMockScope: 'yes',
+  outcomes: [
+    { en: 'I can describe the tools of monetary policy and what each one does', ru: 'Могу описать инструменты монетарной политики и то, что делает каждый из них' },
+    { en: 'I can explain the transmission mechanism step by step', ru: 'Могу пошагово объяснить трансмиссионный механизм' },
+    { en: 'I can explain expansionary and contractionary monetary policy using AD', ru: 'Могу объяснить экспансионистскую и рестриктивную монетарную политику с помощью AD' },
+    { en: 'I can evaluate the limits of monetary policy, such as time lags and the liquidity trap', ru: 'Могу оценивать пределы монетарной политики, такие как лаги и ловушка ликвидности' },
+    { en: 'I can calculate the percentage change in the policy interest rate', ru: 'Могу рассчитать процентное изменение ключевой ставки' },
+  ],
+  termIds: [
+    'monetary-policy',
+    'central-bank',
+    'inflation',
+    'policy-interest-rate',
+    'open-market-operations',
+    'quantitative-easing',
+    'transmission-mechanism',
+    'aggregate-demand',
+    'expansionary-monetary-policy',
+    'contractionary-monetary-policy',
+    'inflation-targeting',
+    'liquidity-trap',
+  ],
+  sims: ['econ.monetary-policy'],
+  questionIds: [
+    'econ-monetary-policy-01',
+    'econ-monetary-policy-02',
+    'econ-monetary-policy-03',
+    'econ-monetary-policy-04',
+  ],
+  caseIds: ['case-russia-key-rate-2022', 'case-eurozone-ecb-rates-2022'],
+  sources: [{ kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 3.5' }],
+};
+
+export default topic;

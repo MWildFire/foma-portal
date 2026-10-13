@@ -1,0 +1,116 @@
+import type { Question } from '../../../../src/contract/types';
+
+export const questions: Question[] = [
+  {
+    id: 'econ-monopoly-and-natural-monopoly-01',
+    subject: 'econ',
+    topicIds: ['monopoly-and-natural-monopoly'],
+    paper: 'P2',
+    marks: 3,
+    command: 'Calculate',
+    prompt: {
+      en: 'A monopolist faces the inverse demand curve P = 60 - 2Q, where P is the price in AED and Q is the output in units. Its marginal cost is constant at AED 20 per unit. Calculate the profit-maximising output, where marginal revenue equals marginal cost. Give your answer in units as a whole number.',
+      ru: 'Монополист сталкивается с обратной функцией спроса P = 60 - 2Q, где P — цена в AED, а Q — выпуск в единицах. Его предельные издержки постоянны и равны 20 AED за единицу. Рассчитайте выпуск, максимизирующий прибыль, при котором предельный доход равен предельным издержкам. Ответ дайте в единицах целым числом.',
+    },
+    markscheme: {
+      en: '1 mark: total revenue is TR = P x Q = 60Q - 2Q^2, so marginal revenue is MR = 60 - 4Q (MR falls twice as fast as demand). 1 mark: MR = MC gives 60 - 4Q = 20. 1 mark: 4Q = 40, so Q = 10 units.',
+      ru: '1 балл: выручка TR = P x Q = 60Q - 2Q^2, поэтому MR = 60 - 4Q (MR падает вдвое быстрее спроса). 1 балл: MR = MC даёт 60 - 4Q = 20. 1 балл: 4Q = 40, значит, Q = 10 единиц.',
+    },
+    answer: '10',
+    origin: 'original',
+    minutes: 5,
+  },
+  {
+    id: 'econ-monopoly-and-natural-monopoly-02',
+    subject: 'econ',
+    topicIds: ['monopoly-and-natural-monopoly'],
+    paper: 'P2',
+    marks: 3,
+    command: 'Calculate',
+    prompt: {
+      en: 'A monopolist sells 10 units at a price of AED 40 per unit. Its total cost of producing 10 units is AED 260. Calculate its profit in AED. Give your answer as a whole number.',
+      ru: 'Монополист продаёт 10 единиц по цене 40 AED за единицу. Его общие издержки на производство 10 единиц составляют 260 AED. Рассчитайте его прибыль в AED. Ответ дайте целым числом.',
+    },
+    markscheme: {
+      en: '1 mark: total revenue = 40 x 10 = AED 400. 1 mark: profit = total revenue - total cost = 400 - 260. 1 mark: profit = AED 140, which is supernormal profit, because the price of AED 40 is above average total cost of AED 26.',
+      ru: '1 балл: общая выручка = 40 x 10 = 400 AED. 1 балл: прибыль = общая выручка - общие издержки = 400 - 260. 1 балл: прибыль = 140 AED; это сверхнормальная прибыль, потому что цена 40 AED выше средних общих издержек 26 AED.',
+    },
+    answer: '140',
+    origin: 'original',
+    minutes: 4,
+  },
+  {
+    id: 'econ-monopoly-and-natural-monopoly-03',
+    subject: 'econ',
+    topicIds: ['monopoly-and-natural-monopoly'],
+    paper: 'P2',
+    marks: 3,
+    command: 'Calculate',
+    prompt: {
+      en: 'A monopolist with inverse demand P = 60 - 2Q currently sells 10 units at AED 40. If it lowers the price to AED 36, it sells 12 units. Calculate its total revenue at AED 36 and state whether total revenue rises or falls compared with AED 40. Give your answer in AED as a whole number.',
+      ru: 'Монополист с обратной функцией спроса P = 60 - 2Q сейчас продаёт 10 единиц по цене 40 AED. Если он снизит цену до 36 AED, он продаст 12 единиц. Рассчитайте его общую выручку при цене 36 AED и укажите, растёт или падает общая выручка по сравнению с 40 AED. Ответ дайте в AED целым числом.',
+    },
+    markscheme: {
+      en: '1 mark: total revenue at AED 36 = 36 x 12 = AED 432. 1 mark: total revenue at AED 40 = 40 x 10 = AED 400, so it rises by AED 32. 1 mark: demand is elastic between these prices (the 20% rise in quantity is larger than the 10% fall in price), so the price cut raises total revenue.',
+      ru: '1 балл: выручка при 36 AED = 36 x 12 = 432 AED. 1 балл: выручка при 40 AED = 40 x 10 = 400 AED, значит, она растёт на 32 AED. 1 балл: спрос эластичен между этими ценами (рост количества на 20% больше падения цены на 10%), поэтому снижение цены увеличивает выручку.',
+    },
+    answer: '432',
+    origin: 'original',
+    minutes: 4,
+  },
+  {
+    id: 'econ-monopoly-and-natural-monopoly-04',
+    subject: 'econ',
+    topicIds: ['monopoly-and-natural-monopoly'],
+    paper: 'P2',
+    marks: 3,
+    command: 'Calculate',
+    prompt: {
+      en: 'A monopolist with inverse demand P = 60 - 2Q has a constant marginal cost of AED 20. It produces 10 units at a price of AED 40. Under perfect competition, price would equal marginal cost and output would be 20 units. Calculate the deadweight loss of the monopoly in AED. Give your answer as a whole number.',
+      ru: 'Монополист с обратной функцией спроса P = 60 - 2Q имеет постоянные предельные издержки 20 AED. Он выпускает 10 единиц по цене 40 AED. При совершенной конкуренции цена была бы равна предельным издержкам, а выпуск составил бы 20 единиц. Рассчитайте чистые потери общества монополии в AED. Ответ дайте целым числом.',
+    },
+    markscheme: {
+      en: '1 mark: the output gap is 20 - 10 = 10 units, which is the base of the triangle. 1 mark: the price gap at the monopoly output is AED 40 - AED 20 = AED 20, which is the height of the triangle. 1 mark: deadweight loss = 1/2 x 10 x 20 = AED 100.',
+      ru: '1 балл: разрыв в выпуске 20 - 10 = 10 единиц — это основание треугольника. 1 балл: разрыв в цене при выпуске монополии 40 AED - 20 AED = 20 AED — это высота треугольника. 1 балл: чистые потери = 1/2 x 10 x 20 = 100 AED.',
+    },
+    answer: '100',
+    origin: 'original',
+    minutes: 5,
+  },
+  {
+    id: 'econ-monopoly-and-natural-monopoly-05',
+    subject: 'econ',
+    topicIds: ['monopoly-and-natural-monopoly'],
+    paper: 'P1',
+    marks: 4,
+    command: 'Explain',
+    prompt: {
+      en: 'Explain why a government may allow a natural monopoly to remain one firm but regulate its price, rather than break the firm into several competing firms.',
+      ru: 'Объясните, почему правительство может оставить естественную монополию одной фирмой, но регулировать её цену, вместо того чтобы разделить фирму на несколько конкурирующих.',
+    },
+    markscheme: {
+      en: '1 mark: a natural monopoly has falling long-run average cost, so several competing firms would each have higher average costs. 1 mark: splitting the firm would raise total costs and therefore the prices that consumers pay. 1 mark: regulation, such as average cost pricing or a price cap, limits the price and stops the firm from earning excessive profit. 1 mark: a limitation: marginal cost pricing would create a loss that needs a subsidy, and average cost pricing still leaves some deadweight loss.',
+      ru: '1 балл: у естественной монополии долгосрочные средние издержки падают, поэтому несколько конкурирующих фирм имели бы более высокие средние издержки. 1 балл: раздел фирмы увеличил бы общие издержки и, значит, цены для потребителей. 1 балл: регулирование, например ценообразование по средним издержкам или потолок цены, ограничивает цену и не даёт фирме получать чрезмерную прибыль. 1 балл: ограничение: ценообразование по предельным издержкам создаст убыток, который потребует субсидии, а ценообразование по средним издержкам всё равно оставляет часть чистых потерь.',
+    },
+    origin: 'original',
+    minutes: 5,
+  },
+  {
+    id: 'econ-monopoly-and-natural-monopoly-06',
+    subject: 'econ',
+    topicIds: ['monopoly-and-natural-monopoly'],
+    paper: 'P1',
+    marks: 8,
+    command: 'Evaluate',
+    prompt: {
+      en: 'Evaluate the claim that a monopoly always reduces economic welfare compared with perfect competition.',
+      ru: 'Оцените утверждение, что монополия всегда снижает общественное благосостояние по сравнению с совершенной конкуренцией.',
+    },
+    markscheme: {
+      en: '1 mark: defines monopoly and states that the monopolist produces where MR = MC. 1 mark: explains that price is above MC, so allocative efficiency is lost and a deadweight loss arises compared with perfect competition. 1 mark: explains productive and X-inefficiency, since a firm without rivals may have higher costs than necessary. 1 mark: explains that supernormal profit transfers surplus from consumers to the firm. 1 mark: argues against the claim: in a natural monopoly, economies of scale can mean that one firm has lower average costs than several firms. 1 mark: argues against the claim: supernormal profit may fund research and innovation, which can create long-run gains. 1 mark: evaluates the strength of these points by reference to the market, such as the size of entry barriers, the presence of regulation and the scale of economies. 1 mark: reaches a justified judgement, for example that the claim is too strong, because the welfare effect depends on cost conditions, regulation and dynamic gains.',
+      ru: '1 балл: определяет монополию и указывает, что монополист производит там, где MR = MC. 1 балл: объясняет, что цена выше MC, поэтому теряется аллокативная эффективность и возникают чистые потери по сравнению с совершенной конкуренцией. 1 балл: объясняет продуктивную и X-неэффективность: фирма без конкурентов может нести издержки выше необходимых. 1 балл: объясняет, что сверхнормальная прибыль переводит излишек от потребителей к фирме. 1 балл: довод против утверждения: у естественной монополии экономия от масштаба может означать, что одна фирма имеет более низкие средние издержки, чем несколько. 1 балл: довод против утверждения: сверхнормальная прибыль может финансировать исследования и инновации, которые дают долгосрочный выигрыш. 1 балл: оценивает силу этих доводов на примере рынка: размер барьеров для входа, наличие регулирования и масштаб экономии. 1 балл: делает обоснованный вывод, например что утверждение слишком сильное, потому что эффект для благосостояния зависит от условий издержек, регулирования и динамических выигрышей.',
+    },
+    origin: 'original',
+    minutes: 8,
+  },
+];

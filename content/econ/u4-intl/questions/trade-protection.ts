@@ -1,0 +1,116 @@
+import type { Question } from '../../../../src/contract/types';
+
+export const questions: Question[] = [
+  {
+    id: 'econ-trade-protection-01',
+    subject: 'econ',
+    topicIds: ['trade-protection'],
+    paper: 'P2',
+    marks: 2,
+    command: 'Calculate',
+    prompt: {
+      en: 'A government places a specific tariff of AED 4 per unit on imports of a good. After the tariff, 15000 units are imported. Calculate the tariff revenue collected by the government. Give your answer in AED to two decimal places.',
+      ru: 'Правительство вводит специфический тариф 4 AED за единицу на импорт товара. После введения тарифа импортируется 15000 единиц. Рассчитайте выручку государства от тарифа. Ответ дайте в AED с двумя знаками после запятой.',
+    },
+    markscheme: {
+      en: '1 mark: tariff revenue = tariff per unit x quantity of imports after the tariff. 1 mark: 4 x 15000 = AED 60000.00.',
+      ru: '1 балл: выручка от тарифа = тариф за единицу x объём импорта после введения тарифа. 1 балл: 4 x 15000 = 60000,00 AED.',
+    },
+    answer: '60000.00',
+    origin: 'original',
+    minutes: 4,
+  },
+  {
+    id: 'econ-trade-protection-02',
+    subject: 'econ',
+    topicIds: ['trade-protection'],
+    paper: 'P2',
+    marks: 3,
+    command: 'Calculate',
+    prompt: {
+      en: 'A tariff of AED 2.50 per unit is placed on imports of a good. As a result, imports fall by 12000 units: 5000 units of this fall come from extra domestic production, and 7000 units come from lower domestic consumption. Calculate the deadweight loss caused by the tariff. Give your answer in AED to two decimal places.',
+      ru: 'На импорт товара вводится тариф 2,50 AED за единицу. В результате импорт сокращается на 12000 единиц: 5000 единиц этого сокращения связаны с дополнительным внутренним производством, а 7000 единиц — со снижением внутреннего потребления. Рассчитайте чистые потери общества (deadweight loss), вызванные тарифом. Ответ дайте в AED с двумя знаками после запятой.',
+    },
+    markscheme: {
+      en: '1 mark: the deadweight loss has two triangles, a production triangle (extra domestic output) and a consumption triangle (lost consumption). 1 mark: production triangle = 0.5 x 2.50 x 5000 = AED 6250.00; consumption triangle = 0.5 x 2.50 x 7000 = AED 8750.00. 1 mark: total deadweight loss = 6250 + 8750 = AED 15000.00, which equals 0.5 x 2.50 x 12000.',
+      ru: '1 балл: потери общества состоят из двух треугольников: производственного (дополнительный внутренний выпуск) и потребительского (утраченное потребление). 1 балл: производственный треугольник = 0,5 x 2,50 x 5000 = 6250,00 AED; потребительский треугольник = 0,5 x 2,50 x 7000 = 8750,00 AED. 1 балл: всего потери = 6250 + 8750 = 15000,00 AED, что равно 0,5 x 2,50 x 12000.',
+    },
+    answer: '15000.00',
+    origin: 'original',
+    minutes: 5,
+  },
+  {
+    id: 'econ-trade-protection-03',
+    subject: 'econ',
+    topicIds: ['trade-protection'],
+    paper: 'P2',
+    marks: 2,
+    command: 'Calculate',
+    prompt: {
+      en: 'The government sets an import quota of 25000 units of a good. The quota raises the domestic price by AED 3.20 per unit above the world price. Calculate the quota rent earned by the holders of the import licences. Give your answer in AED to two decimal places.',
+      ru: 'Государство устанавливает импортную квоту 25000 единиц товара. Квота повышает внутреннюю цену на 3,20 AED за единицу сверх мировой цены. Рассчитайте квотную ренту, которую получают держатели импортных лицензий. Ответ дайте в AED с двумя знаками после запятой.',
+    },
+    markscheme: {
+      en: '1 mark: quota rent = (domestic price - world price) x quantity imported under the quota. 1 mark: 3.20 x 25000 = AED 80000.00.',
+      ru: '1 балл: квотная рента = (внутренняя цена - мировая цена) x объём импорта в рамках квоты. 1 балл: 3,20 x 25000 = 80000,00 AED.',
+    },
+    answer: '80000.00',
+    origin: 'original',
+    minutes: 4,
+  },
+  {
+    id: 'econ-trade-protection-04',
+    subject: 'econ',
+    topicIds: ['trade-protection'],
+    paper: 'P2',
+    marks: 2,
+    command: 'Calculate',
+    prompt: {
+      en: 'A government pays an export subsidy of AED 2.40 per unit on every unit exported. After the subsidy, 35000 units are exported. Calculate the cost of the subsidy to the government. Give your answer in AED to two decimal places.',
+      ru: 'Государство выплачивает экспортную субсидию 2,40 AED за каждую экспортированную единицу. После введения субсидии экспортируется 35000 единиц. Рассчитайте стоимость субсидии для государства. Ответ дайте в AED с двумя знаками после запятой.',
+    },
+    markscheme: {
+      en: '1 mark: cost of the subsidy = subsidy per unit x quantity exported after the subsidy. 1 mark: 2.40 x 35000 = AED 84000.00.',
+      ru: '1 балл: стоимость субсидии = субсидия за единицу x объём экспорта после введения субсидии. 1 балл: 2,40 x 35000 = 84000,00 AED.',
+    },
+    answer: '84000.00',
+    origin: 'original',
+    minutes: 4,
+  },
+  {
+    id: 'econ-trade-protection-05',
+    subject: 'econ',
+    topicIds: ['trade-protection'],
+    paper: 'P2',
+    marks: 4,
+    command: 'Explain',
+    prompt: {
+      en: 'Explain why a quota and a tariff that cut imports by the same amount can have different effects on government revenue.',
+      ru: 'Объясните, почему квота и тариф, которые сокращают импорт на одинаковую величину, могут по-разному влиять на выручку государства.',
+    },
+    markscheme: {
+      en: '1 mark: a tariff is a tax, so the government collects revenue on each unit imported. 1 mark: a quota is a quantity limit, so the government collects no tax unless it sells the import licences. 1 mark: under a quota the price gap creates a quota rent for licence holders or foreign suppliers. 1 mark: conclusion: a tariff can raise government revenue, while a quota transfers the gain to licence holders or foreign suppliers.',
+      ru: '1 балл: тариф — это налог, поэтому государство получает выручку с каждой импортированной единицы. 1 балл: квота — это ограничение объёма, поэтому государство не получает налоговых поступлений, если не продаёт импортные лицензии. 1 балл: при квоте разница в цене создаёт квотную ренту для держателей лицензий или зарубежных поставщиков. 1 балл: вывод: тариф может увеличить выручку государства, а квота передаёт выгоду держателям лицензий или зарубежным поставщикам.',
+    },
+    origin: 'original',
+    minutes: 5,
+  },
+  {
+    id: 'econ-trade-protection-06',
+    subject: 'econ',
+    topicIds: ['trade-protection'],
+    paper: 'P2',
+    marks: 2,
+    command: 'Define',
+    prompt: {
+      en: 'Define dumping.',
+      ru: 'Определите демпинг.',
+    },
+    markscheme: {
+      en: '1 mark: selling exports in a foreign market at a price below their cost of production. 1 mark: or below the price charged in the home market of the exporter.',
+      ru: '1 балл: продажа экспорта на зарубежном рынке по цене ниже себестоимости. 1 балл: или ниже цены на внутреннем рынке страны-экспортёра.',
+    },
+    origin: 'original',
+    minutes: 3,
+  },
+];

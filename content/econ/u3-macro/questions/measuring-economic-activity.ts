@@ -1,0 +1,116 @@
+import type { Question } from '../../../../src/contract/types';
+
+export const questions: Question[] = [
+  {
+    id: 'econ-measuring-economic-activity-01',
+    subject: 'econ',
+    topicIds: ['measuring-economic-activity'],
+    paper: 'P2',
+    marks: 3,
+    command: 'Calculate',
+    prompt: {
+      en: 'Nominal GDP in a country is AED 2400 bn and the GDP deflator is 120 (base year = 100). Calculate real GDP in AED bn. Give your answer as a whole number.',
+      ru: 'Номинальный ВВП страны равен 2400 млрд AED, а дефлятор ВВП равен 120 (базовый год = 100). Рассчитайте реальный ВВП в млрд AED. Ответ дайте целым числом.',
+    },
+    markscheme: {
+      en: '1 mark: real GDP = nominal GDP / deflator x 100. 1 mark: 2400 / 120 x 100 = 2000. 1 mark: real GDP = AED 2000 bn.',
+      ru: '1 балл: реальный ВВП = номинальный ВВП / дефлятор x 100. 1 балл: 2400 / 120 x 100 = 2000. 1 балл: реальный ВВП = 2000 млрд AED.',
+    },
+    answer: '2000',
+    origin: 'original',
+    minutes: 4,
+  },
+  {
+    id: 'econ-measuring-economic-activity-02',
+    subject: 'econ',
+    topicIds: ['measuring-economic-activity'],
+    paper: 'P2',
+    marks: 3,
+    command: 'Calculate',
+    prompt: {
+      en: 'In a country, nominal GDP is AED 1365 bn and real GDP is AED 1300 bn (base year = 100). Calculate the GDP deflator. Give your answer to one decimal place.',
+      ru: 'В стране номинальный ВВП равен 1365 млрд AED, а реальный ВВП 1300 млрд AED (базовый год = 100). Рассчитайте дефлятор ВВП. Ответ дайте с одним знаком после запятой.',
+    },
+    markscheme: {
+      en: '1 mark: GDP deflator = nominal GDP / real GDP x 100. 1 mark: 1365 / 1300 x 100 = 105.0. 1 mark: a deflator of 105.0 means prices are 5% higher than in the base year.',
+      ru: '1 балл: дефлятор ВВП = номинальный ВВП / реальный ВВП x 100. 1 балл: 1365 / 1300 x 100 = 105,0. 1 балл: дефлятор 105,0 означает, что цены на 5% выше, чем в базовом году.',
+    },
+    answer: '105.0',
+    origin: 'original',
+    minutes: 4,
+  },
+  {
+    id: 'econ-measuring-economic-activity-03',
+    subject: 'econ',
+    topicIds: ['measuring-economic-activity'],
+    paper: 'P2',
+    marks: 3,
+    command: 'Calculate',
+    prompt: {
+      en: 'Real GDP of Country X was AED 1800 bn in 2024 and AED 1854 bn in 2025. Calculate the percentage change in real GDP. Give your answer to one decimal place.',
+      ru: 'Реальный ВВП страны X составил 1800 млрд AED в 2024 году и 1854 млрд AED в 2025 году. Рассчитайте процентное изменение реального ВВП. Ответ дайте с одним знаком после запятой.',
+    },
+    markscheme: {
+      en: '1 mark: change in real GDP = 1854 - 1800 = AED 54 bn. 1 mark: % change = 54 / 1800 x 100. 1 mark: real GDP grew by 3.0%.',
+      ru: '1 балл: изменение реального ВВП = 1854 - 1800 = 54 млрд AED. 1 балл: процентное изменение = 54 / 1800 x 100. 1 балл: реальный ВВП вырос на 3,0%.',
+    },
+    answer: '3.0',
+    origin: 'original',
+    minutes: 4,
+  },
+  {
+    id: 'econ-measuring-economic-activity-04',
+    subject: 'econ',
+    topicIds: ['measuring-economic-activity'],
+    paper: 'P2',
+    marks: 3,
+    command: 'Calculate',
+    prompt: {
+      en: 'Country Y has a GDP of AED 1200 bn and a population of 9.6 million. Calculate GDP per capita in AED thousand per person. Give your answer as a whole number.',
+      ru: 'В стране Y ВВП равен 1200 млрд AED, а население составляет 9,6 млн человек. Рассчитайте ВВП на душу населения в тысячах AED на человека. Ответ дайте целым числом.',
+    },
+    markscheme: {
+      en: '1 mark: GDP per capita = GDP / population. 1 mark: AED 1200 bn / 9.6 million = 1200 / 9.6 = 125 (billions divided by millions give thousands). 1 mark: GDP per capita = AED 125 thousand per person.',
+      ru: '1 балл: ВВП на душу населения = ВВП / население. 1 балл: 1200 млрд AED / 9,6 млн человек = 1200 / 9,6 = 125 (миллиарды, делённые на миллионы, дают тысячи). 1 балл: ВВП на душу населения = 125 тыс. AED на человека.',
+    },
+    answer: '125',
+    origin: 'original',
+    minutes: 4,
+  },
+  {
+    id: 'econ-measuring-economic-activity-05',
+    subject: 'econ',
+    topicIds: ['measuring-economic-activity'],
+    paper: 'P2',
+    marks: 4,
+    command: 'Calculate',
+    prompt: {
+      en: 'Consumption is AED 600 bn, investment AED 150 bn, government spending AED 250 bn, exports AED 400 bn and imports AED 300 bn. Calculate GDP using the expenditure approach. Show your working.',
+      ru: 'Потребление составляет 600 млрд AED, инвестиции 150 млрд AED, государственные расходы 250 млрд AED, экспорт 400 млрд AED и импорт 300 млрд AED. Рассчитайте ВВП расходным методом. Покажите ход решения.',
+    },
+    markscheme: {
+      en: '1 mark: GDP = C + I + G + (X - M). 1 mark: C + I + G = 600 + 150 + 250 = 1000. 1 mark: X - M = 400 - 300 = 100. 1 mark: GDP = 1000 + 100 = AED 1100 bn.',
+      ru: '1 балл: ВВП = C + I + G + (X - M). 1 балл: C + I + G = 600 + 150 + 250 = 1000. 1 балл: X - M = 400 - 300 = 100. 1 балл: ВВП = 1000 + 100 = 1100 млрд AED.',
+    },
+    origin: 'original',
+    minutes: 5,
+  },
+  {
+    id: 'econ-measuring-economic-activity-06',
+    subject: 'econ',
+    topicIds: ['measuring-economic-activity'],
+    paper: 'P1',
+    marks: 4,
+    command: 'Explain',
+    prompt: {
+      en: 'Explain why real GDP, rather than nominal GDP, is used to compare the output of a country between two years.',
+      ru: 'Объясните, почему для сравнения выпуска страны между двумя годами используют реальный ВВП, а не номинальный.',
+    },
+    markscheme: {
+      en: '1 mark: nominal GDP is measured at current prices, so it also rises when prices rise. 1 mark: real GDP uses the prices of a base year, which removes the effect of inflation. 1 mark: a change in real GDP therefore shows a change in the volume of output. 1 mark: an example, such as prices rising 5% with no change in output, which raises nominal GDP by 5% but leaves real GDP unchanged.',
+      ru: '1 балл: номинальный ВВП измеряется в текущих ценах, поэтому растёт и при росте цен. 1 балл: реальный ВВП использует цены базового года, что устраняет влияние инфляции. 1 балл: изменение реального ВВП поэтому показывает изменение объёма выпуска. 1 балл: пример, например рост цен на 5% при неизменном выпуске поднимает номинальный ВВП на 5%, но реальный ВВП не меняется.',
+    },
+    origin: 'original',
+    minutes: 5,
+  },
+];

@@ -1,0 +1,115 @@
+import type { Question } from '../../../../src/contract/types';
+
+export const questions: Question[] = [
+  {
+    id: 'econ-elasticity-of-supply-01',
+    subject: 'econ',
+    topicIds: ['elasticity-of-supply'],
+    paper: 'P2',
+    marks: 3,
+    command: 'Calculate',
+    prompt: {
+      en: 'The price of a good rises from AED 40 to AED 50 per unit. Quantity supplied rises from 120 to 180 units. Calculate the price elasticity of supply (PES). Give your answer to two decimal places.',
+      ru: 'Цена товара выросла с 40 до 50 AED за единицу. Величина предложения выросла со 120 до 180 единиц. Рассчитайте ценовую эластичность предложения (PES). Ответ дайте с двумя знаками после запятой.',
+    },
+    markscheme: {
+      en: '1 mark: % change in quantity supplied = (180 - 120) / 120 x 100 = +50%. 1 mark: % change in price = (50 - 40) / 40 x 100 = +25%. 1 mark: PES = 50 / 25 = 2.00 (positive, so supply is elastic because PES is greater than 1).',
+      ru: '1 балл: процентное изменение величины предложения = (180 - 120) / 120 x 100 = +50%. 1 балл: процентное изменение цены = (50 - 40) / 40 x 100 = +25%. 1 балл: PES = 50 / 25 = 2,00 (значение положительное, предложение эластичное, так как PES больше 1).',
+    },
+    answer: '2.00',
+    origin: 'original',
+    minutes: 4,
+  },
+  {
+    id: 'econ-elasticity-of-supply-02',
+    subject: 'econ',
+    topicIds: ['elasticity-of-supply'],
+    paper: 'P2',
+    marks: 3,
+    command: 'Calculate',
+    prompt: {
+      en: 'The price of a raw material rises from AED 20 to AED 25 per kilogram. Quantity supplied rises from 400 to 420 kilograms. Calculate the price elasticity of supply (PES). Give your answer to two decimal places.',
+      ru: 'Цена сырья выросла с 20 до 25 AED за килограмм. Величина предложения выросла с 400 до 420 килограммов. Рассчитайте ценовую эластичность предложения (PES). Ответ дайте с двумя знаками после запятой.',
+    },
+    markscheme: {
+      en: '1 mark: % change in quantity supplied = (420 - 400) / 400 x 100 = +5%. 1 mark: % change in price = (25 - 20) / 20 x 100 = +25%. 1 mark: PES = 5 / 25 = 0.20 (positive and less than 1, so supply is inelastic).',
+      ru: '1 балл: процентное изменение величины предложения = (420 - 400) / 400 x 100 = +5%. 1 балл: процентное изменение цены = (25 - 20) / 20 x 100 = +25%. 1 балл: PES = 5 / 25 = 0,20 (значение положительное и меньше 1, предложение неэластичное).',
+    },
+    answer: '0.20',
+    origin: 'original',
+    minutes: 4,
+  },
+  {
+    id: 'econ-elasticity-of-supply-03',
+    subject: 'econ',
+    topicIds: ['elasticity-of-supply'],
+    paper: 'P2',
+    marks: 3,
+    command: 'Calculate',
+    prompt: {
+      en: 'The price of a good rises from AED 100 to AED 110 per unit. In the short run, quantity supplied rises by only 2%. In the long run, after producers have expanded their capacity, quantity supplied rises from 500 to 650 units. Calculate the long-run price elasticity of supply. Give your answer to two decimal places.',
+      ru: 'Цена товара выросла со 100 до 110 AED за единицу. В краткосрочном периоде величина предложения выросла лишь на 2%. В долгосрочном периоде, после того как производители расширили мощности, величина предложения выросла с 500 до 650 единиц. Рассчитайте ценовую эластичность предложения в долгосрочном периоде. Ответ дайте с двумя знаками после запятой.',
+    },
+    markscheme: {
+      en: '1 mark: long-run % change in quantity supplied = (650 - 500) / 500 x 100 = +30%. 1 mark: % change in price = (110 - 100) / 100 x 100 = +10%. 1 mark: long-run PES = 30 / 10 = 3.00, so supply is elastic in the long run (the short-run PES is 2 / 10 = 0.20).',
+      ru: '1 балл: процентное изменение величины предложения в долгосрочном периоде = (650 - 500) / 500 x 100 = +30%. 1 балл: процентное изменение цены = (110 - 100) / 100 x 100 = +10%. 1 балл: PES в долгосрочном периоде = 30 / 10 = 3,00, предложение эластичное в долгосрочном периоде (PES в краткосрочном периоде = 2 / 10 = 0,20).',
+    },
+    answer: '3.00',
+    origin: 'original',
+    minutes: 4,
+  },
+  {
+    id: 'econ-elasticity-of-supply-04',
+    subject: 'econ',
+    topicIds: ['elasticity-of-supply'],
+    paper: 'P1',
+    marks: 4,
+    command: 'Explain',
+    prompt: {
+      en: 'Explain two factors that make the supply of a good more elastic. Refer to a named good in your answer.',
+      ru: 'Объясните два фактора, которые делают предложение товара более эластичным. В ответе сошлитесь на конкретный товар.',
+    },
+    markscheme: {
+      en: '1 mark: first factor named, for example spare capacity or stock levels. 1 mark: explanation: producers can increase output quickly, so quantity supplied responds strongly to a price rise. 1 mark: second factor named, for example mobility of factors of production or a short production time. 1 mark: explanation linked to the named good, such as farmland that can switch crops or a factory with idle machines.',
+      ru: '1 балл: назван первый фактор, например избыточные мощности или запасы. 1 балл: объяснение: производители могут быстро увеличить выпуск, поэтому величина предложения сильно реагирует на рост цены. 1 балл: назван второй фактор, например мобильность факторов производства или короткое время производства. 1 балл: объяснение, связанное с названным товаром, например пахотная земля, которую можно переключить на другую культуру, или завод с простаивающим оборудованием.',
+    },
+    origin: 'original',
+    minutes: 6,
+  },
+  {
+    id: 'econ-elasticity-of-supply-05',
+    subject: 'econ',
+    topicIds: ['elasticity-of-supply'],
+    paper: 'P2',
+    marks: 4,
+    command: 'Draw',
+    prompt: {
+      en: 'Draw two supply curves on the same diagram: one for perfectly inelastic supply and one for perfectly elastic supply. Label each curve with its PES value and label the axes P and Q.',
+      ru: 'Нарисуйте на одной диаграмме две кривые предложения: одну для абсолютно неэластичного предложения и одну для абсолютно эластичного предложения. Подпишите каждую кривую значением PES и подпишите оси P и Q.',
+    },
+    markscheme: {
+      en: '1 mark: the perfectly inelastic supply curve is a vertical line at a fixed quantity. 1 mark: it is labelled PES = 0. 1 mark: the perfectly elastic supply curve is a horizontal line at a fixed price. 1 mark: it is labelled PES = infinity (infinite).',
+      ru: '1 балл: кривая абсолютно неэластичного предложения — вертикальная линия при фиксированном количестве. 1 балл: подписано PES = 0. 1 балл: кривая абсолютно эластичного предложения — горизонтальная линия при фиксированной цене. 1 балл: подписано PES = бесконечность.',
+    },
+    origin: 'original',
+    minutes: 5,
+  },
+  {
+    id: 'econ-elasticity-of-supply-06',
+    subject: 'econ',
+    topicIds: ['elasticity-of-supply'],
+    paper: 'P2',
+    marks: 2,
+    command: 'Define',
+    prompt: {
+      en: 'Define price elasticity of supply.',
+      ru: 'Определите ценовую эластичность предложения.',
+    },
+    markscheme: {
+      en: '1 mark: the responsiveness of quantity supplied to a change in price. 1 mark: measured as the percentage change in quantity supplied divided by the percentage change in price.',
+      ru: '1 балл: чувствительность величины предложения к изменению цены. 1 балл: измеряется как процентное изменение величины предложения, делённое на процентное изменение цены.',
+    },
+    origin: 'original',
+    minutes: 3,
+  },
+];

@@ -1,0 +1,44 @@
+import type { TopicMeta } from '../../../../src/contract/types';
+
+const topic: TopicMeta = {
+  id: 'inequality-and-poverty',
+  subject: 'econ',
+  code: '3.4',
+  title: { en: 'Economics of inequality and poverty', ru: 'Экономика неравенства и бедности' },
+  papers: ['P1', 'P2', 'P3'],
+  order: 34,
+  minutes: 40,
+  priority: 2,
+  inMockScope: 'unknown',
+  outcomes: [
+    { en: 'I can explain income and wealth inequality and read a Lorenz curve', ru: 'Могу объяснить неравенство доходов и богатства и читать кривую Лоренца' },
+    { en: 'I can calculate the Gini coefficient from areas A and B, before and after a policy', ru: 'Могу рассчитать коэффициент Джини по площадям A и B до и после политики' },
+    { en: 'I can distinguish absolute poverty from relative poverty', ru: 'Могу различать абсолютную и относительную бедность' },
+    { en: 'I can evaluate policies that reduce inequality, including their trade-offs with efficiency', ru: 'Могу оценивать меры по снижению неравенства, включая их компромисс с эффективностью' },
+  ],
+  termIds: [
+    'income-inequality',
+    'wealth-inequality',
+    'lorenz-curve',
+    'line-of-equality',
+    'gini-coefficient',
+    'absolute-poverty',
+    'relative-poverty',
+    'human-capital',
+    'transfer-payments',
+    'minimum-wage',
+    'progressive-tax',
+    'equity',
+  ],
+  formulaIds: ['gini'],
+  sims: ['econ.lorenz'],
+  questionIds: [
+    'econ-inequality-and-poverty-01',
+    'econ-inequality-and-poverty-02',
+    'econ-inequality-and-poverty-03',
+    'econ-inequality-and-poverty-04',
+  ],
+  sources: [{ kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 3.4' }],
+};
+
+export default topic;

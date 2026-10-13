@@ -1,0 +1,135 @@
+import type { Question } from '../../../../src/contract/types';
+
+// Externalities questions. The calculations (econ-externalities-01 to 04) are checked by scripts/econ-checks/externalities.json.
+export const questions: Question[] = [
+  {
+    id: 'econ-externalities-01',
+    subject: 'econ',
+    topicIds: ['externalities'],
+    paper: 'P2',
+    marks: 3,
+    command: 'Calculate',
+    prompt: {
+      en: 'A chemical plant has a marginal private benefit curve Qd = 40 - 2P and a marginal private cost curve Qs = -8 + 2P, where Q is in tonnes and P is in AED per tonne. Calculate the market quantity, where the market is in equilibrium. Give your answer in tonnes to one decimal place. [3 marks]',
+      ru: 'У химического завода предельная частная выгода (MPB) задаётся кривой Qd = 40 - 2P, а предельные частные издержки (MPC) — кривой Qs = -8 + 2P; Q измеряется в тоннах, P — в AED за тонну. Рассчитайте рыночный объём, при котором рынок находится в равновесии. Дайте ответ в тоннах с одним знаком после запятой. [3 балла]',
+    },
+    markscheme: {
+      en: '1 mark: equilibrium where MPB = MPC: 40 - 2P = -8 + 2P. 1 mark: 4P = 48, so P = 12 AED per tonne. 1 mark: Q = 40 - 2 x 12 = 16.0 tonnes.',
+      ru: '1 балл: равновесие, где MPB = MPC: 40 - 2P = -8 + 2P. 1 балл: 4P = 48, откуда P = 12 AED за тонну. 1 балл: Q = 40 - 2 x 12 = 16,0 тонны.',
+    },
+    answer: '16.0',
+    origin: 'original',
+    minutes: 4,
+  },
+  {
+    id: 'econ-externalities-02',
+    subject: 'econ',
+    topicIds: ['externalities'],
+    paper: 'P2',
+    marks: 3,
+    command: 'Calculate',
+    prompt: {
+      en: 'A chemical plant has a marginal social benefit equal to its marginal private benefit, Qd = 40 - 2P, because there is no external benefit. Its marginal social cost, including the external cost of its smoke, is Qs = -20 + 2P, where Q is in tonnes and P is in AED per tonne. Calculate the socially optimal quantity, where MSB = MSC. Give your answer in tonnes to one decimal place. [3 marks]',
+      ru: 'Предельная общественная выгода химического завода равна его предельной частной выгоде: Qd = 40 - 2P, так как внешней выгоды нет. Предельные общественные издержки с учётом внешних издержек от дыма задаются кривой Qs = -20 + 2P; Q — в тоннах, P — в AED за тонну. Рассчитайте общественно оптимальный объём, при котором MSB = MSC. Дайте ответ в тоннах с одним знаком после запятой. [3 балла]',
+    },
+    markscheme: {
+      en: '1 mark: optimum where MSB = MSC: 40 - 2P = -20 + 2P. 1 mark: 4P = 60, so P = 15 AED per tonne. 1 mark: Q = 40 - 2 x 15 = 10.0 tonnes.',
+      ru: '1 балл: оптимум, где MSB = MSC: 40 - 2P = -20 + 2P. 1 балл: 4P = 60, откуда P = 15 AED за тонну. 1 балл: Q = 40 - 2 x 15 = 10,0 тонны.',
+    },
+    answer: '10.0',
+    origin: 'original',
+    minutes: 4,
+  },
+  {
+    id: 'econ-externalities-03',
+    subject: 'econ',
+    topicIds: ['externalities'],
+    paper: 'P2',
+    marks: 3,
+    command: 'Calculate',
+    prompt: {
+      en: 'In a market with a negative production externality, the market quantity is 16 tonnes and the socially optimal quantity is 10 tonnes. The external cost is AED 6 per tonne at every quantity. Calculate the welfare loss in AED, using the triangle area = 1/2 x base x height, where the base is the gap between the two quantities and the height is the external cost per tonne. Give your answer to one decimal place. [3 marks]',
+      ru: 'При негативном внешнем эффекте в производстве рыночный объём равен 16 тоннам, а общественно оптимальный — 10 тоннам. Внешние издержки составляют 6 AED за тонну при любом объёме. Рассчитайте потери благосостояния в AED по формуле площади треугольника: 1/2 x основание x высота, где основание — разрыв между двумя объёмами, а высота — внешние издержки за тонну. Дайте ответ с одним знаком после запятой. [3 балла]',
+    },
+    markscheme: {
+      en: '1 mark: base = 16 - 10 = 6 tonnes. 1 mark: height = external cost = AED 6 per tonne. 1 mark: welfare loss = 1/2 x 6 x 6 = 18.0 AED.',
+      ru: '1 балл: основание = 16 - 10 = 6 тонн. 1 балл: высота = внешние издержки = 6 AED за тонну. 1 балл: потери = 1/2 x 6 x 6 = 18,0 AED.',
+    },
+    answer: '18.0',
+    origin: 'original',
+    minutes: 4,
+  },
+  {
+    id: 'econ-externalities-04',
+    subject: 'econ',
+    topicIds: ['externalities'],
+    paper: 'P2',
+    marks: 2,
+    command: 'Calculate',
+    prompt: {
+      en: 'A government sets a Pigouvian tax of AED 6 per tonne, equal to the external cost. After the tax, the market quantity falls to the socially optimal 10 tonnes. Calculate the tax revenue in AED, using tax revenue = tax per unit x quantity. Give your answer to one decimal place. [2 marks]',
+      ru: 'Правительство вводит налог Пигу 6 AED за тонну, равный внешним издержкам. После введения налога рыночный объём снижается до общественно оптимальных 10 тонн. Рассчитайте налоговые поступления в AED по формуле: налоговые поступления = налог на единицу x объём. Дайте ответ с одним знаком после запятой. [2 балла]',
+    },
+    markscheme: {
+      en: '1 mark: tax revenue = 6 x 10 = 60 AED (tax per unit x quantity). 1 mark: 60.0 AED.',
+      ru: '1 балл: налоговые поступления = 6 x 10 = 60 AED (налог на единицу x объём). 1 балл: 60,0 AED.',
+    },
+    answer: '60.0',
+    origin: 'original',
+    minutes: 3,
+  },
+  {
+    id: 'econ-externalities-05',
+    subject: 'econ',
+    topicIds: ['externalities'],
+    paper: 'P2',
+    marks: 4,
+    command: 'Draw',
+    prompt: {
+      en: "Draw a diagram of a market with a negative externality in production, such as a factory's smoke. Label the marginal private cost (MPC), the marginal social cost (MSC), the marginal social benefit (MSB), the market quantity (Qm) and the socially optimal quantity (Qopt). Shade the welfare loss. [4 marks]",
+      ru: 'Нарисуйте диаграмму рынка с негативным внешним эффектом в производстве, например дымом завода. Подпишите предельные частные издержки (MPC), предельные общественные издержки (MSC), предельную общественную выгоду (MSB), рыночный объём (Qm) и общественно оптимальный объём (Qopt). Заштрихуйте потери благосостояния. [4 балла]',
+    },
+    markscheme: {
+      en: '1 mark: MPC (the supply curve) and MSC drawn, with MSC above MPC. 1 mark: MSB (the demand curve) drawn, and MPC crossing it at the market quantity Qm. 1 mark: MSC crosses MSB at Qopt, which is labelled and lies to the left of Qm. 1 mark: the welfare loss shaded as the triangle between MSC and MSB from Qopt to Qm.',
+      ru: '1 балл: MPC (кривая предложения) и MSC нарисованы, MSC выше MPC. 1 балл: MSB (кривая спроса) нарисована, MPC пересекает её в рыночном объёме Qm. 1 балл: MSC пересекает MSB в точке Qopt, которая подписана и лежит левее Qm. 1 балл: потери благосостояния заштрихованы как треугольник между MSC и MSB от Qopt до Qm.',
+    },
+    origin: 'original',
+    minutes: 6,
+  },
+  {
+    id: 'econ-externalities-06',
+    subject: 'econ',
+    topicIds: ['externalities'],
+    paper: 'P2',
+    marks: 4,
+    command: 'Explain',
+    prompt: {
+      en: 'A good has a negative consumption externality, such as tobacco. Explain why the market quantity is greater than the socially optimal quantity. Refer to the marginal private benefit and the marginal social benefit in your answer. [4 marks]',
+      ru: 'Товар имеет негативный внешний эффект в потреблении, например табак. Объясните, почему рыночный объём больше общественно оптимального. В ответе сошлитесь на предельную частную выгоду и предельную общественную выгоду. [4 балла]',
+    },
+    markscheme: {
+      en: '1 mark: consumers base their decisions on the marginal private benefit (MPB), which is greater than the marginal social benefit (MSB) at the market quantity. 1 mark: the external cost of consumption is not part of the price buyers pay, so the price is too low. 1 mark: at the market quantity MSB is less than the marginal social cost (MSC), so the extra units reduce total welfare. 1 mark: the market over-consumes; the welfare loss is the area between the supply curve and MSB from the optimum to the market quantity.',
+      ru: '1 балл: потребители ориентируются на предельную частную выгоду (MPB), которая при рыночном объёме больше предельной общественной выгоды (MSB). 1 балл: внешние издержки потребления не входят в цену, которую платят покупатели, поэтому цена слишком низкая. 1 балл: при рыночном объёме MSB меньше предельных общественных издержек (MSC), поэтому дополнительные единицы снижают общее благосостояние. 1 балл: рынок потребляет слишком много; потери — это площадь между кривой предложения и MSB от оптимального до рыночного объёма.',
+    },
+    origin: 'original',
+    minutes: 5,
+  },
+  {
+    id: 'econ-externalities-07',
+    subject: 'econ',
+    topicIds: ['externalities'],
+    paper: 'P1',
+    marks: 8,
+    command: 'Evaluate',
+    prompt: {
+      en: 'Evaluate the use of a Pigouvian tax compared with tradable permits to reduce a negative externality of production. [8 marks]',
+      ru: 'Оцените использование налога Пигу по сравнению с торгуемыми разрешениями для сокращения негативного внешнего эффекта в производстве. [8 баллов]',
+    },
+    markscheme: {
+      en: '1 mark: a Pigouvian tax equal to the external cost raises the private cost to the social cost and moves output to the optimum. 1 mark: tradable permits fix the total quantity at the cap, so the quantity is certain, while the permit price is set by the market. 1 mark: permits let firms that cut emissions cheaply sell permits, so the cap is met at the lowest total cost. 1 mark: the tax needs accurate information about the external cost; a wrong tax rate still leaves output away from the optimum. 1 mark: the tax raises revenue for clean-up, while permits given away free create windfall profits for their holders. 1 mark: the effect of a tax on output depends on the price elasticity of demand: if demand is inelastic, output falls little and the price mainly rises. 1 mark: administering permits and enforcing a tax are costly, and the permit price can be volatile. 1 mark: a supported judgement: the tax is better when the external cost is well measured and demand is elastic; permits are better when a set quantity matters and firms differ in the cost of cutting emissions.',
+      ru: '1 балл: налог Пигу, равный внешним издержкам, поднимает частные издержки до общественных и выводит выпуск к оптимуму. 1 балл: торгуемые разрешения фиксируют общий объём, поэтому количество известно заранее, а цена разрешения формируется рынком. 1 балл: разрешения позволяют фирмам, которые дёшево сокращают выбросы, продавать свои разрешения, и лимит достигается с наименьшими общими издержками. 1 балл: налогу нужна точная информация о внешних издержках; неверная ставка всё равно уводит выпуск от оптимума. 1 балл: налог даёт государству выручку на очистку, а бесплатно розданные разрешения создают дополнительную прибыль их владельцам. 1 балл: влияние налога на объём зависит от ценовой эластичности спроса: при неэластичном спросе объём падает мало, а цена растёт в основном. 1 балл: администрирование разрешений и контроль налога дороги, а цена разрешения может сильно колебаться. 1 балл: обоснованное суждение: налог лучше при хорошо измеренных внешних издержках и эластичном спросе, разрешения — когда важен заданный объём и фирмы различаются по издержкам сокращения выбросов.',
+    },
+    origin: 'original',
+    minutes: 15,
+  },
+];
