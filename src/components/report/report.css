@@ -1,0 +1,30 @@
+/* Report page. Tokens come from src/index.css, shared field styles from ../practice/fields.css. */
+
+.rp-lang {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.rp-lang__label {
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.rp-field {
+  margin-bottom: 0.75rem;
+}
+
+/* The text is monospace and wraps inside the box, so the page never scrolls sideways. */
+.rp-text {
+  min-height: 12rem;
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  text-overflow: clip;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  resize: vertical;
+}
