@@ -1,4 +1,4 @@
-import type { Assignment, CaseStudy, Formula, PaperGuide, PastPaperRef, Question, SyllabusItem, Term, TopicMeta } from '../../src/contract/types';
+import type { Assignment, CaseStudy, Formula, ListeningTrack, PaperGuide, PastPaperRef, Question, SyllabusItem, Term, TopicMeta } from '../../src/contract/types';
 import type { SimComponent, TopicBodyModule } from '../../src/contract/pack';
 import { buildPack } from '../../src/content/build-pack';
 import meta from './meta';
@@ -15,5 +15,6 @@ export default buildPack(meta, {
   papers: import.meta.glob<{ papers: PaperGuide[] }>('./**/papers.ts', { eager: true }),
   pastPapers: import.meta.glob<{ pastPapers: PastPaperRef[] }>('./**/pastpapers.ts', { eager: true }),
   assignments: import.meta.glob<{ assignments: Assignment[] }>('./**/assignments.ts', { eager: true }),
+  listening: import.meta.glob<{ track: ListeningTrack }>('./listening/*.ts', { eager: true }),
   sims: import.meta.glob<{ default: SimComponent }>('../../src/sims/*/*.tsx'),
 });

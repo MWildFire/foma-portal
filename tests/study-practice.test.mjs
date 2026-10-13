@@ -5,9 +5,7 @@ import {
   NO_FILTERS,
   TIMER_KEEP_MS,
   WARN_SECONDS,
-  allowedMinutes,
   createTimer,
-  extraMinutes,
   filterOptions,
   filterQuestions,
   filtersFromParams,
@@ -155,19 +153,7 @@ test('the questions of a set come in the order of the set; missing ids are repor
   assert.deepEqual(questionsOfSet({ questionIds: [] }, QUESTIONS), { found: [], missing: [] });
 });
 
-// ---- extra time and the clock
-
-test('extra time is 25% on top, rounded up to a whole minute', () => {
-  assert.equal(allowedMinutes(45, false), 45);
-  assert.equal(allowedMinutes(45, true), 57);
-  assert.equal(allowedMinutes(60, true), 75);
-  assert.equal(allowedMinutes(75, true), 94);
-  assert.equal(allowedMinutes(20, true), 25);
-  assert.equal(extraMinutes(45, true), 12);
-  assert.equal(extraMinutes(45, false), 0);
-  assert.equal(allowedMinutes(0, true), 0);
-  assert.equal(allowedMinutes(Number.NaN, true), 0);
-});
+// ---- the clock
 
 test('the clock shows minutes and seconds; minutes are not wrapped into hours', () => {
   assert.equal(formatClock(0), '00:00');

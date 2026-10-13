@@ -1,4 +1,4 @@
-import type { Assignment, CaseStudy, Formula, Lang, PaperGuide, PastPaperRef, Question, SimId, SyllabusItem, Term, TopicMeta } from '../contract/types';
+import type { Assignment, CaseStudy, Formula, Lang, ListeningTrack, PaperGuide, PastPaperRef, Question, SimId, SyllabusItem, Term, TopicMeta } from '../contract/types';
 import type { SimComponent, SubjectMeta, SubjectPack, TopicBodyLoader, TopicBodyLoaders } from '../contract/pack';
 
 // Raw module maps from the import.meta.glob calls in content/<s>/index.ts.
@@ -13,6 +13,7 @@ export interface RawModules {
   papers: Record<string, { papers: PaperGuide[] }>;
   pastPapers: Record<string, { pastPapers: PastPaperRef[] }>;
   assignments: Record<string, { assignments: Assignment[] }>;
+  listening: Record<string, { track: ListeningTrack }>;
   sims: Record<string, () => Promise<{ default: SimComponent }>>;
 }
 
@@ -49,6 +50,8 @@ export function buildPack(meta: SubjectMeta, raw: RawModules): SubjectPack {
     papers: collect(raw.papers, m => m.papers),
     pastPapers: collect(raw.pastPapers, m => m.pastPapers),
     assignments: collect(raw.assignments, m => m.assignments),
+    // Only the id, the audio and the questions reach the pack: the script of the recording stays in its content file.
+    listening: Object.values(raw.listening).map(module => ({ id: module.track.id, audio: module.track.audio, questionIds: module.track.questionIds })),
     sims,
   };
 }

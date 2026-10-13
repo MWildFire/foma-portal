@@ -175,20 +175,10 @@ export function questionsOfSet<Q extends { id: string }>(set: { questionIds: rea
 // ---------------------------------------------------------------------------------------------------------------
 // Time and extra time
 
-export const EXTRA_TIME_FACTOR = 1.25;
 /** The warning starts when this many seconds are left. */
 export const WARN_SECONDS = 5 * 60;
 
-// Access arrangements: extra time is 25% on top, rounded up to a whole minute.
-export function allowedMinutes(minutes: number, extraTime: boolean): number {
-  const base = Number.isFinite(minutes) && minutes > 0 ? minutes : 0;
-  return extraTime ? Math.ceil(base * EXTRA_TIME_FACTOR) : base;
-}
-
-export function extraMinutes(minutes: number, extraTime: boolean): number {
-  const base = Number.isFinite(minutes) && minutes > 0 ? minutes : 0;
-  return allowedMinutes(base, extraTime) - base;
-}
+// The time a timed set runs for, with or without extra time, comes from the school's table: src/components/practice/timing.ts.
 
 // 75 -> "01:15"; 3420 -> "57:00". Minutes are not wrapped into hours, so a 105-minute paper reads "105:00".
 export function formatClock(totalSeconds: number): string {

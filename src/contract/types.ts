@@ -72,3 +72,11 @@ export interface Assignment {
   url?: string;                  // https:// public page
   topicIds: string[];            // topics this task practises
 }
+
+// A listening recording of a subject (content/<s>/listening/*.ts, export const track): the audio and the questions it is
+// for. The script stays in the content file; the pack keeps only what the player needs.
+export interface ListeningTrack {
+  id: string;
+  audio: string;                 // public path, for example /audio/fr/l1-racines.mp3
+  questionIds: string[];
+}
