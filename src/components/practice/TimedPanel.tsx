@@ -10,7 +10,7 @@ import { Clock } from './Clock';
 import { ListeningPlayer } from './ListeningPlayer';
 import { NO_TRACKS, tracksForSet, type ListeningTrackRef } from './listening';
 import { readStoredTimer } from './timerStorage';
-import { noExtraTimeFor, setAllowanceMinutes } from './timing';
+import { hasExtraTimeSet, setAllowanceMinutes } from './timing';
 import { FilterSelect } from './fields';
 import '../content/ui.css';
 import './fields.css';
@@ -42,7 +42,7 @@ export function TimedPanel({ subject, sets, active, requestedId, extraTime, lang
   const { t } = useTranslation(['practice', 'subject', 'timing']);
   const headingId = useId();
   const allowed = active ? setAllowanceMinutes({ subject, set: active, exams: EXAMS, extraTime }) : 0;
-  const noExtra = active ? noExtraTimeFor(subject, active.paper, active.part) : false;
+  const noExtra = active ? !hasExtraTimeSet(EXAMS, subject, active) : false;
   const setTracks = useMemo(() => (active ? tracksForSet(active, tracks) : []), [active, tracks]);
   const papers = PAPER_IDS.filter(paper => sets.some(set => set.paper === paper));
 

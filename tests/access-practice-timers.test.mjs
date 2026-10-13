@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { extendedMinutes, parseExams } from '../src/planner/calendar.ts';
-import { noExtraTimeFor, setAllowanceMinutes } from '../src/components/practice/timing.ts';
+import { hasExtraTimeSet, setAllowanceMinutes } from '../src/components/practice/timing.ts';
 
 // The school's schedule, read from disk as the planner tests do.
 const exams = parseExams(JSON.parse(readFileSync(new URL('../data/exams.json', import.meta.url), 'utf8')));
@@ -35,22 +35,22 @@ test('the table wins over the arithmetic', () => {
 });
 
 test('listening has no extra time: the printed 60 minutes stays', () => {
-  assert.equal(noExtraTimeFor('fr', 'P2', 'listening'), true);
+  assert.equal(hasExtraTimeSet(exams, 'fr', { paper: 'P2', part: 'listening', minutes: 60 }), false);
   assert.equal(allowance({ paper: 'P2', part: 'listening', minutes: 60 }, true, 'fr'), 60);
   assert.equal(allowance({ paper: 'P2', part: 'listening', minutes: 60 }, false, 'fr'), 60);
 });
 
 test('only the French listening paper is exempt', () => {
-  assert.equal(noExtraTimeFor('fr', 'P2', 'reading'), false);
-  assert.equal(noExtraTimeFor('fr', 'P2'), false); // no part given
-  assert.equal(noExtraTimeFor('eng', 'P2', 'listening'), false);
-  assert.equal(noExtraTimeFor('fr', 'P1'), false);
+  assert.equal(hasExtraTimeSet(exams, 'fr', { paper: 'P2', part: 'reading', minutes: 45 }), true);
+  assert.equal(hasExtraTimeSet(exams, 'fr', { paper: 'P2', minutes: 45 }), true); // no part given
+  assert.equal(hasExtraTimeSet(exams, 'eng', { paper: 'P2', part: 'listening', minutes: 60 }), true);
+  assert.equal(hasExtraTimeSet(exams, 'fr', { paper: 'P1', minutes: 75 }), true);
   assert.equal(allowance({ paper: 'P2', part: 'reading', minutes: 45 }, true, 'fr'), 56);
   assert.equal(allowance({ paper: 'P1', minutes: 75 }, true, 'fr'), 94);
 });
 
 test('the exempt rule matches only the listening sitting in data/exams.json', () => {
-  const exempt = exams.papers.filter(exam => noExtraTimeFor(exam.subject, exam.paper, exam.part));
+  const exempt = exams.papers.filter(exam => !hasExtraTimeSet(exams, exam.subject, { paper: exam.paper, part: exam.part, minutes: exam.minutes }));
   assert.deepEqual(exempt.map(exam => exam.id), ['fr-p2l']);
 });
 
