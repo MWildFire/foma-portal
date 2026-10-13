@@ -1,5 +1,7 @@
 import type { SourceRef, Term } from '../../../../src/contract/types';
 
+// Sources: the textbook (chapter and page) for terms it defines; the subject guide (section 1.1) for needs and wants.
+const book = 'Tragakes, Economics for the IB Diploma: Coursebook (Cambridge University Press, 3rd ed.)';
 const src: SourceRef = { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 1.1' };
 
 export const terms: Term[] = [
@@ -7,7 +9,7 @@ export const terms: Term[] = [
     id: 'scarcity',
     term: { en: 'scarcity', ru: 'ограниченность ресурсов (scarcity)' },
     def: {
-      en: 'The condition in which resources are limited compared with unlimited wants, so choices must be made about how to use them.',
+      en: 'The condition in which resources are limited compared with unlimited wants, so every use of them involves a choice.',
       ru: 'Состояние, при котором ресурсы ограничены по сравнению с безграничными желаниями людей, поэтому приходится выбирать, как их использовать.',
     },
     example: {
@@ -20,7 +22,7 @@ export const terms: Term[] = [
     },
     syllabus: '1.1',
     papers: ['P1', 'P2'],
-    src,
+    src: { kind: 'textbook', title: book, locator: 'ch. 1.1, p. 6' },
   },
   {
     id: 'choice',
@@ -39,13 +41,13 @@ export const terms: Term[] = [
     },
     syllabus: '1.1',
     papers: ['P1', 'P2'],
-    src,
+    src: { kind: 'textbook', title: book, locator: 'ch. 1.1, p. 4' },
   },
   {
     id: 'opportunity-cost',
     term: { en: 'opportunity cost', ru: 'альтернативные издержки (opportunity cost)' },
     def: {
-      en: 'The value of the next best alternative that is given up when a choice is made.',
+      en: 'The value of the option sacrificed when a choice is made, namely the next-best alternative.',
       ru: 'Стоимость следующей по выгодности альтернативы, от которой отказались при выборе.',
     },
     example: {
@@ -58,13 +60,13 @@ export const terms: Term[] = [
     },
     syllabus: '1.1',
     papers: ['P1', 'P2'],
-    src,
+    src: { kind: 'textbook', title: book, locator: 'ch. 1.1, p. 8' },
   },
   {
     id: 'factors-of-production',
     term: { en: 'factors of production', ru: 'факторы производства (factors of production)' },
     def: {
-      en: 'The inputs used to produce goods and services: land (natural resources), labour (human effort), capital (produced goods such as machines) and enterprise (organising production and taking risks).',
+      en: 'The inputs that go into making products and services: land (natural resources), labour (human effort), capital (produced goods such as machines) and enterprise (organising production and taking risks).',
       ru: 'Ресурсы, которые используются для производства товаров и услуг: земля (природные ресурсы), труд (человеческие усилия), капитал (произведённые средства производства, например станки) и предпринимательская способность (организация производства и принятие риска).',
     },
     example: {
@@ -77,7 +79,7 @@ export const terms: Term[] = [
     },
     syllabus: '1.1',
     papers: ['P1', 'P2'],
-    src,
+    src: { kind: 'textbook', title: book, locator: 'ch. 1.1, p. 7' },
   },
   {
     id: 'needs',
@@ -134,7 +136,7 @@ export const terms: Term[] = [
     },
     syllabus: '1.1',
     papers: ['P1', 'P2'],
-    src,
+    src: { kind: 'textbook', title: book, locator: 'ch. 1.1, p. 9' },
   },
   {
     id: 'free-goods',
@@ -153,7 +155,7 @@ export const terms: Term[] = [
     },
     syllabus: '1.1',
     papers: ['P1', 'P2'],
-    src,
+    src: { kind: 'textbook', title: book, locator: 'ch. 1.1, p. 9' },
   },
   {
     id: 'production-possibility-curve',
@@ -173,14 +175,14 @@ export const terms: Term[] = [
     syllabus: '1.1',
     papers: ['P1', 'P2'],
     sim: 'econ.ppc',
-    src,
+    src: { kind: 'textbook', title: book, locator: 'ch. 1.3, p. 16' },
   },
   {
     id: 'productive-efficiency',
     term: { en: 'productive efficiency', ru: 'производственная эффективность (productive efficiency)' },
     def: {
-      en: 'Producing the maximum output possible from the available resources, with no idle or wasted resources, so more of one good means less of another.',
-      ru: 'Выпуск максимально возможного объёма при имеющихся ресурсах без простоя и потерь: больше одного товара означает меньше другого.',
+      en: 'Producing the maximum output possible from the available resources, using the fewest possible resources per unit (the lowest possible cost) with no idle resources, so more of one good means less of another.',
+      ru: 'Выпуск максимально возможного объёма из имеющихся ресурсов с наименьшим расходом ресурсов на единицу (наименьшими возможными издержками) и без простоя: больше одного товара означает меньше другого.',
     },
     example: {
       en: 'If 10% of 50,000 workers are unemployed, 5,000 workers are idle and output lies inside the PPC, so the economy is not productively efficient.',
@@ -192,6 +194,6 @@ export const terms: Term[] = [
     },
     syllabus: '1.1',
     papers: ['P1', 'P2'],
-    src,
+    src: { kind: 'textbook', title: book, locator: 'ch. 1.3, p. 16' },
   },
 ];

@@ -1,5 +1,7 @@
 import type { SourceRef, Term } from '../../../../src/contract/types';
 
+// Sources: the textbook (chapter and page) for terms it defines; the subject guide (section 1.2) for economic-agent and prediction.
+const book = 'Tragakes, Economics for the IB Diploma: Coursebook (Cambridge University Press, 3rd ed.)';
 const src: SourceRef = { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 1.2' };
 
 export const terms: Term[] = [
@@ -7,8 +9,8 @@ export const terms: Term[] = [
     id: 'economic-model',
     term: { en: 'economic model', ru: 'экономическая модель (economic model)' },
     def: {
-      en: 'A simplified representation of an economic situation, built from assumptions and relationships between variables, used to explain behaviour and make predictions.',
-      ru: 'Упрощённое представление экономической ситуации, построенное на допущениях и связях между переменными, которое объясняет поведение и позволяет делать прогнозы.',
+      en: 'A simplified representation of an economic situation that keeps only its essential features, built from assumptions and relationships between variables, used to explain behaviour and make predictions.',
+      ru: 'Упрощённое представление экономической ситуации, которое сохраняет только её существенные черты и построено на допущениях и связях между переменными; оно объясняет поведение и позволяет делать прогнозы.',
     },
     example: {
       en: 'A model of the bread market assumes 1,000 buyers who each buy 2 loaves a week at 6 AED per loaf, and it ignores differences in taste.',
@@ -20,7 +22,7 @@ export const terms: Term[] = [
     },
     syllabus: '1.2',
     papers: ['P1', 'P2'],
-    src,
+    src: { kind: 'textbook', title: book, locator: 'glossary, p. 653' },
   },
   {
     id: 'assumption',
@@ -39,7 +41,7 @@ export const terms: Term[] = [
     },
     syllabus: '1.2',
     papers: ['P1', 'P2'],
-    src,
+    src: { kind: 'textbook', title: book, locator: 'ch. 1.4, p. 25' },
   },
   {
     id: 'ceteris-paribus',
@@ -58,14 +60,14 @@ export const terms: Term[] = [
     },
     syllabus: '1.2',
     papers: ['P1', 'P2'],
-    src,
+    src: { kind: 'textbook', title: book, locator: 'ch. 1.4, p. 25' },
   },
   {
     id: 'positive-statement',
     term: { en: 'positive statement', ru: 'позитивное утверждение (positive statement)' },
     def: {
-      en: 'A statement about what is or what would happen, which can be tested against evidence and shown to be true or false.',
-      ru: 'Утверждение о том, что есть или что произойдёт, которое можно проверить по данным и признать верным или неверным.',
+      en: 'A statement about what is, was or will be, which can be tested against evidence and shown to be true or false.',
+      ru: 'Утверждение о том, что есть, что было или что будет, которое можно проверить по данным и признать верным или неверным.',
     },
     example: {
       en: 'A 1 AED rise in the price of a litre of petrol will reduce petrol sales by 5% within a year.',
@@ -77,13 +79,13 @@ export const terms: Term[] = [
     },
     syllabus: '1.2',
     papers: ['P1', 'P2'],
-    src,
+    src: { kind: 'textbook', title: book, locator: 'ch. 1.3, p. 23' },
   },
   {
     id: 'normative-statement',
     term: { en: 'normative statement', ru: 'нормативное утверждение (normative statement)' },
     def: {
-      en: 'A statement based on value judgements about what ought to happen, which cannot be proved true or false by evidence alone.',
+      en: 'A statement that rests on a personal view of what should or should not happen, so evidence alone cannot prove it true or false.',
       ru: 'Утверждение, основанное на оценочных суждениях о том, что должно произойти; одними данными его нельзя доказать или опровергнуть.',
     },
     example: {
@@ -96,7 +98,7 @@ export const terms: Term[] = [
     },
     syllabus: '1.2',
     papers: ['P1', 'P2'],
-    src,
+    src: { kind: 'textbook', title: book, locator: 'ch. 1.4, p. 23' },
   },
   {
     id: 'microeconomics',
@@ -115,7 +117,7 @@ export const terms: Term[] = [
     },
     syllabus: '1.2',
     papers: ['P1', 'P2'],
-    src,
+    src: { kind: 'textbook', title: book, locator: 'ch. 1.1, p. 3' },
   },
   {
     id: 'macroeconomics',
@@ -134,7 +136,7 @@ export const terms: Term[] = [
     },
     syllabus: '1.2',
     papers: ['P1', 'P2'],
-    src,
+    src: { kind: 'textbook', title: book, locator: 'ch. 1.1, p. 3' },
   },
   {
     id: 'economic-agent',
