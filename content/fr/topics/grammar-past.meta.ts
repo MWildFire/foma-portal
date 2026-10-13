@@ -18,7 +18,7 @@ const topic: TopicMeta = {
   ],
   termIds: ['gr-passe-compose', 'gr-passe-compose-etre', 'gr-participle-agreement', 'gr-imparfait', 'gr-plus-que-parfait'],
   questionIds: ['grammar-past-q1', 'grammar-past-q2'],
-  sources: [{ kind: 'own', title: "Authors' French B material (2026)" }],
+  sources: [{ kind: 'thinkib', title: 'ThinkIB, French B SL: Grammaire (page 47789)', locator: "Le passé composé; L'imparfait; Le plus-que-parfait; Les temps du passé" }],
 };
 
 export default topic;

@@ -16,5 +16,5 @@ export const passage: ReadingPassage = {
     "Aujourd'hui, le prix final est de vingt-cinq euros, et l'appareil est déjà utilisé dans quelques classes. Pour l'instant, Mathis travaille avec une association de parents d'élèves. Il reconnaît pourtant qu'il manque encore une étude scientifique sérieuse. « Il faut que je prouve son efficacité avant de le vendre à grande échelle », conclut-il.",
   ],
   questionIds: ['r3-q01', 'r3-q02', 'r3-q03', 'r3-q04', 'r3-q05', 'r3-q06', 'r3-q07', 'r3-q08', 'r3-q09', 'r3-q10'],
-  source: { kind: 'own', title: "Authors' French B material (2026)" },
+  source: { kind: 'own', title: 'Original text written for this portal, in the style of IB Paper 2' },
 };

@@ -3,7 +3,7 @@ import type { FrTerm } from '../types';
 
 // Theme 1 (Identities): 90 vocabulary entries in ten sub-areas, with 16 fixed expressions.
 // Own wording; the topic page gives the context.
-const own: SourceRef = { kind: 'own', title: "Authors' French B vocabulary list (2026)" };
+const thinkib: SourceRef = { kind: 'thinkib', title: 'ThinkIB, French B SL: Vocabulaire (page 43182)', locator: 'Identités (theme 1, page 42626)' };
 
 export const terms: FrTerm[] = [
   // ---- who I am (identité personnelle) ----
@@ -14,7 +14,7 @@ export const terms: FrTerm[] = [
     example: { en: 'Her identity is shaped by two languages.', ru: 'Её идентичность формируется двумя языками.', fr: 'Son identité se construit avec deux langues.' },
     syllabus: 'T1',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t1-002',
@@ -23,7 +23,7 @@ export const terms: FrTerm[] = [
     example: { en: 'Her personality changes a lot when she is with her friends.', ru: 'Её личность заметно меняется, когда она с друзьями.', fr: 'Sa personnalité change beaucoup quand elle est avec ses amis.' },
     syllabus: 'T1',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t1-003',
@@ -32,7 +32,7 @@ export const terms: FrTerm[] = [
     example: { en: 'Since she changed jobs, she has felt much more at ease with herself.', ru: 'С тех пор как она сменила работу, она чувствует себя в своей тарелке.', fr: "Depuis qu'elle a changé de travail, elle est bien dans sa peau." },
     syllabus: 'T1',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t1-004',
@@ -41,7 +41,7 @@ export const terms: FrTerm[] = [
     example: { en: 'His life experience has made him more cautious.', ru: 'Его жизненный опыт сделал его осторожнее.', fr: "Son vécu l'a rendu plus prudent." },
     syllabus: 'T1',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t1-005',
@@ -50,7 +50,7 @@ export const terms: FrTerm[] = [
     example: { en: 'Her successes strengthen her self-esteem.', ru: 'Её успехи укрепляют её самооценку.', fr: 'Ses réussites renforcent son estime de soi.' },
     syllabus: 'T1',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t1-006',
@@ -59,7 +59,7 @@ export const terms: FrTerm[] = [
     example: { en: 'Acting gave him self-confidence.', ru: 'Занятия театром подарили ему уверенность в себе.', fr: 'Le théâtre lui a donné confiance en soi.' },
     syllabus: 'T1',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t1-007',
@@ -68,7 +68,7 @@ export const terms: FrTerm[] = [
     example: { en: 'She describes herself as a curious person.', ru: 'Она определяет себя как любознательного человека.', fr: 'Elle se définit comme une personne curieuse.' },
     syllabus: 'T1',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t1-008',
@@ -77,7 +77,7 @@ export const terms: FrTerm[] = [
     example: { en: 'I identify with this character.', ru: 'Я узнаю себя в этом персонаже.', fr: 'Je me reconnais dans ce personnage.' },
     syllabus: 'T1',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t1-009',
@@ -86,7 +86,7 @@ export const terms: FrTerm[] = [
     example: { en: 'He grew up in a small mountain town.', ru: 'Он вырос в маленьком горном городке.', fr: 'Il a grandi dans une petite ville de montagne.' },
     syllabus: 'T1',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
 
   // ---- family and origins (famille et origines) ----
@@ -97,7 +97,7 @@ export const terms: FrTerm[] = [
     example: { en: 'His family comes originally from Algeria.', ru: 'Его семья родом из Алжира.', fr: "Sa famille est originaire d'Algérie." },
     syllabus: 'T1',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t1-011',
@@ -106,7 +106,7 @@ export const terms: FrTerm[] = [
     example: { en: 'She is proud of her Russian origins.', ru: 'Она гордится своими русскими корнями.', fr: 'Elle est fière de ses origines russes.' },
     syllabus: 'T1',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t1-012',
@@ -115,7 +115,7 @@ export const terms: FrTerm[] = [
     example: { en: 'He has never forgotten his roots.', ru: 'Он никогда не забывал о своих корнях.', fr: "Il n'a jamais oublié ses racines." },
     syllabus: 'T1',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t1-013',
@@ -124,7 +124,7 @@ export const terms: FrTerm[] = [
     example: { en: 'My ancestors left this village in the nineteenth century.', ru: 'Мои предки покинули эту деревню в XIX веке.', fr: 'Mes ancêtres ont quitté ce village au dix-neuvième siècle.' },
     syllabus: 'T1',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t1-014',
@@ -133,7 +133,7 @@ export const terms: FrTerm[] = [
     example: { en: 'This family heritage matters a lot to him.', ru: 'Это семейное наследие очень важно для него.', fr: 'Cet héritage familial compte beaucoup pour lui.' },
     syllabus: 'T1',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t1-015',
@@ -142,7 +142,7 @@ export const terms: FrTerm[] = [
     example: { en: 'His parents passed on to him a love of reading.', ru: 'Его родители передали ему любовь к чтению.', fr: 'Ses parents lui ont transmis le goût de la lecture.' },
     syllabus: 'T1',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t1-016',
@@ -151,7 +151,7 @@ export const terms: FrTerm[] = [
     example: { en: 'She was brought up by her grandparents.', ru: 'Её воспитывали бабушка и дедушка.', fr: 'Elle a été élevée par ses grands-parents.' },
     syllabus: 'T1',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t1-017',
@@ -160,7 +160,7 @@ export const terms: FrTerm[] = [
     example: { en: 'In this household, two languages are spoken.', ru: 'В этой семье говорят на двух языках.', fr: 'Dans ce foyer, on parle deux langues.' },
     syllabus: 'T1',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t1-018',
@@ -169,7 +169,7 @@ export const terms: FrTerm[] = [
     example: { en: 'He comes from a family of artists.', ru: 'Он происходит из семьи художников.', fr: "Il est issu d'une famille d'artistes." },
     syllabus: 'T1',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
 
   // ---- values and beliefs (valeurs et croyances) ----
@@ -180,7 +180,7 @@ export const terms: FrTerm[] = [
     example: { en: 'Respect for others is an essential value for me.', ru: 'Уважение к другим — для меня важная ценность.', fr: 'Le respect des autres est une valeur essentielle pour moi.' },
     syllabus: 'T1',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t1-020',
@@ -189,7 +189,7 @@ export const terms: FrTerm[] = [
     example: { en: 'Her belief in justice made her a lawyer.', ru: 'Её вера в справедливость сделала её юристом.', fr: "Sa croyance en la justice a fait d'elle une avocate." },
     syllabus: 'T1',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t1-021',
@@ -198,7 +198,7 @@ export const terms: FrTerm[] = [
     example: { en: 'Tolerance is a quality that people learn by living with others.', ru: 'Терпимость — это качество, которому учатся, живя с другими.', fr: "La tolérance est une qualité qu'on apprend en vivant avec les autres." },
     syllabus: 'T1',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t1-022',
@@ -207,16 +207,16 @@ export const terms: FrTerm[] = [
     example: { en: 'Solidarity between neighbours was strong during the crisis.', ru: 'Солидарность между соседями была сильной во время кризиса.', fr: 'La solidarité entre voisins a été forte pendant la crise.' },
     syllabus: 'T1',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t1-023',
-    term: { en: 'to display (a quality)', ru: 'проявлять', fr: 'faire preuve de' },
+    term: { en: 'to display a quality', ru: 'проявлять', fr: 'faire preuve de' },
     def: { en: 'to display a quality such as courage, patience or honesty', ru: 'демонстрировать качество, например мужество, терпение или честность' },
     example: { en: 'He showed a lot of courage during the journey.', ru: 'Во время путешествия он проявил большое мужество.', fr: 'Il a fait preuve de beaucoup de courage pendant le voyage.' },
     syllabus: 'T1',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t1-024',
@@ -225,7 +225,7 @@ export const terms: FrTerm[] = [
     example: { en: "He respects his colleagues' opinions, even when he disagrees.", ru: 'Он уважает мнение коллег, даже когда не согласен с ними.', fr: "Il respecte l'avis de ses collègues, même quand il n'est pas d'accord." },
     syllabus: 'T1',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t1-025',
@@ -234,7 +234,7 @@ export const terms: FrTerm[] = [
     example: { en: 'She has principles and never lies.', ru: 'У неё есть принципы, и она никогда не лжёт.', fr: 'Elle a des principes et ne ment jamais.' },
     syllabus: 'T1',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t1-026',
@@ -243,7 +243,7 @@ export const terms: FrTerm[] = [
     example: { en: 'My cousin is very committed to protecting the environment.', ru: 'Мой двоюродный брат очень активно участвует в защите окружающей среды.', fr: "Mon cousin est très engagé dans la défense de l'environnement." },
     syllabus: 'T1',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t1-027',
@@ -252,7 +252,7 @@ export const terms: FrTerm[] = [
     example: { en: 'I believe in solidarity between peoples.', ru: 'Я верю в солидарность между народами.', fr: 'Je crois à la solidarité entre les peuples.' },
     syllabus: 'T1',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
 
   // ---- languages and cultures (langues et cultures) ----
@@ -263,7 +263,7 @@ export const terms: FrTerm[] = [
     example: { en: 'My mother tongue is Russian, but I learnt French at school.', ru: 'Мой родной язык — русский, но французский я учил в школе.', fr: "Ma langue maternelle est le russe, mais j'ai appris le français à l'école." },
     syllabus: 'T1',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t1-029',
@@ -272,7 +272,7 @@ export const terms: FrTerm[] = [
     example: { en: 'In our family, everyone is bilingual.', ru: 'В нашей семье все двуязычные.', fr: 'Dans notre famille, tout le monde est bilingue.' },
     syllabus: 'T1',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t1-030',
@@ -281,7 +281,7 @@ export const terms: FrTerm[] = [
     example: { en: 'This dialect is spoken in the south of France.', ru: 'На этом диалекте говорят на юге Франции.', fr: 'Ce dialecte est parlé dans le sud de la France.' },
     syllabus: 'T1',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t1-031',
@@ -290,7 +290,7 @@ export const terms: FrTerm[] = [
     example: { en: 'He has a southern accent, but he has lived in Paris for ten years.', ru: 'У него южный акцент, но он живёт в Париже уже десять лет.', fr: "Il a un accent du Sud, mais il vit à Paris depuis dix ans." },
     syllabus: 'T1',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t1-032',
@@ -299,7 +299,7 @@ export const terms: FrTerm[] = [
     example: { en: 'He has been interested in Japanese culture since childhood.', ru: 'Он интересуется японской культурой с детства.', fr: "Il s'intéresse à la culture japonaise depuis l'enfance." },
     syllabus: 'T1',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t1-033',
@@ -308,7 +308,7 @@ export const terms: FrTerm[] = [
     example: { en: 'In this region, the custom is to offer visitors tea.', ru: 'В этом регионе принято угощать гостей чаем.', fr: "Dans cette région, la coutume veut qu'on offre du thé aux visiteurs." },
     syllabus: 'T1',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t1-034',
@@ -317,7 +317,7 @@ export const terms: FrTerm[] = [
     example: { en: 'After six months in Lyon, she gets by well in French.', ru: 'После шести месяцев в Лионе она неплохо объясняется по-французски.', fr: 'Après six mois à Lyon, elle se débrouille bien en français.' },
     syllabus: 'T1',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t1-035',
@@ -326,7 +326,7 @@ export const terms: FrTerm[] = [
     example: { en: 'My grandmother speaks four languages fluently.', ru: 'Моя бабушка свободно говорит на четырёх языках.', fr: 'Ma grand-mère parle couramment quatre langues.' },
     syllabus: 'T1',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t1-036',
@@ -335,7 +335,7 @@ export const terms: FrTerm[] = [
     example: { en: 'She translates novels from Russian into French.', ru: 'Она переводит романы с русского на французский.', fr: 'Elle traduit des romans du russe en français.' },
     syllabus: 'T1',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
 
   // ---- personality (traits) ----
@@ -346,7 +346,7 @@ export const terms: FrTerm[] = [
     example: { en: 'Her son is very curious and asks questions all the time.', ru: 'Её сын очень любознательный и постоянно задаёт вопросы.', fr: 'Son fils est très curieux et pose des questions tout le temps.' },
     syllabus: 'T1',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t1-038',
@@ -355,7 +355,7 @@ export const terms: FrTerm[] = [
     example: { en: 'At first he is shy, but he becomes very talkative with his friends.', ru: 'Сначала он застенчивый, но с друзьями становится очень разговорчивым.', fr: 'Au début, il est timide, mais il devient très bavard avec ses amis.' },
     syllabus: 'T1',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t1-039',
@@ -364,7 +364,7 @@ export const terms: FrTerm[] = [
     example: { en: 'She is sociable and knows the whole neighbourhood.', ru: 'Она общительная и знает весь район.', fr: 'Elle est sociable et connaît tout le quartier.' },
     syllabus: 'T1',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t1-040',
@@ -373,7 +373,7 @@ export const terms: FrTerm[] = [
     example: { en: 'You have to be patient to learn a language.', ru: 'Чтобы выучить язык, нужно быть терпеливым.', fr: 'Il faut être patient pour apprendre une langue.' },
     syllabus: 'T1',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t1-041',
@@ -382,7 +382,7 @@ export const terms: FrTerm[] = [
     example: { en: 'Despite the difficulties, she remains optimistic about the future.', ru: 'Несмотря на трудности, она сохраняет оптимизм в отношении будущего.', fr: "Malgré les difficultés, elle reste optimiste pour l'avenir." },
     syllabus: 'T1',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t1-042',
@@ -391,7 +391,7 @@ export const terms: FrTerm[] = [
     example: { en: 'His compliments are always sincere.', ru: 'Его комплименты всегда искренние.', fr: 'Ses compliments sont toujours sincères.' },
     syllabus: 'T1',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t1-043',
@@ -400,7 +400,7 @@ export const terms: FrTerm[] = [
     example: { en: 'My sister is stubborn; she never gives in.', ru: 'Моя сестра упрямая, она никогда не уступает.', fr: 'Ma sœur est têtue, elle ne cède jamais.' },
     syllabus: 'T1',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t1-044',
@@ -409,7 +409,7 @@ export const terms: FrTerm[] = [
     example: { en: 'He has a sense of humour, even in difficult moments.', ru: 'У него есть чувство юмора, даже в трудные моменты.', fr: "Il a le sens de l'humour, même dans les moments difficiles." },
     syllabus: 'T1',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t1-045',
@@ -418,7 +418,7 @@ export const terms: FrTerm[] = [
     example: { en: 'This woman has strong character and knows how to say no.', ru: 'У этой женщины сильный характер, и она умеет сказать «нет».', fr: 'Cette femme a du caractère et sait dire non.' },
     syllabus: 'T1',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
 
   // ---- appearance and style ----
@@ -429,7 +429,7 @@ export const terms: FrTerm[] = [
     example: { en: 'People should not judge others by their appearance.', ru: 'Не стоит судить людей по внешнему виду.', fr: "On ne doit pas juger les gens sur leur apparence." },
     syllabus: 'T1',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t1-047',
@@ -438,7 +438,7 @@ export const terms: FrTerm[] = [
     example: { en: 'For the interview, he chose a simple and elegant outfit.', ru: 'Для собеседования он выбрал скромный и элегантный наряд.', fr: "Pour l'entretien, il a choisi une tenue sobre et élégante." },
     syllabus: 'T1',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t1-048',
@@ -447,7 +447,7 @@ export const terms: FrTerm[] = [
     example: { en: 'She always wears bright colours.', ru: 'Она всегда носит яркие цвета.', fr: 'Elle porte toujours des couleurs vives.' },
     syllabus: 'T1',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t1-049',
@@ -456,7 +456,7 @@ export const terms: FrTerm[] = [
     example: { en: 'Her style is elegant without being pretentious.', ru: 'Её стиль элегантный, но без претензий.', fr: 'Son style est élégant sans être prétentieux.' },
     syllabus: 'T1',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t1-050',
@@ -465,7 +465,7 @@ export const terms: FrTerm[] = [
     example: { en: 'For the weekend, I dress in a casual way.', ru: 'На выходные я одеваюсь в повседневном стиле.', fr: "Le week-end, je m'habille de façon décontractée." },
     syllabus: 'T1',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t1-051',
@@ -474,7 +474,7 @@ export const terms: FrTerm[] = [
     example: { en: 'She has a very personal style that people recognise straight away.', ru: 'У неё очень индивидуальный стиль, который сразу узнаётся.', fr: "Elle a un style très personnel, qu'on reconnaît tout de suite." },
     syllabus: 'T1',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t1-052',
@@ -483,7 +483,7 @@ export const terms: FrTerm[] = [
     example: { en: 'She almost never wears make-up.', ru: 'Она почти никогда не красится.', fr: 'Elle ne se maquille presque jamais.' },
     syllabus: 'T1',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t1-053',
@@ -492,7 +492,7 @@ export const terms: FrTerm[] = [
     example: { en: 'He is interested in fashion, but he never follows trends.', ru: 'Он интересуется модой, но никогда не следует трендам.', fr: "Il s'intéresse à la mode, mais il ne suit jamais les tendances." },
     syllabus: 'T1',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t1-054',
@@ -501,7 +501,7 @@ export const terms: FrTerm[] = [
     example: { en: 'He always looks well-groomed, even when he goes to the market.', ru: 'Он всегда выглядит ухоженным, даже когда идёт на рынок.', fr: 'Il est toujours soigné, même quand il va au marché.' },
     syllabus: 'T1',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
 
   // ---- likes, passions and hobbies ----
@@ -512,7 +512,7 @@ export const terms: FrTerm[] = [
     example: { en: 'Her great passion is photography.', ru: 'Её большая страсть — фотография.', fr: "Sa grande passion, c'est la photographie." },
     syllabus: 'T1',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t1-056',
@@ -521,7 +521,7 @@ export const terms: FrTerm[] = [
     example: { en: 'In my free time, I like reading and doing sport.', ru: 'В свободное время я люблю читать и заниматься спортом.', fr: "Pendant mon temps libre, j'aime lire et faire du sport." },
     syllabus: 'T1',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t1-057',
@@ -530,7 +530,7 @@ export const terms: FrTerm[] = [
     example: { en: 'His favourite hobby is gardening.', ru: 'Его любимое увлечение — садоводство.', fr: 'Son passe-temps favori est le jardinage.' },
     syllabus: 'T1',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t1-058',
@@ -539,7 +539,7 @@ export const terms: FrTerm[] = [
     example: { en: 'In the kitchen, she is in her element.', ru: 'На кухне она в своей стихии.', fr: 'En cuisine, elle est dans son élément.' },
     syllabus: 'T1',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t1-059',
@@ -548,7 +548,7 @@ export const terms: FrTerm[] = [
     example: { en: 'At weekends, he likes tinkering in the garage.', ru: 'По выходным он любит что-нибудь мастерить в гараже.', fr: 'Le week-end, il aime bricoler dans le garage.' },
     syllabus: 'T1',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t1-060',
@@ -557,7 +557,7 @@ export const terms: FrTerm[] = [
     example: { en: 'We are going hiking in the Alps this summer.', ru: 'Этим летом мы отправимся в пеший поход в Альпах.', fr: 'Nous faisons une randonnée dans les Alpes cet été.' },
     syllabus: 'T1',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t1-061',
@@ -566,7 +566,7 @@ export const terms: FrTerm[] = [
     example: { en: 'She is very interested in the history of art.', ru: 'Она очень интересуется историей искусства.', fr: "Elle s'intéresse beaucoup à l'histoire de l'art." },
     syllabus: 'T1',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t1-062',
@@ -575,7 +575,7 @@ export const terms: FrTerm[] = [
     example: { en: 'I love cooking for my friends on Saturday evenings.', ru: 'Я обожаю готовить для друзей по субботним вечерам.', fr: "J'adore cuisiner pour mes amis le samedi soir." },
     syllabus: 'T1',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t1-063',
@@ -584,7 +584,7 @@ export const terms: FrTerm[] = [
     example: { en: 'He cares a lot about his old books.', ru: 'Он очень дорожит своими старыми книгами.', fr: 'Il tient beaucoup à ses vieux livres.' },
     syllabus: 'T1',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
 
   // ---- social roles ----
@@ -595,7 +595,7 @@ export const terms: FrTerm[] = [
     example: { en: 'In this family, my uncle plays the role of mediator.', ru: 'В этой семье мой дядя играет роль посредника.', fr: 'Dans cette famille, mon oncle joue le rôle de médiateur.' },
     syllabus: 'T1',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t1-065',
@@ -604,7 +604,7 @@ export const terms: FrTerm[] = [
     example: { en: 'She works as a volunteer for an association that helps migrants.', ru: 'Она работает волонтёром в ассоциации, которая помогает мигрантам.', fr: "Elle travaille comme bénévole dans une association d'aide aux migrants." },
     syllabus: 'T1',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t1-066',
@@ -613,7 +613,7 @@ export const terms: FrTerm[] = [
     example: { en: 'As a citizen, he votes in every election.', ru: 'Как гражданин, он голосует на всех выборах.', fr: 'En tant que citoyen, il vote à chaque élection.' },
     syllabus: 'T1',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t1-067',
@@ -622,7 +622,7 @@ export const terms: FrTerm[] = [
     example: { en: 'Young people have a responsibility to protect the planet.', ru: 'Молодёжь несёт ответственность за защиту планеты.', fr: 'Les jeunes ont la responsabilité de protéger la planète.' },
     syllabus: 'T1',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t1-068',
@@ -631,7 +631,7 @@ export const terms: FrTerm[] = [
     example: { en: 'My neighbour often helps me with the shopping.', ru: 'Моя соседка часто помогает мне с покупками.', fr: "Ma voisine m'aide souvent à faire mes courses." },
     syllabus: 'T1',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t1-069',
@@ -640,7 +640,7 @@ export const terms: FrTerm[] = [
     example: { en: 'My colleagues come from five different countries.', ru: 'Мои коллеги приехали из пяти разных стран.', fr: 'Mes collègues viennent de cinq pays différents.' },
     syllabus: 'T1',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t1-070',
@@ -649,7 +649,7 @@ export const terms: FrTerm[] = [
     example: { en: 'He has been part of a drama club for two years.', ru: 'Он уже два года состоит в театральном кружке.', fr: "Il fait partie d'un club de théâtre depuis deux ans." },
     syllabus: 'T1',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t1-071',
@@ -658,7 +658,7 @@ export const terms: FrTerm[] = [
     example: { en: 'Many young people get involved in protecting animals.', ru: 'Многие молодые люди выступают за защиту животных.', fr: "Beaucoup de jeunes s'engagent pour la protection des animaux." },
     syllabus: 'T1',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t1-072',
@@ -667,7 +667,7 @@ export const terms: FrTerm[] = [
     example: { en: 'She has been a member of a sports association since she was ten.', ru: 'Она состоит в спортивной ассоциации с десяти лет.', fr: "Elle est membre d'une association sportive depuis l'âge de dix ans." },
     syllabus: 'T1',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
 
   // ---- digital identity ----
@@ -678,7 +678,7 @@ export const terms: FrTerm[] = [
     example: { en: 'Our digital identity is often more visible than we think.', ru: 'Наша цифровая идентичность часто заметнее, чем мы думаем.', fr: "Notre identité numérique est souvent plus visible qu'on ne le pense." },
     syllabus: 'T1',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t1-074',
@@ -687,7 +687,7 @@ export const terms: FrTerm[] = [
     example: { en: 'He created a profile on a social network under a pseudonym.', ru: 'Он создал профиль в социальной сети под псевдонимом.', fr: 'Il a créé un profil sur un réseau social sous un pseudonyme.' },
     syllabus: 'T1',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t1-075',
@@ -696,16 +696,16 @@ export const terms: FrTerm[] = [
     example: { en: 'On this forum, I only use a pseudonym.', ru: 'На этом форуме я использую только псевдоним.', fr: "Sur ce forum, je n'utilise qu'un pseudonyme." },
     syllabus: 'T1',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t1-076',
     term: { en: 'to post', ru: 'публиковать', fr: 'publier' },
-    def: { en: 'to put text, photos or videos online so that others can see them', ru: 'размещать тексты, фото или видео в сети, чтобы другие могли их увидеть' },
+    def: { en: 'to make a text public, such as a book, article or report; to put text, photos or videos online so that others can see them', ru: 'издавать или публиковать (книгу, статью, отчёт); размещать тексты, фото или видео в сети, чтобы другие могли их увидеть' },
     example: { en: 'She posts a photo from her holidays every week.', ru: 'Она публикует фото из отпуска каждую неделю.', fr: 'Elle publie une photo de ses vacances chaque semaine.' },
     syllabus: 'T1',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t1-077',
@@ -714,7 +714,7 @@ export const terms: FrTerm[] = [
     example: { en: 'You share too much personal information online.', ru: 'Ты слишком много делишься личной информацией в сети.', fr: "Tu partages trop d'informations personnelles en ligne." },
     syllabus: 'T1',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t1-078',
@@ -723,7 +723,7 @@ export const terms: FrTerm[] = [
     example: { en: 'You need to protect your privacy online.', ru: 'Нужно защищать свою частную жизнь в интернете.', fr: 'Il faut protéger sa vie privée sur internet.' },
     syllabus: 'T1',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t1-079',
@@ -732,7 +732,7 @@ export const terms: FrTerm[] = [
     example: { en: 'This app collects a lot of personal data.', ru: 'Это приложение собирает много личных данных.', fr: 'Cette application collecte beaucoup de données personnelles.' },
     syllabus: 'T1',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t1-080',
@@ -741,7 +741,7 @@ export const terms: FrTerm[] = [
     example: { en: 'Her channel has more than a hundred thousand subscribers.', ru: 'У её канала больше ста тысяч подписчиков.', fr: 'Sa chaîne compte plus de cent mille abonnés.' },
     syllabus: 'T1',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t1-081',
@@ -750,7 +750,7 @@ export const terms: FrTerm[] = [
     example: { en: 'Every photo we post leaves a digital footprint.', ru: 'Каждое фото, которое мы публикуем, оставляет цифровой след.', fr: 'Chaque photo que nous publions laisse une empreinte numérique.' },
     syllabus: 'T1',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
 
   // ---- multicultural life ----
@@ -761,7 +761,7 @@ export const terms: FrTerm[] = [
     example: { en: 'The diversity of this city is its greatest strength.', ru: 'Разнообразие этого города — его главное богатство.', fr: 'La diversité de cette ville est sa plus grande richesse.' },
     syllabus: 'T1',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t1-083',
@@ -770,7 +770,7 @@ export const terms: FrTerm[] = [
     example: { en: 'The integration of newcomers often takes several years.', ru: 'Интеграция новых жителей часто занимает несколько лет.', fr: "L'intégration des nouveaux arrivants prend souvent plusieurs années." },
     syllabus: 'T1',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t1-084',
@@ -779,7 +779,7 @@ export const terms: FrTerm[] = [
     example: { en: 'Many prejudices disappear when you meet people.', ru: 'Многие предубеждения исчезают, когда знакомишься с людьми.', fr: 'Beaucoup de préjugés disparaissent quand on rencontre les gens.' },
     syllabus: 'T1',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t1-085',
@@ -788,7 +788,7 @@ export const terms: FrTerm[] = [
     example: { en: 'This film repeats stereotypes about immigrants.', ru: 'В этом фильме повторяются стереотипы об иммигрантах.', fr: 'Ce film reprend des stéréotypes sur les immigrés.' },
     syllabus: 'T1',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t1-086',
@@ -797,7 +797,7 @@ export const terms: FrTerm[] = [
     example: { en: 'After arriving in Paris, he quickly adapted to city life.', ru: 'После приезда в Париж он быстро адаптировался к городской жизни.', fr: "Après son arrivée à Paris, il s'est vite adapté à la vie urbaine." },
     syllabus: 'T1',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t1-087',
@@ -806,7 +806,7 @@ export const terms: FrTerm[] = [
     example: { en: 'Sport gave him a sense of belonging.', ru: 'Спорт дал ему чувство принадлежности.', fr: "Le sport lui a donné un sentiment d'appartenance." },
     syllabus: 'T1',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t1-088',
@@ -815,7 +815,7 @@ export const terms: FrTerm[] = [
     example: { en: 'Many emigrants feel uprooted during their first years abroad.', ru: 'Многие эмигранты в первые годы за границей чувствуют себя оторванными от корней.', fr: "Beaucoup d'émigrés se sentent déracinés pendant leurs premières années à l'étranger." },
     syllabus: 'T1',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t1-089',
@@ -824,7 +824,7 @@ export const terms: FrTerm[] = [
     example: { en: 'Since she moved here, she feels at home.', ru: 'С тех пор как она здесь живёт, она чувствует себя как дома.', fr: "Depuis qu'elle habite ici, elle se sent chez elle." },
     syllabus: 'T1',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t1-090',
@@ -833,6 +833,6 @@ export const terms: FrTerm[] = [
     example: { en: 'Cultural mixing enriches the music of this region.', ru: 'Смешение культур обогащает музыку этого региона.', fr: 'Le métissage culturel enrichit la musique de cette région.' },
     syllabus: 'T1',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
 ];

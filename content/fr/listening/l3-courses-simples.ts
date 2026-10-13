@@ -22,5 +22,5 @@ export const track: ListeningTrack = {
   ],
   questionIds: ['l3-q01', 'l3-q02', 'l3-q03', 'l3-q04', 'l3-q05', 'l3-q06', 'l3-q07', 'l3-q08', 'l3-q09', 'l3-q10'],
   audio: '/audio/fr/l3-courses-simples.mp3',
-  source: { kind: 'own', title: "Authors' French B material (2026)" },
+  source: { kind: 'own', title: 'Original text written for this portal, in the style of IB Paper 2' },
 };

@@ -25,5 +25,5 @@ export const track: ListeningTrack = {
   ],
   questionIds: ['l5-q01', 'l5-q02', 'l5-q03', 'l5-q04', 'l5-q05', 'l5-q06', 'l5-q07', 'l5-q08', 'l5-q09', 'l5-q10'],
   audio: '/audio/fr/l5-school-water.mp3',
-  source: { kind: 'own', title: "Authors' French B material (2026)" },
+  source: { kind: 'own', title: 'Original text written for this portal, in the style of IB Paper 2' },
 };

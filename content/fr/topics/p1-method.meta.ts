@@ -20,7 +20,7 @@ const topic: TopicMeta = {
   questionIds: ['p1-method-q1', 'p1-method-q2'],
   sources: [
     { kind: 'ib-guide', title: 'IB Language B guide (2018)' },
-    { kind: 'own', title: "Authors' French B material (2026)" },
+    { kind: 'own', title: 'Own method notes for this portal' },
   ],
 };
 

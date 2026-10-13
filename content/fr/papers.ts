@@ -57,7 +57,7 @@ export const papers: PaperGuide[] = [
       },
       {
         id: 'fr-p1-set-5',
-        title: { en: 'Set 5: instructions (theme 3), proposal (theme 4), article (theme 5)', ru: 'Набор 5: инструкция (тема 3), предложение (тема 4), статья (тема 5)' },
+        title: { en: 'Set 5: instructions (theme 3), proposal (theme 4), article (theme 5; the same task as in set 1)', ru: 'Набор 5: инструкция (тема 3), предложение (тема 4), статья (тема 5; то же задание, что в наборе 1)' },
         questionIds: ['p1-instructions', 'p1-proposal', 'p1-article'],
         minutes: 75,
       },
@@ -125,7 +125,7 @@ export const papers: PaperGuide[] = [
       },
       {
         id: 'fr-p2l-set-3',
-        title: { en: 'Set 3: recordings 7 and 8, then recording 6 (l7, l8, l6)', ru: 'Набор 3: записи 7 и 8, затем запись 6 (l7, l8, l6)' },
+        title: { en: 'Set 3: recordings 7 and 8, then recording 6 (l7, l8, l6; recording 6 is also in set 2)', ru: 'Набор 3: записи 7 и 8, затем запись 6 (l7, l8, l6; запись 6 есть и в наборе 2)' },
         questionIds: questionsOf('l7', 'l8', 'l6'),
         minutes: 60,
       },

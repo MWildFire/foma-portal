@@ -25,7 +25,7 @@ const topic: TopicMeta = {
     'gr-rien-personne', 'gr-ni-ni', 'gr-participle-agreement',
   ],
   questionIds: ['grammar-comparison-negation-agreement-q1', 'grammar-comparison-negation-agreement-q2'],
-  sources: [{ kind: 'own', title: "Authors' French B material (2026)" }],
+  sources: [{ kind: 'thinkib', title: 'ThinkIB, French B SL: Grammaire (page 47789)', locator: 'Les adjectifs qualificatifs; Les adverbes; La négation' }],
 };
 
 export default topic;

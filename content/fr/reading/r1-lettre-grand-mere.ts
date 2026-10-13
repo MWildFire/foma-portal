@@ -15,5 +15,5 @@ export const passage: ReadingPassage = {
     "Alors, fais ce gâteau pour tes amis et raconte-leur d'où il vient. Tu me diras si le goût est le même que dans mon souvenir. Je suis sûre qu'ils aimeront l'histoire autant que le dessert. Je t'embrasse très fort, et donne-moi vite de tes nouvelles, ta grand-mère qui pense à toi.",
   ],
   questionIds: ['r1-q01', 'r1-q02', 'r1-q03', 'r1-q04', 'r1-q05', 'r1-q06', 'r1-q07', 'r1-q08', 'r1-q09', 'r1-q10'],
-  source: { kind: 'own', title: "Authors' French B material (2026)" },
+  source: { kind: 'own', title: 'Original text written for this portal, in the style of IB Paper 2' },
 };

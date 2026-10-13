@@ -27,5 +27,5 @@ export const track: ListeningTrack = {
   ],
   questionIds: ['l6-q01', 'l6-q02', 'l6-q03', 'l6-q04', 'l6-q05', 'l6-q06', 'l6-q07', 'l6-q08', 'l6-q09', 'l6-q10'],
   audio: '/audio/fr/l6-trip-to-lyon.mp3',
-  source: { kind: 'own', title: "Authors' French B material (2026)" },
+  source: { kind: 'own', title: 'Original text written for this portal, in the style of IB Paper 2' },
 };

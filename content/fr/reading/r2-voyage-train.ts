@@ -16,5 +16,5 @@ export const passage: ReadingPassage = {
     "Quand je suis enfin arrivée à Sofia, le lendemain soir, je n'avais qu'une envie : dormir. Malgré tout, je ne regrette rien. Si vous hésitez à prendre le train pour un long voyage, je vous conseille d'accepter les retards, car ce sont souvent eux qui rendent le voyage inoubliable.",
   ],
   questionIds: ['r2-q01', 'r2-q02', 'r2-q03', 'r2-q04', 'r2-q05', 'r2-q06', 'r2-q07', 'r2-q08', 'r2-q09', 'r2-q10'],
-  source: { kind: 'own', title: "Authors' French B material (2026)" },
+  source: { kind: 'own', title: 'Original text written for this portal, in the style of IB Paper 2' },
 };

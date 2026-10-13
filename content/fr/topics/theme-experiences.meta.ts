@@ -33,7 +33,7 @@ const topic: TopicMeta = {
   questionIds: ['t2-q1', 't2-q2'],
   sources: [
     { kind: 'ib-guide', title: 'IB Language B guide (2018)' },
-    { kind: 'own', title: "Authors' French B material (2026)" },
+    { kind: 'thinkib', title: 'ThinkIB, French B SL: Expériences (page 42627)', locator: 'Activités de loisirs; Vacances et voyages; Récits de vie; Rites de passage; Coutumes et traditions; Migration' },
   ],
 };
 

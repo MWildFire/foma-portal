@@ -19,7 +19,7 @@ const topic: TopicMeta = {
   termIds: ['gr-present-regular', 'gr-present-irregular', 'gr-present-reflexive'],
   questionIds: ['grammar-present-q1', 'grammar-present-q2'],
   sims: ['fr.conjugation-trainer'],
-  sources: [{ kind: 'own', title: "Authors' French B material (2026)" }],
+  sources: [{ kind: 'thinkib', title: 'ThinkIB, French B SL: Grammaire (page 47789)', locator: "Le présent de l'indicatif" }],
 };
 
 export default topic;

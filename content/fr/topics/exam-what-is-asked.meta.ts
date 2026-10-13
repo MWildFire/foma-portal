@@ -22,7 +22,8 @@ const topic: TopicMeta = {
   sims: ['fr.what-is-asked'],
   sources: [
     { kind: 'web', title: 'IB past papers, French B SL, November 2020–2025 (ibdocs.re)', url: 'https://ibdocs.re/past-papers-by-subject/french-b' },
-    { kind: 'own', title: "Authors' analysis of the French B SL papers (2026)" },
+    { kind: 'thinkib', title: 'ThinkIB, French B SL: Assessment overview', locator: 'Paper 1 and Paper 2 formats and durations (SL)' },
+    { kind: 'own', title: 'Own analysis of the past papers in pastpapers.ts' },
   ],
 };
 

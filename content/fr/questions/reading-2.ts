@@ -317,8 +317,8 @@ export const questions: FrQuestion[] = [
     marks: 1,
     command: 'State',
     prompt: {
-      en: "Complete the sentence with one word from the article: Meals are now served in ……… crockery, which can be used again.",
-      ru: "Дополните предложение одним словом из статьи: Теперь обеды подают в ……… посуде, которую можно использовать снова.",
+      en: "Complete the sentence with one word from the article: Meals are now served in crockery that is ……….",
+      ru: "Дополните предложение одним словом из статьи: Теперь обеды подают в посуде, которая ……….",
       fr: "Complétez la phrase avec un mot de l'article : Les repas sont désormais servis dans de la vaisselle ……….",
     },
     markscheme: {

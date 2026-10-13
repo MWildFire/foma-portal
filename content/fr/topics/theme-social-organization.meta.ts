@@ -32,7 +32,7 @@ const topic: TopicMeta = {
   questionIds: ['t4-q1', 't4-q2'],
   sources: [
     { kind: 'ib-guide', title: 'IB Language B guide (2018)' },
-    { kind: 'own', title: "Authors' French B material (2026)" },
+    { kind: 'thinkib', title: 'ThinkIB, French B SL: Organisation sociale (page 42631)', locator: 'Relations sociales; Communauté; Engagement social; Éducation; Monde du travail; Ordre public' },
   ],
 };
 

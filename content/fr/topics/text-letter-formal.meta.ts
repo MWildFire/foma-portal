@@ -19,7 +19,7 @@ const topic: TopicMeta = {
   termIds: [],
   questionIds: ['p1-letter-formal', 'p1-letter-formal-q1', 'p1-letter-formal-q2'],
   sims: ['fr.letter-builder'],
-  sources: [{ kind: 'own', title: "Authors' French B material (2026)" }],
+  sources: [{ kind: 'thinkib', title: 'ThinkIB, French B SL: Les types de textes (page 71138)', locator: 'Courriel officiel / lettre officielle (page 36812)' }],
 };
 
 export default topic;

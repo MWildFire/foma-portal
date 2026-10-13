@@ -11,7 +11,7 @@ export const terms: FrTerm[] = [
     example: { en: 'It is necessary that we speak more often.', ru: 'Нужно, чтобы мы чаще разговаривали.', fr: 'Il faut que nous parlions plus souvent.' },
     syllabus: 'G4.subjunctive-imperative',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: "Authors' French B material (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Grammaire (page 47789)', locator: 'Le subjonctif présent' },
   },
   {
     id: 'gr-subjunctive-stem',
@@ -20,7 +20,7 @@ export const terms: FrTerm[] = [
     example: { en: 'It is necessary that you finish your work.', ru: 'Вам нужно закончить работу.', fr: 'Il faut que vous finissiez votre travail.' },
     syllabus: 'G4.subjunctive-imperative',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: "Authors' French B material (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Grammaire (page 47789)', locator: 'Le subjonctif présent' },
   },
   {
     id: 'gr-subjunctive-irregular',
@@ -29,7 +29,7 @@ export const terms: FrTerm[] = [
     example: { en: 'You must be on time.', ru: 'Вам нужно быть вовремя.', fr: "Il faut que vous soyez à l'heure." },
     syllabus: 'G4.subjunctive-imperative',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: "Authors' French B material (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Grammaire (page 47789)', locator: 'Le subjonctif présent' },
   },
   {
     id: 'gr-subjunctive-triggers',
@@ -38,7 +38,7 @@ export const terms: FrTerm[] = [
     example: { en: 'Although he is tired, he carries on.', ru: 'Хотя он устал, он продолжает.', fr: "Bien qu'il soit fatigué, il continue." },
     syllabus: 'G4.subjunctive-imperative',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: "Authors' French B material (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Grammaire (page 47789)', locator: 'Le subjonctif présent' },
   },
   {
     id: 'gr-indicative-after-je-pense-que',
@@ -47,7 +47,7 @@ export const terms: FrTerm[] = [
     example: { en: 'I think he is right.', ru: 'Я думаю, что он прав.', fr: "Je pense qu'il a raison." },
     syllabus: 'G4.subjunctive-imperative',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: "Authors' French B material (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Grammaire (page 47789)', locator: 'Le subjonctif présent' },
   },
   {
     id: 'gr-imperative',
@@ -56,7 +56,7 @@ export const terms: FrTerm[] = [
     example: { en: 'Speak more slowly, please.', ru: 'Говори медленнее, пожалуйста.', fr: "Parle plus lentement, s'il te plaît." },
     syllabus: 'G4.subjunctive-imperative',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: "Authors' French B material (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Grammaire (page 47789)', locator: "L'impératif" },
   },
   {
     id: 'gr-imperative-negative',
@@ -65,7 +65,7 @@ export const terms: FrTerm[] = [
     example: { en: 'Do not give it to him!', ru: 'Не давай ему этого!', fr: 'Ne le lui donne pas !' },
     syllabus: 'G4.subjunctive-imperative',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: "Authors' French B material (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Grammaire (page 47789)', locator: "L'impératif" },
   },
 
   // ---- G5: object pronouns, y and en ----
@@ -76,7 +76,7 @@ export const terms: FrTerm[] = [
     example: { en: 'I will see her tomorrow.', ru: 'Я увижу её завтра.', fr: 'Je la vois demain.' },
     syllabus: 'G5.pronouns',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: "Authors' French B material (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Grammaire (page 47789)', locator: 'Les pronoms personnels compléments' },
   },
   {
     id: 'gr-coi',
@@ -85,7 +85,7 @@ export const terms: FrTerm[] = [
     example: { en: 'I often write to her.', ru: 'Я часто пишу ей.', fr: 'Je lui écris souvent.' },
     syllabus: 'G5.pronouns',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: "Authors' French B material (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Grammaire (page 47789)', locator: 'Les pronoms personnels compléments' },
   },
   {
     id: 'gr-y',
@@ -94,7 +94,7 @@ export const terms: FrTerm[] = [
     example: { en: 'I think about it often.', ru: 'Я часто об этом думаю.', fr: "J'y pense souvent." },
     syllabus: 'G5.pronouns',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: "Authors' French B material (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Grammaire (page 47789)', locator: 'Les pronoms personnels compléments' },
   },
   {
     id: 'gr-en',
@@ -103,7 +103,7 @@ export const terms: FrTerm[] = [
     example: { en: 'I have three of them.', ru: 'У меня их три.', fr: "J'en ai trois." },
     syllabus: 'G5.pronouns',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: "Authors' French B material (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Grammaire (page 47789)', locator: 'Les pronoms personnels compléments' },
   },
   {
     id: 'gr-pronoun-order',
@@ -112,7 +112,7 @@ export const terms: FrTerm[] = [
     example: { en: 'He gives it to me.', ru: 'Он мне его даёт.', fr: 'Il me le donne.' },
     syllabus: 'G5.pronouns',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: "Authors' French B material (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Grammaire (page 47789)', locator: 'Les pronoms personnels compléments' },
   },
   {
     id: 'gr-imperative-pronoun-order',
@@ -121,7 +121,7 @@ export const terms: FrTerm[] = [
     example: { en: 'Give it to me, please!', ru: 'Дай мне его, пожалуйста!', fr: "Donne-le-moi, s'il te plaît !" },
     syllabus: 'G5.pronouns',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: "Authors' French B material (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Grammaire (page 47789)', locator: "L'impératif; Les pronoms personnels compléments" },
   },
   {
     id: 'gr-pronoun-agreement',
@@ -130,6 +130,6 @@ export const terms: FrTerm[] = [
     example: { en: 'The letters, she wrote them yesterday.', ru: 'Письма она написала вчера.', fr: 'Les lettres, elle les a écrites hier.' },
     syllabus: 'G5.pronouns',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: "Authors' French B material (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Grammaire (page 47789)', locator: 'Le passé composé' },
   },
 ];

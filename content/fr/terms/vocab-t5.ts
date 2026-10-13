@@ -3,7 +3,7 @@ import type { FrTerm } from '../types';
 
 // Theme 5 (Sharing the planet): 90 vocabulary entries in nine sub-areas, with more than 15 fixed expressions.
 // Own wording; the topic page gives the context.
-const own: SourceRef = { kind: 'own', title: "Authors' French B vocabulary list (2026)" };
+const thinkib: SourceRef = { kind: 'thinkib', title: 'ThinkIB, French B SL: Vocabulaire (page 43182)', locator: 'Partage de la planète (theme 5, page 42632)' };
 
 export const terms: FrTerm[] = [
   // ---- environment and climate (l'environnement et le climat) ----
@@ -14,7 +14,7 @@ export const terms: FrTerm[] = [
     example: { en: 'We must protect the environment for future generations.', ru: 'Нужно беречь окружающую среду ради будущих поколений.', fr: "Il faut protéger l'environnement pour les générations futures." },
     syllabus: 'T5',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t5-002',
@@ -23,7 +23,7 @@ export const terms: FrTerm[] = [
     example: { en: 'The climate is changing faster than expected.', ru: 'Климат меняется быстрее, чем ожидалось.', fr: 'Le climat change plus vite que prévu.' },
     syllabus: 'T5',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t5-003',
@@ -32,7 +32,7 @@ export const terms: FrTerm[] = [
     example: { en: 'Global warming threatens many animal species.', ru: 'Глобальное потепление угрожает многим видам животных.', fr: 'Le réchauffement climatique menace de nombreuses espèces animales.' },
     syllabus: 'T5',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t5-004',
@@ -41,7 +41,7 @@ export const terms: FrTerm[] = [
     example: { en: 'Old cars release a lot of greenhouse gases.', ru: 'Старые машины выбрасывают много парниковых газов.', fr: 'Les vieilles voitures rejettent beaucoup de gaz à effet de serre.' },
     syllabus: 'T5',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t5-005',
@@ -50,7 +50,7 @@ export const terms: FrTerm[] = [
     example: { en: 'Air pollution is a serious problem in big cities.', ru: 'Загрязнение воздуха — серьёзная проблема в крупных городах.', fr: "La pollution de l'air est un problème grave dans les grandes villes." },
     syllabus: 'T5',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t5-006',
@@ -59,7 +59,7 @@ export const terms: FrTerm[] = [
     example: { en: 'We must put an end to plastic pollution.', ru: 'Нужно положить конец загрязнению пластиком.', fr: 'Il faut mettre fin à la pollution plastique.' },
     syllabus: 'T5',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t5-007',
@@ -68,7 +68,7 @@ export const terms: FrTerm[] = [
     example: { en: 'A natural disaster destroyed several houses in the village.', ru: 'Стихийное бедствие разрушило несколько домов в деревне.', fr: 'Une catastrophe naturelle a détruit plusieurs maisons du village.' },
     syllabus: 'T5',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t5-008',
@@ -77,7 +77,7 @@ export const terms: FrTerm[] = [
     example: { en: 'The drought this summer lowered the river levels.', ru: 'Засуха этим летом понизила уровень рек.', fr: 'La sécheresse de cet été a fait baisser le niveau des rivières.' },
     syllabus: 'T5',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t5-009',
@@ -86,7 +86,7 @@ export const terms: FrTerm[] = [
     example: { en: 'Many young people have become aware of the climate emergency.', ru: 'Многие молодые люди осознали, насколько срочна климатическая проблема.', fr: "De nombreux jeunes ont pris conscience de l'urgence climatique." },
     syllabus: 'T5',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t5-010',
@@ -95,7 +95,7 @@ export const terms: FrTerm[] = [
     example: { en: 'We must adopt a more sustainable way of life.', ru: 'Нам нужно перейти к более устойчивому образу жизни.', fr: 'Nous devons adopter un mode de vie plus durable.' },
     syllabus: 'T5',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
 
   // ---- biodiversity (la biodiversité) ----
@@ -106,7 +106,7 @@ export const terms: FrTerm[] = [
     example: { en: 'Biodiversity is declining quickly in tropical forests.', ru: 'Биоразнообразие быстро сокращается в тропических лесах.', fr: 'La biodiversité diminue rapidement dans les forêts tropicales.' },
     syllabus: 'T5',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t5-012',
@@ -115,7 +115,7 @@ export const terms: FrTerm[] = [
     example: { en: 'This bird species lives only in this region.', ru: 'Этот вид птиц живёт только в этом регионе.', fr: "Cette espèce d'oiseau ne vit que dans cette région." },
     syllabus: 'T5',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t5-013',
@@ -124,7 +124,7 @@ export const terms: FrTerm[] = [
     example: { en: 'Several turtle species are endangered.', ru: 'Несколько видов черепах находятся под угрозой исчезновения.', fr: 'Plusieurs espèces de tortues sont en voie de disparition.' },
     syllabus: 'T5',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t5-014',
@@ -133,7 +133,7 @@ export const terms: FrTerm[] = [
     example: { en: 'Deforestation destroys the habitat of many animals.', ru: 'Вырубка лесов разрушает среду обитания многих животных.', fr: "La déforestation détruit l'habitat de nombreux animaux." },
     syllabus: 'T5',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t5-015',
@@ -142,7 +142,7 @@ export const terms: FrTerm[] = [
     example: { en: 'National parks protect rare species.', ru: 'Национальные парки защищают редкие виды.', fr: 'Les parcs nationaux protègent les espèces rares.' },
     syllabus: 'T5',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t5-016',
@@ -151,7 +151,7 @@ export const terms: FrTerm[] = [
     example: { en: 'A fish species at serious risk still lives in this river.', ru: 'В этой реке до сих пор живёт вид рыбы, которому грозит серьёзная опасность.', fr: 'Une espèce de poisson très menacée vit encore dans cette rivière.' },
     syllabus: 'T5',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t5-017',
@@ -160,7 +160,7 @@ export const terms: FrTerm[] = [
     example: { en: 'The fauna and flora of this island are unique in the world.', ru: 'Фауна и флора этого острова уникальны в мире.', fr: "La faune et la flore de cette île sont uniques au monde." },
     syllabus: 'T5',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t5-018',
@@ -169,7 +169,7 @@ export const terms: FrTerm[] = [
     example: { en: 'We spent the day in a nature reserve by the lake.', ru: 'Мы провели день в природном заповеднике у озера.', fr: 'Nous avons passé la journée dans une réserve naturelle au bord du lac.' },
     syllabus: 'T5',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t5-019',
@@ -178,7 +178,7 @@ export const terms: FrTerm[] = [
     example: { en: 'Bees play an essential role in pollinating plants.', ru: 'Пчёлы играют важную роль в опылении растений.', fr: 'Les abeilles jouent un rôle essentiel dans la pollinisation des plantes.' },
     syllabus: 'T5',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t5-020',
@@ -187,7 +187,7 @@ export const terms: FrTerm[] = [
     example: { en: 'The tropical forest is home to very rich wildlife.', ru: 'В тропическом лесу обитает очень богатая фауна.', fr: 'La forêt tropicale abrite une faune très riche.' },
     syllabus: 'T5',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
 
   // ---- waste and recycling (les déchets et le recyclage) ----
@@ -198,7 +198,7 @@ export const terms: FrTerm[] = [
     example: { en: 'Each family produces a lot of waste in one week.', ru: 'Каждая семья за неделю производит много отходов.', fr: 'Chaque famille produit beaucoup de déchets en une semaine.' },
     syllabus: 'T5',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t5-022',
@@ -207,7 +207,7 @@ export const terms: FrTerm[] = [
     example: { en: 'In our building, everyone has been sorting their waste for a year.', ru: 'В нашем доме все уже год сортируют мусор.', fr: 'Dans notre immeuble, tout le monde trie ses déchets depuis un an.' },
     syllabus: 'T5',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t5-023',
@@ -216,7 +216,7 @@ export const terms: FrTerm[] = [
     example: { en: 'Recycling paper helps save many trees.', ru: 'Переработка бумаги помогает сберечь много деревьев.', fr: "Le recyclage du papier permet de sauver beaucoup d'arbres." },
     syllabus: 'T5',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t5-024',
@@ -225,7 +225,7 @@ export const terms: FrTerm[] = [
     example: { en: 'Glass bottles and metal cans can be recycled.', ru: 'Стеклянные бутылки и металлические банки можно перерабатывать.', fr: 'On peut recycler les bouteilles en verre et les boîtes en métal.' },
     syllabus: 'T5',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t5-025',
@@ -234,7 +234,7 @@ export const terms: FrTerm[] = [
     example: { en: 'Batteries must not be thrown into the ordinary bin.', ru: 'Батарейки нельзя выбрасывать в обычный мусорный бак.', fr: 'Il ne faut pas jeter les piles dans la poubelle ordinaire.' },
     syllabus: 'T5',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t5-026',
@@ -243,7 +243,7 @@ export const terms: FrTerm[] = [
     example: { en: 'Food waste concerns every country in the world.', ru: 'Пищевые отходы касаются всех стран мира.', fr: 'Le gaspillage alimentaire concerne tous les pays du monde.' },
     syllabus: 'T5',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t5-027',
@@ -252,7 +252,7 @@ export const terms: FrTerm[] = [
     example: { en: 'The bag is full, so it has to go in the bin.', ru: 'Пакет полный, его нужно выбросить в мусорный бак.', fr: 'Le sac est plein, il faut le mettre à la poubelle.' },
     syllabus: 'T5',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t5-028',
@@ -261,7 +261,7 @@ export const terms: FrTerm[] = [
     example: { en: 'A cloth bag can be reused for years.', ru: 'Холщовый пакет можно использовать много лет.', fr: 'On peut réutiliser un sac en tissu pendant des années.' },
     syllabus: 'T5',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t5-029',
@@ -270,7 +270,7 @@ export const terms: FrTerm[] = [
     example: { en: 'They put vegetable peelings in the garden compost.', ru: 'Они кладут овощные очистки в садовый компост.', fr: 'Ils mettent les épluchures de légumes dans le compost du jardin.' },
     syllabus: 'T5',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t5-030',
@@ -279,7 +279,7 @@ export const terms: FrTerm[] = [
     example: { en: 'It is better to avoid disposable cups at the office.', ru: 'В офисе лучше не пользоваться одноразовыми стаканчиками.', fr: 'Il vaut mieux éviter les gobelets jetables au bureau.' },
     syllabus: 'T5',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
 
   // ---- clean energy and transport (l'énergie propre et les transports) ----
@@ -290,7 +290,7 @@ export const terms: FrTerm[] = [
     example: { en: 'Wind and sun provide renewable energy.', ru: 'Ветер и солнце дают возобновляемую энергию.', fr: 'Le vent et le soleil fournissent une énergie renouvelable.' },
     syllabus: 'T5',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t5-032',
@@ -299,7 +299,7 @@ export const terms: FrTerm[] = [
     example: { en: 'Wind turbines turn on top of the hill.', ru: 'Ветряные турбины вращаются на вершине холма.', fr: 'Des éoliennes tournent au sommet de la colline.' },
     syllabus: 'T5',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t5-033',
@@ -308,7 +308,7 @@ export const terms: FrTerm[] = [
     example: { en: 'Our roof has been covered with solar panels since last year.', ru: 'Нашу крышу покрывают солнечные панели с прошлого года.', fr: "Notre toit est couvert de panneaux solaires depuis l'an dernier." },
     syllabus: 'T5',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t5-034',
@@ -317,7 +317,7 @@ export const terms: FrTerm[] = [
     example: { en: 'Switching off the lights when you leave saves energy.', ru: 'Выключая свет, когда вы уходите, вы экономите энергию.', fr: "Éteindre les lumières en sortant permet d'économiser l'énergie." },
     syllabus: 'T5',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t5-035',
@@ -326,7 +326,7 @@ export const terms: FrTerm[] = [
     example: { en: 'Carpooling reduces the number of cars on the road.', ru: 'Совместные поездки уменьшают число машин на дороге.', fr: 'Le covoiturage réduit le nombre de voitures sur la route.' },
     syllabus: 'T5',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t5-036',
@@ -335,7 +335,7 @@ export const terms: FrTerm[] = [
     example: { en: 'Public transport reduces pollution in the city centre.', ru: 'Общественный транспорт уменьшает загрязнение в центре города.', fr: 'Les transports en commun réduisent la pollution dans le centre-ville.' },
     syllabus: 'T5',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t5-037',
@@ -344,7 +344,7 @@ export const terms: FrTerm[] = [
     example: { en: 'More and more families are buying an electric car.', ru: 'Всё больше семей покупают электромобиль.', fr: 'De plus en plus de familles achètent une voiture électrique.' },
     syllabus: 'T5',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t5-038',
@@ -353,7 +353,7 @@ export const terms: FrTerm[] = [
     example: { en: 'I have been getting around the whole city by bike since spring.', ru: 'Я с весны передвигаюсь по всему городу на велосипеде.', fr: 'Je me déplace à vélo dans toute la ville depuis le printemps.' },
     syllabus: 'T5',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t5-039',
@@ -362,7 +362,7 @@ export const terms: FrTerm[] = [
     example: { en: 'Old trucks are much more polluting than recent cars.', ru: 'Старые грузовики загрязняют среду гораздо сильнее, чем новые машины.', fr: 'Les vieux camions sont beaucoup plus polluants que les voitures récentes.' },
     syllabus: 'T5',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t5-040',
@@ -371,7 +371,7 @@ export const terms: FrTerm[] = [
     example: { en: 'This factory makes its electricity from solar energy.', ru: 'Эта фабрика производит электричество из солнечной энергии.', fr: "Cette usine produit son électricité grâce à l'énergie solaire." },
     syllabus: 'T5',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
 
   // ---- water (l'eau) ----
@@ -382,7 +382,7 @@ export const terms: FrTerm[] = [
     example: { en: 'Access to drinking water remains difficult in some regions.', ru: 'Доступ к питьевой воде в некоторых регионах по-прежнему затруднён.', fr: "L'accès à l'eau potable reste difficile dans certaines régions." },
     syllabus: 'T5',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t5-042',
@@ -391,7 +391,7 @@ export const terms: FrTerm[] = [
     example: { en: 'Water is a precious but limited resource.', ru: 'Вода — ценный, но ограниченный ресурс.', fr: "L'eau est une ressource précieuse, mais limitée." },
     syllabus: 'T5',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t5-043',
@@ -400,7 +400,7 @@ export const terms: FrTerm[] = [
     example: { en: "Let's not waste water when we wash our hands.", ru: 'Давайте не будем тратить воду зря, когда моем руки.', fr: "Ne gaspillons pas l'eau quand nous nous lavons les mains." },
     syllabus: 'T5',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t5-044',
@@ -409,7 +409,7 @@ export const terms: FrTerm[] = [
     example: { en: 'A water shortage affected several villages this summer.', ru: 'Нехватка воды затронула несколько деревень этим летом.', fr: "Une pénurie d'eau a touché plusieurs villages cet été." },
     syllabus: 'T5',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t5-045',
@@ -418,7 +418,7 @@ export const terms: FrTerm[] = [
     example: { en: 'Pollution has made the river dangerous for swimming.', ru: 'Загрязнение сделало реку опасной для купания.', fr: 'La pollution a rendu la rivière dangereuse pour la baignade.' },
     syllabus: 'T5',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t5-046',
@@ -427,7 +427,7 @@ export const terms: FrTerm[] = [
     example: { en: 'This town takes its water from groundwater.', ru: 'Этот город берёт воду из грунтовых вод.', fr: 'Cette ville puise son eau dans la nappe phréatique.' },
     syllabus: 'T5',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t5-047',
@@ -436,7 +436,7 @@ export const terms: FrTerm[] = [
     example: { en: 'This washing machine saves both water and electricity.', ru: 'Эта стиральная машина экономит и воду, и электричество.', fr: 'Ce lave-linge est économe en eau et en électricité.' },
     syllabus: 'T5',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t5-048',
@@ -445,7 +445,7 @@ export const terms: FrTerm[] = [
     example: { en: 'Wastewater is treated at a sewage treatment plant.', ru: 'Сточные воды очищаются на станции очистки.', fr: "Les eaux usées sont traitées dans une station d'épuration." },
     syllabus: 'T5',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t5-049',
@@ -454,7 +454,7 @@ export const terms: FrTerm[] = [
     example: { en: 'You should not leave the tap running while you brush your teeth.', ru: 'Не стоит оставлять кран открытым, когда чистишь зубы.', fr: "Il ne faut pas laisser couler le robinet pendant qu'on se brosse les dents." },
     syllabus: 'T5',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t5-050',
@@ -463,7 +463,7 @@ export const terms: FrTerm[] = [
     example: { en: 'Desalinating sea water is expensive, but it is useful.', ru: 'Опреснение морской воды дорого стоит, но оно полезно.', fr: "Le dessalement de l'eau de mer coûte cher, mais il est utile." },
     syllabus: 'T5',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
 
   // ---- agriculture and food (l'agriculture et l'alimentation) ----
@@ -474,7 +474,7 @@ export const terms: FrTerm[] = [
     example: { en: 'This farm has practised organic farming for ten years.', ru: 'Эта ферма занимается органическим земледелием уже десять лет.', fr: "Cette ferme pratique l'agriculture biologique depuis dix ans." },
     syllabus: 'T5',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t5-052',
@@ -483,7 +483,7 @@ export const terms: FrTerm[] = [
     example: { en: 'At the market, you mostly find seasonal fruit and vegetables.', ru: 'На рынке в основном продают сезонные фрукты и овощи.', fr: 'Au marché, on trouve surtout des fruits et des légumes de saison.' },
     syllabus: 'T5',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t5-053',
@@ -492,7 +492,7 @@ export const terms: FrTerm[] = [
     example: { en: 'Short supply chains reduce the transport of food.', ru: 'Короткие цепочки поставок сокращают перевозку продуктов.', fr: 'Les circuits courts réduisent le transport des aliments.' },
     syllabus: 'T5',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t5-054',
@@ -501,7 +501,7 @@ export const terms: FrTerm[] = [
     example: { en: 'My grandparents grow tomatoes in their garden.', ru: 'Мои бабушка и дедушка выращивают помидоры на своём участке.', fr: 'Mes grands-parents cultivent des tomates dans leur jardin.' },
     syllabus: 'T5',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t5-055',
@@ -510,7 +510,7 @@ export const terms: FrTerm[] = [
     example: { en: 'Too many chemical fertilisers damage the soil for years.', ru: 'Слишком много химических удобрений портит почву на долгие годы.', fr: "Trop d'engrais chimiques abîment la terre pendant des années." },
     syllabus: 'T5',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t5-056',
@@ -519,7 +519,7 @@ export const terms: FrTerm[] = [
     example: { en: 'Agriculture must feed an ever larger population.', ru: 'Сельское хозяйство должно кормить всё более многочисленное население.', fr: "L'agriculture doit nourrir une population de plus en plus nombreuse." },
     syllabus: 'T5',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t5-057',
@@ -528,7 +528,7 @@ export const terms: FrTerm[] = [
     example: { en: 'Pesticides can also harm bees and birds.', ru: 'Пестициды могут также вредить пчёлам и птицам.', fr: 'Les pesticides peuvent aussi nuire aux abeilles et aux oiseaux.' },
     syllabus: 'T5',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t5-058',
@@ -537,7 +537,7 @@ export const terms: FrTerm[] = [
     example: { en: 'In spring we plant beans in the vegetable garden.', ru: 'Весной мы сажаем фасоль на огороде.', fr: 'Au printemps, nous plantons des haricots dans le potager.' },
     syllabus: 'T5',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t5-059',
@@ -546,7 +546,7 @@ export const terms: FrTerm[] = [
     example: { en: 'Products grown locally are easier to find.', ru: 'Продукты, выращенные в своём регионе, найти легче.', fr: 'On achète plus facilement des produits cultivés localement.' },
     syllabus: 'T5',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t5-060',
@@ -555,7 +555,7 @@ export const terms: FrTerm[] = [
     example: { en: 'Food security remains a challenge in several countries.', ru: 'Продовольственная безопасность остаётся проблемой во многих странах.', fr: 'La sécurité alimentaire reste un défi dans plusieurs pays.' },
     syllabus: 'T5',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
 
   // ---- sustainable cities (les villes durables) ----
@@ -566,7 +566,7 @@ export const terms: FrTerm[] = [
     example: { en: 'Urban planning has created new cycle lanes.', ru: 'Городское планирование создало новые велодорожки.', fr: "L'aménagement urbain a créé de nouvelles pistes cyclables." },
     syllabus: 'T5',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t5-062',
@@ -575,7 +575,7 @@ export const terms: FrTerm[] = [
     example: { en: 'This city has many green spaces for children.', ru: 'В этом городе много зелёных зон для детей.', fr: "Cette ville a beaucoup d'espaces verts pour les enfants." },
     syllabus: 'T5',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t5-063',
@@ -584,7 +584,7 @@ export const terms: FrTerm[] = [
     example: { en: 'A cycle lane links the city centre with the station.', ru: 'Велодорожка соединяет центр города с вокзалом.', fr: 'Une piste cyclable relie le centre-ville à la gare.' },
     syllabus: 'T5',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t5-064',
@@ -593,7 +593,7 @@ export const terms: FrTerm[] = [
     example: { en: 'Soft mobility includes walking and cycling.', ru: 'Экологичная мобильность включает ходьбу и езду на велосипеде.', fr: 'La mobilité douce comprend la marche et le vélo.' },
     syllabus: 'T5',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t5-065',
@@ -602,7 +602,7 @@ export const terms: FrTerm[] = [
     example: { en: 'There is a traffic jam on the bridge every morning.', ru: 'Каждое утро на мосту пробка.', fr: 'Il y a un embouteillage sur le pont tous les matins.' },
     syllabus: 'T5',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t5-066',
@@ -611,7 +611,7 @@ export const terms: FrTerm[] = [
     example: { en: 'Noise pollution disturbs the sleep of people in the neighbourhood.', ru: 'Шумовое загрязнение мешает спать жителям района.', fr: 'La pollution sonore gêne le sommeil des habitants du quartier.' },
     syllabus: 'T5',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t5-067',
@@ -620,7 +620,7 @@ export const terms: FrTerm[] = [
     example: { en: 'This district is very eco-friendly: there are almost no cars there.', ru: 'Этот район очень экологичен: там почти нет машин.', fr: "Ce quartier est très écologique : il n'y a presque aucune voiture." },
     syllabus: 'T5',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t5-068',
@@ -629,7 +629,7 @@ export const terms: FrTerm[] = [
     example: { en: 'Actions at local level already change a lot.', ru: 'Действия на местном уровне уже многое меняют.', fr: "Des actions à l'échelle locale changent déjà beaucoup de choses." },
     syllabus: 'T5',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t5-069',
@@ -638,7 +638,7 @@ export const terms: FrTerm[] = [
     example: { en: 'A well-insulated home uses much less energy.', ru: 'Хорошо утеплённое жильё потребляет гораздо меньше энергии.', fr: "Un logement bien isolé consomme beaucoup moins d'énergie." },
     syllabus: 'T5',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t5-070',
@@ -647,7 +647,7 @@ export const terms: FrTerm[] = [
     example: { en: 'The city centre has become a pedestrian zone on Saturdays.', ru: 'По субботам центр города становится пешеходной зоной.', fr: 'Le centre-ville est devenu une zone piétonne le samedi.' },
     syllabus: 'T5',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
 
   // ---- responsible consumption (la consommation responsable) ----
@@ -658,7 +658,7 @@ export const terms: FrTerm[] = [
     example: { en: 'I prefer to consume less, but better.', ru: 'Я предпочитаю потреблять меньше, но лучше.', fr: 'Je préfère consommer moins, mais mieux.' },
     syllabus: 'T5',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t5-072',
@@ -667,7 +667,7 @@ export const terms: FrTerm[] = [
     example: { en: 'Overconsumption uses up the natural resources of the planet.', ru: 'Чрезмерное потребление истощает природные ресурсы планеты.', fr: 'La surconsommation épuise les ressources naturelles de la planète.' },
     syllabus: 'T5',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t5-073',
@@ -676,7 +676,7 @@ export const terms: FrTerm[] = [
     example: { en: 'I found a very nice jacket at the second-hand shop in the centre.', ru: 'Я нашёл очень красивую куртку в магазине секонд-хенд в центре.', fr: "J'ai trouvé une très belle veste à la friperie du centre." },
     syllabus: 'T5',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t5-074',
@@ -685,7 +685,7 @@ export const terms: FrTerm[] = [
     example: { en: 'We bought a second-hand bike in good condition.', ru: 'Мы купили подержанный велосипед в хорошем состоянии.', fr: "Nous avons acheté un vélo d'occasion en bon état." },
     syllabus: 'T5',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t5-075',
@@ -694,7 +694,7 @@ export const terms: FrTerm[] = [
     example: { en: 'It is better to repair an appliance than to buy a new one.', ru: 'Лучше починить прибор, чем купить новый.', fr: "Il vaut mieux réparer un appareil que d'en acheter un neuf." },
     syllabus: 'T5',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t5-076',
@@ -703,7 +703,7 @@ export const terms: FrTerm[] = [
     example: { en: 'This product has too much plastic packaging.', ru: 'У этого товара слишком много пластиковой упаковки.', fr: "Ce produit a trop d'emballages en plastique." },
     syllabus: 'T5',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t5-077',
@@ -712,7 +712,7 @@ export const terms: FrTerm[] = [
     example: { en: 'Look for the organic label on food products.', ru: 'Ищите знак органической продукции на продуктах питания.', fr: 'Cherchez le label bio sur les produits alimentaires.' },
     syllabus: 'T5',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t5-078',
@@ -721,7 +721,7 @@ export const terms: FrTerm[] = [
     example: { en: 'To avoid unnecessary packaging, I always take my own bag.', ru: 'Чтобы не брать лишнюю упаковку, я всегда беру свой пакет.', fr: 'Pour éviter les emballages inutiles, je prends toujours mon sac.' },
     syllabus: 'T5',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t5-079',
@@ -730,7 +730,7 @@ export const terms: FrTerm[] = [
     example: { en: "I pay attention to where the products I buy come from.", ru: 'Я обращаю внимание на то, откуда берутся товары, которые я покупаю.', fr: "Je fais attention à l'origine des produits que j'achète." },
     syllabus: 'T5',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t5-080',
@@ -739,7 +739,7 @@ export const terms: FrTerm[] = [
     example: { en: 'This coffee comes from fair trade, and it is very good.', ru: 'Этот кофе из справедливой торговли, и он очень вкусный.', fr: 'Ce café est issu du commerce équitable, et il est très bon.' },
     syllabus: 'T5',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
 
   // ---- international solidarity (la solidarité internationale) ----
@@ -750,7 +750,7 @@ export const terms: FrTerm[] = [
     example: { en: 'The neighbours helped the families after the flood.', ru: 'Соседи пришли на помощь семьям после наводнения.', fr: "Les voisins sont venus en aide aux familles après l'inondation." },
     syllabus: 'T5',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t5-082',
@@ -759,7 +759,7 @@ export const terms: FrTerm[] = [
     example: { en: 'Developing countries often suffer the effects of climate change.', ru: 'Развивающиеся страны часто страдают от последствий изменения климата.', fr: 'Les pays en développement subissent souvent les effets du changement climatique.' },
     syllabus: 'T5',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t5-083',
@@ -768,7 +768,7 @@ export const terms: FrTerm[] = [
     example: { en: 'Humanitarian aid reached the village after the flood.', ru: 'Гуманитарная помощь пришла в деревню после наводнения.', fr: "L'aide humanitaire est arrivée au village après l'inondation." },
     syllabus: 'T5',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t5-084',
@@ -777,7 +777,7 @@ export const terms: FrTerm[] = [
     example: { en: 'The pupils mobilised for paper recycling.', ru: 'Ученики мобилизовались ради переработки бумаги.', fr: 'Les élèves se sont mobilisés pour le recyclage du papier.' },
     syllabus: 'T5',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t5-085',
@@ -786,7 +786,7 @@ export const terms: FrTerm[] = [
     example: { en: 'Several associations campaign for the protection of tropical forests.', ru: 'Несколько ассоциаций выступают за защиту тропических лесов.', fr: 'Plusieurs associations militent pour la protection des forêts tropicales.' },
     syllabus: 'T5',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t5-086',
@@ -795,7 +795,7 @@ export const terms: FrTerm[] = [
     example: { en: 'International cooperation helps to fund conservation projects.', ru: 'Международное сотрудничество помогает финансировать проекты по охране природы.', fr: 'La coopération internationale aide à financer des projets de protection.' },
     syllabus: 'T5',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t5-087',
@@ -804,7 +804,7 @@ export const terms: FrTerm[] = [
     example: { en: 'Sustainable development takes account of the environment and social justice.', ru: 'Устойчивое развитие учитывает интересы окружающей среды и социальную справедливость.', fr: "Le développement durable tient compte de l'environnement et de la justice sociale." },
     syllabus: 'T5',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t5-088',
@@ -813,7 +813,7 @@ export const terms: FrTerm[] = [
     example: { en: 'Social justice and environmental protection go hand in hand.', ru: 'Социальная справедливость и охрана окружающей среды идут рука об руку.', fr: "La justice sociale et la protection de l'environnement vont de pair." },
     syllabus: 'T5',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t5-089',
@@ -822,7 +822,7 @@ export const terms: FrTerm[] = [
     example: { en: "Raising residents' awareness has reduced water waste.", ru: 'Просвещение жителей помогло сократить потери воды.', fr: "La sensibilisation des habitants a réduit le gaspillage d'eau." },
     syllabus: 'T5',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t5-090',
@@ -831,6 +831,6 @@ export const terms: FrTerm[] = [
     example: { en: 'In 2015 the UN adopted the Sustainable Development Goals.', ru: 'В 2015 году ООН приняла Цели в области устойчивого развития.', fr: "En 2015, l'ONU a adopté les objectifs de développement durable." },
     syllabus: 'T5',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
 ];

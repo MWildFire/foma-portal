@@ -19,7 +19,7 @@ const topic: TopicMeta = {
   ],
   termIds: ['gr-cod', 'gr-coi', 'gr-y', 'gr-en', 'gr-pronoun-order', 'gr-imperative-pronoun-order', 'gr-pronoun-agreement'],
   questionIds: ['grammar-pronouns-q1', 'grammar-pronouns-q2'],
-  sources: [{ kind: 'own', title: "Authors' French B material (2026)" }],
+  sources: [{ kind: 'thinkib', title: 'ThinkIB, French B SL: Grammaire (page 47789)', locator: 'Les pronoms personnels compléments' }],
 };
 
 export default topic;

@@ -19,7 +19,7 @@ const topic: TopicMeta = {
   ],
   termIds: ['gr-subjunctive-present', 'gr-subjunctive-stem', 'gr-subjunctive-irregular', 'gr-subjunctive-triggers', 'gr-indicative-after-je-pense-que', 'gr-imperative', 'gr-imperative-negative'],
   questionIds: ['grammar-subjunctive-imperative-q1', 'grammar-subjunctive-imperative-q2'],
-  sources: [{ kind: 'own', title: "Authors' French B material (2026)" }],
+  sources: [{ kind: 'thinkib', title: 'ThinkIB, French B SL: Grammaire (page 47789)', locator: "L'impératif; Le subjonctif présent" }],
 };
 
 export default topic;

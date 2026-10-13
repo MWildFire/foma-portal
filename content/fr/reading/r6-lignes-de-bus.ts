@@ -15,5 +15,5 @@ export const passage: ReadingPassage = {
     "La mairie publiera un bilan dans six mois. Si la demande augmente, elle ajoutera des bus le soir. Les habitants peuvent donner leur avis sur le site internet de la ville jusqu'au 30 novembre. Une réunion publique est aussi prévue au mois de décembre, dans la grande salle de la mairie.",
   ],
   questionIds: ['r6-q01', 'r6-q02', 'r6-q03', 'r6-q04', 'r6-q05', 'r6-q06', 'r6-q07', 'r6-q08', 'r6-q09', 'r6-q10'],
-  source: { kind: 'own', title: "Authors' French B material (2026)" },
+  source: { kind: 'own', title: 'Original text written for this portal, in the style of IB Paper 2' },
 };

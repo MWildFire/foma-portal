@@ -3,7 +3,7 @@ import type { FrTerm } from '../types';
 
 // Theme 3 (Human ingenuity): 90 vocabulary entries in ten sub-areas, with 16 fixed expressions.
 // Own wording; the topic page gives the context.
-const own: SourceRef = { kind: 'own', title: "Authors' French B vocabulary list (2026)" };
+const thinkib: SourceRef = { kind: 'thinkib', title: 'ThinkIB, French B SL: Vocabulaire (page 43182)', locator: 'Ingéniosité humaine (theme 3, page 42630)' };
 
 export const terms: FrTerm[] = [
   // ---- technology and devices (la technologie et les appareils) ----
@@ -14,7 +14,7 @@ export const terms: FrTerm[] = [
     example: { en: 'Technology changes the way we live and work.', ru: 'Технологии меняют то, как мы живём и работаем.', fr: 'La technologie change notre façon de vivre et de travailler.' },
     syllabus: 'T3',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t3-002',
@@ -23,7 +23,7 @@ export const terms: FrTerm[] = [
     example: { en: 'This device charges a phone in less than an hour.', ru: 'Это устройство заряжает телефон меньше чем за час.', fr: "Cet appareil charge un téléphone en moins d'une heure." },
     syllabus: 'T3',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t3-003',
@@ -32,7 +32,7 @@ export const terms: FrTerm[] = [
     example: { en: "The watch's sensor records my heart rate.", ru: 'Датчик в часах записывает мой пульс.', fr: 'Le capteur de la montre enregistre mon rythme cardiaque.' },
     syllabus: 'T3',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t3-004',
@@ -41,7 +41,7 @@ export const terms: FrTerm[] = [
     example: { en: 'This small portable device fits in your pocket.', ru: 'Это маленькое портативное устройство помещается в карман.', fr: 'Ce petit appareil portable tient dans la poche.' },
     syllabus: 'T3',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t3-005',
@@ -50,7 +50,7 @@ export const terms: FrTerm[] = [
     example: { en: 'The new system already works in three cities.', ru: 'Новая система уже работает в трёх городах.', fr: 'Le nouveau système fonctionne déjà dans trois villes.' },
     syllabus: 'T3',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t3-006',
@@ -59,7 +59,7 @@ export const terms: FrTerm[] = [
     example: { en: "Don't forget to plug in the charger before you go to sleep.", ru: 'Не забывайте подключить зарядку перед сном.', fr: "N'oubliez pas de brancher le chargeur avant de dormir." },
     syllabus: 'T3',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t3-007',
@@ -68,7 +68,7 @@ export const terms: FrTerm[] = [
     example: { en: "My phone's battery lasts all day.", ru: 'Аккумулятора моего телефона хватает на весь день.', fr: 'La batterie de mon téléphone tient toute la journée.' },
     syllabus: 'T3',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t3-008',
@@ -77,7 +77,7 @@ export const terms: FrTerm[] = [
     example: { en: 'My computer broke down during the exam.', ru: 'Мой компьютер сломался во время экзамена.', fr: "Mon ordinateur est tombé en panne pendant l'examen." },
     syllabus: 'T3',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t3-009',
@@ -86,7 +86,7 @@ export const terms: FrTerm[] = [
     example: { en: 'This laboratory uses cutting-edge technologies.', ru: 'Эта лаборатория использует передовые технологии.', fr: 'Ce laboratoire utilise des technologies de pointe.' },
     syllabus: 'T3',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
 
   // ---- inventions and discoveries (les inventions et les découvertes) ----
@@ -97,7 +97,7 @@ export const terms: FrTerm[] = [
     example: { en: 'The invention of the printing press transformed the spread of knowledge.', ru: 'Изобретение книгопечатания изменило распространение знаний.', fr: "L'invention de l'imprimerie a transformé la diffusion du savoir." },
     syllabus: 'T3',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t3-011',
@@ -106,7 +106,7 @@ export const terms: FrTerm[] = [
     example: { en: 'This discovery paved the way for new treatments.', ru: 'Это открытие проложило путь к новым методам лечения.', fr: 'Cette découverte a ouvert la voie à de nouveaux traitements.' },
     syllabus: 'T3',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t3-012',
@@ -115,7 +115,7 @@ export const terms: FrTerm[] = [
     example: { en: 'The company has filed a patent for its new engine.', ru: 'Компания подала заявку на патент на свой новый двигатель.', fr: "L'entreprise a déposé un brevet pour son nouveau moteur." },
     syllabus: 'T3',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t3-013',
@@ -124,7 +124,7 @@ export const terms: FrTerm[] = [
     example: { en: 'He invented a machine that sorts waste.', ru: 'Он изобрёл машину, которая сортирует отходы.', fr: 'Il a inventé une machine qui trie les déchets.' },
     syllabus: 'T3',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t3-014',
@@ -133,7 +133,7 @@ export const terms: FrTerm[] = [
     example: { en: 'The engineers presented a prototype in March.', ru: 'Инженеры представили прототип в марте.', fr: 'Les ingénieurs ont présenté un prototype en mars.' },
     syllabus: 'T3',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t3-015',
@@ -142,7 +142,7 @@ export const terms: FrTerm[] = [
     example: { en: 'The project offers an unprecedented way to recycle water.', ru: 'Проект предлагает беспрецедентный способ переработки воды.', fr: "Le projet propose une méthode inédite pour recycler l'eau." },
     syllabus: 'T3',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t3-016',
@@ -151,7 +151,7 @@ export const terms: FrTerm[] = [
     example: { en: 'This idea is behind several famous inventions.', ru: 'Эта идея стоит у истоков нескольких известных изобретений.', fr: "Cette idée est à l'origine de plusieurs inventions célèbres." },
     syllabus: 'T3',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t3-017',
@@ -160,7 +160,7 @@ export const terms: FrTerm[] = [
     example: { en: 'The team developed a safer braking system.', ru: 'Команда разработала более безопасную систему торможения.', fr: "L'équipe a mis au point un système de freinage plus sûr." },
     syllabus: 'T3',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t3-018',
@@ -169,7 +169,7 @@ export const terms: FrTerm[] = [
     example: { en: 'The first model came out in 1990.', ru: 'Первая модель появилась в 1990 году.', fr: 'Le premier modèle a vu le jour en 1990.' },
     syllabus: 'T3',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
 
   // ---- science and research (la science et la recherche) ----
@@ -180,7 +180,7 @@ export const terms: FrTerm[] = [
     example: { en: 'Scientific research requires a lot of patience.', ru: 'Научные исследования требуют большого терпения.', fr: 'La recherche scientifique demande beaucoup de patience.' },
     syllabus: 'T3',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t3-020',
@@ -189,7 +189,7 @@ export const terms: FrTerm[] = [
     example: { en: 'A female researcher at the university has published a study on the oceans.', ru: 'Исследовательница из университета опубликовала исследование об океанах.', fr: "Une chercheuse de l'université a publié une étude sur les océans." },
     syllabus: 'T3',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t3-021',
@@ -198,7 +198,7 @@ export const terms: FrTerm[] = [
     example: { en: 'The experiment lasted three weeks and gave clear results.', ru: 'Эксперимент длился три недели и дал ясные результаты.', fr: "L'expérience a duré trois semaines et a donné des résultats clairs." },
     syllabus: 'T3',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t3-022',
@@ -207,7 +207,7 @@ export const terms: FrTerm[] = [
     example: { en: 'Our initial hypothesis was wrong.', ru: 'Наша исходная гипотеза оказалась неверной.', fr: 'Notre hypothèse de départ était fausse.' },
     syllabus: 'T3',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t3-023',
@@ -216,7 +216,7 @@ export const terms: FrTerm[] = [
     example: { en: 'The researchers analyse the data one by one.', ru: 'Исследователи анализируют данные по отдельности.', fr: 'Les chercheurs analysent les données une par une.' },
     syllabus: 'T3',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t3-024',
@@ -225,7 +225,7 @@ export const terms: FrTerm[] = [
     example: { en: 'The data collected confirm our hypothesis.', ru: 'Собранные данные подтверждают нашу гипотезу.', fr: 'Les données recueillies confirment notre hypothèse.' },
     syllabus: 'T3',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t3-025',
@@ -234,7 +234,7 @@ export const terms: FrTerm[] = [
     example: { en: 'The students work in the chemistry lab.', ru: 'Студенты работают в химической лаборатории.', fr: 'Les étudiants travaillent dans le laboratoire de chimie.' },
     syllabus: 'T3',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t3-026',
@@ -243,7 +243,7 @@ export const terms: FrTerm[] = [
     example: { en: 'The results must be checked before the study is published.', ru: 'Результаты нужно проверить, прежде чем опубликовать исследование.', fr: "Il faut vérifier les résultats avant de publier l'étude." },
     syllabus: 'T3',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t3-027',
@@ -252,7 +252,7 @@ export const terms: FrTerm[] = [
     example: { en: 'The researchers are coming up against a funding problem.', ru: 'Исследователи сталкиваются с проблемой финансирования.', fr: 'Les chercheurs se heurtent à un problème de financement.' },
     syllabus: 'T3',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
 
   // ---- design and creation (le design et la création) ----
@@ -263,7 +263,7 @@ export const terms: FrTerm[] = [
     example: { en: 'The design of this phone is very elegant.', ru: 'Дизайн этого телефона очень элегантный.', fr: 'Le design de ce téléphone est très élégant.' },
     syllabus: 'T3',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t3-029',
@@ -272,7 +272,7 @@ export const terms: FrTerm[] = [
     example: { en: 'This studio designs furniture made from recycled wood.', ru: 'Эта студия проектирует мебель из переработанной древесины.', fr: 'Ce studio conçoit des meubles en bois recyclé.' },
     syllabus: 'T3',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t3-030',
@@ -281,7 +281,7 @@ export const terms: FrTerm[] = [
     example: { en: 'The architect presented the mock-up of the new museum.', ru: 'Архитектор представил макет нового музея.', fr: "L'architecte a présenté la maquette du nouveau musée." },
     syllabus: 'T3',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t3-031',
@@ -290,7 +290,7 @@ export const terms: FrTerm[] = [
     example: { en: 'Her idea is very original, and everyone likes it.', ru: 'Её идея очень оригинальна, и всем она нравится.', fr: "Son idée est très originale, et tout le monde l'apprécie." },
     syllabus: 'T3',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t3-032',
@@ -299,7 +299,7 @@ export const terms: FrTerm[] = [
     example: { en: 'This creation was presented at the festival.', ru: 'Это творение представили на фестивале.', fr: 'Cette création a été présentée au festival.' },
     syllabus: 'T3',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t3-033',
@@ -308,7 +308,7 @@ export const terms: FrTerm[] = [
     example: { en: 'The design must be both functional and aesthetic.', ru: 'Дизайн должен быть одновременно функциональным и эстетичным.', fr: 'Le design doit être à la fois fonctionnel et esthétique.' },
     syllabus: 'T3',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t3-034',
@@ -317,7 +317,7 @@ export const terms: FrTerm[] = [
     example: { en: 'The ergonomics of this chair protects your back at work.', ru: 'Эргономика этого кресла защищает спину во время работы.', fr: "L'ergonomie de ce fauteuil protège le dos pendant le travail." },
     syllabus: 'T3',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t3-035',
@@ -326,7 +326,7 @@ export const terms: FrTerm[] = [
     example: { en: 'She made a sketch of the logo before drawing it neatly.', ru: 'Она сделала набросок логотипа, прежде чем нарисовать его начисто.', fr: 'Elle a fait un croquis du logo avant de le dessiner au propre.' },
     syllabus: 'T3',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t3-036',
@@ -335,7 +335,7 @@ export const terms: FrTerm[] = [
     example: { en: 'The project is starting to take shape after months of work.', ru: 'Проект начинает обретать форму после нескольких месяцев работы.', fr: 'Le projet commence à prendre forme après des mois de travail.' },
     syllabus: 'T3',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
 
   // ---- digital media (les médias numériques) ----
@@ -346,7 +346,7 @@ export const terms: FrTerm[] = [
     example: { en: 'This software lets you edit photos in a few clicks.', ru: 'Эта программа позволяет редактировать фотографии в несколько кликов.', fr: 'Ce logiciel permet de retoucher les photos en quelques clics.' },
     syllabus: 'T3',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t3-038',
@@ -355,7 +355,7 @@ export const terms: FrTerm[] = [
     example: { en: 'We downloaded an app to learn French.', ru: 'Мы скачали приложение, чтобы учить французский.', fr: 'Nous avons téléchargé une application pour apprendre le français.' },
     syllabus: 'T3',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t3-039',
@@ -364,7 +364,7 @@ export const terms: FrTerm[] = [
     example: { en: 'Many young people spend hours on social networks.', ru: 'Многие молодые люди проводят часы в социальных сетях.', fr: 'Beaucoup de jeunes passent des heures sur les réseaux sociaux.' },
     syllabus: 'T3',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t3-040',
@@ -373,7 +373,7 @@ export const terms: FrTerm[] = [
     example: { en: 'The video he posted has been watched a million times.', ru: 'Видео, которое он выложил, посмотрели миллион раз.', fr: "La vidéo qu'il a publiée a été vue un million de fois." },
     syllabus: 'T3',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t3-041',
@@ -382,7 +382,7 @@ export const terms: FrTerm[] = [
     example: { en: 'This website publishes high-quality content every week.', ru: 'Этот сайт каждую неделю публикует качественный контент.', fr: 'Ce site publie un contenu de qualité chaque semaine.' },
     syllabus: 'T3',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t3-042',
@@ -391,7 +391,7 @@ export const terms: FrTerm[] = [
     example: { en: 'The lessons are now available online.', ru: 'Уроки теперь доступны онлайн.', fr: 'Les cours sont désormais disponibles en ligne.' },
     syllabus: 'T3',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t3-043',
@@ -400,7 +400,7 @@ export const terms: FrTerm[] = [
     example: { en: 'She uploads her travel photos to her blog.', ru: 'Она выкладывает фотографии из путешествий в свой блог.', fr: 'Elle poste ses photos de voyage sur son blog.' },
     syllabus: 'T3',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t3-044',
@@ -409,7 +409,7 @@ export const terms: FrTerm[] = [
     example: { en: 'She received very positive comments on her video.', ru: 'Она получила очень положительные комментарии к своему видео.', fr: 'Elle a reçu des commentaires très positifs sur sa vidéo.' },
     syllabus: 'T3',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t3-045',
@@ -418,7 +418,7 @@ export const terms: FrTerm[] = [
     example: { en: 'The video went viral within a few hours.', ru: 'Видео стало вирусным за несколько часов.', fr: 'La vidéo est devenue virale en quelques heures.' },
     syllabus: 'T3',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
 
   // ---- artificial intelligence, general terms (l'intelligence artificielle) ----
@@ -429,7 +429,7 @@ export const terms: FrTerm[] = [
     example: { en: 'Artificial intelligence is used in many fields.', ru: 'Искусственный интеллект применяют во многих областях.', fr: "L'intelligence artificielle est utilisée dans de nombreux domaines." },
     syllabus: 'T3',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t3-047',
@@ -438,7 +438,7 @@ export const terms: FrTerm[] = [
     example: { en: 'The algorithm suggests videos based on our tastes.', ru: 'Алгоритм предлагает видео с учётом наших вкусов.', fr: "L'algorithme propose des vidéos selon nos goûts." },
     syllabus: 'T3',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t3-048',
@@ -447,7 +447,7 @@ export const terms: FrTerm[] = [
     example: { en: 'This model learns to identify faces in photos.', ru: 'Эта модель учится распознавать лица на фотографиях.', fr: 'Ce modèle apprend à reconnaître les visages sur les photos.' },
     syllabus: 'T3',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t3-049',
@@ -456,7 +456,7 @@ export const terms: FrTerm[] = [
     example: { en: 'Some repetitive tasks can be automated.', ru: 'Некоторые повторяющиеся задачи можно автоматизировать.', fr: 'On peut automatiser certaines tâches répétitives.' },
     syllabus: 'T3',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t3-050',
@@ -465,7 +465,7 @@ export const terms: FrTerm[] = [
     example: { en: 'This robot helps elderly people do their shopping.', ru: 'Этот робот помогает пожилым людям делать покупки.', fr: 'Ce robot aide les personnes âgées à faire leurs courses.' },
     syllabus: 'T3',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t3-051',
@@ -474,7 +474,7 @@ export const terms: FrTerm[] = [
     example: { en: 'My voice assistant reminds me of my appointments.', ru: 'Мой голосовой помощник напоминает мне о встречах.', fr: 'Mon assistant vocal me rappelle mes rendez-vous.' },
     syllabus: 'T3',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t3-052',
@@ -483,7 +483,7 @@ export const terms: FrTerm[] = [
     example: { en: 'We train this model on thousands of photos.', ru: 'Мы обучаем эту модель на тысячах фотографий.', fr: 'On entraîne ce modèle avec des milliers de photos.' },
     syllabus: 'T3',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t3-053',
@@ -492,7 +492,7 @@ export const terms: FrTerm[] = [
     example: { en: 'The data used may contain a bias.', ru: 'Используемые данные могут содержать смещение.', fr: 'Les données utilisées peuvent contenir un biais.' },
     syllabus: 'T3',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t3-054',
@@ -501,7 +501,7 @@ export const terms: FrTerm[] = [
     example: { en: 'Many companies rely on artificial intelligence.', ru: 'Многие компании прибегают к искусственному интеллекту.', fr: "Beaucoup d'entreprises ont recours à l'intelligence artificielle." },
     syllabus: 'T3',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
 
   // ---- innovation and business (l'innovation et les affaires) ----
@@ -512,7 +512,7 @@ export const terms: FrTerm[] = [
     example: { en: 'Innovation is essential for a company to stay competitive.', ru: 'Инновации необходимы, чтобы компания оставалась конкурентоспособной.', fr: "L'innovation est essentielle pour qu'une entreprise reste compétitive." },
     syllabus: 'T3',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t3-056',
@@ -521,7 +521,7 @@ export const terms: FrTerm[] = [
     example: { en: 'A young start-up has created an app for students.', ru: 'Молодой стартап создал приложение для студентов.', fr: 'Une jeune start-up a créé une application pour les étudiants.' },
     syllabus: 'T3',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t3-057',
@@ -530,7 +530,7 @@ export const terms: FrTerm[] = [
     example: { en: 'The product reached the market in September.', ru: 'Продукт вышел на рынок в сентябре.', fr: 'Le produit est arrivé sur le marché en septembre.' },
     syllabus: 'T3',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t3-058',
@@ -539,7 +539,7 @@ export const terms: FrTerm[] = [
     example: { en: 'The investors supported the project from the start.', ru: 'Инвесторы поддержали проект с самого начала.', fr: 'Les investisseurs ont soutenu le projet dès le début.' },
     syllabus: 'T3',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t3-059',
@@ -548,7 +548,7 @@ export const terms: FrTerm[] = [
     example: { en: 'The project is not yet profitable, but it is progressing fast.', ru: 'Проект пока не приносит прибыли, но быстро развивается.', fr: "Le projet n'est pas encore rentable, mais il progresse vite." },
     syllabus: 'T3',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t3-060',
@@ -557,7 +557,7 @@ export const terms: FrTerm[] = [
     example: { en: 'This company employs more than fifty people.', ru: 'В этой компании работает больше пятидесяти человек.', fr: 'Cette entreprise emploie plus de cinquante personnes.' },
     syllabus: 'T3',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t3-061',
@@ -566,7 +566,7 @@ export const terms: FrTerm[] = [
     example: { en: 'The company will launch its new product in the spring.', ru: 'Компания выведет на рынок новый продукт весной.', fr: "L'entreprise va lancer son nouveau produit au printemps." },
     syllabus: 'T3',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t3-062',
@@ -575,7 +575,7 @@ export const terms: FrTerm[] = [
     example: { en: 'Our competitor has put a cheaper product on sale.', ru: 'Наш конкурент выставил на продажу более дешёвый продукт.', fr: 'Notre concurrent a mis en vente un produit moins cher.' },
     syllabus: 'T3',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t3-063',
@@ -584,7 +584,7 @@ export const terms: FrTerm[] = [
     example: { en: 'After two years of tests, this method has proved its worth.', ru: 'После двух лет испытаний этот метод доказал свою эффективность.', fr: 'Après deux ans de tests, cette méthode a fait ses preuves.' },
     syllabus: 'T3',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
 
   // ---- artists and creators (les artistes et les créateurs) ----
@@ -595,7 +595,7 @@ export const terms: FrTerm[] = [
     example: { en: 'This artist paints with very bright colours.', ru: 'Эта художница рисует очень яркими красками.', fr: 'Cette artiste peint avec des couleurs très vives.' },
     syllabus: 'T3',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t3-065',
@@ -604,7 +604,7 @@ export const terms: FrTerm[] = [
     example: { en: 'This fashion designer draws all his collections by hand.', ru: 'Этот модельер рисует все свои коллекции от руки.', fr: 'Ce créateur de mode dessine toutes ses collections à la main.' },
     syllabus: 'T3',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t3-066',
@@ -613,7 +613,7 @@ export const terms: FrTerm[] = [
     example: { en: 'This work has been on display at the city museum since 2010.', ru: 'Это произведение выставлено в городском музее с 2010 года.', fr: 'Cette œuvre est exposée au musée de la ville depuis 2010.' },
     syllabus: 'T3',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t3-067',
@@ -622,7 +622,7 @@ export const terms: FrTerm[] = [
     example: { en: 'She has a real talent for drawing.', ru: 'У неё настоящий талант к рисованию.', fr: 'Elle a un vrai talent pour le dessin.' },
     syllabus: 'T3',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t3-068',
@@ -631,7 +631,7 @@ export const terms: FrTerm[] = [
     example: { en: 'This song has inspired many young musicians.', ru: 'Эта песня вдохновила многих молодых музыкантов.', fr: 'Cette chanson a inspiré beaucoup de jeunes musiciens.' },
     syllabus: 'T3',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t3-069',
@@ -640,7 +640,7 @@ export const terms: FrTerm[] = [
     example: { en: 'The opening night takes place on Thursday evening, in the presence of the artist.', ru: 'Вернисаж состоится в четверг вечером в присутствии художника.', fr: "Le vernissage a lieu jeudi soir, en présence de l'artiste." },
     syllabus: 'T3',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t3-070',
@@ -649,7 +649,7 @@ export const terms: FrTerm[] = [
     example: { en: 'This concert moved the audience deeply.', ru: 'Этот концерт глубоко растрогал публику.', fr: 'Ce concert a beaucoup ému le public.' },
     syllabus: 'T3',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t3-071',
@@ -658,7 +658,7 @@ export const terms: FrTerm[] = [
     example: { en: 'This painting is considered a masterpiece of modern art.', ru: 'Эту картину считают шедевром современной живописи.', fr: "Ce tableau est considéré comme un chef-d'œuvre de la peinture moderne." },
     syllabus: 'T3',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t3-072',
@@ -667,7 +667,7 @@ export const terms: FrTerm[] = [
     example: { en: 'This novel is my favourite of the year.', ru: 'Этот роман — моё любимое открытие года.', fr: "Ce roman est mon coup de cœur de l'année." },
     syllabus: 'T3',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
 
   // ---- tools and methods (les outils et les méthodes) ----
@@ -678,7 +678,7 @@ export const terms: FrTerm[] = [
     example: { en: 'The whiteboard is a very useful tool in class.', ru: 'Белая доска — очень полезный инструмент на занятиях.', fr: 'Le tableau blanc est un outil très utile en classe.' },
     syllabus: 'T3',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t3-074',
@@ -687,7 +687,7 @@ export const terms: FrTerm[] = [
     example: { en: 'We chose a simple method to measure the distance.', ru: 'Мы выбрали простой метод, чтобы измерить расстояние.', fr: 'Nous avons choisi une méthode simple pour mesurer la distance.' },
     syllabus: 'T3',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t3-075',
@@ -696,7 +696,7 @@ export const terms: FrTerm[] = [
     example: { en: 'Manufacturing involves several stages.', ru: 'Производство включает несколько этапов.', fr: 'La fabrication comprend plusieurs étapes.' },
     syllabus: 'T3',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t3-076',
@@ -705,7 +705,7 @@ export const terms: FrTerm[] = [
     example: { en: 'The engineers have been testing the system for two months.', ru: 'Инженеры уже два месяца испытывают эту систему.', fr: 'Les ingénieurs testent le système depuis deux mois.' },
     syllabus: 'T3',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t3-077',
@@ -714,7 +714,7 @@ export const terms: FrTerm[] = [
     example: { en: 'This method is very effective for learning vocabulary.', ru: 'Этот метод очень эффективен для изучения лексики.', fr: 'Cette méthode est très efficace pour apprendre le vocabulaire.' },
     syllabus: 'T3',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t3-078',
@@ -723,7 +723,7 @@ export const terms: FrTerm[] = [
     example: { en: 'The engineers want to improve the quality of the prototype.', ru: 'Инженеры хотят улучшить качество прототипа.', fr: 'Les ingénieurs veulent améliorer la qualité du prototype.' },
     syllabus: 'T3',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t3-079',
@@ -732,7 +732,7 @@ export const terms: FrTerm[] = [
     example: { en: 'The company has set up a new backup system.', ru: 'Компания внедрила новую систему резервного копирования.', fr: "L'entreprise a mis en place un nouveau système de sauvegarde." },
     syllabus: 'T3',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t3-080',
@@ -741,7 +741,7 @@ export const terms: FrTerm[] = [
     example: { en: 'This software saves a lot of time.', ru: 'Эта программа помогает экономить много времени.', fr: 'Ce logiciel permet de gagner beaucoup de temps.' },
     syllabus: 'T3',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t3-081',
@@ -750,7 +750,7 @@ export const terms: FrTerm[] = [
     example: { en: "The team took the users' remarks into account.", ru: 'Команда учла замечания пользователей.', fr: "L'équipe a tenu compte des remarques des utilisateurs." },
     syllabus: 'T3',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
 
   // ---- safety of devices and data (la sécurité des appareils et des données) ----
@@ -761,7 +761,7 @@ export const terms: FrTerm[] = [
     example: { en: 'The security of personal data is a priority for us.', ru: 'Безопасность личных данных — наш приоритет.', fr: 'La sécurité des données personnelles est une priorité pour nous.' },
     syllabus: 'T3',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t3-083',
@@ -770,7 +770,7 @@ export const terms: FrTerm[] = [
     example: { en: 'Do not use the same password for all your accounts.', ru: 'Не используйте один и тот же пароль для всех ваших аккаунтов.', fr: "N'utilisez pas le même mot de passe pour tous vos comptes." },
     syllabus: 'T3',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t3-084',
@@ -779,7 +779,7 @@ export const terms: FrTerm[] = [
     example: { en: 'My computer caught a virus by opening an attachment.', ru: 'Мой компьютер подхватил вирус, открыв вложение.', fr: 'Mon ordinateur a attrapé un virus en ouvrant une pièce jointe.' },
     syllabus: 'T3',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t3-085',
@@ -788,7 +788,7 @@ export const terms: FrTerm[] = [
     example: { en: 'Make a backup of your files every week.', ru: 'Делайте резервную копию своих файлов каждую неделю.', fr: 'Faites une sauvegarde de vos fichiers chaque semaine.' },
     syllabus: 'T3',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t3-086',
@@ -797,7 +797,7 @@ export const terms: FrTerm[] = [
     example: { en: 'It is important to protect yourself against online scams.', ru: 'Важно защищаться от мошенничества в интернете.', fr: 'Il est important de se protéger contre les arnaques en ligne.' },
     syllabus: 'T3',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t3-087',
@@ -806,7 +806,7 @@ export const terms: FrTerm[] = [
     example: { en: 'A data leak affected several thousand customers.', ru: 'Утечка данных затронула несколько тысяч клиентов.', fr: 'Une fuite de données a touché plusieurs milliers de clients.' },
     syllabus: 'T3',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t3-088',
@@ -815,7 +815,7 @@ export const terms: FrTerm[] = [
     example: { en: 'The hacking of the website lasted several hours.', ru: 'Взлом сайта длился несколько часов.', fr: 'Le piratage du site a duré plusieurs heures.' },
     syllabus: 'T3',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t3-089',
@@ -824,7 +824,7 @@ export const terms: FrTerm[] = [
     example: { en: 'Old systems are often vulnerable to attacks.', ru: 'Старые системы часто уязвимы для атак.', fr: 'Les anciens systèmes sont souvent vulnérables aux attaques.' },
     syllabus: 'T3',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t3-090',
@@ -833,6 +833,6 @@ export const terms: FrTerm[] = [
     example: { en: 'Remember to update your software regularly.', ru: 'Не забывайте регулярно обновлять программное обеспечение.', fr: 'Pensez à mettre votre logiciel à jour régulièrement.' },
     syllabus: 'T3',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
 ];

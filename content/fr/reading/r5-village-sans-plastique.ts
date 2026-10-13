@@ -15,5 +15,5 @@ export const passage: ReadingPassage = {
     "Malgré ces résultats, tout n'est pas réglé. Certains habitants estiment que les mesures coûtent cher aux petits commerçants, et le conseil municipal étudie donc une aide financière. Le maire reconnaît qu'il faudra du temps avant d'atteindre l'objectif zéro plastique, mais il affirme que le village a déjà prouvé qu'un changement est possible.",
   ],
   questionIds: ['r5-q01', 'r5-q02', 'r5-q03', 'r5-q04', 'r5-q05', 'r5-q06', 'r5-q07', 'r5-q08', 'r5-q09', 'r5-q10'],
-  source: { kind: 'own', title: "Authors' French B material (2026)" },
+  source: { kind: 'own', title: 'Original text written for this portal, in the style of IB Paper 2' },
 };

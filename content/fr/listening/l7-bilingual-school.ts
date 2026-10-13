@@ -26,5 +26,5 @@ export const track: ListeningTrack = {
   ],
   questionIds: ['l7-q01', 'l7-q02', 'l7-q03', 'l7-q04', 'l7-q05', 'l7-q06', 'l7-q07', 'l7-q08', 'l7-q09', 'l7-q10'],
   audio: '/audio/fr/l7-bilingual-school.mp3',
-  source: { kind: 'own', title: "Authors' French B material (2026)" },
+  source: { kind: 'own', title: 'Original text written for this portal, in the style of IB Paper 2' },
 };

@@ -10,11 +10,11 @@ export const terms: FrTerm[] = [
   {
     id: 'v-t2-001',
     term: { en: 'journey, trip', ru: 'путешествие', fr: 'le voyage' },
-    def: { en: 'a trip to a place far from home, usually lasting several days', ru: 'поездка в место далеко от дома, обычно на несколько дней' },
+    def: { en: 'a trip to a place far from home', ru: 'поездка в место далеко от дома' },
     example: { en: 'The trip to Italy lasted ten days.', ru: 'Поездка в Италию длилась десять дней.', fr: 'Le voyage en Italie a duré dix jours.' },
     syllabus: 'T2',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: "Authors' French B vocabulary list (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Vocabulaire (page 43182)', locator: 'Expériences (theme 2, page 42627)' },
   },
   {
     id: 'v-t2-002',
@@ -23,7 +23,7 @@ export const terms: FrTerm[] = [
     example: { en: 'I like to travel alone because I decide everything myself.', ru: 'Я люблю путешествовать один, потому что всё решаю сам.', fr: "J'aime voyager seul, parce que je décide de tout." },
     syllabus: 'T2',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: "Authors' French B vocabulary list (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Vocabulaire (page 43182)', locator: 'Expériences (theme 2, page 42627)' },
   },
   {
     id: 'v-t2-003',
@@ -32,7 +32,7 @@ export const terms: FrTerm[] = [
     example: { en: 'Our favourite destination is Portugal.', ru: 'Наш любимый пункт назначения — Португалия.', fr: 'Notre destination préférée est le Portugal.' },
     syllabus: 'T2',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: "Authors' French B vocabulary list (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Vocabulaire (page 43182)', locator: 'Expériences (theme 2, page 42627)' },
   },
   {
     id: 'v-t2-004',
@@ -41,7 +41,7 @@ export const terms: FrTerm[] = [
     example: { en: 'This stay in the mountains gave me a real change of scenery.', ru: 'Эта поездка в горы дала мне настоящую смену обстановки.', fr: "Ce séjour à la montagne m'a offert un vrai dépaysement." },
     syllabus: 'T2',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: "Authors' French B vocabulary list (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Vocabulaire (page 43182)', locator: 'Expériences (theme 2, page 42627)' },
   },
   {
     id: 'v-t2-005',
@@ -50,7 +50,7 @@ export const terms: FrTerm[] = [
     example: { en: 'The old harbour is small, but it is worth the detour.', ru: 'Старая гавань маленькая, но к ней стоит заехать.', fr: 'Le vieux port est petit, mais il vaut le détour.' },
     syllabus: 'T2',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: "Authors' French B vocabulary list (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Vocabulaire (page 43182)', locator: 'Expériences (theme 2, page 42627)' },
   },
   {
     id: 'v-t2-006',
@@ -59,7 +59,7 @@ export const terms: FrTerm[] = [
     example: { en: 'In August, the square was full of tourists.', ru: 'В августе площадь была полна туристов.', fr: 'En août, la place était pleine de touristes.' },
     syllabus: 'T2',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: "Authors' French B vocabulary list (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Vocabulaire (page 43182)', locator: 'Expériences (theme 2, page 42627)' },
   },
   {
     id: 'v-t2-007',
@@ -68,7 +68,7 @@ export const terms: FrTerm[] = [
     example: { en: 'Our route went through three towns on the coast.', ru: 'Наш маршрут проходил через три города на побережье.', fr: 'Notre itinéraire passait par trois villes sur la côte.' },
     syllabus: 'T2',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: "Authors' French B vocabulary list (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Vocabulaire (page 43182)', locator: 'Expériences (theme 2, page 42627)' },
   },
   {
     id: 'v-t2-008',
@@ -77,7 +77,7 @@ export const terms: FrTerm[] = [
     example: { en: 'We toured the island in two days.', ru: 'Мы объехали остров за два дня.', fr: "Nous avons fait le tour de l'île en deux jours." },
     syllabus: 'T2',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: "Authors' French B vocabulary list (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Vocabulaire (page 43182)', locator: 'Expériences (theme 2, page 42627)' },
   },
   {
     id: 'v-t2-009',
@@ -86,7 +86,7 @@ export const terms: FrTerm[] = [
     example: { en: 'After the flight, I had trouble sleeping because of the jet lag.', ru: 'После перелёта мне было трудно уснуть из-за разницы во времени.', fr: "Après le vol, j'ai eu du mal à dormir à cause du décalage horaire." },
     syllabus: 'T2',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: "Authors' French B vocabulary list (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Vocabulaire (page 43182)', locator: 'Expériences (theme 2, page 42627)' },
   },
   {
     id: 'v-t2-010',
@@ -95,7 +95,7 @@ export const terms: FrTerm[] = [
     example: { en: 'The view from the top was magnificent.', ru: 'Вид с вершины был великолепным.', fr: 'Le paysage depuis le sommet était magnifique.' },
     syllabus: 'T2',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: "Authors' French B vocabulary list (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Vocabulaire (page 43182)', locator: 'Expériences (theme 2, page 42627)' },
   },
 
   // Accommodation and transport
@@ -106,7 +106,7 @@ export const terms: FrTerm[] = [
     example: { en: 'We found cheap accommodation near the station.', ru: 'Мы нашли недорогое жильё недалеко от вокзала.', fr: "Nous avons trouvé un hébergement pas cher près de la gare." },
     syllabus: 'T2',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: "Authors' French B vocabulary list (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Vocabulaire (page 43182)', locator: 'Expériences (theme 2, page 42627)' },
   },
   {
     id: 'v-t2-012',
@@ -115,7 +115,7 @@ export const terms: FrTerm[] = [
     example: { en: 'You have to book concert tickets several weeks in advance.', ru: 'Билеты на концерт нужно заказать за несколько недель.', fr: "Il faut réserver les billets de concert plusieurs semaines à l'avance." },
     syllabus: 'T2',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: "Authors' French B vocabulary list (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Vocabulaire (page 43182)', locator: 'Expériences (theme 2, page 42627)' },
   },
   {
     id: 'v-t2-013',
@@ -125,7 +125,7 @@ export const terms: FrTerm[] = [
     pitfall: { en: 'La location means renting, not a place. For a place, say un lieu or un endroit.', ru: '«La location» означает аренду, а не место. Для места говорите un lieu или un endroit.' },
     syllabus: 'T2',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: "Authors' French B vocabulary list (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Vocabulaire (page 43182)', locator: 'Expériences (theme 2, page 42627)' },
   },
   {
     id: 'v-t2-014',
@@ -134,7 +134,7 @@ export const terms: FrTerm[] = [
     example: { en: 'We slept in a youth hostel in Lyon.', ru: 'Мы ночевали в молодёжном хостеле в Лионе.', fr: 'Nous avons dormi dans une auberge de jeunesse à Lyon.' },
     syllabus: 'T2',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: "Authors' French B vocabulary list (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Vocabulaire (page 43182)', locator: 'Expériences (theme 2, page 42627)' },
   },
   {
     id: 'v-t2-015',
@@ -144,7 +144,7 @@ export const terms: FrTerm[] = [
     pitfall: { en: 'Un trajet is a route between two points; a holiday trip is un voyage.', ru: 'Un trajet — это путь между двумя точками; поездка на отдых — это un voyage.' },
     syllabus: 'T2',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: "Authors' French B vocabulary list (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Vocabulaire (page 43182)', locator: 'Expériences (theme 2, page 42627)' },
   },
   {
     id: 'v-t2-016',
@@ -153,7 +153,7 @@ export const terms: FrTerm[] = [
     example: { en: 'We changed trains in Paris, but the train was late.', ru: 'Мы сделали пересадку в Париже, но поезд опаздывал.', fr: 'Nous avons fait une correspondance à Paris, mais le train était en retard.' },
     syllabus: 'T2',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: "Authors' French B vocabulary list (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Vocabulaire (page 43182)', locator: 'Expériences (theme 2, page 42627)' },
   },
   {
     id: 'v-t2-017',
@@ -162,7 +162,7 @@ export const terms: FrTerm[] = [
     example: { en: 'The train to Marseille arrives at platform seven.', ru: 'Поезд на Марсель прибывает на платформу номер семь.', fr: 'Le train pour Marseille arrive au quai numéro sept.' },
     syllabus: 'T2',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: "Authors' French B vocabulary list (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Vocabulaire (page 43182)', locator: 'Expériences (theme 2, page 42627)' },
   },
   {
     id: 'v-t2-018',
@@ -171,7 +171,7 @@ export const terms: FrTerm[] = [
     example: { en: 'The airline cancelled the flight because of the snow.', ru: 'Авиакомпания отменила рейс из-за снега.', fr: 'La compagnie a annulé le vol à cause de la neige.' },
     syllabus: 'T2',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: "Authors' French B vocabulary list (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Vocabulaire (page 43182)', locator: 'Expériences (theme 2, page 42627)' },
   },
   {
     id: 'v-t2-019',
@@ -180,7 +180,7 @@ export const terms: FrTerm[] = [
     example: { en: 'My luggage arrived two days after me, on another flight.', ru: 'Мой багаж прибыл через два дня после меня, другим рейсом.', fr: 'Mes bagages sont arrivés deux jours après moi, par un autre vol.' },
     syllabus: 'T2',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: "Authors' French B vocabulary list (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Vocabulaire (page 43182)', locator: 'Expériences (theme 2, page 42627)' },
   },
   {
     id: 'v-t2-020',
@@ -189,7 +189,7 @@ export const terms: FrTerm[] = [
     example: { en: 'We rented a car to explore the region.', ru: 'Мы арендовали машину, чтобы исследовать регион.', fr: 'Nous avons loué une voiture pour découvrir la région.' },
     syllabus: 'T2',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: "Authors' French B vocabulary list (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Vocabulaire (page 43182)', locator: 'Expériences (theme 2, page 42627)' },
   },
 
   // Memorable events
@@ -200,7 +200,7 @@ export const terms: FrTerm[] = [
     example: { en: 'The opening of the festival is a much-anticipated event.', ru: 'Открытие фестиваля — долгожданное событие.', fr: "L'ouverture du festival est un événement très attendu." },
     syllabus: 'T2',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: "Authors' French B vocabulary list (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Vocabulaire (page 43182)', locator: 'Expériences (theme 2, page 42627)' },
   },
   {
     id: 'v-t2-022',
@@ -209,7 +209,7 @@ export const terms: FrTerm[] = [
     example: { en: 'That trip was an unforgettable experience.', ru: 'Эта поездка стала незабываемым опытом.', fr: 'Ce voyage a été une expérience inoubliable.' },
     syllabus: 'T2',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: "Authors' French B vocabulary list (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Vocabulaire (page 43182)', locator: 'Expériences (theme 2, page 42627)' },
   },
   {
     id: 'v-t2-023',
@@ -218,7 +218,7 @@ export const terms: FrTerm[] = [
     example: { en: 'The village celebration lasted all night.', ru: 'Деревенский праздник длился всю ночь.', fr: 'La fête du village a duré toute la nuit.' },
     syllabus: 'T2',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: "Authors' French B vocabulary list (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Vocabulaire (page 43182)', locator: 'Expériences (theme 2, page 42627)' },
   },
   {
     id: 'v-t2-024',
@@ -227,7 +227,7 @@ export const terms: FrTerm[] = [
     example: { en: "My cousin's wedding was wonderful.", ru: 'Свадьба моего двоюродного брата была прекрасной.', fr: 'Le mariage de mon cousin était magnifique.' },
     syllabus: 'T2',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: "Authors' French B vocabulary list (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Vocabulaire (page 43182)', locator: 'Expériences (theme 2, page 42627)' },
   },
   {
     id: 'v-t2-025',
@@ -236,7 +236,7 @@ export const terms: FrTerm[] = [
     example: { en: 'For my birthday, my friends gave me a trip to Rome.', ru: 'На день рождения друзья подарили мне поездку в Рим.', fr: "Pour mon anniversaire, mes amis m'ont offert un voyage à Rome." },
     syllabus: 'T2',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: "Authors' French B vocabulary list (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Vocabulaire (page 43182)', locator: 'Expériences (theme 2, page 42627)' },
   },
   {
     id: 'v-t2-026',
@@ -245,7 +245,7 @@ export const terms: FrTerm[] = [
     example: { en: 'The graduation ceremony was held in the main hall.', ru: 'Церемония вручения дипломов прошла в большом зале.', fr: "La cérémonie de remise des diplômes s'est déroulée dans la grande salle." },
     syllabus: 'T2',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: "Authors' French B vocabulary list (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Vocabulaire (page 43182)', locator: 'Expériences (theme 2, page 42627)' },
   },
   {
     id: 'v-t2-027',
@@ -254,7 +254,7 @@ export const terms: FrTerm[] = [
     example: { en: 'I remember that day as if it were yesterday.', ru: 'Я помню тот день так, будто это было вчера.', fr: "Je me souviens de ce jour comme si c'était hier." },
     syllabus: 'T2',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: "Authors' French B vocabulary list (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Vocabulaire (page 43182)', locator: 'Expériences (theme 2, page 42627)' },
   },
   {
     id: 'v-t2-028',
@@ -263,7 +263,7 @@ export const terms: FrTerm[] = [
     example: { en: 'The meeting took place in a café near the station.', ru: 'Встреча состоялась в кафе недалеко от вокзала.', fr: 'La rencontre a eu lieu dans un café près de la gare.' },
     syllabus: 'T2',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: "Authors' French B vocabulary list (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Vocabulaire (page 43182)', locator: 'Expériences (theme 2, page 42627)' },
   },
   {
     id: 'v-t2-029',
@@ -272,7 +272,7 @@ export const terms: FrTerm[] = [
     example: { en: 'The trip left a deep mark on the students.', ru: 'Эта поездка сильно повлияла на учеников.', fr: 'Ce séjour a beaucoup marqué les élèves.' },
     syllabus: 'T2',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: "Authors' French B vocabulary list (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Vocabulaire (page 43182)', locator: 'Expériences (theme 2, page 42627)' },
   },
   {
     id: 'v-t2-030',
@@ -281,7 +281,7 @@ export const terms: FrTerm[] = [
     example: { en: 'The highlight of the trip was the visit to the old town.', ru: 'Самым ярким моментом поездки стало посещение старого города.', fr: 'Le moment fort du voyage a été la visite de la vieille ville.' },
     syllabus: 'T2',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: "Authors' French B vocabulary list (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Vocabulaire (page 43182)', locator: 'Expériences (theme 2, page 42627)' },
   },
 
   // Emotions and sensations
@@ -292,7 +292,7 @@ export const terms: FrTerm[] = [
     example: { en: 'During the concert, I felt a very strong emotion.', ru: 'Во время концерта я почувствовал очень сильное волнение.', fr: "Pendant le concert, j'ai ressenti une émotion très forte." },
     syllabus: 'T2',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: "Authors' French B vocabulary list (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Vocabulaire (page 43182)', locator: 'Expériences (theme 2, page 42627)' },
   },
   {
     id: 'v-t2-032',
@@ -302,7 +302,7 @@ export const terms: FrTerm[] = [
     pitfall: { en: 'Ému means moved by a feeling. For emotional as a personality trait, say émotif.', ru: 'Ému означает «растроганный чувством». Для «эмоционального» как черты характера говорите émotif.' },
     syllabus: 'T2',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: "Authors' French B vocabulary list (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Vocabulaire (page 43182)', locator: 'Expériences (theme 2, page 42627)' },
   },
   {
     id: 'v-t2-033',
@@ -311,7 +311,7 @@ export const terms: FrTerm[] = [
     example: { en: 'After two weeks abroad, he was homesick.', ru: 'Через две недели за границей он начал тосковать по дому.', fr: "Au bout de deux semaines à l'étranger, il a eu le mal du pays." },
     syllabus: 'T2',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: "Authors' French B vocabulary list (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Vocabulaire (page 43182)', locator: 'Expériences (theme 2, page 42627)' },
   },
   {
     id: 'v-t2-034',
@@ -320,7 +320,7 @@ export const terms: FrTerm[] = [
     example: { en: 'Before going on stage, she had stage fright.', ru: 'Перед выходом на сцену она очень волновалась.', fr: 'Avant de monter sur scène, elle avait le trac.' },
     syllabus: 'T2',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: "Authors' French B vocabulary list (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Vocabulaire (page 43182)', locator: 'Expériences (theme 2, page 42627)' },
   },
   {
     id: 'v-t2-035',
@@ -329,7 +329,7 @@ export const terms: FrTerm[] = [
     example: { en: 'When the music started, I shivered with pleasure.', ru: 'Когда заиграла музыка, меня пробрала дрожь от удовольствия.', fr: "Quand la musique a commencé, j'ai frissonné de plaisir." },
     syllabus: 'T2',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: "Authors' French B vocabulary list (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Vocabulaire (page 43182)', locator: 'Expériences (theme 2, page 42627)' },
   },
   {
     id: 'v-t2-036',
@@ -338,7 +338,7 @@ export const terms: FrTerm[] = [
     example: { en: 'The tourists were amazed by the beauty of the landscape.', ru: 'Туристы были поражены красотой пейзажа.', fr: 'Les touristes étaient étonnés par la beauté du paysage.' },
     syllabus: 'T2',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: "Authors' French B vocabulary list (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Vocabulaire (page 43182)', locator: 'Expériences (theme 2, page 42627)' },
   },
   {
     id: 'v-t2-037',
@@ -347,7 +347,7 @@ export const terms: FrTerm[] = [
     example: { en: 'I had the sensation of flying above the sea.', ru: 'У меня было ощущение, что я лечу над морем.', fr: "J'ai eu la sensation de voler au-dessus de la mer." },
     syllabus: 'T2',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: "Authors' French B vocabulary list (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Vocabulaire (page 43182)', locator: 'Expériences (theme 2, page 42627)' },
   },
   {
     id: 'v-t2-038',
@@ -356,7 +356,7 @@ export const terms: FrTerm[] = [
     example: { en: 'He was deeply moved after the screening of the film.', ru: 'После показа фильма он был глубоко потрясён.', fr: 'Il est resté bouleversé après la projection du film.' },
     syllabus: 'T2',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: "Authors' French B vocabulary list (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Vocabulaire (page 43182)', locator: 'Expériences (theme 2, page 42627)' },
   },
   {
     id: 'v-t2-039',
@@ -365,7 +365,7 @@ export const terms: FrTerm[] = [
     example: { en: 'During the show, the whole audience was roaring with laughter.', ru: 'Во время спектакля весь зал хохотал.', fr: 'Pendant le spectacle, toute la salle riait aux éclats.' },
     syllabus: 'T2',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: "Authors' French B vocabulary list (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Vocabulaire (page 43182)', locator: 'Expériences (theme 2, page 42627)' },
   },
   {
     id: 'v-t2-040',
@@ -374,7 +374,7 @@ export const terms: FrTerm[] = [
     example: { en: "I'm fed up with the rain, and I want some sun.", ru: 'Мне надоел дождь, и я хочу солнца.', fr: "J'en ai assez de la pluie, je veux du soleil." },
     syllabus: 'T2',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: "Authors' French B vocabulary list (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Vocabulaire (page 43182)', locator: 'Expériences (theme 2, page 42627)' },
   },
 
   // Adventure and risk
@@ -385,7 +385,7 @@ export const terms: FrTerm[] = [
     example: { en: 'Crossing the desert by bike was a real adventure.', ru: 'Пересечь пустыню на велосипеде — настоящее приключение.', fr: "Traverser le désert à vélo, c'était une vraie aventure." },
     syllabus: 'T2',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: "Authors' French B vocabulary list (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Vocabulaire (page 43182)', locator: 'Expériences (theme 2, page 42627)' },
   },
   {
     id: 'v-t2-042',
@@ -394,7 +394,7 @@ export const terms: FrTerm[] = [
     example: { en: 'There is a risk of rain, so take a raincoat.', ru: 'Есть риск дождя, так что возьмите плащ.', fr: 'Il y a un risque de pluie, alors prenez un imperméable.' },
     syllabus: 'T2',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: "Authors' French B vocabulary list (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Vocabulaire (page 43182)', locator: 'Expériences (theme 2, page 42627)' },
   },
   {
     id: 'v-t2-043',
@@ -403,7 +403,7 @@ export const terms: FrTerm[] = [
     example: { en: 'Climbing this cliff without equipment is very risky.', ru: 'Лезть на эту скалу без снаряжения очень рискованно.', fr: 'Escalader cette falaise sans équipement est très risqué.' },
     syllabus: 'T2',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: "Authors' French B vocabulary list (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Vocabulaire (page 43182)', locator: 'Expériences (theme 2, page 42627)' },
   },
   {
     id: 'v-t2-044',
@@ -412,7 +412,7 @@ export const terms: FrTerm[] = [
     example: { en: 'To succeed, you sometimes have to take a risk.', ru: 'Чтобы добиться успеха, иногда нужно рискнуть.', fr: 'Pour réussir, il faut parfois prendre un risque.' },
     syllabus: 'T2',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: "Authors' French B vocabulary list (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Vocabulaire (page 43182)', locator: 'Expériences (theme 2, page 42627)' },
   },
   {
     id: 'v-t2-045',
@@ -421,7 +421,7 @@ export const terms: FrTerm[] = [
     example: { en: 'At this altitude, it is cold even in summer.', ru: 'На такой высоте холодно даже летом.', fr: 'À cette altitude, il fait froid même en été.' },
     syllabus: 'T2',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: "Authors' French B vocabulary list (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Vocabulaire (page 43182)', locator: 'Expériences (theme 2, page 42627)' },
   },
   {
     id: 'v-t2-046',
@@ -430,7 +430,7 @@ export const terms: FrTerm[] = [
     example: { en: 'The young people climbed the cliff in two hours.', ru: 'Молодые люди взобрались на скалу за два часа.', fr: 'Les jeunes ont escaladé la falaise en deux heures.' },
     syllabus: 'T2',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: "Authors' French B vocabulary list (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Vocabulaire (page 43182)', locator: 'Expériences (theme 2, page 42627)' },
   },
   {
     id: 'v-t2-047',
@@ -439,7 +439,7 @@ export const terms: FrTerm[] = [
     example: { en: 'We followed the trail to the lake.', ru: 'Мы шли по тропе до озера.', fr: "Nous avons suivi le sentier jusqu'au lac." },
     syllabus: 'T2',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: "Authors' French B vocabulary list (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Vocabulaire (page 43182)', locator: 'Expériences (theme 2, page 42627)' },
   },
   {
     id: 'v-t2-048',
@@ -448,7 +448,7 @@ export const terms: FrTerm[] = [
     example: { en: 'Without a map, it is easy to get lost in this town.', ru: 'Без карты в этом городе легко заблудиться.', fr: 'Sans carte, on se perd facilement dans cette ville.' },
     syllabus: 'T2',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: "Authors' French B vocabulary list (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Vocabulaire (page 43182)', locator: 'Expériences (theme 2, page 42627)' },
   },
   {
     id: 'v-t2-049',
@@ -457,7 +457,7 @@ export const terms: FrTerm[] = [
     example: { en: 'The rescue team arrived in less than an hour.', ru: 'Спасатели прибыли меньше чем за час.', fr: "Les secours sont arrivés en moins d'une heure." },
     syllabus: 'T2',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: "Authors' French B vocabulary list (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Vocabulaire (page 43182)', locator: 'Expériences (theme 2, page 42627)' },
   },
   {
     id: 'v-t2-050',
@@ -466,7 +466,7 @@ export const terms: FrTerm[] = [
     example: { en: 'She did not dare to jump from the diving board.', ru: 'Она не осмелилась прыгнуть с вышки.', fr: "Elle n'a pas osé sauter du plongeoir." },
     syllabus: 'T2',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: "Authors' French B vocabulary list (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Vocabulaire (page 43182)', locator: 'Expériences (theme 2, page 42627)' },
   },
 
   // Cultural outings
@@ -477,7 +477,7 @@ export const terms: FrTerm[] = [
     example: { en: 'The concert was sold out, so we stayed outside.', ru: 'Концерт был полностью распродан, поэтому мы остались снаружи.', fr: 'Le concert était complet, alors nous sommes restés dehors.' },
     syllabus: 'T2',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: "Authors' French B vocabulary list (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Vocabulaire (page 43182)', locator: 'Expériences (theme 2, page 42627)' },
   },
   {
     id: 'v-t2-052',
@@ -486,7 +486,7 @@ export const terms: FrTerm[] = [
     example: { en: 'The museum is open on Thursdays until nine in the evening.', ru: 'Музей открыт по четвергам до девяти вечера.', fr: "Le musée est ouvert le jeudi jusqu'à vingt et une heures." },
     syllabus: 'T2',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: "Authors' French B vocabulary list (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Vocabulaire (page 43182)', locator: 'Expériences (theme 2, page 42627)' },
   },
   {
     id: 'v-t2-053',
@@ -495,7 +495,7 @@ export const terms: FrTerm[] = [
     example: { en: 'The film festival attracts thousands of visitors every year.', ru: 'Кинофестиваль каждый год привлекает тысячи зрителей.', fr: 'Le festival de cinéma attire des milliers de spectateurs chaque année.' },
     syllabus: 'T2',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: "Authors' French B vocabulary list (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Vocabulaire (page 43182)', locator: 'Expériences (theme 2, page 42627)' },
   },
   {
     id: 'v-t2-054',
@@ -504,7 +504,7 @@ export const terms: FrTerm[] = [
     example: { en: 'The photo exhibition about the sea was superb.', ru: 'Фотовыставка о море была великолепной.', fr: "L'exposition de photos sur la mer était superbe." },
     syllabus: 'T2',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: "Authors' French B vocabulary list (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Vocabulaire (page 43182)', locator: 'Expériences (theme 2, page 42627)' },
   },
   {
     id: 'v-t2-055',
@@ -513,7 +513,7 @@ export const terms: FrTerm[] = [
     example: { en: 'We queued for an hour to buy the tickets.', ru: 'Мы простояли в очереди час, чтобы купить билеты.', fr: 'Nous avons fait la queue pendant une heure pour acheter les billets.' },
     syllabus: 'T2',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: "Authors' French B vocabulary list (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Vocabulaire (page 43182)', locator: 'Expériences (theme 2, page 42627)' },
   },
   {
     id: 'v-t2-056',
@@ -523,7 +523,7 @@ export const terms: FrTerm[] = [
     pitfall: { en: 'Assister à means to be present at an event. It does not mean to help; for help, use aider.', ru: 'Assister à означает «присутствовать на», а не «помогать»; для помощи используйте aider.' },
     syllabus: 'T2',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: "Authors' French B vocabulary list (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Vocabulaire (page 43182)', locator: 'Expériences (theme 2, page 42627)' },
   },
   {
     id: 'v-t2-057',
@@ -532,7 +532,7 @@ export const terms: FrTerm[] = [
     example: { en: 'In the crowd, we lost our friends for a minute.', ru: 'В толпе мы на минуту потеряли друзей.', fr: 'Dans la foule, nous avons perdu nos amis pendant une minute.' },
     syllabus: 'T2',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: "Authors' French B vocabulary list (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Vocabulaire (page 43182)', locator: 'Expériences (theme 2, page 42627)' },
   },
   {
     id: 'v-t2-058',
@@ -541,7 +541,7 @@ export const terms: FrTerm[] = [
     example: { en: 'The audience applauded for several minutes.', ru: 'Публика аплодировала несколько минут.', fr: 'Le public a applaudi pendant plusieurs minutes.' },
     syllabus: 'T2',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: "Authors' French B vocabulary list (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Vocabulaire (page 43182)', locator: 'Expériences (theme 2, page 42627)' },
   },
   {
     id: 'v-t2-059',
@@ -550,7 +550,7 @@ export const terms: FrTerm[] = [
     example: { en: 'We took a guided tour of the castle.', ru: 'Мы пошли на экскурсию по замку с гидом.', fr: 'Nous avons pris une visite guidée du château.' },
     syllabus: 'T2',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: "Authors' French B vocabulary list (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Vocabulaire (page 43182)', locator: 'Expériences (theme 2, page 42627)' },
   },
   {
     id: 'v-t2-060',
@@ -559,7 +559,7 @@ export const terms: FrTerm[] = [
     example: { en: 'The children marvelled at the puppets.', ru: 'Дети восхищались марионетками.', fr: "Les enfants s'émerveillaient devant les marionnettes." },
     syllabus: 'T2',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: "Authors' French B vocabulary list (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Vocabulaire (page 43182)', locator: 'Expériences (theme 2, page 42627)' },
   },
 
   // School life and exchanges
@@ -570,7 +570,7 @@ export const terms: FrTerm[] = [
     example: { en: 'This school exchange helped me improve my French.', ru: 'Этот школьный обмен помог мне улучшить французский.', fr: "Cet échange scolaire m'a permis de progresser en français." },
     syllabus: 'T2',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: "Authors' French B vocabulary list (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Vocabulaire (page 43182)', locator: 'Expériences (theme 2, page 42627)' },
   },
   {
     id: 'v-t2-062',
@@ -579,7 +579,7 @@ export const terms: FrTerm[] = [
     example: { en: 'My German exchange partner is coming to our house in April.', ru: 'Мой немецкий партнёр по обмену приедет к нам в апреле.', fr: 'Mon correspondant allemand vient chez nous en avril.' },
     syllabus: 'T2',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: "Authors' French B vocabulary list (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Vocabulaire (page 43182)', locator: 'Expériences (theme 2, page 42627)' },
   },
   {
     id: 'v-t2-063',
@@ -588,7 +588,7 @@ export const terms: FrTerm[] = [
     example: { en: 'My host family introduced me to the local cuisine.', ru: 'Моя принимающая семья познакомила меня с местной кухней.', fr: "Ma famille d'accueil m'a fait découvrir la cuisine locale." },
     syllabus: 'T2',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: "Authors' French B vocabulary list (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Vocabulaire (page 43182)', locator: 'Expériences (theme 2, page 42627)' },
   },
   {
     id: 'v-t2-064',
@@ -598,7 +598,7 @@ export const terms: FrTerm[] = [
     pitfall: { en: 'Passer un examen means to sit it, not to pass it. To say you passed, use réussir.', ru: 'Passer un examen означает «писать экзамен», а не «сдать». Чтобы сказать, что вы сдали, используйте réussir.' },
     syllabus: 'T2',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: "Authors' French B vocabulary list (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Vocabulaire (page 43182)', locator: 'Expériences (theme 2, page 42627)' },
   },
   {
     id: 'v-t2-065',
@@ -607,7 +607,7 @@ export const terms: FrTerm[] = [
     example: { en: 'She passed her exam with a very good mark.', ru: 'Она сдала экзамен на очень хорошую оценку.', fr: 'Elle a réussi son examen avec une très bonne note.' },
     syllabus: 'T2',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: "Authors' French B vocabulary list (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Vocabulaire (page 43182)', locator: 'Expériences (theme 2, page 42627)' },
   },
   {
     id: 'v-t2-066',
@@ -616,7 +616,7 @@ export const terms: FrTerm[] = [
     example: { en: 'My timetable changes every week.', ru: 'Моё расписание меняется каждую неделю.', fr: "Mon emploi du temps change chaque semaine." },
     syllabus: 'T2',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: "Authors' French B vocabulary list (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Vocabulaire (page 43182)', locator: 'Expériences (theme 2, page 42627)' },
   },
   {
     id: 'v-t2-067',
@@ -625,7 +625,7 @@ export const terms: FrTerm[] = [
     example: { en: 'My classmates made it easier for me to settle in.', ru: 'Одноклассники помогли мне легче освоиться.', fr: 'Mes camarades de classe ont facilité mon intégration.' },
     syllabus: 'T2',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: "Authors' French B vocabulary list (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Vocabulaire (page 43182)', locator: 'Expériences (theme 2, page 42627)' },
   },
   {
     id: 'v-t2-068',
@@ -634,7 +634,7 @@ export const terms: FrTerm[] = [
     example: { en: 'He found it hard to adapt to the new school system.', ru: 'Ему было трудно адаптироваться к новой школьной системе.', fr: "Il a eu du mal à s'adapter au nouveau système scolaire." },
     syllabus: 'T2',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: "Authors' French B vocabulary list (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Vocabulaire (page 43182)', locator: 'Expériences (theme 2, page 42627)' },
   },
   {
     id: 'v-t2-069',
@@ -643,7 +643,7 @@ export const terms: FrTerm[] = [
     example: { en: 'Learning a foreign language takes patience.', ru: 'Изучение иностранного языка требует терпения.', fr: 'Apprendre une langue étrangère demande de la patience.' },
     syllabus: 'T2',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: "Authors' French B vocabulary list (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Vocabulaire (page 43182)', locator: 'Expériences (theme 2, page 42627)' },
   },
   {
     id: 'v-t2-070',
@@ -652,7 +652,7 @@ export const terms: FrTerm[] = [
     example: { en: 'At the airport, I met my exchange partner for the first time.', ru: 'В аэропорту я впервые познакомился со своим партнёром по обмену.', fr: "À l'aéroport, j'ai fait la connaissance de mon correspondant." },
     syllabus: 'T2',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: "Authors' French B vocabulary list (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Vocabulaire (page 43182)', locator: 'Expériences (theme 2, page 42627)' },
   },
 
   // Memories and anecdotes
@@ -663,7 +663,7 @@ export const terms: FrTerm[] = [
     example: { en: 'I have kept a good memory of that stay.', ru: 'Я сохранил хорошее воспоминание об этой поездке.', fr: "J'ai gardé un bon souvenir de ce séjour." },
     syllabus: 'T2',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: "Authors' French B vocabulary list (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Vocabulaire (page 43182)', locator: 'Expériences (theme 2, page 42627)' },
   },
   {
     id: 'v-t2-072',
@@ -672,7 +672,7 @@ export const terms: FrTerm[] = [
     example: { en: "In my childhood, we spent the summer at my grandmother's.", ru: 'В детстве мы проводили лето у бабушки.', fr: "Pendant mon enfance, nous passions l'été chez ma grand-mère." },
     syllabus: 'T2',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: "Authors' French B vocabulary list (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Vocabulaire (page 43182)', locator: 'Expériences (theme 2, page 42627)' },
   },
   {
     id: 'v-t2-073',
@@ -681,7 +681,7 @@ export const terms: FrTerm[] = [
     example: { en: 'My grandfather loves telling us about his trips to Africa.', ru: 'Мой дедушка любит рассказывать нам о своих поездках в Африку.', fr: 'Mon grand-père adore nous raconter ses voyages en Afrique.' },
     syllabus: 'T2',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: "Authors' French B vocabulary list (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Vocabulaire (page 43182)', locator: 'Expériences (theme 2, page 42627)' },
   },
   {
     id: 'v-t2-074',
@@ -691,7 +691,7 @@ export const terms: FrTerm[] = [
     pitfall: { en: 'An anecdote is a short true story from life, not an invented one; for a made-up story, say histoire.', ru: 'Anecdote — это короткая правдивая история из жизни, а не выдуманная; для вымысла используйте histoire.' },
     syllabus: 'T2',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: "Authors' French B vocabulary list (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Vocabulaire (page 43182)', locator: 'Expériences (theme 2, page 42627)' },
   },
   {
     id: 'v-t2-075',
@@ -701,7 +701,7 @@ export const terms: FrTerm[] = [
     pitfall: { en: 'Se rappeler is followed directly by the noun (je me rappelle la ville); se souvenir needs de (je me souviens de la ville).', ru: 'После se rappeler существительное стоит сразу (je me rappelle la ville); se souvenir требует de (je me souviens de la ville).' },
     syllabus: 'T2',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: "Authors' French B vocabulary list (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Vocabulaire (page 43182)', locator: 'Expériences (theme 2, page 42627)' },
   },
   {
     id: 'v-t2-076',
@@ -710,7 +710,7 @@ export const terms: FrTerm[] = [
     example: { en: 'At that time, we did not have mobile phones.', ru: 'В то время у нас не было мобильных телефонов.', fr: "À cette époque, nous n'avions pas de téléphone portable." },
     syllabus: 'T2',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: "Authors' French B vocabulary list (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Vocabulaire (page 43182)', locator: 'Expériences (theme 2, page 42627)' },
   },
   {
     id: 'v-t2-077',
@@ -719,7 +719,7 @@ export const terms: FrTerm[] = [
     example: { en: 'This old film makes me nostalgic for my childhood.', ru: 'Этот старый фильм вызывает у меня ностальгию по детству.', fr: 'Ce vieux film me rend nostalgique de mon enfance.' },
     syllabus: 'T2',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: "Authors' French B vocabulary list (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Vocabulaire (page 43182)', locator: 'Expériences (theme 2, page 42627)' },
   },
   {
     id: 'v-t2-078',
@@ -729,7 +729,7 @@ export const terms: FrTerm[] = [
     pitfall: { en: 'Réaliser means to carry out or fulfil, as in réaliser un rêve; to become aware, use se rendre compte de.', ru: 'Réaliser значит «осуществить», как в réaliser un rêve; чтобы сказать «осознать», используйте se rendre compte de.' },
     syllabus: 'T2',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: "Authors' French B vocabulary list (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Vocabulaire (page 43182)', locator: 'Expériences (theme 2, page 42627)' },
   },
   {
     id: 'v-t2-079',
@@ -738,7 +738,7 @@ export const terms: FrTerm[] = [
     example: { en: "I can't wait to see my friends from Montreal again.", ru: 'Я не могу дождаться, когда снова увижу друзей из Монреаля.', fr: "J'ai hâte de revoir mes amis de Montréal." },
     syllabus: 'T2',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: "Authors' French B vocabulary list (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Vocabulaire (page 43182)', locator: 'Expériences (theme 2, page 42627)' },
   },
   {
     id: 'v-t2-080',
@@ -747,7 +747,7 @@ export const terms: FrTerm[] = [
     example: { en: 'In the past, the village had neither electricity nor a road.', ru: 'Раньше в деревне не было ни электричества, ни дороги.', fr: "Autrefois, le village n'avait ni électricité ni route." },
     syllabus: 'T2',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: "Authors' French B vocabulary list (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Vocabulaire (page 43182)', locator: 'Expériences (theme 2, page 42627)' },
   },
 
   // Firsts and changes
@@ -758,7 +758,7 @@ export const terms: FrTerm[] = [
     example: { en: 'It was the first time I had flown alone.', ru: 'Это был первый раз, когда я летела одна.', fr: "C'était la première fois que j'ai pris l'avion toute seule." },
     syllabus: 'T2',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: "Authors' French B vocabulary list (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Vocabulaire (page 43182)', locator: 'Expériences (theme 2, page 42627)' },
   },
   {
     id: 'v-t2-082',
@@ -767,7 +767,7 @@ export const terms: FrTerm[] = [
     example: { en: 'During that stay, he fell in love with the Italian countryside.', ru: 'Во время той поездки он влюбился в итальянскую природу.', fr: 'Pendant ce séjour, il est tombé amoureux de la campagne italienne.' },
     syllabus: 'T2',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: "Authors' French B vocabulary list (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Vocabulaire (page 43182)', locator: 'Expériences (theme 2, page 42627)' },
   },
   {
     id: 'v-t2-083',
@@ -776,7 +776,7 @@ export const terms: FrTerm[] = [
     example: { en: 'This experience changed the way I see the world.', ru: 'Этот опыт изменил то, как я вижу мир.', fr: 'Cette expérience a changé ma façon de voir le monde.' },
     syllabus: 'T2',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: "Authors' French B vocabulary list (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Vocabulaire (page 43182)', locator: 'Expériences (theme 2, page 42627)' },
   },
   {
     id: 'v-t2-084',
@@ -785,7 +785,7 @@ export const terms: FrTerm[] = [
     example: { en: 'The town has undergone a huge transformation since my childhood.', ru: 'Город сильно изменился с моего детства.', fr: 'La ville a subi une énorme transformation depuis mon enfance.' },
     syllabus: 'T2',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: "Authors' French B vocabulary list (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Vocabulaire (page 43182)', locator: 'Expériences (theme 2, page 42627)' },
   },
   {
     id: 'v-t2-085',
@@ -794,7 +794,7 @@ export const terms: FrTerm[] = [
     example: { en: 'My musical tastes have changed a lot over the years.', ru: 'Мои музыкальные вкусы за эти годы сильно изменились.', fr: 'Mes goûts musicaux ont beaucoup évolué au fil des années.' },
     syllabus: 'T2',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: "Authors' French B vocabulary list (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Vocabulaire (page 43182)', locator: 'Expériences (theme 2, page 42627)' },
   },
   {
     id: 'v-t2-086',
@@ -804,7 +804,7 @@ export const terms: FrTerm[] = [
     pitfall: { en: 'Actuellement means currently, not actually; for actually, use en fait or en réalité.', ru: 'Actuellement значит «в настоящее время», а не «на самом деле»; для «на самом деле» используйте en fait или en réalité.' },
     syllabus: 'T2',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: "Authors' French B vocabulary list (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Vocabulaire (page 43182)', locator: 'Expériences (theme 2, page 42627)' },
   },
   {
     id: 'v-t2-087',
@@ -813,7 +813,7 @@ export const terms: FrTerm[] = [
     example: { en: 'This work placement was a very rewarding experience.', ru: 'Эта стажировка стала очень полезным опытом.', fr: 'Ce stage a été une expérience très enrichissante.' },
     syllabus: 'T2',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: "Authors' French B vocabulary list (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Vocabulaire (page 43182)', locator: 'Expériences (theme 2, page 42627)' },
   },
   {
     id: 'v-t2-088',
@@ -822,7 +822,7 @@ export const terms: FrTerm[] = [
     example: { en: 'After a year of classes, she took her first steps in the working world.', ru: 'После года учёбы она сделала первые шаги в профессии.', fr: 'Après un an de cours, elle a fait ses premiers pas dans le monde du travail.' },
     syllabus: 'T2',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: "Authors' French B vocabulary list (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Vocabulaire (page 43182)', locator: 'Expériences (theme 2, page 42627)' },
   },
   {
     id: 'v-t2-089',
@@ -831,7 +831,7 @@ export const terms: FrTerm[] = [
     example: { en: 'After a few days, you get used to the noise of the street.', ru: 'Через несколько дней привыкаешь к шуму на улице.', fr: "Au bout de quelques jours, on s'habitue au bruit de la rue." },
     syllabus: 'T2',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: "Authors' French B vocabulary list (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Vocabulaire (page 43182)', locator: 'Expériences (theme 2, page 42627)' },
   },
   {
     id: 'v-t2-090',
@@ -840,6 +840,6 @@ export const terms: FrTerm[] = [
     example: { en: 'Over time, our memories become more precious.', ru: 'Со временем наши воспоминания становятся дороже.', fr: 'Au fil du temps, nos souvenirs deviennent plus précieux.' },
     syllabus: 'T2',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: "Authors' French B vocabulary list (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Vocabulaire (page 43182)', locator: 'Expériences (theme 2, page 42627)' },
   },
 ];

@@ -18,7 +18,7 @@ const topic: TopicMeta = {
   ],
   termIds: ['gr-futur-proche', 'gr-futur-simple', 'gr-futur-stems-irregular', 'gr-conditionnel-present', 'gr-si-real', 'gr-si-unreal'],
   questionIds: ['grammar-future-conditional-q1', 'grammar-future-conditional-q2'],
-  sources: [{ kind: 'own', title: "Authors' French B material (2026)" }],
+  sources: [{ kind: 'thinkib', title: 'ThinkIB, French B SL: Grammaire (page 47789)', locator: 'Le futur simple; Les temps du futur; Le conditionnel présent et passé; La phrase hypothétique' }],
 };
 
 export default topic;

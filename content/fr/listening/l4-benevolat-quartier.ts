@@ -22,5 +22,5 @@ export const track: ListeningTrack = {
   ],
   questionIds: ['l4-q01', 'l4-q02', 'l4-q03', 'l4-q04', 'l4-q05', 'l4-q06', 'l4-q07', 'l4-q08', 'l4-q09', 'l4-q10'],
   audio: '/audio/fr/l4-benevolat-quartier.mp3',
-  source: { kind: 'own', title: "Authors' French B material (2026)" },
+  source: { kind: 'own', title: 'Original text written for this portal, in the style of IB Paper 2' },
 };

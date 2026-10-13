@@ -22,5 +22,5 @@ export const track: ListeningTrack = {
   ],
   questionIds: ['l8-q01', 'l8-q02', 'l8-q03', 'l8-q04', 'l8-q05', 'l8-q06', 'l8-q07', 'l8-q08', 'l8-q09', 'l8-q10'],
   audio: '/audio/fr/l8-waste-collection.mp3',
-  source: { kind: 'own', title: "Authors' French B material (2026)" },
+  source: { kind: 'own', title: 'Original text written for this portal, in the style of IB Paper 2' },
 };

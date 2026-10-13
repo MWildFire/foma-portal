@@ -19,5 +19,5 @@ export const track: ListeningTrack = {
   ],
   questionIds: ['l2-q01', 'l2-q02', 'l2-q03', 'l2-q04', 'l2-q05', 'l2-q06', 'l2-q07', 'l2-q08', 'l2-q09', 'l2-q10'],
   audio: '/audio/fr/l2-annonce-gare.mp3',
-  source: { kind: 'own', title: "Authors' French B material (2026)" },
+  source: { kind: 'own', title: 'Original text written for this portal, in the style of IB Paper 2' },
 };

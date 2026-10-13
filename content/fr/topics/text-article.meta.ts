@@ -18,7 +18,7 @@ const topic: TopicMeta = {
   ],
   termIds: [],
   questionIds: ['p1-article', 'p1-article-q1', 'p1-article-q2'],
-  sources: [{ kind: 'own', title: "Authors' French B material (2026)" }],
+  sources: [{ kind: 'thinkib', title: 'ThinkIB, French B SL: Les types de textes (page 71138)', locator: 'Article / reportage (page 36892)' }],
 };
 
 export default topic;

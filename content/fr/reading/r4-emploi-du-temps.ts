@@ -15,5 +15,5 @@ export const passage: ReadingPassage = {
     "Le conseil de classe fera le bilan en juin. D'ici là, la direction a promis une enquête auprès des élèves et de leurs familles, dont les résultats seront publiés sur le site de l'établissement. Une chose est déjà certaine : ce changement a ouvert un débat qui dépasse largement les murs du lycée.",
   ],
   questionIds: ['r4-q01', 'r4-q02', 'r4-q03', 'r4-q04', 'r4-q05', 'r4-q06', 'r4-q07', 'r4-q08', 'r4-q09', 'r4-q10'],
-  source: { kind: 'own', title: "Authors' French B material (2026)" },
+  source: { kind: 'own', title: 'Original text written for this portal, in the style of IB Paper 2' },
 };

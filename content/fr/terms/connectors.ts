@@ -12,7 +12,7 @@ export const terms: FrTerm[] = [
     example: { en: 'The project is useful; furthermore, it is cheap.', ru: 'Проект полезен; кроме того, он недорог.', fr: 'Le projet est utile ; de plus, il est peu coûteux.' },
     syllabus: 'P1.connectors',
     papers: ['P1'],
-    src: { kind: 'own', title: "Authors' French B material (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Grammaire (page 47789)', locator: 'Les connecteurs logiques (1)–(4)' },
   },
   {
     id: 'cn-002',
@@ -21,7 +21,7 @@ export const terms: FrTerm[] = [
     example: { en: 'The shop is closed on Sundays; in addition, it closes early on Saturdays.', ru: 'Магазин закрыт по воскресеньям; вдобавок он рано закрывается по субботам.', fr: 'Le magasin est fermé le dimanche ; en outre, il ferme tôt le samedi.' },
     syllabus: 'P1.connectors',
     papers: ['P1'],
-    src: { kind: 'own', title: "Authors' French B material (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Grammaire (page 47789)', locator: 'Les connecteurs logiques (1)–(4)' },
   },
   {
     id: 'cn-003',
@@ -30,7 +30,7 @@ export const terms: FrTerm[] = [
     example: { en: 'My brother speaks Spanish; my sister also speaks English.', ru: 'Мой брат говорит по-испански; моя сестра также говорит по-английски.', fr: 'Mon frère parle espagnol ; ma sœur parle également anglais.' },
     syllabus: 'P1.connectors',
     papers: ['P1'],
-    src: { kind: 'own', title: "Authors' French B material (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Grammaire (page 47789)', locator: 'Les connecteurs logiques (1)–(4)' },
   },
   {
     id: 'cn-004',
@@ -39,7 +39,7 @@ export const terms: FrTerm[] = [
     example: { en: 'The museum is free on Sundays; besides, the café next door is very pleasant.', ru: 'Музей по воскресеньям бесплатный; к тому же кафе рядом очень приятное.', fr: 'Le musée est gratuit le dimanche ; par ailleurs, le café voisin est très agréable.' },
     syllabus: 'P1.connectors',
     papers: ['P1'],
-    src: { kind: 'own', title: "Authors' French B material (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Grammaire (page 47789)', locator: 'Les connecteurs logiques (1)–(4)' },
   },
   {
     id: 'cn-005',
@@ -48,7 +48,7 @@ export const terms: FrTerm[] = [
     example: { en: 'The journey is long; what is more, the train is often late.', ru: 'Дорога долгая; более того, поезд часто опаздывает.', fr: 'Le trajet est long ; de surcroît, le train est souvent en retard.' },
     syllabus: 'P1.connectors',
     papers: ['P1'],
-    src: { kind: 'own', title: "Authors' French B material (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Grammaire (page 47789)', locator: 'Les connecteurs logiques (1)–(4)' },
   },
   {
     id: 'cn-006',
@@ -57,7 +57,7 @@ export const terms: FrTerm[] = [
     example: { en: 'I will not come; besides, I do not like this kind of evening.', ru: 'Я не приду; кстати, я не люблю такие вечеринки.', fr: "Je ne viendrai pas ; d'ailleurs, je n'aime pas ce genre de soirée." },
     syllabus: 'P1.connectors',
     papers: ['P1'],
-    src: { kind: 'own', title: "Authors' French B material (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Grammaire (page 47789)', locator: 'Les connecteurs logiques (1)–(4)' },
   },
 
   // ---- cause and consequence ----
@@ -68,7 +68,7 @@ export const terms: FrTerm[] = [
     example: { en: 'We stayed at home because it was raining.', ru: 'Мы остались дома, потому что шёл дождь.', fr: "Nous sommes restés à la maison parce qu'il pleuvait." },
     syllabus: 'P1.connectors',
     papers: ['P1'],
-    src: { kind: 'own', title: "Authors' French B material (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Grammaire (page 47789)', locator: 'Les connecteurs logiques (1)–(4)' },
   },
   {
     id: 'cn-008',
@@ -77,7 +77,7 @@ export const terms: FrTerm[] = [
     example: { en: 'We must leave now, for the train leaves at eight.', ru: 'Нужно уйти сейчас, ведь поезд отправляется в восемь.', fr: 'Il faut partir maintenant, car le train part à huit heures.' },
     syllabus: 'P1.connectors',
     papers: ['P1'],
-    src: { kind: 'own', title: "Authors' French B material (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Grammaire (page 47789)', locator: 'Les connecteurs logiques (1)–(4)' },
   },
   {
     id: 'cn-009',
@@ -86,7 +86,7 @@ export const terms: FrTerm[] = [
     example: { en: 'Since you have free time, come with us to the cinema.', ru: 'Раз у тебя есть свободное время, пойдём с нами в кино.', fr: 'Puisque tu as du temps libre, viens avec nous au cinéma.' },
     syllabus: 'P1.connectors',
     papers: ['P1'],
-    src: { kind: 'own', title: "Authors' French B material (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Grammaire (page 47789)', locator: 'Les connecteurs logiques (1)–(4)' },
   },
   {
     id: 'cn-010',
@@ -95,7 +95,7 @@ export const terms: FrTerm[] = [
     example: { en: 'Thanks to her efforts, she passed her exam.', ru: 'Благодаря её усилиям она сдала экзамен.', fr: 'Grâce à ses efforts, elle a réussi son examen.' },
     syllabus: 'P1.connectors',
     papers: ['P1'],
-    src: { kind: 'own', title: "Authors' French B material (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Grammaire (page 47789)', locator: 'Les connecteurs logiques (1)–(4)' },
   },
   {
     id: 'cn-011',
@@ -104,7 +104,7 @@ export const terms: FrTerm[] = [
     example: { en: 'The match was cancelled because of the snow.', ru: 'Матч отменили из-за снега.', fr: 'Le match a été annulé à cause de la neige.' },
     syllabus: 'P1.connectors',
     papers: ['P1'],
-    src: { kind: 'own', title: "Authors' French B material (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Grammaire (page 47789)', locator: 'Les connecteurs logiques (1)–(4)' },
   },
   {
     id: 'cn-012',
@@ -113,7 +113,7 @@ export const terms: FrTerm[] = [
     example: { en: 'He worked hard; so he passed his exam.', ru: 'Он много работал; поэтому он сдал экзамен.', fr: 'Il a beaucoup travaillé ; il a donc réussi son examen.' },
     syllabus: 'P1.connectors',
     papers: ['P1'],
-    src: { kind: 'own', title: "Authors' French B material (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Grammaire (page 47789)', locator: 'Les connecteurs logiques (1)–(4)' },
   },
   {
     id: 'cn-013',
@@ -122,7 +122,7 @@ export const terms: FrTerm[] = [
     example: { en: 'The ticket price has gone up; as a result, many people take the car.', ru: 'Цена билета выросла; следовательно, многие ездят на машине.', fr: 'Le prix du billet a augmenté ; par conséquent, beaucoup de gens prennent la voiture.' },
     syllabus: 'P1.connectors',
     papers: ['P1'],
-    src: { kind: 'own', title: "Authors' French B material (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Grammaire (page 47789)', locator: 'Les connecteurs logiques (1)–(4)' },
   },
   {
     id: 'cn-014',
@@ -131,7 +131,7 @@ export const terms: FrTerm[] = [
     example: { en: 'He will not come; indeed, he is ill.', ru: 'Он не придёт; действительно, он болен.', fr: 'Il ne viendra pas ; en effet, il est malade.' },
     syllabus: 'P1.connectors',
     papers: ['P1'],
-    src: { kind: 'own', title: "Authors' French B material (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Grammaire (page 47789)', locator: 'Les connecteurs logiques (1)–(4)' },
   },
 
   // ---- opposition and concession ----
@@ -142,7 +142,7 @@ export const terms: FrTerm[] = [
     example: { en: 'It is cold, but the sun is shining.', ru: 'Холодно, но светит солнце.', fr: 'Il fait froid, mais le soleil brille.' },
     syllabus: 'P1.connectors',
     papers: ['P1'],
-    src: { kind: 'own', title: "Authors' French B material (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Grammaire (page 47789)', locator: 'Les connecteurs logiques (1)–(4)' },
   },
   {
     id: 'cn-016',
@@ -151,7 +151,7 @@ export const terms: FrTerm[] = [
     example: { en: 'The journey was long; yet we loved every minute.', ru: 'Путешествие было долгим; и всё же нам понравилась каждая минута.', fr: 'Le voyage était long ; pourtant, nous avons adoré chaque minute.' },
     syllabus: 'P1.connectors',
     papers: ['P1'],
-    src: { kind: 'own', title: "Authors' French B material (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Grammaire (page 47789)', locator: 'Les connecteurs logiques (1)–(4)' },
   },
   {
     id: 'cn-017',
@@ -160,7 +160,7 @@ export const terms: FrTerm[] = [
     example: { en: 'The project seems interesting; however, it raises some problems.', ru: 'Проект кажется интересным; однако он создаёт некоторые проблемы.', fr: 'Le projet semble intéressant ; cependant, il pose quelques problèmes.' },
     syllabus: 'P1.connectors',
     papers: ['P1'],
-    src: { kind: 'own', title: "Authors' French B material (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Grammaire (page 47789)', locator: 'Les connecteurs logiques (1)–(4)' },
   },
   {
     id: 'cn-018',
@@ -169,7 +169,7 @@ export const terms: FrTerm[] = [
     example: { en: 'The city is very lively; however, it stays quiet at night.', ru: 'Город очень оживлённый; впрочем, ночью там тихо.', fr: 'La ville est très animée ; toutefois, elle reste calme la nuit.' },
     syllabus: 'P1.connectors',
     papers: ['P1'],
-    src: { kind: 'own', title: "Authors' French B material (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Grammaire (page 47789)', locator: 'Les connecteurs logiques (1)–(4)' },
   },
   {
     id: 'cn-019',
@@ -178,7 +178,7 @@ export const terms: FrTerm[] = [
     example: { en: 'The train is fast; on the other hand, the ticket is expensive.', ru: 'Поезд быстрый; с другой стороны, билет дорогой.', fr: 'Le train est rapide ; en revanche, le billet coûte cher.' },
     syllabus: 'P1.connectors',
     papers: ['P1'],
-    src: { kind: 'own', title: "Authors' French B material (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Grammaire (page 47789)', locator: 'Les connecteurs logiques (1)–(4)' },
   },
   {
     id: 'cn-020',
@@ -187,7 +187,7 @@ export const terms: FrTerm[] = [
     example: { en: 'The weather was cold; nevertheless, the children played outside all day.', ru: 'Погода была холодной; тем не менее дети играли на улице весь день.', fr: 'Il faisait froid ; néanmoins, les enfants ont joué dehors toute la journée.' },
     syllabus: 'P1.connectors',
     papers: ['P1'],
-    src: { kind: 'own', title: "Authors' French B material (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Grammaire (page 47789)', locator: 'Les connecteurs logiques (1)–(4)' },
   },
   {
     id: 'cn-021',
@@ -196,7 +196,7 @@ export const terms: FrTerm[] = [
     example: { en: 'Although the ticket is expensive, I am going to attend the concert.', ru: 'Хотя билет дорогой, я пойду на концерт.', fr: 'Bien que le billet soit cher, je vais assister au concert.' },
     syllabus: 'P1.connectors',
     papers: ['P1'],
-    src: { kind: 'own', title: "Authors' French B material (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Grammaire (page 47789)', locator: 'Les connecteurs logiques (1)–(4)' },
   },
   {
     id: 'cn-022',
@@ -205,7 +205,7 @@ export const terms: FrTerm[] = [
     example: { en: 'Despite the rain, the tourists visited the castle.', ru: 'Несмотря на дождь, туристы осмотрели замок.', fr: 'Malgré la pluie, les touristes ont visité le château.' },
     syllabus: 'P1.connectors',
     papers: ['P1'],
-    src: { kind: 'own', title: "Authors' French B material (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Grammaire (page 47789)', locator: 'Les connecteurs logiques (1)–(4)' },
   },
 
   // ---- time sequence ----
@@ -216,7 +216,7 @@ export const terms: FrTerm[] = [
     example: { en: 'First, we visited the museum of modern art.', ru: 'Сначала мы посетили музей современного искусства.', fr: "D'abord, nous avons visité le musée d'art moderne." },
     syllabus: 'P1.connectors',
     papers: ['P1'],
-    src: { kind: 'own', title: "Authors' French B material (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Grammaire (page 47789)', locator: 'Les connecteurs logiques (1)–(4)' },
   },
   {
     id: 'cn-024',
@@ -225,7 +225,7 @@ export const terms: FrTerm[] = [
     example: { en: 'Then we went to have lunch in a small restaurant.', ru: 'Затем мы пошли обедать в маленький ресторан.', fr: 'Ensuite, nous sommes allés déjeuner dans un petit restaurant.' },
     syllabus: 'P1.connectors',
     papers: ['P1'],
-    src: { kind: 'own', title: "Authors' French B material (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Grammaire (page 47789)', locator: 'Les connecteurs logiques (1)–(4)' },
   },
   {
     id: 'cn-025',
@@ -234,7 +234,7 @@ export const terms: FrTerm[] = [
     example: { en: 'We had a coffee, then we went back to the hotel.', ru: 'Мы выпили кофе, потом вернулись в отель.', fr: "Nous avons pris un café, puis nous sommes rentrés à l'hôtel." },
     syllabus: 'P1.connectors',
     papers: ['P1'],
-    src: { kind: 'own', title: "Authors' French B material (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Grammaire (page 47789)', locator: 'Les connecteurs logiques (1)–(4)' },
   },
   {
     id: 'cn-026',
@@ -243,7 +243,7 @@ export const terms: FrTerm[] = [
     example: { en: 'Finally, we were able to see the sunset over the sea.', ru: 'Наконец мы смогли увидеть закат над морем.', fr: 'Enfin, nous avons pu voir le coucher du soleil sur la mer.' },
     syllabus: 'P1.connectors',
     papers: ['P1'],
-    src: { kind: 'own', title: "Authors' French B material (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Grammaire (page 47789)', locator: 'Les connecteurs logiques (1)–(4)' },
   },
   {
     id: 'cn-027',
@@ -252,7 +252,7 @@ export const terms: FrTerm[] = [
     example: { en: 'Before that, I had never tasted Indian food.', ru: 'До этого мне никогда не доводилось пробовать индийскую кухню.', fr: "Auparavant, je n'avais jamais goûté de cuisine indienne." },
     syllabus: 'P1.connectors',
     papers: ['P1'],
-    src: { kind: 'own', title: "Authors' French B material (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Grammaire (page 47789)', locator: 'Les connecteurs logiques (1)–(4)' },
   },
   {
     id: 'cn-028',
@@ -261,7 +261,7 @@ export const terms: FrTerm[] = [
     example: { en: 'The children were playing in the garden; meanwhile, the parents were preparing dinner.', ru: 'Дети играли в саду; тем временем родители готовили ужин.', fr: 'Les enfants jouaient dans le jardin ; pendant ce temps, les parents préparaient le dîner.' },
     syllabus: 'P1.connectors',
     papers: ['P1'],
-    src: { kind: 'own', title: "Authors' French B material (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Grammaire (page 47789)', locator: 'Les connecteurs logiques (1)–(4)' },
   },
   {
     id: 'cn-029',
@@ -270,7 +270,7 @@ export const terms: FrTerm[] = [
     example: { en: 'We were hesitating, but in the end we took the train.', ru: 'Мы колебались, но в конце концов сели на поезд.', fr: 'Nous hésitions, mais finalement nous avons pris le train.' },
     syllabus: 'P1.connectors',
     papers: ['P1'],
-    src: { kind: 'own', title: "Authors' French B material (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Grammaire (page 47789)', locator: 'Les connecteurs logiques (1)–(4)' },
   },
   {
     id: 'cn-030',
@@ -279,7 +279,7 @@ export const terms: FrTerm[] = [
     example: { en: 'As soon as we arrive, we will call you.', ru: 'Как только мы приедем, мы тебе позвоним.', fr: "Dès que nous arriverons, nous t'appellerons." },
     syllabus: 'P1.connectors',
     papers: ['P1'],
-    src: { kind: 'own', title: "Authors' French B material (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Grammaire (page 47789)', locator: 'Les connecteurs logiques (1)–(4)' },
   },
 
   // ---- examples and clarification ----
@@ -290,7 +290,7 @@ export const terms: FrTerm[] = [
     example: { en: 'Many sports are popular; for example, football and tennis.', ru: 'Многие виды спорта популярны; например, футбол и теннис.', fr: 'Beaucoup de sports sont populaires ; par exemple, le football et le tennis.' },
     syllabus: 'P1.connectors',
     papers: ['P1'],
-    src: { kind: 'own', title: "Authors' French B material (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Grammaire (page 47789)', locator: 'Les connecteurs logiques (1)–(4)' },
   },
   {
     id: 'cn-032',
@@ -299,7 +299,7 @@ export const terms: FrTerm[] = [
     example: { en: 'Young people use social networks a lot, in particular to talk to their friends.', ru: 'Молодёжь много пользуется соцсетями, в частности чтобы общаться с друзьями.', fr: 'Les jeunes utilisent beaucoup les réseaux sociaux, notamment pour parler à leurs amis.' },
     syllabus: 'P1.connectors',
     papers: ['P1'],
-    src: { kind: 'own', title: "Authors' French B material (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Grammaire (page 47789)', locator: 'Les connecteurs logiques (1)–(4)' },
   },
   {
     id: 'cn-033',
@@ -308,7 +308,7 @@ export const terms: FrTerm[] = [
     example: { en: 'The climate is mild, particularly in spring.', ru: 'Климат мягкий, в особенности весной.', fr: 'Le climat est doux, en particulier au printemps.' },
     syllabus: 'P1.connectors',
     papers: ['P1'],
-    src: { kind: 'own', title: "Authors' French B material (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Grammaire (page 47789)', locator: 'Les connecteurs logiques (1)–(4)' },
   },
   {
     id: 'cn-034',
@@ -317,7 +317,7 @@ export const terms: FrTerm[] = [
     example: { en: 'The festival lasts three days, that is to say from Friday to Sunday.', ru: 'Фестиваль длится три дня, то есть с пятницы по воскресенье.', fr: "Le festival dure trois jours, c'est-à-dire du vendredi au dimanche." },
     syllabus: 'P1.connectors',
     papers: ['P1'],
-    src: { kind: 'own', title: "Authors' French B material (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Grammaire (page 47789)', locator: 'Les connecteurs logiques (1)–(4)' },
   },
   {
     id: 'cn-035',
@@ -326,7 +326,7 @@ export const terms: FrTerm[] = [
     example: { en: 'His timetable is very full; in other words, he does not have a single free minute.', ru: 'Его расписание очень загружено; другими словами, у него нет ни минуты свободного времени.', fr: "Son emploi du temps est très chargé ; autrement dit, il n'a pas une minute de libre." },
     syllabus: 'P1.connectors',
     papers: ['P1'],
-    src: { kind: 'own', title: "Authors' French B material (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Grammaire (page 47789)', locator: 'Les connecteurs logiques (1)–(4)' },
   },
   {
     id: 'cn-036',
@@ -335,7 +335,7 @@ export const terms: FrTerm[] = [
     example: { en: 'There are three options, namely the train, the bus and car-sharing.', ru: 'Есть три варианта, а именно поезд, автобус и совместная поездка на машине.', fr: 'Il y a trois options, à savoir le train, le bus et le covoiturage.' },
     syllabus: 'P1.connectors',
     papers: ['P1'],
-    src: { kind: 'own', title: "Authors' French B material (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Grammaire (page 47789)', locator: 'Les connecteurs logiques (1)–(4)' },
   },
 
   // ---- opinion and evaluation ----
@@ -346,7 +346,7 @@ export const terms: FrTerm[] = [
     example: { en: 'In my opinion, we should limit car use in town.', ru: 'По-моему, нужно ограничить использование машин в городе.', fr: "À mon avis, il faut limiter l'usage de la voiture en ville." },
     syllabus: 'P1.connectors',
     papers: ['P1'],
-    src: { kind: 'own', title: "Authors' French B material (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Grammaire (page 47789)', locator: 'Les connecteurs logiques (1)–(4)' },
   },
   {
     id: 'cn-038',
@@ -355,7 +355,7 @@ export const terms: FrTerm[] = [
     example: { en: 'In my view, reading remains the best way to relax.', ru: 'По моему мнению, чтение остаётся лучшим способом расслабиться.', fr: 'Selon moi, la lecture reste le meilleur moyen de se détendre.' },
     syllabus: 'P1.connectors',
     papers: ['P1'],
-    src: { kind: 'own', title: "Authors' French B material (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Grammaire (page 47789)', locator: 'Les connecteurs logiques (1)–(4)' },
   },
   {
     id: 'cn-039',
@@ -364,7 +364,7 @@ export const terms: FrTerm[] = [
     example: { en: 'It seems to me that this film is too long.', ru: 'Мне кажется, что этот фильм слишком длинный.', fr: 'Il me semble que ce film est trop long.' },
     syllabus: 'P1.connectors',
     papers: ['P1'],
-    src: { kind: 'own', title: "Authors' French B material (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Grammaire (page 47789)', locator: 'Les connecteurs logiques (1)–(4)' },
   },
   {
     id: 'cn-040',
@@ -373,7 +373,7 @@ export const terms: FrTerm[] = [
     example: { en: 'Fortunately, the weather improved in the afternoon.', ru: 'К счастью, после обеда погода улучшилась.', fr: "Heureusement, le temps s'est amélioré l'après-midi." },
     syllabus: 'P1.connectors',
     papers: ['P1'],
-    src: { kind: 'own', title: "Authors' French B material (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Grammaire (page 47789)', locator: 'Les connecteurs logiques (1)–(4)' },
   },
   {
     id: 'cn-041',
@@ -382,7 +382,7 @@ export const terms: FrTerm[] = [
     example: { en: 'Unfortunately, the museum is closed on Mondays.', ru: 'К сожалению, музей закрыт по понедельникам.', fr: 'Malheureusement, le musée est fermé le lundi.' },
     syllabus: 'P1.connectors',
     papers: ['P1'],
-    src: { kind: 'own', title: "Authors' French B material (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Grammaire (page 47789)', locator: 'Les connecteurs logiques (1)–(4)' },
   },
   {
     id: 'cn-042',
@@ -391,7 +391,7 @@ export const terms: FrTerm[] = [
     example: { en: 'He will probably be late, as usual.', ru: 'Он, наверное, опоздает, как обычно.', fr: "Il sera sans doute en retard, comme d'habitude." },
     syllabus: 'P1.connectors',
     papers: ['P1'],
-    src: { kind: 'own', title: "Authors' French B material (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Grammaire (page 47789)', locator: 'Les connecteurs logiques (1)–(4)' },
   },
   {
     id: 'cn-043',
@@ -400,7 +400,7 @@ export const terms: FrTerm[] = [
     example: { en: 'One must admit that the project is ambitious.', ru: 'Нужно признать, что проект амбициозный.', fr: 'Il faut reconnaître que le projet est ambitieux.' },
     syllabus: 'P1.connectors',
     papers: ['P1'],
-    src: { kind: 'own', title: "Authors' French B material (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Grammaire (page 47789)', locator: 'Les connecteurs logiques (1)–(4)' },
   },
   {
     id: 'cn-044',
@@ -409,7 +409,7 @@ export const terms: FrTerm[] = [
     example: { en: 'Admittedly, the trip is expensive, but it is worth it.', ru: 'Конечно, поездка дорогая, но она того стоит.', fr: 'Certes, le voyage est cher, mais il en vaut la peine.' },
     syllabus: 'P1.connectors',
     papers: ['P1'],
-    src: { kind: 'own', title: "Authors' French B material (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Grammaire (page 47789)', locator: 'Les connecteurs logiques (1)–(4)' },
   },
 
   // ---- summary and conclusion ----
@@ -420,7 +420,7 @@ export const terms: FrTerm[] = [
     example: { en: 'In conclusion, I think that young people should take part more in the life of their town.', ru: 'В заключение я считаю, что молодёжи нужно больше участвовать в жизни своего города.', fr: 'En conclusion, je pense que les jeunes doivent participer davantage à la vie de leur ville.' },
     syllabus: 'P1.connectors',
     papers: ['P1'],
-    src: { kind: 'own', title: "Authors' French B material (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Grammaire (page 47789)', locator: 'Les connecteurs logiques (1)–(4)' },
   },
   {
     id: 'cn-046',
@@ -429,7 +429,7 @@ export const terms: FrTerm[] = [
     example: { en: 'In summary, the project is useful, but it costs too much.', ru: 'Вкратце: проект полезный, но слишком дорогой.', fr: 'En résumé, le projet est utile, mais il coûte trop cher.' },
     syllabus: 'P1.connectors',
     papers: ['P1'],
-    src: { kind: 'own', title: "Authors' French B material (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Grammaire (page 47789)', locator: 'Les connecteurs logiques (1)–(4)' },
   },
   {
     id: 'cn-047',
@@ -438,7 +438,7 @@ export const terms: FrTerm[] = [
     example: { en: 'All in all, this experience taught me a lot.', ru: 'В общем, этот опыт многому меня научил.', fr: "En somme, cette expérience m'a appris beaucoup de choses." },
     syllabus: 'P1.connectors',
     papers: ['P1'],
-    src: { kind: 'own', title: "Authors' French B material (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Grammaire (page 47789)', locator: 'Les connecteurs logiques (1)–(4)' },
   },
   {
     id: 'cn-048',
@@ -447,7 +447,7 @@ export const terms: FrTerm[] = [
     example: { en: 'In short, we came back very tired but happy.', ru: 'Короче говоря, мы вернулись очень уставшими, но счастливыми.', fr: 'Bref, nous sommes rentrés très fatigués, mais heureux.' },
     syllabus: 'P1.connectors',
     papers: ['P1'],
-    src: { kind: 'own', title: "Authors' French B material (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Grammaire (page 47789)', locator: 'Les connecteurs logiques (1)–(4)' },
   },
   {
     id: 'cn-049',
@@ -456,7 +456,7 @@ export const terms: FrTerm[] = [
     example: { en: 'To conclude, I strongly recommend this exhibition to you.', ru: 'В заключение я настоятельно рекомендую вам эту выставку.', fr: 'Pour conclure, je vous recommande vivement cette exposition.' },
     syllabus: 'P1.connectors',
     papers: ['P1'],
-    src: { kind: 'own', title: "Authors' French B material (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Grammaire (page 47789)', locator: 'Les connecteurs logiques (1)–(4)' },
   },
   {
     id: 'cn-050',
@@ -465,7 +465,7 @@ export const terms: FrTerm[] = [
     example: { en: 'It is not very good, but ultimately I liked the film.', ru: 'Фильм не очень хороший, но в конечном счёте мне он понравился.', fr: "Ce n'est pas très bon, mais en définitive, le film m'a plu." },
     syllabus: 'P1.connectors',
     papers: ['P1'],
-    src: { kind: 'own', title: "Authors' French B material (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Grammaire (page 47789)', locator: 'Les connecteurs logiques (1)–(4)' },
   },
 
   // ---- emphasis and restriction ----
@@ -476,7 +476,7 @@ export const terms: FrTerm[] = [
     example: { en: 'I like languages, especially French.', ru: 'Я люблю языки, особенно французский.', fr: "J'aime les langues, surtout le français." },
     syllabus: 'P1.connectors',
     papers: ['P1'],
-    src: { kind: 'own', title: "Authors' French B material (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Grammaire (page 47789)', locator: 'Les connecteurs logiques (1)–(4)' },
   },
   {
     id: 'cn-052',
@@ -485,7 +485,7 @@ export const terms: FrTerm[] = [
     example: { en: 'There are only two seats left for the concert.', ru: 'На концерт осталось всего два места.', fr: 'Il ne reste que deux places pour le concert.' },
     syllabus: 'P1.connectors',
     papers: ['P1'],
-    src: { kind: 'own', title: "Authors' French B material (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Grammaire (page 47789)', locator: 'Les connecteurs logiques (1)–(4)' },
   },
   {
     id: 'cn-053',
@@ -494,7 +494,7 @@ export const terms: FrTerm[] = [
     example: { en: 'Not only is the city beautiful, but it is also very welcoming.', ru: 'Город не только красивый, но и очень гостеприимный.', fr: 'Non seulement la ville est belle, mais elle est aussi très accueillante.' },
     syllabus: 'P1.connectors',
     papers: ['P1'],
-    src: { kind: 'own', title: "Authors' French B material (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Grammaire (page 47789)', locator: 'Les connecteurs logiques (1)–(4)' },
   },
   {
     id: 'cn-054',
@@ -503,7 +503,7 @@ export const terms: FrTerm[] = [
     example: { en: 'I am going to go there, all the more so as my friends will be there.', ru: 'Я пойду туда, тем более что там будут мои друзья.', fr: "Je vais y aller, d'autant plus que mes amis y seront." },
     syllabus: 'P1.connectors',
     papers: ['P1'],
-    src: { kind: 'own', title: "Authors' French B material (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Grammaire (page 47789)', locator: 'Les connecteurs logiques (1)–(4)' },
   },
 
   // ---- comparison ----
@@ -514,7 +514,7 @@ export const terms: FrTerm[] = [
     example: { en: 'French is a beautiful language; likewise, Italian is very musical.', ru: 'Французский — красивый язык; точно так же итальянский очень музыкальный.', fr: "Le français est une belle langue ; de même, l'italien est très musical." },
     syllabus: 'P1.connectors',
     papers: ['P1'],
-    src: { kind: 'own', title: "Authors' French B material (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Grammaire (page 47789)', locator: 'Les connecteurs logiques (1)–(4)' },
   },
   {
     id: 'cn-056',
@@ -523,7 +523,7 @@ export const terms: FrTerm[] = [
     example: { en: 'Unlike my brother, I do not like sport.', ru: 'В отличие от брата, я не люблю спорт.', fr: "Contrairement à mon frère, je n'aime pas le sport." },
     syllabus: 'P1.connectors',
     papers: ['P1'],
-    src: { kind: 'own', title: "Authors' French B material (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Grammaire (page 47789)', locator: 'Les connecteurs logiques (1)–(4)' },
   },
   {
     id: 'cn-057',
@@ -532,7 +532,7 @@ export const terms: FrTerm[] = [
     example: { en: 'My brother loves music, whereas I prefer painting.', ru: 'Брат обожает музыку, тогда как я предпочитаю живопись.', fr: 'Mon frère adore la musique, alors que moi, je préfère la peinture.' },
     syllabus: 'P1.connectors',
     papers: ['P1'],
-    src: { kind: 'own', title: "Authors' French B material (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Grammaire (page 47789)', locator: 'Les connecteurs logiques (1)–(4)' },
   },
   {
     id: 'cn-058',
@@ -541,7 +541,7 @@ export const terms: FrTerm[] = [
     example: { en: 'Just as the French do, Russians like fresh bread.', ru: 'Так же как французы, русские любят свежий хлеб.', fr: 'Tout comme les Français, les Russes aiment le pain frais.' },
     syllabus: 'P1.connectors',
     papers: ['P1'],
-    src: { kind: 'own', title: "Authors' French B material (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Grammaire (page 47789)', locator: 'Les connecteurs logiques (1)–(4)' },
   },
   {
     id: 'cn-059',
@@ -550,7 +550,7 @@ export const terms: FrTerm[] = [
     example: { en: 'Compared with last year, prices have risen a lot.', ru: 'По сравнению с прошлым годом цены сильно выросли.', fr: "Par rapport à l'année dernière, les prix ont beaucoup augmenté." },
     syllabus: 'P1.connectors',
     papers: ['P1'],
-    src: { kind: 'own', title: "Authors' French B material (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Grammaire (page 47789)', locator: 'Les connecteurs logiques (1)–(4)' },
   },
   {
     id: 'cn-060',
@@ -559,6 +559,6 @@ export const terms: FrTerm[] = [
     example: { en: 'As for me, I prefer to stay at home.', ru: 'Что касается меня, я предпочитаю остаться дома.', fr: 'Quant à moi, je préfère rester à la maison.' },
     syllabus: 'P1.connectors',
     papers: ['P1'],
-    src: { kind: 'own', title: "Authors' French B material (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Grammaire (page 47789)', locator: 'Les connecteurs logiques (1)–(4)' },
   },
 ];

@@ -30,7 +30,7 @@ const topic: TopicMeta = {
   questionIds: ['t1-q1', 't1-q2'],
   sources: [
     { kind: 'ib-guide', title: 'IB Language B guide (2018)' },
-    { kind: 'own', title: "Authors' French B material (2026)" },
+    { kind: 'thinkib', title: 'ThinkIB, French B SL: Identités (page 42626)', locator: 'Styles de vie; Santé et bien-être; Convictions et valeurs; Sous-cultures; Langue et identité' },
   ],
 };
 

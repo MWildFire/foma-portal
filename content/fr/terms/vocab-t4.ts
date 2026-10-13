@@ -3,18 +3,18 @@ import type { FrTerm } from '../types';
 
 // Theme 4 (Social organization): 90 vocabulary entries in ten sub-areas, with fixed expressions and set phrases.
 // Own wording; the topic page gives the context.
-const own: SourceRef = { kind: 'own', title: "Authors' French B vocabulary list (2026)" };
+const thinkib: SourceRef = { kind: 'thinkib', title: 'ThinkIB, French B SL: Vocabulaire (page 43182)', locator: 'Organisation sociale (theme 4, page 42631)' };
 
 export const terms: FrTerm[] = [
   // ---- education and school (éducation et école) ----
   {
     id: 'v-t4-001',
-    term: { en: 'upper secondary school', ru: 'старшая школа (лицей)', fr: 'le lycée' },
+    term: { en: 'upper secondary school', ru: 'старшая школа, лицей', fr: 'le lycée' },
     def: { en: 'a French secondary school for students aged about 15 to 18', ru: 'французская средняя школа для учеников примерно от 15 до 18 лет' },
     example: { en: 'My cousin starts at the lycée next September.', ru: 'Мой двоюродный брат в сентябре пойдёт в лицей.', fr: 'Mon cousin entre au lycée en septembre prochain.' },
     syllabus: 'T4',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t4-002',
@@ -23,7 +23,7 @@ export const terms: FrTerm[] = [
     example: { en: 'Several students risk grade repetition if their marks stay low.', ru: 'Некоторым ученикам грозит оставление на второй год, если оценки остаются низкими.', fr: 'Plusieurs élèves risquent le redoublement si leurs notes restent faibles.' },
     syllabus: 'T4',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t4-003',
@@ -32,7 +32,7 @@ export const terms: FrTerm[] = [
     example: { en: 'Her school report shows excellent results in languages.', ru: 'В её школьном табеле отличные оценки по языкам.', fr: "Son bulletin scolaire montre d'excellents résultats en langues." },
     syllabus: 'T4',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t4-004',
@@ -41,7 +41,7 @@ export const terms: FrTerm[] = [
     example: { en: 'She studied every evening and finally passed the exam.', ru: 'Она занималась каждый вечер и в конце концов сдала экзамен.', fr: "Elle a travaillé chaque soir et elle a fini par réussir l'examen." },
     syllabus: 'T4',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t4-005',
@@ -50,7 +50,7 @@ export const terms: FrTerm[] = [
     example: { en: 'He is going to enrol in a language course next month.', ru: 'В следующем месяце он запишется на языковые курсы.', fr: "Il va s'inscrire à un cours de langues le mois prochain." },
     syllabus: 'T4',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t4-006',
@@ -59,7 +59,7 @@ export const terms: FrTerm[] = [
     example: { en: 'The careers adviser helped her choose her studies.', ru: 'Консультант по профориентации помог ей выбрать направление учёбы.', fr: "Le conseiller d'orientation l'a aidée à choisir ses études." },
     syllabus: 'T4',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t4-007',
@@ -68,7 +68,7 @@ export const terms: FrTerm[] = [
     example: { en: 'Many young people drop out of their studies because of money problems.', ru: 'Многие молодые люди бросают учёбу из-за проблем с деньгами.', fr: "Beaucoup de jeunes abandonnent leurs études à cause de problèmes d'argent." },
     syllabus: 'T4',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t4-008',
@@ -77,7 +77,7 @@ export const terms: FrTerm[] = [
     example: { en: 'She won a scholarship that covers half of her costs.', ru: 'Она получила стипендию, которая покрывает половину её расходов.', fr: "Elle a obtenu une bourse d'études qui couvre la moitié de ses frais." },
     syllabus: 'T4',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t4-009',
@@ -86,7 +86,7 @@ export const terms: FrTerm[] = [
     example: { en: 'Tuition fees rose again this year.', ru: 'В этом году плата за обучение снова выросла.', fr: 'Les frais de scolarité ont encore augmenté cette année.' },
     syllabus: 'T4',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
 
   // ---- work and employment (travail et emploi) ----
@@ -97,7 +97,7 @@ export const terms: FrTerm[] = [
     example: { en: 'Unemployment among young people is a serious problem in many countries.', ru: 'Безработица среди молодёжи — серьёзная проблема во многих странах.', fr: 'Le chômage des jeunes est un problème grave dans beaucoup de pays.' },
     syllabus: 'T4',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t4-011',
@@ -106,7 +106,7 @@ export const terms: FrTerm[] = [
     example: { en: 'After he lost his job, he was unemployed for six months.', ru: 'После того как он потерял работу, он был безработным шесть месяцев.', fr: 'Après avoir perdu son travail, il est resté au chômage pendant six mois.' },
     syllabus: 'T4',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t4-012',
@@ -115,7 +115,7 @@ export const terms: FrTerm[] = [
     example: { en: 'She finally landed a position at the town library.', ru: 'Наконец она получила место в городской библиотеке.', fr: 'Elle a enfin décroché un poste à la bibliothèque municipale.' },
     syllabus: 'T4',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t4-013',
@@ -124,7 +124,7 @@ export const terms: FrTerm[] = [
     example: { en: 'His salary is modest, but he enjoys his work.', ru: 'Его зарплата невелика, но работа ему нравится.', fr: 'Son salaire est modeste, mais il aime son travail.' },
     syllabus: 'T4',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t4-014',
@@ -133,7 +133,7 @@ export const terms: FrTerm[] = [
     example: { en: 'Before she starts, she must sign her employment contract.', ru: 'Прежде чем начать работу, она должна подписать трудовой договор.', fr: 'Avant de commencer, elle doit signer son contrat de travail.' },
     syllabus: 'T4',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t4-015',
@@ -142,7 +142,7 @@ export const terms: FrTerm[] = [
     example: { en: 'My grandmother enjoys her retirement: she reads a lot and looks after her garden.', ru: 'Моя бабушка наслаждается пенсией: она много читает и ухаживает за садом.', fr: "Ma grand-mère profite de sa retraite : elle lit beaucoup et s'occupe de son jardin." },
     syllabus: 'T4',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t4-016',
@@ -151,7 +151,7 @@ export const terms: FrTerm[] = [
     example: { en: 'After sales fell, the shop had to lay off three employees.', ru: 'После падения продаж магазину пришлось уволить трёх сотрудников.', fr: 'Le magasin a dû licencier trois employés après la baisse des ventes.' },
     syllabus: 'T4',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t4-017',
@@ -160,7 +160,7 @@ export const terms: FrTerm[] = [
     example: { en: 'Good working conditions help people stay motivated.', ru: 'Хорошие условия труда помогают людям сохранять мотивацию.', fr: 'De bonnes conditions de travail aident les gens à rester motivés.' },
     syllabus: 'T4',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t4-018',
@@ -169,7 +169,7 @@ export const terms: FrTerm[] = [
     example: { en: 'After ten years in a large company, she decided to become self-employed.', ru: 'Проработав десять лет в крупной компании, она решила работать на себя.', fr: "Après dix ans dans une grande entreprise, elle a décidé de se mettre à son compte." },
     syllabus: 'T4',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
 
   // ---- voluntary work and associations (bénévolat et associations) ----
@@ -180,7 +180,7 @@ export const terms: FrTerm[] = [
     example: { en: 'Her voluntary work at the food bank takes two evenings a week.', ru: 'Её волонтёрская работа в продуктовом банке занимает два вечера в неделю.', fr: 'Son bénévolat à la banque alimentaire lui prend deux soirs par semaine.' },
     syllabus: 'T4',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t4-020',
@@ -189,7 +189,7 @@ export const terms: FrTerm[] = [
     example: { en: 'Many students do voluntary work during the summer holidays.', ru: 'Многие школьники занимаются волонтёрством во время летних каникул.', fr: "Beaucoup d'élèves font du bénévolat pendant les vacances d'été." },
     syllabus: 'T4',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t4-021',
@@ -198,7 +198,7 @@ export const terms: FrTerm[] = [
     example: { en: 'She joined a local association that teaches reading to children.', ru: 'Она вступила в местную ассоциацию, которая учит детей читать.', fr: 'Elle a rejoint une association locale qui apprend à lire aux enfants.' },
     syllabus: 'T4',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t4-022',
@@ -207,7 +207,7 @@ export const terms: FrTerm[] = [
     example: { en: 'Mutual aid is strong in small villages, where everyone lends tools to neighbours.', ru: 'Взаимопомощь сильна в маленьких деревнях, где каждый одалживает соседям инструменты.', fr: "L'entraide est forte dans les petits villages, où chacun prête des outils à ses voisins." },
     syllabus: 'T4',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t4-023',
@@ -216,7 +216,7 @@ export const terms: FrTerm[] = [
     example: { en: 'Anyone over sixteen can join the club by paying a small membership fee.', ru: 'Любой старше шестнадцати лет может вступить в клуб, заплатив небольшой членский взнос.', fr: 'Toute personne de plus de seize ans peut adhérer au club en payant une petite cotisation.' },
     syllabus: 'T4',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t4-024',
@@ -225,7 +225,7 @@ export const terms: FrTerm[] = [
     example: { en: 'The membership fee covers the cost of the newsletter.', ru: 'Членский взнос покрывает расходы на информационный бюллетень.', fr: "La cotisation couvre les frais du bulletin d'information." },
     syllabus: 'T4',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t4-025',
@@ -234,7 +234,7 @@ export const terms: FrTerm[] = [
     example: { en: 'The NGO sends volunteers to rebuild schools after floods.', ru: 'Эта организация отправляет волонтёров восстанавливать школы после наводнений.', fr: 'Cette ONG envoie des bénévoles reconstruire des écoles après les inondations.' },
     syllabus: 'T4',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t4-026',
@@ -243,7 +243,7 @@ export const terms: FrTerm[] = [
     example: { en: 'The charity comes to the aid of families who cannot pay their rent.', ru: 'Благотворительная организация приходит на помощь семьям, которые не могут платить за жильё.', fr: "L'association vient en aide aux familles qui ne peuvent pas payer leur loyer." },
     syllabus: 'T4',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t4-027',
@@ -252,7 +252,7 @@ export const terms: FrTerm[] = [
     example: { en: 'The dedication of the volunteers impressed everyone at the festival.', ru: 'Самоотверженность волонтёров впечатлила всех на фестивале.', fr: 'Le dévouement des bénévoles a impressionné tout le monde au festival.' },
     syllabus: 'T4',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
 
   // ---- rights and rules (droits et règles) ----
@@ -263,7 +263,7 @@ export const terms: FrTerm[] = [
     example: { en: 'Human rights apply to everyone, including refugees.', ru: 'Права человека распространяются на всех, в том числе на беженцев.', fr: "Les droits de l'homme s'appliquent à tout le monde, y compris aux réfugiés." },
     syllabus: 'T4',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t4-029',
@@ -272,7 +272,7 @@ export const terms: FrTerm[] = [
     example: { en: 'Freedom of speech is protected by the constitution in many countries.', ru: 'Свобода слова защищена конституцией во многих странах.', fr: "La liberté d'expression est protégée par la constitution dans de nombreux pays." },
     syllabus: 'T4',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t4-030',
@@ -281,7 +281,7 @@ export const terms: FrTerm[] = [
     example: { en: 'The school rules forbid phones during lessons.', ru: 'Внутренний распорядок запрещает пользоваться телефонами на уроках.', fr: 'Le règlement intérieur interdit les téléphones pendant les cours.' },
     syllabus: 'T4',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t4-031',
@@ -290,7 +290,7 @@ export const terms: FrTerm[] = [
     example: { en: 'The law forbids smoking in public buildings.', ru: 'Закон запрещает курить в общественных зданиях.', fr: 'La loi interdit de fumer dans les bâtiments publics.' },
     syllabus: 'T4',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t4-032',
@@ -299,7 +299,7 @@ export const terms: FrTerm[] = [
     example: { en: 'All citizens must respect the law, even when they disagree with it.', ru: 'Все граждане должны соблюдать закон, даже если они с ним не согласны.', fr: "Tous les citoyens doivent respecter la loi, même lorsqu'ils ne sont pas d'accord." },
     syllabus: 'T4',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t4-033',
@@ -308,7 +308,7 @@ export const terms: FrTerm[] = [
     example: { en: 'She decided to file a complaint because the shop refused to refund her.', ru: 'Она решила подать жалобу, потому что магазин отказывался вернуть ей деньги.', fr: 'Elle a décidé de porter plainte, car le magasin refusait de la rembourser.' },
     syllabus: 'T4',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t4-034',
@@ -317,7 +317,7 @@ export const terms: FrTerm[] = [
     example: { en: 'The lawyer explained to the parents what their rights were.', ru: 'Адвокат объяснила родителям, каковы их права.', fr: "L'avocate a expliqué aux parents quels étaient leurs droits." },
     syllabus: 'T4',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t4-035',
@@ -326,7 +326,7 @@ export const terms: FrTerm[] = [
     example: { en: 'The company received a heavy penalty for polluting the river.', ru: 'Компания получила серьёзное наказание за загрязнение реки.', fr: "L'entreprise a reçu une lourde sanction pour avoir pollué la rivière." },
     syllabus: 'T4',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t4-036',
@@ -335,7 +335,7 @@ export const terms: FrTerm[] = [
     example: { en: 'If the landlord refuses the repairs, you can assert your rights in court.', ru: 'Если хозяин жилья откажется делать ремонт, вы сможете отстаивать свои права в суде.', fr: 'Si le propriétaire refuse les travaux, vous pouvez faire valoir vos droits devant le tribunal.' },
     syllabus: 'T4',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
 
   // ---- public administration and services (administration et services publics) ----
@@ -346,7 +346,7 @@ export const terms: FrTerm[] = [
     example: { en: 'You can get a birth certificate at the town hall.', ru: 'Свидетельство о рождении можно получить в мэрии.', fr: "On peut obtenir son acte de naissance à la mairie." },
     syllabus: 'T4',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t4-038',
@@ -355,7 +355,7 @@ export const terms: FrTerm[] = [
     example: { en: 'Public services are funded mainly by taxes.', ru: 'Государственные услуги финансируются в основном за счёт налогов.', fr: 'Les services publics sont financés en grande partie par les impôts.' },
     syllabus: 'T4',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t4-039',
@@ -364,7 +364,7 @@ export const terms: FrTerm[] = [
     example: { en: 'Take a number and wait at the counter until your number is called.', ru: 'Возьмите талон и ждите у окошка, пока не назовут ваш номер.', fr: 'Prenez un numéro et attendez au guichet que votre nom soit appelé.' },
     syllabus: 'T4',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t4-040',
@@ -373,7 +373,7 @@ export const terms: FrTerm[] = [
     example: { en: 'Registering a new address is a simple administrative procedure.', ru: 'Регистрация нового адреса — простая административная процедура.', fr: 'Déclarer une nouvelle adresse est une démarche administrative assez simple.' },
     syllabus: 'T4',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t4-041',
@@ -382,7 +382,7 @@ export const terms: FrTerm[] = [
     example: { en: 'Before the appointment, please fill in the form in capital letters.', ru: 'Перед приёмом, пожалуйста, заполните форму заглавными буквами.', fr: 'Avant le rendez-vous, veuillez remplir le formulaire en majuscules.' },
     syllabus: 'T4',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t4-042',
@@ -391,7 +391,7 @@ export const terms: FrTerm[] = [
     example: { en: "My mother's medical costs are partly paid by social security.", ru: 'Часть расходов на лечение моей мамы покрывает социальное страхование.', fr: 'Les frais de santé de ma mère sont en partie remboursés par la sécurité sociale.' },
     syllabus: 'T4',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t4-043',
@@ -400,7 +400,7 @@ export const terms: FrTerm[] = [
     example: { en: 'The residents will elect a new mayor in March.', ru: 'В марте жители выберут нового мэра.', fr: 'Les habitants éliront un nouveau maire en mars.' },
     syllabus: 'T4',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t4-044',
@@ -409,7 +409,7 @@ export const terms: FrTerm[] = [
     example: { en: 'You need to make an appointment before you visit the office.', ru: 'Нужно записаться на приём, прежде чем идти в офис.', fr: 'Il faut prendre rendez-vous avant de se rendre au bureau.' },
     syllabus: 'T4',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t4-045',
@@ -418,7 +418,7 @@ export const terms: FrTerm[] = [
     example: { en: 'The public administration reorganised its services this year.', ru: 'В этом году государственный аппарат реорганизовал свои службы.', fr: "L'administration a réorganisé ses services cette année." },
     syllabus: 'T4',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
 
   // ---- community and neighbourhood (communauté et quartier) ----
@@ -429,7 +429,7 @@ export const terms: FrTerm[] = [
     example: { en: 'We moved to a quiet neighbourhood near the river.', ru: 'Мы переехали в тихий район недалеко от реки.', fr: 'Nous avons déménagé dans un quartier calme, près de la rivière.' },
     syllabus: 'T4',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t4-047',
@@ -438,7 +438,7 @@ export const terms: FrTerm[] = [
     example: { en: 'The whole neighbourhood came to the street party.', ru: 'Всё соседство пришло на уличный праздник.', fr: 'Tout le voisinage est venu à la fête de rue.' },
     syllabus: 'T4',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t4-048',
@@ -447,7 +447,7 @@ export const terms: FrTerm[] = [
     example: { en: 'Neighbourhood life is lively in summer, with markets and concerts in the square.', ru: 'Летом жизнь района становится оживлённой: на площади проходят рынки и концерты.', fr: 'La vie de quartier est très animée en été, avec des marchés et des concerts sur la place.' },
     syllabus: 'T4',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t4-049',
@@ -456,7 +456,7 @@ export const terms: FrTerm[] = [
     example: { en: 'The new library creates social bonds and brings residents together.', ru: 'Новая библиотека создаёт социальные связи и объединяет жителей.', fr: 'La nouvelle bibliothèque crée du lien social et rapproche les habitants.' },
     syllabus: 'T4',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t4-050',
@@ -465,7 +465,7 @@ export const terms: FrTerm[] = [
     example: { en: 'In a good neighbourhood, people help each other with the shopping.', ru: 'В хорошем районе люди помогают друг другу с покупками.', fr: "Dans un bon quartier, les habitants s'entraident pour faire les courses." },
     syllabus: 'T4',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t4-051',
@@ -474,7 +474,7 @@ export const terms: FrTerm[] = [
     example: { en: 'Isolation affects many elderly people in big cities.', ru: 'Одиночество затрагивает многих пожилых людей в больших городах.', fr: "L'isolement touche beaucoup de personnes âgées dans les grandes villes." },
     syllabus: 'T4',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t4-052',
@@ -483,7 +483,7 @@ export const terms: FrTerm[] = [
     example: { en: 'The local associations organise a market and a sports day every year.', ru: 'Местные ассоциации каждый год организуют рынок и спортивный день.', fr: 'Le tissu associatif du quartier organise chaque année un marché et une journée sportive.' },
     syllabus: 'T4',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t4-053',
@@ -492,7 +492,7 @@ export const terms: FrTerm[] = [
     example: { en: 'Schools play an important role in teaching living together.', ru: 'Школы играют важную роль в воспитании умения жить вместе.', fr: "L'école joue un rôle important dans l'apprentissage du vivre-ensemble." },
     syllabus: 'T4',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t4-054',
@@ -501,7 +501,7 @@ export const terms: FrTerm[] = [
     example: { en: 'In the morning, this café is full of conviviality.', ru: 'По утрам в этом кафе царит дружеская атмосфера.', fr: 'Le matin, ce café est plein de convivialité.' },
     syllabus: 'T4',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
 
   // ---- public health (santé publique) ----
@@ -512,7 +512,7 @@ export const terms: FrTerm[] = [
     example: { en: 'Public health campaigns encourage people to do more sport.', ru: 'Кампании в области общественного здоровья призывают людей больше заниматься спортом.', fr: 'Les campagnes de santé publique encouragent les gens à faire plus de sport.' },
     syllabus: 'T4',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t4-056',
@@ -521,7 +521,7 @@ export const terms: FrTerm[] = [
     example: { en: "The hospital has opened a new children's ward.", ru: 'Больница открыла новое детское отделение.', fr: "L'hôpital a ouvert un nouveau service de pédiatrie." },
     syllabus: 'T4',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t4-057',
@@ -530,7 +530,7 @@ export const terms: FrTerm[] = [
     example: { en: 'After her father\'s stroke, she took over his daily care.', ru: 'После инсульта отца она взяла на себя его ежедневный уход.', fr: "Après l'AVC de son père, sa fille a pris en charge les soins quotidiens." },
     syllabus: 'T4',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t4-058',
@@ -539,7 +539,7 @@ export const terms: FrTerm[] = [
     example: { en: 'Prevention is cheaper than treating an illness later.', ru: 'Профилактика обходится дешевле, чем лечение болезни в будущем.', fr: "La prévention coûte moins cher que le traitement d'une maladie." },
     syllabus: 'T4',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t4-059',
@@ -548,7 +548,7 @@ export const terms: FrTerm[] = [
     example: { en: 'Vaccination campaigns have helped to control the disease in the region.', ru: 'Кампании вакцинации помогли держать эту болезнь под контролем в регионе.', fr: 'Les campagnes de vaccination ont permis de contrôler la maladie dans la région.' },
     syllabus: 'T4',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t4-060',
@@ -557,7 +557,7 @@ export const terms: FrTerm[] = [
     example: { en: 'It is advisable to get vaccinated before you travel to that country.', ru: 'Перед поездкой в эту страну лучше сделать прививки.', fr: 'Il est conseillé de se faire vacciner avant de voyager dans ce pays.' },
     syllabus: 'T4',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t4-061',
@@ -566,7 +566,7 @@ export const terms: FrTerm[] = [
     example: { en: 'A healthy lifestyle means regular exercise and balanced meals.', ru: 'Здоровый образ жизни означает регулярные занятия спортом и сбалансированное питание.', fr: 'Un mode de vie sain suppose une activité physique régulière et des repas équilibrés.' },
     syllabus: 'T4',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t4-062',
@@ -575,7 +575,7 @@ export const terms: FrTerm[] = [
     example: { en: 'The campaign warns young people about the dangers of addiction to tobacco.', ru: 'Кампания предупреждает молодых людей об опасности зависимости от табака.', fr: 'La campagne met en garde les jeunes contre la dépendance au tabac.' },
     syllabus: 'T4',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t4-063',
@@ -584,7 +584,7 @@ export const terms: FrTerm[] = [
     example: { en: 'Call your general practitioner if the fever lasts more than three days.', ru: 'Позвоните своему терапевту, если температура держится больше трёх дней.', fr: 'Appelez votre médecin généraliste si la fièvre dure plus de trois jours.' },
     syllabus: 'T4',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
 
   // ---- inequality (inégalités) ----
@@ -595,7 +595,7 @@ export const terms: FrTerm[] = [
     example: { en: 'Inequality between rich and poor areas has grown over the last decade.', ru: 'Неравенство между богатыми и бедными районами выросло за последнее десятилетие.', fr: 'Les inégalités entre les quartiers riches et pauvres se sont accrues ces dix dernières années.' },
     syllabus: 'T4',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t4-065',
@@ -604,7 +604,7 @@ export const terms: FrTerm[] = [
     example: { en: 'Poverty affects many children in the outer districts of the city.', ru: 'Бедность затрагивает многих детей в пригородных районах города.', fr: 'La pauvreté touche de nombreux enfants dans les quartiers périphériques.' },
     syllabus: 'T4',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t4-066',
@@ -613,7 +613,7 @@ export const terms: FrTerm[] = [
     example: { en: 'The programme helps young people who are at risk of social exclusion.', ru: 'Программа помогает молодым людям, которым грозит социальное исключение.', fr: "Ce programme aide les jeunes menacés d'exclusion sociale." },
     syllabus: 'T4',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t4-067',
@@ -622,7 +622,7 @@ export const terms: FrTerm[] = [
     example: { en: 'The standard of living in the region has risen since 2015.', ru: 'С 2015 года уровень жизни в регионе вырос.', fr: 'Le niveau de vie a augmenté dans la région depuis 2015.' },
     syllabus: 'T4',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t4-068',
@@ -631,7 +631,7 @@ export const terms: FrTerm[] = [
     example: { en: 'The school offers extra lessons to disadvantaged pupils.', ru: 'Школа предлагает дополнительные занятия уязвимым ученикам.', fr: "L'école propose des cours supplémentaires aux élèves défavorisés." },
     syllabus: 'T4',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t4-069',
@@ -640,7 +640,7 @@ export const terms: FrTerm[] = [
     example: { en: 'Discrimination at work is against the law in this country.', ru: 'Дискриминация на работе в этой стране запрещена законом.', fr: 'La discrimination au travail est interdite par la loi dans ce pays.' },
     syllabus: 'T4',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t4-070',
@@ -649,7 +649,7 @@ export const terms: FrTerm[] = [
     example: { en: 'The government is fighting inequality with new housing projects.', ru: 'Правительство борется с неравенством с помощью новых жилищных проектов.', fr: 'Le gouvernement lutte contre les inégalités avec de nouveaux projets de logement.' },
     syllabus: 'T4',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t4-071',
@@ -658,7 +658,7 @@ export const terms: FrTerm[] = [
     example: { en: 'The new bus line should help to close the gap between the centre and the suburbs.', ru: 'Новый автобусный маршрут должен помочь сократить разрыв между центром и пригородами.', fr: 'La nouvelle ligne de bus doit contribuer à combler le fossé entre le centre et la banlieue.' },
     syllabus: 'T4',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t4-072',
@@ -667,7 +667,7 @@ export const terms: FrTerm[] = [
     example: { en: 'Taxes can be used to improve the distribution of wealth.', ru: 'Налоги можно использовать, чтобы улучшить распределение богатства.', fr: 'Les impôts peuvent servir à améliorer la répartition des richesses.' },
     syllabus: 'T4',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
 
   // ---- media and information (médias et information) ----
@@ -678,7 +678,7 @@ export const terms: FrTerm[] = [
     example: { en: 'The media covered the case in great detail.', ru: 'СМИ подробно осветили это дело.', fr: 'Les médias ont largement couvert cette affaire.' },
     syllabus: 'T4',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t4-074',
@@ -687,7 +687,7 @@ export const terms: FrTerm[] = [
     example: { en: 'The journalist interviewed three witnesses before writing the article.', ru: 'Журналист взял интервью у трёх свидетелей, прежде чем написать статью.', fr: "Le journaliste a interrogé trois témoins avant d'écrire son article." },
     syllabus: 'T4',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t4-075',
@@ -696,7 +696,7 @@ export const terms: FrTerm[] = [
     example: { en: 'Many people share fake news without checking the source.', ru: 'Многие люди распространяют фейковые новости, не проверяя источник.', fr: 'Beaucoup de gens partagent de fausses nouvelles sans vérifier la source.' },
     syllabus: 'T4',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t4-076',
@@ -705,7 +705,7 @@ export const terms: FrTerm[] = [
     example: { en: 'Always check information in several sources before you share it.', ru: 'Всегда проверяйте информацию по нескольким источникам, прежде чем её распространять.', fr: 'Vérifiez toujours une information dans plusieurs sources avant de la partager.' },
     syllabus: 'T4',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t4-077',
@@ -714,7 +714,7 @@ export const terms: FrTerm[] = [
     example: { en: 'Many teenagers get their news from social networks.', ru: 'Многие подростки получают новости из социальных сетей.', fr: "Beaucoup d'adolescents s'informent sur les réseaux sociaux." },
     syllabus: 'T4',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t4-078',
@@ -723,7 +723,7 @@ export const terms: FrTerm[] = [
     example: { en: 'To be well informed, she reads two newspapers every morning.', ru: 'Чтобы быть хорошо информированной, она каждое утро читает две газеты.', fr: 'Pour être bien informée, elle lit deux journaux chaque matin.' },
     syllabus: 'T4',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t4-079',
@@ -732,7 +732,7 @@ export const terms: FrTerm[] = [
     example: { en: 'The strike made the front page of every newspaper.', ru: 'Забастовка попала на первые полосы всех газет.', fr: 'La grève a fait la une de tous les journaux.' },
     syllabus: 'T4',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t4-080',
@@ -741,7 +741,7 @@ export const terms: FrTerm[] = [
     example: { en: 'The television channel organised a public debate about climate policy.', ru: 'Телеканал организовал публичную дискуссию о климатической политике.', fr: 'La chaîne de télévision a organisé un débat public sur la politique climatique.' },
     syllabus: 'T4',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t4-081',
@@ -750,7 +750,7 @@ export const terms: FrTerm[] = [
     example: { en: 'The report about homeless families was broadcast on television last night.', ru: 'Репортаж о бездомных семьях показали по телевизору вчера вечером.', fr: 'Le reportage sur les familles sans-abri a été diffusé hier soir à la télévision.' },
     syllabus: 'T4',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
 
   // ---- festivals and traditions (fêtes et traditions) ----
@@ -761,7 +761,7 @@ export const terms: FrTerm[] = [
     example: { en: 'Every Christmas, the family follows the same ritual: the same meal and the same songs.', ru: 'Каждое Рождество семья следует одному и тому же ритуалу: одна и та же еда и одни и те же песни.', fr: 'Chaque Noël, la famille suit le même rituel : le même repas et les mêmes chansons.' },
     syllabus: 'T4',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t4-083',
@@ -770,7 +770,7 @@ export const terms: FrTerm[] = [
     example: { en: 'It is a tradition to eat pancakes on festival day.', ru: 'В день праздника по традиции едят блины.', fr: "C'est une tradition de manger des crêpes le jour de la fête." },
     syllabus: 'T4',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t4-084',
@@ -779,7 +779,7 @@ export const terms: FrTerm[] = [
     example: { en: 'The festival showcases the folklore of the mountain villages.', ru: 'Фестиваль знакомит зрителей с фольклором горных деревень.', fr: 'Ce festival met en valeur le folklore des villages de montagne.' },
     syllabus: 'T4',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t4-085',
@@ -788,7 +788,7 @@ export const terms: FrTerm[] = [
     example: { en: 'The old town is listed as a World Heritage Site by UNESCO.', ru: 'Старый город внесён в список всемирного наследия ЮНЕСКО.', fr: "La vieille ville est inscrite au patrimoine mondial de l'UNESCO." },
     syllabus: 'T4',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t4-086',
@@ -797,7 +797,7 @@ export const terms: FrTerm[] = [
     example: { en: 'Hundreds of people watched the carnival parade through the centre.', ru: 'Сотни людей смотрели, как карнавальное шествие проходит через центр.', fr: 'Des centaines de personnes ont regardé le défilé du carnaval dans le centre-ville.' },
     syllabus: 'T4',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t4-087',
@@ -806,7 +806,7 @@ export const terms: FrTerm[] = [
     example: { en: 'The family celebrates the harvest with a big meal.', ru: 'Семья празднует урожай большим застольем.', fr: 'La famille célèbre la récolte avec un grand repas.' },
     syllabus: 'T4',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t4-088',
@@ -815,7 +815,7 @@ export const terms: FrTerm[] = [
     example: { en: 'The fireworks at midnight lasted twenty minutes.', ru: 'Фейерверк в полночь длился двадцать минут.', fr: "Le feu d'artifice de minuit a duré vingt minutes." },
     syllabus: 'T4',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t4-089',
@@ -824,7 +824,7 @@ export const terms: FrTerm[] = [
     example: { en: 'Every year we hold a big festive dinner with the whole family.', ru: 'Каждый год мы устраиваем большой праздничный ужин со всей семьёй.', fr: 'Chaque année, nous faisons un grand réveillon avec toute la famille.' },
     syllabus: 'T4',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
   {
     id: 'v-t4-090',
@@ -833,6 +833,6 @@ export const terms: FrTerm[] = [
     example: { en: 'On Sundays, the whole family gets together for lunch.', ru: 'По воскресеньям вся семья собирается на обед.', fr: 'Le dimanche, toute la famille se réunit pour déjeuner.' },
     syllabus: 'T4',
     papers: ['P1', 'P2'],
-    src: own,
+    src: thinkib,
   },
 ];

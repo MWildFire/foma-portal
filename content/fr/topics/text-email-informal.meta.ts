@@ -19,7 +19,7 @@ const topic: TopicMeta = {
   ],
   termIds: [],
   questionIds: ['p1-email-informal', 'p1-email-informal-q1', 'p1-email-informal-q2'],
-  sources: [{ kind: 'own', title: "Authors' French B material (2026)" }],
+  sources: [{ kind: 'thinkib', title: 'ThinkIB, French B SL: Les types de textes (page 71138)', locator: 'Courriel personnel / lettre personnelle (page 36811)' }],
 };
 
 export default topic;

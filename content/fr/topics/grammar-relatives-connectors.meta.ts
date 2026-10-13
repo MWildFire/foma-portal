@@ -24,7 +24,7 @@ const topic: TopicMeta = {
     'gr-qui', 'gr-que', 'gr-dont', 'gr-ou', 'gr-connecteurs-logiques', 'gr-connecteurs-chronologiques', 'gr-bien-que',
   ],
   questionIds: ['grammar-relatives-connectors-q1', 'grammar-relatives-connectors-q2'],
-  sources: [{ kind: 'own', title: "Authors' French B material (2026)" }],
+  sources: [{ kind: 'thinkib', title: 'ThinkIB, French B SL: Grammaire (page 47789)', locator: 'Les pronoms relatifs; Les connecteurs logiques (1)–(4)' }],
 };
 
 export default topic;

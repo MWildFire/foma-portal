@@ -11,6 +11,7 @@ export const questions: FrQuestion[] = [
     section: 'T1',
     marks: 30,
     command: 'Write',
+    minutes: 40,
     prompt: {
       en: "Write a formal essay of 250 to 400 words for an online cultural magazine. Answer the French question: is your identity still linked to a country, a language or a community? Include a clear thesis, two arguments with examples and one counter-argument with your reply. Use a formal register (soutenu), keep je or nous for the whole text and use linking words.",
       ru: "Напишите эссе в формальном регистре (soutenu) объёмом 250–400 слов для онлайн-журнала о культуре. Ответьте на вопрос из французского задания: связана ли ваша идентичность до сих пор с какой-то страной, языком или сообществом? Включите ясный тезис (thesis), два аргумента с примерами и один контраргумент с ответом. Выберите je или nous, держите выбор до конца текста и используйте связки (linking words).",
@@ -75,6 +76,7 @@ export const questions: FrQuestion[] = [
     section: 'T2',
     marks: 30,
     command: 'Write',
+    minutes: 40,
     prompt: {
       en: "Write a social media post of 250 to 400 words about a school exchange or a stay abroad. Include the experience (what happened and where), what it changed for you and a call to your readers. Use a hook title, short paragraphs and hashtags at the end. Choose tu or a neutral tone with vous, and keep your choice to the end.",
       ru: "Напишите пост для соцсети объёмом 250–400 слов о школьном обмене или поездке за границу. Расскажите, что вы пережили и где, объясните, что это изменило в вас, и обратитесь к читателям с призывом. Используйте заголовок-крючок (hook), короткие абзацы и хэштеги в конце. Выберите tu или нейтральный тон с vous и держитесь выбранного до конца.",
@@ -139,6 +141,7 @@ export const questions: FrQuestion[] = [
     section: 'T3',
     marks: 30,
     command: 'Write',
+    minutes: 40,
     prompt: {
       en: "Write the user guide for a device, an app or a kitchen robot that you have invented. Explain what it is for, give the steps of use in order, and add safety notes with advice for when something goes wrong. Use a title, a short list of materials, numbered steps in the imperative and warnings. Keep vous or tu, and keep it consistent. Write 250 to 400 words.",
       ru: "Напишите инструкцию по использованию (user guide) для устройства, приложения или кухонного робота, который вы придумали. Объясните, для чего он нужен, перечислите шаги использования по порядку и добавьте предупреждения о безопасности и советы на случай неполадки. Используйте заголовок, короткий список материалов, пронумерованные шаги в повелительном наклонении (imperative) и предупреждения. Объём 250–400 слов; выберите vous или tu и держитесь выбранного.",

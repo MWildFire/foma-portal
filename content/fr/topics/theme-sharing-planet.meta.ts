@@ -30,7 +30,7 @@ const topic: TopicMeta = {
   questionIds: ['t5-q1', 't5-q2'],
   sources: [
     { kind: 'ib-guide', title: 'IB Language B guide (2018)' },
-    { kind: 'own', title: "Authors' French B material (2026)" },
+    { kind: 'thinkib', title: 'ThinkIB, French B SL: Partage de la planète (page 42632)', locator: "Environnement; Droits de l'homme; Paix et conflits; Égalité; Mondialisation; Éthique; Environnements urbains et ruraux" },
   ],
 };
 

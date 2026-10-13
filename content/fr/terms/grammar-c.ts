@@ -18,7 +18,7 @@ export const terms: FrTerm[] = [
     },
     syllabus: 'G6.relatives-connectors',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: "Authors' French B material (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Grammaire (page 47789)', locator: 'Les pronoms relatifs' },
   },
   {
     id: 'gr-que',
@@ -38,13 +38,13 @@ export const terms: FrTerm[] = [
     },
     syllabus: 'G6.relatives-connectors',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: "Authors' French B material (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Grammaire (page 47789)', locator: 'Les pronoms relatifs' },
   },
   {
     id: 'gr-dont',
     term: { en: 'relative pronoun: dont', ru: 'относительное местоимение «dont»', fr: 'le pronom relatif « dont »' },
     def: {
-      en: "replaces a phrase introduced by 'of' or 'about'; it also means 'whose'.",
+      en: "replaces a phrase introduced by 'of' or 'about' after a verb or adjective; it also means 'whose'.",
       ru: 'заменяет группу с предлогом (of, about) после глагола или прилагательного; также значит «чей».',
     },
     example: {
@@ -58,7 +58,7 @@ export const terms: FrTerm[] = [
     },
     syllabus: 'G6.relatives-connectors',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: "Authors' French B material (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Grammaire (page 47789)', locator: 'Les pronoms relatifs' },
   },
   {
     id: 'gr-ou',
@@ -74,7 +74,7 @@ export const terms: FrTerm[] = [
     },
     syllabus: 'G6.relatives-connectors',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: "Authors' French B material (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Grammaire (page 47789)', locator: 'Les pronoms relatifs' },
   },
 
   // ---- logical and sequence connectors, concession (G6) ----
@@ -96,7 +96,7 @@ export const terms: FrTerm[] = [
     },
     syllabus: 'G6.relatives-connectors',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: "Authors' French B material (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Grammaire (page 47789)', locator: 'Les connecteurs logiques (1)–(4)' },
   },
   {
     id: 'gr-connecteurs-chronologiques',
@@ -112,7 +112,7 @@ export const terms: FrTerm[] = [
     },
     syllabus: 'G6.relatives-connectors',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: "Authors' French B material (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Grammaire (page 47789)', locator: 'Les connecteurs logiques (1)–(4)' },
   },
   {
     id: 'gr-bien-que',
@@ -132,7 +132,7 @@ export const terms: FrTerm[] = [
     },
     syllabus: 'G6.relatives-connectors',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: "Authors' French B material (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Grammaire (page 47789)', locator: 'Les connecteurs logiques (1)–(4)' },
   },
 
   // ---- comparison, negation and agreement (G7) ----
@@ -154,7 +154,7 @@ export const terms: FrTerm[] = [
     },
     syllabus: 'G7.comparison-negation-agreement',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: "Authors' French B material (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Grammaire (page 47789)', locator: 'Les adjectifs qualificatifs; Les adverbes' },
   },
   {
     id: 'gr-comparatif-quantite',
@@ -174,7 +174,7 @@ export const terms: FrTerm[] = [
     },
     syllabus: 'G7.comparison-negation-agreement',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: "Authors' French B material (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Grammaire (page 47789)', locator: 'Les adjectifs qualificatifs; Les adverbes' },
   },
   {
     id: 'gr-meilleur-mieux',
@@ -194,7 +194,7 @@ export const terms: FrTerm[] = [
     },
     syllabus: 'G7.comparison-negation-agreement',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: "Authors' French B material (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Grammaire (page 47789)', locator: 'Les adjectifs qualificatifs; Les adverbes' },
   },
   {
     id: 'gr-superlatif',
@@ -214,7 +214,7 @@ export const terms: FrTerm[] = [
     },
     syllabus: 'G7.comparison-negation-agreement',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: "Authors' French B material (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Grammaire (page 47789)', locator: 'Les adjectifs qualificatifs; Les adverbes' },
   },
   {
     id: 'gr-ne-pas',
@@ -234,7 +234,7 @@ export const terms: FrTerm[] = [
     },
     syllabus: 'G7.comparison-negation-agreement',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: "Authors' French B material (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Grammaire (page 47789)', locator: 'La négation' },
   },
   {
     id: 'gr-ne-jamais-plus',
@@ -254,7 +254,7 @@ export const terms: FrTerm[] = [
     },
     syllabus: 'G7.comparison-negation-agreement',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: "Authors' French B material (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Grammaire (page 47789)', locator: 'La négation' },
   },
   {
     id: 'gr-rien-personne',
@@ -274,7 +274,7 @@ export const terms: FrTerm[] = [
     },
     syllabus: 'G7.comparison-negation-agreement',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: "Authors' French B material (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Grammaire (page 47789)', locator: 'La négation' },
   },
   {
     id: 'gr-ni-ni',
@@ -294,6 +294,6 @@ export const terms: FrTerm[] = [
     },
     syllabus: 'G7.comparison-negation-agreement',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: "Authors' French B material (2026)" },
+    src: { kind: 'thinkib', title: 'ThinkIB, French B SL: Grammaire (page 47789)', locator: 'La négation' },
   },
 ];

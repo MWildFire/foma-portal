@@ -18,7 +18,7 @@ const topic: TopicMeta = {
   ],
   termIds: [],
   questionIds: ['p1-brochure', 'p1-brochure-q1', 'p1-brochure-q2'],
-  sources: [{ kind: 'own', title: "Authors' French B material (2026)" }],
+  sources: [{ kind: 'own', title: 'Own wording for this portal; not in the ThinkIB text-types list (page 71138)' }],
 };
 
 export default topic;

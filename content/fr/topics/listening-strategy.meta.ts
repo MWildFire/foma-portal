@@ -20,7 +20,7 @@ const topic: TopicMeta = {
   termIds: [],
   questionIds: ['listening-strategy-q1', 'listening-strategy-q2'],
   sims: ['fr.listening-player'],
-  sources: [{ kind: 'own', title: "Authors' French B material (2026)" }],
+  sources: [{ kind: 'own', title: 'Own strategy notes for this portal' }],
 };
 
 export default topic;
