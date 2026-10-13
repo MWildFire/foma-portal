@@ -1,0 +1,26 @@
+{
+  "title": "{{paper}} guide",
+  "notFound": {
+    "title": "No guide for this paper yet",
+    "body": "This subject has no guide for {{paper}} yet.",
+    "back": "Back to the subject"
+  },
+  "guide": {
+    "part": "Part: {{part}}",
+    "minutes": "Time: {{n}} min",
+    "marks": "Marks: {{n}}"
+  },
+  "sections": {
+    "structure": "Structure",
+    "strategy": "Strategy",
+    "criteria": "Marking criteria",
+    "commandTerms": "Command terms",
+    "timedSets": "Timed sets"
+  },
+  "timed": {
+    "empty": "No timed sets for this paper yet.",
+    "minutes": "Time: {{n}} min",
+    "questions": "Questions: {{n}}",
+    "start": "Practise this set"
+  }
+}
