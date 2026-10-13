@@ -45,7 +45,6 @@ const meta: TopicMeta = {
   ],
   sources: [
     { kind: 'textbook', title: 'Oxford IB DP Computer Science Course Companion (2025)', locator: 'ch. A2.3, pp. 144–153' },
-    { kind: 'own', title: 'FomaCS: A2.3 Передача данных (lesson, Russian)' },
   ],
 };
 

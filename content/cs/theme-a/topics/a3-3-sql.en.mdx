@@ -6,7 +6,7 @@ Databases hold the records of a school, a shop or a hospital, and SQL tells the 
 
 ### Four sub-languages of SQL
 
-SQL <Term id="a3-3-sql"/> is grouped by purpose. The data definition language <Term id="a3-3-ddl"/> (DDL) builds structure with CREATE, ALTER and DROP. The data manipulation language <Term id="a3-3-dml"/> (DML) works on rows: SELECT reads them, INSERT adds them, UPDATE changes them and DELETE removes them. The data control language <Term id="a3-3-dcl"/> (DCL) manages permissions with GRANT and REVOKE, and the transaction control language <Term id="a3-3-tcl"/> (TCL) manages saving with COMMIT, ROLLBACK and SAVEPOINT.
+SQL <Term id="a3-3-sql"/> is grouped by purpose. The data definition language <Term id="a3-3-ddl"/> (DDL) builds structure with CREATE, ALTER and DROP. The data manipulation language <Term id="a3-3-dml"/> (DML) works on rows: SELECT reads them, INSERT adds them, UPDATE changes them and DELETE removes them. The data control language <Term id="a3-3-dcl"/> (DCL) manages permissions with GRANT and REVOKE, and the transaction control language <Term id="a3-3-tcl"/> (TCL) manages saving with COMMIT and ROLLBACK.
 
 ### Filtering and sorting
 
@@ -128,7 +128,7 @@ Without the WHERE clause, every item would be priced at 8.00.
 
 ## Visual
 
-Practise these patterns in the [SQL lab](/cs-lab/a3-3-sql.html) and check each result against the tables above.
+Practise these patterns in the [SQL lab (partly in Russian)](/cs-lab/a3-3-sql.html) and check each result against the tables above.
 
 ## How it is examined
 
@@ -155,7 +155,7 @@ These command terms are the most likely for this topic:
 
 <Callout kind="mistake">Mixing up DELETE and DROP. DELETE removes rows and keeps the table; DROP removes the table and its structure.</Callout>
 
-<Callout kind="mistake">Believing that ROLLBACK undoes only the last statement. It returns the database to the last COMMIT, or to a named SAVEPOINT.</Callout>
+<Callout kind="mistake">Believing that ROLLBACK undoes only the last statement. It returns the database to the last COMMIT.</Callout>
 
 ## Check yourself
 

@@ -40,7 +40,6 @@ const topic: TopicMeta = {
   ],
   sources: [
     { kind: 'textbook', title: 'Oxford IB DP Computer Science Course Companion (2025)', locator: 'ch. A3.1, pp. 167–172' },
-    { kind: 'own', title: 'FomaCS lesson: A3.1 Database fundamentals (Russian notes)' },
   ],
 };
 

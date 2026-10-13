@@ -52,7 +52,6 @@ const topic: TopicMeta = {
   ],
   sources: [
     { kind: 'textbook', title: 'Oxford IB DP Computer Science Course Companion (2025)', locator: 'ch. A2.1, pp. 101–123' },
-    { kind: 'own', title: 'FomaCS lesson: A2.1 Network fundamentals (Russian notes)' },
   ],
 };
 

@@ -33,7 +33,6 @@ const topic: TopicMeta = {
   questionIds: ['port-a4-1-q1', 'port-a4-1-q2a', 'port-a4-1-q3', 'port-a4-1-q4', 'port-a4-1-q5', 'port-a4-1-q6', 'a4-1-q01', 'a4-1-q02'],
   sources: [
     { kind: 'textbook', title: 'Oxford IB DP Computer Science Course Companion (2025)', locator: 'ch. A4.1, pp. 237–250' },
-    { kind: 'own', title: 'FomaCS lesson: A4.1 Machine learning fundamentals (question page and bilingual notes)' },
   ],
 };
 

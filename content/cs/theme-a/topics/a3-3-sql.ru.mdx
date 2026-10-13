@@ -6,7 +6,7 @@
 
 ### Четыре подъязыка SQL
 
-Язык структурированных запросов (Structured Query Language, SQL) <Term id="a3-3-sql"/> делится по назначению. Язык определения данных (Data Definition Language, DDL) <Term id="a3-3-ddl"/> строит структуру командами CREATE, ALTER и DROP. Язык манипулирования данными (Data Manipulation Language, DML) <Term id="a3-3-dml"/> работает со строками: SELECT читает их, INSERT добавляет, UPDATE изменяет, а DELETE удаляет. Язык управления доступом (Data Control Language, DCL) <Term id="a3-3-dcl"/> управляет правами с помощью GRANT и REVOKE, а язык управления транзакциями (Transaction Control Language, TCL) <Term id="a3-3-tcl"/> управляет сохранением через COMMIT, ROLLBACK и SAVEPOINT.
+Язык структурированных запросов (Structured Query Language, SQL) <Term id="a3-3-sql"/> делится по назначению. Язык определения данных (Data Definition Language, DDL) <Term id="a3-3-ddl"/> строит структуру командами CREATE, ALTER и DROP. Язык манипулирования данными (Data Manipulation Language, DML) <Term id="a3-3-dml"/> работает со строками: SELECT читает их, INSERT добавляет, UPDATE изменяет, а DELETE удаляет. Язык управления доступом (Data Control Language, DCL) <Term id="a3-3-dcl"/> управляет правами с помощью GRANT и REVOKE, а язык управления транзакциями (Transaction Control Language, TCL) <Term id="a3-3-tcl"/> управляет сохранением через COMMIT и ROLLBACK.
 
 ### Фильтрация и сортировка
 
@@ -155,7 +155,7 @@ WHERE ItemID = 2;
 
 <Callout kind="mistake">Ты путаешь DELETE и DROP. DELETE удаляет строки и оставляет таблицу, а DROP удаляет таблицу вместе со структурой.</Callout>
 
-<Callout kind="mistake">Ты думаешь, что ROLLBACK отменяет только последний оператор. Он возвращает базу к последнему COMMIT или к точке SAVEPOINT, если она была задана.</Callout>
+<Callout kind="mistake">Ты думаешь, что ROLLBACK отменяет только последний оператор. Он возвращает базу к последнему COMMIT.</Callout>
 
 ## Проверь себя
 

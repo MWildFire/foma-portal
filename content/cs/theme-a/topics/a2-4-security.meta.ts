@@ -34,7 +34,6 @@ const topic: TopicMeta = {
   questionIds: ['a2-4-q01', 'a2-4-q02', 'a2-4-q03', 'a2-4-q04', 'a2-4-q05', 'a2-4-q06', 'a2-4-q07', 'a2-4-q08'],
   sources: [
     { kind: 'textbook', title: 'Oxford IB DP Computer Science Course Companion (2025)', locator: 'ch. A2.4, pp. 154–164' },
-    { kind: 'own', title: 'FomaCS lesson: A2.4 Network security (Russian notes)' },
   ],
 };
 

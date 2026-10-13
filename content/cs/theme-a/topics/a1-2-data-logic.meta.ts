@@ -63,7 +63,6 @@ const meta: TopicMeta = {
   ],
   sources: [
     { kind: 'textbook', title: 'Oxford IB DP Computer Science Course Companion (2025)', locator: 'ch. A1.2, pp. 38–65' },
-    { kind: 'own', title: 'FomaCS lesson A1.2 (Russian notes, 2026)' },
   ],
 };
 

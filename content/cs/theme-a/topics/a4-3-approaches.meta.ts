@@ -48,7 +48,6 @@ const topic: TopicMeta = {
   ],
   sources: [
     { kind: 'textbook', title: 'Oxford IB DP Computer Science Course Companion (2025)', locator: 'ch. A4.3, pp. 264–306' },
-    { kind: 'own', title: 'FomaCS lesson: A4.3 Machine learning approaches (question page and bilingual notes)' },
   ],
 };
 

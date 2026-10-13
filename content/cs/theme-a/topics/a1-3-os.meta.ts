@@ -45,7 +45,6 @@ const meta: TopicMeta = {
   ],
   sources: [
     { kind: 'textbook', title: 'Oxford IB DP Computer Science Course Companion (2025)', locator: 'ch. A1.3, pp. 66–89' },
-    { kind: 'own', title: 'FomaCS: A1.3 Операционные и управляющие системы (lesson, Russian)' },
   ],
 };
 

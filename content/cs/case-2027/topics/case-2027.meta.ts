@@ -61,7 +61,7 @@ const meta: TopicMeta = {
   ],
   sources: [
     { kind: 'textbook', title: 'Oxford IB DP Computer Science Course Companion (2025)', locator: 'ch. External assessment, pp. 606–607' },
-    { kind: 'own', title: 'Course outline and command terms (Oxford 2025, pp. 602–607)' },
+    { kind: 'textbook', title: 'Oxford IB DP Computer Science Course Companion (2025)', locator: 'pp. 602–607' },
   ],
 };
 

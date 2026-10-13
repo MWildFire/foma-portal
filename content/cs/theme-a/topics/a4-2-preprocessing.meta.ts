@@ -62,7 +62,6 @@ const topic: TopicMeta = {
   ],
   sources: [
     { kind: 'textbook', title: 'Oxford IB DP Computer Science Course Companion (2025)', locator: 'ch. A4.2, pp. 251–263' },
-    { kind: 'own', title: 'FomaCS lesson A4.2 Data preprocessing (Russian notes, 2026)' },
   ],
 };
 

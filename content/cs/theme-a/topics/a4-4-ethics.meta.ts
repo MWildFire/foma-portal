@@ -40,7 +40,6 @@ const topic: TopicMeta = {
   ],
   sources: [
     { kind: 'textbook', title: 'Oxford IB DP Computer Science Course Companion (2025)', locator: 'ch. A4.4, pp. 307–313' },
-    { kind: 'own', title: 'FomaCS lesson: A4.4 Ethical considerations (Russian page, ideas only)' },
   ],
 };
 
