@@ -3,7 +3,7 @@ import type { TopicMeta } from '../../../src/contract/types';
 const topic: TopicMeta = {
   id: 'p2-choices',
   subject: 'eng',
-  code: 'P2.B1',
+  code: 'P2.B',
   title: { en: 'Authorial choices: what the writer does and why', ru: 'Авторские решения: что делает автор и зачем' },
   papers: ['P2'],
   order: 13,

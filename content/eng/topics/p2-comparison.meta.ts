@@ -3,7 +3,7 @@ import type { TopicMeta } from '../../../src/contract/types';
 const topic: TopicMeta = {
   id: 'p2-comparison',
   subject: 'eng',
-  code: 'P2.B2',
+  code: 'P2.B',
   title: { en: 'Comparison: similarity, difference and the so what', ru: 'Сравнение: сходство, различие и «так что»' },
   papers: ['P2'],
   order: 14,
