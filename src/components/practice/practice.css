@@ -1,10 +1,6 @@
 /* Practice page: question cards, the lists and the countdown. Tokens come from src/index.css and
    src/components/content/ui.css, so the dark theme needs nothing extra. */
 
-.study-section {
-  margin-top: 1.75rem;
-}
-
 .study-list {
   display: grid;
   gap: 1rem;
@@ -39,17 +35,6 @@
   flex-wrap: wrap;
   gap: 0.375rem;
   margin: 0 0 0.75rem;
-}
-
-.study-q__label {
-  margin: 0 0 0.25rem;
-  color: var(--color-muted);
-  font-family: var(--font-ui);
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.05em;
-  line-height: 1.4;
-  text-transform: uppercase;
 }
 
 .study-q__stimulus {

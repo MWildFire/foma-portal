@@ -78,7 +78,7 @@
   accent-color: var(--color-accent);
 }
 
-.gl-deck__help {
+.gl-deck .gl-deck__help {
   margin-top: 0.75rem;
   font-size: 0.875rem;
 }
@@ -109,7 +109,7 @@
   font-size: 1.0625rem;
 }
 
-.gl-card__hint {
+.gl-card .gl-card__hint {
   margin-top: 0.5rem;
 }
 

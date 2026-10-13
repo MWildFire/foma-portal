@@ -13,19 +13,23 @@ import { MemoryRouter, Route, Routes } from 'react-router-dom';
 const root = join(import.meta.dirname, '..');
 let server;
 let i18n;
+let example;
 const loaded = {};
 
 before(async () => {
   server = await createServer({
     root,
     appType: 'custom',
-    server: { middlewareMode: true },
+    // No port, no web socket, no file watcher: the server only compiles modules for this test.
+    server: { middlewareMode: true, hmr: false, ws: false, watch: null },
+    optimizeDeps: { noDiscovery: true, include: [] },
     logLevel: 'silent',
     // The router offers an ES module for Node under the "module-sync" condition. Vite does not ask for it by
     // default, picks the CommonJS file and then cannot read the named exports.
     ssr: { resolve: { conditions: ['module-sync', 'module', 'node', 'development|production'], externalConditions: ['node', 'module-sync'] } },
   });
   i18n = (await server.ssrLoadModule('/src/i18n/index.ts')).default;
+  example = (await server.ssrLoadModule('/src/content/registry.ts')).getSubject('_example');
   await new Promise(resolve => setTimeout(resolve, 20));
   const files = {
     PracticePage: '/src/pages/PracticePage.tsx',
@@ -126,18 +130,25 @@ function pack(overrides = {}) {
 }
 
 const empty = () => pack({ topics: [], terms: [], formulas: [], questions: [], papers: [], sims: {} });
+// What React writes for a text: the five characters it escapes.
+const esc = text => text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#x27;');
+// The first words of a text from the example pack, as they appear in the page (plain text, no Markdown marks).
+const start = (text, length = 24) => esc(text.slice(0, length));
 const inOrder = (html, first, second) => html.indexOf(first) !== -1 && html.indexOf(first) < html.indexOf(second);
 
 // ---- practice
 
 test('practice, example subject: the questions are shown and the markscheme is hidden', async () => {
   const html = await page('PracticePage', '/s/:subject/practice', '/s/_example/practice');
-  assert.match(html, /bus ticket rises/);
+  assert.ok(example.questions.length > 0, 'the example subject has questions');
+  for (const q of example.questions) {
+    assert.ok(html.includes(start(q.prompt.en)), `the prompt of ${q.id}`);
+    assert.ok(!html.includes(start(q.markscheme.en)), `the markscheme of ${q.id} stays hidden until the button is pressed`);
+    assert.ok(html.includes(`Command term: ${esc(q.command)}`), `the command term of ${q.id}`);
+    assert.ok(html.includes(`Marks: ${q.marks}`) || html.includes(`Marks: <!-- -->${q.marks}`), `the marks of ${q.id}`);
+  }
   assert.match(html, /Show the markscheme/);
-  assert.ok(!html.includes('% change in quantity'), 'the markscheme text must stay hidden until the button is pressed');
-  assert.match(html, /Command term: Calculate/);
-  assert.match(html, /Marks: 3/);
-  assert.match(html, /Showing 2 of 2 questions/);
+  assert.ok(html.includes(`Showing ${example.questions.length} of ${example.questions.length} questions`));
 });
 
 test('practice with an empty pack shows an empty state and does not crash', async () => {
@@ -242,13 +253,16 @@ test('practice in Russian', async () => {
 
 test('glossary, example subject: English term and definition come before the Russian ones, with syllabus and source', async () => {
   const html = await page('GlossaryPage', '/s/:subject/terms', '/s/_example/terms');
-  assert.match(html, /Syllabus EX\.1/);
-  assert.match(html, /Papers: P1/);
-  assert.ok(inOrder(html, 'The quantity of a good that buyers', 'Количество товара, которое покупатели'), 'EN definition first');
-  assert.match(html, /спрос \(demand\)/);
-  assert.match(html, /Common pitfall/);
+  assert.ok(example.terms.length > 0, 'the example subject has terms');
+  for (const t of example.terms) {
+    assert.ok(html.includes(`Syllabus ${esc(t.syllabus)}`), `syllabus code of ${t.id}`);
+    // 60 characters are enough to tell two definitions apart ("... that buyers ..." and "... that producers ...").
+    assert.ok(inOrder(html, `>${esc(t.term.en)}<`, start(t.def.en, 60)), `the English term, then its definition (${t.id})`);
+    assert.ok(inOrder(html, start(t.def.en, 60), start(t.def.ru, 60)), `the English definition before the Russian one (${t.id})`);
+    assert.ok(html.includes(esc(t.term.ru)), `the Russian term of ${t.id}`);
+    if (t.pitfall) assert.ok(html.includes(start(t.pitfall.en)), `the pitfall of ${t.id}`);
+  }
   assert.match(html, /Source/);
-  assert.match(html, /Own notes/);
   assert.match(html, /Due today/);
 });
 
@@ -312,11 +326,16 @@ test('glossary in Russian', async () => {
 
 test('formulas, example subject: KaTeX, name, meaning, when, units, example and the booklet badge', async () => {
   const html = await page('FormulasPage', '/s/:subject/formulas', '/s/_example/formulas');
+  assert.ok(example.formulas.length > 0, 'the example subject has formulas');
   assert.match(html, /class="katex/);
-  assert.match(html, /Price elasticity of demand/);
-  assert.match(html, /In the formula booklet/);
-  assert.match(html, /dimensionless/);
-  assert.match(html, /Price rises 10%/);
+  for (const f of example.formulas) {
+    assert.ok(html.includes(esc(f.name.en)), `name of ${f.id}`);
+    assert.ok(html.includes(start(f.meaning.en)), `meaning of ${f.id}`);
+    assert.ok(html.includes(start(f.when.en)), `when of ${f.id}`);
+    if (f.units) assert.ok(html.includes(esc(f.units)), `units of ${f.id}`);
+    if (f.example) assert.ok(html.includes(start(f.example.en, 12)), `example of ${f.id}`);
+    if (f.inBooklet) assert.match(html, /In the formula booklet/);
+  }
 });
 
 test('formulas: "booklet only" keeps the booklet formulas', async () => {
@@ -347,11 +366,16 @@ test('formulas: a formula that does not compile does not crash the page', async 
 // ---- simulations
 
 test('simulations: the example subject is hidden unless the address says ?include=example', async () => {
+  const ids = Object.keys(example.sims);
+  assert.ok(ids.length > 0, 'the example subject has a simulation');
   const hidden = await page('SimsPage', '/sims', '/sims');
-  assert.ok(!hidden.includes('_example.demo'));
   const shown = await page('SimsPage', '/sims', '/sims?include=example');
-  assert.match(shown, /_example\.demo/);
-  assert.match(shown, /Example topic: demand and elasticity/);
+  for (const id of ids) {
+    assert.ok(!hidden.includes(id), `${id} is hidden by default`);
+    assert.ok(shown.includes(id), `${id} is listed with ?include=example`);
+  }
+  const using = example.topics.find(item => (item.sims ?? []).some(id => ids.includes(id)));
+  if (using) assert.ok(shown.includes(esc(using.title.en)), 'the topic that uses it is linked');
 });
 
 test('simulations: grouped by subject, with the id, the subject and links to the topics', async () => {

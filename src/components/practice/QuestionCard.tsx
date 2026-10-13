@@ -75,7 +75,7 @@ export const QuestionCard = memo(function QuestionCard({ question, index, lang, 
 
       {question.stimulus ? (
         <div className="study-q__stimulus">
-          <p className="study-q__label">{t('q.stimulus')}</p>
+          <p className="study-label">{t('q.stimulus')}</p>
           <RichText className="study-rich" text={pickText(question.stimulus, lang)} />
         </div>
       ) : null}
@@ -107,17 +107,17 @@ export const QuestionCard = memo(function QuestionCard({ question, index, lang, 
       {open ? (
         <div id={panelId} className="study-q__answer">
           <div>
-            <p className="study-q__label">{t('q.markscheme')}</p>
+            <p className="study-label">{t('q.markscheme')}</p>
             <RichText className="study-rich" text={pickText(question.markscheme, lang)} />
           </div>
           {question.model ? (
             <div>
-              <p className="study-q__label">{t('q.model')}</p>
+              <p className="study-label">{t('q.model')}</p>
               <RichText className="study-rich" text={pickText(question.model, lang)} />
             </div>
           ) : null}
           <div>
-            <p id={rateId} className="study-q__label">{t('q.rate')}</p>
+            <p id={rateId} className="study-label">{t('q.rate')}</p>
             <div role="group" aria-labelledby={rateId} className="foma-btn-row">
               {RATINGS.map(({ rating: value, Icon }) => (
                 <button key={value} type="button" className="foma-btn" aria-pressed={rating === value} onClick={() => rate(value)}>

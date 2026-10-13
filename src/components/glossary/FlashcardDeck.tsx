@@ -171,7 +171,7 @@ export function FlashcardDeck({ subject, terms, progress, today, lang, nextDue, 
 
         {revealed ? (
           <div ref={answersBox} tabIndex={-1} className="gl-card__answers">
-            <p id={answerLabelId} className="study-q__label">{t('cards.answerHeading')}</p>
+            <p id={answerLabelId} className="study-label">{t('cards.answerHeading')}</p>
             <div role="group" aria-labelledby={answerLabelId} className="foma-btn-row">
               {ANSWERS.map((value, index) => {
                 const Icon = ICONS[value];

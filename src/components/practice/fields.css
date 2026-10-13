@@ -20,6 +20,24 @@
   line-height: 1.3;
 }
 
+/* A block of the page under the previous one. Two classes, so it wins over `.study-banner { margin: 0 }`
+   whatever the order of the style files. */
+.study-page .study-section {
+  margin-top: 1.75rem;
+}
+
+/* The small capitals label above a block: "Markscheme", "How well did you know it?". */
+.study-label {
+  margin: 0 0 0.25rem;
+  color: var(--color-muted);
+  font-family: var(--font-ui);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
 .study-muted {
   margin: 0;
   color: var(--color-muted);

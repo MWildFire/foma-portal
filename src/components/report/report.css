@@ -18,7 +18,7 @@
 }
 
 /* The text is monospace and wraps inside the box, so the page never scrolls sideways. */
-.rp-text {
+.study-input.rp-text {
   min-height: 12rem;
   font-family: 'JetBrains Mono', ui-monospace, monospace;
   font-size: 0.875rem;
