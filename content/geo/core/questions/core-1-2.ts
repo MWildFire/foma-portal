@@ -14,8 +14,8 @@ export const questions: Question[] = [
     marks: 2,
     command: 'Calculate',
     prompt: {
-      en: 'Lagos had 7,909,000 people in 2000 and 12,792,000 people in 2025 (UN DESA, World Urbanization Prospects 2025, Annex Table A4). Calculate the percentage increase in the population of Lagos from 2000 to 2025. Give your answer to one decimal place.',
-      ru: 'В 2000 году в Лагосе жило 7 909 000 человек, а в 2025 году — 12 792 000 (UN DESA, World Urbanization Prospects 2025, таблица A4 приложения). Рассчитайте процентный рост населения Лагоса с 2000 по 2025 год. Ответ дайте с одним знаком после запятой.',
+      en: 'Lagos had 7,909,000 people in 2000 and 12,792,000 people in 2025 (UN DESA, World Cities in 2025, annex table 3). Calculate the percentage increase in the population of Lagos from 2000 to 2025. Give your answer to one decimal place.',
+      ru: 'В 2000 году в Лагосе жило 7 909 000 человек, а в 2025 году — 12 792 000 (UN DESA, World Cities in 2025, таблица 3 приложения). Рассчитайте процентный рост населения Лагоса с 2000 по 2025 год. Ответ дайте с одним знаком после запятой.',
     },
     markscheme: {
       en: '1 mark: increase = 12,792,000 − 7,909,000 = 4,883,000; 1 mark: (4,883,000 ÷ 7,909,000) × 100 = 61.7% (61.74% also accepted). Using the rounded figures 12.8 and 7.9 million gives 62.0%, which scores 1 mark only.',

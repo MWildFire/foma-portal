@@ -1,8 +1,8 @@
 import type { CaseStudy } from '../../../../src/contract/types';
 
 // Core 1.2 cases. Every figure below was read from the source named in the text (checked in this session):
-// Lagos from UN DESA WUP 2025 Annex Table A4; Dubai and the UAE from dubai.ae, UN DESA International Migrant
-// Stock 2024 and a Gulf News report of FCSC data; Shenzhen from the Shenzhen Municipal Government census bulletins.
+// Lagos from UN DESA World Cities in 2025 (data booklet, annex table 3); Dubai and the UAE from dubai.ae, UN DESA International Migrant
+// Stock 2024; Shenzhen from the Shenzhen Municipal Government census bulletins.
 const TOPIC = ['core-1-2-changing-populations'];
 
 export const cases: CaseStudy[] = [
@@ -16,15 +16,15 @@ export const cases: CaseStudy[] = [
     lat: 6.5244,
     lng: 3.3792,
     facts: {
-      en: 'UN DESA (2025), World Urbanization Prospects 2025, Annex Table A4: Lagos had 7.9 million people in 2000 and 12.8 million in 2025, an average annual rate of change of 1.92% over 2000–2025. The UN projects 16.2 million by 2050. In 2025 Lagos ranked 26th among the world’s cities and was one of 33 megacities. These figures use the UN city definition, which covers a different area from Lagos State.',
-      ru: 'UN DESA (2025), World Urbanization Prospects 2025, таблица A4 приложения: в Лагосе жило 7,9 млн человек в 2000 году и 12,8 млн в 2025 году; среднегодовой темп изменения численности за 2000–2025 годы составил 1,92%. ООН прогнозирует 16,2 млн человек к 2050 году. В 2025 году Лагос занимал 26-е место среди городов мира и был одним из 33 мегаполисов. Цифры рассчитаны по определению ООН для города; его территория отличается от штата Лагос.',
+      en: 'UN DESA (2025), World Cities in 2025 (data booklet), annex table 3: Lagos had 7.9 million people in 2000 and 12.8 million in 2025, an average annual rate of change of 1.92% over 2000–2025. The UN projects 16.2 million by 2050. In 2025 Lagos ranked 26th among the world’s cities and was one of 33 megacities. These figures use the UN city definition, which covers a different area from Lagos State.',
+      ru: 'UN DESA (2025), World Cities in 2025 (data booklet), таблица 3 приложения: в Лагосе жило 7,9 млн человек в 2000 году и 12,8 млн в 2025 году; среднегодовой темп изменения численности за 2000–2025 годы составил 1,92%. ООН прогнозирует 16,2 млн человек к 2050 году. В 2025 году Лагос занимал 26-е место среди городов мира и был одним из 33 мегаполисов. Цифры рассчитаны по определению ООН для города; его территория отличается от штата Лагос.',
     },
     usedFor: TOPIC,
     src: [
       {
         kind: 'web',
-        title: 'UN DESA Population Division, World Urbanization Prospects: The 2025 Revision, Summary of Results (2025), Annex Table A4 (p. 121)',
-        url: 'https://desapublications.un.org/publications/world-urbanization-prospects-2025-summary-results',
+        title: 'UN DESA Population Division, World Cities in 2025: data booklet (2025), annex table 3 (p. 30)',
+        url: 'https://www.un.org/development/desa/pd/sites/www.un.org.development.desa.pd/files/undesa_pd_2025_data-booklet_world_cities_in_2025.pdf',
       },
     ],
   },
@@ -38,8 +38,8 @@ export const cases: CaseStudy[] = [
     lat: 25.2048,
     lng: 55.2708,
     facts: {
-      en: 'Dubai Statistics Center (dubai.ae): Dubai had 3,863,600 residents at the end of 2024. UN DESA (International Migrant Stock 2024, Tables 1 and 3): the UAE had 8,157,000 international migrants in 2024, which is 74.0% of its population; 5,491,000 of these migrants were men, about two-thirds. The migrant share counts residents born abroad, not citizenship. In 2024 men were 64% of the UAE’s residents (FCSC, as reported by Gulf News in September 2025).',
-      ru: 'Статистический центр Дубая (dubai.ae): на конец 2024 года в Дубае было 3 863 600 жителей. UN DESA (International Migrant Stock 2024, таблицы 1 и 3): в 2024 году в ОАЭ было 8 157 000 международных мигрантов, то есть 74,0% населения; из них 5 491 000 были мужчинами, около двух третей. Доля мигрантов считает жителей, родившихся за границей, а не граждан. В 2024 году мужчины составляли 64% жителей ОАЭ (FCSC по данным Gulf News, сентябрь 2025 года).',
+      en: 'Dubai Statistics Center (dubai.ae): Dubai had 3,863,600 residents at the end of 2024. UN DESA (International Migrant Stock 2024, Tables 1 and 3): the UAE had 8,157,000 international migrants in 2024, which is 74.0% of its population; 5,491,000 of these migrants were men, about two-thirds. The UN counts a person as a migrant by country of birth where that is known, and by citizenship otherwise (UN DESA, IMS 2024 methodology). In 2024 men were about 64% of the UAE’s population (7.05 of 11.03 million; UN DESA, IMS 2024, Table 2).',
+      ru: 'Статистический центр Дубая (dubai.ae): на конец 2024 года в Дубае было 3 863 600 жителей. UN DESA (International Migrant Stock 2024, таблицы 1 и 3): в 2024 году в ОАЭ было 8 157 000 международных мигрантов, то есть 74,0% населения; из них 5 491 000 были мужчинами, около двух третей. ООН относит человека к мигрантам по стране рождения, если она известна, и по гражданству в остальных случаях (UN DESA, IMS 2024, методология). В 2024 году мужчины составляли около 64% населения ОАЭ (7,05 из 11,03 млн; UN DESA, IMS 2024, таблица 2).',
     },
     usedFor: TOPIC,
     src: [
@@ -52,11 +52,6 @@ export const cases: CaseStudy[] = [
         kind: 'web',
         title: 'UN DESA Population Division, International Migrant Stock 2024 (file undesa_pd_2024_ims_stock_by_sex_and_destination.xlsx, Tables 1 and 3)',
         url: 'https://www.un.org/development/desa/pd/node/3315',
-      },
-      {
-        kind: 'web',
-        title: 'Gulf News, "UAE population hits 11.3 million in 2024" (FCSC data), 8 September 2025',
-        url: 'https://gulfnews.com/uae/government/uae-population-hits-113-million-in-2024-1.500261527',
       },
     ],
   },

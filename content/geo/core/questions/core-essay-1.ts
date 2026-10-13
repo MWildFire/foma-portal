@@ -199,7 +199,7 @@ The demographic transition model describes a useful general pattern: death rates
       en: `**Plan**
 
 1. Thesis: push factors explain why people leave rural areas, but pull factors largely decide where they go, so the balance depends on the stage of the economy.
-2. Point 1 (push): land shortage and low farm incomes. Scale: the UN projects that Nigeria will add 189 million urban dwellers between 2018 and 2050 (UN DESA).
+2. Point 1 (push): land shortage and low farm incomes. Scale: the UN projects that Nigeria’s cities and towns will grow from 165 million people in 2018 to 307 million in 2050, an increase of about 142 million (UN DESA, World Cities in 2025, WUP 2025 data).
 3. Point 2 (pull): jobs attract migrants. Shenzhen, a special economic zone, had 17.56 million residents at the 2020 census (Shenzhen government).
 4. Point 3 (counter-evidence): natural increase adds people to existing cities, so migration is not the only cause of urban growth.
 5. Judgement: push factors matter more for leaving in poorer economies; pull factors matter more for the destination where urban jobs grow fast.
@@ -210,7 +210,7 @@ Push factors explain why many people leave rural areas, but pull factors largely
       ru: `**План**
 
 1. Тезис: факторы выталкивания объясняют, почему люди уезжают из сельской местности, но факторы притяжения в основном определяют, куда они едут, поэтому баланс зависит от стадии развития экономики.
-2. Пункт 1 (выталкивание): нехватка земли и низкие доходы от сельского хозяйства. Масштаб: ООН прогнозирует, что Нигерия добавит 189 млн городских жителей в 2018–2050 годах (UN DESA).
+2. Пункт 1 (выталкивание): нехватка земли и низкие доходы от сельского хозяйства. Масштаб: ООН прогнозирует, что города и малые города Нигерии вырастут с 165 млн человек в 2018 году до 307 млн в 2050 году, то есть примерно на 142 млн (UN DESA, World Cities in 2025, данные WUP 2025).
 3. Пункт 2 (притяжение): работа привлекает мигрантов. Шэньчжэнь, особая экономическая зона, по переписи 2020 года его население составило 17,56 млн жителей (правительство Шэньчжэня).
 4. Пункт 3 (контрпример): естественный прирост добавляет людей в уже существующие города, поэтому миграция — не единственная причина роста городов.
 5. Суждение: факторы выталкивания важнее для решения уехать в более бедных экономиках; факторы притяжения важнее для выбора места там, где городская работа быстро растёт.
