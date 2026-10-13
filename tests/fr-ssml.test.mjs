@@ -5,7 +5,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
-import { TURN_END_PAUSE, VOICES, trackSsml, turnToSsml, xmlEscape } from './fr-ssml.mjs';
+import { TURN_END_PAUSE, VOICES, trackSsml, turnToSsml, xmlEscape } from '../scripts/fr-ssml.mjs';
 import { track as l1 } from '../content/fr/listening/l1-racines.ts';
 
 const END = `<break time="${TURN_END_PAUSE}"/></speak>`;
