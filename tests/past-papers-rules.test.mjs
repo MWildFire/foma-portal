@@ -74,6 +74,12 @@ test('a session must look like M24 or N23, and a level must be SL, HL or SLHL', 
   assert.ok(errorsOf(run([{ ...VALID, level: 'AI' }])).some(message => message.includes('level must be')));
 });
 
+test('a specimen paper uses the session code SPEC and two digits, and nothing else passes as a specimen', () => {
+  assert.deepEqual(errorsOf(run([{ ...VALID, session: 'SPEC27' }])), []);
+  assert.ok(errorsOf(run([{ ...VALID, session: 'SPEC' }])).some(message => message.includes('session must look like')));
+  assert.ok(errorsOf(run([{ ...VALID, session: 'SPEC2027' }])).some(message => message.includes('session must look like')));
+});
+
 test('a past paper belongs to the folder it is in', () => {
   assert.ok(errorsOf(run([{ ...VALID, subject: 'math' }])).some(message => message.includes('folder is "geo"')));
 });

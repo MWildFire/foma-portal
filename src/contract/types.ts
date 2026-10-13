@@ -54,7 +54,7 @@ export interface PaperGuide {
 export interface PastPaperRef {
   id: string;                    // 'geo-p2-m24-tz1'
   subject: SubjectId; paper: PaperId; part?: string;  // part: 'reading' | 'listening' | 'option-G'
-  session: string;               // 'M24' | 'N23'
+  session: string;               // 'M24' | 'N23' | 'SPEC27' (specimen paper, not a past session)
   level: 'SL' | 'HL' | 'SLHL'; tz?: string;
   files: { kind: 'questions' | 'resources' | 'markscheme' | 'audio'; url: string }[];   // url: https://ibdocs.re/... only
   minutes: number;               // time printed on the paper cover for that session (sections carry their own); +25% is added by the portal

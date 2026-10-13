@@ -13,7 +13,7 @@ const LEVELS = ['SL', 'HL', 'SLHL'];
 const FILE_KINDS = ['questions', 'resources', 'markscheme', 'audio'];
 const LINK_PREFIX = 'https://ibdocs.re/';
 const ID_PATTERN = /^[a-z0-9]+(-[a-z0-9]+)*$/;   // kebab-case, for example geo-p2-m24-tz1
-const SESSION_PATTERN = /^[MN]\d{2}$/;           // May or November session with a two-digit year: M24, N23
+const SESSION_PATTERN = /^(?:[MN]\d{2}|SPEC\d{2})$/;   // May or November session with a two-digit year: M24, N23; specimen paper: SPEC27
 
 const isPositiveInteger = (value: unknown): boolean => Number.isInteger(value) && (value as number) > 0;
 const MINUTES_RANGE = [5, 240];   // a paper, or a section of one, lasts between these
@@ -35,7 +35,7 @@ export function checkPastPapers(r: Report, ctx: DataCtx): void {
     if (ref.subject !== subject) fail(`subject is ${JSON.stringify(ref.subject)}, but the folder is "${subject}"`);
     if (PAPERS.indexOf(textOf(ref.paper)) === -1) fail(`paper must be P1, P2 or P3 (got ${JSON.stringify(ref.paper)})`);
     if (LEVELS.indexOf(textOf(ref.level)) === -1) fail(`level must be SL, HL or SLHL (got ${JSON.stringify(ref.level)})`);
-    if (!SESSION_PATTERN.test(textOf(ref.session))) fail(`session must look like M24 or N23 (got ${JSON.stringify(ref.session)})`);
+    if (!SESSION_PATTERN.test(textOf(ref.session))) fail(`session must look like M24, N23 or SPEC27 (got ${JSON.stringify(ref.session)})`);
     if (!isPositiveInteger(ref.marks)) fail(`marks must be a whole number above 0 (got ${JSON.stringify(ref.marks)})`);
 
     const minutes = ref.minutes;
