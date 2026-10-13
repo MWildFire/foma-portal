@@ -522,7 +522,11 @@ async function testTimer(page, sim, rec, lang) {
   await page.waitForTimeout(1500);
   must(rec, (await read()) === paused, 'timer: keeps running after Pause');
   await sim.getByRole('button', { name: new RegExp(`^${L.stage} 2:`) }).click();
-  must(rec, (await read()) === '80:00', `timer: stage 2 shows ${await read()}, expected 80:00`);
+  // The sitting follows the access setting (105 without extra time, 131 with it): writing gets the rest after
+  // 10 to plan, 10 to check and 5 spare (src/sims/eng/p2-timer.tsx). Take the total the sim shows, in EN or RU.
+  const total = Number(((await sim.innerText()).match(/(?:Total|Всего):?\s*(\d+)/) ?? [])[1] ?? 105);
+  const writing = `${String(total - 25).padStart(2, '0')}:00`;
+  must(rec, (await read()) === writing, `timer: stage 2 shows ${await read()}, expected ${writing} for a ${total}-minute sitting`);
   await sim.getByRole('button', { name: L.next, exact: true }).click();
   must(rec, (await read()) === '10:00', `timer: "Next stage" shows ${await read()}, expected 10:00 for stage 3`);
   must(
