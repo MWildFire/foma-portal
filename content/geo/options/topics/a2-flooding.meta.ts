@@ -65,6 +65,7 @@ const topic: TopicMeta = {
     { kind: 'thinkib', title: 'ThinkIB, Option A: Floods and Flood Mitigation (page 43867)', locator: 'Flood Mitigation Strategies; Flood Prediction; Hydrographs and Floods' },
   ],
   links: [
+    { title: 'ThinkIB eBook, Option A: Floods and Flood Mitigation (page 43867)', url: 'https://student.thinkib.net/geography/' },
     { title: 'ThinkIB task: Flood Mitigation Strategies, reading (18 Sep 2026)', url: 'https://student.thinkib.net/geography/task/1335192/flood-mitigation-strategies' },
     { title: 'ThinkIB task: Flood Mitigation Strategies (21 Sep 2026)', url: 'https://student.thinkib.net/geography/task/1336856/flood-mitigation-strategies' },
   ],

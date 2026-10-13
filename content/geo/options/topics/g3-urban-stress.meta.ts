@@ -63,6 +63,9 @@ const topic: TopicMeta = {
     { kind: 'ib-guide', title: 'Geography guide (2017), Option G: Urban environments', locator: 'G.3' },
     { kind: 'thinkib', title: 'ThinkIB, Option G: Urban Environments (pages 37520, 37586, 37591)', locator: 'Urban Environmental and Social Stress; Urban Micro-climates; Managing Urban Social Deprivation and Crime' },
   ],
+  links: [
+    { title: 'ThinkIB eBook, Option G: Urban Environments (pages 37520, 37586, 37591)', url: 'https://student.thinkib.net/geography/' },
+  ],
 };
 
 export default topic;

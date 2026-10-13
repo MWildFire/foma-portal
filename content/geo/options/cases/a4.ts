@@ -153,4 +153,26 @@ export const cases: CaseStudy[] = [
       },
     ],
   },
+  {
+    id: 'a-ogallala-aquifer',
+    subject: 'geo',
+    title: { en: 'High Plains (Ogallala) aquifer: a groundwater store that is being drawn down', ru: 'Высокие равнины (Огаллала): запасы подземной воды, которые сокращаются' },
+    place: 'High Plains (Ogallala) aquifer, USA: parts of eight states',
+    scale: 'regional',
+    years: '1950–2015',
+    lat: 39.0,
+    lng: -101.5,
+    facts: {
+      en: 'The High Plains aquifer underlies 111.8 million acres (about 175,000 square miles) in parts of eight states: Colorado, Kansas, Nebraska, New Mexico, Oklahoma, South Dakota, Texas and Wyoming. Water-level declines began soon after substantial irrigation with groundwater started, about 1950. By 2015 the area-weighted average water level had fallen by 15.8 feet since predevelopment (about 1950), while individual wells ranged from a rise of 84 feet to a decline of 234 feet. Recoverable water in storage was about 2.91 billion acre-feet in 2015: a loss of about 273.2 million acre-feet since predevelopment, including 10.7 million acre-feet between 2013 and 2015 (USGS, 2017).',
+      ru: 'Водоносный горизонт High Plains залегает под 111,8 млн акров (около 175 000 квадратных миль) в восьми штатах: Колорадо, Канзас, Небраска, Нью-Мексико, Оклахома, Южная Дакота, Техас и Вайоминг. Падение уровня воды началось вскоре после того, как около 1950 года начали широко использовать подземную воду для орошения. К 2015 году средний по площади уровень воды понизился на 15,8 фута по сравнению с уровнем до массового использования (около 1950 года), а по отдельным скважинам изменения шли от подъёма на 84 фута до падения на 234 фута. Запасы извлекаемой воды составляли около 2,91 млрд акр-футов в 2015 году: потеря около 273,2 млн акр-футов с 1950 года, в том числе 10,7 млн акр-футов за 2013–2015 годы (USGS, 2017).',
+    },
+    usedFor: ['a4-water-management'],
+    src: [
+      {
+        kind: 'web',
+        title: 'USGS Scientific Investigations Report 2017–5040 (McGuire, 2017): Water-level and recoverable water in storage changes, High Plains aquifer, predevelopment to 2015 and 2013–15',
+        url: 'https://pubs.usgs.gov/publication/sir20175040',
+      },
+    ],
+  },
 ];

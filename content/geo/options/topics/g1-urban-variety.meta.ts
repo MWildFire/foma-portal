@@ -57,6 +57,9 @@ const topic: TopicMeta = {
     { kind: 'ib-guide', title: 'Geography guide (2017), Option G: Urban environments', locator: 'G.1' },
     { kind: 'thinkib', title: 'ThinkIB, Option G: Urban Environments (pages 37517, 37523, 37524)', locator: 'The Variety of Urban Environments; The Characteristics of Urban Places; Economic Activity in Urban Places' },
   ],
+  links: [
+    { title: 'ThinkIB eBook, Option G: Urban Environments (pages 37517, 37523, 37524)', url: 'https://student.thinkib.net/geography/' },
+  ],
 };
 
 export default topic;

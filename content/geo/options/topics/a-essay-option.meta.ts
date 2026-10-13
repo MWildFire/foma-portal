@@ -46,6 +46,9 @@ const topic: TopicMeta = {
   caseIds: ['a-boscastle-flash-2004', 'a-netherlands-room-river', 'a-pakistan-floods-2022', 'a-toledo-2014'],
   sims: [],
   sources: [{ kind: 'ib-guide', title: 'Geography guide (2017), Option A: Freshwater', locator: 'A-essay' }],
+  links: [
+    { title: 'ThinkIB, Understanding Assessment: Paper 1 (page 24167)', url: 'https://student.thinkib.net/geography/' },
+  ],
 };
 
 export default topic;

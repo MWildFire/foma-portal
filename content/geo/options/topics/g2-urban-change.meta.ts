@@ -62,6 +62,9 @@ const topic: TopicMeta = {
     { kind: 'ib-guide', title: 'Geography guide (2017), Option G: Urban environments', locator: 'G.2' },
     { kind: 'thinkib', title: 'ThinkIB, Option G: Urban Environments (pages 37518, 37556, 37580)', locator: 'Changing Urban Systems; Urbanization; Urban System Growth and Lagos' },
   ],
+  links: [
+    { title: 'ThinkIB eBook, Option G: Urban Environments (pages 37518, 37556, 37580)', url: 'https://student.thinkib.net/geography/' },
+  ],
 };
 
 export default topic;

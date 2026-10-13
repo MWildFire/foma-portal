@@ -3,7 +3,7 @@ import type { Term } from '../../../../src/contract/types';
 // Option A, A.3: definitions in our own words, aligned with the key elements of the programme (guide 2017).
 // Examples carry a figure only when it was checked: WHO fact sheets (2022, 2023) and the WHO 4th edition with addenda,
 // SAnews (24 January 2018), Ohio EPA presentation (27 April 2016), NERC Open Research Archive (BGS and DPHE, 2001).
-const SRC = { kind: 'ib-guide' as const, title: 'Geography guide (2017), Option A: Freshwater', locator: 'A.3' };
+const SRC = { kind: 'thinkib' as const, title: 'ThinkIB, Option A: Water Scarcity and Water Quality (page 44021)', locator: 'Water Scarcity; Conflicts and Resolutions in the Mekong River Basin; Environmental Consequences of Agriculture' };
 
 export const terms: Term[] = [
   {

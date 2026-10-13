@@ -1,8 +1,8 @@
 import type { Term } from '../../../../src/contract/types';
 
 // Option G, G.1: definitions in our own words, aligned with the key elements of the programme (guide 2017).
-// Page-level locators are added once the textbook pages are checked in ops/sources.
-const SRC = { kind: 'ib-guide' as const, title: 'Geography guide (2017), Option G: Urban environments', locator: 'G.1' };
+// Locators point to the ThinkIB eBook section of this unit (section level; page locators come from the S1 map).
+const SRC = { kind: 'thinkib' as const, title: 'ThinkIB, Option G: Urban Environments (pages 37517, 37523, 37524)', locator: 'The Variety of Urban Environments; The Characteristics of Urban Places; Economic Activity in Urban Places' };
 const SIM = 'geo.opt-g-models' as const;
 
 export const terms: Term[] = [

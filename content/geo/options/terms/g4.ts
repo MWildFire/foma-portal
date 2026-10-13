@@ -1,7 +1,7 @@
 import type { SourceRef, Term } from '../../../../src/contract/types';
 
-// Terms of Option G.4. Definitions are our own wording of the G.4 content; the source is the IB guide, no textbook locator yet.
-const SRC: SourceRef = { kind: 'ib-guide', title: 'Geography guide (2017), Option G: Urban environments', locator: 'G.4' };
+// Terms of Option G.4. Definitions are our own wording of the G.4 content; the source is the ThinkIB eBook section (section level).
+const SRC: SourceRef = { kind: 'thinkib', title: 'ThinkIB, Option G: Urban Environments (pages 37521, 37639, 37641, 37654, 37666)', locator: 'Sustainable Urban Systems; Urban Growth; Resilient Cities; Ecocity Design and Environmental Strategies; Smart Cities' };
 
 export const terms: Term[] = [
   {

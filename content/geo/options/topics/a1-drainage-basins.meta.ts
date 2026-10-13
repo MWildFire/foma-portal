@@ -70,7 +70,9 @@ const topic: TopicMeta = {
     { kind: 'ib-guide', title: 'Geography guide (2017), Option A: Freshwater', locator: 'A.1' },
     { kind: 'thinkib', title: 'ThinkIB, Option A: Drainage Basin Hydrology and Geomorphology (page 43412)', locator: 'The Water Budget; River Processes; Upper, Middle and Lower Course Landforms' },
   ],
-  links: [],
+  links: [
+    { title: 'ThinkIB eBook, Option A: Drainage Basin Hydrology and Geomorphology (page 43412)', url: 'https://student.thinkib.net/geography/' },
+  ],
 };
 
 export default topic;

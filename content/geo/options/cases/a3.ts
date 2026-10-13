@@ -84,4 +84,26 @@ export const cases: CaseStudy[] = [
       },
     ],
   },
+  {
+    id: 'a-aral-sea',
+    subject: 'geo',
+    title: { en: 'Aral Sea: a lake that lost most of its water in half a century', ru: 'Аральское море: озеро, которое за полвека потеряло большую часть воды' },
+    place: 'Aral Sea, Central Asia (Kazakhstan and Uzbekistan)',
+    scale: 'regional',
+    years: '1960–2020s',
+    lat: 45.0,
+    lng: 59.0,
+    facts: {
+      en: 'According to UNDP, the Aral Sea, once the world’s fourth-largest inland lake, has lost around 90% of its water volume and 75% of its surface area over the past half century. UNDP links the decline to the unsustainable use of the lake’s natural resources. The exposed seabed causes soil salinity, dust and salt storms, lower agricultural productivity and water insecurity across the region. Uzbekistan has made strengthening resilience in the Priaralie (the Aral Sea coastal zone) a national priority.',
+      ru: 'По данным ПРООН (UNDP), Аральское море, некогда четвёртое по величине бессточное озеро в мире, за последние полвека потеряло около 90% объёма воды и 75% площади. ПРООН связывает сокращение с неустойчивым использованием природных ресурсов озера. Обнажившееся дно вызывает засоление почв, пыльные и солевые бури, снижение продуктивности сельского хозяйства и нехватку воды в регионе. Узбекистан сделал укрепление устойчивости Приаралья (прибрежной зоны Аральского моря) национальным приоритетом.',
+    },
+    usedFor: ['a3-water-scarcity'],
+    src: [
+      {
+        kind: 'web',
+        title: 'UNDP Climate Promise: How landlocked countries are prioritizing water in their adaptation planning (Uzbekistan section; the 90% and 75% figures link to a ScienceAlert article)',
+        url: 'https://climatepromise.undp.org/news-and-stories/how-landlocked-countries-are-prioritizing-water-their-adaptation-planning',
+      },
+    ],
+  },
 ];

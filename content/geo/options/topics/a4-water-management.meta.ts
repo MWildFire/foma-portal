@@ -65,12 +65,14 @@ const topic: TopicMeta = {
   ],
   sims: ['geo.opt-a-dams'],
   questionIds: ['a4-sq1', 'a4-sq2', 'a4-sq3', 'a4-eq1', 'a4-eq2'],
-  caseIds: ['a-uae-desalination', 'a-singapore-four-taps', 'a-gerd-nile', 'a-indus-treaty', 'a-snwtp-china'],
+  caseIds: ['a-uae-desalination', 'a-singapore-four-taps', 'a-gerd-nile', 'a-indus-treaty', 'a-snwtp-china', 'a-ogallala-aquifer'],
   sources: [
     { kind: 'ib-guide', title: 'Geography guide (2017), Option A: Freshwater', locator: 'A.4' },
     { kind: 'thinkib', title: 'ThinkIB, Option A: Water Management Futures (section not yet checked)', locator: 'Water Management Futures' },
   ],
-  links: [],
+  links: [
+    { title: 'ThinkIB eBook, Option A: Water Management Futures (page ID not exported yet)', url: 'https://student.thinkib.net/geography/' },
+  ],
 };
 
 export default topic;
