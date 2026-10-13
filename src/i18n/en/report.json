@@ -1,0 +1,26 @@
+{
+  "title": "Report for your teacher",
+  "intro": "The report is built from your progress on this device. It has only counts and topic titles: no notes and no personal data. Copy it and send it to your teacher.",
+  "language": {
+    "label": "Report language",
+    "en": "English",
+    "ru": "Русский"
+  },
+  "field": "Report text",
+  "copy": "Copy the report",
+  "status": {
+    "copied": "Copied. Now paste it into a message.",
+    "selected": "Your browser blocked copying, so the text is selected. Press Ctrl+C (Cmd+C on a Mac), or hold the text and choose Copy."
+  },
+  "text": {
+    "heading": "Progress report",
+    "date": "Date: {{date}} (Asia/Dubai)",
+    "noMaterial": "No material in the portal for this subject yet.",
+    "topics": "Topics done: {{done}} of {{total}}",
+    "rag": "Confidence (RAG): red {{red}}, amber {{amber}}, green {{green}}, not rated {{unrated}}",
+    "questions": "Questions rated: {{rated}} of {{total}} (right {{right}}, partial {{partial}}, wrong {{wrong}})",
+    "cards": "Flashcards by box: box 1: {{b1}}, box 2: {{b2}}, box 3: {{b3}}, box 4: {{b4}}; not started: {{fresh}}",
+    "recent": "Latest topics done:",
+    "recentNone": "Latest topics done: none yet"
+  }
+}
