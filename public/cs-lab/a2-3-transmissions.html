@@ -307,7 +307,7 @@
   <!-- ============ SECTION 1: SYLLABUS MAP ============ -->
   <h2>1. Что входит в A2.3 (карта подтем)</h2>
 
-  <table class="summary-table">
+  <div class="table-scroll"><table class="summary-table">
     <thead>
       <tr>
         <th>Подтема</th>
@@ -332,7 +332,7 @@
         <td>Статическая и динамическая маршрутизация в LAN (протоколы RIP, OSPF, BGP; метрики; сходимость).</td>
       </tr>
     </tbody>
-  </table>
+  </table></div>
 
   <!-- ============ SECTION 2: IP ADDRESSING ============ -->
   <h2>2. IP-адресация (A2.3.1)</h2>
@@ -356,7 +356,7 @@
     Двух версий IP-адресов хватит для экзамена: <b>IPv4</b> (старый, заканчивается) и <b>IPv6</b> (новый, огромное пространство).
   </p>
 
-  <table class="summary-table">
+  <div class="table-scroll"><table class="summary-table">
     <thead>
       <tr>
         <th>Характеристика</th>
@@ -391,7 +391,7 @@
         <td>обязательная</td>
       </tr>
     </tbody>
-  </table>
+  </table></div>
 
   <div class="real-world">
     <b>Реальный пример.</b> IPv4 кончился ещё в 2011 году (последние блоки розданы IANA). Поэтому интернет-провайдеры массово используют <b>NAT</b> (см. ниже) и постепенно переходят на IPv6. В Индии и США уже более половины мобильного трафика идёт по IPv6.
@@ -420,7 +420,7 @@
     </div>
   </div>
 
-  <table class="summary-table compact">
+  <div class="table-scroll"><table class="summary-table compact">
     <thead>
       <tr>
         <th>Диапазон частных адресов</th>
@@ -445,7 +445,7 @@
         <td>Домашние и офисные Wi-Fi-сети; <span class="mono">192.168.1.1</span> — типовой адрес домашнего роутера</td>
       </tr>
     </tbody>
-  </table>
+  </table></div>
 
   <h3>🔁 2.3. Loopback-адрес 127.0.0.1</h3>
 
@@ -570,7 +570,7 @@
 
   <h3>📊 3.1. Сравнительная таблица сред</h3>
 
-  <table class="summary-table compact">
+  <div class="table-scroll"><table class="summary-table compact">
     <thead>
       <tr>
         <th>Фактор</th>
@@ -635,7 +635,7 @@
         <td>Самая уязвимая — нужно шифрование (WPA2/WPA3)</td>
       </tr>
     </tbody>
-  </table>
+  </table></div>
 
   <div class="ru-tip">
     💡 <b>На экзамене</b> часто спрашивают «сравни X и Y» или «обоснуй выбор среды для ...». Всегда отвечай через <b>три фактора минимум</b>: скорость / дальность / помехоустойчивость или цена / простота установки / надёжность.
@@ -705,7 +705,7 @@
     These four metrics describe link quality and are often confused. <b>Bandwidth</b> is the theoretical maximum data rate of a channel, measured in bits per second (Mbps, Gbps) — the "pipe diameter". <b>Throughput</b> is the actual rate of useful data delivered; it is always less than bandwidth because of overhead, congestion and protocol limits. <b>Latency</b> is the time, in milliseconds, taken for a single packet to travel from sender to receiver — what gamers call ping. <b>Jitter</b> measures the variation in latency between consecutive packets; high jitter causes audio and video to stutter even when average latency is low. Bulk file downloads care most about bandwidth and throughput, while real-time video calls and online games depend on low latency and low jitter.
   </div>
 
-  <table class="summary-table">
+  <div class="table-scroll"><table class="summary-table">
     <thead>
       <tr>
         <th>Термин</th>
@@ -740,7 +740,7 @@
         <td>Когда вода идёт «толчками», а не равномерно.</td>
       </tr>
     </tbody>
-  </table>
+  </table></div>
 
   <div class="real-world">
     <b>Почему это важно на практике:</b><br>
@@ -897,7 +897,7 @@
     Every transmission risks bit flips due to electrical noise or interference, so packets carry extra bits used to detect errors. A <b>parity</b> bit appends a single 1 or 0 so the total number of ones is even or odd; it catches any odd number of flipped bits but misses even-numbered errors. A <b>checksum</b> sums the bytes of the message into a small fixed-size value that the receiver recomputes and compares; it catches most random corruption but can miss errors that cancel out. A <b>Cyclic Redundancy Check (CRC)</b> treats the data as a polynomial and stores the remainder when divided by a fixed generator, catching nearly all single-bit and burst errors typical of real channels. CRC is used in Ethernet frames, Wi-Fi, USB and archive formats. These methods only <b>detect</b> errors; correction needs Hamming or Reed-Solomon codes, or simple retransmission as TCP does.
   </div>
 
-  <table class="summary-table">
+  <div class="table-scroll"><table class="summary-table">
     <thead>
       <tr>
         <th>Метод</th>
@@ -926,7 +926,7 @@
         <td><b>Ethernet-кадр</b>, Wi-Fi, ZIP/RAR-архивы, оптические диски, USB.</td>
       </tr>
     </tbody>
-  </table>
+  </table></div>
 
   <div class="ru-tip">
     💡 Все эти методы только <b>обнаруживают</b> ошибку — для <b>исправления</b> нужны более сложные коды (Hamming, Reed-Solomon), либо повторная отправка пакета (это и делает TCP).
@@ -1002,7 +1002,7 @@
 
   <h3>📊 8.4. Сравнительная таблица</h3>
 
-  <table class="summary-table compact">
+  <div class="table-scroll"><table class="summary-table compact">
     <thead>
       <tr>
         <th>Фактор</th>
@@ -1047,7 +1047,7 @@
         <td>Средние / большие сети, где нужна гибкость</td>
       </tr>
     </tbody>
-  </table>
+  </table></div>
 
   <div class="real-world">
     <b>Реальный пример.</b> В сети одной школы (10–20 коммутаторов) обычно настраивают <b>статическую</b> маршрутизацию — топология стабильна. А в сети крупного оператора связи (тысячи маршрутизаторов в разных странах) работают <b>OSPF</b> внутри и <b>BGP</b> на границах — иначе администраторы не успели бы вручную поддерживать таблицы.

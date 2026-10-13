@@ -382,7 +382,7 @@
     Существует много разных типов сетей, и каждый создан под свою задачу. Сети могут иметь похожие черты, но <b>цели у них совершенно разные</b>. На экзамене нужно уметь определить три ключевые характеристики любой сети: <b>географический охват (distance)</b>, <b>скорость передачи данных (transfer rate)</b> и <b>задержка (latency)</b>.
   </p>
 
-  <table class="summary-table">
+  <div class="table-scroll"><table class="summary-table">
     <thead>
       <tr>
         <th>Тип сети</th>
@@ -417,7 +417,7 @@
         <td>Безопасный удалённый доступ к частной сети</td>
       </tr>
     </tbody>
-  </table>
+  </table></div>
 
   <a class="sim-link-card" href="networks.html#topology-sim">
     <span class="sim-emoji">🌐</span>
@@ -539,7 +539,7 @@
 
   <h3>Сравнение по трём ключевым характеристикам</h3>
 
-  <table class="summary-table">
+  <div class="table-scroll"><table class="summary-table">
     <thead>
       <tr>
         <th>Характеристика</th>
@@ -572,7 +572,7 @@
         <td>Чуть выше из-за маршрутизации и шифрования</td>
       </tr>
     </tbody>
-  </table>
+  </table></div>
 
   <div class="ru-tip">
     💡 <b>Подсказка:</b> запомни границы расстояний — <b>PAN ≈ 10 м, LAN ≈ 1 км, WAN — без верхней границы</b>. VPN — это <b>не отдельный тип сети по железу</b>, а способ построить «частную» сеть поверх публичной, поэтому его географический охват = охват интернета.
@@ -847,7 +847,7 @@
 
   <h3>Сводная таблица протоколов</h3>
 
-  <table class="summary-table">
+  <div class="table-scroll"><table class="summary-table">
     <thead>
       <tr>
         <th>Протокол</th>
@@ -912,7 +912,7 @@
         <td>Связывает IP-адрес назначения с конкретным «железом» в LAN.</td>
       </tr>
     </tbody>
-  </table>
+  </table></div>
 
   <!-- TCP -->
   <div class="device-card">
@@ -1132,7 +1132,7 @@
     <div class="layer layer-link">Network Interface (Link)<small>Ethernet (802.3), Wi-Fi (802.11) — кадры, MAC-адреса, физические сигналы</small></div>
   </div>
 
-  <table class="summary-table">
+  <div class="table-scroll"><table class="summary-table">
     <thead>
       <tr>
         <th>Уровень</th>
@@ -1162,7 +1162,7 @@
         <td>Кадр (frame); биты на проводе</td>
       </tr>
     </tbody>
-  </table>
+  </table></div>
 
   <div class="ru-tip">
     💡 <b>Откуда надёжность?</b> Каждый уровень <b>точно прописывает, как обрабатывать, инкапсулировать, передавать и принимать данные</b>. Проверка ошибок, контрольные суммы, упорядочивание и подтверждения <b>на каждом уровне</b> в сумме дают надёжность всей передачи по TCP/IP.
@@ -1267,7 +1267,7 @@
     На экзамене иногда сравнивают TCP/IP с моделью <b>OSI</b> (Open Systems Interconnection) — это другая, более «академическая» концептуальная модель, у которой <b>7 уровней</b> вместо 4.
   </p>
 
-  <table class="summary-table">
+  <div class="table-scroll"><table class="summary-table">
     <thead>
       <tr>
         <th>OSI (7 уровней)</th>
@@ -1295,7 +1295,7 @@
       </tr>
       <tr><td>1. Physical</td></tr>
     </tbody>
-  </table>
+  </table></div>
 
   <p>
     <b>Ключевые отличия:</b>

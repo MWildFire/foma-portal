@@ -164,7 +164,7 @@ GROUP BY Category;`
     let html = '';
     stmts.forEach((res, idx) => {
       html += '<div class="dbtable-title">' + (idx === 0 ? 'Result' : 'Statement ' + (idx + 1)) + '</div>';
-      html += '<div class="sql-result-table-wrap"><table class="sql-result-table"><thead><tr>';
+      html += '<div class="sql-result-table-wrap"><div class="table-scroll"><table class="sql-result-table"><thead><tr>';
       res.columns.forEach(c => html += '<th>' + escape(c) + '</th>');
       html += '</tr></thead><tbody>';
       res.values.forEach(row => {
@@ -172,7 +172,7 @@ GROUP BY Category;`
         row.forEach(v => html += '<td>' + escape(v) + '</td>');
         html += '</tr>';
       });
-      html += '</tbody></table></div>';
+      html += '</tbody></table></div></div>';
     });
     resultEl.innerHTML = html;
     const lang = document.documentElement.getAttribute('data-lang') || 'en';

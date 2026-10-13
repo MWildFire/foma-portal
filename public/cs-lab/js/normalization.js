@@ -142,7 +142,7 @@
     html += '<p>' + step.body[lang] + '</p>';
     step.tables.forEach(t => {
       html += '<div class="dbtable-title">' + t.name + '</div>';
-      html += '<table class="dbtable' + (t.anomalies ? ' anomaly-host' : '') + '">';
+      html += '<div class="table-scroll"><table class="dbtable' + (t.anomalies ? ' anomaly-host' : '') + '">';
       html += '<thead><tr>';
       t.cols.forEach(c => html += '<th>' + c + '</th>');
       html += '</tr></thead><tbody>';
@@ -151,7 +151,7 @@
         r.forEach(v => html += '<td>' + v + '</td>');
         html += '</tr>';
       });
-      html += '</tbody></table>';
+      html += '</tbody></table></div>';
     });
     html += '<ul style="margin-top:14px">';
     step.issues[lang].forEach(i => html += '<li>' + i + '</li>');

@@ -356,7 +356,7 @@
     Самый простой способ хранить данные — это <b>плоский файл (flat file)</b>: одна большая таблица с одной «сущностью» (<b>entity</b> = table). Звучит удобно, но на практике быстро ломается. Возьмём пример из учебника — ветеринарная клиника, где всё свалено в одну таблицу: владелец, питомец, врач, лечение.
   </p>
 
-  <table class="mini-table">
+  <div class="table-scroll"><table class="mini-table">
     <thead>
       <tr>
         <th>Owner_ID</th><th>Owner_Name</th><th>Address</th>
@@ -372,7 +372,7 @@
       <tr><td>2032</td><td>Theo Naidoo</td><td>45 Rue Martignac</td><td>2393</td><td>Kai</td><td>Dog</td><td>4400</td><td>Rachel</td><td>23/05/25</td><td>Broken Leg</td><td>450</td></tr>
       <tr><td>2032</td><td>Theo Naidoo</td><td>45 Rue Martignac</td><td>2393</td><td>Kai</td><td>Dog</td><td>4400</td><td>Rachel</td><td>17/08/25</td><td>Cast Removal</td><td>200</td></tr>
     </tbody>
-  </table>
+  </table></div>
 
   <p>
     Видишь проблему? Имя <b>Alison Bachman</b> и её адрес повторяются для каждого её питомца. Имя врача <b>Rachel</b> и её адрес — тоже. Это называется <b>избыточность данных (data redundancy)</b>, и из-за неё возникают три классические <b>аномалии</b> (anomalies).
@@ -463,7 +463,7 @@
     Не все базы устроены одинаково. Реляционная — самая популярная, но не единственная. Вот основные модели, с которыми ты можешь встретиться:
   </p>
 
-  <table class="summary-table">
+  <div class="table-scroll"><table class="summary-table">
     <thead>
       <tr>
         <th>Тип</th>
@@ -498,7 +498,7 @@
         <td>Сложные взаимосвязи (старые ERP), где иерархия слишком ограниченна.</td>
       </tr>
     </tbody>
-  </table>
+  </table></div>
 
   <h3>Когда выбирать что</h3>
   <div class="device-card">
@@ -526,17 +526,17 @@
   </p>
 
   <h3>Таблица OWNER (владельцы)</h3>
-  <table class="mini-table">
+  <div class="table-scroll"><table class="mini-table">
     <thead><tr><th><span class="key-legend pk">PK</span>Owner_ID</th><th>Owner_Name</th><th>Address</th></tr></thead>
     <tbody>
       <tr><td class="pk-cell">1029</td><td>Alison Bachman</td><td>12 Green Lane 20192</td></tr>
       <tr><td class="pk-cell">1922</td><td>Aria Mathers</td><td>458 Rigistr 4993</td></tr>
       <tr><td class="pk-cell">2032</td><td>Theo Naidoo</td><td>45 Rue Martignac</td></tr>
     </tbody>
-  </table>
+  </table></div>
 
   <h3>Таблица PATIENT (питомцы)</h3>
-  <table class="mini-table">
+  <div class="table-scroll"><table class="mini-table">
     <thead><tr><th><span class="key-legend pk">PK</span>Patient_ID</th><th>Patient_Name</th><th>Type</th><th><span class="key-legend fk">FK</span>Owner_ID</th></tr></thead>
     <tbody>
       <tr><td class="pk-cell">1011</td><td>Oskar</td><td>Dog</td><td class="fk-cell">1029</td></tr>
@@ -544,7 +544,7 @@
       <tr><td class="pk-cell">3999</td><td>Jaques</td><td>Hamster</td><td class="fk-cell">1029</td></tr>
       <tr><td class="pk-cell">2393</td><td>Kai</td><td>Dog</td><td class="fk-cell">2032</td></tr>
     </tbody>
-  </table>
+  </table></div>
 
   <p>
     Теперь имя <b>Alison Bachman</b> хранится <b>один раз</b> в таблице OWNER. В таблице PATIENT для каждого питомца есть просто <b>Owner_ID</b> — ссылка на владельца. Это и есть магия реляционной модели.
@@ -809,7 +809,7 @@
   </div>
 
   <h3>Преимущества (Benefits)</h3>
-  <table class="summary-table">
+  <div class="table-scroll"><table class="summary-table">
     <thead><tr><th>Преимущество</th><th>Что это значит</th></tr></thead>
     <tbody>
       <tr><td>Поддержка сообщества</td><td>Огромное community: документация, форумы, готовые решения. MySQL и PostgreSQL знают миллионы разработчиков.</td></tr>
@@ -823,10 +823,10 @@
       <tr><td>Масштабируемость</td><td>Лучше тянет рост, чем плоский файл (но хуже, чем NoSQL для big data).</td></tr>
       <tr><td>Безопасность</td><td>Встроенные права доступа: можно дать одному пользователю только чтение, другому — изменение, третьему — полный доступ.</td></tr>
     </tbody>
-  </table>
+  </table></div>
 
   <h3>Недостатки (Limitations)</h3>
-  <table class="summary-table">
+  <div class="table-scroll"><table class="summary-table">
     <thead><tr><th>Недостаток</th><th>В чём проблема</th></tr></thead>
     <tbody>
       <tr><td>Плохо тянет big data</td><td>Для аналитики на терабайтных объёмах данных реляционные модели не лучший выбор. Лучше колоночные БД или NoSQL.</td></tr>
@@ -836,7 +836,7 @@
       <tr><td>Object-relational impedance mismatch</td><td>В коде программы (Java, Python) данные — это объекты; в БД — таблицы. Перевод между ними («ORM») всегда не на 100% бесшовный.</td></tr>
       <tr><td>Неструктурированные данные</td><td>Текст письма, фотография, JSON произвольной формы — плохо ложатся в табличную модель.</td></tr>
     </tbody>
-  </table>
+  </table></div>
 
   
 

@@ -333,7 +333,7 @@
     heads.push('m');
     heads.push(tr('F', 'F'));
 
-    let s = '<table class="truth-table"><thead><tr>';
+    let s = '<div class="table-scroll"><table class="truth-table"><thead><tr>';
     for (const h of heads) s += '<th>' + h + '</th>';
     s += '</tr></thead><tbody>';
     const total = 1 << nVars;
@@ -348,7 +348,7 @@
       s += '<td class="' + (v ? 't-true' : 't-false') + '" data-minterm="' + m + '" style="cursor:pointer"><b>' + v + '</b></td>';
       s += '</tr>';
     }
-    s += '</tbody></table>';
+    s += '</tbody></table></div>';
     truthBox.innerHTML = s;
 
     // Click on the F column to toggle as well

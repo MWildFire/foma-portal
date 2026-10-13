@@ -130,7 +130,7 @@
   function renderTruthTable() {
     const g = gate();
     const a = inA(), b = inB();
-    let s = '<table class="truth-table"><thead><tr><th>A</th>' +
+    let s = '<div class="table-scroll"><table class="truth-table"><thead><tr><th>A</th>' +
             (g.binary ? '<th>B</th>' : '') +
             '<th>' + (L() === 'ru' ? 'Выход' : 'Out') + '</th></tr></thead><tbody>';
     if (g.binary) {
@@ -146,7 +146,7 @@
         s += '<tr' + (current ? ' class="current"' : '') + '><td>' + ax + '</td><td><b>' + out + '</b></td></tr>';
       }
     }
-    s += '</tbody></table>';
+    s += '</tbody></table></div>';
     truthBox.innerHTML = s;
   }
 

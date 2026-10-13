@@ -1409,3 +1409,7 @@ pre.code, .code-block {
 }
 /* Compiler success panel — light green tint is invisible on dark surface */
 [data-theme="dark"] .ci-output.ci-success { background: rgba(16,185,129,0.18); }
+
+/* Wide tables and code blocks scroll inside their own box, so a lab page never grows wider than a 390 px screen. */
+.table-scroll { max-width: 100%; overflow-x: auto; }
+pre { max-width: 100%; overflow-x: auto; }

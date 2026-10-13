@@ -246,7 +246,7 @@
   function renderTable() {
     const headers = [tr('Process', 'Процесс'), tr('Arrival', 'Приход'),
                      tr('Burst', 'Длит.'), tr('Priority', 'Приоритет'), ''];
-    let html = '<table class="sched-table"><thead><tr>';
+    let html = '<div class="table-scroll"><table class="sched-table"><thead><tr>';
     headers.forEach(h => { html += '<th>' + h + '</th>'; });
     html += '</tr></thead><tbody>';
     processes.forEach((p, i) => {
@@ -258,7 +258,7 @@
         + '<td><button type="button" class="sched-del" data-idx="' + i + '" aria-label="' + tr('Delete', 'Удалить') + '">×</button></td>'
         + '</tr>';
     });
-    html += '</tbody></table>';
+    html += '</tbody></table></div>';
     tableEl.innerHTML = html;
 
     tableEl.querySelectorAll('input.sched-input').forEach(inp => {

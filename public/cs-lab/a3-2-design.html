@@ -347,7 +347,7 @@
     A3.2 в учебнике IB поделён на <b>семь под-тем</b>. Запомни их структуру — на экзамене любые вопросы про дизайн БД ложатся в одну из этих ячеек:
   </p>
 
-  <table class="summary-table">
+  <div class="table-scroll"><table class="summary-table">
     <thead>
       <tr>
         <th>Под-тема</th>
@@ -392,7 +392,7 @@
         <td>Performance, read-heavy, redundancy</td>
       </tr>
     </tbody>
-  </table>
+  </table></div>
 
   <div class="ru-tip">
     💡 <b>Главное правило нормализации:</b> «Данные должны зависеть от ключа, от всего ключа, и ни от чего, кроме ключа» (<i>«The data should rely on the key, the whole key and nothing but the key»</i>). Если что-то в таблице зависит от <b>части</b> ключа или от <b>другого не-ключевого</b> поля — это надо вынести в отдельную таблицу.
@@ -489,7 +489,7 @@
 
   <h3>3.2. Кардинальность: 1:1, 1:N, M:N</h3>
 
-  <table class="summary-table">
+  <div class="table-scroll"><table class="summary-table">
     <thead>
       <tr>
         <th>Тип</th>
@@ -514,7 +514,7 @@
         <td>Один <b>ученик</b> записан на <b>много курсов</b>; один <b>курс</b> посещают <b>много учеников</b>.</td>
       </tr>
     </tbody>
-  </table>
+  </table></div>
 
   <h3>3.3. Пример ER-диаграммы (нотация Чена)</h3>
 
@@ -556,7 +556,7 @@
     На экзамене ты можешь встретить любую из трёх стандартных нотаций. Все они показывают <b>то же самое</b>, просто другими символами.
   </p>
 
-  <table class="summary-table">
+  <div class="table-scroll"><table class="summary-table">
     <thead>
       <tr>
         <th>Нотация</th>
@@ -585,7 +585,7 @@
         <td>Сплошная линия = mandatory; пунктир = optional; «лапка» = many</td>
       </tr>
     </tbody>
-  </table>
+  </table></div>
 
   <div class="ru-tip">
     💡 <b>Связи читаются в одну сторону!</b> «Меню → пункт меню» обязательно (mandatory): у меню должны быть пункты. Но «пункт меню → меню» — не всегда: пункт меню сам по себе уже еда, без обязательной привязки к меню (если ты не указал иначе).
@@ -713,7 +713,7 @@
 
   <h3>5.1. Строковые (string)</h3>
 
-  <table class="summary-table">
+  <div class="table-scroll"><table class="summary-table">
     <thead>
       <tr>
         <th>Тип</th>
@@ -753,11 +753,11 @@
         <td>Интересы пользователя: спорт, искусство.</td>
       </tr>
     </tbody>
-  </table>
+  </table></div>
 
   <h3>5.2. Числовые (numeric)</h3>
 
-  <table class="summary-table">
+  <div class="table-scroll"><table class="summary-table">
     <thead>
       <tr>
         <th>Тип</th>
@@ -787,11 +787,11 @@
         <td>Рост (1.92 м), цена (5.333).</td>
       </tr>
     </tbody>
-  </table>
+  </table></div>
 
   <h3>5.3. Дата / время</h3>
 
-  <table class="summary-table">
+  <div class="table-scroll"><table class="summary-table">
     <thead>
       <tr>
         <th>Тип</th>
@@ -826,7 +826,7 @@
         <td>2015</td>
       </tr>
     </tbody>
-  </table>
+  </table></div>
 
   <div class="ru-tip">
     💡 <b>fsp (fractional seconds precision)</b> — точность долей секунды (до 6 знаков). Нужна, когда важна <b>сверхточность времени</b>: финиш забега на 100 м, очередь за билетами на концерт (чтобы все были честно по времени), синхронизация транзакций в распределённой БД.
@@ -854,7 +854,7 @@
 
   <h3>6.1. Виды ключей</h3>
 
-  <table class="summary-table">
+  <div class="table-scroll"><table class="summary-table">
     <thead>
       <tr>
         <th>Ключ</th>
@@ -884,7 +884,7 @@
         <td>Первая буква имени + фамилия + дата рождения = почти всегда уникально.</td>
       </tr>
     </tbody>
-  </table>
+  </table></div>
 
   <h3>6.2. Cascade — удаление и обновление «по цепочке»</h3>
 
@@ -985,7 +985,7 @@
     Возьмём плоскую таблицу записей зубной клиники. У одного <b>дантиста</b> (Dentist) есть много <b>пациентов</b> (Patient), а у каждого пациента — много <b>процедур</b> (Treatment).
   </p>
 
-  <table class="data-table">
+  <div class="table-scroll"><table class="data-table">
     <thead>
       <tr>
         <th>Dentist_ID</th>
@@ -1006,7 +1006,7 @@
       <tr><td>193</td><td>Henry Stewart</td><td>Gosfield</td><td>190</td><td>Wesley Kyle</td><td>12 Sunny Close</td><td>Filling</td><td>Filling with technical assistance</td><td>25/06/25</td><td>150</td></tr>
       <tr><td>193</td><td>Henry Stewart</td><td>Gosfield</td><td>148</td><td>Camille Manon</td><td>98 Alma Grove</td><td>Crown</td><td>Crown including X-ray</td><td>25/06/25</td><td>300</td></tr>
     </tbody>
-  </table>
+  </table></div>
 
   <h3>8.2. Шаг 0 → UNF (Unnormalized form)</h3>
 
@@ -1014,7 +1014,7 @@
     Сначала убедись, что в каждой ячейке <b>ровно одно значение</b> (атомарность — <i>atomicity</i>). Затем выбери <b>кандидат на первичный ключ</b> и <b>отступом</b> покажи «повторяющиеся группы» — это данные, которые будут добавляться при каждой новой записи (по сути, информация о пациенте и его процедуре).
   </p>
 
-  <table class="nf-table">
+  <div class="table-scroll"><table class="nf-table">
     <thead><tr><th>UNF (Unnormalized form)</th></tr></thead>
     <tbody>
       <tr><td>
@@ -1030,7 +1030,7 @@
         <span class="indent">Price)</span>
       </td></tr>
     </tbody>
-  </table>
+  </table></div>
 
   <h3>8.3. Шаг 1: UNF → 1NF (убираем повторяющиеся группы)</h3>
 
@@ -1038,7 +1038,7 @@
     <b>Что делаем:</b> повторяющиеся данные выносим в <b>отдельную сущность</b> и находим для неё свой ключ. Не-повторяющиеся данные остаются в исходной таблице, ей даём имя и первичный ключ. Первичный ключ из «родителя» становится <b>foreign key</b> в новой таблице.
   </p>
 
-  <table class="nf-table">
+  <div class="table-scroll"><table class="nf-table">
     <thead>
       <tr>
         <th style="width: 30%">UNF</th>
@@ -1080,7 +1080,7 @@
         </td>
       </tr>
     </tbody>
-  </table>
+  </table></div>
 
   <p>
     <b>Проблема 1NF:</b> в TREATMENT остались атрибуты, которые зависят <b>только от части</b> составного ключа. Например, <code>Patient_Name</code> и <code>Patient_Address</code> зависят <b>только от Patient_ID</b>, а не от Date. Это называется <b>частичной зависимостью (partial dependency)</b>.
@@ -1092,7 +1092,7 @@
     <b>Что делаем:</b> атрибуты, которые зависят только от <b>части</b> составного ключа, выносим в свою таблицу. Это часть ключа становится <b>PK</b> в новой таблице и <b>FK</b> в старой.
   </p>
 
-  <table class="nf-table">
+  <div class="table-scroll"><table class="nf-table">
     <thead>
       <tr>
         <th style="width: 33%">1NF</th>
@@ -1136,7 +1136,7 @@
         </td>
       </tr>
     </tbody>
-  </table>
+  </table></div>
 
   <p>
     <b>Проблема 2NF:</b> внутри TREATMENT остались атрибуты, которые зависят <b>не от ключа</b>, а друг от друга. Например, <code>Treatment_Detail</code> и <code>Price</code> зависят только от типа процедуры (<code>Treatment</code>), а не от Patient_ID + Date. Это <b>транзитивная зависимость (transitive / non-key dependency)</b>.
@@ -1148,7 +1148,7 @@
     <b>Что делаем:</b> атрибуты, зависящие от другого <b>не-ключевого</b> поля, выносим в свою таблицу. Это поле становится PK новой таблицы и FK в старой. Теперь <b>каждая запись</b> в каждой таблице <b>зависит только от ключа</b>.
   </p>
 
-  <table class="nf-table">
+  <div class="table-scroll"><table class="nf-table">
     <thead>
       <tr>
         <th style="width: 33%">2NF</th>
@@ -1194,7 +1194,7 @@
         </td>
       </tr>
     </tbody>
-  </table>
+  </table></div>
 
   <div class="ru-tip">
     💡 <b>Краткая шпаргалка:</b><br>
@@ -1209,7 +1209,7 @@
     Это маркетплейс хендмейда. Покупатели заказывают товары у художников. Изначально все данные о покупателях, товарах и художниках хранились в одной плоской таблице транзакций.
   </p>
 
-  <table class="nf-table">
+  <div class="table-scroll"><table class="nf-table">
     <thead>
       <tr>
         <th style="width: 25%">UNF</th>
@@ -1276,7 +1276,7 @@
         </td>
       </tr>
     </tbody>
-  </table>
+  </table></div>
 
   <p>
     <b>Замечай:</b> в 3NF информация о художнике (Name, Email) <b>наконец</b> отделена от товара — потому что эти атрибуты зависят от <code>Artist_ID</code>, а не от <code>Item_ID</code>. Транзитивная зависимость убрана.
@@ -1329,7 +1329,7 @@
 
   <h3>9.1. Логический vs физический — в чём разница</h3>
 
-  <table class="summary-table">
+  <div class="table-scroll"><table class="summary-table">
     <thead>
       <tr>
         <th>Аспект</th>
@@ -1359,7 +1359,7 @@
         <td>Только программист (DBA)</td>
       </tr>
     </tbody>
-  </table>
+  </table></div>
 
   <!-- ============ SECTION 10: INDEXING ============ -->
   <h2>10. Индексы (basics)</h2>
@@ -1372,7 +1372,7 @@
     Индекс — это вспомогательная структура (обычно <b>B-tree</b> или hash), которая помогает СУБД <b>быстро найти строку</b> по значению поля без перебора всей таблицы. Похоже на <b>предметный указатель в книге</b>: вместо чтения всех страниц ты идёшь по алфавиту.
   </p>
 
-  <table class="summary-table">
+  <div class="table-scroll"><table class="summary-table">
     <thead>
       <tr>
         <th>Тип индекса</th>
@@ -1392,7 +1392,7 @@
         <td>На поля, по которым часто ищут (e-mail, фамилия) — но не на PK.</td>
       </tr>
     </tbody>
-  </table>
+  </table></div>
 
   <div class="ru-tip">
     💡 <b>Индексы — это компромисс.</b> Поиск (<code>SELECT</code>) ускоряется, но <b>вставка / обновление / удаление замедляются</b>: индекс надо поддерживать в актуальном состоянии. Не вешай индекс на каждое поле — только на те, по которым реально часто ищут.

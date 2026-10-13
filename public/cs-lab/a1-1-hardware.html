@@ -358,7 +358,7 @@
     <b>Центральный процессор (CPU — Central Processing Unit)</b> — это «двигатель» вычислений всей системы. Именно он выполняет инструкции программ: считает, сравнивает, перемещает данные, управляет всем остальным железом. Внутри CPU есть три большие группы элементов: <b>компоненты</b> (ALU, CU), <b>регистры</b> (быстрые ячейки для текущих данных) и <b>шины</b> (провода, по которым гуляют биты).
   </p>
 
-  <table class="summary-table">
+  <div class="table-scroll"><table class="summary-table">
     <thead>
       <tr>
         <th>Элемент</th>
@@ -372,7 +372,7 @@
       <tr><td>Регистры</td><td>Очень быстрые маленькие ячейки для текущих инструкций и данных.</td><td>Записная книжка под рукой.</td></tr>
       <tr><td>Шины</td><td>Каналы передачи: адресов, данных и управляющих сигналов.</td><td>Железные дороги между блоками.</td></tr>
     </tbody>
-  </table>
+  </table></div>
 
   <!-- ALU and CU -->
   <div class="device-card">
@@ -404,7 +404,7 @@
       Регистр — это <b>крошечная, но очень быстрая ячейка памяти</b> внутри CPU. Регистры держат то, что процессор использует <i>прямо сейчас</i>: инструкции, адреса, промежуточные результаты. Пять ключевых регистров, которые надо знать на экзамене:
     </p>
 
-    <table class="summary-table reg-table">
+    <div class="table-scroll"><table class="summary-table reg-table">
       <thead>
         <tr>
           <th>Регистр</th>
@@ -439,7 +439,7 @@
           <td>Промежуточные результаты арифметических и логических операций. Универсальное «временное хранилище».</td>
         </tr>
       </tbody>
-    </table>
+    </table></div>
 
     <div class="ru-tip">
       💡 <b>Мнемоника:</b> «<b>I</b> <b>P</b>ust <b>M</b>oved <b>M</b>y <b>A</b>nswer» — IR, PC, MAR, MDR, AC. На экзамене часто просят описать роль конкретного регистра в цикле — заучи их по порядку.
@@ -523,7 +523,7 @@
     GPU может быть <b>встроенным (integrated)</b> — частью CPU, или <b>дискретным (discrete)</b> — отдельной картой. С софтом GPU общается через API: <b>DirectX</b> и <b>OpenGL</b> (а в современных проектах также Vulkan, Metal, CUDA).
   </p>
 
-  <table class="summary-table">
+  <div class="table-scroll"><table class="summary-table">
     <thead>
       <tr>
         <th>Характеристика GPU</th>
@@ -548,7 +548,7 @@
         <td>Рендеринг 4К-видео без задержек и буферизации.</td>
       </tr>
     </tbody>
-  </table>
+  </table></div>
 
   <h3>Где GPU реально применяется</h3>
 
@@ -602,7 +602,7 @@
     Тема <b>только для HL</b>. Важно понимать, что CPU и GPU — это <b>разные философии проектирования</b>, оптимизированные под разные задачи. Они не «лучше/хуже» друг друга — они <b>разные</b>.
   </p>
 
-  <table class="summary-table">
+  <div class="table-scroll"><table class="summary-table">
     <thead>
       <tr>
         <th>Параметр</th>
@@ -647,7 +647,7 @@
         <td>Высокая для параллельных задач; общее энергопотребление выше</td>
       </tr>
     </tbody>
-  </table>
+  </table></div>
 
   <h3>Подробнее: ключевые отличия</h3>
 
@@ -730,7 +730,7 @@
     <a href="fundamentals.html#mem-sim" class="sim-btn">Открыть симуляцию →</a>
   </div>
 
-  <table class="summary-table">
+  <div class="table-scroll"><table class="summary-table">
     <thead>
       <tr>
         <th>Тип</th>
@@ -747,7 +747,7 @@
       <tr><td>RAM</td><td>50–70 нс</td><td>4 ГБ – 64+ ГБ</td><td>Volatile</td></tr>
       <tr><td>ROM</td><td>—</td><td>МБ</td><td>Non-volatile</td></tr>
     </tbody>
-  </table>
+  </table></div>
 
   <!-- Registers -->
   <div class="device-card">
@@ -862,7 +862,7 @@
     <a href="fundamentals.html#fde-sim" class="sim-btn">Открыть симуляцию →</a>
   </div>
 
-  <table class="summary-table">
+  <div class="table-scroll"><table class="summary-table">
     <thead>
       <tr><th>Фаза</th><th>Что происходит</th><th>Главные регистры</th></tr>
     </thead>
@@ -883,7 +883,7 @@
         <td>ALU, AC, регистры данных</td>
       </tr>
     </tbody>
-  </table>
+  </table></div>
 
   <!-- Fetch -->
   <div class="device-card">
@@ -1074,7 +1074,7 @@
     <p>
       Задача: посчитать квадраты массива чисел и сохранить результаты. Каждое число проходит 4 стадии: fetch → decode → execute → writeback.
     </p>
-    <table class="summary-table" style="font-size:0.88rem">
+    <div class="table-scroll"><table class="summary-table" style="font-size:0.88rem">
       <thead>
         <tr><th>Время</th><th>Core 1</th><th>Core 2</th><th>Core 3</th><th>Core 4</th></tr>
       </thead>
@@ -1085,7 +1085,7 @@
         <tr><td>T4</td><td>Writeback 1</td><td>Execute 2</td><td>Decode 3</td><td>Fetch 4</td></tr>
         <tr><td>T5</td><td>Fetch 5</td><td>Writeback 2</td><td>Execute 3</td><td>Decode 4</td></tr>
       </tbody>
-    </table>
+    </table></div>
     <p>
       После T4 все 4 ядра одновременно работают над разными инструкциями на разных стадиях. Производительность по сравнению с одноядерным CPU — кратный рост.
     </p>
@@ -1126,7 +1126,7 @@
     <a href="fundamentals.html#mem-sim" class="sim-btn">Открыть симуляцию →</a>
   </div>
 
-  <table class="summary-table">
+  <div class="table-scroll"><table class="summary-table">
     <thead>
       <tr>
         <th>Тип</th>
@@ -1144,7 +1144,7 @@
       <tr><td>Карты памяти</td><td>NAND flash</td><td>средняя</td><td>Камеры, телефоны</td></tr>
       <tr><td>NAS</td><td>Сетевое хранилище (HDD/SSD + RAID)</td><td>зависит от сети</td><td>Дом/офис: общее хранение, бэкапы</td></tr>
     </tbody>
-  </table>
+  </table></div>
 
   <!-- HDD -->
   <div class="device-card">
@@ -1267,7 +1267,7 @@
     Есть два главных подхода: <b>lossless (без потерь)</b> и <b>lossy (с потерями)</b>.
   </p>
 
-  <table class="summary-table">
+  <div class="table-scroll"><table class="summary-table">
     <thead>
       <tr><th>Параметр</th><th>Lossless</th><th>Lossy</th></tr>
     </thead>
@@ -1303,7 +1303,7 @@
         <td>JPEG, MP3, MPEG</td>
       </tr>
     </tbody>
-  </table>
+  </table></div>
 
   <!-- Lossless -->
   <div class="device-card">
@@ -1368,7 +1368,7 @@
   <!-- Applications -->
   <div class="device-card">
     <h3><span class="device-emoji">🎯</span> Где что применяется</h3>
-    <table class="summary-table" style="font-size:0.9rem">
+    <div class="table-scroll"><table class="summary-table" style="font-size:0.9rem">
       <thead>
         <tr><th>Тип</th><th>Применение</th><th>Примеры</th></tr>
       </thead>
@@ -1378,7 +1378,7 @@
         <tr><td>RLE</td><td>Факсы, текстовые файлы, простые изображения</td><td>Fax compression, text compression</td></tr>
         <tr><td>Transform coding</td><td>Изображения, аудио, видео</td><td>JPEG, MP3, MPEG</td></tr>
       </tbody>
-    </table>
+    </table></div>
   </div>
 
   
@@ -1413,7 +1413,7 @@
     Есть три основные модели — отличаются <b>уровнем контроля</b> и <b>тем, что нужно делать самому</b>:
   </p>
 
-  <table class="summary-table">
+  <div class="table-scroll"><table class="summary-table">
     <thead>
       <tr>
         <th>Модель</th>
@@ -1426,7 +1426,7 @@
       <tr><td>PaaS</td><td><b>Платформа</b> для разработчиков (ОС, БД, инструменты)</td><td>Провайдер держит инфраструктуру; ты пишешь только код</td></tr>
       <tr><td>IaaS</td><td>Виртуализированные <b>серверы и хранилище</b></td><td>Ты управляешь всем выше железа: ОС, ПО, конфигурация</td></tr>
     </tbody>
-  </table>
+  </table></div>
 
   <!-- SaaS -->
   <div class="device-card">
@@ -1483,7 +1483,7 @@
   <!-- Choosing -->
   <div class="device-card">
     <h3><span class="device-emoji">🧭</span> Как выбрать модель</h3>
-    <table class="summary-table" style="font-size:0.9rem">
+    <div class="table-scroll"><table class="summary-table" style="font-size:0.9rem">
       <thead>
         <tr><th>Характеристика</th><th>SaaS</th><th>PaaS</th><th>IaaS</th></tr>
       </thead>
@@ -1494,7 +1494,7 @@
         <tr><td>Стоимость</td><td>Самая низкая</td><td>Средняя</td><td>Самая высокая</td></tr>
         <tr><td>Когда выбирать</td><td>Простые приложения, конечные пользователи</td><td>Кастомные приложения, быстрая разработка</td><td>Сложные требования, специализированное железо</td></tr>
       </tbody>
-    </table>
+    </table></div>
     <p>
       <b>Кратко:</b>
     </p>

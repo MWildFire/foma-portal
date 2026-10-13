@@ -256,7 +256,7 @@
   function renderResult() {
     const res = compute(joinType);
     const muted = 'color:var(--text-muted); font-style:italic; font-family:var(--mono)';
-    let html = '<table class="dbtable joins-result"><thead><tr>';
+    let html = '<div class="table-scroll"><table class="dbtable joins-result"><thead><tr>';
     res.columns.forEach(c => { html += '<th>' + escapeHtml(c) + '</th>'; });
     html += '</tr></thead><tbody>';
     if (!res.rows.length) {
@@ -272,7 +272,7 @@
         html += '</tr>';
       });
     }
-    html += '</tbody></table>';
+    html += '</tbody></table></div>';
     html += '<div style="margin-top:6px;font-size:0.85rem;color:var(--text-muted)">' +
       tr('Rows: ', 'Строк: ') + '<b>' + res.rows.length + '</b></div>';
     resultEl.innerHTML = html;

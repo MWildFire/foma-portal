@@ -516,7 +516,7 @@ DROP COLUMN deliveryPreference;</code></pre>
     Ограничения — это правила, которые СУБД <b>сама проверяет</b> при вставке или обновлении строки. Если правило нарушено — операция отменяется, и пользователь получает ошибку. Это важнейший инструмент <b>целостности данных</b>.
   </p>
 
-  <table class="summary-table">
+  <div class="table-scroll"><table class="summary-table">
     <thead>
       <tr><th>Ограничение</th><th>Что гарантирует</th><th>Пример</th></tr>
     </thead>
@@ -552,7 +552,7 @@ DROP COLUMN deliveryPreference;</code></pre>
         <td><code>RegisteredAt date DEFAULT CURRENT_DATE</code></td>
       </tr>
     </tbody>
-  </table>
+  </table></div>
 
   <p>Сводная таблица школьной базы — практический пример:</p>
   <pre class="code-block"><code>CREATE TABLE Student (
@@ -587,7 +587,7 @@ SELECT * FROM Artist;</code></pre>
 
   <div class="result-preview">
     <div class="result-label">Результат — SELECT ArtistID, ArtistName FROM Artist;</div>
-    <table>
+    <div class="table-scroll"><table>
       <thead><tr><th>ArtistID</th><th>ArtistName</th></tr></thead>
       <tbody>
         <tr><td>101</td><td>Evie Ceramics</td></tr>
@@ -596,7 +596,7 @@ SELECT * FROM Artist;</code></pre>
         <tr><td>104</td><td>Queenies Prints</td></tr>
         <tr><td>105</td><td>Alejandro Jewellery</td></tr>
       </tbody>
-    </table>
+    </table></div>
   </div>
 
   <div class="ru-tip">
@@ -623,14 +623,14 @@ SELECT * FROM Artist;</code></pre>
 
   <div class="result-preview">
     <div class="result-label">Результат — товары дороже 300</div>
-    <table>
+    <div class="table-scroll"><table>
       <thead><tr><th>ItemID</th><th>ItemDesc</th><th>ItemCost</th><th>ArtistID</th></tr></thead>
       <tbody>
         <tr><td>4944</td><td>Abstract Wall Art One</td><td>384</td><td>102</td></tr>
         <tr><td>9383</td><td>Abstract Wall Art Two</td><td>332</td><td>102</td></tr>
         <tr><td>2921</td><td>Bracelet — fine</td><td>458</td><td>105</td></tr>
       </tbody>
-    </table>
+    </table></div>
   </div>
 
   <h3>5.2 <code>BETWEEN</code> — диапазон значений</h3>
@@ -639,13 +639,13 @@ SELECT * FROM Artist;</code></pre>
 
   <div class="result-preview">
     <div class="result-label">Результат — товары от 100 до 200 включительно</div>
-    <table>
+    <div class="table-scroll"><table>
       <thead><tr><th>ItemID</th><th>ItemDesc</th><th>ItemCost</th></tr></thead>
       <tbody>
         <tr><td>2992</td><td>Self portrait</td><td>192</td></tr>
         <tr><td>9282</td><td>Shell Necklace</td><td>120</td></tr>
       </tbody>
-    </table>
+    </table></div>
   </div>
 
   <h3>5.3 <code>LIKE</code> — поиск по образцу (pattern matching)</h3>
@@ -662,13 +662,13 @@ WHERE ArtistName LIKE '%work%';</code></pre>
 
   <div class="result-preview">
     <div class="result-label">Результат — содержит «work»</div>
-    <table>
+    <div class="table-scroll"><table>
       <thead><tr><th>ArtistID</th><th>ArtistName</th><th>ArtistEmail</th></tr></thead>
       <tbody>
         <tr><td>102</td><td>Rojas Artwork</td><td>Rojas@mail.com</td></tr>
         <tr><td>103</td><td>Heather Needlework</td><td>HNW@mail.com</td></tr>
       </tbody>
-    </table>
+    </table></div>
   </div>
 
   <h3>5.4 <code>IN</code> — значение из списка</h3>
@@ -712,7 +712,7 @@ SELECT * FROM Item ORDER BY ItemCost DESC, ItemDesc ASC;</code></pre>
 
   <div class="result-preview">
     <div class="result-label">Результат — уникальные ItemID</div>
-    <table>
+    <div class="table-scroll"><table>
       <thead><tr><th>ItemID</th></tr></thead>
       <tbody>
         <tr><td>2921</td></tr>
@@ -724,7 +724,7 @@ SELECT * FROM Item ORDER BY ItemCost DESC, ItemDesc ASC;</code></pre>
         <tr><td>9481</td></tr>
         <tr><td>9482</td></tr>
       </tbody>
-    </table>
+    </table></div>
   </div>
 
   <h3>6.3 <code>LIMIT</code> — ограничить количество строк</h3>
@@ -759,7 +759,7 @@ INNER JOIN Class AS c ON s.ClassID = c.ClassID;</code></pre>
     Агрегатные функции <b>сворачивают</b> множество строк в одно значение — это <b>A3.3.4</b> на экзамене. Главное правило: их нельзя использовать в <code>WHERE</code>, только в <code>SELECT</code> и в <code>HAVING</code>.
   </p>
 
-  <table class="summary-table">
+  <div class="table-scroll"><table class="summary-table">
     <thead><tr><th>Функция</th><th>Что считает</th><th>Пример</th></tr></thead>
     <tbody>
       <tr><td>COUNT(*)</td><td>Количество строк (включая NULL-значения)</td><td>Сколько всего товаров?</td></tr>
@@ -769,7 +769,7 @@ INNER JOIN Class AS c ON s.ClassID = c.ClassID;</code></pre>
       <tr><td>MIN(col)</td><td>Минимальное значение</td><td>Самый дешёвый товар</td></tr>
       <tr><td>MAX(col)</td><td>Максимальное значение</td><td>Самый дорогой товар</td></tr>
     </tbody>
-  </table>
+  </table></div>
 
   <h4>7.1 Примеры в действии — магазин <b>Negozio</b></h4>
   <pre class="code-block"><code>-- Сколько всего покупок?
@@ -789,12 +789,12 @@ SELECT AVG(ItemCost) AS AverageItemPrice FROM Item;</code></pre>
 
   <div class="result-preview">
     <div class="result-label">Результат — MIN/MAX по ItemCost</div>
-    <table>
+    <div class="table-scroll"><table>
       <thead><tr><th>Cheapest</th><th>MostExpensive</th></tr></thead>
       <tbody>
         <tr><td>15</td><td>458</td></tr>
       </tbody>
-    </table>
+    </table></div>
   </div>
 
   <!-- ============ 8. GROUP / HAVING ============ -->
@@ -816,14 +816,14 @@ GROUP BY CustomerCountry;</code></pre>
 
   <div class="result-preview">
     <div class="result-label">Результат — кол-во по странам</div>
-    <table>
+    <div class="table-scroll"><table>
       <thead><tr><th>Total</th><th>CustomerCountry</th></tr></thead>
       <tbody>
         <tr><td>2</td><td>France</td></tr>
         <tr><td>2</td><td>Italy</td></tr>
         <tr><td>2</td><td>UK</td></tr>
       </tbody>
-    </table>
+    </table></div>
   </div>
 
   <h3>8.2 <code>HAVING</code> — условие для агрегата</h3>
@@ -838,13 +838,13 @@ HAVING COUNT(CustomerID) &gt; 2;</code></pre>
 
   <div class="result-preview">
     <div class="result-label">Результат — только многочисленные страны</div>
-    <table>
+    <div class="table-scroll"><table>
       <thead><tr><th>COUNT(CustomerID)</th><th>CustomerCountry</th></tr></thead>
       <tbody>
         <tr><td>4</td><td>France</td></tr>
         <tr><td>3</td><td>Italy</td></tr>
       </tbody>
-    </table>
+    </table></div>
   </div>
 
   <div class="ru-tip">
@@ -910,7 +910,7 @@ WHERE ItemCost &gt; 100;</code></pre>
 
   <div class="result-preview">
     <div class="result-label">Результат — товары дороже 100 + автор</div>
-    <table>
+    <div class="table-scroll"><table>
       <thead><tr><th>ItemID</th><th>ItemDesc</th><th>ItemCost</th><th>ArtistName</th><th>ArtistEmail</th></tr></thead>
       <tbody>
         <tr><td>5859</td><td>Sculpture (two cats)</td><td>239</td><td>Evie Ceramics</td><td>EvieCeramic@mail.com</td></tr>
@@ -918,7 +918,7 @@ WHERE ItemCost &gt; 100;</code></pre>
         <tr><td>2992</td><td>Self portrait</td><td>192</td><td>Rojas Artwork</td><td>Rojas@mail.com</td></tr>
         <tr><td>2921</td><td>Bracelet — fine</td><td>458</td><td>Alejandro Jewellery</td><td>Ale@mail.com</td></tr>
       </tbody>
-    </table>
+    </table></div>
   </div>
 
   <h3>9.2 LEFT JOIN — сохраняем «левых» даже без пары</h3>
@@ -929,7 +929,7 @@ LEFT JOIN Class ON Student.ClassID = Class.ClassID;</code></pre>
 
   <div class="result-preview">
     <div class="result-label">Результат — все студенты (даже без класса)</div>
-    <table>
+    <div class="table-scroll"><table>
       <thead><tr><th>FirstName</th><th>LastName</th><th>ClassName</th></tr></thead>
       <tbody>
         <tr><td>Анна</td><td>Иванова</td><td>10-A</td></tr>
@@ -937,7 +937,7 @@ LEFT JOIN Class ON Student.ClassID = Class.ClassID;</code></pre>
         <tr><td>Виктория</td><td>Семёнова</td><td>11-Б</td></tr>
         <tr><td>Глеб</td><td>Сидоров</td><td><i>NULL</i></td></tr>
       </tbody>
-    </table>
+    </table></div>
   </div>
 
   <h3>9.3 RIGHT JOIN — наоборот, сохраняем «правых»</h3>

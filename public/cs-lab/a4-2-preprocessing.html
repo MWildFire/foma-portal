@@ -332,7 +332,7 @@
     Полный рабочий процесс машинного обучения (ML workflow) — это цикл из 10 шагов. Предобработка стоит в начале, сразу после сбора данных, и без неё всё остальное не имеет смысла.
   </p>
 
-  <table class="summary-table">
+  <div class="table-scroll"><table class="summary-table">
     <thead>
       <tr>
         <th>#</th>
@@ -352,7 +352,7 @@
       <tr><td>9</td><td>Model evaluation + Parameter tuning</td><td>Замер качества на validation, настройка гиперпараметров.</td></tr>
       <tr><td>10</td><td>Deployment + Monitor and maintain</td><td>Запуск в продакшен, мониторинг качества во времени.</td></tr>
     </tbody>
-  </table>
+  </table></div>
 
   <details class="en-summary" style="margin:12px 0; padding:12px 16px; background:var(--surface-2); border-radius:var(--radius); border-left:3px solid var(--text-faint)">
     <summary style="cursor:pointer; font-weight:600; color:var(--text-muted); font-size:0.92rem">🇬🇧 English summary (click to expand)</summary>
@@ -418,7 +418,7 @@
   <h3>2.1 Пример очистки (прямо из учебника)</h3>
 
   <p><b>До очистки</b> (Figure 9 из источника):</p>
-  <table class="data-mini">
+  <div class="table-scroll"><table class="data-mini">
     <thead><tr><th>Customer ID</th><th>Age</th><th>Email</th><th>Income</th><th>Last Purchase Date</th></tr></thead>
     <tbody>
       <tr><td>001</td><td>35</td><td>john.doe@domain.com</td><td>54000</td><td>01-02-2020</td></tr>
@@ -426,7 +426,7 @@
       <tr><td>003</td><td>45</td><td class="bad">n/a</td><td>62000</td><td>12/15/2019</td></tr>
       <tr><td>004</td><td class="bad">thirty</td><td class="bad">annetom@domaincom</td><td class="bad">−5000</td><td>20-10-2019</td></tr>
     </tbody>
-  </table>
+  </table></div>
 
   <p><b>Что не так:</b></p>
   <ul>
@@ -439,7 +439,7 @@
   </ul>
 
   <p><b>После очистки</b> (Figure 10 из источника):</p>
-  <table class="data-mini">
+  <div class="table-scroll"><table class="data-mini">
     <thead><tr><th>Customer ID</th><th>Age</th><th>Email</th><th>Income</th><th>Last Purchase Date</th></tr></thead>
     <tbody>
       <tr><td>001</td><td>35</td><td>john.doe@domain.com</td><td>54000</td><td class="good">2020-01-02</td></tr>
@@ -447,7 +447,7 @@
       <tr><td>003</td><td>45</td><td class="good">Data Not Available</td><td>62000</td><td class="good">2019-12-15</td></tr>
       <tr><td>004</td><td class="good">30</td><td class="good">annetom@domain.com</td><td class="good">50000</td><td class="good">2019-10-20</td></tr>
     </tbody>
-  </table>
+  </table></div>
 
   <p><b>Какие действия по очистке выполнены:</b></p>
   <ul>
@@ -486,7 +486,7 @@
     </ol>
   </div>
 
-  <table class="summary-table compare">
+  <div class="table-scroll"><table class="summary-table compare">
     <thead><tr><th>Тип данных</th><th>Чем заполнять</th><th>Почему</th></tr></thead>
     <tbody>
       <tr><td>Числовое, симметричное</td><td>Mean (среднее)</td><td>Хорошее «среднее представление».</td></tr>
@@ -494,11 +494,11 @@
       <tr><td>Категориальное</td><td>Mode (наиболее частая категория)</td><td>Среднего у категорий нет.</td></tr>
       <tr><td>Когда много пропусков (>50%)</td><td>Удалить весь столбец</td><td>Признак вряд ли информативен.</td></tr>
     </tbody>
-  </table>
+  </table></div>
 
   <h3>2.3 Дубликаты, ошибки, форматы, нерелевантные данные</h3>
 
-  <table class="summary-table compare">
+  <div class="table-scroll"><table class="summary-table compare">
     <thead><tr><th>Проблема</th><th>Что делать (из учебника)</th></tr></thead>
     <tbody>
       <tr><td>Duplicates</td><td>SQL/скриптом найти и удалить по ключу или комбинации полей. Если дубликаты «почти», но не точные — объединить (consolidate) усреднением чисел или взятием самой частой категории. Маленькие наборы — ручной просмотр.</td></tr>
@@ -506,7 +506,7 @@
       <tr><td>Improperly formatted</td><td>Парсинг (даты к YYYY-MM-DD, имя на first/last), регулярные выражения, единый формат валюты.</td></tr>
       <tr><td>Irrelevant data</td><td>Feature selection (корреляции, backward elimination, важность из random forest), консультации с экспертами предметной области.</td></tr>
     </tbody>
-  </table>
+  </table></div>
 
   <details class="en-summary" style="margin:12px 0; padding:12px 16px; background:var(--surface-2); border-radius:var(--radius); border-left:3px solid var(--text-faint)">
     <summary style="cursor:pointer; font-weight:600; color:var(--text-muted); font-size:0.92rem">🇬🇧 English summary (click to expand)</summary>
@@ -549,14 +549,14 @@
 
   <h3>3.2 Что делать с выбросом (из учебника)</h3>
 
-  <table class="summary-table compare">
+  <div class="table-scroll"><table class="summary-table compare">
     <thead><tr><th>Стратегия</th><th>Что делать</th></tr></thead>
     <tbody>
       <tr><td><b>Trim</b> (отсечение)</td><td>Удалить выбросы полностью из набора данных.</td></tr>
       <tr><td><b>Cap</b> (ограничение)</td><td>Заменить выброс на ближайшее значение в допустимом диапазоне (winsorization).</td></tr>
       <tr><td><b>Transform</b> (преобразование)</td><td>Применить log или √ — снижает влияние экстремальных значений.</td></tr>
     </tbody>
-  </table>
+  </table></div>
 
   <h3>3.3 Worked example: выбросы в зарплатах</h3>
 
@@ -627,7 +627,7 @@
 
   <h3>4.1 Ключевые различия (из учебника)</h3>
 
-  <table class="summary-table compare">
+  <div class="table-scroll"><table class="summary-table compare">
     <thead><tr><th>Свойство</th><th>Нормализация (min-max)</th><th>Стандартизация (Z-score)</th></tr></thead>
     <tbody>
       <tr><td>Диапазон</td><td>[0, 1] или [−1, 1] — жёстко ограничен</td><td>Без ограничения, но mean = 0, std = 1</td></tr>
@@ -636,7 +636,7 @@
       <tr><td>Когда выбрать</td><td>Известны min/max, нет сильных выбросов, нужен фиксированный диапазон (например, изображения 0-255)</td><td>Неизвестны min/max, есть выбросы, или модель предполагает нормальное распределение</td></tr>
       <tr><td>Типичные модели</td><td>Нейросети с sigmoid/tanh, K-NN, K-Means</td><td>Логистическая регрессия, SVM с линейным ядром, PCA</td></tr>
     </tbody>
-  </table>
+  </table></div>
 
   <h3>4.2 Числовой пример</h3>
 
@@ -695,7 +695,7 @@
     <p><b>Когда использовать:</b> для номинальных категорий <b>без порядка</b> (цвет, страна, тип товара).</p>
 
     <p><b>До:</b></p>
-    <table class="data-mini">
+    <div class="table-scroll"><table class="data-mini">
       <thead><tr><th>ID</th><th>Цвет</th></tr></thead>
       <tbody>
         <tr><td>1</td><td>красный</td></tr>
@@ -703,10 +703,10 @@
         <tr><td>3</td><td>синий</td></tr>
         <tr><td>4</td><td>красный</td></tr>
       </tbody>
-    </table>
+    </table></div>
 
     <p><b>После one-hot:</b></p>
-    <table class="data-mini">
+    <div class="table-scroll"><table class="data-mini">
       <thead><tr><th>ID</th><th>red</th><th>green</th><th>blue</th></tr></thead>
       <tbody>
         <tr><td>1</td><td class="good">1</td><td>0</td><td>0</td></tr>
@@ -714,7 +714,7 @@
         <tr><td>3</td><td>0</td><td>0</td><td class="good">1</td></tr>
         <tr><td>4</td><td class="good">1</td><td>0</td><td>0</td></tr>
       </tbody>
-    </table>
+    </table></div>
 
     <p><b>Плюсы:</b> модель не «изобретает» ложный порядок между категориями. <br>
     <b>Минусы:</b> если категорий тысячи (например, почтовые индексы), таблица взрывается — <b>проклятие размерности</b>.</p>
@@ -726,14 +726,14 @@
     <p>
       Каждой категории присваивается уникальное число: красный = 0, зелёный = 1, синий = 2.
     </p>
-    <table class="data-mini">
+    <div class="table-scroll"><table class="data-mini">
       <thead><tr><th>ID</th><th>Цвет</th><th>Label</th></tr></thead>
       <tbody>
         <tr><td>1</td><td>красный</td><td>0</td></tr>
         <tr><td>2</td><td>зелёный</td><td>1</td></tr>
         <tr><td>3</td><td>синий</td><td>2</td></tr>
       </tbody>
-    </table>
+    </table></div>
     <p>
       <b>Когда использовать:</b> для tree-based моделей (Random Forest, XGBoost), которым порядок безразличен. Для целевой переменной в задачах классификации.
     </p>
@@ -749,7 +749,7 @@
       Числа присваиваются с учётом <b>естественного порядка</b> категорий.
     </p>
     <p><b>Пример:</b> размер одежды.</p>
-    <table class="data-mini">
+    <div class="table-scroll"><table class="data-mini">
       <thead><tr><th>Размер</th><th>Ordinal</th></tr></thead>
       <tbody>
         <tr><td>XS</td><td>1</td></tr>
@@ -758,7 +758,7 @@
         <tr><td>L</td><td>4</td></tr>
         <tr><td>XL</td><td>5</td></tr>
       </tbody>
-    </table>
+    </table></div>
     <p>
       <b>Когда использовать:</b> когда категории действительно упорядочены (оценки A/B/C/D/F, уровни образования, степени серьёзности).
     </p>
@@ -766,14 +766,14 @@
 
   <h3>5.4 Сводка: что выбрать</h3>
 
-  <table class="summary-table compare">
+  <div class="table-scroll"><table class="summary-table compare">
     <thead><tr><th>Метод</th><th>Когда</th><th>Пример</th></tr></thead>
     <tbody>
       <tr><td>One-hot</td><td>Номинальные, без порядка, мало категорий (<50)</td><td>Цвет, страна, тип товара</td></tr>
       <tr><td>Label</td><td>Tree-based модели или целевая переменная</td><td>Класс ириса (Setosa/Versicolor/Virginica) для Random Forest</td></tr>
       <tr><td>Ordinal</td><td>Есть естественный порядок</td><td>Размер одежды, уровень образования, оценка</td></tr>
     </tbody>
-  </table>
+  </table></div>
 
   <details class="en-summary" style="margin:12px 0; padding:12px 16px; background:var(--surface-2); border-radius:var(--radius); border-left:3px solid var(--text-faint)">
     <summary style="cursor:pointer; font-weight:600; color:var(--text-muted); font-size:0.92rem">🇬🇧 English summary (click to expand)</summary>
@@ -804,23 +804,23 @@
 
   <div class="device-card">
     <p><b>До:</b></p>
-    <table class="data-mini">
+    <div class="table-scroll"><table class="data-mini">
       <thead><tr><th>Order ID</th><th>Date</th><th>Amount</th></tr></thead>
       <tbody>
         <tr><td>1</td><td>2024-03-15</td><td>120</td></tr>
         <tr><td>2</td><td>2024-12-25</td><td>450</td></tr>
         <tr><td>3</td><td>2024-07-04</td><td>89</td></tr>
       </tbody>
-    </table>
+    </table></div>
     <p><b>После инженерии:</b></p>
-    <table class="data-mini">
+    <div class="table-scroll"><table class="data-mini">
       <thead><tr><th>ID</th><th>Year</th><th>Month</th><th>DayOfWeek</th><th>IsWeekend</th><th>IsHoliday</th><th>Amount</th></tr></thead>
       <tbody>
         <tr><td>1</td><td>2024</td><td>3</td><td>5 (Fri)</td><td>0</td><td>0</td><td>120</td></tr>
         <tr><td>2</td><td>2024</td><td>12</td><td>3 (Wed)</td><td>0</td><td class="good">1</td><td>450</td></tr>
         <tr><td>3</td><td>2024</td><td>7</td><td>4 (Thu)</td><td>0</td><td class="good">1</td><td>89</td></tr>
       </tbody>
-    </table>
+    </table></div>
     <p>Теперь модель видит, что 25 декабря — праздник, и может выучить «в праздники чек выше».</p>
   </div>
 
@@ -849,7 +849,7 @@
   <p>
     Тренируется модель для предсказания цены дома. В исходных данных:
   </p>
-  <table class="summary-table data-table">
+  <div class="table-scroll"><table class="summary-table data-table">
     <thead><tr><th>Признак (англ.)</th><th>Что значит</th></tr></thead>
     <tbody>
       <tr><td>Location</td><td>Город или район</td></tr>
@@ -863,7 +863,7 @@
       <tr><td>Crime rate</td><td>Уровень преступности</td></tr>
       <tr><td>Property tax rate</td><td>Налог на недвижимость</td></tr>
     </tbody>
-  </table>
+  </table></div>
 
   <h3>7.2 Три стратегии feature selection (из учебника)</h3>
 
@@ -893,13 +893,13 @@
 
   <h3>7.3 Избыточные vs нерелевантные признаки</h3>
 
-  <table class="summary-table compare">
+  <div class="table-scroll"><table class="summary-table compare">
     <thead><tr><th>Тип</th><th>Что это</th><th>Зачем убрать</th></tr></thead>
     <tbody>
       <tr><td>Redundant (избыточные)</td><td>Дублируют или сильно коррелируют с другими признаками. Например, «вес в кг» и «вес в фунтах» — два столбца про одно.</td><td>Не дают новой информации; можно убрать без существенной потери, фокусируя модель на уникальных атрибутах.</td></tr>
       <tr><td>Irrelevant (нерелевантные)</td><td>Не имеют связи с целевой переменной — модель видит в них шум.</td><td>Их удаление улучшает точность и снижает риск переобучения.</td></tr>
     </tbody>
-  </table>
+  </table></div>
 
   <details class="en-summary" style="margin:12px 0; padding:12px 16px; background:var(--surface-2); border-radius:var(--radius); border-left:3px solid var(--text-faint)">
     <summary style="cursor:pointer; font-weight:600; color:var(--text-muted); font-size:0.92rem">🇬🇧 English summary (click to expand)</summary>
@@ -932,7 +932,7 @@
     Термин, придуманный <b>Ричардом Беллманом</b>, описывает явления, возникающие при работе с данными высокой размерности (часто сотни или тысячи измерений), которых нет в низкоразмерных пространствах. Список проблем (из учебника):
   </p>
 
-  <table class="summary-table compare">
+  <div class="table-scroll"><table class="summary-table compare">
     <thead><tr><th>Проблема</th><th>В чём суть</th></tr></thead>
     <tbody>
       <tr><td>Overfitting</td><td>Слишком много параметров относительно количества наблюдений. Модель запоминает шум, плохо обобщается. Способность обобщать падает с ростом размерности, если данных не становится сильно больше.</td></tr>
@@ -943,7 +943,7 @@
       <tr><td>Sample size increases</td><td>Чтобы адекватно покрыть высокоразмерное пространство, объём выборки должен расти экспоненциально с числом измерений. На практике это часто недостижимо.</td></tr>
       <tr><td>Memory usage</td><td>Хранение и обработка высокоразмерных данных требуют значительно больше памяти, что ограничивает масштабируемость приложений.</td></tr>
     </tbody>
-  </table>
+  </table></div>
 
   <h3>8.2 Пример из учебника: цена дома в высокоразмерном пространстве</h3>
 
@@ -989,7 +989,7 @@
 
   <h3>8.5 Цель понижения размерности (из учебника)</h3>
 
-  <table class="summary-table compare">
+  <div class="table-scroll"><table class="summary-table compare">
     <thead><tr><th>Польза</th><th>Что даёт</th></tr></thead>
     <tbody>
       <tr><td>Enhancing data visualization</td><td>Возможность построить высокоразмерные данные в 2D или 3D.</td></tr>
@@ -997,7 +997,7 @@
       <tr><td>Reducing computational resources</td><td>Меньше времени и памяти для хранения и обработки.</td></tr>
       <tr><td>Facilitating data analysis</td><td>Распознавание паттернов и обнаружение корреляций между признаками становится проще.</td></tr>
     </tbody>
-  </table>
+  </table></div>
 
   <div class="real-world">
     <h4>🖼️ Реальный пример: классификация изображений</h4>
@@ -1042,14 +1042,14 @@
 
   <h3>9.2 Что делает каждая часть</h3>
 
-  <table class="summary-table compare">
+  <div class="table-scroll"><table class="summary-table compare">
     <thead><tr><th>Выборка</th><th>Назначение</th></tr></thead>
     <tbody>
       <tr><td>Train (тренировочная)</td><td>На ней модель <b>учится</b> — подгоняет свои параметры.</td></tr>
       <tr><td>Validation (валидационная)</td><td>На ней подбирают <b>гиперпараметры</b> (количество слоёв, learning rate, глубину дерева). Несколько вариантов модели сравнивают именно здесь.</td></tr>
       <tr><td>Test (тестовая)</td><td><b>Священна.</b> Трогается <b>ровно один раз</b> в самом конце, чтобы оценить, как модель работает на полностью новых данных. Если использовать её для подбора параметров — она «загрязнится».</td></tr>
     </tbody>
-  </table>
+  </table></div>
 
   <h3>9.3 Зачем нужен held-out set</h3>
 
@@ -1096,7 +1096,7 @@
       Данные делят на <b>K равных частей</b> (обычно K = 5 или 10). Модель обучают и оценивают <b>K раз</b>: каждый раз одна часть — валидация, остальные K-1 — обучение. Итоговая метрика — <b>среднее</b> по K запускам.
     </p>
     <p><b>Пример с K=5:</b></p>
-    <table class="data-mini">
+    <div class="table-scroll"><table class="data-mini">
       <thead><tr><th>Итерация</th><th>Fold 1</th><th>Fold 2</th><th>Fold 3</th><th>Fold 4</th><th>Fold 5</th></tr></thead>
       <tbody>
         <tr><td>1</td><td class="bad">Val</td><td>Train</td><td>Train</td><td>Train</td><td>Train</td></tr>
@@ -1105,7 +1105,7 @@
         <tr><td>4</td><td>Train</td><td>Train</td><td>Train</td><td class="bad">Val</td><td>Train</td></tr>
         <tr><td>5</td><td>Train</td><td>Train</td><td>Train</td><td>Train</td><td class="bad">Val</td></tr>
       </tbody>
-    </table>
+    </table></div>
     <p>Каждая точка данных оказывается в валидации ровно один раз. Усреднение результатов по 5 запускам — более надёжная оценка.</p>
   </div>
 
@@ -1119,7 +1119,7 @@
 
   <h3>10.3 Когда что использовать</h3>
 
-  <table class="summary-table compare">
+  <div class="table-scroll"><table class="summary-table compare">
     <thead><tr><th>Когда</th><th>Что выбрать</th></tr></thead>
     <tbody>
       <tr><td>Большой датасет, классификация или регрессия</td><td>Простое train/val/test разделение — быстрее и достаточно точно.</td></tr>
@@ -1127,7 +1127,7 @@
       <tr><td>Несбалансированная классификация</td><td>Stratified K-fold — обязательно.</td></tr>
       <tr><td>Временные ряды</td><td>Time-series CV (нельзя использовать «будущее» для предсказания «прошлого»).</td></tr>
     </tbody>
-  </table>
+  </table></div>
 
   <details class="en-summary" style="margin:12px 0; padding:12px 16px; background:var(--surface-2); border-radius:var(--radius); border-left:3px solid var(--text-faint)">
     <summary style="cursor:pointer; font-weight:600; color:var(--text-muted); font-size:0.92rem">🇬🇧 English summary (click to expand)</summary>
@@ -1148,7 +1148,7 @@
 
   <h3>11.1 Типичные сценарии утечки</h3>
 
-  <table class="summary-table compare">
+  <div class="table-scroll"><table class="summary-table compare">
     <thead><tr><th>Сценарий</th><th>Что не так</th><th>Как избежать</th></tr></thead>
     <tbody>
       <tr><td>Предобработка <b>до</b> сплита</td><td>StandardScaler посчитал mean/std по всем данным, включая test → инфо «утекла» из test в train.</td><td><b>Сначала split, потом fit предобработки только на train</b>, а transform — на train и test отдельно.</td></tr>
@@ -1157,7 +1157,7 @@
       <tr><td>Дубликаты между train и test</td><td>Одинаковая запись попала и туда, и туда — модель «вспомнила» ответ.</td><td>Дедупликация <b>до</b> сплита.</td></tr>
       <tr><td>Временные данные не учитывают порядок</td><td>В тренировку попали данные «из будущего» относительно тестовых.</td><td>Time-based split: train = до даты X, test = после.</td></tr>
     </tbody>
-  </table>
+  </table></div>
 
   <h3>11.2 Главное правило</h3>
 

@@ -442,7 +442,7 @@
     Любая система счисления — это просто <b>способ записывать числа</b>. Привычная нам система — <b>десятичная (denary, base-10)</b> — использует 10 цифр (0–9). Компьютеры внутри работают с <b>двоичной (binary, base-2)</b> — всего 2 цифры (0 и 1). А программисты часто читают и пишут адреса памяти и цвета в <b>шестнадцатеричной (hexadecimal, base-16)</b> — 16 «цифр» (0–9 и A–F).
   </p>
 
-  <table class="summary-table">
+  <div class="table-scroll"><table class="summary-table">
     <thead>
       <tr>
         <th>Система</th>
@@ -471,7 +471,7 @@
         <td>Цвета (#FF00AA), MAC-адреса, дампы памяти, ASCII-коды</td>
       </tr>
     </tbody>
-  </table>
+  </table></div>
 
   <div class="ru-tip">
     💡 <b>Терминология:</b> один разряд двоичного числа называется <b>бит (bit, binary digit)</b>. 4 бита = <b>ниббл (nibble)</b> — ровно одна шестнадцатеричная цифра. 8 бит = <b>байт (byte)</b> — стандартная единица. Чтобы было видно систему счисления, рядом ставят индекс: 11<sub>10</sub>, 11<sub>2</sub> и 11<sub>16</sub> — это <b>три разных числа</b> (одиннадцать, три и семнадцать соответственно).
@@ -492,7 +492,7 @@
     Каждая позиция бита соответствует степени двойки. Считаем <b>справа налево</b>: самый правый бит — это 2<sup>0</sup> = 1, следующий 2<sup>1</sup> = 2, дальше 2<sup>2</sup> = 4, 2<sup>3</sup> = 8 и так далее. Чтобы получить десятичное значение — складываем все степени двойки, где стоит 1.
   </p>
 
-  <table class="pv-table">
+  <div class="table-scroll"><table class="pv-table">
     <tr>
       <td class="pv-row-label">Степень</td>
       <td>2<sup>7</sup></td><td>2<sup>6</sup></td><td>2<sup>5</sup></td><td>2<sup>4</sup></td>
@@ -502,16 +502,16 @@
       <td class="pv-row-label">Значение</td>
       <td>128</td><td>64</td><td>32</td><td>16</td><td>8</td><td>4</td><td>2</td><td>1</td>
     </tr>
-  </table>
+  </table></div>
 
   <div class="worked">
     <h4>Worked example · Binary → Denary</h4>
     <p>Переведи <code>1011<sub>2</sub></code> в десятичную систему.</p>
-    <table class="pv-table">
+    <div class="table-scroll"><table class="pv-table">
       <tr><td class="pv-row-label">Степень</td><td>2<sup>3</sup></td><td>2<sup>2</sup></td><td>2<sup>1</sup></td><td>2<sup>0</sup></td></tr>
       <tr><td class="pv-row-label">Значение</td><td>8</td><td>4</td><td>2</td><td>1</td></tr>
       <tr><td class="pv-row-label">Бит</td><td class="bit-on">1</td><td class="bit-off">0</td><td class="bit-on">1</td><td class="bit-on">1</td></tr>
-    </table>
+    </table></div>
     <span class="math-line">1011<sub>2</sub> = 8 + 0 + 2 + 1 = <b>11<sub>10</sub></b></span>
     <p>Где стоит 1 — складываем соответствующую степень двойки. Где 0 — пропускаем.</p>
   </div>
@@ -548,7 +548,7 @@
     Hex — это «человекочитаемая» запись двоичных чисел. <b>Каждая hex-цифра = ровно 4 бита</b>. Это очень удобно: длинная битовая строка <code>11010110</code> превращается в короткое <code>D6</code>.
   </p>
 
-  <table class="summary-table">
+  <div class="table-scroll"><table class="summary-table">
     <thead>
       <tr><th>Hex</th><th>Двоичное</th><th>Десятичное</th><th>Hex</th><th>Двоичное</th><th>Десятичное</th></tr>
     </thead>
@@ -562,7 +562,7 @@
       <tr><td>6</td><td>0110</td><td>6</td><td>E</td><td>1110</td><td>14</td></tr>
       <tr><td>7</td><td>0111</td><td>7</td><td>F</td><td>1111</td><td>15</td></tr>
     </tbody>
-  </table>
+  </table></div>
 
   <div class="worked">
     <h4>Worked example · Hex → Denary</h4>
@@ -640,7 +640,7 @@
     Каждому символу присвоено своё число (его <b>кодовая точка / code point</b>), а число уже хранится в битах. Главные стандарты:
   </p>
 
-  <table class="summary-table">
+  <div class="table-scroll"><table class="summary-table">
     <thead>
       <tr><th>Кодировка</th><th>Сколько бит</th><th>Сколько символов</th><th>Чем хороша</th></tr>
     </thead>
@@ -664,7 +664,7 @@
         <td>Совместима с ASCII (английские буквы = 1 байт), экономит место, дефолт в интернете.</td>
       </tr>
     </tbody>
-  </table>
+  </table></div>
 
   <div class="worked">
     <h4>Worked example · кодировка одного символа</h4>
@@ -746,7 +746,7 @@
 
   <h3>2.6 Единицы измерения данных</h3>
 
-  <table class="summary-table">
+  <div class="table-scroll"><table class="summary-table">
     <thead>
       <tr><th>Единица</th><th>В байтах</th><th>В битах</th></tr>
     </thead>
@@ -760,7 +760,7 @@
       <tr><td>1 TB (терабайт)</td><td>1 024<sup>4</sup></td><td>1 024<sup>4</sup> × 8</td></tr>
       <tr><td>1 PB (петабайт)</td><td>1 024<sup>5</sup></td><td>1 024<sup>5</sup> × 8</td></tr>
     </tbody>
-  </table>
+  </table></div>
 
   <h2>⚡ 3. A1.2.3 Логические элементы (logic gates)</h2>
 
@@ -788,13 +788,13 @@
     <h3><span class="device-emoji">🔗</span> AND (логическое И, конъюнкция)</h3>
     <p><b>Что спрашивает:</b> «оба входа включены?»</p>
     <p><b>Выдаёт 1</b>, только если <b>все</b> входы = 1.</p>
-    <table class="truth-table">
+    <div class="table-scroll"><table class="truth-table">
       <tr><th class="input-col">A</th><th class="input-col">B</th><th class="output-col">Q = A AND B</th></tr>
       <tr><td class="t-false">0</td><td class="t-false">0</td><td class="t-false">0</td></tr>
       <tr><td class="t-false">0</td><td class="t-true">1</td><td class="t-false">0</td></tr>
       <tr><td class="t-true">1</td><td class="t-false">0</td><td class="t-false">0</td></tr>
       <tr><td class="t-true">1</td><td class="t-true">1</td><td class="t-true">1</td></tr>
-    </table>
+    </table></div>
     <p><b>Пример:</b> допуск в серверную = (есть бейдж) AND (правильный код PIN). Оба условия должны быть верны.</p>
   </div>
 
@@ -802,13 +802,13 @@
     <h3><span class="device-emoji">➕</span> OR (логическое ИЛИ, дизъюнкция)</h3>
     <p><b>Что спрашивает:</b> «хотя бы один вход включён?»</p>
     <p><b>Выдаёт 1</b>, если <b>хотя бы один</b> вход = 1.</p>
-    <table class="truth-table">
+    <div class="table-scroll"><table class="truth-table">
       <tr><th class="input-col">A</th><th class="input-col">B</th><th class="output-col">Q = A OR B</th></tr>
       <tr><td class="t-false">0</td><td class="t-false">0</td><td class="t-false">0</td></tr>
       <tr><td class="t-false">0</td><td class="t-true">1</td><td class="t-true">1</td></tr>
       <tr><td class="t-true">1</td><td class="t-false">0</td><td class="t-true">1</td></tr>
       <tr><td class="t-true">1</td><td class="t-true">1</td><td class="t-true">1</td></tr>
-    </table>
+    </table></div>
     <p><b>Пример:</b> сигнализация = (датчик дыма) OR (датчик угарного газа) OR (датчик жара). Достаточно одного срабатывания.</p>
   </div>
 
@@ -816,11 +816,11 @@
     <h3><span class="device-emoji">🔄</span> NOT (логическое НЕ, инвертор)</h3>
     <p><b>Что спрашивает:</b> «вход выключен?»</p>
     <p><b>Выдаёт обратное</b> от входа. Это единственный <b>одновходовый</b> элемент.</p>
-    <table class="truth-table">
+    <div class="table-scroll"><table class="truth-table">
       <tr><th class="input-col">A</th><th class="output-col">Q = NOT A</th></tr>
       <tr><td class="t-false">0</td><td class="t-true">1</td></tr>
       <tr><td class="t-true">1</td><td class="t-false">0</td></tr>
-    </table>
+    </table></div>
     <p><b>Пример:</b> «горит ли лампа резерва?» = NOT (горит ли основная). Когда главное выключено — включается резерв.</p>
   </div>
 
@@ -828,13 +828,13 @@
     <h3><span class="device-emoji">🚫🔗</span> NAND (NOT AND)</h3>
     <p><b>Что спрашивает:</b> «хотя бы один вход выключен?»</p>
     <p><b>Инверсия AND</b>: 1 везде, кроме случая, когда все входы = 1.</p>
-    <table class="truth-table">
+    <div class="table-scroll"><table class="truth-table">
       <tr><th class="input-col">A</th><th class="input-col">B</th><th class="output-col">Q = A NAND B</th></tr>
       <tr><td class="t-false">0</td><td class="t-false">0</td><td class="t-true">1</td></tr>
       <tr><td class="t-false">0</td><td class="t-true">1</td><td class="t-true">1</td></tr>
       <tr><td class="t-true">1</td><td class="t-false">0</td><td class="t-true">1</td></tr>
       <tr><td class="t-true">1</td><td class="t-true">1</td><td class="t-false">0</td></tr>
-    </table>
+    </table></div>
     <p><b>Свойство:</b> NAND — <b>универсальный элемент</b>. Из одних только NAND можно построить любой другой логический элемент (AND, OR, NOT и т.д.) — это часто используется в реальных микросхемах.</p>
   </div>
 
@@ -842,13 +842,13 @@
     <h3><span class="device-emoji">🚫➕</span> NOR (NOT OR)</h3>
     <p><b>Что спрашивает:</b> «оба входа выключены?»</p>
     <p><b>Инверсия OR</b>: 1, только если все входы = 0.</p>
-    <table class="truth-table">
+    <div class="table-scroll"><table class="truth-table">
       <tr><th class="input-col">A</th><th class="input-col">B</th><th class="output-col">Q = A NOR B</th></tr>
       <tr><td class="t-false">0</td><td class="t-false">0</td><td class="t-true">1</td></tr>
       <tr><td class="t-false">0</td><td class="t-true">1</td><td class="t-false">0</td></tr>
       <tr><td class="t-true">1</td><td class="t-false">0</td><td class="t-false">0</td></tr>
       <tr><td class="t-true">1</td><td class="t-true">1</td><td class="t-false">0</td></tr>
-    </table>
+    </table></div>
     <p><b>Свойство:</b> NOR — тоже <b>универсальный элемент</b> (как NAND).</p>
   </div>
 
@@ -856,13 +856,13 @@
     <h3><span class="device-emoji">⚖️</span> XOR (исключающее ИЛИ)</h3>
     <p><b>Что спрашивает:</b> «входы разные?»</p>
     <p><b>Выдаёт 1</b>, если ровно один вход = 1 (но не оба).</p>
-    <table class="truth-table">
+    <div class="table-scroll"><table class="truth-table">
       <tr><th class="input-col">A</th><th class="input-col">B</th><th class="output-col">Q = A XOR B</th></tr>
       <tr><td class="t-false">0</td><td class="t-false">0</td><td class="t-false">0</td></tr>
       <tr><td class="t-false">0</td><td class="t-true">1</td><td class="t-true">1</td></tr>
       <tr><td class="t-true">1</td><td class="t-false">0</td><td class="t-true">1</td></tr>
       <tr><td class="t-true">1</td><td class="t-true">0</td><td class="t-false">0</td></tr>
-    </table>
+    </table></div>
     <p><b>Пример:</b> XOR — сердце <b>сумматора</b> (adder). 1 + 1 в двоичной = 10, и «единица суммы» — это как раз XOR двух бит.</p>
   </div>
 
@@ -870,13 +870,13 @@
     <h3><span class="device-emoji">🟰</span> XNOR (NOT XOR, эквивалентность)</h3>
     <p><b>Что спрашивает:</b> «входы одинаковые?»</p>
     <p><b>Выдаёт 1</b>, если оба входа равны (оба 0 или оба 1).</p>
-    <table class="truth-table">
+    <div class="table-scroll"><table class="truth-table">
       <tr><th class="input-col">A</th><th class="input-col">B</th><th class="output-col">Q = A XNOR B</th></tr>
       <tr><td class="t-false">0</td><td class="t-false">0</td><td class="t-true">1</td></tr>
       <tr><td class="t-false">0</td><td class="t-true">1</td><td class="t-false">0</td></tr>
       <tr><td class="t-true">1</td><td class="t-false">0</td><td class="t-false">0</td></tr>
       <tr><td class="t-true">1</td><td class="t-true">1</td><td class="t-true">1</td></tr>
-    </table>
+    </table></div>
     <p><b>Пример:</b> «двое голосуют согласно» = голос1 XNOR голос2. Или: схема <b>сравнения</b> битов.</p>
   </div>
 
@@ -922,13 +922,13 @@
     </ul>
     <p><b>Шаг 2 — определи нужный логический элемент:</b> слово «оба» → <b>AND</b>.</p>
     <p><b>Шаг 3 — построй таблицу 2<sup>2</sup> = 4 строки:</b></p>
-    <table class="truth-table">
+    <div class="table-scroll"><table class="truth-table">
       <tr><th class="input-col">A (движение)</th><th class="input-col">B (дверь)</th><th class="output-col">Q (сигнализация)</th></tr>
       <tr><td class="t-false">0</td><td class="t-false">0</td><td class="t-false">0</td></tr>
       <tr><td class="t-false">0</td><td class="t-true">1</td><td class="t-false">0</td></tr>
       <tr><td class="t-true">1</td><td class="t-false">0</td><td class="t-false">0</td></tr>
       <tr><td class="t-true">1</td><td class="t-true">1</td><td class="t-true">1</td></tr>
-    </table>
+    </table></div>
   </div>
 
   <div class="worked">
@@ -936,7 +936,7 @@
     <p><b>Задача:</b> «Свет включается, если <b>хотя бы один</b> из двух датчиков детектирует темноту. Но если активирован переключатель override — свет <b>не горит</b> в любом случае».</p>
     <p><b>Входы:</b> A = датчик 1, B = датчик 2, C = override. <b>Выход:</b> Q = «свет горит».</p>
     <p><b>Логическое выражение:</b> Q = (A OR B) AND (NOT C). Промежуточные колонки помогают не запутаться.</p>
-    <table class="truth-table">
+    <div class="table-scroll"><table class="truth-table">
       <tr><th class="input-col">A</th><th class="input-col">B</th><th class="input-col">C</th><th class="output-col">A OR B</th><th class="output-col">NOT C</th><th class="output-col">Q</th></tr>
       <tr><td class="t-false">0</td><td class="t-false">0</td><td class="t-false">0</td><td class="t-false">0</td><td class="t-true">1</td><td class="t-false">0</td></tr>
       <tr><td class="t-false">0</td><td class="t-false">0</td><td class="t-true">1</td><td class="t-false">0</td><td class="t-false">0</td><td class="t-false">0</td></tr>
@@ -946,7 +946,7 @@
       <tr><td class="t-true">1</td><td class="t-false">0</td><td class="t-true">1</td><td class="t-true">1</td><td class="t-false">0</td><td class="t-false">0</td></tr>
       <tr><td class="t-true">1</td><td class="t-true">1</td><td class="t-false">0</td><td class="t-true">1</td><td class="t-true">1</td><td class="t-true">1</td></tr>
       <tr><td class="t-true">1</td><td class="t-true">1</td><td class="t-true">1</td><td class="t-true">1</td><td class="t-false">0</td><td class="t-false">0</td></tr>
-    </table>
+    </table></div>
     <p><b>Проверка</b> (строка 8): оба датчика видят темноту, <b>но</b> override включён → Q = 0. Логика работает.</p>
   </div>
 
@@ -959,7 +959,7 @@
   <div class="worked">
     <h4>Worked example · (A AND B) OR (NOT C)</h4>
     <p>Три входа → 8 строк.</p>
-    <table class="truth-table">
+    <div class="table-scroll"><table class="truth-table">
       <tr><th class="input-col">A</th><th class="input-col">B</th><th class="input-col">C</th><th class="output-col">A AND B</th><th class="output-col">NOT C</th><th class="output-col">Q</th></tr>
       <tr><td class="t-false">0</td><td class="t-false">0</td><td class="t-false">0</td><td class="t-false">0</td><td class="t-true">1</td><td class="t-true">1</td></tr>
       <tr><td class="t-false">0</td><td class="t-false">0</td><td class="t-true">1</td><td class="t-false">0</td><td class="t-false">0</td><td class="t-false">0</td></tr>
@@ -969,7 +969,7 @@
       <tr><td class="t-true">1</td><td class="t-false">0</td><td class="t-true">1</td><td class="t-false">0</td><td class="t-false">0</td><td class="t-false">0</td></tr>
       <tr><td class="t-true">1</td><td class="t-true">1</td><td class="t-false">0</td><td class="t-true">1</td><td class="t-true">1</td><td class="t-true">1</td></tr>
       <tr><td class="t-true">1</td><td class="t-true">1</td><td class="t-true">1</td><td class="t-true">1</td><td class="t-false">0</td><td class="t-true">1</td></tr>
-    </table>
+    </table></div>
   </div>
 
   <h3>4.4 Карты Карно (Karnaugh maps, K-maps) <span class="hl-tag">HL</span></h3>
@@ -988,7 +988,7 @@
   <div class="worked">
     <h4>Worked example · K-map для функции из 3 переменных</h4>
     <p>Дана таблица истинности:</p>
-    <table class="truth-table">
+    <div class="table-scroll"><table class="truth-table">
       <tr><th class="input-col">A</th><th class="input-col">B</th><th class="input-col">C</th><th class="output-col">Q</th></tr>
       <tr><td>0</td><td>0</td><td>0</td><td class="t-false">0</td></tr>
       <tr><td>0</td><td>0</td><td>1</td><td class="t-true">1</td></tr>
@@ -998,15 +998,15 @@
       <tr><td>1</td><td>0</td><td>1</td><td class="t-false">0</td></tr>
       <tr><td>1</td><td>1</td><td>0</td><td class="t-false">0</td></tr>
       <tr><td>1</td><td>1</td><td>1</td><td class="t-true">1</td></tr>
-    </table>
+    </table></div>
 
     <p>Строим K-map: колонки — это значения A (0, 1); строки — это пары BC в коде Грея (00, 01, 11, 10).</p>
 
-    <table class="kmap">
+    <div class="table-scroll"><table class="kmap">
       <tr><th>A \ BC</th><th>00</th><th>01</th><th>11</th><th>10</th></tr>
       <tr><th>0</th><td class="km-0">0</td><td class="km-1">1</td><td class="km-0">0</td><td class="km-1">1</td></tr>
       <tr><th>1</th><td class="km-1">1</td><td class="km-0">0</td><td class="km-1">1</td><td class="km-0">0</td></tr>
-    </table>
+    </table></div>
 
     <p><b>Правила группировки единиц:</b></p>
     <ol>
@@ -1030,7 +1030,7 @@
 
   <h3>5.1 Стандартные символы элементов</h3>
 
-  <table class="summary-table">
+  <div class="table-scroll"><table class="summary-table">
     <thead>
       <tr><th>Элемент</th><th>Форма</th><th>Особый знак</th></tr>
     </thead>
@@ -1043,7 +1043,7 @@
       <tr><td>XOR</td><td>Форма OR + дополнительная изогнутая линия слева</td><td>—</td></tr>
       <tr><td>XNOR</td><td>Форма XOR</td><td>+ кружок на выходе (= XOR + NOT)</td></tr>
     </tbody>
-  </table>
+  </table></div>
 
   <div class="ru-tip">
     💡 <b>Запомни паттерн «N»:</b> кружок (<b>bubble</b>) на выходе всегда означает <b>NOT</b>. Поэтому NAND = AND + кружок, NOR = OR + кружок, XNOR = XOR + кружок. Один знак — один смысл, легко запомнить.
@@ -1089,13 +1089,13 @@ D ────────────┘</pre>
   <div class="worked">
     <h4>Worked example · Диаграмма AND → NOT (= NAND)</h4>
     <p>Возьмём цепочку: A и B идут в AND, выход AND идёт в NOT.</p>
-    <table class="truth-table">
+    <div class="table-scroll"><table class="truth-table">
       <tr><th class="input-col">A</th><th class="input-col">B</th><th class="output-col">A AND B</th><th class="output-col">NOT (A AND B)</th></tr>
       <tr><td class="t-false">0</td><td class="t-false">0</td><td class="t-false">0</td><td class="t-true">1</td></tr>
       <tr><td class="t-false">0</td><td class="t-true">1</td><td class="t-false">0</td><td class="t-true">1</td></tr>
       <tr><td class="t-true">1</td><td class="t-false">0</td><td class="t-false">0</td><td class="t-true">1</td></tr>
       <tr><td class="t-true">1</td><td class="t-true">1</td><td class="t-true">1</td><td class="t-false">0</td></tr>
-    </table>
+    </table></div>
     <p><b>Замечаешь?</b> Этот результат идентичен таблице NAND. Значит, NAND эквивалентен «AND, у которого выход прошёл через NOT». То же логично из названия: NAND = NOT AND.</p>
   </div>
 
@@ -1105,7 +1105,7 @@ D ────────────┘</pre>
     <b>Булева алгебра</b> позволяет упрощать сложные выражения и, как следствие, уменьшать количество элементов в реальной схеме. Несколько ключевых законов:
   </p>
 
-  <table class="summary-table">
+  <div class="table-scroll"><table class="summary-table">
     <thead>
       <tr><th>Закон</th><th>Формула</th><th>Что значит</th></tr>
     </thead>
@@ -1136,7 +1136,7 @@ D ────────────┘</pre>
         <td>0 «убивает» AND, 1 «убивает» OR.</td>
       </tr>
     </tbody>
-  </table>
+  </table></div>
 
   <div class="worked">
     <h4>Worked example · упрощение (A AND A) OR (NOT NOT B)</h4>
@@ -1150,7 +1150,7 @@ D ────────────┘</pre>
 
   <h3>5.5 Математическая и программная нотация булевых операций</h3>
 
-  <table class="summary-table">
+  <div class="table-scroll"><table class="summary-table">
     <thead>
       <tr><th>Операция</th><th>Описание</th><th>Математически</th><th>В программировании</th></tr>
     </thead>
@@ -1163,7 +1163,7 @@ D ────────────┘</pre>
       <tr><td>XOR</td><td>Исключающее ИЛИ</td><td>A ⊕ B</td><td>A ^ B</td></tr>
       <tr><td>XNOR</td><td>Эквивалентность</td><td><span style="text-decoration:overline">A ⊕ B</span></td><td>!(A ^ B)</td></tr>
     </tbody>
-  </table>
+  </table></div>
 
   <h2>🛠 6. Практические задания</h2>
 
@@ -1177,13 +1177,13 @@ D ────────────┘</pre>
     <ol>
       <li>Возьми задачу: «Сложить два однобитных числа A и B. Получить <b>S</b> (сумма по правилам двоичной арифметики, без переноса) и <b>C</b> (бит переноса)».</li>
       <li>Составь <b>таблицу истинности</b> для S и C:
-        <table class="truth-table" style="margin-top:8px">
+        <div class="table-scroll"><table class="truth-table" style="margin-top:8px">
           <tr><th class="input-col">A</th><th class="input-col">B</th><th class="output-col">S</th><th class="output-col">C</th></tr>
           <tr><td>0</td><td>0</td><td>0</td><td>0</td></tr>
           <tr><td>0</td><td>1</td><td>1</td><td>0</td></tr>
           <tr><td>1</td><td>0</td><td>1</td><td>0</td></tr>
           <tr><td>1</td><td>1</td><td>0</td><td>1</td></tr>
-        </table>
+        </table></div>
       </li>
       <li>Определи, какие <b>логические элементы</b> соответствуют каждому выходу. Подсказка: один из них — XOR, другой — AND.</li>
       <li>Нарисуй <b>логическую диаграмму</b> полусумматора. Подпиши все провода.</li>
