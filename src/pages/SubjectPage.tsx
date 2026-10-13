@@ -9,6 +9,7 @@ import { AssignmentList } from '../components/subject/AssignmentList';
 import { ProgressSummary } from '../components/subject/ProgressSummary';
 import { SubjectHeader } from '../components/subject/SubjectHeader';
 import { SubjectLinks } from '../components/subject/SubjectLinks';
+import { SubjectLoadError } from '../components/subject/SubjectLoadError';
 import { SubjectNotFound } from '../components/subject/SubjectNotFound';
 import { TopicList } from '../components/subject/TopicList';
 import { useSubject } from '../content/useSubject';
@@ -26,7 +27,7 @@ export function SubjectPage() {
   const [state] = useLocalProgress();
   const [contentLang, setContentLang] = useContentLang();
   const base = useId();
-  const { pack, loading } = useSubject(subject);
+  const { pack, loading, failed, cause } = useSubject(subject);
 
   const topics = useMemo(() => sortTopics(pack?.topics ?? []), [pack]);
   const progress = useMemo(
@@ -34,10 +35,11 @@ export function SubjectPage() {
     [subject, topics, state.topics],
   );
 
-  usePageTitle(loading ? null : pack ? pickText(pack.meta.title, i18n.language) : t('notFound.title'), t('brand', { ns: 'common' }));
+  usePageTitle(loading ? null : failed ? t('loadError.title') : pack ? pickText(pack.meta.title, i18n.language) : t('notFound.title'), t('brand', { ns: 'common' }));
   useScrollToTop(subject);
 
   if (loading) return <PageLoading />;
+  if (failed) return <SubjectLoadError cause={cause} />;
   if (!pack) return <SubjectNotFound />;
 
   return (

@@ -5,6 +5,7 @@ import { usePageTitle } from '../components/content/usePageTitle';
 import { useScrollToTopOnArrival } from '../components/practice/pageScroll';
 import { FormulasView } from '../components/formulas/FormulasView';
 import { SubjectBar } from '../components/subject/SubjectHeader';
+import { SubjectLoadError } from '../components/subject/SubjectLoadError';
 import { SubjectNotFound } from '../components/subject/SubjectNotFound';
 import { ROUTES } from '../config/routes';
 import { useSubject } from '../content/useSubject';
@@ -15,13 +16,14 @@ import { pickText } from '../lib/text';
 export function FormulasPage() {
   const { subject = '' } = useParams();
   const { t, i18n } = useTranslation(['formulas', 'subject', 'common']);
-  const { pack, loading } = useSubject(subject);
+  const { pack, loading, failed, cause } = useSubject(subject);
   const subjectTitle = pack ? pickText(pack.meta.title, i18n.language) : '';
 
-  usePageTitle(loading ? null : pack ? `${t('title')} | ${subjectTitle}` : t('notFound.title', { ns: 'subject' }), t('brand', { ns: 'common' }));
+  usePageTitle(loading ? null : failed ? t('loadError.title', { ns: 'subject' }) : pack ? `${t('title')} | ${subjectTitle}` : t('notFound.title', { ns: 'subject' }), t('brand', { ns: 'common' }));
   useScrollToTopOnArrival(subject);
 
   if (loading) return <PageLoading />;
+  if (failed) return <SubjectLoadError cause={cause} />;
   if (!pack) return <SubjectNotFound />;
 
   return (

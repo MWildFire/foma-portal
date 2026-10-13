@@ -6,6 +6,7 @@ import { RichText } from '../components/content/RichText';
 import { SectionHeading } from '../components/content/TopicHero';
 import { usePageTitle, useScrollToTop } from '../components/content/usePageTitle';
 import { SubjectHeader } from '../components/subject/SubjectHeader';
+import { SubjectLoadError } from '../components/subject/SubjectLoadError';
 import { SubjectNotFound } from '../components/subject/SubjectNotFound';
 import { useSubject } from '../content/useSubject';
 import { PageLoading } from '../components/layout/PageLoading';
@@ -21,16 +22,17 @@ export function PastPapersPage() {
   const { t, i18n } = useTranslation('subject');
   const [state, update] = useLocalProgress();
   const base = useId();
-  const { pack, loading } = useSubject(subject);
+  const { pack, loading, failed, cause } = useSubject(subject);
   const groups = useMemo(() => groupPastPapers(pack?.pastPapers ?? []), [pack]);
 
   usePageTitle(
-    loading ? null : pack ? `${pickText(pack.meta.title, i18n.language)}: ${t('pastPapers.heading')}` : t('notFound.title'),
+    loading ? null : failed ? t('loadError.title') : pack ? `${pickText(pack.meta.title, i18n.language)}: ${t('pastPapers.heading')}` : t('notFound.title'),
     t('brand', { ns: 'common' }),
   );
   useScrollToTop(subject);
 
   if (loading) return <PageLoading />;
+  if (failed) return <SubjectLoadError cause={cause} />;
   if (!pack) return <SubjectNotFound />;
 
   const setScore = (key: string, itemIndex: number, score: number) => update(current => {

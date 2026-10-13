@@ -15,6 +15,7 @@ import { usePageTitle, useScrollToTop } from '../components/content/usePageTitle
 import { mdxComponents, SafeContent, TopicContextProvider, type TopicContextValue } from '../components/mdx';
 import { lazyOnce } from '../components/mdx/lazy';
 import { SubjectBar } from '../components/subject/SubjectHeader';
+import { SubjectLoadError } from '../components/subject/SubjectLoadError';
 import { SubjectNotFound } from '../components/subject/SubjectNotFound';
 import { TopicChips } from '../components/subject/TopicChips';
 import { TopicProgressControls } from '../components/subject/TopicProgressControls';
@@ -93,18 +94,19 @@ export function TopicPage() {
   const uiLang = toLang(i18n.language);
   const [contentLang, setContentLang] = useContentLang();
   const base = useId();
-  const { pack, loading } = useSubject(subject);
+  const { pack, loading, failed, cause } = useSubject(subject);
   const topic = pack?.topics.find(item => item.id === topicId);
   // Topic text follows the content-language mode (EN, RU or both), not the interface language.
   const shownText = (text: L): string => textsIn(text, contentLang).map(item => item.text).join(' / ') || pickText(text, uiLang);
 
   usePageTitle(
-    loading ? null : topic ? shownText(topic.title) : t('page.notFound.title'),
+    loading ? null : failed ? t('loadError.title', { ns: 'subject' }) : topic ? shownText(topic.title) : t('page.notFound.title'),
     pack ? `${pickText(pack.meta.title, uiLang)} | ${t('brand', { ns: 'common' })}` : t('brand', { ns: 'common' }),
   );
   useScrollToTop(`${subject}/${topicId}`);
 
   if (loading) return <PageLoading />;
+  if (failed) return <SubjectLoadError cause={cause} />;
   if (!pack) return <SubjectNotFound />;
 
   const subjectTitle = pickText(pack.meta.title, uiLang);

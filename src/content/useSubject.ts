@@ -3,17 +3,19 @@ import type { SubjectPack, TopicIndex } from '../contract/pack';
 import { getLoadedSubject, getLoadedTopicIndex, hasSubject, loadSubject, loadTopicIndex } from './registry';
 
 export interface SubjectState {
-  pack: SubjectPack | undefined; // undefined for an unknown subject, and while the pack is loading
+  pack: SubjectPack | undefined; // undefined for an unknown subject, while the pack is loading, and after a failed load
   loading: boolean; // true while the pack is on its way: show a placeholder, not "not found"
+  failed: boolean; // true when the pack could not be loaded: show a load error with a retry, not "not found"
+  cause: unknown; // the error behind `failed`
 }
 
 // The pack of one subject. A subject that is not loaded yet reports loading, and the component renders again
-// when the pack arrives. A failed load is logged and then reported as not found.
+// when the pack arrives. A failed load is logged and reported as failed, so the page can offer a retry.
 export function useSubject(id: string | undefined): SubjectState {
   const known = id !== undefined && hasSubject(id) ? id : undefined;
   const pack = known !== undefined ? getLoadedSubject(known) : undefined;
   const [, rerender] = useReducer((count: number) => count + 1, 0);
-  const [failed, setFailed] = useState<string | null>(null);
+  const [failure, setFailure] = useState<{ id: string; cause: unknown } | null>(null);
 
   useEffect(() => {
     if (known === undefined || pack) return undefined;
@@ -22,9 +24,9 @@ export function useSubject(id: string | undefined): SubjectState {
       () => {
         if (active) rerender();
       },
-      error => {
-        console.error(error);
-        if (active) setFailed(known);
+      cause => {
+        console.error(cause);
+        if (active) setFailure({ id: known, cause });
       },
     );
     return () => {
@@ -32,7 +34,8 @@ export function useSubject(id: string | undefined): SubjectState {
     };
   }, [known, pack]);
 
-  return { pack, loading: known !== undefined && pack === undefined && failed !== known };
+  const failed = failure !== null && failure.id === known;
+  return { pack, loading: known !== undefined && pack === undefined && !failed, failed, cause: failed ? failure.cause : undefined };
 }
 
 // Several modules at once: undefined until every one of them is loaded. The result keeps its identity between
