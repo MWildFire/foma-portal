@@ -1,9 +1,11 @@
-import { useCallback, useEffect, useState } from 'react';
-import { loadState, saveState, GlobalState, STORAGE_KEY, UPDATE_EVENT } from '../lib/storage';
+import { useCallback, useEffect, useRef, useState } from 'react';
+import { loadState, saveState, storageAvailable, GlobalState, STORAGE_KEY, UPDATE_EVENT } from '../lib/storage';
 
 
 export function useLocalProgress(): [GlobalState, (updater: (s: GlobalState) => GlobalState) => void] {
   const [state, setState] = useState<GlobalState>(() => loadState());
+  const current = useRef(state);
+  current.current = state;
 
   useEffect(() => {
     const onStorage = (e: StorageEvent) => {
@@ -19,7 +21,10 @@ export function useLocalProgress(): [GlobalState, (updater: (s: GlobalState) => 
   }, []);
 
   const update = useCallback((updater: (s: GlobalState) => GlobalState) => {
-    const next = updater(loadState());
+    // Stored state when storage works (another tab may have changed it). Otherwise keep the in-memory state,
+    // so a blocked browser does not lose the earlier changes on every update.
+    const next = updater(storageAvailable() ? loadState() : current.current);
+    current.current = next;
     saveState(next);
     setState(next);
   }, []);

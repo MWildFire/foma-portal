@@ -129,3 +129,14 @@ export function saveState(state: GlobalState): void {
     // Storage can be blocked (private window, full quota). The app keeps working without saving.
   }
 }
+
+// True when this browser lets the page write localStorage. Blocked or full storage returns false.
+export function storageAvailable(): boolean {
+  try {
+    window.localStorage.setItem('__foma_probe__', '1');
+    window.localStorage.removeItem('__foma_probe__');
+    return true;
+  } catch {
+    return false;
+  }
+}
