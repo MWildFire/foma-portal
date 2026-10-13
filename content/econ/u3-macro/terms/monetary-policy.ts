@@ -1,5 +1,10 @@
 import type { Term } from '../../../../src/contract/types';
 
+// Definitions are in our own words. Terms the textbook defines (Tragakes, Economics for the IB Diploma:
+// Coursebook) carry a textbook locator: chapter, section and printed page. Terms the book does not define
+// keep the IB DP Economics subject guide (2020) as their source.
+const book = 'Tragakes, Economics for the IB Diploma: Coursebook (Cambridge University Press, 3rd ed.)';
+
 export const terms: Term[] = [
   {
     id: 'monetary-policy',
@@ -18,7 +23,7 @@ export const terms: Term[] = [
     },
     syllabus: '3.5',
     papers: ['P1', 'P2', 'P3'],
-    src: { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 3.5' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 13, p. 396' },
   },
   {
     id: 'central-bank',
@@ -37,14 +42,14 @@ export const terms: Term[] = [
     },
     syllabus: '3.5',
     papers: ['P1', 'P2', 'P3'],
-    src: { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 3.5' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 13, p. 388' },
   },
   {
     id: 'policy-interest-rate',
     term: { en: 'policy interest rate', ru: 'ключевая ставка (policy interest rate)' },
     def: {
-      en: 'The interest rate set by the central bank, which becomes the benchmark for the rates that commercial banks charge and pay.',
-      ru: 'Процентная ставка, которую устанавливает центральный банк; от неё ориентируются ставки, по которым коммерческие банки выдают кредиты и платят по вкладам.',
+      en: 'The interest rate the central bank charges commercial banks on its loans (the minimum lending rate, also called the discount or base rate), which becomes the benchmark for the rates banks charge and pay.',
+      ru: 'Процентная ставка, по которой центральный банк выдаёт кредиты коммерческим банкам (минимальная ставка кредитования, также называемая учётной или базовой ставкой); от неё ориентируются ставки, по которым банки выдают кредиты и платят по вкладам.',
     },
     example: {
       en: 'When the policy rate falls from 6.0% to 5.5%, a bank may cut its mortgage rate by a similar amount.',
@@ -57,7 +62,7 @@ export const terms: Term[] = [
     syllabus: '3.5',
     papers: ['P1', 'P2', 'P3'],
     sim: 'econ.monetary-policy',
-    src: { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 3.5' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 13, p. 393' },
   },
   {
     id: 'open-market-operations',
@@ -76,7 +81,7 @@ export const terms: Term[] = [
     },
     syllabus: '3.5',
     papers: ['P1', 'P2', 'P3'],
-    src: { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 3.5' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 13, p. 392' },
   },
   {
     id: 'quantitative-easing',
@@ -95,7 +100,7 @@ export const terms: Term[] = [
     },
     syllabus: '3.5',
     papers: ['P1', 'P2', 'P3'],
-    src: { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 3.5' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 13, p. 393' },
   },
   {
     id: 'transmission-mechanism',
@@ -135,7 +140,7 @@ export const terms: Term[] = [
     syllabus: '3.5',
     papers: ['P1', 'P2', 'P3'],
     sim: 'econ.monetary-policy',
-    src: { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 3.5' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 13, p. 395' },
   },
   {
     id: 'contractionary-monetary-policy',
@@ -155,14 +160,14 @@ export const terms: Term[] = [
     syllabus: '3.5',
     papers: ['P1', 'P2', 'P3'],
     sim: 'econ.monetary-policy',
-    src: { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 3.5' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 13, p. 395' },
   },
   {
     id: 'inflation-targeting',
     term: { en: 'inflation targeting', ru: 'таргетирование инфляции (inflation targeting)' },
     def: {
-      en: 'A monetary policy framework in which the central bank announces a target inflation rate and adjusts interest rates to achieve it.',
-      ru: 'Режим монетарной политики, при котором центральный банк объявляет целевой уровень инфляции и меняет процентные ставки, чтобы его достичь.',
+      en: 'A monetary policy framework in which the central bank publicly announces medium-term numerical inflation targets and commits to meeting them by adjusting interest rates.',
+      ru: 'Режим монетарной политики, при котором центральный банк публично объявляет среднесрочные числовые цели по инфляции и обязуется их достигать, меняя процентные ставки.',
     },
     example: {
       en: 'A central bank with a 2% target raises its policy rate when forecast inflation is 3%, to bring inflation back towards the target.',
@@ -174,7 +179,7 @@ export const terms: Term[] = [
     },
     syllabus: '3.5',
     papers: ['P1', 'P2', 'P3'],
-    src: { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 3.5' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 13, p. 389' },
   },
   {
     id: 'liquidity-trap',

@@ -1,5 +1,10 @@
 import type { Term } from '../../../../src/contract/types';
 
+// Definitions are in our own words. Terms the textbook defines (Tragakes, Economics for the IB Diploma:
+// Coursebook) carry a textbook locator: chapter, section and printed page. Terms the book does not define
+// keep the IB DP Economics subject guide (2020) as their source.
+const book = 'Tragakes, Economics for the IB Diploma: Coursebook (Cambridge University Press, 3rd ed.)';
+
 export const terms: Term[] = [
   {
     id: 'income-inequality',
@@ -18,7 +23,7 @@ export const terms: Term[] = [
     },
     syllabus: '3.4',
     papers: ['P1', 'P2', 'P3'],
-    src: { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 3.4' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 12.1, p. 353' },
   },
   {
     id: 'wealth-inequality',
@@ -37,7 +42,7 @@ export const terms: Term[] = [
     },
     syllabus: '3.4',
     papers: ['P1', 'P2', 'P3'],
-    src: { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 3.4' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 12.1, p. 353' },
   },
   {
     id: 'lorenz-curve',
@@ -57,7 +62,7 @@ export const terms: Term[] = [
     syllabus: '3.4',
     papers: ['P1', 'P2', 'P3'],
     sim: 'econ.lorenz',
-    src: { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 3.4' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 12.1, p. 354' },
   },
   {
     id: 'line-of-equality',
@@ -77,7 +82,7 @@ export const terms: Term[] = [
     syllabus: '3.4',
     papers: ['P1', 'P2', 'P3'],
     sim: 'econ.lorenz',
-    src: { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 3.4' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 12.1, p. 354' },
   },
   {
     id: 'gini-coefficient',
@@ -97,7 +102,7 @@ export const terms: Term[] = [
     syllabus: '3.4',
     papers: ['P1', 'P2', 'P3'],
     sim: 'econ.lorenz',
-    src: { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 3.4' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 12.1, p. 355' },
   },
   {
     id: 'absolute-poverty',
@@ -116,7 +121,7 @@ export const terms: Term[] = [
     },
     syllabus: '3.4',
     papers: ['P1', 'P2', 'P3'],
-    src: { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 3.4' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 12.2, p. 359' },
   },
   {
     id: 'relative-poverty',
@@ -135,14 +140,14 @@ export const terms: Term[] = [
     },
     syllabus: '3.4',
     papers: ['P1', 'P2', 'P3'],
-    src: { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 3.4' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 12.2, p. 360' },
   },
   {
     id: 'human-capital',
     term: { en: 'human capital', ru: 'человеческий капитал (human capital)' },
     def: {
-      en: 'The skills, knowledge and health of workers, which raise their productivity and their ability to earn income.',
-      ru: 'Навыки, знания и здоровье работников, которые повышают их производительность и способность зарабатывать доход.',
+      en: 'The skills, abilities, knowledge and health of workers, which raise their productivity and their ability to earn income.',
+      ru: 'Навыки, способности, знания и здоровье работников, которые повышают их производительность и способность зарабатывать доход.',
     },
     example: {
       en: 'Illustratively, one extra year of schooling raises a worker pay by 8%, which reduces inequality over time.',
@@ -154,14 +159,14 @@ export const terms: Term[] = [
     },
     syllabus: '3.4',
     papers: ['P1', 'P2', 'P3'],
-    src: { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 3.4' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 1.1, p. 8' },
   },
   {
     id: 'transfer-payments',
     term: { en: 'transfer payments', ru: 'трансфертные платежи (transfer payments)' },
     def: {
-      en: 'Payments by government to households without a good or service in return, such as benefits, pensions and child allowances.',
-      ru: 'Выплаты государства домохозяйствам без встречного товара или услуги, например пособия, пенсии и детские выплаты.',
+      en: 'Payments by government to vulnerable groups or households, without a good or service in return, which redistribute income: for example benefits, pensions and child allowances.',
+      ru: 'Выплаты государства уязвимым группам или домохозяйствам без встречного товара или услуги, которые перераспределяют доход; например пособия, пенсии и детские выплаты.',
     },
     example: {
       en: 'A monthly child allowance of 500 AED paid to a low-income family is a transfer payment that raises its income.',
@@ -173,7 +178,7 @@ export const terms: Term[] = [
     },
     syllabus: '3.4',
     papers: ['P1', 'P2', 'P3'],
-    src: { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 3.4' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 12.5, p. 380' },
   },
   {
     id: 'minimum-wage',
@@ -192,6 +197,6 @@ export const terms: Term[] = [
     },
     syllabus: '3.4',
     papers: ['P1', 'P2', 'P3'],
-    src: { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 3.4' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 4.2, p. 125' },
   },
 ];

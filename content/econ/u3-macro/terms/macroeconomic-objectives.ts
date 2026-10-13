@@ -1,5 +1,10 @@
 import type { Term } from '../../../../src/contract/types';
 
+// Definitions are in our own words. Terms the textbook defines (Tragakes, Economics for the IB Diploma:
+// Coursebook) carry a textbook locator: chapter, section and printed page. Terms the book does not define
+// keep the IB DP Economics subject guide (2020) as their source.
+const book = 'Tragakes, Economics for the IB Diploma: Coursebook (Cambridge University Press, 3rd ed.)';
+
 export const terms: Term[] = [
   {
     id: 'consumer-price-index',
@@ -18,7 +23,7 @@ export const terms: Term[] = [
     },
     syllabus: '3.3',
     papers: ['P1', 'P2', 'P3'],
-    src: { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 3.3' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 10, p. 309' },
   },
   {
     id: 'inflation',
@@ -37,7 +42,7 @@ export const terms: Term[] = [
     },
     syllabus: '3.3',
     papers: ['P1', 'P2', 'P3'],
-    src: { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 3.3' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 10, p. 309' },
   },
   {
     id: 'demand-pull-inflation',
@@ -56,7 +61,7 @@ export const terms: Term[] = [
     },
     syllabus: '3.3',
     papers: ['P1', 'P2', 'P3'],
-    src: { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 3.3' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 10, p. 314' },
   },
   {
     id: 'cost-push-inflation',
@@ -75,7 +80,7 @@ export const terms: Term[] = [
     },
     syllabus: '3.3',
     papers: ['P1', 'P2', 'P3'],
-    src: { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 3.3' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 10, p. 315' },
   },
   {
     id: 'unemployment',
@@ -94,7 +99,7 @@ export const terms: Term[] = [
     },
     syllabus: '3.3',
     papers: ['P1', 'P2', 'P3'],
-    src: { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 3.3' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 10, p. 298' },
   },
   {
     id: 'frictional-unemployment',
@@ -113,14 +118,14 @@ export const terms: Term[] = [
     },
     syllabus: '3.3',
     papers: ['P1', 'P2', 'P3'],
-    src: { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 3.3' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 10, p. 303' },
   },
   {
     id: 'structural-unemployment',
     term: { en: 'structural unemployment', ru: 'структурная безработица (structural unemployment)' },
     def: {
-      en: 'Unemployment caused by a mismatch between the skills or location of workers and the jobs available, often after an industry declines.',
-      ru: 'Безработица, вызванная несоответствием навыков или места работников имеющимся вакансиям, часто после спада отрасли.',
+      en: 'Unemployment caused by a mismatch between the skills or location of workers and the jobs available, or by labour market rigidities; often follows an industry decline.',
+      ru: 'Безработица, вызванная несоответствием навыков или места работников имеющимся вакансиям либо жёсткостью рынка труда; часто возникает после спада отрасли.',
     },
     example: {
       en: 'A mine closure removes 500 jobs, and the miners lack the skills for the new technology jobs in the region.',
@@ -132,14 +137,14 @@ export const terms: Term[] = [
     },
     syllabus: '3.3',
     papers: ['P1', 'P2', 'P3'],
-    src: { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 3.3' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 10, p. 301' },
   },
   {
     id: 'cyclical-unemployment',
     term: { en: 'cyclical unemployment', ru: 'циклическая безработица (cyclical unemployment)' },
     def: {
-      en: 'Unemployment caused by a fall in aggregate demand during the downturn of the business cycle, when the output gap is negative.',
-      ru: 'Безработица, вызванная падением совокупного спроса в фазе спада делового цикла, когда разрыв выпуска отрицателен.',
+      en: 'Additional unemployment above the natural rate, caused by falling aggregate demand in recession, when the output gap is negative.',
+      ru: 'Дополнительная безработица сверх естественного уровня, вызванная падением совокупного спроса в рецессии, когда разрыв выпуска отрицателен.',
     },
     example: {
       en: 'In a recession real GDP is 3% below potential output, so firms cut jobs and unemployment rises.',
@@ -151,7 +156,7 @@ export const terms: Term[] = [
     },
     syllabus: '3.3',
     papers: ['P1', 'P2', 'P3'],
-    src: { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 3.3' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 10, p. 304' },
   },
   {
     id: 'phillips-curve',
@@ -171,7 +176,7 @@ export const terms: Term[] = [
     syllabus: '3.3',
     papers: ['P1', 'P2', 'P3'],
     sim: 'econ.phillips-sr',
-    src: { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 3.3' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 10, p. 323' },
   },
   {
     id: 'natural-rate-of-unemployment',
@@ -191,6 +196,6 @@ export const terms: Term[] = [
     syllabus: '3.3',
     papers: ['P1', 'P2', 'P3'],
     sim: 'econ.phillips-lr',
-    src: { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 3.3' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 9.3, p. 282' },
   },
 ];

@@ -1,5 +1,10 @@
 import type { Term } from '../../../../src/contract/types';
 
+// Definitions are in our own words. Terms the textbook defines (Tragakes, Economics for the IB Diploma:
+// Coursebook) carry a textbook locator: chapter, section and printed page. Terms the book does not define
+// keep the IB DP Economics subject guide (2020) as their source.
+const book = 'Tragakes, Economics for the IB Diploma: Coursebook (Cambridge University Press, 3rd ed.)';
+
 export const terms: Term[] = [
   {
     id: 'circular-flow-of-income',
@@ -18,7 +23,7 @@ export const terms: Term[] = [
     },
     syllabus: '3.1',
     papers: ['P1', 'P2', 'P3'],
-    src: { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 3.1' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 1.3, p. 20' },
     sim: 'econ.circular-flow',
   },
   {
@@ -38,7 +43,7 @@ export const terms: Term[] = [
     },
     syllabus: '3.1',
     papers: ['P1', 'P2', 'P3'],
-    src: { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 3.1' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 1.3, p. 21' },
     sim: 'econ.circular-flow',
   },
   {
@@ -58,15 +63,15 @@ export const terms: Term[] = [
     },
     syllabus: '3.1',
     papers: ['P1', 'P2', 'P3'],
-    src: { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 3.1' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 1.3, p. 20' },
     sim: 'econ.circular-flow',
   },
   {
     id: 'gdp',
     term: { en: 'gross domestic product (GDP)', ru: 'валовой внутренний продукт, ВВП (gross domestic product, GDP)' },
     def: {
-      en: 'The total market value of final goods and services produced within a country in one year.',
-      ru: 'Совокупная рыночная стоимость конечных товаров и услуг, произведённых на территории страны за год.',
+      en: 'The total market value of goods and services in their final form, produced inside a nation over a period, usually one year.',
+      ru: 'Совокупная рыночная стоимость товаров и услуг в их конечной форме, произведённых внутри страны за период, обычно за год.',
     },
     example: {
       en: 'Country Y produces AED 300 bn of final goods and services in a year, so its GDP is AED 300 bn.',
@@ -78,7 +83,7 @@ export const terms: Term[] = [
     },
     syllabus: '3.1',
     papers: ['P1', 'P2', 'P3'],
-    src: { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 3.1' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 8.2, p. 252' },
   },
   {
     id: 'nominal-gdp',
@@ -97,7 +102,7 @@ export const terms: Term[] = [
     },
     syllabus: '3.1',
     papers: ['P1', 'P2', 'P3'],
-    src: { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 3.1' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 8.3, p. 257' },
   },
   {
     id: 'real-gdp',
@@ -116,7 +121,7 @@ export const terms: Term[] = [
     },
     syllabus: '3.1',
     papers: ['P1', 'P2', 'P3'],
-    src: { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 3.1' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 8.3, p. 257' },
   },
   {
     id: 'gdp-deflator',
@@ -135,14 +140,14 @@ export const terms: Term[] = [
     },
     syllabus: '3.1',
     papers: ['P1', 'P2', 'P3'],
-    src: { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 3.1' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 8.3, p. 258' },
   },
   {
     id: 'income-approach',
     term: { en: 'income approach', ru: 'доходный метод (income approach)' },
     def: {
-      en: 'Measures GDP by adding all incomes earned by the factors of production: wages, rent, interest and profit.',
-      ru: 'Измеряет ВВП суммой всех доходов, полученных факторами производства: зарплаты, ренты, процента и прибыли.',
+      en: 'Measures GDP by adding up the incomes that production factors earn within a nation over a period: wages, rent, interest and profit.',
+      ru: 'Измеряет ВВП суммой доходов, которые факторы производства получают внутри страны за период: зарплаты, ренты, процента и прибыли.',
     },
     example: {
       en: 'Wages of AED 500 bn, rent of AED 40 bn, interest of AED 60 bn and profit of AED 400 bn give GDP of AED 1000 bn.',
@@ -154,14 +159,14 @@ export const terms: Term[] = [
     },
     syllabus: '3.1',
     papers: ['P1', 'P2', 'P3'],
-    src: { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 3.1' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 8.2, p. 252' },
   },
   {
     id: 'expenditure-approach',
     term: { en: 'expenditure approach', ru: 'расходный метод (expenditure approach)' },
     def: {
-      en: 'Measures GDP by adding consumption, investment, government spending and net exports on final goods and services.',
-      ru: 'Измеряет ВВП суммой потребления, инвестиций, государственных расходов и чистого экспорта на конечные товары и услуги.',
+      en: 'Measures GDP by adding consumption, investment, government spending and net exports on final goods and services bought within a nation over a period.',
+      ru: 'Измеряет ВВП суммой потребления, инвестиций, государственных расходов и чистого экспорта на конечные товары и услуги, купленные внутри страны за период.',
     },
     example: {
       en: 'Consumption of AED 500 bn, investment of AED 100 bn, government spending of AED 200 bn, exports of AED 300 bn and imports of AED 250 bn give GDP of AED 850 bn.',
@@ -173,7 +178,7 @@ export const terms: Term[] = [
     },
     syllabus: '3.1',
     papers: ['P1', 'P2', 'P3'],
-    src: { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 3.1' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 8.2, p. 251' },
   },
   {
     id: 'production-approach',
@@ -192,6 +197,6 @@ export const terms: Term[] = [
     },
     syllabus: '3.1',
     papers: ['P1', 'P2', 'P3'],
-    src: { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 3.1' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 8.2, p. 252' },
   },
 ];

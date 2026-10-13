@@ -1,5 +1,10 @@
 import type { Term } from '../../../../src/contract/types';
 
+// Definitions are in our own words. Terms the textbook defines (Tragakes, Economics for the IB Diploma:
+// Coursebook) carry a textbook locator: chapter, section and printed page. Terms the book does not define
+// keep the IB DP Economics subject guide (2020) as their source.
+const book = 'Tragakes, Economics for the IB Diploma: Coursebook (Cambridge University Press, 3rd ed.)';
+
 export const terms: Term[] = [
   {
     id: 'marginal-propensity',
@@ -18,14 +23,14 @@ export const terms: Term[] = [
     },
     syllabus: '3.2',
     papers: ['P1', 'P2', 'P3'],
-    src: { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 3.2' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 13, p. 408' },
   },
   {
     id: 'marginal-propensity-to-consume',
     term: { en: 'marginal propensity to consume (MPC)', ru: 'предельная склонность к потреблению (marginal propensity to consume, MPC)' },
     def: {
-      en: 'The proportion of an extra unit of income that households spend on consumption: the change in consumption divided by the change in income.',
-      ru: 'Доля дополнительной единицы дохода, которую домохозяйства тратят на потребление: изменение потребления, делённое на изменение дохода.',
+      en: 'The share of extra income that households spend on goods and services produced at home: the change in consumption divided by the change in income.',
+      ru: 'Доля дополнительного дохода, которую домохозяйства тратят на товары и услуги отечественного производства: изменение потребления, делённое на изменение дохода.',
     },
     example: {
       en: 'If income rises by AED 100 bn and consumption rises by AED 80 bn, the MPC is 0.8.',
@@ -37,7 +42,7 @@ export const terms: Term[] = [
     },
     syllabus: '3.2',
     papers: ['P1', 'P2', 'P3'],
-    src: { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 3.2' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 13, p. 408' },
   },
   {
     id: 'marginal-propensity-to-save',
@@ -56,7 +61,7 @@ export const terms: Term[] = [
     },
     syllabus: '3.2',
     papers: ['P1', 'P2', 'P3'],
-    src: { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 3.2' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 13, p. 408' },
   },
   {
     id: 'marginal-propensity-to-tax',
@@ -75,7 +80,7 @@ export const terms: Term[] = [
     },
     syllabus: '3.2',
     papers: ['P1', 'P2', 'P3'],
-    src: { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 3.2' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 13, p. 408' },
   },
   {
     id: 'marginal-propensity-to-import',
@@ -94,14 +99,14 @@ export const terms: Term[] = [
     },
     syllabus: '3.2',
     papers: ['P1', 'P2', 'P3'],
-    src: { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 3.2' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 13, p. 408' },
   },
   {
     id: 'multiplier',
     term: { en: 'multiplier (k)', ru: 'мультипликатор (multiplier, k)' },
     def: {
-      en: 'The number of times the change in national income is larger than the initial change in injections: k = 1 / (MPS + MPT + MPM).',
-      ru: 'Во сколько раз изменение национального дохода больше первоначального изменения инъекций: k = 1 / (MPS + MPT + MPM).',
+      en: 'The ratio of the change in real GDP to the initial change in expenditure (an injection): k = 1 / (MPS + MPT + MPM).',
+      ru: 'Отношение изменения реального ВВП к первоначальному изменению расходов (инъекции): k = 1 / (MPS + MPT + MPM).',
     },
     example: {
       en: 'With MPS 0.1, MPT 0.1 and MPM 0.05, k = 1 / 0.25 = 4, so AED 10 bn of extra investment raises income by AED 40 bn.',
@@ -113,7 +118,7 @@ export const terms: Term[] = [
     },
     syllabus: '3.2',
     papers: ['P1', 'P2', 'P3'],
-    src: { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 3.2' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 13, p. 407' },
     sim: 'econ.multiplier',
   },
   {
@@ -133,7 +138,7 @@ export const terms: Term[] = [
     },
     syllabus: '3.2',
     papers: ['P1', 'P2', 'P3'],
-    src: { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 3.2' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 13, p. 407' },
     sim: 'econ.multiplier',
   },
 ];

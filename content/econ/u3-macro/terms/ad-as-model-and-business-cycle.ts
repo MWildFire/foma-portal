@@ -1,12 +1,17 @@
 import type { Term } from '../../../../src/contract/types';
 
+// Definitions are in our own words. Terms the textbook defines (Tragakes, Economics for the IB Diploma:
+// Coursebook) carry a textbook locator: chapter, section and printed page. Terms the book does not define
+// keep the IB DP Economics subject guide (2020) as their source.
+const book = 'Tragakes, Economics for the IB Diploma: Coursebook (Cambridge University Press, 3rd ed.)';
+
 export const terms: Term[] = [
   {
     id: 'aggregate-demand',
     term: { en: 'aggregate demand (AD)', ru: 'совокупный спрос (aggregate demand, AD)' },
     def: {
-      en: 'The total planned spending on domestic output at each price level: consumption, investment, government spending and net exports.',
-      ru: 'Общий запланированный расход на отечественный выпуск при каждом уровне цен: потребление, инвестиции, государственные расходы и чистый экспорт.',
+      en: 'The total amount of real GDP (output) that buyers in the economy plan to buy at each price level, ceteris paribus: consumption, investment, government spending and net exports.',
+      ru: 'Общий объём реального ВВП (выпуска), который покупатели в экономике планируют купить при каждом уровне цен, при прочих равных условиях: потребление, инвестиции, государственные расходы и чистый экспорт.',
     },
     example: {
       en: 'At a price level of 110, households, firms, government and foreign buyers plan to spend AED 800 bn on domestic output.',
@@ -18,7 +23,7 @@ export const terms: Term[] = [
     },
     syllabus: '3.2',
     papers: ['P1', 'P2', 'P3'],
-    src: { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 3.2' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 9.1, p. 272' },
     sim: 'econ.ad-as',
   },
   {
@@ -38,7 +43,7 @@ export const terms: Term[] = [
     },
     syllabus: '3.2',
     papers: ['P1', 'P2', 'P3'],
-    src: { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 3.2' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 8.2, p. 251' },
   },
   {
     id: 'short-run-aggregate-supply',
@@ -57,15 +62,15 @@ export const terms: Term[] = [
     },
     syllabus: '3.2',
     papers: ['P1', 'P2', 'P3'],
-    src: { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 3.2' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 9.2, p. 277' },
     sim: 'econ.ad-as',
   },
   {
     id: 'long-run-aggregate-supply',
     term: { en: 'long-run aggregate supply (LRAS)', ru: 'долгосрочное совокупное предложение (long-run aggregate supply, LRAS)' },
     def: {
-      en: 'The level of real output an economy can sustain at full employment, set by its factors of production and technology, shown as a vertical line.',
-      ru: 'Уровень реального выпуска, который экономика может поддерживать при полной занятости; определяется факторами производства и технологиями и изображается вертикальной линией.',
+      en: 'In the long run, the real output an economy can sustain at full employment, set by its factors of production and technology, shown as a vertical line.',
+      ru: 'В долгосрочном периоде — уровень реального выпуска, который экономика может поддерживать при полной занятости; определяется факторами производства и технологиями и изображается вертикальной линией.',
     },
     example: {
       en: 'An economy with potential output of AED 800 bn keeps its LRAS at AED 800 bn even if the price level doubles.',
@@ -77,15 +82,15 @@ export const terms: Term[] = [
     },
     syllabus: '3.2',
     papers: ['P1', 'P2', 'P3'],
-    src: { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 3.2' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 9.3, p. 281' },
     sim: 'econ.ad-as',
   },
   {
     id: 'potential-output',
     term: { en: 'potential output', ru: 'потенциальный выпуск (potential output)' },
     def: {
-      en: 'The maximum sustainable level of real output when all resources are fully employed; the output shown by the LRAS curve.',
-      ru: 'Максимальный устойчивый уровень реального выпуска при полной занятости ресурсов; выпуск, который показывает кривая LRAS.',
+      en: 'The maximum sustainable level of real output at full employment (unemployment at its natural rate); the level traced by the long-run growth trend (the LRAS curve).',
+      ru: 'Максимальный устойчивый уровень реального выпуска при полной занятости (безработица на естественном уровне); выпуск, который задаёт долгосрочный тренд роста (кривая LRAS).',
     },
     example: {
       en: 'If potential output is AED 600 bn and actual real GDP is AED 580 bn, output is AED 20 bn below potential.',
@@ -97,7 +102,7 @@ export const terms: Term[] = [
     },
     syllabus: '3.2',
     papers: ['P1', 'P2', 'P3'],
-    src: { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 3.2' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 8.4, p. 263' },
   },
   {
     id: 'macroeconomic-equilibrium',
@@ -116,15 +121,15 @@ export const terms: Term[] = [
     },
     syllabus: '3.2',
     papers: ['P1', 'P2', 'P3'],
-    src: { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 3.2' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 9.2, p. 279' },
     sim: 'econ.ad-as',
   },
   {
     id: 'output-gap',
     term: { en: 'output gap', ru: 'разрыв выпуска (output gap)' },
     def: {
-      en: 'The percentage difference between actual real GDP and potential output. Positive means above potential; negative means below.',
-      ru: 'Процентная разница между фактическим реальным ВВП и потенциальным выпуском. Положительный знак означает выше потенциала, отрицательный ниже.',
+      en: 'The difference between actual real GDP and potential GDP (actual minus potential). Positive means above potential; negative means below.',
+      ru: 'Разница между фактическим реальным ВВП и потенциальным ВВП (фактический минус потенциальный). Положительный знак означает выше потенциала, отрицательный ниже.',
     },
     example: {
       en: 'Actual real GDP of AED 420 bn and potential output of AED 400 bn give an output gap of +5.0%.',
@@ -136,15 +141,15 @@ export const terms: Term[] = [
     },
     syllabus: '3.2',
     papers: ['P1', 'P2', 'P3'],
-    src: { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 3.2' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 8.4, p. 261' },
     sim: 'econ.output-gap',
   },
   {
     id: 'inflationary-gap',
     term: { en: 'inflationary gap', ru: 'инфляционный разрыв (inflationary gap)' },
     def: {
-      en: 'A positive output gap: actual output is above potential, so demand pushes up wages and prices until SRAS shifts left.',
-      ru: 'Положительный разрыв выпуска: фактический выпуск выше потенциального, поэтому спрос поднимает зарплаты и цены, пока SRAS не сдвинется влево.',
+      en: 'A positive output gap: actual output is above potential (unemployment below its natural rate) due to excess aggregate demand, so wages and prices rise until SRAS shifts left.',
+      ru: 'Положительный разрыв выпуска: фактический выпуск выше потенциального (безработица ниже естественного уровня) из-за избыточного совокупного спроса, поэтому зарплаты и цены растут, пока SRAS не сдвинется влево.',
     },
     example: {
       en: 'With potential output of AED 400 bn and actual output of AED 420 bn, the economy has an inflationary gap of AED 20 bn.',
@@ -156,15 +161,15 @@ export const terms: Term[] = [
     },
     syllabus: '3.2',
     papers: ['P1', 'P2', 'P3'],
-    src: { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 3.2' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 9.3, p. 283' },
     sim: 'econ.output-gap',
   },
   {
     id: 'deflationary-gap',
     term: { en: 'deflationary gap', ru: 'дефляционный разрыв (deflationary gap)' },
     def: {
-      en: 'A negative output gap: actual output is below potential, so unemployment is above its natural level and prices tend to fall.',
-      ru: 'Отрицательный разрыв выпуска: фактический выпуск ниже потенциального, поэтому безработица выше естественного уровня, а цены склонны к снижению.',
+      en: 'A negative output gap: actual output is below potential (unemployment above its natural rate) due to insufficient aggregate demand, so prices tend to fall.',
+      ru: 'Отрицательный разрыв выпуска: фактический выпуск ниже потенциального (безработица выше естественного уровня) из-за недостаточного совокупного спроса, поэтому цены склонны к снижению.',
     },
     example: {
       en: 'With potential output of AED 600 bn and actual output of AED 580 bn, the economy has a deflationary gap of AED 20 bn.',
@@ -176,15 +181,15 @@ export const terms: Term[] = [
     },
     syllabus: '3.2',
     papers: ['P1', 'P2', 'P3'],
-    src: { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 3.2' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 9.3, p. 282' },
     sim: 'econ.output-gap',
   },
   {
     id: 'business-cycle',
     term: { en: 'business cycle', ru: 'деловой цикл (business cycle)' },
     def: {
-      en: 'Fluctuations in real GDP around its long-term trend, through boom, peak, recession and recovery.',
-      ru: 'Колебания реального ВВП вокруг долгосрочного тренда: подъём, пик, рецессия и восстановление.',
+      en: 'Irregular up-and-down movements in real GDP around its long-term trend: alternating periods of expansion and contraction, through boom, peak, recession and recovery.',
+      ru: 'Нерегулярные колебания реального ВВП вокруг долгосрочного тренда: чередующиеся периоды расширения и сжатия — подъём, пик, рецессия и восстановление.',
     },
     example: {
       en: 'Real GDP grows above trend in a boom, when the output gap is positive, and falls below trend in a recession, when it is negative.',
@@ -196,6 +201,6 @@ export const terms: Term[] = [
     },
     syllabus: '3.2',
     papers: ['P1', 'P2', 'P3'],
-    src: { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 3.2' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 8.4, p. 260' },
   },
 ];

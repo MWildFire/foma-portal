@@ -1,5 +1,10 @@
 import type { Term } from '../../../../src/contract/types';
 
+// Definitions are in our own words. Terms the textbook defines (Tragakes, Economics for the IB Diploma:
+// Coursebook) carry a textbook locator: chapter, section and printed page. Terms the book does not define
+// keep the IB DP Economics subject guide (2020) as their source.
+const book = 'Tragakes, Economics for the IB Diploma: Coursebook (Cambridge University Press, 3rd ed.)';
+
 export const terms: Term[] = [
   {
     id: 'fiscal-policy',
@@ -18,7 +23,7 @@ export const terms: Term[] = [
     },
     syllabus: '3.6',
     papers: ['P1', 'P2', 'P3'],
-    src: { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 3.6' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 13, p. 399' },
   },
   {
     id: 'budget-deficit',
@@ -37,7 +42,7 @@ export const terms: Term[] = [
     },
     syllabus: '3.6',
     papers: ['P1', 'P2', 'P3'],
-    src: { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 3.6' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 11.2, p. 346' },
   },
   {
     id: 'budget-surplus',
@@ -56,7 +61,7 @@ export const terms: Term[] = [
     },
     syllabus: '3.6',
     papers: ['P1', 'P2', 'P3'],
-    src: { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 3.6' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 11.2, p. 346' },
   },
   {
     id: 'national-debt',
@@ -75,7 +80,7 @@ export const terms: Term[] = [
     },
     syllabus: '3.6',
     papers: ['P1', 'P2', 'P3'],
-    src: { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 3.6' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 11.2, p. 346' },
   },
   {
     id: 'discretionary-fiscal-policy',
@@ -113,7 +118,7 @@ export const terms: Term[] = [
     },
     syllabus: '3.6',
     papers: ['P1', 'P2', 'P3'],
-    src: { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 3.6' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 13, p. 400' },
   },
   {
     id: 'automatic-stabilizers',
@@ -132,7 +137,7 @@ export const terms: Term[] = [
     },
     syllabus: '3.6',
     papers: ['P1', 'P2', 'P3'],
-    src: { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 3.6' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 13, p. 404' },
   },
   {
     id: 'crowding-out',
@@ -151,6 +156,6 @@ export const terms: Term[] = [
     },
     syllabus: '3.6',
     papers: ['P1', 'P2', 'P3'],
-    src: { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 3.6' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 13, p. 403' },
   },
 ];

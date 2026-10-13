@@ -1,12 +1,17 @@
 import type { Term } from '../../../../src/contract/types';
 
+// Definitions are in our own words. Terms the textbook defines (Tragakes, Economics for the IB Diploma:
+// Coursebook) carry a textbook locator: chapter, section and printed page. Terms the book does not define
+// keep the IB DP Economics subject guide (2020) as their source.
+const book = 'Tragakes, Economics for the IB Diploma: Coursebook (Cambridge University Press, 3rd ed.)';
+
 export const terms: Term[] = [
   {
     id: 'supply-side-policies',
     term: { en: 'supply-side policies', ru: 'политика предложения (supply-side policies)' },
     def: {
-      en: 'Government policies that aim to increase the productive capacity of the economy by improving the quantity and efficiency of factors of production, shifting long-run aggregate supply to the right.',
-      ru: 'Меры государства, которые повышают производственный потенциал экономики, улучшая количество и эффективность факторов производства; они сдвигают долгосрочное совокупное предложение вправо.',
+      en: "Government policies that aim to raise the economy's productive potential by improving the quantity and quality of the factors of production, or through institutional changes, shifting long-run aggregate supply to the right.",
+      ru: 'Меры государства, которые повышают производственный потенциал экономики, улучшая количество и качество факторов производства или проводя институциональные изменения; они сдвигают долгосрочное совокупное предложение вправо.',
     },
     example: {
       en: "A AED 2 million training grant that prepares 100 extra engineers raises the economy's potential output over several years.",
@@ -18,7 +23,7 @@ export const terms: Term[] = [
     },
     syllabus: '3.7',
     papers: ['P1', 'P2', 'P3'],
-    src: { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 3.7' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 13, p. 387' },
   },
   {
     id: 'market-based-supply-side-policies',
@@ -37,14 +42,14 @@ export const terms: Term[] = [
     },
     syllabus: '3.7',
     papers: ['P1', 'P2', 'P3'],
-    src: { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 3.7' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 13.6, p. 413' },
   },
   {
     id: 'interventionist-supply-side-policies',
     term: { en: 'interventionist supply-side policies', ru: 'интервенционистские меры политики предложения (interventionist supply-side policies)' },
     def: {
-      en: 'Supply-side measures in which government takes an active role, spending or directing resources, for example on education, infrastructure, research subsidies and industrial policy.',
-      ru: 'Меры политики предложения, в которых государство активно действует, тратя средства или направляя ресурсы, например на образование, инфраструктуру, субсидии на исследования и промышленную политику.',
+      en: 'Supply-side measures in which government takes an active role, spending or directing resources, for example on education, infrastructure, research subsidies and industrial policy, to raise potential output.',
+      ru: 'Меры политики предложения, в которых государство активно действует, тратя средства или направляя ресурсы, например на образование, инфраструктуру, субсидии на исследования и промышленную политику, чтобы повысить потенциальный выпуск.',
     },
     example: {
       en: 'A government spends AED 90 million on a port that cuts shipping costs for local exporters.',
@@ -56,7 +61,7 @@ export const terms: Term[] = [
     },
     syllabus: '3.7',
     papers: ['P1', 'P2', 'P3'],
-    src: { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 3.7' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 13.6, p. 413' },
   },
   {
     id: 'deregulation',
@@ -75,7 +80,7 @@ export const terms: Term[] = [
     },
     syllabus: '3.7',
     papers: ['P1', 'P2', 'P3'],
-    src: { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 3.7' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 13.6, p. 413' },
   },
   {
     id: 'privatisation',
@@ -94,14 +99,14 @@ export const terms: Term[] = [
     },
     syllabus: '3.7',
     papers: ['P1', 'P2', 'P3'],
-    src: { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 3.7' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 13, p. 398' },
   },
   {
     id: 'labour-market-flexibility',
     term: { en: 'labour market flexibility', ru: 'гибкость рынка труда (labour market flexibility)' },
     def: {
-      en: 'The ease with which firms and workers adjust to changes in demand, through flexible hours, pay, hiring and firing, and the movement of labour between jobs and regions.',
-      ru: 'Лёгкость, с которой фирмы и работники приспосабливаются к изменениям спроса: через гибкие часы, оплату, найм и увольнение, а также переход работников между рабочими местами и регионами.',
+      en: 'The ease with which firms and workers adjust to changes in demand and supply, through flexible hours, pay, hiring and firing, and the movement of labour between jobs and regions, so as to reduce unemployment and labour costs.',
+      ru: 'Лёгкость, с которой фирмы и работники приспосабливаются к изменениям спроса и предложения: через гибкие часы, оплату, найм и увольнение, а также переход работников между рабочими местами и регионами, чтобы снизить безработицу и издержки на труд.',
     },
     example: {
       en: 'A firm uses part-time and fixed-term contracts to hire 20 extra workers for a busy month and release them afterwards.',
@@ -113,14 +118,14 @@ export const terms: Term[] = [
     },
     syllabus: '3.7',
     papers: ['P1', 'P2', 'P3'],
-    src: { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 3.7' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 13.6, p. 413' },
   },
   {
     id: 'industrial-policy',
     term: { en: 'industrial policy', ru: 'промышленная политика (industrial policy)' },
     def: {
-      en: 'Government action that supports selected industries or sectors, for example with subsidies, public investment or research support, to build capacity in strategic areas.',
-      ru: 'Действия государства, которые поддерживают отдельные отрасли или сектора, например субсидиями, государственными инвестициями или поддержкой исследований, чтобы развивать мощности в стратегических областях.',
+      en: 'Government support for the growth of selected industries or sectors, for example with subsidies, public investment or research support, to build capacity in strategic areas.',
+      ru: 'Поддержка государством роста отдельных отраслей или секторов, например субсидиями, государственными инвестициями или поддержкой исследований, чтобы развивать мощности в стратегических областях.',
     },
     example: {
       en: 'The government gives AED 40 million of research support to a new solar-panel maker so that it can compete in export markets.',
@@ -132,7 +137,7 @@ export const terms: Term[] = [
     },
     syllabus: '3.7',
     papers: ['P1', 'P2', 'P3'],
-    src: { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 3.7' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 13.6, p. 416' },
   },
   {
     id: 'trade-liberalisation',
@@ -151,6 +156,6 @@ export const terms: Term[] = [
     },
     syllabus: '3.7',
     papers: ['P1', 'P2', 'P3'],
-    src: { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 3.7' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 15.2, p. 473' },
   },
 ];
