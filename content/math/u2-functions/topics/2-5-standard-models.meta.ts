@@ -4,7 +4,7 @@ const topic: TopicMeta = {
   id: '2-5-standard-models',
   subject: 'math',
   code: '2.5',
-  title: { en: 'Modelling with standard functions', ru: 'Моделирование стандартными функциями' },
+  title: { en: 'Modelling with standard functions', ru: 'Моделирование стандартными функциями (Modelling with standard functions)' },
   papers: ['P1', 'P2', 'P3'],
   order: 20,
   minutes: 45,
@@ -40,8 +40,8 @@ const topic: TopicMeta = {
   questionIds: ['q-2-5-01', 'q-2-5-02', 'q-2-5-03'],
   sources: [
     {
-      kind: 'ib-guide',
-      title: 'IB Mathematics: applications and interpretation guide (first assessment 2021)',
+      kind: 'web',
+      title: 'IB Mathematics AI, first assessment 2021: public summary, not checked against the official guide',
       locator: 'sub-topic 2.5',
       url: 'https://www.ibo.org/globalassets/new-structure/university-admission/pdfs/dp-mathematics-applications-and-interpretation-guide-en.pdf',
     },

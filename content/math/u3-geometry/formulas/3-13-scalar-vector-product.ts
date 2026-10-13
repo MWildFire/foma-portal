@@ -14,7 +14,7 @@ export const formulas: Formula[] = [
       ru: 'Нахождение угла между двумя векторами или проверка их перпендикулярности.',
     },
     syllabus: '3.13',
-    inBooklet: true,
+    inBooklet: true, // not checked against the IB formula booklet
   },
   {
     id: 'scalar-product-components',
@@ -29,7 +29,7 @@ export const formulas: Formula[] = [
       ru: 'Вычисление скалярного произведения, если векторы заданы своими компонентами.',
     },
     syllabus: '3.13',
-    inBooklet: true,
+    inBooklet: true, // not checked against the IB formula booklet
     example: {
       en: 'For (3, 0, 4) and (1, 2, 2): 3(1) + 0(2) + 4(2) = 11.',
       ru: 'Для (3, 0, 4) и (1, 2, 2): 3(1) + 0(2) + 4(2) = 11.',

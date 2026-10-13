@@ -14,7 +14,7 @@ export const formulas: Formula[] = [
       ru: 'Подсчёт событий за фиксированный интервал при постоянной средней частоте.',
     },
     syllabus: '4.17',
-    inBooklet: true,
+    inBooklet: true, // not checked against the IB formula booklet
     example: {
       en: 'With m = 3: P(X = 5) = e^(-3) x 3^5 / 5! = 0.101 to 3 decimal places.',
       ru: 'При m = 3: P(X = 5) = e^(-3) × 3^5 / 5! = 0,101 с точностью до 3 знаков.',

@@ -4,7 +4,7 @@ const topic: TopicMeta = {
   id: '2-2-functions-inverse',
   subject: 'math',
   code: '2.2',
-  title: { en: 'Functions and inverse functions', ru: 'Функции и обратные функции' },
+  title: { en: 'Functions and inverse functions', ru: 'Функции и обратные функции (Functions and inverse functions)' },
   papers: ['P1', 'P2', 'P3'],
   order: 17,
   minutes: 35,
@@ -29,8 +29,8 @@ const topic: TopicMeta = {
   questionIds: ['q-2-2-01', 'q-2-2-02', 'q-2-2-03'],
   sources: [
     {
-      kind: 'ib-guide',
-      title: 'IB Mathematics: applications and interpretation guide (first assessment 2021)',
+      kind: 'web',
+      title: 'IB Mathematics AI, first assessment 2021: public summary, not checked against the official guide',
       locator: 'sub-topic 2.2',
       url: 'https://www.ibo.org/globalassets/new-structure/university-admission/pdfs/dp-mathematics-applications-and-interpretation-guide-en.pdf',
     },

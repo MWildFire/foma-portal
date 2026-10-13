@@ -4,7 +4,7 @@ const topic: TopicMeta = {
   id: '3-11-vector-line',
   subject: 'math',
   code: '3.11',
-  title: { en: 'Vector equation of a line', ru: 'Векторное уравнение прямой' },
+  title: { en: 'Vector equation of a line', ru: 'Векторное уравнение прямой (Vector equation of a line)' },
   papers: ['P1', 'P2', 'P3'],
   hl: true,
   order: 36,
@@ -31,8 +31,8 @@ const topic: TopicMeta = {
   questionIds: ['q-3-11-01', 'q-3-11-02', 'q-3-11-03'],
   sources: [
     {
-      kind: 'ib-guide',
-      title: 'IB Mathematics: applications and interpretation guide (first assessment 2021)',
+      kind: 'web',
+      title: 'IB Mathematics AI, first assessment 2021: public summary, not checked against the official guide',
       locator: 'sub-topic 3.11',
       url: 'https://www.ibo.org/globalassets/new-structure/university-admission/pdfs/dp-mathematics-applications-and-interpretation-guide-en.pdf',
     },

@@ -4,7 +4,7 @@ const topic: TopicMeta = {
   id: '1-14-matrices',
   subject: 'math',
   code: '1.14',
-  title: { en: 'Matrices', ru: 'Матрицы' },
+  title: { en: 'Matrices', ru: 'Матрицы (Matrices)' },
   papers: ['P1', 'P2', 'P3'],
   hl: true,
   order: 14,
@@ -31,8 +31,8 @@ const topic: TopicMeta = {
   questionIds: ['q-1-14-01', 'q-1-14-02', 'q-1-14-03'],
   sources: [
     {
-      kind: 'ib-guide',
-      title: 'IB Mathematics: applications and interpretation guide (first assessment 2021)',
+      kind: 'web',
+      title: 'IB Mathematics AI, first assessment 2021: public summary, not checked against the official guide',
       locator: 'sub-topic 1.14',
       url: 'https://www.ibo.org/globalassets/new-structure/university-admission/pdfs/dp-mathematics-applications-and-interpretation-guide-en.pdf',
     },

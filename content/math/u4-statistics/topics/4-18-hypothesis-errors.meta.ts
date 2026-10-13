@@ -6,7 +6,7 @@ const topic: TopicMeta = {
   code: '4.18',
   title: {
     en: 'Hypothesis tests for means and correlation; Type I and II errors',
-    ru: 'Проверка гипотез о средних и корреляции; ошибки I и II рода',
+    ru: 'Проверка гипотез о средних и корреляции; ошибки I и II рода (Hypothesis tests for means and correlation; Type I and II errors)',
   },
   papers: ['P1', 'P2', 'P3'],
   hl: true,
@@ -34,8 +34,8 @@ const topic: TopicMeta = {
   questionIds: ['q-4-18-01', 'q-4-18-02', 'q-4-18-03'],
   sources: [
     {
-      kind: 'ib-guide',
-      title: 'IB Mathematics: applications and interpretation guide (first assessment 2021)',
+      kind: 'web',
+      title: 'IB Mathematics AI, first assessment 2021: public summary, not checked against the official guide',
       locator: 'sub-topic 4.18',
       url: 'https://www.ibo.org/globalassets/new-structure/university-admission/pdfs/dp-mathematics-applications-and-interpretation-guide-en.pdf',
     },

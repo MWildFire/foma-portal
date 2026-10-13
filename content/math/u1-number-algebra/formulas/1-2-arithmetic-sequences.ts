@@ -14,7 +14,7 @@ export const formulas: Formula[] = [
       ru: 'Поиск конкретного члена или номера члена, при котором появляется нужное значение.',
     },
     syllabus: '1.2',
-    inBooklet: true,
+    inBooklet: true, // not checked against the IB formula booklet
     example: {
       en: 'With u_1 = 5 and d = 3, the 10th term is u_10 = 5 + 9 × 3 = 32.',
       ru: 'При u_1 = 5 и d = 3 десятый член равен u_10 = 5 + 9 × 3 = 32.',
@@ -33,7 +33,7 @@ export const formulas: Formula[] = [
       ru: 'Суммирование n членов, когда известны первый член и разность d (или последний член).',
     },
     syllabus: '1.2',
-    inBooklet: true,
+    inBooklet: true, // not checked against the IB formula booklet
     example: {
       en: 'With u_1 = 5, d = 3 and n = 10: S_10 = 10/2 × (2 × 5 + 9 × 3) = 185.',
       ru: 'При u_1 = 5, d = 3 и n = 10: S_10 = 10/2 × (2 × 5 + 9 × 3) = 185.',

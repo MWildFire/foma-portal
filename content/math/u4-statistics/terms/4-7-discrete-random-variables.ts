@@ -1,8 +1,8 @@
 import type { Term } from '../../../../src/contract/types';
 
 const source = {
-  kind: 'ib-guide' as const,
-  title: 'IB Mathematics: applications and interpretation guide (first assessment 2021)',
+  kind: 'web' as const,
+  title: 'IB Mathematics AI, first assessment 2021: public summary, not checked against the official guide',
   locator: 'sub-topic 4.7',
   url: 'https://www.ibo.org/globalassets/new-structure/university-admission/pdfs/dp-mathematics-applications-and-interpretation-guide-en.pdf',
 };
@@ -39,7 +39,7 @@ export const terms: Term[] = [
     term: { en: 'expected value E(X)', ru: 'математическое ожидание E(X) (expected value)' },
     def: {
       en: 'The long-run average value of $X$: $E(X) = \\sum x\\,P(X = x)$, the sum of each value multiplied by its probability. It need not be a value that $X$ can take.',
-      ru: 'Среднее значение $X$ на длинной дистанции: $E(X) = \\sum x\\,P(X = x)$, сумма каждого значения, умноженного на его вероятность. Оно не обязательно совпадает со значением, которое может принять $X$.',
+      ru: 'Среднее значение $X$ в длительной серии испытаний: $E(X) = \\sum x\\,P(X = x)$, сумма каждого значения, умноженного на его вероятность. Оно не обязательно совпадает со значением, которое может принять $X$.',
     },
     syllabus: '4.7',
     papers: ['P1', 'P2', 'P3'],

@@ -14,7 +14,7 @@ export const formulas: Formula[] = [
       ru: 'Дифференцирование любой степени x, в том числе дробной и отрицательной.',
     },
     syllabus: '5.9',
-    inBooklet: true,
+    inBooklet: true, // not checked against the IB formula booklet
     example: {
       en: 'For x to the power -1: d/dx (x^(-1)) = -x^(-2); at x = 2 this gives -0.25.',
       ru: 'Для x в степени -1: d/dx (x^(-1)) = -x^(-2); при x = 2 это равно -0,25.',
@@ -33,7 +33,7 @@ export const formulas: Formula[] = [
       ru: 'Дифференцирование этих функций отдельно или внутри правила цепочки.',
     },
     syllabus: '5.9',
-    inBooklet: true,
+    inBooklet: true, // not checked against the IB formula booklet
   },
   {
     id: 'chain-rule-formula',

@@ -6,7 +6,7 @@ const topic: TopicMeta = {
   code: '5.16',
   title: {
     en: "Euler's method for first-order equations and systems",
-    ru: 'Метод Эйлера для уравнений первого порядка и систем',
+    ru: 'Метод Эйлера для уравнений первого порядка и систем (Euler\'s method for first-order equations and systems)',
   },
   papers: ['P1', 'P2', 'P3'],
   hl: true,
@@ -34,8 +34,8 @@ const topic: TopicMeta = {
   questionIds: ['q-5-16-01', 'q-5-16-02', 'q-5-16-03'],
   sources: [
     {
-      kind: 'ib-guide',
-      title: 'IB Mathematics: applications and interpretation guide (first assessment 2021)',
+      kind: 'web',
+      title: 'IB Mathematics AI, first assessment 2021: public summary, not checked against the official guide',
       locator: 'sub-topic 5.16',
       url: 'https://www.ibo.org/globalassets/new-structure/university-admission/pdfs/dp-mathematics-applications-and-interpretation-guide-en.pdf',
     },

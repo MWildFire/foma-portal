@@ -14,7 +14,7 @@ export const formulas: Formula[] = [
       ru: 'Сравнение значений из разных нормальных распределений или использование одной таблицы стандартного нормального распределения.',
     },
     syllabus: '4.9',
-    inBooklet: true,
+    inBooklet: true, // not checked against the IB formula booklet
     example: {
       en: 'With μ = 32 and σ = 4: x = 36 gives z = (36 − 32) / 4 = 1.',
       ru: 'При μ = 32 и σ = 4: x = 36 даёт z = (36 − 32) / 4 = 1.',

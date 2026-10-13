@@ -4,7 +4,7 @@ const topic: TopicMeta = {
   id: '5-3-differentiating-powers',
   subject: 'math',
   code: '5.3',
-  title: { en: 'Differentiating power functions', ru: 'Дифференцирование степенных функций' },
+  title: { en: 'Differentiating power functions', ru: 'Дифференцирование степенных функций (Differentiating power functions)' },
   papers: ['P1', 'P2', 'P3'],
   order: 63,
   minutes: 30,
@@ -30,8 +30,8 @@ const topic: TopicMeta = {
   questionIds: ['q-5-3-01', 'q-5-3-02', 'q-5-3-03'],
   sources: [
     {
-      kind: 'ib-guide',
-      title: 'IB Mathematics: applications and interpretation guide (first assessment 2021)',
+      kind: 'web',
+      title: 'IB Mathematics AI, first assessment 2021: public summary, not checked against the official guide',
       locator: 'sub-topic 5.3',
       url: 'https://www.ibo.org/globalassets/new-structure/university-admission/pdfs/dp-mathematics-applications-and-interpretation-guide-en.pdf',
     },

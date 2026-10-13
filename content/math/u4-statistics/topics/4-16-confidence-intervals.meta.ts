@@ -4,7 +4,7 @@ const topic: TopicMeta = {
   id: '4-16-confidence-intervals',
   subject: 'math',
   code: '4.16',
-  title: { en: 'Confidence intervals for a normal mean', ru: 'Доверительные интервалы для среднего нормальной совокупности' },
+  title: { en: 'Confidence intervals for a normal mean', ru: 'Доверительные интервалы для среднего нормальной совокупности (Confidence intervals for a normal mean)' },
   papers: ['P1', 'P2', 'P3'],
   hl: true,
   order: 57,
@@ -30,8 +30,8 @@ const topic: TopicMeta = {
   questionIds: ['q-4-16-01', 'q-4-16-02', 'q-4-16-03'],
   sources: [
     {
-      kind: 'ib-guide',
-      title: 'IB Mathematics: applications and interpretation guide (first assessment 2021)',
+      kind: 'web',
+      title: 'IB Mathematics AI, first assessment 2021: public summary, not checked against the official guide',
       locator: 'sub-topic 4.16',
       url: 'https://www.ibo.org/globalassets/new-structure/university-admission/pdfs/dp-mathematics-applications-and-interpretation-guide-en.pdf',
     },

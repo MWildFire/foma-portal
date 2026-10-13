@@ -1,8 +1,8 @@
 import type { Term } from '../../../../src/contract/types';
 
 const source = {
-  kind: 'ib-guide' as const,
-  title: 'IB Mathematics: applications and interpretation guide (first assessment 2021)',
+  kind: 'web' as const,
+  title: 'IB Mathematics AI, first assessment 2021: public summary, not checked against the official guide',
   locator: 'sub-topic 4.17',
   url: 'https://www.ibo.org/globalassets/new-structure/university-admission/pdfs/dp-mathematics-applications-and-interpretation-guide-en.pdf',
 };

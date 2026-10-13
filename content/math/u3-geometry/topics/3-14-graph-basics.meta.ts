@@ -4,7 +4,7 @@ const topic: TopicMeta = {
   id: '3-14-graph-basics',
   subject: 'math',
   code: '3.14',
-  title: { en: 'Graph theory: basic definitions', ru: 'Теория графов: основные понятия' },
+  title: { en: 'Graph theory: basic definitions', ru: 'Теория графов: основные понятия (Graph theory: basic definitions)' },
   papers: ['P1', 'P2', 'P3'],
   hl: true,
   order: 39,
@@ -30,8 +30,8 @@ const topic: TopicMeta = {
   questionIds: ['q-3-14-01', 'q-3-14-02', 'q-3-14-03'],
   sources: [
     {
-      kind: 'ib-guide',
-      title: 'IB Mathematics: applications and interpretation guide (first assessment 2021)',
+      kind: 'web',
+      title: 'IB Mathematics AI, first assessment 2021: public summary, not checked against the official guide',
       locator: 'sub-topic 3.14',
       url: 'https://www.ibo.org/globalassets/new-structure/university-admission/pdfs/dp-mathematics-applications-and-interpretation-guide-en.pdf',
     },

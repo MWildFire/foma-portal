@@ -48,7 +48,7 @@ export const formulas: Formula[] = [
       ru: 'Интегрирование многочленов по времени для скорости или ускорения.',
     },
     syllabus: '5.13',
-    inBooklet: true,
+    inBooklet: true, // not checked against the IB formula booklet
     example: {
       en: 'The integral of 3t^2 - 12t + 9 is t^3 - 6t^2 + 9t + C.',
       ru: 'Интеграл от 3t^2 - 12t + 9 равен t^3 - 6t^2 + 9t + C.',

@@ -35,7 +35,7 @@ export const questions: Question[] = [
       en: 'M1: PA = √(4² + 1²) = 4.12, PB = √(2² + 1²) = 2.24, PC = √(2² + 5²) = 5.39. A1: the nearest station is B, so the estimated temperature is 18.0 °C. A1: distance PB = 2.24 km (2 decimal places).',
       ru: 'M1: PA = √(4² + 1²) = 4,12, PB = √(2² + 1²) = 2,24, PC = √(2² + 5²) = 5,39. A1: ближайшая станция — B, значит оценка температуры равна 18,0 °C. A1: расстояние PB = 2,24 км (с точностью до 2 знаков после запятой).',
     },
-    answer: '18.0; 2.24',
+    answer: '18.00; 2.24',
     origin: 'original',
     minutes: 3,
   },

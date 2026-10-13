@@ -4,7 +4,7 @@ const topic: TopicMeta = {
   id: '1-13-complex-polar-exponential',
   subject: 'math',
   code: '1.13',
-  title: { en: 'Complex numbers: polar and exponential form', ru: 'Комплексные числа: полярная и показательная формы' },
+  title: { en: 'Complex numbers: polar and exponential form', ru: 'Комплексные числа: полярная и показательная формы (Complex numbers: polar and exponential form)' },
   papers: ['P1', 'P2', 'P3'],
   hl: true,
   order: 13,
@@ -31,8 +31,8 @@ const topic: TopicMeta = {
   questionIds: ['q-1-13-01', 'q-1-13-02', 'q-1-13-03'],
   sources: [
     {
-      kind: 'ib-guide',
-      title: 'IB Mathematics: applications and interpretation guide (first assessment 2021)',
+      kind: 'web',
+      title: 'IB Mathematics AI, first assessment 2021: public summary, not checked against the official guide',
       locator: 'sub-topic 1.13',
       url: 'https://www.ibo.org/globalassets/new-structure/university-admission/pdfs/dp-mathematics-applications-and-interpretation-guide-en.pdf',
     },

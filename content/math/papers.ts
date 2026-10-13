@@ -91,10 +91,11 @@ export const papers: PaperGuide[] = [
       en: 'Across the 16 Paper 2 papers the largest single topic is eigenvalues and eigenvectors of 2 × 2 matrices (1.15), about 6% of marks, followed by graph algorithms (3.16), triangles (3.2), the binomial distribution (4.8), phase portraits of coupled linear systems (5.17), Markov chains (4.19), 3D distance, volume and surface area (3.1) and key features of graphs (2.4). Each question centres on one topic in depth. Shares are from our own classification, not an official statistic.',
       ru: 'В 16 работах Paper 2 крупнее всех одна тема: собственные значения и собственные векторы матриц 2 × 2 (1.15), около 6% баллов. Дальше идут алгоритмы на графах (3.16), треугольники (3.2), биномиальное распределение (4.8), фазовые портреты связанных линейных систем (5.17), цепи Маркова (4.19), трёхмерная геометрия: расстояние, объём и площадь поверхности (3.1) и ключевые свойства графиков (2.4). Каждая задача раскрывает одну тему глубоко. Доли — по нашей разметке, это не официальная статистика.',
     },
+    commandTerms: ['Find', 'Show that', 'Write down', 'State', 'Estimate', 'Explain', 'Calculate', 'Comment', 'Interpret', 'Express', 'Justify'],
     timedSets: [
       {
         id: 'p2-full',
-        title: { en: 'Full set: 8 questions, 112 marks', ru: 'Полный набор: 8 вопросов, 112 баллов' },
+        title: { en: 'Set of 8 questions, 112 marks (the exam has 110)', ru: 'Набор из 8 вопросов, 112 баллов (в экзамене 110)' },
         questionIds: [
           'q-1-6-03', 'q-1-11-03', 'q-2-4-03', 'q-3-5-03', 'q-3-12-03', 'q-4-7-03', 'q-4-15-03', 'q-5-6-03',
         ],
@@ -127,6 +128,7 @@ export const papers: PaperGuide[] = [
       en: 'Across the 16 Paper 3 papers the most common topics are hypothesis tests for means and correlation (4.18) and chi-squared and t-tests (4.11), together about 15% of marks. Then come differential equations in modelling (5.14), graph algorithms (3.16), correlation and linear regression (4.4), the modelling process (2.6), Euler\'s method for first-order equations (5.16) and extended models (2.9). Shares are from our own classification, not an official statistic.',
       ru: 'В 16 работах Paper 3 чаще всего встречаются проверки гипотез о средних и корреляции (4.18) и тесты хи-квадрат и t-тест (4.11): вместе около 15% баллов. Затем идут дифференциальные уравнения в моделировании (5.14), алгоритмы на графах (3.16), корреляция и линейная регрессия (4.4), процесс моделирования (2.6), метод Эйлера для уравнений первого порядка (5.16) и расширенные модели (2.9). Доли — по нашей разметке, это не официальная статистика.',
     },
+    commandTerms: ['Find', 'Show that', 'Interpret', 'Write down', 'State', 'Justify'],
     timedSets: [
       {
         id: 'p3-task',
@@ -136,7 +138,7 @@ export const papers: PaperGuide[] = [
       },
       {
         id: 'p3-full',
-        title: { en: 'Full paper: two tasks, 54 marks', ru: 'Полная работа: два задания, 54 балла' },
+        title: { en: 'Set of two tasks, 54 marks (the exam has 55)', ru: 'Набор из двух заданий, 54 балла (в экзамене 55)' },
         questionIds: ['q-p3-06', 'q-p3-01'],
         minutes: 75,
       },

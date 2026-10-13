@@ -4,7 +4,7 @@ const topic: TopicMeta = {
   id: '5-12-revolution-volumes',
   subject: 'math',
   code: '5.12',
-  title: { en: 'Areas and volumes of revolution', ru: 'Площади и объёмы тел вращения' },
+  title: { en: 'Areas and volumes of revolution', ru: 'Площади и объёмы тел вращения (Areas and volumes of revolution)' },
   papers: ['P1', 'P2', 'P3'],
   hl: true,
   order: 72,
@@ -31,8 +31,8 @@ const topic: TopicMeta = {
   questionIds: ['q-5-12-01', 'q-5-12-02', 'q-5-12-03'],
   sources: [
     {
-      kind: 'ib-guide',
-      title: 'IB Mathematics: applications and interpretation guide (first assessment 2021)',
+      kind: 'web',
+      title: 'IB Mathematics AI, first assessment 2021: public summary, not checked against the official guide',
       locator: 'sub-topic 5.12',
       url: 'https://www.ibo.org/globalassets/new-structure/university-admission/pdfs/dp-mathematics-applications-and-interpretation-guide-en.pdf',
     },

@@ -4,7 +4,7 @@ const topic: TopicMeta = {
   id: '2-7-composite-inverse',
   subject: 'math',
   code: '2.7',
-  title: { en: 'Composite and inverse functions', ru: 'Композиция и обратная функция' },
+  title: { en: 'Composite and inverse functions', ru: 'Композиция и обратная функция (Composite and inverse functions)' },
   papers: ['P1', 'P2', 'P3'],
   hl: true,
   order: 22,
@@ -31,8 +31,8 @@ const topic: TopicMeta = {
   questionIds: ['q-2-7-01', 'q-2-7-02', 'q-2-7-03'],
   sources: [
     {
-      kind: 'ib-guide',
-      title: 'IB Mathematics: applications and interpretation guide (first assessment 2021)',
+      kind: 'web',
+      title: 'IB Mathematics AI, first assessment 2021: public summary, not checked against the official guide',
       locator: 'sub-topic 2.7',
       url: 'https://www.ibo.org/globalassets/new-structure/university-admission/pdfs/dp-mathematics-applications-and-interpretation-guide-en.pdf',
     },

@@ -16,7 +16,7 @@ export const questions: Question[] = [
       en: 'M1: r = 60% = 0.6, the ratio of successive heights. A1: r = 0.6. M1: u_5 = u_1 r^4 = 2 × 0.6^4 = 2 × 0.1296. A1: 0.259 m (3 decimal places; unrounded 0.2592).',
       ru: 'M1: знаменатель r = 60% = 0,6, отношение соседних высот. A1: r = 0,6. M1: u_5 = u_1 r^4 = 2 × 0,6^4 = 2 × 0,1296. A1: 0,259 м (с точностью до 3 знаков; без округления 0,2592).',
     },
-    answer: '0.6; 0.259',
+    answer: '0.600; 0.259',
     origin: 'original',
     minutes: 5,
   },

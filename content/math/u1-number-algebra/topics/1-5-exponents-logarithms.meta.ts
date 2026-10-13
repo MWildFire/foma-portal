@@ -4,7 +4,7 @@ const topic: TopicMeta = {
   id: '1-5-exponents-logarithms',
   subject: 'math',
   code: '1.5',
-  title: { en: 'Laws of exponents; logarithms', ru: 'Законы степеней; логарифмы' },
+  title: { en: 'Laws of exponents; logarithms', ru: 'Законы степеней; логарифмы (Laws of exponents; logarithms)' },
   papers: ['P1', 'P2', 'P3'],
   order: 5,
   minutes: 30,
@@ -29,8 +29,8 @@ const topic: TopicMeta = {
   questionIds: ['q-1-5-01', 'q-1-5-02', 'q-1-5-03'],
   sources: [
     {
-      kind: 'ib-guide',
-      title: 'IB Mathematics: applications and interpretation guide (first assessment 2021)',
+      kind: 'web',
+      title: 'IB Mathematics AI, first assessment 2021: public summary, not checked against the official guide',
       locator: 'sub-topic 1.5',
       url: 'https://www.ibo.org/globalassets/new-structure/university-admission/pdfs/dp-mathematics-applications-and-interpretation-guide-en.pdf',
     },

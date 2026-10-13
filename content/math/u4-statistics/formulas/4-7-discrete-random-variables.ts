@@ -11,7 +11,7 @@ export const formulas: Formula[] = [
     },
     when: {
       en: 'Finding the long-run average of a random outcome, such as the average prize in a game.',
-      ru: 'Поиск среднего значения случайного исхода на длинной дистанции, например среднего выигрыша в игре.',
+      ru: 'Поиск среднего значения случайного исхода в длительной серии испытаний, например среднего выигрыша в игре.',
     },
     syllabus: '4.7',
     inBooklet: false,

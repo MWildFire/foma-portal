@@ -52,7 +52,7 @@ export const formulas: Formula[] = [
       ru: 'Центральный угол задан в радианах, как в сборнике формул IB. Радианы изучают в теме 3.7.',
     },
     syllabus: '3.4',
-    inBooklet: true,
+    inBooklet: true, // not checked against the IB formula booklet
     example: {
       en: 'r = 6 cm, theta = 5π/18 (50 degrees): l = 6 × 5π/18 = 5.24 cm (3 s.f.)',
       ru: 'r = 6 см, θ = 5π/18 (50 градусов): l = 6 × 5π/18 = 5,24 см (3 значащие цифры)',
@@ -71,7 +71,7 @@ export const formulas: Formula[] = [
       ru: 'Центральный угол задан в радианах, как в сборнике формул IB.',
     },
     syllabus: '3.4',
-    inBooklet: true,
+    inBooklet: true, // not checked against the IB formula booklet
     example: {
       en: 'r = 6 cm, theta = 5π/18: A = (1/2) × 6^2 × 5π/18 = 15.7 cm^2 (3 s.f.)',
       ru: 'r = 6 см, θ = 5π/18: A = (1/2) × 6^2 × 5π/18 = 15,7 см^2 (3 значащие цифры)',

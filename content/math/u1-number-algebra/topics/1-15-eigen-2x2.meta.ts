@@ -4,7 +4,7 @@ const topic: TopicMeta = {
   id: '1-15-eigen-2x2',
   subject: 'math',
   code: '1.15',
-  title: { en: 'Eigenvalues and eigenvectors of 2 × 2 matrices', ru: 'Собственные значения и векторы матриц 2 × 2' },
+  title: { en: 'Eigenvalues and eigenvectors of 2 × 2 matrices', ru: 'Собственные значения и векторы матриц 2 × 2 (Eigenvalues and eigenvectors of 2 × 2 matrices)' },
   papers: ['P1', 'P2', 'P3'],
   hl: true,
   order: 15,
@@ -31,8 +31,8 @@ const topic: TopicMeta = {
   questionIds: ['q-1-15-01', 'q-1-15-02', 'q-1-15-03'],
   sources: [
     {
-      kind: 'ib-guide',
-      title: 'IB Mathematics: applications and interpretation guide (first assessment 2021)',
+      kind: 'web',
+      title: 'IB Mathematics AI, first assessment 2021: public summary, not checked against the official guide',
       locator: 'sub-topic 1.15',
       url: 'https://www.ibo.org/globalassets/new-structure/university-admission/pdfs/dp-mathematics-applications-and-interpretation-guide-en.pdf',
     },

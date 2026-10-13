@@ -4,7 +4,7 @@ const topic: TopicMeta = {
   id: '5-11-integration-techniques',
   subject: 'math',
   code: '5.11',
-  title: { en: 'Integration of standard functions and substitution', ru: 'Интегрирование стандартных функций и подстановка' },
+  title: { en: 'Integration of standard functions and substitution', ru: 'Интегрирование стандартных функций и подстановка (Integration of standard functions and substitution)' },
   papers: ['P1', 'P2', 'P3'],
   hl: true,
   order: 71,
@@ -31,8 +31,8 @@ const topic: TopicMeta = {
   questionIds: ['q-5-11-01', 'q-5-11-02', 'q-5-11-03'],
   sources: [
     {
-      kind: 'ib-guide',
-      title: 'IB Mathematics: applications and interpretation guide (first assessment 2021)',
+      kind: 'web',
+      title: 'IB Mathematics AI, first assessment 2021: public summary, not checked against the official guide',
       locator: 'sub-topic 5.11',
       url: 'https://www.ibo.org/globalassets/new-structure/university-admission/pdfs/dp-mathematics-applications-and-interpretation-guide-en.pdf',
     },

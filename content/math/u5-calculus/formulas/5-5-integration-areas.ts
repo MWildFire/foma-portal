@@ -14,7 +14,7 @@ export const formulas: Formula[] = [
       ru: 'Почленное интегрирование многочлена при целом n, не равном -1.',
     },
     syllabus: '5.5',
-    inBooklet: true,
+    inBooklet: true, // not checked against the IB formula booklet
     example: {
       en: 'The integral of 3x^2 is x^3 + C.',
       ru: 'Интеграл от 3x^2 равен x^3 + C.',
@@ -48,7 +48,7 @@ export const formulas: Formula[] = [
       ru: 'Область ограничена кривой над осью x и двумя вертикальными прямыми.',
     },
     syllabus: '5.5',
-    inBooklet: true,
+    inBooklet: true, // not checked against the IB formula booklet
   },
   {
     id: 'constant-from-boundary',

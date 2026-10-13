@@ -52,7 +52,7 @@ export const formulas: Formula[] = [
       ru: 'Каждый раз, когда вы логарифмируете обе части модели перед проведением прямой.',
     },
     syllabus: '2.10',
-    inBooklet: true,
+    inBooklet: true, // not checked against the IB formula booklet
     example: {
       en: 'For example, log(x^2 y) = 2 log x + log y.',
       ru: 'Например, log(x^2 y) = 2 log x + log y.',

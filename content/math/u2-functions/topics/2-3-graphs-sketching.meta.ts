@@ -4,7 +4,7 @@ const topic: TopicMeta = {
   id: '2-3-graphs-sketching',
   subject: 'math',
   code: '2.3',
-  title: { en: 'Graphs of functions and sketching', ru: 'Графики функций и эскизы' },
+  title: { en: 'Graphs of functions and sketching', ru: 'Графики функций и эскизы (Graphs of functions and sketching)' },
   papers: ['P1', 'P2', 'P3'],
   order: 18,
   minutes: 35,
@@ -29,8 +29,8 @@ const topic: TopicMeta = {
   questionIds: ['q-2-3-01', 'q-2-3-02', 'q-2-3-03'],
   sources: [
     {
-      kind: 'ib-guide',
-      title: 'IB Mathematics: applications and interpretation guide (first assessment 2021)',
+      kind: 'web',
+      title: 'IB Mathematics AI, first assessment 2021: public summary, not checked against the official guide',
       locator: 'sub-topic 2.3',
       url: 'https://www.ibo.org/globalassets/new-structure/university-admission/pdfs/dp-mathematics-applications-and-interpretation-guide-en.pdf',
     },

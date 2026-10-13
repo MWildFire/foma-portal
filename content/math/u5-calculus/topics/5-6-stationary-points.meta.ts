@@ -4,7 +4,7 @@ const topic: TopicMeta = {
   id: '5-6-stationary-points',
   subject: 'math',
   code: '5.6',
-  title: { en: 'Stationary points', ru: 'Стационарные точки' },
+  title: { en: 'Stationary points', ru: 'Стационарные точки (Stationary points)' },
   papers: ['P1', 'P2', 'P3'],
   order: 66,
   minutes: 35,
@@ -29,8 +29,8 @@ const topic: TopicMeta = {
   questionIds: ['q-5-6-01', 'q-5-6-02', 'q-5-6-03'],
   sources: [
     {
-      kind: 'ib-guide',
-      title: 'IB Mathematics: applications and interpretation guide (first assessment 2021)',
+      kind: 'web',
+      title: 'IB Mathematics AI, first assessment 2021: public summary, not checked against the official guide',
       locator: 'sub-topic 5.6',
       url: 'https://www.ibo.org/globalassets/new-structure/university-admission/pdfs/dp-mathematics-applications-and-interpretation-guide-en.pdf',
     },

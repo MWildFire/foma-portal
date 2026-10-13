@@ -14,7 +14,7 @@ export const formulas: Formula[] = [
       ru: 'Фиксированное число независимых испытаний, каждое с двумя исходами и одинаковой вероятностью успеха.',
     },
     syllabus: '4.8',
-    inBooklet: true,
+    inBooklet: true, // not checked against the IB formula booklet
     example: {
       en: 'With n = 10 and p = 0.7: P(X = 8) = C(10, 8) × 0.7^8 × 0.3^2 = 0.233 to 3 decimal places.',
       ru: 'При n = 10 и p = 0.7: P(X = 8) = C(10, 8) × 0.7^8 × 0.3^2 = 0,233 с точностью до 3 знаков.',

@@ -14,7 +14,7 @@ export const formulas: Formula[] = [
       ru: 'Сложение бесконечного числа членов геометрической прогрессии, знаменатель которой удовлетворяет условию |r| < 1.',
     },
     syllabus: '1.11',
-    inBooklet: true,
+    inBooklet: true, // not checked against the IB formula booklet
     example: {
       en: '0.36 + 0.0036 + 0.000036 + ... has u1 = 0.36 and r = 0.01, so S = 0.36 / 0.99 = 4/11 = 0.3636...',
       ru: '0.36 + 0.0036 + 0.000036 + ... имеет u1 = 0.36 и r = 0.01, поэтому S = 0.36 / 0.99 = 4/11 = 0.3636...',
@@ -33,7 +33,7 @@ export const formulas: Formula[] = [
       ru: 'Суммирование конечного числа членов и исходная точка для перехода к пределу при |r| < 1.',
     },
     syllabus: '1.11',
-    inBooklet: true,
+    inBooklet: true, // not checked against the IB formula booklet
     example: {
       en: 'With u1 = 2 and r = 3: S3 = 2(1 - 3^3)/(1 - 3) = 2 x 13 = 26, which is 2 + 6 + 18.',
       ru: 'При u1 = 2 и r = 3: S3 = 2(1 - 3^3)/(1 - 3) = 2 × 13 = 26, что равно 2 + 6 + 18.',
