@@ -74,6 +74,15 @@ async function main() {
     check(term.example === undefined || pick(term.example, 'fr').trim() !== '', `term "${term.id}": example has no example.fr`);
     check(codes.has(term.syllabus), `term "${term.id}": syllabus "${term.syllabus}" is not a code in syllabus.ts`);
   }
+  // The same French headword in two entries is a duplicate (ids differ). Compare case-insensitively, apostrophes unified.
+  const headwords = new Map();
+  for (const term of terms) {
+    const key = pick(term.term, 'fr').toLowerCase().replace(/[’]/g, "'").trim();
+    if (!key) continue;
+    if (headwords.has(key)) errors.push(`duplicate term.fr "${pick(term.term, 'fr')}": "${headwords.get(key)}" and "${term.id}"`);
+    else headwords.set(key, term.id);
+  }
+
   const vocab = terms.filter(term => term.id.startsWith('v-'));
   const connectors = terms.filter(term => term.id.startsWith('cn-'));
   const grammar = terms.filter(term => term.id.startsWith('gr-'));

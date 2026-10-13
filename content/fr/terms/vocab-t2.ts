@@ -434,9 +434,9 @@ export const terms: FrTerm[] = [
   },
   {
     id: 'v-t2-047',
-    term: { en: 'hike, trek', ru: 'поход, пеший маршрут', fr: 'la randonnée' },
-    def: { en: 'a long walk in the countryside or in the mountains, often lasting a day or more', ru: 'долгая прогулка по природе или в горах, обычно на день или дольше' },
-    example: { en: 'We went on an eight-kilometre hike through the forest.', ru: 'Мы прошли восемь километров по лесу.', fr: 'Nous avons fait une randonnée de huit kilomètres dans la forêt.' },
+    term: { en: 'trail, footpath', ru: 'тропа, тропинка', fr: 'le sentier' },
+    def: { en: 'a narrow path through the countryside or a forest', ru: 'узкая дорожка через природу или лес' },
+    example: { en: 'We followed the trail to the lake.', ru: 'Мы шли по тропе до озера.', fr: "Nous avons suivi le sentier jusqu'au lac." },
     syllabus: 'T2',
     papers: ['P1', 'P2'],
     src: { kind: 'own', title: "Authors' French B vocabulary list (2026)" },
