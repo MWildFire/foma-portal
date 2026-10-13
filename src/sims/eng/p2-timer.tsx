@@ -1,24 +1,34 @@
 import { useEffect, useState } from 'react';
+import { setAllowanceMinutes } from '../../components/practice/timing';
+import { useLocalProgress } from '../../hooks/useLocalProgress';
+import { EXAMS } from '../../planner/data';
 import type { Lang } from '../../contract/types';
 
-// Paper 2 timing with the 25% access time (131 minutes): 10 to plan, 106 to write, 10 to check. That is 126 of the 131 minutes; 5 are spare.
-const PHASES = [
+// Paper 2 timing. The printed length and the sitting with extra time come from data/exams.json (the school's accessMinutes
+// table: 105 becomes 131), not from this file. Planning, checking and the spare minutes are fixed; writing gets the rest.
+const PLAN_MINUTES = 10;
+const CHECK_MINUTES = 10;
+const SPARE_MINUTES = 5;
+
+const STAGES = [
   {
-    minutes: 10,
     en: { name: 'Plan', tips: ['Read the prompt twice and underline its key words.', 'Choose two works and say why each one fits the prompt.', 'Write a thesis and three comparison points.'] },
     ru: { name: 'План', tips: ['Прочитайте задание дважды и подчеркните ключевые слова.', 'Выберите два произведения и объясните, почему каждое подходит к заданию.', 'Напишите тезис и три пункта сравнения.'] },
   },
   {
-    minutes: 106,
     en: { name: 'Write', tips: ['One comparison point per paragraph.', 'In every paragraph, compare the choices of the two writers.', 'Keep the last 10 minutes for checking.'] },
     ru: { name: 'Письмо', tips: ['Один пункт сравнения на абзац.', 'В каждом абзаце сравнивайте решения двух авторов.', 'Последние 10 минут оставьте на проверку.'] },
   },
   {
-    minutes: 10,
     en: { name: 'Check', tips: ['Does the conclusion answer the prompt, or only summarise?', 'Are the quotations short, exact and linked to a technique?', 'Does every paragraph still compare, rather than describe?'] },
     ru: { name: 'Проверка', tips: ['Отвечает ли вывод на задание, или он только пересказывает?', 'Короткие ли цитаты, точны ли они и связаны ли с приёмом?', 'Сравнивает ли каждый абзац, а не описывает ли?'] },
   },
 ];
+
+// Minutes of each stage (plan, write, check) for a sitting of `total` minutes.
+function stageMinutes(total: number): number[] {
+  return [PLAN_MINUTES, total - PLAN_MINUTES - CHECK_MINUTES - SPARE_MINUTES, CHECK_MINUTES];
+}
 
 const LABELS = {
   en: {
@@ -27,9 +37,9 @@ const LABELS = {
     pause: 'Pause',
     next: 'Next stage',
     reset: 'Reset this stage',
-    spare: 'Spare: 5 minutes for a slow start or a longer check.',
+    spare: `Spare: ${SPARE_MINUTES} minutes for a slow start or a longer check.`,
     done: 'Time for this stage is up. Move on to the next one.',
-    total: 'Total: 131 minutes (105 + 25% access time)',
+    total: (total: number, printed: number) => (total > printed ? `Total: ${total} minutes (${printed} + access time)` : `Total: ${printed} minutes`),
     stage: 'Stage',
   },
   ru: {
@@ -38,9 +48,9 @@ const LABELS = {
     pause: 'Пауза',
     next: 'Следующий этап',
     reset: 'Сбросить этап',
-    spare: 'Запас: 5 минут на медленный старт или более долгую проверку.',
+    spare: `Запас: ${SPARE_MINUTES} минут на медленный старт или более долгую проверку.`,
     done: 'Время этапа вышло. Переходите к следующему.',
-    total: 'Всего: 131 минута (105 + 25% доп. времени)',
+    total: (total: number, printed: number) => (total > printed ? `Всего: ${total} мин (${printed} + доп. время)` : `Всего: ${printed} мин`),
     stage: 'Этап',
   },
 };
@@ -51,14 +61,30 @@ function clock(seconds: number): string {
   return `${String(minutes).padStart(2, '0')}:${String(rest).padStart(2, '0')}`;
 }
 
+// The printed length of English Paper 2 and the minutes of the sitting, with or without extra time.
+function paperSitting(extraTime: boolean): { printed: number; total: number } {
+  const paper = EXAMS.papers.find(exam => exam.subject === 'eng' && exam.paper === 'P2');
+  if (!paper) throw new Error('data/exams.json has no English Paper 2');
+  const total = setAllowanceMinutes({ subject: 'eng', set: { paper: paper.paper, minutes: paper.minutes }, exams: EXAMS, extraTime });
+  return { printed: paper.minutes, total };
+}
+
 export default function P2Timer({ lang }: { lang: Lang }) {
+  const [state] = useLocalProgress();
+  const sitting = paperSitting(state.settings.accessArrangements.extraTime);
+  // A different sitting length starts a fresh timer.
+  return <StageTimer key={sitting.total} lang={lang} printed={sitting.printed} total={sitting.total} />;
+}
+
+function StageTimer({ lang, printed, total }: { lang: Lang; printed: number; total: number }) {
   const labels = LABELS[lang];
+  const minutes = stageMinutes(total);
   const [index, setIndex] = useState(0);
-  const [left, setLeft] = useState(PHASES[0].minutes * 60);
+  const [left, setLeft] = useState(minutes[0] * 60);
   const [running, setRunning] = useState(false);
-  const phase = PHASES[index];
-  const text = lang === 'ru' ? phase.ru : phase.en;
-  const total = phase.minutes * 60;
+  const stage = STAGES[index];
+  const text = lang === 'ru' ? stage.ru : stage.en;
+  const stageTotal = minutes[index] * 60;
   const finished = left === 0;
 
   useEffect(() => {
@@ -75,7 +101,7 @@ export default function P2Timer({ lang }: { lang: Lang }) {
 
   const choose = (next: number) => {
     setIndex(next);
-    setLeft(PHASES[next].minutes * 60);
+    setLeft(minutes[next] * 60);
     setRunning(false);
   };
 
@@ -93,7 +119,7 @@ export default function P2Timer({ lang }: { lang: Lang }) {
     <section style={{ color: 'var(--color-fg)' }}>
       <h3 style={{ margin: '0 0 0.5rem', fontSize: '1rem' }}>{labels.title}</h3>
       <ol style={{ display: 'flex', gap: '0.5rem', listStyle: 'none', padding: 0, margin: '0 0 0.75rem' }}>
-        {PHASES.map((item, position) => (
+        {STAGES.map((item, position) => (
           <li key={position}>
             <button
               type="button"
@@ -101,7 +127,7 @@ export default function P2Timer({ lang }: { lang: Lang }) {
               aria-current={position === index ? 'step' : undefined}
               style={{ ...button, fontWeight: position === index ? 700 : 400, borderColor: position === index ? 'var(--color-accent)' : 'var(--color-border)' }}
             >
-              {`${labels.stage} ${position + 1}: ${lang === 'ru' ? item.ru.name : item.en.name} (${item.minutes})`}
+              {`${labels.stage} ${position + 1}: ${lang === 'ru' ? item.ru.name : item.en.name} (${minutes[position]})`}
             </button>
           </li>
         ))}
@@ -110,7 +136,7 @@ export default function P2Timer({ lang }: { lang: Lang }) {
         {clock(left)}
       </div>
       <div aria-hidden="true" style={{ height: 6, borderRadius: 3, background: 'var(--color-border)', margin: '0.5rem 0' }}>
-        <div style={{ height: 6, borderRadius: 3, background: 'var(--color-accent)', width: `${((total - left) / total) * 100}%` }} />
+        <div style={{ height: 6, borderRadius: 3, background: 'var(--color-accent)', width: `${((stageTotal - left) / stageTotal) * 100}%` }} />
       </div>
       {finished ? <p style={{ margin: '0 0 0.5rem' }}>{labels.done}</p> : null}
       <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', marginBottom: '0.75rem' }}>
@@ -118,7 +144,7 @@ export default function P2Timer({ lang }: { lang: Lang }) {
           {running ? labels.pause : labels.start}
         </button>
         <button type="button" style={button} onClick={() => choose(index)}>{labels.reset}</button>
-        <button type="button" style={button} onClick={() => choose(Math.min(index + 1, PHASES.length - 1))} disabled={index === PHASES.length - 1}>
+        <button type="button" style={button} onClick={() => choose(Math.min(index + 1, STAGES.length - 1))} disabled={index === STAGES.length - 1}>
           {labels.next}
         </button>
       </div>
@@ -128,7 +154,7 @@ export default function P2Timer({ lang }: { lang: Lang }) {
         ))}
       </ul>
       <p style={{ margin: '0.75rem 0 0', fontSize: '0.875rem', color: 'var(--color-muted)' }}>
-        {labels.total}. {labels.spare}
+        {labels.total(total, printed)}. {labels.spare}
       </p>
     </section>
   );
