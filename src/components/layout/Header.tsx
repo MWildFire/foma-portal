@@ -37,11 +37,11 @@ export function Header() {
       <nav aria-label={t('nav.subjects')} className="mx-auto flex max-w-5xl gap-2 overflow-x-auto px-4 pb-3 text-sm">
         {listSubjects().map(subject => (
           <NavLink
-            key={subject.meta.id}
-            to={ROUTES.subject(subject.meta.id)}
+            key={subject.id}
+            to={ROUTES.subject(subject.id)}
             className="whitespace-nowrap rounded-full border border-[var(--color-border)] px-3 py-1 no-underline"
           >
-            {pickText(subject.meta.title, i18n.language)}
+            {pickText(subject.title, i18n.language)}
           </NavLink>
         ))}
       </nav>

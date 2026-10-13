@@ -5,7 +5,8 @@ import { useTranslation } from 'react-i18next';
 import { describeBlock, formatMinutes, paperLabel } from '../components/planner/labels';
 import { subjectInfo, subjectInfos, type SubjectInfo } from '../components/planner/subjects';
 import { usePageTitle, useScrollToTop } from '../components/planner/usePageTitle';
-import { usePlan } from '../components/planner/usePlan';
+import { usePlan, type PlanReady } from '../components/planner/usePlan';
+import { PageLoading } from '../components/layout/PageLoading';
 import { Btn, CARD, CARD_ACCENT, Chip, MUTED, card } from '../components/planner/ui';
 import { ROUTES } from '../config/routes';
 import type { Lang, SubjectId } from '../contract/types';
@@ -174,10 +175,15 @@ function DaySummary({ day, lang, infos }: { day: PlanDay; lang: Lang; infos: Inf
 
 // The whole plan from today to the last exam. Every day is collapsible; today starts open.
 export function PlanPage() {
+  const { plan, ...rest } = usePlan();
+  if (!plan) return <PageLoading />;
+  return <PlanBody plan={plan} {...rest} />;
+}
+
+function PlanBody({ plan, today, lang }: PlanReady) {
   const { t } = useTranslation('plan');
   const { t: tc } = useTranslation();
   const { t: tp } = useTranslation('planner');
-  const { plan, today, lang } = usePlan();
   usePageTitle(tc('nav.plan'), tc('brand'));
   useScrollToTop();
   const infos = useMemo(() => subjectInfos(lang), [lang]);

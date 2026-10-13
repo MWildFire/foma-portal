@@ -7,19 +7,21 @@ import { GlossaryView } from '../components/glossary/GlossaryView';
 import { SubjectBar } from '../components/subject/SubjectHeader';
 import { SubjectNotFound } from '../components/subject/SubjectNotFound';
 import { ROUTES } from '../config/routes';
-import { getSubject } from '../content/registry';
+import { useSubject } from '../content/useSubject';
+import { PageLoading } from '../components/layout/PageLoading';
 import { pickText } from '../lib/text';
 
 // #/s/:subject/terms (also ?mode=cards for the flashcards)
 export function GlossaryPage() {
   const { subject = '' } = useParams();
   const { t, i18n } = useTranslation(['glossary', 'subject', 'common']);
-  const pack = getSubject(subject);
+  const { pack, loading } = useSubject(subject);
   const subjectTitle = pack ? pickText(pack.meta.title, i18n.language) : '';
 
-  usePageTitle(pack ? `${t('title')} | ${subjectTitle}` : t('notFound.title', { ns: 'subject' }), t('brand', { ns: 'common' }));
+  usePageTitle(loading ? null : pack ? `${t('title')} | ${subjectTitle}` : t('notFound.title', { ns: 'subject' }), t('brand', { ns: 'common' }));
   useScrollToTopOnArrival(subject);
 
+  if (loading) return <PageLoading />;
   if (!pack) return <SubjectNotFound />;
 
   return (

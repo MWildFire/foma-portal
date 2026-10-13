@@ -24,13 +24,13 @@ export interface SubjectInfo {
 // Subjects from the packs, named in the UI language. Unknown ids still get a readable fallback.
 export function subjectInfos(lang: string): Map<SubjectId, SubjectInfo> {
   const infos = new Map<SubjectId, SubjectInfo>();
-  for (const pack of listSubjects()) {
-    infos.set(pack.meta.id, {
-      id: pack.meta.id,
-      name: pickText(pack.meta.title, lang),
-      level: pack.meta.level,
-      accent: ACCENTS[pack.meta.color] ?? '#64748b',
-      route: ROUTES.subject(pack.meta.id),
+  for (const meta of listSubjects()) {
+    infos.set(meta.id, {
+      id: meta.id,
+      name: pickText(meta.title, lang),
+      level: meta.level,
+      accent: ACCENTS[meta.color] ?? '#64748b',
+      route: ROUTES.subject(meta.id),
     });
   }
   return infos;

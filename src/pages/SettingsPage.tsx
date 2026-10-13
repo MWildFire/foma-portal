@@ -4,7 +4,8 @@ import { useTranslation } from 'react-i18next';
 import { formatMinutes, paperLabel } from '../components/planner/labels';
 import { subjectInfo, subjectInfos } from '../components/planner/subjects';
 import { usePageTitle, useScrollToTop } from '../components/planner/usePageTitle';
-import { usePlan } from '../components/planner/usePlan';
+import { usePlan, type PlanReady } from '../components/planner/usePlan';
+import { PageLoading } from '../components/layout/PageLoading';
 import { Btn, CARD, MUTED } from '../components/planner/ui';
 import { LanguageToggle } from '../components/ui/LanguageToggle';
 import type { Lang } from '../contract/types';
@@ -436,9 +437,14 @@ function TransferSection({ state, lang }: { state: GlobalState; lang: Lang }) {
 // ---------------------------------------------------------------------------------------------
 
 export function SettingsPage() {
+  const { plan, ...rest } = usePlan();
+  if (!plan) return <PageLoading />;
+  return <SettingsBody plan={plan} {...rest} />;
+}
+
+function SettingsBody({ plan, state, update, lang }: PlanReady) {
   const { t } = useTranslation('settings');
   const { t: tc } = useTranslation();
-  const { plan, state, update, lang } = usePlan();
   usePageTitle(tc('nav.settings'), tc('brand'));
   useScrollToTop();
   const planned = plan.days.reduce((sum, day) => sum + day.minutes, 0);

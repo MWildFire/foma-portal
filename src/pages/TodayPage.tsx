@@ -8,7 +8,8 @@ import { TimerPanel } from '../components/planner/TimerPanel';
 import { studyTimer, useStudyTimer } from '../components/planner/timerStore';
 import { subjectInfo, subjectInfos } from '../components/planner/subjects';
 import { usePageTitle, useScrollToTop } from '../components/planner/usePageTitle';
-import { usePlan } from '../components/planner/usePlan';
+import { usePlan, type PlanReady } from '../components/planner/usePlan';
+import { PageLoading } from '../components/layout/PageLoading';
 import { CARD, CARD_ACCENT, MUTED } from '../components/planner/ui';
 import { formatMinutes, paperLabel } from '../components/planner/labels';
 import { ExamCountdown } from '../components/progress/ExamCountdown';
@@ -29,10 +30,15 @@ function Note({ children }: { children: React.ReactNode }) {
 }
 
 export function TodayPage() {
+  const { plan, ...rest } = usePlan();
+  if (!plan) return <PageLoading />;
+  return <TodayBody plan={plan} {...rest} />;
+}
+
+function TodayBody({ plan, state, update, today, lang }: PlanReady) {
   const { t } = useTranslation('today');
   const { t: tc } = useTranslation();
   const { t: tp } = useTranslation('planner');
-  const { plan, state, update, today, lang } = usePlan();
   usePageTitle(tc('nav.today'), tc('brand'));
   useScrollToTop();
   const { extraTime, separateRoom } = state.settings.accessArrangements;

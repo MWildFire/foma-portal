@@ -20,7 +20,8 @@ import { TopicChips } from '../components/subject/TopicChips';
 import { TopicProgressControls } from '../components/subject/TopicProgressControls';
 import { FrenchText } from '../components/ui/FrenchText';
 import { ROUTES } from '../config/routes';
-import { getSubject } from '../content/registry';
+import { useSubject } from '../content/useSubject';
+import { PageLoading } from '../components/layout/PageLoading';
 import { pickText, textsIn } from '../lib/text';
 import { langsOf, toLang, type ContentLang } from '../lib/topic-lang';
 import { publicUrl, showsSource } from '../lib/topic-text';
@@ -92,17 +93,18 @@ export function TopicPage() {
   const uiLang = toLang(i18n.language);
   const [contentLang, setContentLang] = useContentLang();
   const base = useId();
-  const pack = getSubject(subject);
+  const { pack, loading } = useSubject(subject);
   const topic = pack?.topics.find(item => item.id === topicId);
   // Topic text follows the content-language mode (EN, RU or both), not the interface language.
   const shownText = (text: L): string => textsIn(text, contentLang).map(item => item.text).join(' / ') || pickText(text, uiLang);
 
   usePageTitle(
-    topic ? shownText(topic.title) : t('page.notFound.title'),
+    loading ? null : topic ? shownText(topic.title) : t('page.notFound.title'),
     pack ? `${pickText(pack.meta.title, uiLang)} | ${t('brand', { ns: 'common' })}` : t('brand', { ns: 'common' }),
   );
   useScrollToTop(`${subject}/${topicId}`);
 
+  if (loading) return <PageLoading />;
   if (!pack) return <SubjectNotFound />;
 
   const subjectTitle = pickText(pack.meta.title, uiLang);

@@ -1,5 +1,6 @@
 {
   "brand": "Foma Learning Portal",
+  "loading": "Загрузка…",
   "nav": {
     "main": "Основная навигация",
     "today": "Сегодня",

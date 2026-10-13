@@ -1,5 +1,6 @@
 {
   "brand": "Foma Learning Portal",
+  "loading": "Loading…",
   "nav": {
     "main": "Main navigation",
     "today": "Today",

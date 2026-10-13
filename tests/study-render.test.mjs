@@ -29,7 +29,10 @@ before(async () => {
     ssr: { resolve: { conditions: ['module-sync', 'module', 'node', 'development|production'], externalConditions: ['node', 'module-sync'] } },
   });
   i18n = (await server.ssrLoadModule('/src/i18n/index.ts')).default;
-  example = (await server.ssrLoadModule('/src/content/registry.ts')).getSubject('_example');
+  const registry = await server.ssrLoadModule('/src/content/registry.ts');
+  example = await registry.loadSubject('_example');
+  // The pages draw a placeholder until their packs are in memory, so the drawing tests load every real pack first.
+  await registry.loadSubjects(registry.listSubjects().map(meta => meta.id));
   await new Promise(resolve => setTimeout(resolve, 20));
   const files = {
     PracticePage: '/src/pages/PracticePage.tsx',

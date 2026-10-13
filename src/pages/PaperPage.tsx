@@ -12,7 +12,8 @@ import { usePageTitle, useScrollToTop } from '../components/content/usePageTitle
 import { SubjectBar } from '../components/subject/SubjectHeader';
 import { SubjectNotFound } from '../components/subject/SubjectNotFound';
 import { ROUTES } from '../config/routes';
-import { getSubject } from '../content/registry';
+import { useSubject } from '../content/useSubject';
+import { PageLoading } from '../components/layout/PageLoading';
 import { groupPastPapers } from '../lib/past-papers';
 import { pickText, shownLangs } from '../lib/text';
 import { guidesForPaper, isPaperKey, timedSetSearch } from '../lib/topic-list';
@@ -88,14 +89,15 @@ export function PaperPage() {
   const [contentLang] = useContentLang();
   const base = useId();
   const { progressOf, extraTime, setScore, setSolved } = usePastPaperProgress(subject);
-  const pack = getSubject(subject);
+  const { pack, loading } = useSubject(subject);
   const guides = pack && isPaperKey(paper) ? guidesForPaper(pack.papers, paper) : [];
   const paperName = isPaperKey(paper) ? t(`paperNames.${paper}`, { ns: 'subject' }) : paper;
   const subjectTitle = pack ? pickText(pack.meta.title, i18n.language) : '';
 
-  usePageTitle(pack ? `${t('title', { paper: paperName })} | ${subjectTitle}` : t('notFound.title', { ns: 'subject' }), t('brand', { ns: 'common' }));
+  usePageTitle(loading ? null : pack ? `${t('title', { paper: paperName })} | ${subjectTitle}` : t('notFound.title', { ns: 'subject' }), t('brand', { ns: 'common' }));
   useScrollToTop(`${subject}/${paper}`);
 
+  if (loading) return <PageLoading />;
   if (!pack) return <SubjectNotFound />;
 
   const crumbs = [{ label: subjectTitle, to: ROUTES.subject(subject) }, { label: paperName }];

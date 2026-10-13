@@ -33,7 +33,7 @@ before(async () => {
     ssr: { resolve: { conditions: ['module-sync', 'module', 'node', 'development|production'], externalConditions: ['node', 'module-sync'] } },
   });
   i18n = (await server.ssrLoadModule('/src/i18n/index.ts')).default;
-  example = (await server.ssrLoadModule('/src/content/registry.ts')).getSubject('_example');
+  example = await (await server.ssrLoadModule('/src/content/registry.ts')).loadSubject('_example');
   await new Promise(resolve => setTimeout(resolve, 20));
   const files = {
     FrenchText: '/src/components/ui/FrenchText.tsx',
