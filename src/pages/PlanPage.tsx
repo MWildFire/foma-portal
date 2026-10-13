@@ -7,6 +7,7 @@ import { subjectInfo, subjectInfos, type SubjectInfo } from '../components/plann
 import { usePageTitle, useScrollToTop } from '../components/planner/usePageTitle';
 import { usePlan, type PlanReady } from '../components/planner/usePlan';
 import { PageLoading } from '../components/layout/PageLoading';
+import { pickText } from '../lib/text';
 import { Btn, CARD, CARD_ACCENT, Chip, MUTED, card } from '../components/planner/ui';
 import { ROUTES } from '../config/routes';
 import type { Lang, SubjectId } from '../contract/types';
@@ -102,7 +103,7 @@ function DayBody({ day, lang, infos }: { day: PlanDay; lang: Lang; infos: Infos 
       {day.focus && (
         <p className="break-words text-sm">
           <span className="font-medium">{t('day.focus')}: </span>
-          <span lang="en">{day.focus}</span>
+          <span lang={lang}>{pickText(day.focus, lang)}</span>
         </p>
       )}
       {day.kind === 'rest' && <p className={`text-sm ${MUTED}`}>{t('day.restText')}</p>}

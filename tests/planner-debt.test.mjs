@@ -64,9 +64,10 @@ test('debt that cannot fit before a subject’s last exam is reported, not lost 
 test('partly finished days leave only the missing subjects as debt', () => {
   const state = study('2026-10-14', '2026-10-14', { finish: block => block.subject === 'geo' || block.kind === 'recall' });
   const result = plan('2026-10-15', { state });
-  assert.deepEqual(result.debt, [{ subject: 'math', minutes: 45 }, { subject: 'eng', minutes: 30 }]);
-  // Maths has quota today and starts catching up at once; English has none until 17 Oct, so it waits.
-  assert.ok(blocksOf(result.days[0], 'math').some(b => b.status === 'moved'));
+  assert.deepEqual(result.debt, [{ subject: 'eng', minutes: 30 }]);
+  // Maths today is the diagnostic, a timed set: it is not debt but moves to the next day as a timed block.
+  assert.ok(blocksOf(result.days[0], 'math').some(b => b.kind === 'timed' && b.status === 'moved'));
+  // English has no quota until 17 Oct, so it waits.
   assert.equal(blocksOf(result.days[0], 'eng').length, 0);
   assert.ok(blocksOf(dayOf(result, '2026-10-17'), 'eng').some(b => b.status === 'moved'));
 });

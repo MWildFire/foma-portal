@@ -48,10 +48,12 @@ export function BlockCard({ block, lang, showDetail = true, timerRunning, onStar
       </div>
     );
   } else {
-    // A practice block of a topic without questions yet leads to the topic page, so it says so.
+    // A practice block of a topic without questions yet leads to the topic page, so it says so. A timed set of a guide
+    // (the maths diagnostic) leads to the practice page, not to the paper guide.
     const label =
       block.kind === 'practice' ? (block.hasQuestions ? tp('openPractice') : tp('openTopic'))
-        : block.kind === 'timed' || block.kind === 'paper' ? tp('openPaper')
+        : block.kind === 'timed' && block.route.includes('?set=') ? tp('openPractice')
+          : block.kind === 'timed' || block.kind === 'paper' ? tp('openPaper')
           : block.kind === 'study' ? tp('openSubject')
             : tp('openTopic');
     materials = (

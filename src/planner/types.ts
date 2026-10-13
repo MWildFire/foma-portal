@@ -40,6 +40,8 @@ export interface TimedEntry {
   subject: SubjectId;
   paper: PaperId;
   part?: string;                  // 'reading' | 'listening' for French P2; without it the entry is the whole paper
+  set?: string;                   // a timed set of the paper's guide ('diagnostic') instead of the whole paper; no past paper
+  title?: L;                      // the block title for a set, in both languages
   minutes: number;                // the timed sitting itself; the rest of the quota is review
   note?: string;
 }
@@ -49,7 +51,7 @@ export interface QuotaDay {
   capacity: number;               // recall + sum of quotas
   recall: number;
   examDay: boolean;
-  focus: string;
+  focus: L | null;                // the focus of the day, in both languages
   quota: Partial<Record<SubjectId, number>>;
   subjectOrder: SubjectId[];      // order of the keys in the file: the day's priority
   timed: TimedEntry[];
@@ -165,7 +167,7 @@ export interface PlanDay {
   minutes: number;                // sum of the blocks
   doneMinutes: number;
   moved: number;                  // minutes of work moved here from earlier days (debt and timed papers)
-  focus: string | null;
+  focus: L | null;
   exams: ExamPaper[];
   eveOf: ExamPaper[];             // exams that sit the next day
   blocks: PlanBlock[];            // recall first

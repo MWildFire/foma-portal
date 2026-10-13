@@ -48,8 +48,8 @@ test('a day that cannot hold the extended paper within 115% moves the review of 
     start: '2026-10-22',
     end: '2026-10-23',
     days: [
-      { date: '2026-10-22', capacity: 150, recall: 0, examDay: false, focus: '', quota: { math: 150 }, subjectOrder: ['math'], timed: [{ subject: 'math', paper: 'P2', minutes: 120 }] },
-      { date: '2026-10-23', capacity: 150, recall: 0, examDay: false, focus: '', quota: { math: 150 }, subjectOrder: ['math'], timed: [] },
+      { date: '2026-10-22', capacity: 150, recall: 0, examDay: false, focus: null, quota: { math: 150 }, subjectOrder: ['math'], timed: [{ subject: 'math', paper: 'P2', minutes: 120 }] },
+      { date: '2026-10-23', capacity: 150, recall: 0, examDay: false, focus: null, quota: { math: 150 }, subjectOrder: ['math'], timed: [] },
     ],
   };
   const subjects = makeSubjects();
@@ -72,9 +72,12 @@ test('the real plan with extra time never goes past 115% on a day, and every ext
   for (const day of result.days) {
     assert.ok(day.minutes <= Math.floor(day.capacity * 1.15), `${day.date}: ${day.minutes} against ${day.capacity}`);
   }
+  // A timed block is checked against its own entry: a set of the guide (its route has `?set=`), or a whole paper.
+  const entryOf = block => quotas.days.flatMap(d => d.timed).find(t =>
+    t.subject === block.subject && t.paper === block.paper && block.route.includes('?set=') === (t.set !== undefined));
   for (const block of result.days.flatMap(day => day.blocks.filter(b => b.kind === 'timed'))) {
     const paper = exams.papers.find(p => p.subject === block.subject && p.paper === block.paper);
-    assert.equal(block.minutes, exams.accessMinutes[String(quotas.days.flatMap(d => d.timed).find(t => t.subject === block.subject && t.paper === block.paper).minutes)], `${block.date} ${block.subject} ${block.paper}`);
+    assert.equal(block.minutes, exams.accessMinutes[String(entryOf(block).minutes)], `${block.date} ${block.subject} ${block.paper}`);
     assert.ok(paper, 'every timed block has its paper in the exam file');
   }
 });

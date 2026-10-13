@@ -21,7 +21,7 @@ test('the plan runs from today to the last exam and marks today', () => {
   assert.equal(dayOf(result, '2026-10-26').kind, 'exam');
   assert.equal(dayOf(result, '2026-10-14').kind, 'study');
   assert.equal(dayOf(result, '2026-10-14').weekday, 'wed');
-  assert.equal(dayOf(result, '2026-10-14').focus, quotas.days[0].focus);
+  assert.deepEqual(dayOf(result, '2026-10-14').focus, quotas.days[0].focus);
 });
 
 test('before the plan starts the first plan day leads; after the last exam nothing is left', () => {
@@ -111,7 +111,7 @@ test('a timed essay planned for the eve of other papers moves to the eve of its 
   assert.deepEqual(nov2.map(b => [b.kind, b.paper, b.status, b.movedFrom]), [['timed', 'P1', 'moved', '2026-11-01']]);
 });
 
-test('the first day fills each quota with 25-minute slices of the queue in order', () => {
+test('the first day fills each quota in order: slices of the queue, and maths with the diagnostic set', () => {
   const day = dayOf(plan('2026-10-14'), '2026-10-14');
   assert.equal(day.blocks[0].kind, 'recall');
   assert.equal(day.blocks[0].id, 'r:2026-10-14');
@@ -120,9 +120,11 @@ test('the first day fills each quota with 25-minute slices of the queue in order
   assert.deepEqual(blocksOf(day, 'geo').map(b => b.id), [
     't:geo/geo-t1@0+25', 't:geo/geo-t2@0+25', 't:geo/geo-t2@25+10',
   ]);
-  assert.deepEqual(blocksOf(day, 'math').map(b => b.minutes), [25, 20]);
+  // The timed diagnostic takes the whole maths quota of the day (45 minutes), so no maths slice is planned here.
+  assert.deepEqual(blocksOf(day, 'math').map(b => b.minutes), [45]);
+  assert.equal(blocksOf(day, 'math')[0].route, '/s/math/practice?set=diagnostic');
   assert.deepEqual(blocksOf(day, 'eng').map(b => b.minutes), [25, 5]);
-  assert.deepEqual(day.blocks.map(b => b.subject), [null, 'geo', 'geo', 'geo', 'math', 'math', 'eng', 'eng']);
+  assert.deepEqual(day.blocks.map(b => b.subject), [null, 'geo', 'geo', 'geo', 'math', 'eng', 'eng']);
   const first = blocksOf(day, 'geo')[0];
   assert.equal(first.status, 'planned');
   assert.equal(first.route, '/s/geo/t/geo-t1');

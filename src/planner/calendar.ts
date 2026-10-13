@@ -1,6 +1,6 @@
 // Exam calendar and daily quotas: parsing of data/exams.json and data/plan-quotas.json, and lookups on them.
 // Pure module: the JSON is passed in as a parameter (data.ts loads it for the app, tests read it from disk).
-import type { PaperId, SubjectId } from '../contract/types.ts';
+import type { L, PaperId, SubjectId } from '../contract/types.ts';
 import type { ExamPaper, ExamsFile, QuotaDay, QuotasFile, TimedEntry } from './types.ts';
 // The .ts extension is what Node's test runner needs.
 import { addDays, dubaiEpoch, isDate, parseClock } from './dates.ts';
@@ -19,6 +19,9 @@ const isSubject = (value: unknown): value is SubjectId => (SUBJECT_IDS as unknow
 const isPaper = (value: unknown): value is PaperId => (PAPER_IDS as unknown[]).includes(value);
 const positive = (value: unknown): value is number => typeof value === 'number' && Number.isFinite(value) && value > 0;
 const text = (value: unknown, fallback = ''): string => (typeof value === 'string' ? value : fallback);
+// A text in plan-quotas.json in both languages. A plain string is not accepted: it would show in one language only.
+const localized = (value: unknown): L | null =>
+  isRecord(value) && typeof value.en === 'string' && typeof value.ru === 'string' ? { en: value.en, ru: value.ru } : null;
 
 function examOf(raw: unknown, defaultRoom: string): ExamPaper | null {
   if (!isRecord(raw)) return null;
@@ -64,6 +67,9 @@ function timedOf(raw: unknown): TimedEntry | null {
   if (!isRecord(raw) || !isSubject(raw.subject) || !isPaper(raw.paper) || !positive(raw.minutes)) return null;
   const entry: TimedEntry = { subject: raw.subject, paper: raw.paper, minutes: raw.minutes };
   if (typeof raw.part === 'string') entry.part = raw.part;
+  if (typeof raw.set === 'string' && raw.set !== '') entry.set = raw.set;
+  const title = localized(raw.title);
+  if (title) entry.title = title;
   if (typeof raw.note === 'string') entry.note = raw.note;
   return entry;
 }
@@ -90,7 +96,7 @@ function quotaDayOf(raw: unknown, recallDefault: number): QuotaDay | null {
     capacity: positive(raw.capacity) ? raw.capacity : recall + sum,
     recall,
     examDay: raw.examDay === true,
-    focus: text(raw.focus),
+    focus: localized(raw.focus),
     quota,
     subjectOrder,
     timed,

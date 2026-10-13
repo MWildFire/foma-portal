@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {
-  blocksOf, dayOf, emptyState, minutesOf, plan, quotas, sum, withSettings,
+  blocksOf, dayOf, emptyState, minutesOf, plan, quotas, study, sum, withSettings,
 } from './planner-fixtures.mjs';
 import { weekdayOf } from '../src/planner/dates.ts';
 
@@ -47,20 +47,24 @@ test('a weekday load setting changes every ordinary day of that weekday', () => 
 });
 
 test('quotas scale in proportion when the load changes', () => {
-  const halved = plan('2026-10-14', { state: withSettings(emptyState(), { dailyLoadMinutes: { wed: 75 } }) });
-  const normal = plan('2026-10-14');
-  const day = dayOf(halved, '2026-10-14');
+  // Saturday 17 Oct has four regular quotas and no timed set. The days before it are studied, so no debt or timed set is
+  // carried into it (a timed set never scales, see the timed-set tests).
+  const DAY = '2026-10-17';
+  const done = () => study('2026-10-14', '2026-10-16');
+  const halved = plan(DAY, { state: withSettings(done(), { dailyLoadMinutes: { sat: 75 } }) });
+  const normal = plan(DAY, { state: done() });
+  const day = dayOf(halved, DAY);
   assert.equal(day.capacity, 75);
   assert.ok(Math.abs(day.minutes - 75) <= 0.15 * 75, `got ${day.minutes}`);
   const bySubject = s => minutesOf(blocksOf(day, s));
-  const base = s => minutesOf(blocksOf(dayOf(normal, '2026-10-14'), s));
-  // 60 : 45 : 30 stays the ratio, within the 5-minute granularity.
+  const base = s => minutesOf(blocksOf(dayOf(normal, DAY), s));
+  // 100 : 65 : 45 stays the ratio, within the 5-minute granularity. The quotas get 60 of the 75 minutes (15 is recall).
   assert.ok(bySubject('geo') > bySubject('math') && bySubject('math') > bySubject('eng'));
-  assert.ok(Math.abs(bySubject('geo') - base('geo') * 0.444) <= 6);
+  assert.ok(Math.abs(bySubject('geo') - base('geo') * (60 / 255)) <= 6);
   assert.equal(day.blocks[0].minutes, 15, 'recall keeps its 15 minutes');
 
-  const doubled = plan('2026-10-14', { state: withSettings(emptyState(), { dailyLoadMinutes: { wed: 300 } }) });
-  assert.equal(dayOf(doubled, '2026-10-14').minutes, 300);
+  const doubled = plan(DAY, { state: withSettings(done(), { dailyLoadMinutes: { sat: 300 } }) });
+  assert.equal(dayOf(doubled, DAY).minutes, 300);
 });
 
 test('an override equal to the planned load changes nothing', () => {

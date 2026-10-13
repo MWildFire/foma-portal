@@ -9,6 +9,7 @@ export const ROUTES = {
   flashcards: (subject: string) => `/s/${subject}/terms?mode=cards`,
   formulas: (subject: string) => `/s/${subject}/formulas`,
   practice: (subject: string) => `/s/${subject}/practice`,
+  practiceSet: (subject: string, set: string) => `/s/${subject}/practice?set=${encodeURIComponent(set)}`,
   paper: (subject: string, paper: string) => `/s/${subject}/paper/${paper}`,
   pastPapers: (subject: string) => `/s/${subject}/past-papers`,
   sims: () => '/sims',

@@ -50,7 +50,7 @@ export function describeBlock(block: PlanBlock, lang: Lang, t: TFunction): Block
     case 'practice':
       return { kind, title: block.title ? pickText(block.title, lang) : block.topicId ?? '', detail: null };
     case 'timed':
-      return { kind, title: block.paper ? paperLabel(t, block.paper) : t('kind.timed'), detail: block.note ?? null };
+      return { kind, title: block.title ? pickText(block.title, lang) : block.paper ? paperLabel(t, block.paper) : t('kind.timed'), detail: block.note ?? null };
     case 'paper':
       return { kind, title: block.paper ? paperLabel(t, block.paper, block.part) : t('kind.paper'), detail: t('paperHint') };
     case 'study':

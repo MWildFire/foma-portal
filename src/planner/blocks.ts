@@ -6,7 +6,7 @@
 //   p:<subject>/<topic>#<n>+<len>           n-th practice round of a studied topic
 //   s:<subject>/<date>#<n>+<len>            free study session (subject without topics yet)
 //   e:<date>/<examId>                       preparation for an exam paper on the eve of its day
-//   m:<date>/<subject>/<paper>              timed paper; <date> is the day the quotas file planned it
+//   m:<date>/<subject>/<paper>[:<set>]      timed paper, or a timed set of that paper; <date> is the day the quotas file planned it
 import type { PaperId, SubjectId } from '../contract/types.ts';
 
 export type ParsedBlockId =
@@ -15,7 +15,7 @@ export type ParsedBlockId =
   | { kind: 'practice'; subject: SubjectId; topicId: string; seq: number; len: number }
   | { kind: 'study'; subject: SubjectId; date: string; seq: number; len: number }
   | { kind: 'paper'; date: string; examId: string }
-  | { kind: 'timed'; date: string; subject: SubjectId; paper: PaperId };
+  | { kind: 'timed'; date: string; subject: SubjectId; paper: PaperId; set?: string };
 
 export const recallBlockId = (date: string): string => `r:${date}`;
 export const topicBlockId = (subject: SubjectId, topicId: string, start: number, len: number): string =>
@@ -25,7 +25,8 @@ export const practiceBlockId = (subject: SubjectId, topicId: string, seq: number
 export const studyBlockId = (subject: SubjectId, date: string, seq: number, len: number): string =>
   `s:${subject}/${date}#${seq}+${len}`;
 export const paperBlockId = (date: string, examId: string): string => `e:${date}/${examId}`;
-export const timedBlockId = (date: string, subject: SubjectId, paper: PaperId): string => `m:${date}/${subject}/${paper}`;
+export const timedBlockId = (date: string, subject: SubjectId, paper: PaperId, set?: string): string =>
+  `m:${date}/${subject}/${paper}${set ? `:${set}` : ''}`;
 
 const SUBJECT = '(geo|math|econ|cs|eng|fr)';
 const NAME = '([A-Za-z0-9._-]+)';
@@ -36,7 +37,7 @@ const PATTERNS = {
   practice: new RegExp(`^p:${SUBJECT}/${NAME}#(\\d+)\\+(\\d+)$`),
   study: new RegExp(`^s:${SUBJECT}/${DATE}#(\\d+)\\+(\\d+)$`),
   paper: new RegExp(`^e:${DATE}/${NAME}$`),
-  timed: new RegExp(`^m:${DATE}/${SUBJECT}/(P[123])$`),
+  timed: new RegExp(`^m:${DATE}/${SUBJECT}/(P[123])(?::([A-Za-z0-9._-]+))?$`),
 };
 
 export function parseBlockId(id: string): ParsedBlockId | null {
@@ -46,6 +47,6 @@ export function parseBlockId(id: string): ParsedBlockId | null {
   if ((m = PATTERNS.practice.exec(id))) return { kind: 'practice', subject: m[1] as SubjectId, topicId: m[2], seq: Number(m[3]), len: Number(m[4]) };
   if ((m = PATTERNS.study.exec(id))) return { kind: 'study', subject: m[1] as SubjectId, date: m[2], seq: Number(m[3]), len: Number(m[4]) };
   if ((m = PATTERNS.paper.exec(id))) return { kind: 'paper', date: m[1], examId: m[2] };
-  if ((m = PATTERNS.timed.exec(id))) return { kind: 'timed', date: m[1], subject: m[2] as SubjectId, paper: m[3] as PaperId };
+  if ((m = PATTERNS.timed.exec(id))) return { kind: 'timed', date: m[1], subject: m[2] as SubjectId, paper: m[3] as PaperId, ...(m[4] ? { set: m[4] } : {}) };
   return null;
 }

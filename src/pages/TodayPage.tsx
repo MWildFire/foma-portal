@@ -10,6 +10,7 @@ import { subjectInfo, subjectInfos } from '../components/planner/subjects';
 import { usePageTitle, useScrollToTop } from '../components/planner/usePageTitle';
 import { usePlan, type PlanReady } from '../components/planner/usePlan';
 import { PageLoading } from '../components/layout/PageLoading';
+import { pickText } from '../lib/text';
 import { CARD, CARD_ACCENT, MUTED } from '../components/planner/ui';
 import { formatMinutes, paperLabel } from '../components/planner/labels';
 import { ExamCountdown } from '../components/progress/ExamCountdown';
@@ -139,8 +140,7 @@ function TodayBody({ plan, state, update, today, lang }: PlanReady) {
             {day.focus && (
               <p className="text-sm">
                 <span className="font-medium">{t('focus')}: </span>
-                {/* The focus of the day comes from data/plan-quotas.json, which is written in English. */}
-                <span lang="en">{day.focus}</span>
+                <span lang={lang}>{pickText(day.focus, lang)}</span>
               </p>
             )}
             {day.minutes > 0 && (

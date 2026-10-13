@@ -11,7 +11,7 @@
 //    the extended sitting stacks on top of the quota, and if the day would pass 115% the review of its timed papers
 //    moves to the next day.
 //  - A subject is not planned on or after its last exam. On the eve of its exam only that exam's papers are planned.
-import type { PaperId, PastPaperRef, SubjectId } from '../contract/types.ts';
+import type { L, PaperId, PastPaperRef, SubjectId } from '../contract/types.ts';
 import type {
   BlockKind, ExamPaper, PastPaperLink, Plan, PlanBlock, PlanDay, PlannerInput, PlannerTopic, QuotaDay, RecallInfo, TimedEntry, Unplaced, Weekday,
 } from './types.ts';
@@ -54,7 +54,7 @@ interface DayBase {
   baseCapacity: number;
   capacity: number;
   recall: number;
-  focus: string | null;
+  focus: L | null;
   order: SubjectId[];
   allocs: Map<SubjectId, Alloc>;
 }
@@ -128,6 +128,7 @@ export function buildPlan(input: PlannerInput): Plan {
     const takenPapers = new Set<string>();
     for (const day of quotas.days) {
       for (const entry of day.timed) {
+        if (entry.set) continue;   // a timed set of the guide is not a past paper
         const pick = unsolvedFirst(pastPool(pastRefs, entry.subject, entry.paper), pastProgress).find(ref => !takenPapers.has(ref.id));
         if (!pick) continue;
         takenPapers.add(pick.id);
@@ -201,7 +202,7 @@ export function buildPlan(input: PlannerInput): Plan {
   const debt = new Map<SubjectId, number>();
   const carried = new Map<SubjectId, TimedItem[]>();   // timed papers waiting for a day that can take them
 
-  const timedItem = (date: string, entry: TimedEntry): TimedItem => ({ entry, from: date, id: timedBlockId(date, entry.subject, entry.paper) });
+  const timedItem = (date: string, entry: TimedEntry): TimedItem => ({ entry, from: date, id: timedBlockId(date, entry.subject, entry.paper, entry.set) });
   const carry = (subject: SubjectId, item: TimedItem): void => {
     const list = carried.get(subject) ?? [];
     list.push(item);
@@ -448,6 +449,7 @@ export function buildPlan(input: PlannerInput): Plan {
   const timedBlock = (subject: SubjectId, date: string, item: TimedItem): PlanBlock => {
     const exam = exams.papers.find(paper => paper.subject === subject && paper.paper === item.entry.paper);
     const movedFrom = item.from !== date ? item.from : undefined;
+    const set = item.entry.set;
     return {
       id: item.id,
       kind: 'timed',
@@ -455,9 +457,10 @@ export function buildPlan(input: PlannerInput): Plan {
       date,
       minutes: ext(item.entry),
       ...doneStatus(item.id, movedFrom !== undefined),
-      route: ROUTES.paper(subject, item.entry.paper),
+      route: set ? ROUTES.practiceSet(subject, set) : ROUTES.paper(subject, item.entry.paper),
       paper: item.entry.paper,
-      examId: exam?.id,
+      // A set of the guide is not an exam sitting: no exam link, and its own title from the quotas file.
+      ...(set ? { title: item.entry.title } : { examId: exam?.id }),
       note: item.entry.note,
       ...(movedFrom !== undefined ? { movedFrom } : {}),
       ...(timedLinks.has(item.id) ? { pastPaper: timedLinks.get(item.id) } : {}),
