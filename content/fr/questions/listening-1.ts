@@ -14,9 +14,9 @@ export const questions: FrQuestion[] = [
     marks: 1,
     command: 'Identify',
     prompt: {
-      en: "Write vrai, faux or non mentionné, and quote the words from the recording that prove it. Léa's grandfather was nineteen when he came to France.",
-      ru: "Напишите vrai, faux или non mentionné и приведите слова из записи, которые это подтверждают. Дедушке Léa было девятнадцать лет, когда он приехал во Францию.",
-      fr: "Écrivez vrai, faux ou non mentionné, et citez les mots de l'enregistrement qui le prouvent. Le grand-père de Léa avait dix-neuf ans quand il est arrivé en France.",
+      en: "Is this statement vrai, faux or non mentionné? Léa's grandfather was nineteen when he came to France.",
+      ru: "Верно ли это утверждение: vrai, faux или non mentionné? Дедушке Léa было девятнадцать лет, когда он приехал во Францию.",
+      fr: "Cette affirmation est-elle vraie, fausse ou non mentionnée ? Le grand-père de Léa avait dix-neuf ans quand il est arrivé en France.",
     },
     markscheme: {
       en: "Answer: vrai. Turn 3 (Léa): « Il avait dix-neuf ans. » He was nineteen when he arrived.",
@@ -34,9 +34,9 @@ export const questions: FrQuestion[] = [
     marks: 1,
     command: 'Identify',
     prompt: {
-      en: "Write vrai, faux or non mentionné, and quote the words from the recording that prove it. Léa's grandmother came to France at the same time as her husband.",
-      ru: "Напишите vrai, faux или non mentionné и приведите слова из записи, которые это подтверждают. Бабушка Léa приехала во Францию одновременно с мужем.",
-      fr: "Écrivez vrai, faux ou non mentionné, et citez les mots de l'enregistrement qui le prouvent. La grand-mère de Léa est arrivée en France en même temps que son mari.",
+      en: "Is this statement vrai, faux or non mentionné? Léa's grandmother came to France at the same time as her husband.",
+      ru: "Верно ли это утверждение: vrai, faux или non mentionné? Бабушка Léa приехала во Францию одновременно с мужем.",
+      fr: "Cette affirmation est-elle vraie, fausse ou non mentionnée ? La grand-mère de Léa est arrivée en France en même temps que son mari.",
     },
     markscheme: {
       en: "Answer: faux. Turn 3 (Léa): « Ma grand-mère est venue deux ans plus tard. » She came two years later.",
@@ -54,9 +54,9 @@ export const questions: FrQuestion[] = [
     marks: 1,
     command: 'Identify',
     prompt: {
-      en: "Write vrai, faux or non mentionné, and quote the words from the recording that prove it. Rémi's father speaks Breton.",
-      ru: "Напишите vrai, faux или non mentionné и приведите слова из записи, которые это подтверждают. Отец Rémi говорит по-бретонски.",
-      fr: "Écrivez vrai, faux ou non mentionné, et citez les mots de l'enregistrement qui le prouvent. Le père de Rémi parle breton.",
+      en: "Is this statement vrai, faux or non mentionné? Rémi's father speaks Breton.",
+      ru: "Верно ли это утверждение: vrai, faux или non mentionné? Отец Rémi говорит по-бретонски.",
+      fr: "Cette affirmation est-elle vraie, fausse ou non mentionnée ? Le père de Rémi parle breton.",
     },
     markscheme: {
       en: "Answer: non mentionné. Rémi's father is never mentioned. Turn 2 (Rémi) speaks only about his mother and his grandmother: « Ma mère vient de Bretagne, mais elle n'a jamais parlé breton avec nous. »",
@@ -216,9 +216,9 @@ export const questions: FrQuestion[] = [
     marks: 1,
     command: 'Identify',
     prompt: {
-      en: "Write vrai, faux or non mentionné, and quote the words from the recording that prove it. The 9:14 train to Rennes is running as planned.",
-      ru: "Напишите vrai, faux или non mentionné и приведите слова из записи, которые это подтверждают. Поезд в 9:14 до Ренна идёт по расписанию.",
-      fr: "Écrivez vrai, faux ou non mentionné, et citez les mots de l'enregistrement qui le prouvent. Le train de 9 h 14 pour Rennes circule comme prévu.",
+      en: "Is this statement vrai, faux or non mentionné? The 9:14 train to Rennes is running as planned.",
+      ru: "Верно ли это утверждение: vrai, faux или non mentionné? Поезд в 9:14 до Ренна идёт по расписанию.",
+      fr: "Cette affirmation est-elle vraie, fausse ou non mentionnée ? Le train de 9 h 14 pour Rennes circule comme prévu.",
     },
     markscheme: {
       en: "Answer: faux. Turn 2 (announcement): « Le train de neuf heures quatorze à destination de Rennes est supprimé. » The train is cancelled.",
@@ -236,9 +236,9 @@ export const questions: FrQuestion[] = [
     marks: 1,
     command: 'Identify',
     prompt: {
-      en: "Write vrai, faux or non mentionné, and quote the words from the recording that prove it. The 10:05 train to Nantes is delayed by about twenty minutes.",
-      ru: "Напишите vrai, faux или non mentionné и приведите слова из записи, которые это подтверждают. Поезд в 10:05 до Нанта задерживается примерно на двадцать минут.",
-      fr: "Écrivez vrai, faux ou non mentionné, et citez les mots de l'enregistrement qui le prouvent. Le train de 10 h 05 pour Nantes a environ vingt minutes de retard.",
+      en: "Is this statement vrai, faux or non mentionné? The 10:05 train to Nantes is delayed by about twenty minutes.",
+      ru: "Верно ли это утверждение: vrai, faux или non mentionné? Поезд в 10:05 до Нанта задерживается примерно на двадцать минут.",
+      fr: "Cette affirmation est-elle vraie, fausse ou non mentionnée ? Le train de 10 h 05 pour Nantes a environ vingt minutes de retard.",
     },
     markscheme: {
       en: "Answer: vrai. Turn 3 (announcement): « Le train de dix heures cinq, à destination de Nantes, accuse un retard d'environ vingt minutes. »",
@@ -256,9 +256,9 @@ export const questions: FrQuestion[] = [
     marks: 1,
     command: 'Identify',
     prompt: {
-      en: "Write vrai, faux or non mentionné, and quote the words from the recording that prove it. There is a free car park at the festival.",
-      ru: "Напишите vrai, faux или non mentionné и приведите слова из записи, которые это подтверждают. На фестивале есть бесплатная парковка.",
-      fr: "Écrivez vrai, faux ou non mentionné, et citez les mots de l'enregistrement qui le prouvent. Il y a un parking gratuit pour le festival.",
+      en: "Is this statement vrai, faux or non mentionné? There is a free car park at the festival.",
+      ru: "Верно ли это утверждение: vrai, faux или non mentionné? На фестивале есть бесплатная парковка.",
+      fr: "Cette affirmation est-elle vraie, fausse ou non mentionnée ? Il y a un parking gratuit pour le festival.",
     },
     markscheme: {
       en: "Answer: non mentionné. Car parking is never mentioned. Turn 4 talks about a free shuttle, not a car park: « La navette gratuite part de la sortie située à l'est de la gare toutes les trente minutes. »",
@@ -418,9 +418,9 @@ export const questions: FrQuestion[] = [
     marks: 1,
     command: 'Identify',
     prompt: {
-      en: "Write vrai, faux or non mentionné, and quote the words from the recording that prove it. The delivery arrives within two hours.",
-      ru: "Напишите vrai, faux или non mentionné и приведите слова из записи, которые это подтверждают. Доставка приходит в течение двух часов.",
-      fr: "Écrivez vrai, faux ou non mentionné, et citez les mots de l'enregistrement qui le prouvent. La livraison arrive dans les deux heures.",
+      en: "Is this statement vrai, faux or non mentionné? The delivery arrives within two hours.",
+      ru: "Верно ли это утверждение: vrai, faux или non mentionné? Доставка приходит в течение двух часов.",
+      fr: "Cette affirmation est-elle vraie, fausse ou non mentionnée ? La livraison arrive dans les deux heures.",
     },
     markscheme: {
       en: "Answer: vrai. Turn 6 (Adrien): « La commande arrive chez elle dans les deux heures ».",
@@ -438,9 +438,9 @@ export const questions: FrQuestion[] = [
     marks: 1,
     command: 'Identify',
     prompt: {
-      en: "Write vrai, faux or non mentionné, and quote the words from the recording that prove it. Users must have a family member check their list.",
-      ru: "Напишите vrai, faux или non mentionné и приведите слова из записи, которые это подтверждают. Пользователь обязан попросить члена семьи проверить список.",
-      fr: "Écrivez vrai, faux ou non mentionné, et citez les mots de l'enregistrement qui le prouvent. Les utilisateurs doivent obligatoirement faire vérifier leur liste par un membre de la famille.",
+      en: "Is this statement vrai, faux or non mentionné? Users must have a family member check their list.",
+      ru: "Верно ли это утверждение: vrai, faux или non mentionné? Пользователь обязан попросить члена семьи проверить список.",
+      fr: "Cette affirmation est-elle vraie, fausse ou non mentionnée ? Les utilisateurs doivent obligatoirement faire vérifier leur liste par un membre de la famille.",
     },
     markscheme: {
       en: "Answer: faux. Turn 6 (Adrien): « Un membre de la famille peut la vérifier sur son téléphone, mais ce n'est pas obligatoire. » The check is optional.",
@@ -458,9 +458,9 @@ export const questions: FrQuestion[] = [
     marks: 1,
     command: 'Identify',
     prompt: {
-      en: "Write vrai, faux or non mentionné, and quote the words from the recording that prove it. Adrien's grandfather uses the app every week.",
-      ru: "Напишите vrai, faux или non mentionné и приведите слова из записи, которые это подтверждают. Дедушка Adrien пользуется приложением каждую неделю.",
-      fr: "Écrivez vrai, faux ou non mentionné, et citez les mots de l'enregistrement qui le prouvent. Le grand-père d'Adrien utilise l'application chaque semaine.",
+      en: "Is this statement vrai, faux or non mentionné? Adrien's grandfather uses the app every week.",
+      ru: "Верно ли это утверждение: vrai, faux или non mentionné? Дедушка Adrien пользуется приложением каждую неделю.",
+      fr: "Cette affirmation est-elle vraie, fausse ou non mentionnée ? Le grand-père d'Adrien utilise l'application chaque semaine.",
     },
     markscheme: {
       en: "Answer: non mentionné. The grandfather is the reason for the app (turn 4), but his use of it is never mentioned. Turn 4 (Adrien): « Il ne voulait plus aller seul au supermarché ».",
@@ -620,9 +620,9 @@ export const questions: FrQuestion[] = [
     marks: 1,
     command: 'Identify',
     prompt: {
-      en: "Write vrai, faux or non mentionné, and quote the words from the recording that prove it. The homework support is free for families.",
-      ru: "Напишите vrai, faux или non mentionné и приведите слова из записи, которые это подтверждают. Помощь с домашними заданиями бесплатна для семей.",
-      fr: "Écrivez vrai, faux ou non mentionné, et citez les mots de l'enregistrement qui le prouvent. Le soutien scolaire ne coûte rien aux familles.",
+      en: "Is this statement vrai, faux or non mentionné? The homework support is free for families.",
+      ru: "Верно ли это утверждение: vrai, faux или non mentionné? Помощь с домашними заданиями бесплатна для семей.",
+      fr: "Cette affirmation est-elle vraie, fausse ou non mentionnée ? Le soutien scolaire ne coûte rien aux familles.",
     },
     markscheme: {
       en: "Answer: vrai. Turn 10 (Mathieu): « Ça ne coûte rien aux familles. »",
@@ -640,9 +640,9 @@ export const questions: FrQuestion[] = [
     marks: 1,
     command: 'Identify',
     prompt: {
-      en: "Write vrai, faux or non mentionné, and quote the words from the recording that prove it. The residents pay rent for the land.",
-      ru: "Напишите vrai, faux или non mentionné и приведите слова из записи, которые это подтверждают. Жители платят арендную плату за землю.",
-      fr: "Écrivez vrai, faux ou non mentionné, et citez les mots de l'enregistrement qui le prouvent. Les habitants paient un loyer pour le terrain.",
+      en: "Is this statement vrai, faux or non mentionné? The residents pay rent for the land.",
+      ru: "Верно ли это утверждение: vrai, faux или non mentionné? Жители платят арендную плату за землю.",
+      fr: "Cette affirmation est-elle vraie, fausse ou non mentionnée ? Les habitants paient un loyer pour le terrain.",
     },
     markscheme: {
       en: "Answer: faux. Turn 2 (Mathieu): « la mairie le leur prête gratuitement pendant trois ans ».",
@@ -660,9 +660,9 @@ export const questions: FrQuestion[] = [
     marks: 1,
     command: 'Identify',
     prompt: {
-      en: "Write vrai, faux or non mentionné, and quote the words from the recording that prove it. The garden sells its vegetables at the market.",
-      ru: "Напишите vrai, faux или non mentionné и приведите слова из записи, которые это подтверждают. Сад продаёт свои овощи на рынке.",
-      fr: "Écrivez vrai, faux ou non mentionné, et citez les mots de l'enregistrement qui le prouvent. Le jardin vend ses légumes au marché.",
+      en: "Is this statement vrai, faux or non mentionné? The garden sells its vegetables at the market.",
+      ru: "Верно ли это утверждение: vrai, faux или non mentionné? Сад продаёт свои овощи на рынке.",
+      fr: "Cette affirmation est-elle vraie, fausse ou non mentionnée ? Le jardin vend ses légumes au marché.",
     },
     markscheme: {
       en: "Answer: non mentionné. Turn 6 (Mathieu) says the vegetables in the fridge are free: « n'importe qui peut les prendre, sans rien payer ». No market sales are mentioned.",

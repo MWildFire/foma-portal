@@ -16,16 +16,16 @@ export const papers: PaperGuide[] = [
     minutes: 75,
     marks: 30,
     structure: {
-      en: 'Three writing tasks, each on a different theme. Choose one task and write 250 to 400 words in French for the reader and purpose the task names. The task is marked on criteria A, B and C, 30 marks in total. Each timed set holds three tasks from three different themes.',
-      ru: 'Три задания на письмо, каждое на свою тему. Выберите одно задание и напишите 250–400 слов по-французски для адресата и с целью, которые указаны в задании. Задание оценивается по критериям A, B и C, всего 30 баллов. Каждый набор (на 75 минут) содержит три задания из трёх разных тем.',
+      en: 'Three writing tasks, each on a different theme. In the practice set each task has one text type. In the exam the candidate chooses the text type from those the task offers; check the official guide for the details. Choose one task and write 250 to 400 words in French for the reader and purpose the task names. The task is marked on criteria A, B and C: 30 marks in the practice set. Each timed set holds three tasks from three different themes.',
+      ru: 'Три задания на письмо, каждое на свою тему. В учебном наборе у каждого задания один тип текста. На экзамене тип текста выбирается из предложенных в задании; подробности проверьте в официальном гиде. Выберите одно задание и напишите 250–400 слов по-французски для адресата и с целью, которые указаны в задании. Задание оценивается по критериям A, B и C: 30 баллов в учебном наборе. Каждый набор (на 75 минут) содержит три задания из трёх разных тем.',
     },
     strategy: {
       en: 'Spend about 10 minutes choosing: take the task whose text type and reader you know best and whose three content points you can cover. Spend 10 minutes on a plan: tone, reader, the three points in order, and the connectors you will use. Write for about 45 minutes, aiming at 300 to 350 words. Keep about 10 minutes to check agreements, accents, the choice of tu or vous, and the word count.',
       ru: 'Около 10 минут на выбор задания: возьмите то, где вы хорошо знаете тип текста (text type) и адресата и где сможете раскрыть все три пункта. 10 минут на план (plan): тон, адресат, три пункта по порядку и связки (connectors). Около 45 минут на текст, цель 300–350 слов. Около 10 минут оставьте на проверку: согласование, акценты, выбор tu или vous и объём.',
     },
     criteria: {
-      en: 'A Language (12 marks): accurate grammar and spelling, a range of structures and vocabulary, correct accents and agreements. B Message (12 marks): the right text type, reader and register, all three content points covered, and a clear, organised text. C Conceptual understanding (6 marks): the theme is treated with depth, with examples and a personal or cultural view.',
-      ru: 'A Язык (Language), 12 баллов: точная грамматика и орфография, разнообразные конструкции и лексика, правильные акценты и согласование. B Сообщение (Message), 12 баллов: верный тип текста, адресат и регистр, все три пункта задания раскрыты, текст ясный и хорошо организован. C Концептуальное понимание (Conceptual understanding), 6 баллов: тема раскрыта глубоко, есть примеры и личная или культурная точка зрения.',
+      en: 'A Language (12 marks): accurate grammar and spelling, a range of structures and vocabulary, correct accents and agreements. B Message (12 marks): the right text type, reader and register, all three content points covered, and a clear, organised text. C Conceptual understanding (6 marks): the theme is treated with depth, with examples and a personal or cultural view. The names and marks are as in the exam; the descriptions here are our summary, to check against the official guide.',
+      ru: 'A Язык (Language), 12 баллов: точная грамматика и орфография, разнообразные конструкции и лексика, правильные акценты и согласование. B Сообщение (Message), 12 баллов: верный тип текста, адресат и регистр, все три пункта задания раскрыты, текст ясный и хорошо организован. C Концептуальное понимание (Conceptual understanding), 6 баллов: тема раскрыта глубоко, есть примеры и личная или культурная точка зрения. Названия и баллы — как на экзамене; описания здесь — наше краткое резюме, сверить с официальным гидом.',
     },
     commandTerms: ['Write'],
     timedSets: [
@@ -69,8 +69,8 @@ export const papers: PaperGuide[] = [
     minutes: 45,
     marks: 30,
     structure: {
-      en: 'Six French texts with ten questions each. Each timed set covers three texts: 30 questions, 30 marks, one mark per question. Question types: Identify (true, false or not mentioned), State (a short answer, in English or French as the question says), Match (a letter for each item) and Quote (the exact French words copied from the text). The mock is shorter than the final exam here: 45 minutes against 1 hour in the final reading paper.',
-      ru: 'Шесть французских текстов, к каждому по десять вопросов. Каждый набор на время охватывает три текста: 30 вопросов, 30 баллов, по одному баллу за вопрос. Типы вопросов: Identify (верно, неверно или не упоминается), State (краткий ответ по-английски или по-французски, как сказано в вопросе), Match (буква для каждого пункта) и Quote (точная цитата: французские слова, скопированные из текста). Пробный вариант здесь короче итогового экзамена: 45 минут против 1 часа в итоговой части чтения.',
+      en: 'Six French texts with ten questions each. Each timed set covers three texts: 30 questions, 30 marks in the practice set, one mark per question. Question types: Identify (true, false or not mentioned), State (a short answer, in English or French as the question says), Match (a letter for each item) and Quote (the exact French words copied from the text). The mock is shorter than the final exam here: 45 minutes against 1 hour in the final reading paper.',
+      ru: 'Шесть французских текстов, к каждому по десять вопросов. Каждый набор на время охватывает три текста: 30 вопросов, 30 баллов в учебном наборе, по одному баллу за вопрос. Типы вопросов: Identify (верно, неверно или не упоминается), State (краткий ответ по-английски или по-французски, как сказано в вопросе), Match (буква для каждого пункта) и Quote (точная цитата: французские слова, скопированные из текста). Пробный вариант здесь короче итогового экзамена: 45 минут против 1 часа в итоговой части чтения.',
     },
     strategy: {
       en: 'Read the ten questions for a text before you read the text, and underline the key words. Scan the text for those words and read the sentences around them. Answer "not mentioned" only when the text says nothing at all about the point. For Quote, copy the French words exactly, with no changes and no extra words. Aim for about 1 minute 20 seconds per question, so that 30 questions take about 40 minutes, and keep 5 minutes to check.',
@@ -100,8 +100,8 @@ export const papers: PaperGuide[] = [
     minutes: 60,
     marks: 30,
     structure: {
-      en: 'Eight recorded French texts, such as dialogues, announcements and interviews, with ten questions each. Each timed set covers three recordings: 30 questions, 30 marks, one mark per question. Question types: Identify (true, false or not mentioned, or a choice of A, B or C), State (a short answer, in English or French as the question says), Note (one word or a number, written as heard) and Match (a letter for each item). The mock is longer than the final exam here: 60 minutes against 45 minutes in the final listening paper.',
-      ru: 'Восемь записей на французском, например диалоги, объявления и интервью, по десять вопросов к каждой. Каждый набор на время охватывает три записи: 30 вопросов, 30 баллов, по одному баллу за вопрос. Типы вопросов: Identify (верно, неверно или не упоминается, либо выбор A, B или C), State (краткий ответ по-английски или по-французски, как сказано в вопросе), Note (одно слово или число, записанное так, как вы услышали) и Match (буква для каждого пункта). Пробный вариант здесь длиннее итогового экзамена: 60 минут против 45 минут в итоговой части аудирования.',
+      en: 'Eight recorded French texts, such as dialogues, announcements and interviews, with ten questions each. Each recording is played twice, with a pause between the two playings. Each timed set covers three recordings: 30 questions, 30 marks in the practice set, one mark per question. Question types: Identify (true, false or not mentioned, or a choice of A, B or C), State (a short answer, in English or French as the question says), Note (one word or a number, written as heard) and Match (a letter for each item). The mock is longer than the final exam here: 60 minutes against 45 minutes in the final listening paper.',
+      ru: 'Восемь записей на французском, например диалоги, объявления и интервью, по десять вопросов к каждой. Каждая запись звучит дважды, с паузой между прослушиваниями. Каждый набор на время охватывает три записи: 30 вопросов, 30 баллов в учебном наборе, по одному баллу за вопрос. Типы вопросов: Identify (верно, неверно или не упоминается, либо выбор A, B или C), State (краткий ответ по-английски или по-французски, как сказано в вопросе), Note (одно слово или число, записанное так, как вы услышали) и Match (буква для каждого пункта). Пробный вариант здесь длиннее итогового экзамена: 60 минут против 45 минут в итоговой части аудирования.',
     },
     strategy: {
       en: 'Read the ten questions for a recording before it plays and mark the key words. Answer in the order the speakers talk, and write first the answers you are sure of. A Note answer is usually one word or a number, spelled correctly. A State answer is a short phrase of one to three words, in the language the question asks for. Keep about 5 minutes at the end to check the spelling of every answer.',
@@ -123,8 +123,8 @@ export const papers: PaperGuide[] = [
       },
       {
         id: 'fr-p2l-set-3',
-        title: { en: 'Set 3: recordings 7 and 8, then recording 1 (l7, l8, l1)', ru: 'Набор 3: записи 7 и 8, затем запись 1 (l7, l8, l1)' },
-        questionIds: questionsOf('l7', 'l8', 'l1'),
+        title: { en: 'Set 3: recordings 7 and 8, then recording 6 (l7, l8, l6)', ru: 'Набор 3: записи 7 и 8, затем запись 6 (l7, l8, l6)' },
+        questionIds: questionsOf('l7', 'l8', 'l6'),
         minutes: 60,
       },
     ],
