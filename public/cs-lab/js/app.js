@@ -28,10 +28,15 @@
   window.Theme = Theme;
 
   // ---- Language ----
+  // ?lang=en|ru (set by the portal's links) overrides the stored choice.
+  // Without a stored choice a page opens in its own <html lang>.
   const STORAGE_LANG = 'fomacs-lang';
-  const getLang = () => localStorage.getItem(STORAGE_LANG) || 'en';
-  const setLang = (l) => {
-    localStorage.setItem(STORAGE_LANG, l);
+  const urlLang = new URLSearchParams(location.search).get('lang');
+  if (urlLang === 'en' || urlLang === 'ru') localStorage.setItem(STORAGE_LANG, urlLang);
+  const getLang = () => localStorage.getItem(STORAGE_LANG) || root.lang || 'en';
+  // persist = false when only syncing the UI to the default, so a page does not store its own default
+  const setLang = (l, persist = true) => {
+    if (persist) localStorage.setItem(STORAGE_LANG, l);
     root.setAttribute('data-lang', l);
     document.querySelectorAll('[data-lang-toggle]').forEach((el) => {
       el.textContent = l === 'en' ? 'RU' : 'EN';
@@ -57,7 +62,7 @@
   // ---- DOM ready ----
   document.addEventListener('DOMContentLoaded', () => {
     // Sync toggle labels now that DOM is loaded
-    setLang(getLang());
+    setLang(getLang(), false);
     setTheme(getTheme());
 
     document.querySelectorAll('[data-lang-toggle]').forEach((btn) => {
