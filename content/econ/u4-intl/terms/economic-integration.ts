@@ -1,5 +1,6 @@
 import type { SourceRef, Term } from '../../../../src/contract/types';
 
+const book = 'Tragakes, Economics for the IB Diploma: Coursebook (Cambridge University Press, 3rd ed.)';
 const src: SourceRef = { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 4.4' };
 
 export const terms: Term[] = [
@@ -7,8 +8,8 @@ export const terms: Term[] = [
     id: 'economic-integration',
     term: { en: 'economic integration', ru: 'экономическая интеграция (economic integration)' },
     def: {
-      en: 'Agreements between countries that reduce or remove barriers to trade, and sometimes to factor movement, between the members, usually with preferential treatment for members.',
-      ru: 'Соглашения между странами, которые снижают или снимают барьеры в торговле и иногда в движении факторов производства между участниками, обычно с преференциями для участников.',
+      en: 'Economic co-operation and co-ordination of policies between countries, leading to closer economic links, often through agreements that reduce or remove barriers to trade and sometimes factor movement between members, usually with preferential treatment for members.',
+      ru: 'Экономическое сотрудничество и координация экономической политики между странами, ведущие к более тесным экономическим связям, часто через соглашения о снижении или снятии барьеров в торговле и иногда в движении факторов производства между участниками, обычно с преференциями для участников.',
     },
     example: {
       en: 'Two countries that remove the AED 4 per unit tariff between them, but keep it on imports from outside, have started economic integration.',
@@ -20,7 +21,7 @@ export const terms: Term[] = [
     },
     syllabus: '4.4',
     papers: ['P1', 'P2', 'P3'],
-    src,
+    src: { kind: 'textbook', title: book, locator: 'ch. 15.2, p. 472' },
   },
   {
     id: 'free-trade-area',
@@ -39,7 +40,7 @@ export const terms: Term[] = [
     },
     syllabus: '4.4',
     papers: ['P1', 'P2', 'P3'],
-    src,
+    src: { kind: 'textbook', title: book, locator: 'ch. 15.2, p. 473' },
   },
   {
     id: 'customs-union',
@@ -58,7 +59,7 @@ export const terms: Term[] = [
     },
     syllabus: '4.4',
     papers: ['P1', 'P2', 'P3'],
-    src,
+    src: { kind: 'textbook', title: book, locator: 'ch. 15.2, p. 473' },
   },
   {
     id: 'common-external-tariff',
@@ -96,7 +97,7 @@ export const terms: Term[] = [
     },
     syllabus: '4.4',
     papers: ['P1', 'P2', 'P3'],
-    src,
+    src: { kind: 'textbook', title: book, locator: 'ch. 15.2, p. 474' },
   },
   {
     id: 'economic-union',
@@ -121,8 +122,8 @@ export const terms: Term[] = [
     id: 'trade-creation',
     term: { en: 'trade creation', ru: 'торговое создание (trade creation)' },
     def: {
-      en: 'New trade that a customs union or free trade area creates when cheaper imports from a member replace higher-cost domestic production or raise consumption.',
-      ru: 'Новая торговля, которую создаёт таможенный союз или зона свободной торговли, когда более дешёвый импорт из страны-участницы заменяет более дорогое внутреннее производство или увеличивает потребление.',
+      en: 'New trade that a customs union or free trade area creates when cheaper imports from a member replace higher-cost products, whether domestically produced or imported, or raise consumption.',
+      ru: 'Новая торговля, которую создаёт таможенный союз или зона свободной торговли, когда более дешёвый импорт из страны-участницы заменяет более дорогие товары, произведённые внутри страны или импортируемые, либо увеличивает потребление.',
     },
     example: {
       en: 'Domestic output that costs AED 14 per unit is replaced by imports from a member at AED 11 per unit, which is trade creation.',
@@ -135,7 +136,7 @@ export const terms: Term[] = [
     syllabus: '4.4',
     papers: ['P1', 'P2', 'P3'],
     sim: 'econ.integration',
-    src,
+    src: { kind: 'textbook', title: book, locator: 'ch. 15.2, p. 474' },
   },
   {
     id: 'trade-diversion',
@@ -155,14 +156,14 @@ export const terms: Term[] = [
     syllabus: '4.4',
     papers: ['P1', 'P2', 'P3'],
     sim: 'econ.integration',
-    src,
+    src: { kind: 'textbook', title: book, locator: 'ch. 15.2, p. 475' },
   },
   {
     id: 'rules-of-origin',
     term: { en: 'rules of origin', ru: 'правила происхождения (rules of origin)' },
     def: {
-      en: 'Rules that define which goods count as made in a member country, so that only qualifying goods receive preferential treatment within a free trade area.',
-      ru: 'Правила, которые определяют, какие товары считаются произведёнными в стране-участнице, чтобы в зоне свободной торговли преференции получали только подходящие товары.',
+      en: 'Rules that define which goods count as made in a member country, so that only qualifying goods receive preferential treatment within a free trade area, which stops goods from entering through the member with the lowest external barriers and then moving on to others.',
+      ru: 'Правила, которые определяют, какие товары считаются произведёнными в стране-участнице, чтобы в зоне свободной торговли преференции получали только подходящие товары и чтобы товары не ввозились через участника с самыми низкими внешними барьерами и не перепродавались дальше.',
     },
     example: {
       en: 'A product with 70% of its value from non-member parts may fail the rule and pay the AED 4 per unit tariff instead of entering duty free.',
@@ -174,6 +175,6 @@ export const terms: Term[] = [
     },
     syllabus: '4.4',
     papers: ['P1', 'P2', 'P3'],
-    src,
+    src: { kind: 'textbook', title: book, locator: 'ch. 15.2, p. 473' },
   },
 ];

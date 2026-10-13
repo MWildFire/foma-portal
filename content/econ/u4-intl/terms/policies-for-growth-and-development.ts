@@ -1,5 +1,6 @@
 import type { SourceRef, Term } from '../../../../src/contract/types';
 
+const book = 'Tragakes, Economics for the IB Diploma: Coursebook (Cambridge University Press, 3rd ed.)';
 const src: SourceRef = { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 4.10' };
 
 export const terms: Term[] = [
@@ -7,8 +8,8 @@ export const terms: Term[] = [
     id: 'export-led-growth',
     term: { en: 'export-led growth', ru: 'рост, ведомый экспортом (export-led growth)' },
     def: {
-      en: 'A development strategy in which the growth of exports drives the economy, supported by trade openness, export promotion and competitive costs and exchange rates.',
-      ru: 'Стратегия развития, при которой рост экспорта движет экономикой; её поддерживают открытость торговли, стимулирование экспорта и конкурентоспособные издержки и курс валюты.',
+      en: 'A development strategy in which the growth of exports drives the economy, supported by government intervention, trade openness, export promotion and competitive costs and exchange rates.',
+      ru: 'Стратегия развития, при которой рост экспорта движет экономикой; её поддерживают государственное вмешательство, открытость торговли, стимулирование экспорта и конкурентоспособные издержки и курс валюты.',
     },
     example: {
       en: 'Manufactured exports grow by 15% a year as firms learn to meet foreign quality standards.',
@@ -20,14 +21,14 @@ export const terms: Term[] = [
     },
     syllabus: '4.10',
     papers: ['P1', 'P2', 'P3'],
-    src,
+    src: { kind: 'textbook', title: book, locator: 'ch. 20, p. 596' },
   },
   {
     id: 'foreign-direct-investment',
     term: { en: 'foreign direct investment (FDI)', ru: 'прямые иностранные инвестиции (foreign direct investment, FDI)' },
     def: {
-      en: 'Investment by a firm in another country that gives lasting control or a significant stake, usually at least 10% of voting shares, in an overseas business.',
-      ru: 'Инвестиции фирмы в другой стране, которые дают долгосрочный контроль или значимую долю, обычно не менее 10% голосов, в зарубежном бизнесе.',
+      en: 'Investment by a firm in another country that gives lasting control or a significant stake, usually at least 10% of voting shares, in productive activities in an overseas business.',
+      ru: 'Инвестиции фирмы в другой стране, которые дают долгосрочный контроль или значимую долю, обычно не менее 10% голосов, в производственной деятельности зарубежного бизнеса.',
     },
     example: {
       en: 'A foreign firm that spends AED 200 million on a factory it fully owns makes a foreign direct investment of AED 200 million.',
@@ -39,7 +40,7 @@ export const terms: Term[] = [
     },
     syllabus: '4.10',
     papers: ['P1', 'P2', 'P3'],
-    src,
+    src: { kind: 'textbook', title: book, locator: 'ch. 20, p. 611' },
   },
   {
     id: 'special-economic-zone',
@@ -64,8 +65,8 @@ export const terms: Term[] = [
     id: 'foreign-aid',
     term: { en: 'foreign aid', ru: 'иностранная помощь (foreign aid)' },
     def: {
-      en: 'Grants and concessional loans from governments and international bodies to support development or emergency relief in another country, also called official development assistance.',
-      ru: 'Гранты и льготные кредиты от правительств и международных организаций на поддержку развития или экстренную помощь в другой стране; также называется официальной помощью развитию.',
+      en: 'Grants and concessional loans from governments and international bodies to developing countries, mainly to improve their social or political conditions (for example through development or emergency relief), also called official development assistance.',
+      ru: 'Гранты и льготные кредиты от правительств и международных организаций развивающимся странам, в основном для улучшения их социальных или политических условий (например, через развитие или экстренную помощь); также называется официальной помощью развитию.',
     },
     example: {
       en: 'A donor provides a concessional loan of AED 100 million at a low interest rate to build a rural clinic.',
@@ -77,7 +78,7 @@ export const terms: Term[] = [
     },
     syllabus: '4.10',
     papers: ['P1', 'P2', 'P3'],
-    src,
+    src: { kind: 'textbook', title: book, locator: 'ch. 20, p. 615' },
   },
   {
     id: 'tied-aid',
@@ -96,7 +97,7 @@ export const terms: Term[] = [
     },
     syllabus: '4.10',
     papers: ['P1', 'P2', 'P3'],
-    src,
+    src: { kind: 'textbook', title: book, locator: 'ch. 20, p. 619' },
   },
   {
     id: 'debt-relief',
@@ -115,7 +116,7 @@ export const terms: Term[] = [
     },
     syllabus: '4.10',
     papers: ['P1', 'P2', 'P3'],
-    src,
+    src: { kind: 'textbook', title: book, locator: 'glossary, p. 642' },
   },
   {
     id: 'microfinance',
@@ -134,14 +135,14 @@ export const terms: Term[] = [
     },
     syllabus: '4.10',
     papers: ['P1', 'P2', 'P3'],
-    src,
+    src: { kind: 'textbook', title: book, locator: 'ch. 20, p. 627' },
   },
   {
     id: 'economic-infrastructure',
     term: { en: 'economic infrastructure', ru: 'экономическая инфраструктура (economic infrastructure)' },
     def: {
-      en: 'The long-lived physical systems that support production and trade, such as roads, ports, power, water and telecommunications.',
-      ru: 'Долгоживущие физические системы, которые поддерживают производство и торговлю: дороги, порты, электроэнергия, водоснабжение и связь.',
+      en: 'Long-lived physical capital that supports production and trade, such as roads, ports, power, water and telecommunications.',
+      ru: 'Долгоживущий физический капитал, который поддерживает производство и торговлю: дороги, порты, электроэнергия, водоснабжение и связь.',
     },
     example: {
       en: 'A new port that cuts shipping time from 10 days to 6 days lowers the cost of every export that passes through it.',
@@ -153,6 +154,6 @@ export const terms: Term[] = [
     },
     syllabus: '4.10',
     papers: ['P1', 'P2', 'P3'],
-    src,
+    src: { kind: 'textbook', title: book, locator: 'ch. 19, p. 567' },
   },
 ];

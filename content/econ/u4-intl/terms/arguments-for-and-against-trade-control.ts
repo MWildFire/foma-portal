@@ -1,5 +1,6 @@
 import type { SourceRef, Term } from '../../../../src/contract/types';
 
+const book = 'Tragakes, Economics for the IB Diploma: Coursebook (Cambridge University Press, 3rd ed.)';
 const src: SourceRef = { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 4.3' };
 
 export const terms: Term[] = [
@@ -20,7 +21,7 @@ export const terms: Term[] = [
     },
     syllabus: '4.3',
     papers: ['P1', 'P2', 'P3'],
-    src,
+    src: { kind: 'textbook', title: book, locator: 'ch. 15.1, p. 465' },
   },
   {
     id: 'strategic-industry',
@@ -64,8 +65,8 @@ export const terms: Term[] = [
     id: 'anti-dumping-duty',
     term: { en: 'anti-dumping duty', ru: 'антидемпинговая пошлина (anti-dumping duty)' },
     def: {
-      en: 'A tariff placed on dumped imports, usually set at the dumping margin (the gap between the normal price and the export price), to restore fair competition.',
-      ru: 'Пошлина на импорт, продаваемый демпингом, обычно равная демпинговой марже, то есть разнице между нормальной и экспортной ценой, чтобы восстановить честную конкуренцию.',
+      en: 'A tariff or quota placed on dumped imports to limit them; a tariff is usually set at the dumping margin (the gap between the normal price and the export price), to restore fair competition.',
+      ru: 'Пошлина или квота на импорт, продаваемый демпингом, чтобы ограничить его; пошлина обычно равна демпинговой марже, то есть разнице между нормальной и экспортной ценой, чтобы восстановить честную конкуренцию.',
     },
     example: {
       en: 'If a foreign firm sells steel at AED 18 per unit when its home price is AED 24, an anti-dumping duty of AED 6 per unit removes the margin.',
@@ -102,8 +103,8 @@ export const terms: Term[] = [
     id: 'trade-war',
     term: { en: 'trade war', ru: 'торговая война (trade war)' },
     def: {
-      en: "An escalating sequence of retaliatory tariffs and other trade barriers between countries, in which each side responds to the other's protection and trade falls for both.",
-      ru: 'Нарастающая цепочка ответных пошлин и других торговых барьеров между странами, в которой каждая сторона отвечает на защиту другой, и торговля падает у обеих.',
+      en: "An escalating sequence of retaliatory tariffs and other trade barriers between countries, in which each side responds to the other's protection and trade falls for both, with serious negative effects on global output and resource allocation.",
+      ru: 'Нарастающая цепочка ответных пошлин и других торговых барьеров между странами, в которой каждая сторона отвечает на защиту другой, торговля падает у обеих и серьёзно снижается мировой выпуск, ухудшается распределение ресурсов.',
     },
     example: {
       en: 'Country X adds a 10% tariff on imports from Country Y, and Y replies with a 10% tariff on X exports, so exports fall on both sides.',
@@ -115,7 +116,7 @@ export const terms: Term[] = [
     },
     syllabus: '4.3',
     papers: ['P1', 'P2', 'P3'],
-    src,
+    src: { kind: 'textbook', title: book, locator: 'ch. 15.1, p. 470' },
   },
   {
     id: 'rent-seeking',

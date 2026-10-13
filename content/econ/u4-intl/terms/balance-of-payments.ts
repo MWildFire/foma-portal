@@ -1,16 +1,18 @@
 import type { Term } from '../../../../src/contract/types';
 
+const book = 'Tragakes, Economics for the IB Diploma: Coursebook (Cambridge University Press, 3rd ed.)';
+
 export const terms: Term[] = [
   {
     id: 'balance-of-payments',
     term: { en: 'balance of payments', ru: 'платёжный баланс (balance of payments)' },
     def: {
-      en: 'A record of all economic transactions between residents of a country and the rest of the world over a period, split into the current, capital and financial accounts.',
-      ru: 'Учёт всех экономических операций между резидентами страны и остальным миром за период, разделённый на счёт текущих операций, счёт капитала и финансовый счёт.',
+      en: 'A record of all economic transactions between residents of a country and the rest of the world over a period, in which credits (inflows) always equal debits (outflows); it is split into the current, capital and financial accounts.',
+      ru: 'Учёт всех экономических операций между резидентами страны и остальным миром за период, в котором кредиты (притоки) всегда равны дебетам (оттокам); он делится на счёт текущих операций, счёт капитала и финансовый счёт.',
     },
     syllabus: '4.6',
     papers: ['P1', 'P2', 'P3'],
-    src: { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 4.6' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 16, p. 509' },
     example: {
       en: 'Exports of AED 2 million by a UAE firm are recorded in the current account, and a foreign investor buying AED 5 million of shares is recorded in the financial account.',
       ru: 'Экспорт товаров на AED 2 млн учитывается в счёте текущих операций, а покупка иностранным инвестором акций на AED 5 млн — в финансовом счёте.',
@@ -29,7 +31,7 @@ export const terms: Term[] = [
     },
     syllabus: '4.6',
     papers: ['P1', 'P2', 'P3'],
-    src: { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 4.6' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 16, p. 512' },
     example: {
       en: 'Exports 420, imports 510, net primary income 35 and net secondary income -15 (AED million) give a current account of -70, a deficit of AED 70 million.',
       ru: 'Экспорт 420, импорт 510, чистый первичный доход 35 и чистый вторичный доход -15 (млн AED) дают сальдо -70, то есть дефицит AED 70 млн.',
@@ -49,7 +51,7 @@ export const terms: Term[] = [
     },
     syllabus: '4.6',
     papers: ['P1', 'P2', 'P3'],
-    src: { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 4.6' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 16, p. 512' },
     example: {
       en: 'When a government forgives a debt of AED 300 million owed by another government, the transfer is recorded in the capital account, which is usually small.',
       ru: 'Когда правительство списывает долг другого правительства на AED 300 млн, этот трансферт учитывается в счёте капитала, который обычно невелик.',
@@ -64,12 +66,12 @@ export const terms: Term[] = [
     id: 'financial-account',
     term: { en: 'financial account', ru: 'финансовый счёт (financial account)' },
     def: {
-      en: 'The part of the balance of payments that records changes in ownership of financial assets: direct and portfolio investment, loans and deposits, and changes in official reserves.',
-      ru: 'Часть платёжного баланса, которая учитывает изменения собственности на финансовые активы: прямые и портфельные инвестиции, кредиты и депозиты, а также изменения официальных резервов.',
+      en: 'The part of the balance of payments that records changes in ownership of financial assets: direct and portfolio investment, loans and deposits, official borrowing, and changes in official reserves.',
+      ru: 'Часть платёжного баланса, которая учитывает изменения собственности на финансовые активы: прямые и портфельные инвестиции, кредиты и депозиты, официальные заимствования (государственные займы за рубежом), а также изменения официальных резервов.',
     },
     syllabus: '4.6',
     papers: ['P1', 'P2', 'P3'],
-    src: { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 4.6' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 16, p. 512' },
     example: {
       en: 'A German company buying a factory in Dubai for AED 50 million is an inflow of capital, shown as a positive entry in the UAE financial account.',
       ru: 'Немецкая компания, купившая завод в Дубае за AED 50 млн, создаёт приток капитала, который показан со знаком плюс в финансовом счёте ОАЭ.',
@@ -89,7 +91,7 @@ export const terms: Term[] = [
     },
     syllabus: '4.6',
     papers: ['P1', 'P2', 'P3'],
-    src: { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 4.6' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 16, p. 511' },
     example: {
       en: 'Exports of AED 420 million and imports of AED 510 million give a trade deficit of AED 90 million.',
       ru: 'Экспорт AED 420 млн и импорт AED 510 млн дают торговый дефицит AED 90 млн.',
@@ -123,12 +125,12 @@ export const terms: Term[] = [
     id: 'j-curve',
     term: { en: 'J-curve', ru: 'J-кривая (J-curve)' },
     def: {
-      en: 'The pattern in which the trade balance first worsens after a depreciation, because import prices rise before volumes adjust, and then improves as export and import volumes respond.',
-      ru: 'Динамика, при которой после удешевления валюты торговый баланс сначала ухудшается, так как цены импорта растут раньше, чем меняются объёмы, а затем улучшается, когда объёмы экспорта и импорта приспосабливаются.',
+      en: 'The pattern in which the trade balance first worsens after a depreciation, because import prices rise before volumes adjust, and then improves as export and import volumes respond, provided the Marshall-Lerner condition holds.',
+      ru: 'Динамика, при которой после удешевления валюты торговый баланс сначала ухудшается, так как цены импорта растут раньше, чем меняются объёмы, а затем улучшается, когда объёмы экспорта и импорта приспосабливаются, при условии выполнения условия Маршалла–Лернера.',
     },
     syllabus: '4.6',
     papers: ['P1', 'P2', 'P3'],
-    src: { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 4.6' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 17, p. 533' },
     example: {
       en: 'After a depreciation, a monthly trade deficit may widen from AED 90 million to AED 110 million in the first months and narrow to AED 60 million later (illustrative).',
       ru: 'После удешевления валюты месячный торговый дефицит может вырасти с AED 90 млн до AED 110 млн в первые месяцы и сократиться до AED 60 млн позже (иллюстративно).',
@@ -148,7 +150,7 @@ export const terms: Term[] = [
     },
     syllabus: '4.6',
     papers: ['P1', 'P2', 'P3'],
-    src: { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 4.6' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 17, p. 531' },
     example: {
       en: 'A 10% tariff on imported furniture makes it dearer, so households move part of their AED 20 million spending to local producers.',
       ru: 'Пошлина 10% на импортную мебель делает её дороже, поэтому домохозяйства переводят часть из AED 20 млн расходов местным производителям.',
@@ -167,7 +169,7 @@ export const terms: Term[] = [
     },
     syllabus: '4.6',
     papers: ['P1', 'P2', 'P3'],
-    src: { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 4.6' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 17, p. 531' },
     example: {
       en: 'Raising the policy interest rate by 1 percentage point cuts borrowing and spending, so imports fall, but output and jobs can fall too.',
       ru: 'Повышение ставки на 1 процентный пункт сокращает заимствования и расходы, поэтому импорт падает, но выпуск и рабочие места тоже могут сократиться.',

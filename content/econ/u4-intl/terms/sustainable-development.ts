@@ -1,5 +1,7 @@
 import type { Term } from '../../../../src/contract/types';
 
+const book = 'Tragakes, Economics for the IB Diploma: Coursebook (Cambridge University Press, 3rd ed.)';
+
 export const terms: Term[] = [
   {
     id: 'sustainable-development',
@@ -10,7 +12,7 @@ export const terms: Term[] = [
     },
     syllabus: '4.7',
     papers: ['P1', 'P2', 'P3'],
-    src: { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 4.7' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 1.1, p. 6' },
     example: {
       en: 'A fishery that caps its catch at 10% of the stock each year keeps the stock for future catches while still giving jobs to local crews.',
       ru: 'Рыбный промысел, который ограничивает вылов 10% запаса в год, сохраняет запас для будущих уловов и при этом даёт работу местным командам.',
@@ -29,7 +31,7 @@ export const terms: Term[] = [
     },
     syllabus: '4.7',
     papers: ['P1', 'P2', 'P3'],
-    src: { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 4.7' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 1.1, p. 8' },
     example: {
       en: 'A fishery that takes 150 tonnes from a stock that regrows only 100 tonnes a year is running down its natural capital by 50 tonnes a year.',
       ru: 'Рыбный промысел, который вылавливает 150 тонн из запаса, восстанавливающегося только на 100 тонн в год, сокращает природный капитал на 50 тонн в год.',
@@ -48,7 +50,7 @@ export const terms: Term[] = [
     },
     syllabus: '4.7',
     papers: ['P1', 'P2', 'P3'],
-    src: { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 4.7' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 5.4, p. 170' },
     example: {
       en: 'Spending today and leaving the bill for 30 years of future taxpayers raises a question of intergenerational equity.',
       ru: 'Траты сегодня при переносе счёта на следующие 30 лет будущих налогоплательщиков ставят вопрос межпоколенческой справедливости.',
@@ -67,7 +69,7 @@ export const terms: Term[] = [
     },
     syllabus: '4.7',
     papers: ['P1', 'P2', 'P3'],
-    src: { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 4.7' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 5.3, p. 153' },
     example: {
       en: 'A tax of AED 50 per tonne of CO2 (hypothetical) raises the cost of coal power per unit, so firms cut emissions or switch fuels.',
       ru: 'Налог AED 50 за тонну CO2 (гипотетически) повышает издержки угольной энергетики за каждую единицу, поэтому фирмы сокращают выбросы или меняют топливо.',
@@ -86,7 +88,7 @@ export const terms: Term[] = [
     },
     syllabus: '4.7',
     papers: ['P1', 'P2', 'P3'],
-    src: { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 4.7' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 5.3, p. 154' },
     example: {
       en: 'If the cap allows 100 permits and a firm needs only 80, it can sell its 20 spare permits to a firm that needs more.',
       ru: 'Если лимит даёт 100 разрешений, а фирме нужно 80, она может продать 20 лишних разрешений фирме, которой их не хватает.',
@@ -143,7 +145,7 @@ export const terms: Term[] = [
     },
     syllabus: '4.7',
     papers: ['P1', 'P2', 'P3'],
-    src: { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 4.7' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 4, p. 114' },
     example: {
       en: 'A law that caps sulphur in fuel at 0.5% and fines a firm AED 100,000 for each breach is a command-and-control policy.',
       ru: 'Закон, который ограничивает содержание серы в топливе 0,5% и штрафует фирму на AED 100 000 за каждое нарушение, — это прямое регулирование.',

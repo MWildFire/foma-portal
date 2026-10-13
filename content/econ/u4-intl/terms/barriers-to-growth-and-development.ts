@@ -1,5 +1,6 @@
 import type { SourceRef, Term } from '../../../../src/contract/types';
 
+const book = 'Tragakes, Economics for the IB Diploma: Coursebook (Cambridge University Press, 3rd ed.)';
 const src: SourceRef = { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 4.9' };
 
 export const terms: Term[] = [
@@ -7,8 +8,8 @@ export const terms: Term[] = [
     id: 'vicious-circle-of-poverty',
     term: { en: 'vicious circle of poverty', ru: 'порочный круг бедности (vicious circle of poverty)' },
     def: {
-      en: 'A self-reinforcing cycle in which low income leads to low saving, low investment and low human capital, which in turn keep income low.',
-      ru: 'Самоподдерживающийся цикл: низкий доход ведёт к низким сбережениям, инвестициям и человеческому капиталу, которые, в свою очередь, удерживают доход на низком уровне. Также называется ловушкой бедности (poverty trap).',
+      en: 'A self-reinforcing cycle in which low income leads to low saving, low investment in physical, human or natural capital, and so low productivity, which in turn keeps income low.',
+      ru: 'Самоподдерживающийся цикл: низкий доход ведёт к низким сбережениям, низким инвестициям в физический, человеческий или природный капитал и низкой производительности, что, в свою очередь, удерживает доход на низком уровне. Также называется ловушкой бедности (poverty trap).',
     },
     example: {
       en: 'A household that earns AED 1000 a month saves nothing, cannot pay for school fees, and its children later earn low wages.',
@@ -20,14 +21,14 @@ export const terms: Term[] = [
     },
     syllabus: '4.9',
     papers: ['P1', 'P2', 'P3'],
-    src,
+    src: { kind: 'textbook', title: book, locator: 'ch. 19, p. 564' },
   },
   {
     id: 'economic-institutions',
     term: { en: 'economic institutions', ru: 'экономические институты (economic institutions)' },
     def: {
-      en: 'The formal and informal rules and organisations that shape economic activity, such as property rights, contract enforcement, courts, regulation and the integrity of public administration.',
-      ru: 'Формальные и неформальные правила и организации, которые формируют экономическую деятельность: права собственности, исполнение контрактов, суды, регулирование и честность госуправления.',
+      en: 'The formal and informal rules and organisations, including social norms, that shape economic activity by helping people coordinate their actions, such as property rights, contract enforcement, courts, regulation and the integrity of public administration.',
+      ru: 'Формальные и неформальные правила и организации, включая социальные нормы, которые формируют экономическую деятельность, помогая людям согласовывать свои действия: права собственности, исполнение контрактов, суды, регулирование и честность госуправления.',
     },
     example: {
       en: 'A firm that cannot enforce a AED 2 million supply contract through the courts may refuse to invest in a new plant.',
@@ -39,7 +40,7 @@ export const terms: Term[] = [
     },
     syllabus: '4.9',
     papers: ['P1', 'P2', 'P3'],
-    src,
+    src: { kind: 'textbook', title: book, locator: 'ch. 19, p. 582' },
   },
   {
     id: 'corruption',
@@ -58,14 +59,14 @@ export const terms: Term[] = [
     },
     syllabus: '4.9',
     papers: ['P1', 'P2', 'P3'],
-    src,
+    src: { kind: 'textbook', title: book, locator: 'ch. 19, p. 591' },
   },
   {
     id: 'primary-commodities',
     term: { en: 'primary commodities', ru: 'первичные товары (primary commodities)' },
     def: {
-      en: 'Raw materials and agricultural products, such as oil, minerals, metals or coffee, that are extracted or grown with little processing and traded on world markets.',
-      ru: 'Сырьё и сельскохозяйственная продукция, например нефть, полезные ископаемые, металлы или кофе, которые добываются или выращиваются с малой переработкой и торгуются на мировых рынках.',
+      en: 'Products that come straight from natural resources or land, such as agricultural, fishing and forestry products, oil, minerals, metals or coffee, extracted or grown with little processing and traded on world markets.',
+      ru: 'Продукция, которая получается непосредственно из природных ресурсов или земли, например сельскохозяйственная, рыбная и лесная продукция, нефть, полезные ископаемые, металлы или кофе, которые добываются или выращиваются с малой переработкой и торгуются на мировых рынках.',
     },
     example: {
       en: 'A country that earns 80% of its export revenue from oil depends on one commodity, so a fall in the oil price cuts its foreign currency income sharply.',
@@ -77,7 +78,7 @@ export const terms: Term[] = [
     },
     syllabus: '4.9',
     papers: ['P1', 'P2', 'P3'],
-    src,
+    src: { kind: 'textbook', title: book, locator: 'ch. 3, p. 96' },
   },
   {
     id: 'external-debt',

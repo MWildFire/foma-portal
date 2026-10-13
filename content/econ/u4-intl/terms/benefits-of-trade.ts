@@ -1,5 +1,7 @@
 import type { Term } from '../../../../src/contract/types';
 
+const book = 'Tragakes, Economics for the IB Diploma: Coursebook (Cambridge University Press, 3rd ed.)';
+
 export const terms: Term[] = [
   {
     id: 'absolute-advantage',
@@ -18,7 +20,7 @@ export const terms: Term[] = [
     },
     syllabus: '4.1',
     papers: ['P1', 'P2', 'P3'],
-    src: { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 4.1' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 14.2, p. 438' },
   },
   {
     id: 'comparative-advantage',
@@ -37,14 +39,14 @@ export const terms: Term[] = [
     },
     syllabus: '4.1',
     papers: ['P1', 'P2', 'P3'],
-    src: { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 4.1' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 14.2, p. 439' },
   },
   {
     id: 'specialisation',
     term: { en: 'specialisation', ru: 'специализация (specialisation)' },
     def: {
-      en: 'Concentrating production on the goods in which a country has a comparative advantage, and trading to obtain the other goods.',
-      ru: 'Концентрация производства на товарах, в которых страна имеет сравнительное преимущество, и обмен на остальные товары.',
+      en: 'Focusing output on a few goods that a country can make efficiently (at low cost), namely those in which it has a comparative advantage, and trading to obtain the other goods.',
+      ru: 'Концентрация производства на немногих товарах, которые страна может выпускать эффективно (с низкими издержками), в первую очередь тех, в которых у неё есть сравнительное преимущество, и обмен на остальные товары.',
     },
     example: {
       en: 'Country B moves all its resources into cloth and produces 80 units of cloth, instead of splitting them between wheat and cloth.',
@@ -56,14 +58,14 @@ export const terms: Term[] = [
     },
     syllabus: '4.1',
     papers: ['P1', 'P2', 'P3'],
-    src: { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 4.1' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 14.1, p. 434' },
   },
   {
     id: 'gains-from-trade',
     term: { en: 'gains from trade', ru: 'выгоды от торговли (gains from trade)' },
     def: {
-      en: 'The increase in output and consumption that countries achieve when they specialise according to comparative advantage and trade, compared with no trade.',
-      ru: 'Прирост выпуска и потребления, которого страны достигают, когда специализируются в соответствии со сравнительным преимуществом и торгуют, по сравнению с отсутствием торговли.',
+      en: 'The benefits countries gain from international trade, such as lower prices and greater choice for consumers, and the increase in output and consumption that comes from specialising according to comparative advantage and trading, compared with no trade.',
+      ru: 'Выгоды, которые страны получают от международной торговли, например более низкие цены и больший выбор для потребителей, а также прирост выпуска и потребления, который даёт специализация в соответствии со сравнительным преимуществом и торговля, по сравнению с отсутствием торговли.',
     },
     example: {
       en: 'Before trade the world makes 65 wheat and 70 cloth; after specialisation it makes 90 wheat and 80 cloth, a gain of 25 and 10 units.',
@@ -75,14 +77,14 @@ export const terms: Term[] = [
     },
     syllabus: '4.1',
     papers: ['P1', 'P2', 'P3'],
-    src: { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 4.1' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 14.1, p. 433' },
   },
   {
     id: 'free-trade',
     term: { en: 'free trade', ru: 'свободная торговля (free trade)' },
     def: {
-      en: 'Trade between countries with no tariffs, quotas or other barriers that restrict the flow of goods and services.',
-      ru: 'Торговля между странами без тарифов, квот и других барьеров, которые ограничивают движение товаров и услуг.',
+      en: 'Trade between countries with no government intervention of any kind, such as tariffs, quotas or other barriers that restrict the flow of goods and services.',
+      ru: 'Торговля между странами без государственного вмешательства любого рода, то есть без тарифов, квот и других барьеров, которые ограничивают движение товаров и услуг.',
     },
     example: {
       en: 'A country that removes a AED 100 tariff on each imported bicycle lets buyers pay less for the same bicycle.',
@@ -94,7 +96,7 @@ export const terms: Term[] = [
     },
     syllabus: '4.1',
     papers: ['P1', 'P2', 'P3'],
-    src: { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 4.1' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 14.1, p. 433' },
   },
   {
     id: 'import-competing-industry',

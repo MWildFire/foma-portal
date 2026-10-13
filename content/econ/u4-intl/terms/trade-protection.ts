@@ -1,5 +1,6 @@
 import type { SourceRef, Term } from '../../../../src/contract/types';
 
+const book = 'Tragakes, Economics for the IB Diploma: Coursebook (Cambridge University Press, 3rd ed.)';
 const src: SourceRef = { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 4.2' };
 
 export const terms: Term[] = [
@@ -20,7 +21,7 @@ export const terms: Term[] = [
     },
     syllabus: '4.2',
     papers: ['P1', 'P2', 'P3'],
-    src,
+    src: { kind: 'textbook', title: book, locator: 'ch. 14.3, p. 444' },
   },
   {
     id: 'tariff',
@@ -40,7 +41,7 @@ export const terms: Term[] = [
     syllabus: '4.2',
     papers: ['P1', 'P2', 'P3'],
     sim: 'econ.tariff',
-    src,
+    src: { kind: 'textbook', title: book, locator: 'ch. 14.3, p. 444' },
   },
   {
     id: 'quota',
@@ -60,7 +61,7 @@ export const terms: Term[] = [
     syllabus: '4.2',
     papers: ['P1', 'P2', 'P3'],
     sim: 'econ.quota',
-    src,
+    src: { kind: 'textbook', title: book, locator: 'ch. 14.3, p. 448' },
   },
   {
     id: 'export-subsidy',
@@ -80,7 +81,7 @@ export const terms: Term[] = [
     syllabus: '4.2',
     papers: ['P1', 'P2', 'P3'],
     sim: 'econ.export-subsidy',
-    src,
+    src: { kind: 'textbook', title: book, locator: 'ch. 14.3, p. 454' },
   },
   {
     id: 'dumping',
@@ -99,7 +100,7 @@ export const terms: Term[] = [
     },
     syllabus: '4.2',
     papers: ['P1', 'P2', 'P3'],
-    src,
+    src: { kind: 'textbook', title: book, locator: 'ch. 15.1, p. 466' },
   },
   {
     id: 'voluntary-export-restraint',
@@ -137,7 +138,7 @@ export const terms: Term[] = [
     },
     syllabus: '4.2',
     papers: ['P1', 'P2', 'P3'],
-    src,
+    src: { kind: 'textbook', title: book, locator: 'ch. 14.3, p. 462' },
   },
   {
     id: 'quota-rent',
@@ -157,7 +158,7 @@ export const terms: Term[] = [
     syllabus: '4.2',
     papers: ['P1', 'P2', 'P3'],
     sim: 'econ.quota',
-    src,
+    src: { kind: 'textbook', title: book, locator: 'ch. 14.3, p. 448' },
   },
   {
     id: 'exchange-controls',
@@ -176,6 +177,6 @@ export const terms: Term[] = [
     },
     syllabus: '4.2',
     papers: ['P1', 'P2', 'P3'],
-    src,
+    src: { kind: 'textbook', title: book, locator: 'ch. 17, p. 519' },
   },
 ];

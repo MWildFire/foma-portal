@@ -1,5 +1,6 @@
 import type { SourceRef, Term } from '../../../../src/contract/types';
 
+const book = 'Tragakes, Economics for the IB Diploma: Coursebook (Cambridge University Press, 3rd ed.)';
 const src: SourceRef = { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 4.8' };
 
 export const terms: Term[] = [
@@ -7,8 +8,8 @@ export const terms: Term[] = [
     id: 'economic-development',
     term: { en: 'economic development', ru: 'экономическое развитие (economic development)' },
     def: {
-      en: 'A broader improvement in living standards, including health, education, income distribution and freedom of choice, not just a rise in output.',
-      ru: 'Более широкое улучшение уровня жизни, включая здоровье, образование, распределение доходов и свободу выбора, а не только рост выпуска.',
+      en: 'A process in which gains in inflation-adjusted output per person and in incomes bring a broader improvement in living standards, less poverty and wider access to basic needs such as health and education, including better income distribution and freedom of choice, not just a rise in output.',
+      ru: 'Процесс, в котором рост реального выпуска и доходов на душу населения сопровождается улучшением уровня жизни, сокращением бедности и более широким доступом к базовым потребностям, например к здравоохранению и образованию, включая более справедливое распределение доходов и свободу выбора, а не просто рост выпуска.',
     },
     example: {
       en: 'Real output rises by 4% a year, but life expectancy and school enrolment stay flat: growth without development.',
@@ -20,7 +21,7 @@ export const terms: Term[] = [
     },
     syllabus: '4.8',
     papers: ['P1', 'P2', 'P3'],
-    src,
+    src: { kind: 'textbook', title: book, locator: 'ch. 18, p. 544' },
   },
   {
     id: 'gross-national-income',
@@ -39,7 +40,7 @@ export const terms: Term[] = [
     },
     syllabus: '4.8',
     papers: ['P1', 'P2', 'P3'],
-    src,
+    src: { kind: 'textbook', title: book, locator: 'ch. 8.2, p. 253' },
   },
   {
     id: 'gni-per-capita',
@@ -58,7 +59,7 @@ export const terms: Term[] = [
     },
     syllabus: '4.8',
     papers: ['P1', 'P2', 'P3'],
-    src,
+    src: { kind: 'textbook', title: book, locator: 'ch. 18, p. 547' },
   },
   {
     id: 'purchasing-power-parity',
@@ -77,7 +78,7 @@ export const terms: Term[] = [
     },
     syllabus: '4.8',
     papers: ['P1', 'P2', 'P3'],
-    src,
+    src: { kind: 'textbook', title: book, locator: 'ch. 8.2, p. 255' },
   },
   {
     id: 'international-dollar',
@@ -115,7 +116,7 @@ export const terms: Term[] = [
     },
     syllabus: '4.8',
     papers: ['P1', 'P2', 'P3'],
-    src,
+    src: { kind: 'textbook', title: book, locator: 'ch. 18, p. 556' },
   },
   {
     id: 'life-expectancy-at-birth',
@@ -134,7 +135,7 @@ export const terms: Term[] = [
     },
     syllabus: '4.8',
     papers: ['P1', 'P2', 'P3'],
-    src,
+    src: { kind: 'textbook', title: book, locator: 'ch. 18, p. 549' },
   },
   {
     id: 'mean-years-of-schooling',
@@ -153,6 +154,6 @@ export const terms: Term[] = [
     },
     syllabus: '4.8',
     papers: ['P1', 'P2', 'P3'],
-    src,
+    src: { kind: 'textbook', title: book, locator: 'ch. 19, p. 587' },
   },
 ];

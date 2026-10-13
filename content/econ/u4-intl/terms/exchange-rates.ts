@@ -1,5 +1,7 @@
 import type { Term } from '../../../../src/contract/types';
 
+const book = 'Tragakes, Economics for the IB Diploma: Coursebook (Cambridge University Press, 3rd ed.)';
+
 export const terms: Term[] = [
   {
     id: 'exchange-rate',
@@ -10,7 +12,7 @@ export const terms: Term[] = [
     },
     syllabus: '4.5',
     papers: ['P1', 'P2', 'P3'],
-    src: { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 4.5' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 16, p. 491' },
     example: {
       en: 'If the market quotes AED 3.6725 per USD, one US dollar costs 3.6725 dirhams, so USD 100 costs AED 367.25.',
       ru: 'Если рынок котирует 3,6725 AED за USD, один доллар стоит 3,6725 дирхама, а USD 100 стоят AED 367,25.',
@@ -49,7 +51,7 @@ export const terms: Term[] = [
     },
     syllabus: '4.5',
     papers: ['P1', 'P2', 'P3'],
-    src: { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 4.5' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 16, p. 491' },
     example: {
       en: 'When foreign tourists spend AED 2 million on hotels, they buy dirhams, which adds to the demand for AED.',
       ru: 'Когда иностранные туристы тратят AED 2 млн в отелях, они покупают дирхамы, и это увеличивает спрос на AED.',
@@ -68,7 +70,7 @@ export const terms: Term[] = [
     },
     syllabus: '4.5',
     papers: ['P1', 'P2', 'P3'],
-    src: { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 4.5' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 16, p. 494' },
     example: {
       en: 'If the rate falls from 3.6725 to 3.30 AED per USD, one dirham buys about 0.30 USD instead of 0.27 USD, so the dirham appreciates.',
       ru: 'Если курс падает с 3,6725 до 3,30 AED за USD, один дирхам покупает около 0,30 USD вместо 0,27 USD, значит, дирхам дорожает.',
@@ -88,7 +90,7 @@ export const terms: Term[] = [
     },
     syllabus: '4.5',
     papers: ['P1', 'P2', 'P3'],
-    src: { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 4.5' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 16, p. 494' },
     example: {
       en: 'If the rate rises from 3.6725 to 3.80 AED per USD, one dirham buys about 0.26 USD instead of 0.27 USD, so the dirham depreciates.',
       ru: 'Если курс растёт с 3,6725 до 3,80 AED за USD, один дирхам покупает около 0,26 USD вместо 0,27 USD, значит, дирхам дешевеет.',
@@ -103,12 +105,12 @@ export const terms: Term[] = [
     id: 'floating-exchange-rate',
     term: { en: 'floating exchange rate', ru: 'плавающий обменный курс (floating exchange rate)' },
     def: {
-      en: 'A system in which the exchange rate is set by the demand and supply of the currency in the foreign exchange market, with no official target for its level.',
-      ru: 'Система, в которой обменный курс задаётся спросом и предложением валюты на валютном рынке без официальной цели для его уровня.',
+      en: 'A system in which the exchange rate is set by the demand and supply of the currency in the foreign exchange market, free of any intervention by the government or central bank, and with no official target for its level.',
+      ru: 'Система, в которой обменный курс задаётся спросом и предложением валюты на валютном рынке без вмешательства правительства или центрального банка и без официальной цели для его уровня.',
     },
     syllabus: '4.5',
     papers: ['P1', 'P2', 'P3'],
-    src: { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 4.5' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 16, p. 492' },
     example: {
       en: 'If demand for US dollars rises, the price of one dollar may move from AED 3.6725 to AED 3.80 with no official announcement.',
       ru: 'Если спрос на доллары США растёт, цена одного доллара может вырасти с AED 3,6725 до AED 3,80 без официального объявления.',
@@ -128,7 +130,7 @@ export const terms: Term[] = [
     },
     syllabus: '4.5',
     papers: ['P1', 'P2', 'P3'],
-    src: { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 4.5' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 16, p. 504' },
     example: {
       en: 'The Central Bank of the UAE keeps the official rate at AED 3.6725 per USD, so the rate stays at that level unless the bank changes the peg.',
       ru: 'Центральный банк ОАЭ поддерживает официальный курс на уровне AED 3,6725 за USD, поэтому курс остаётся на этом уровне, пока банк не изменит привязку.',
@@ -147,7 +149,7 @@ export const terms: Term[] = [
     },
     syllabus: '4.5',
     papers: ['P1', 'P2', 'P3'],
-    src: { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 4.5' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 16, p. 506' },
     example: {
       en: 'If a currency falls 5% in a month, the central bank may sell USD 500 million of its reserves to slow the fall, then let the market decide again.',
       ru: 'Если валюта дешевеет на 5% за месяц, центральный банк может продать резервы на USD 500 млн, чтобы замедлить падение, а затем снова оставить курс рынку.',
@@ -166,7 +168,7 @@ export const terms: Term[] = [
     },
     syllabus: '4.5',
     papers: ['P1', 'P2', 'P3'],
-    src: { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 4.5' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 16, p. 495' },
     example: {
       en: 'A trader expects the dirham to depreciate, so she buys USD 1 million at 3.6725 AED per USD and sells it later at 3.80, making about AED 127,500 before costs.',
       ru: 'Трейдер ожидает удешевления дирхама, поэтому покупает USD 1 млн по курсу 3,6725 AED за USD и продаёт их позже по 3,80, получая около AED 127 500 прибыли до издержек.',
