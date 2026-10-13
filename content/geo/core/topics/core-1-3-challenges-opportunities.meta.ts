@@ -34,7 +34,7 @@ const topic: TopicMeta = {
     'core-long-term-care',
   ],
   sims: ['geo.core-dependency-ratio'],
-  questionIds: ['core-1-3-a1', 'core-1-3-a2', 'core-1-3-a3', 'core-1-3-a4', 'core-1-3-a5', 'core-1-3-b1'],
+  questionIds: ['core-1-3-a2', 'core-1-3-a4', 'core-1-3-b1'],
   caseIds: ['core-1-3-case-china', 'core-1-3-case-singapore', 'core-1-3-case-philippines'],
   sources: [
     { kind: 'ib-guide', title: 'Geography guide (2017), core 1.3' },
@@ -43,7 +43,7 @@ const topic: TopicMeta = {
     { kind: 'web', title: 'Global Government Forum, report of the Higher School of Economics on Russia’s maternity capital', url: 'https://www.globalgovernmentforum.com/russian-scheme-to-raise-the-countrys-fertility-rate-flawed-report-finds/' },
     { kind: 'web', title: 'Portfolio.hu, Hungary’s tax system in 2020 (lifetime income-tax exemption for mothers of four)', url: 'https://www.portfolio.hu/en/economy/20200101/hungarys-tax-system-in-2020-changes-like-weve-never-seen-before-411307' },
     { kind: 'web', title: 'Economic Research Forum, working paper on Iran’s family planning programme (started 1989)', url: 'https://erf.org.eg/publications/repression-and-revival-of-the-family-planning-program-and-its-impact-on-the-fertility-levels-and-demographic-transition-in-the-islamic-republic-of-iran/' },
-    { kind: 'web', title: 'Wikipedia, One-child policy (1980 start; 1 January 2016 change; disputed 400 million claim)', url: 'https://en.wikipedia.org/wiki/One-child_policy' },
+    { kind: 'web', title: 'Wikipedia, One-child policy (1980 start; 1 January 2016 change)', url: 'https://en.wikipedia.org/wiki/One-child_policy' },
   ],
 };
 
