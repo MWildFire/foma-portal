@@ -1,0 +1,353 @@
+/* Styles of the MDX topic body. Colours come from src/index.css and src/components/content/ui.css.
+   Plain HTML elements from the MDX are mapped to small components (elements.tsx) that carry these classes,
+   so every rule here is one class deep and does not depend on the order of the stylesheets. */
+
+/* Reading column: Literata, 17 px, about 60ch per line (roughly 70 characters). Cards may use the full width. */
+.foma-prose {
+  color: var(--color-fg);
+  font-family: var(--font-reading);
+  font-size: 1.0625rem;
+  line-height: 1.75;
+  overflow-wrap: break-word;
+}
+
+.foma-p,
+.foma-ul,
+.foma-ol,
+.foma-quote {
+  max-width: 60ch;
+}
+
+/* Cards that hold running text stay as narrow as the text column (about 70 characters per line). */
+.foma-prose :is(.foma-card, .foma-callout, .foma-reveal) {
+  max-width: 40rem;
+}
+
+.foma-p {
+  margin: 0 0 1rem;
+}
+
+.foma-h2 {
+  margin: 2.75rem 0 0.75rem;
+  font-family: var(--font-ui);
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.foma-h2:first-child {
+  margin-top: 0;
+}
+
+.foma-h3 {
+  margin: 1.75rem 0 0.5rem;
+  font-family: var(--font-ui);
+  font-size: 1.1875rem;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.foma-ul,
+.foma-ol {
+  margin: 0 0 1rem;
+  padding-left: 1.5rem;
+}
+
+.foma-ul {
+  list-style: disc;
+}
+
+.foma-ol {
+  list-style: decimal;
+}
+
+.foma-li {
+  margin: 0.3rem 0;
+}
+
+.foma-li > .foma-ul,
+.foma-li > .foma-ol {
+  margin: 0.3rem 0;
+}
+
+.foma-quote {
+  margin: 1rem 0 1rem 1rem;
+  color: var(--color-muted);
+  font-style: italic;
+}
+
+.foma-hr {
+  margin: 2rem 0;
+  border: 0;
+  border-top: 1px solid var(--color-border);
+}
+
+.foma-code {
+  padding: 0.1em 0.3em;
+  border-radius: 0.25rem;
+  background: var(--color-card);
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 0.875em;
+}
+
+.foma-pre {
+  margin: 1rem 0;
+  padding: 0.75rem 1rem;
+  overflow-x: auto;
+  border: 1px solid var(--color-border);
+  border-radius: 0.5rem;
+  background: var(--color-card);
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.foma-pre .foma-code {
+  padding: 0;
+  background: none;
+  font-size: inherit;
+}
+
+/* A wide table scrolls inside its own box, not the page. */
+.foma-table-wrap {
+  margin: 1rem 0;
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+.foma-table {
+  border-collapse: collapse;
+  font-size: 0.9375rem;
+  line-height: 1.5;
+}
+
+.foma-th,
+.foma-td {
+  padding: 0.4rem 0.75rem;
+  border: 1px solid var(--color-border);
+  text-align: left;
+  vertical-align: top;
+}
+
+.foma-th {
+  background: var(--color-card);
+  font-family: var(--font-ui);
+  font-weight: 600;
+}
+
+/* Callout: icon, label as text, and a tone (see ui.css). */
+.foma-callout {
+  margin: 1.25rem 0;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--tone-line);
+  border-radius: 0.5rem;
+  background: var(--tone-bg);
+}
+
+.foma-callout__label {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin: 0 0 0.35rem;
+  color: var(--tone-fg);
+  font-family: var(--font-ui);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.foma-callout__body > :last-child,
+.foma-reveal__body > :last-child,
+.foma-step > :last-child {
+  margin-bottom: 0;
+}
+
+/* Reveal: a native details element. */
+.foma-reveal {
+  margin: 1rem 0;
+  border: 1px solid var(--color-border);
+  border-radius: 0.5rem;
+  background: var(--color-card);
+}
+
+.foma-reveal > summary {
+  min-height: 44px;
+  padding: 0.65rem 1rem;
+  font-family: var(--font-ui);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.foma-reveal[open] > summary {
+  border-bottom: 1px solid var(--color-border);
+}
+
+.foma-reveal__body {
+  padding: 0.75rem 1rem;
+}
+
+/* Steps: a numbered list. */
+.foma-steps {
+  margin: 1rem 0;
+  padding-left: 1.75rem;
+  list-style: decimal;
+}
+
+.foma-step {
+  margin: 0.5rem 0;
+  padding-left: 0.25rem;
+  max-width: 60ch;
+}
+
+.foma-step::marker {
+  color: var(--color-accent);
+  font-family: var(--font-ui);
+  font-weight: 700;
+}
+
+/* Figure: diagrams are drawn for a light page, so they sit on a white sheet in both themes. */
+.foma-figure {
+  margin: 1.25rem 0;
+}
+
+.foma-figure__frame {
+  padding: 0.5rem;
+  overflow-x: auto;
+  border: 1px solid var(--color-border);
+  border-radius: 0.5rem;
+  background: #ffffff;
+  text-align: center;
+}
+
+.foma-figure__frame img {
+  display: inline-block;
+  max-width: 100%;
+  height: auto;
+}
+
+.foma-figure figcaption {
+  margin-top: 0.4rem;
+  color: var(--color-muted);
+  font-family: var(--font-ui);
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+/* Simulation frame. A wide simulation scrolls inside it. */
+.foma-sim {
+  margin: 1.25rem 0;
+  padding: 0.75rem;
+  overflow-x: auto;
+  border: 1px solid var(--color-border);
+  border-radius: 0.75rem;
+  background: var(--color-card);
+}
+
+/* Question card. */
+.foma-question {
+  margin: 1.25rem 0;
+}
+
+.foma-question__meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.foma-question__prompt {
+  margin: 0.75rem 0;
+}
+
+.foma-question__stimulus {
+  margin: 0.75rem 0;
+  padding: 0.5rem 0.9rem;
+  border: 1px solid var(--color-border);
+  border-radius: 0.5rem;
+  background: var(--color-bg);
+}
+
+.foma-question__label {
+  margin: 0 0 0.25rem;
+  color: var(--color-muted);
+  font-family: var(--font-ui);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.foma-question__hints > summary {
+  min-height: 44px;
+  padding: 0.6rem 0;
+  font-family: var(--font-ui);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.foma-question__answer {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px dashed var(--color-muted);
+}
+
+.foma-question__answer > div + div {
+  margin-top: 1rem;
+}
+
+/* Case card. */
+.foma-case {
+  margin: 1.25rem 0;
+}
+
+.foma-case__title {
+  margin: 0;
+  font-family: var(--font-ui);
+  font-size: 1.0625rem;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.foma-case__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin: 0.5rem 0;
+}
+
+.foma-case__facts {
+  margin: 0.5rem 0;
+}
+
+.foma-case__sources {
+  margin-top: 0.75rem;
+  font-size: 0.875rem;
+}
+
+.foma-case__sources-label {
+  margin: 0 0 0.25rem;
+  color: var(--color-muted);
+  font-family: var(--font-ui);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* Case map block. */
+.foma-casemap {
+  margin: 1.25rem 0;
+}
+
+.foma-casemap__list {
+  margin: 0.5rem 0 0;
+  padding: 0;
+  list-style: none;
+  font-family: var(--font-ui);
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.foma-casemap__list li + li {
+  margin-top: 0.25rem;
+}
