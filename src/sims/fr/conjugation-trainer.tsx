@@ -1,4 +1,4 @@
-import { useState, type FormEvent } from 'react';
+import { useRef, useState, type FormEvent } from 'react';
 import type { Lang } from '../../contract/types';
 import {
   MOODS,
@@ -8,13 +8,13 @@ import {
   hintText,
   isCorrect,
   moodLabel,
-  shuffle,
   tenseLabel,
   tensesFor,
   type DrillFilter,
   type DrillLike,
   type Mood,
 } from './conjugation-logic';
+import { shuffle } from './shuffle';
 
 // The drill files of the grammar topic (conjugation.ts and conjugation-mood.ts), read at build time. The logic is in
 // conjugation-logic.ts. The student types one form at a time; a mistake shows the form and the hint.
@@ -91,6 +91,7 @@ export default function ConjugationTrainer({ lang }: { lang: Lang }) {
   const [text, setText] = useState('');
   const [verdict, setVerdict] = useState<'idle' | 'right' | 'wrong'>('idle');
   const [score, setScore] = useState({ right: 0, asked: 0 });
+  const inputRef = useRef<HTMLInputElement>(null);
 
   const drill = queue[index] as DrillLike | undefined;
   const tenses = tensesFor(DRILLS, filter.mood);
@@ -122,6 +123,8 @@ export default function ConjugationTrainer({ lang }: { lang: Lang }) {
     }
     setText('');
     setVerdict('idle');
+    // Next turns disabled once the input is blank, so focus moves to the input first.
+    inputRef.current?.focus();
   };
 
   const hint = drill && verdict === 'wrong' ? hintText(drill, lang) : undefined;
@@ -157,38 +160,44 @@ export default function ConjugationTrainer({ lang }: { lang: Lang }) {
       {drill ? (
         <form onSubmit={onSubmit} style={{ display: 'grid', gap: 10 }}>
           <p style={{ margin: 0 }}>
-            {copy.verb}: <strong>{drill.verb}</strong> · {copy.person}: <strong>{drill.pronoun}</strong>
+            {copy.verb}: <strong lang="fr">{drill.verb}</strong> · {copy.person}: <strong lang="fr">{drill.pronoun}</strong>
             <br />
             {copy.form}: {tenseLabel(drill.tense, lang)}
           </p>
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
-            <input
-              type="text"
-              value={text}
-              onChange={e => setText(e.target.value)}
-              readOnly={verdict !== 'idle'}
-              aria-label={copy.answer}
-              autoComplete="off"
-              autoCapitalize="none"
-              spellCheck={false}
-              style={input}
-            />
-            <button
-              type="submit"
-              disabled={checkDisabled}
-              style={{ ...button, opacity: checkDisabled ? 0.4 : 1, cursor: checkDisabled ? 'default' : 'pointer' }}
-            >
-              {verdict === 'idle' ? copy.check : copy.next}
-            </button>
-          </div>
-          {verdict === 'idle' ? null : (
-            <div role="status" style={{ display: 'grid', gap: 4, color: verdict === 'right' ? '#1a7f37' : '#b42318' }}>
-              <span>
-                {verdict === 'right' ? copy.right : copy.wrong} <strong>{fullForm(drill)}</strong>
-              </span>
-              {hint ? <span>{copy.hint} {hint}</span> : null}
+          <div>
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
+              <input
+                type="text"
+                ref={inputRef}
+                value={text}
+                onChange={e => setText(e.target.value)}
+                readOnly={verdict !== 'idle'}
+                aria-label={copy.answer}
+                autoComplete="off"
+                autoCapitalize="none"
+                spellCheck={false}
+                style={input}
+              />
+              <button
+                type="submit"
+                disabled={checkDisabled}
+                style={{ ...button, opacity: checkDisabled ? 0.4 : 1, cursor: checkDisabled ? 'default' : 'pointer' }}
+              >
+                {verdict === 'idle' ? copy.check : copy.next}
+              </button>
             </div>
-          )}
+            {/* Always mounted: a live region must exist before its text is written in. */}
+            <div role="status" style={{ display: 'grid', gap: 4, marginTop: verdict === 'idle' ? 0 : 10 }}>
+              {verdict === 'idle' ? null : (
+                <>
+                  <span>
+                    {verdict === 'right' ? copy.right : copy.wrong} <strong lang="fr">{fullForm(drill)}</strong>
+                  </span>
+                  {hint ? <span>{copy.hint} {hint}</span> : null}
+                </>
+              )}
+            </div>
+          </div>
         </form>
       ) : (
         <p style={{ margin: 0 }}>{copy.empty}</p>

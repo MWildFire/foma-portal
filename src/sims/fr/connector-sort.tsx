@@ -70,11 +70,13 @@ export default function ConnectorSort({ lang }: { lang: Lang }) {
         {round.map(c => {
           const answer = answers[c.id];
           const isRight = answer === c.group;
-          const borderColor = !checked ? 'currentColor' : isRight ? '#1a7f37' : '#b42318';
+          // A green border is 3.17:1 on the dark card, enough for a non-text border; red is 2.45:1, so a wrong row keeps
+          // the default border and relies on its text.
+          const borderColor = checked && isRight ? '#1a7f37' : 'currentColor';
           return (
             <li key={c.id} style={{ border: `1px solid ${borderColor}`, borderRadius: 8, padding: '8px 10px', display: 'grid', gap: 6 }}>
               <div>
-                <strong>{c.fr}</strong>
+                <strong lang="fr">{c.fr}</strong>
                 <span style={{ marginLeft: 8, opacity: 0.8 }}>
                   {c.en} · {c.ru}
                 </span>
@@ -105,7 +107,7 @@ export default function ConnectorSort({ lang }: { lang: Lang }) {
         <button type="button" style={button} onClick={newSet}>
           {copy.again}
         </button>
-        {checked ? <span role="status">{copy.result(countRight(round, answers), round.length)}</span> : null}
+        <span role="status">{checked ? copy.result(countRight(round, answers), round.length) : ''}</span>
       </div>
     </div>
   );

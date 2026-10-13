@@ -12,10 +12,10 @@ import {
   isCorrect,
   moodOf,
   normaliseAnswer,
-  shuffle,
   tenseLabel,
   tensesFor,
 } from '../src/sims/fr/conjugation-logic.ts';
+import { shuffle } from '../src/sims/fr/shuffle.ts';
 import { drills as conjugation } from '../content/fr/grammar/conjugation.ts';
 import { drills as conjugationMood } from '../content/fr/grammar/conjugation-mood.ts';
 

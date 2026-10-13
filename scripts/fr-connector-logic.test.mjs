@@ -17,7 +17,7 @@ test('groupOf puts the borders of each id range in the right function', () => {
 });
 
 test('groupOf returns undefined for ids outside cn-001 to cn-060 and for other ids', () => {
-  for (const bad of ['cn-000', 'cn-061', 'cn-1', 'cn-0001', 'CN-001', 'v-t1-001', '']) {
+  for (const bad of ['cn-000', 'cn-061', 'cn-1', 'cn-0001', 'CN-001', 'v-t1-001', '', 'constructor', '__proto__']) {
     assert.equal(groupOf(bad), undefined, `"${bad}"`);
   }
 });
