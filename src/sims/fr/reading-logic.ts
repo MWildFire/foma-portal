@@ -1,4 +1,6 @@
 import type { L } from '../../contract/types';
+import { setAllowanceMinutes } from '../../components/practice/timing.ts';
+import type { ExamPaper, ExamsFile } from '../../planner/types.ts';
 
 // Pure logic for the reading practice (Paper 2). The component reads the passages and items at build time and passes
 // them in, so scripts/fr-reading-logic.test.mjs can check this file with node:test.
@@ -29,10 +31,26 @@ export type AnswerKind = 'truefalse' | 'letter' | 'english' | 'french' | 'none';
 export interface PromptOption { letter: string; label: string }
 export interface SplitPrompt { stem: string; options: PromptOption[] }
 
-// The 45-minute mock plus [redacted]'s 25% extra time (data/exams.json, accessMinutes: 45 → 56).
-export const TIMED_MINUTES = 56;
-export const TIMED_LIMIT_MS = TIMED_MINUTES * 60 * 1000;
+// The timed run is the reading paper of data/exams.json (fr-p2r). Its length comes from setAllowanceMinutes: the printed
+// time, or the school's figure with extra time (accessMinutes: 45 → 56). No minutes are typed in here.
+export const READING_EXAM_ID = 'fr-p2r';
 export const TRUE_FALSE = ['vrai', 'faux', 'non mentionné'];
+
+export function readingExam(exams: ExamsFile): ExamPaper | undefined {
+  return exams.papers.find(paper => paper.id === READING_EXAM_ID);
+}
+
+// The minutes of a timed run; 0 when data/exams.json has no reading paper.
+export function timedRunMinutes(exams: ExamsFile, extraTime: boolean): number {
+  const paper = readingExam(exams);
+  if (!paper) return 0;
+  return setAllowanceMinutes({
+    subject: paper.subject,
+    set: { paper: paper.paper, part: paper.part, minutes: paper.minutes },
+    exams,
+    extraTime,
+  });
+}
 
 // Function words that do not carry the meaning of an English key phrase.
 const STOP_WORDS = new Set(['a', 'an', 'the', 'of', 'to', 'in', 'on', 'at', 'by', 'for', 'with', 'and', 'or', 'is', 'are', 'was', 'were', 'be', 'it', 'its', 'this', 'that', 'as', 'from']);
@@ -76,14 +94,24 @@ export function answerKind(item: ItemLike): AnswerKind {
   return /answer in english/i.test(item.prompt.en) ? 'english' : 'french';
 }
 
+// A key may accept more than one answer, separated by " | " ("sore eyes | eye pain"); any one of them is enough.
+export function acceptedAnswers(expected: string): string[] {
+  return expected.split('|').map(part => part.trim()).filter(part => part !== '');
+}
+
+// The key as the student sees it after marking: the accepted answers, with a slash between them.
+export function answerText(expected: string): string {
+  return acceptedAnswers(expected).join(' / ');
+}
+
 export function checkAnswer(item: ItemLike, typed: string): boolean {
   const expected = (item.answer ?? '').trim();
   if (expected === '' || typed.trim() === '') return false;
   switch (answerKind(item)) {
     case 'truefalse': return normaliseFrench(expected) === normaliseFrench(typed);
     case 'letter': return expected.toUpperCase() === typed.trim().toUpperCase();
-    case 'english': return englishMatches(expected, typed);
-    case 'french': return frenchMatches(expected, typed);
+    case 'english': return acceptedAnswers(expected).some(answer => englishMatches(answer, typed));
+    case 'french': return acceptedAnswers(expected).some(answer => frenchMatches(answer, typed));
     default: return false;
   }
 }

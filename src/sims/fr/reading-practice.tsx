@@ -1,22 +1,27 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import type { Lang } from '../../contract/types';
+import { useLocalProgress } from '../../hooks/useLocalProgress';
+import { EXAMS } from '../../planner/data';
 import {
-  TIMED_LIMIT_MS,
   TRUE_FALSE,
   answerKind,
+  answerText,
   checkAnswer,
   collectItems,
   collectPassages,
   formatTime,
+  readingExam,
   scoreOf,
   splitPrompt,
+  timedRunMinutes,
   timedSets,
   type ItemLike,
   type PassageLike,
 } from './reading-logic';
 
 // The reading passages (content/fr/reading/) and their items (content/fr/questions/reading-1.ts and reading-2.ts), read at
-// build time. The logic is in reading-logic.ts. Practice works on one text; a timed run is one set of three texts in 56 minutes (45 plus 25% extra time).
+// build time. The logic is in reading-logic.ts. Practice works on one text; a timed run is one set of three texts, timed as
+// the reading paper in data/exams.json (45 minutes, plus the student's extra time from the school's table).
 const PASSAGES = collectPassages(import.meta.glob<{ passage?: unknown }>('../../../content/fr/reading/*.ts', { eager: true }));
 const ITEMS = collectItems(import.meta.glob<{ questions?: unknown }>('../../../content/fr/questions/reading-[0-9]*.ts', { eager: true }));
 const ITEM_BY_ID = new Map(ITEMS.map((item): [string, ItemLike] => [item.id, item]));
@@ -43,7 +48,7 @@ const COPY = {
     title: 'Reading practice (Paper 2)',
     intro: 'Read the text, then answer its ten items. The paragraphs are lettered A to E. In the French answers accents and capitals are not checked. Check when you are ready; the markscheme follows.',
     practice: 'Practice: one text',
-    timed: 'Timed run: three texts, 56 minutes (45 + 25%)',
+    timed: (minutes: number, printed: number, extra: boolean) => `Timed run: three texts, ${minutes} minutes${extra ? ` (${printed} + extra time)` : ''}`,
     set: 'Set',
     text: 'Text',
     start: 'Start the timer',
@@ -62,7 +67,7 @@ const COPY = {
     title: 'Тренировка чтения (Paper 2)',
     intro: 'Прочитайте текст, затем ответьте на его десять заданий. Абзацы обозначены буквами от A до E. Во французских ответах акценты и заглавные буквы не проверяются. Проверяйте, когда будете готовы: потом появятся критерии (markscheme).',
     practice: 'Тренировка: один текст',
-    timed: 'На время: три текста, 56 минут (45 + 25%)',
+    timed: (minutes: number, printed: number, extra: boolean) => `На время: три текста, ${minutes} минут${extra ? ` (${printed} + доп. время)` : ''}`,
     set: 'Набор',
     text: 'Текст',
     start: 'Запустить таймер',
@@ -103,6 +108,12 @@ const input = {
 
 export default function ReadingPractice({ lang }: { lang: Lang }) {
   const copy = COPY[lang];
+  // The student's extra-time setting decides the length of a timed run; the lengths themselves are in data/exams.json.
+  const [progress] = useLocalProgress();
+  const extraTime = progress.settings.accessArrangements.extraTime;
+  const printedMinutes = readingExam(EXAMS)?.minutes ?? 0;
+  const timedMinutes = timedRunMinutes(EXAMS, extraTime);
+  const timedLimitMs = timedMinutes * 60 * 1000;
   const [mode, setMode] = useState<'practice' | 'timed'>('practice');
   const [setIndex, setSetIndex] = useState(0);
   const [passageId, setPassageId] = useState(PASSAGES[0]?.id ?? '');
@@ -119,7 +130,7 @@ export default function ReadingPractice({ lang }: { lang: Lang }) {
   const shown = passage ? itemsOf(passage) : [];
   const marked = passage !== undefined && checked[passage.id] === true;
   const score = scoreOf(scopeItems, answers);
-  const remaining = timer ? TIMED_LIMIT_MS - ((timer.end ?? now) - timer.start) : TIMED_LIMIT_MS;
+  const remaining = timer ? timedLimitMs - ((timer.end ?? now) - timer.start) : timedLimitMs;
   const canStart = timer === null && !scope.some(p => checked[p.id] === true);
 
   const markScope = useCallback((): void => {
@@ -135,8 +146,8 @@ export default function ReadingPractice({ lang }: { lang: Lang }) {
   }, [timer]);
 
   useEffect(() => {
-    if (timer && !timer.end && now - timer.start >= TIMED_LIMIT_MS) markScope();
-  }, [now, timer, markScope]);
+    if (timer && !timer.end && now - timer.start >= timedLimitMs) markScope();
+  }, [now, timer, markScope, timedLimitMs]);
 
   const chooseMode = (next: 'practice' | 'timed'): void => {
     setMode(next);
@@ -182,7 +193,7 @@ export default function ReadingPractice({ lang }: { lang: Lang }) {
           {copy.practice}
         </button>
         <button type="button" aria-pressed={mode === 'timed'} onClick={() => chooseMode('timed')} style={toggle(mode === 'timed')}>
-          {copy.timed}
+          {copy.timed(timedMinutes, printedMinutes, extraTime)}
         </button>
       </div>
       {mode === 'timed' ? (
@@ -272,7 +283,7 @@ export default function ReadingPractice({ lang }: { lang: Lang }) {
               )}
               {marked ? (
                 <div role="status" style={{ display: 'grid', gap: 2, color: ok ? '#1a7f37' : '#b42318' }}>
-                  <span>{ok ? copy.right : copy.wrong} {copy.answer} <strong>{item.answer}</strong></span>
+                  <span>{ok ? copy.right : copy.wrong} {copy.answer} <strong>{answerText(item.answer ?? '')}</strong></span>
                   <span>{copy.markscheme} {item.markscheme[lang]}</span>
                 </div>
               ) : null}

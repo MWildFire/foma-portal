@@ -2,10 +2,12 @@
 // Checks the pure logic of the reading practice against the real passages and items (content/fr/reading, content/fr/questions).
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { readdirSync } from 'node:fs';
+import { readFileSync, readdirSync } from 'node:fs';
+import { parseExams } from '../src/planner/calendar.ts';
 import {
-  TIMED_LIMIT_MS,
+  acceptedAnswers,
   answerKind,
+  answerText,
   checkAnswer,
   collectItems,
   collectPassages,
@@ -13,8 +15,10 @@ import {
   formatTime,
   frenchMatches,
   normaliseFrench,
+  readingExam,
   scoreOf,
   splitPrompt,
+  timedRunMinutes,
   timedSets,
 } from '../src/sims/fr/reading-logic.ts';
 
@@ -29,6 +33,9 @@ async function load(folder, keep) {
 const passages = collectPassages(await load('reading', name => name.endsWith('.ts')));
 const items = collectItems(await load('questions', name => /^reading-[0-9]/.test(name)));
 const itemById = new Map(items.map(entry => [entry.id, entry]));
+
+// The school's schedule, read from disk as the planner tests do.
+const exams = parseExams(JSON.parse(readFileSync(new URL('../data/exams.json', import.meta.url), 'utf8')));
 
 // A small item for the checks that do not need the real data.
 const item = (answer, en = 'Write vrai, faux or non mentionné.') => ({
@@ -114,12 +121,18 @@ test('every passage lists ten items, and every item has an answer key that accep
   }
 });
 
-test('the timed sets are R1 to R3 and R4 to R6, and a timed run lasts 56 minutes (45 plus 25%)', () => {
+test('the timed sets are R1 to R3 and R4 to R6', () => {
   assert.deepEqual(
     timedSets(passages).map(set => set.map(passage => passage.id.slice(0, 2))),
     [['r1', 'r2', 'r3'], ['r4', 'r5', 'r6']],
   );
-  assert.equal(TIMED_LIMIT_MS, 56 * 60 * 1000);
+});
+
+test('a timed run lasts the reading paper of data/exams.json: 56 minutes with extra time, 45 without', () => {
+  assert.equal(readingExam(exams)?.minutes, 45);
+  assert.equal(timedRunMinutes(exams, true), 56);
+  assert.equal(timedRunMinutes(exams, false), 45);
+  assert.equal(timedRunMinutes({ ...exams, papers: [] }, true), 0);
 });
 
 test('splitPrompt separates the question from its A) B) C) options', () => {
@@ -132,8 +145,20 @@ test('splitPrompt separates the question from its A) B) C) options', () => {
   assert.deepEqual(splitPrompt(paragraph.prompt.en), { stem: paragraph.prompt.en, options: [] });
 });
 
+test('a key may accept several answers; the answer shown after marking lists them with a slash', () => {
+  const eyes = itemById.get('r3-q05');
+  assert.equal(eyes.answer, 'sore eyes | eye pain');
+  assert.ok(checkAnswer(eyes, 'sore eyes'));
+  assert.ok(checkAnswer(eyes, 'eye pain'));
+  assert.ok(!checkAnswer(eyes, 'eyes hurt'));
+  assert.ok(!checkAnswer(eyes, 'pain'));
+  assert.deepEqual(acceptedAnswers('sore eyes | eye pain'), ['sore eyes', 'eye pain']);
+  assert.equal(answerText('sore eyes | eye pain'), 'sore eyes / eye pain');
+  assert.equal(answerText('Rennes'), 'Rennes');
+});
+
 test('formatTime counts down as mm:ss and stops at 00:00', () => {
-  assert.equal(formatTime(TIMED_LIMIT_MS), '56:00');
+  assert.equal(formatTime(56 * 60 * 1000), '56:00');
   assert.equal(formatTime(61_000), '01:01');
   assert.equal(formatTime(999), '00:01');
   assert.equal(formatTime(0), '00:00');

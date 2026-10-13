@@ -507,7 +507,7 @@ export const questions: FrQuestion[] = [
       en: "Answer: sore eyes (eye pain). 'The light was too strong' is the device problem, not the complaint. Paragraph D: « plusieurs enfants se plaignaient d'avoir mal aux yeux ».",
       ru: "Ответ: sore eyes (боль в глазах). Слишком сильный свет — это проблема устройства, а не жалоба. Абзац D: « plusieurs enfants se plaignaient d'avoir mal aux yeux ».",
     },
-    answer: 'sore eyes',
+    answer: 'sore eyes | eye pain',
     origin: 'original',
   },
   {
