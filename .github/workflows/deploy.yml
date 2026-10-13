@@ -3,23 +3,23 @@ name: Deploy
 on:
   push:
     branches: [main]
+    paths-ignore: ['ops/**']
   workflow_dispatch:
 
-permissions:
-  contents: read
-  id-token: write
-
-concurrency:
-  group: deploy-main
-  cancel-in-progress: true
-
 jobs:
-  deploy:
+  # Read-only token and no OIDC: nothing that runs here (npm ci, tests, build
+  # scripts) can request a token or assume the deploy role.
+  build:
+    name: Check and build
     runs-on: ubuntu-latest
     timeout-minutes: 20
+    permissions:
+      contents: read
     steps:
       - name: Check out
         uses: actions/checkout@v4
+        with:
+          persist-credentials: false
 
       - name: Set up Node
         uses: actions/setup-node@v4
@@ -36,26 +36,78 @@ jobs:
       - name: Build
         run: npm run build
 
+      - name: Upload site artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: site
+          path: dist/
+          if-no-files-found: error
+
+  # Main only, and the only job allowed to request an OIDC token. No npm here:
+  # it only runs the AWS CLI on the artifact built above.
+  deploy:
+    name: Deploy to S3 and CloudFront
+    needs: build
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: read
+      id-token: write
+    # Job level, so a manual run from another branch cannot cancel a main deploy.
+    concurrency:
+      group: deploy-main
+      cancel-in-progress: true
+    env:
+      BUCKET: ${{ vars.S3_BUCKET }}
+      CF_ID: ${{ vars.CF_DISTRIBUTION_ID }}
+    steps:
+      - name: Download site artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: site
+          path: dist
+
       - name: Configure AWS credentials (OIDC)
         uses: aws-actions/configure-aws-credentials@v4
         with:
           role-to-assume: ${{ vars.AWS_ROLE_ARN }}
           aws-region: us-east-1
 
-      - name: Upload assets (immutable)
+      # Upload order keeps the site consistent even if a run is cancelled midway:
+      # nothing is deleted before the new index.html is live, so the old index.html
+      # keeps pointing at assets that still exist. Only content-hashed assets/ get
+      # the one-year immutable cache; unhashed files (public/) are no-cache.
+      - name: 1. Upload hashed assets (immutable, no delete)
         run: >-
-          aws s3 sync dist/ s3://${{ vars.S3_BUCKET }}/
-          --delete
-          --exclude index.html
+          aws s3 sync dist/assets "s3://$BUCKET/assets"
           --cache-control "public,max-age=31536000,immutable"
 
-      - name: Upload index.html (no-cache)
+      - name: 2. Upload other files (no-cache, no delete)
         run: >-
-          aws s3 cp dist/index.html s3://${{ vars.S3_BUCKET }}/index.html
-          --cache-control no-cache
+          aws s3 sync dist "s3://$BUCKET"
+          --exclude "assets/*"
+          --exclude "index.html"
+          --cache-control "no-cache"
 
-      - name: Invalidate CloudFront
+      - name: 3. Upload index.html (no-cache)
+        run: >-
+          aws s3 cp dist/index.html "s3://$BUCKET/index.html"
+          --cache-control "no-cache"
+          --content-type "text/html; charset=utf-8"
+
+      - name: 4. Invalidate CloudFront
         run: >-
           aws cloudfront create-invalidation
-          --distribution-id ${{ vars.CF_DISTRIBUTION_ID }}
+          --distribution-id "$CF_ID"
           --paths "/index.html" "/"
+
+      # Last, and never touching assets/: old hashed assets stay on purpose so
+      # tabs that are still open keep working.
+      - name: 5. Prune removed files (assets/ and index.html are skipped)
+        run: >-
+          aws s3 sync dist "s3://$BUCKET"
+          --delete
+          --exclude "assets/*"
+          --exclude "index.html"
+          --size-only

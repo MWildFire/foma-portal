@@ -55,8 +55,10 @@ Then set the default of `custom_domain_enabled` to `true` in `variables.tf` and 
 otherwise a later plain `terraform apply` removes the aliases and certificate again.
 
 ## GitHub deploy
-`.github/workflows/deploy.yml` assumes the deploy role through OIDC (no keys stored). Repo
-variables, set once from the outputs:
+`.github/workflows/deploy.yml` has two jobs. `build` (read-only token, no OIDC) runs `npm ci`,
+`npm run check` and `npm run build`, then uploads `dist/` as the `site` artifact. `deploy` runs only on
+`main`, is the only job with `id-token: write`, runs no npm and assumes the deploy role through OIDC
+(no keys stored). Repo variables, set once from the outputs:
 ```sh
 gh variable set AWS_ROLE_ARN --repo MWildFire/foma-portal --body "$(terraform output -raw deploy_role_arn)"
 gh variable set S3_BUCKET --repo MWildFire/foma-portal --body "$(terraform output -raw site_bucket)"
@@ -68,8 +70,13 @@ claims, so a name-based `repo:owner/name:...` never matches). Re-check with
 `gh api repos/MWildFire/foma-portal/actions/oidc/customization/sub` and keep `github_oidc_sub_prefix`
 in `variables.tf` equal to its `sub_claim_prefix`.
 
-Everything except `index.html` is uploaded as immutable (one year), so file names in `dist/` must
-be content-hashed. Only `index.html` is `no-cache` and invalidated.
+Upload order, safe even if a run is cancelled (nothing is deleted before the new `index.html` is live):
+1. `assets/` (content-hashed by Vite): `public,max-age=31536000,immutable`.
+2. everything else, including unhashed `public/` files: `no-cache`.
+3. `index.html`: `no-cache`.
+4. CloudFront invalidation of `/index.html` and `/`.
+5. prune with `--delete --size-only`, skipping `assets/` and `index.html`. Old hashed assets stay on
+   purpose, so tabs that are still open keep working.
 
 ## Cost
 About $1-2 per month: Route 53 zone $0.50, the rest (CloudFront, function, S3) is cents or free
