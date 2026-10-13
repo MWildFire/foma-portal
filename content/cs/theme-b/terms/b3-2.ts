@@ -16,8 +16,8 @@ export const terms: Term[] = [
     papers: ['P2'],
     src: { kind: 'textbook', title: BOOK, locator: 'ch. B3.2, p. 473' },
     example: {
-      en: 'class Student(Person): Student gets the name and birth year from Person and adds its own form attribute.',
-      ru: 'class Student(Person): класс Student получает имя и год рождения от Person и добавляет собственный атрибут form.',
+      en: '`class Student(Person):` Student gets the name and birth year from Person and adds its own form attribute.',
+      ru: '`class Student(Person):` класс Student получает имя и год рождения от Person и добавляет собственный атрибут form.',
     },
     pitfall: {
       en: 'A subclass uses the superclass code; it does not copy it. A private attribute of the superclass cannot be read directly in the subclass, so the subclass needs a public getter method.',
@@ -35,8 +35,8 @@ export const terms: Term[] = [
     papers: ['P2'],
     src: { kind: 'textbook', title: BOOK, locator: 'ch. B3.2, p. 480' },
     example: {
-      en: 'A loop calls move() on a Bus, a Car and a Ship; each object runs its own version of move().',
-      ru: 'Цикл вызывает move() у объектов Bus, Car и Ship; каждый объект выполняет свою версию метода move().',
+      en: 'A loop calls `move()` on a Bus, a Car and a Ship; each object runs its own version of `move()`.',
+      ru: 'Цикл вызывает `move()` у объектов Bus, Car и Ship; каждый объект выполняет свою версию метода `move()`.',
     },
     pitfall: {
       en: 'Polymorphism is not only inheritance. The book also describes static polymorphism, where the parameters choose the version (method overloading), and Python does not support overloading in the Java style.',
@@ -54,8 +54,8 @@ export const terms: Term[] = [
     papers: ['P2'],
     src: { kind: 'textbook', title: BOOK, locator: 'ch. B3.2, p. 484' },
     example: {
-      en: 'SavingsAccount overrides withdraw() from Account and adds a fee of 5 when the amount is above 100.',
-      ru: 'SavingsAccount переопределяет метод withdraw() из Account и добавляет комиссию 5, если сумма больше 100.',
+      en: 'SavingsAccount overrides `withdraw()` from Account and adds a fee of 5 when the amount is above 100.',
+      ru: 'SavingsAccount переопределяет метод `withdraw()` из Account и добавляет комиссию 5, если сумма больше 100.',
     },
     pitfall: {
       en: 'Static methods cannot be overridden. A method with the same name in the subclass replaces the inherited version only for objects of that subclass, not for the superclass itself.',
@@ -73,8 +73,8 @@ export const terms: Term[] = [
     papers: ['P2'],
     src: { kind: 'textbook', title: BOOK, locator: 'ch. B3.2, p. 491' },
     example: {
-      en: 'A function that calls item.speak() accepts a Dog object and a Robot object, as long as both have a speak() method.',
-      ru: 'Функция, которая вызывает item.speak(), принимает объекты Dog и Robot, если у каждого из них есть метод speak().',
+      en: 'A function that calls `item.speak()` accepts a Dog object and a Robot object, as long as both have a `speak()` method.',
+      ru: 'Функция, которая вызывает `item.speak()`, принимает объекты Dog и Robot, если у каждого из них есть метод `speak()`.',
     },
     pitfall: {
       en: 'Duck typing is checked while the program runs. Python does not warn before the program starts, so a missing method is found only when the line that calls it runs.',
@@ -111,8 +111,8 @@ export const terms: Term[] = [
     papers: ['P2'],
     src: { kind: 'textbook', title: BOOK, locator: 'ch. B3.2, p. 493' },
     example: {
-      en: 'Shape is an abstract class with an abstract area() method; Rectangle is a concrete subclass that implements area(), and Square inherits it.',
-      ru: 'Shape — абстрактный класс с абстрактным методом area(); Rectangle — конкретный подкласс, который реализует area(), а Square наследует этот метод.',
+      en: 'Shape is an abstract class with an abstract `area()` method; Rectangle is a concrete subclass that implements `area()`, and Square inherits it.',
+      ru: 'Shape — абстрактный класс с абстрактным методом `area()`; Rectangle — конкретный подкласс, который реализует `area()`, а Square наследует этот метод.',
     },
     pitfall: {
       en: 'An abstract class is not a superclass with working code. A subclass that leaves an abstract method unimplemented cannot be instantiated either.',
@@ -168,8 +168,8 @@ export const terms: Term[] = [
     papers: ['P2'],
     src: { kind: 'textbook', title: BOOK, locator: 'ch. B3.2, p. 506' },
     example: {
-      en: 'A Book creates its Chapter objects inside its own add_chapter() method, so the chapters belong only to that book.',
-      ru: 'Book создаёт свои объекты Chapter внутри собственного метода add_chapter(), поэтому главы принадлежат только этой книге.',
+      en: 'A Book creates its Chapter objects inside its own `add_chapter()` method, so the chapters belong only to that book.',
+      ru: 'Book создаёт свои объекты Chapter внутри собственного метода `add_chapter()`, поэтому главы принадлежат только этой книге.',
     },
     pitfall: {
       en: 'Composition is about ownership and lifetime, not about holding a list. A list that stores objects created elsewhere is aggregation.',

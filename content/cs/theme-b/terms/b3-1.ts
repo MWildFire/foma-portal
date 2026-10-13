@@ -16,8 +16,8 @@ export const terms: Term[] = [
     papers: ['P2'],
     src: { kind: 'textbook', title: BOOK, locator: 'ch. B3.1, p. 417' },
     example: {
-      en: 'Song is a class with the attributes title and length and the method play().',
-      ru: 'Song — это класс с атрибутами title и length и методом play().',
+      en: 'Song is a class with the attributes title and length and the method `play()`.',
+      ru: 'Song — это класс с атрибутами title и length и методом `play()`.',
     },
     pitfall: {
       en: 'A class is not an object. It does not hold the values of any particular item until objects are created from it.',
@@ -65,8 +65,8 @@ export const terms: Term[] = [
     papers: ['P2'],
     src: { kind: 'textbook', title: BOOK, locator: 'ch. B3.1, p. 418' },
     example: {
-      en: 'get_title() returns the title stored in a Film object.',
-      ru: 'get_title() возвращает название, которое хранится в объекте Film.',
+      en: '`get_title()` returns the title stored in a Film object.',
+      ru: '`get_title()` возвращает название, которое хранится в объекте Film.',
     },
   },
   {
@@ -95,8 +95,8 @@ export const terms: Term[] = [
     papers: ['P2'],
     src: { kind: 'textbook', title: BOOK, locator: 'ch. B3.1, p. 420' },
     example: {
-      en: 'Film("Heat", 170) instantiates a Film object whose title is Heat.',
-      ru: 'Вызов Film("Heat", 170) создаёт объект Film с названием Heat.',
+      en: '`Film("Heat", 170)` instantiates a Film object whose title is Heat.',
+      ru: 'Вызов `Film("Heat", 170)` создаёт объект Film с названием Heat.',
     },
   },
   {
@@ -120,7 +120,7 @@ export const terms: Term[] = [
   },
   {
     id: 'b3-1-static',
-    term: { en: 'Static variable or method', ru: 'статическая переменная или метод (static)' },
+    term: { en: 'Static variable or method', ru: 'статическая переменная или метод (static variable or method)' },
     def: {
       en: 'A variable or method attached to the class itself, not to any one object. There is one shared copy, used through the class name.',
       ru: 'Переменная или метод, которые относятся к самому классу, а не к отдельному объекту. Существует одна общая копия, к ней обращаются через имя класса.',
@@ -163,7 +163,7 @@ export const terms: Term[] = [
     papers: ['P2'],
     src: { kind: 'textbook', title: BOOK, locator: 'ch. B3.1, p. 436' },
     example: {
-      en: 'In Python, self.__balance is private, while self.balance is public.',
+      en: 'In Python, `self.__balance` is private, while `self.balance` is public.',
       ru: 'В Python self.__balance — приватный атрибут, а self.balance — публичный.',
     },
     pitfall: {

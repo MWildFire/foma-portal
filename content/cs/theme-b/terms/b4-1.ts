@@ -121,10 +121,10 @@ export const terms: Term[] = [
   },
   {
     id: 'b4-1-bst',
-    term: { en: 'Binary search tree (BST)', ru: 'бинарное дерево поиска (binary search tree, BST)' },
+    term: { en: 'Binary search tree (BST)', ru: 'двоичное дерево поиска (binary search tree, BST)' },
     def: {
       en: 'A binary tree of nodes with unique keys, in which every node has at most two children. Keys in the left subtree of a node are smaller than its key, and keys in the right subtree are larger.',
-      ru: 'Двоичное дерево из узлов с уникальными ключами; у каждого узла не больше двух потомков. Ключи в левом поддереве узла меньше его ключа, а ключи в правом поддереве больше.',
+      ru: 'Двоичное дерево поиска из узлов с уникальными ключами; у каждого узла не больше двух потомков. Ключи в левом поддереве узла меньше его ключа, а ключи в правом поддереве больше.',
     },
     syllabus: 'B4.1',
     papers: ['P2'],
@@ -168,8 +168,8 @@ export const terms: Term[] = [
     papers: ['P2'],
     src: { kind: 'textbook', title: BOOK, locator: 'ch. B4.1, p. 576' },
     example: {
-      en: 'A Python dict is a hash table. After dict["Ann"] = 18, the lookup dict["Ann"] returns 18 without checking every key.',
-      ru: 'Словарь dict в Python — это хеш-таблица. После присваивания dict["Ann"] = 18 запрос dict["Ann"] возвращает 18, не проверяя все ключи подряд.',
+      en: 'A Python dict is a hash table. After `dict["Ann"] = 18`, the lookup `dict["Ann"]` returns 18 without checking every key.',
+      ru: 'Словарь dict в Python — это хеш-таблица. После присваивания `dict["Ann"] = 18` запрос `dict["Ann"]` возвращает 18, не проверяя все ключи подряд.',
     },
     pitfall: {
       en: 'O(1) is an average, not a guarantee. With many collisions and a high load factor, operations can slow down towards O(n).',

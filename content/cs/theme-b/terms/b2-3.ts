@@ -13,8 +13,8 @@ export const terms: Term[] = [
     papers: ['P2'],
     src: { kind: 'textbook', title: 'Oxford IB DP Computer Science Course Companion (2025)', locator: 'ch. B2.3, p. 363' },
     example: {
-      en: 'if score >= 50: print("pass") else: print("fail") runs exactly one of the two lines.',
-      ru: 'Конструкция if score >= 50: print("pass") else: print("fail") выполняет ровно одну из двух строк.',
+      en: '`if score >= 50: print("pass")`\n`else: print("fail")`: exactly one of the two lines runs.',
+      ru: '`if score >= 50: print("pass")`\n`else: print("fail")`: выполняется ровно одна из двух строк.',
     },
     pitfall: {
       en: 'Separate if statements are each tested on their own, so more than one block can run for the same value. Use elif when only one branch should run.',
@@ -51,8 +51,8 @@ export const terms: Term[] = [
     papers: ['P2'],
     src: { kind: 'textbook', title: 'Oxford IB DP Computer Science Course Companion (2025)', locator: 'ch. B2.3, p. 366' },
     example: {
-      en: 'The loop while guess != 100: keeps running until the guess is 100.',
-      ru: 'Цикл while guess != 100: работает, пока догадка не равна 100.',
+      en: 'The loop `while guess != 100:` keeps running until the guess is 100.',
+      ru: 'Цикл `while guess != 100:` работает, пока догадка не равна 100.',
     },
     pitfall: {
       en: 'The condition is tested before each repeat, so the block may run zero times.',
@@ -70,8 +70,8 @@ export const terms: Term[] = [
     papers: ['P2'],
     src: { kind: 'textbook', title: 'Oxford IB DP Computer Science Course Companion (2025)', locator: 'ch. B2.3, p. 369' },
     example: {
-      en: 'The loop for i in range(0, 11): repeats 11 times, and i takes the values 0 to 10.',
-      ru: 'Цикл for i in range(0, 11): повторяется 11 раз, и i принимает значения от 0 до 10.',
+      en: 'The loop `for i in range(0, 11):` repeats 11 times, and i takes the values 0 to 10.',
+      ru: 'Цикл `for i in range(0, 11):` повторяется 11 раз, и i принимает значения от 0 до 10.',
     },
     pitfall: {
       en: 'range(0, 11) stops before 11, because the end value is never included.',
@@ -89,8 +89,8 @@ export const terms: Term[] = [
     papers: ['P2'],
     src: { kind: 'textbook', title: 'Oxford IB DP Computer Science Course Companion (2025)', locator: 'ch. B2.3, p. 362' },
     example: {
-      en: 'A loop with the condition while n != 5 runs forever if n is never changed inside the loop.',
-      ru: 'Цикл с условием while n != 5 работает бесконечно, если n нигде внутри цикла не меняется.',
+      en: 'A loop with the condition `while n != 5:` runs forever if n is never changed inside the loop.',
+      ru: 'Цикл с условием `while n != 5:` работает бесконечно, если n нигде внутри цикла не меняется.',
     },
     pitfall: {
       en: 'Checking the condition once before the loop does not end it. The value in the condition must change inside the loop.',
@@ -108,8 +108,8 @@ export const terms: Term[] = [
     papers: ['P2'],
     src: { kind: 'textbook', title: 'Oxford IB DP Computer Science Course Companion (2025)', locator: 'ch. B2.3, p. 372' },
     example: {
-      en: 'def rectangle_volume(w, h, d): followed by return w * h * d defines a function that returns a volume.',
-      ru: 'Определение def rectangle_volume(w, h, d): с последующей строкой return w * h * d задаёт функцию, которая возвращает объём.',
+      en: '`def rectangle_volume(w, h, d): return w * h * d` defines a function that returns a volume.',
+      ru: 'Определение `def rectangle_volume(w, h, d): return w * h * d` задаёт функцию, которая возвращает объём.',
     },
     pitfall: {
       en: 'A Python function with no return statement gives None, so printing its result shows None.',
@@ -127,8 +127,8 @@ export const terms: Term[] = [
     papers: ['P2'],
     src: { kind: 'textbook', title: 'Oxford IB DP Computer Science Course Companion (2025)', locator: 'ch. B2.3, p. 372' },
     example: {
-      en: 'In def rectangle_volume(w, h, d), the names w, h and d are parameters.',
-      ru: 'В определении def rectangle_volume(w, h, d) имена w, h и d — параметры.',
+      en: 'In `def rectangle_volume(w, h, d):`, the names w, h and d are parameters.',
+      ru: 'В определении `def rectangle_volume(w, h, d):` имена w, h и d — параметры.',
     },
     pitfall: {
       en: 'A parameter is not a value by itself. Its value comes from the argument passed in each call.',
@@ -146,8 +146,8 @@ export const terms: Term[] = [
     papers: ['P2'],
     src: { kind: 'textbook', title: 'Oxford IB DP Computer Science Course Companion (2025)', locator: 'ch. B2.3, p. 372' },
     example: {
-      en: 'In the call rectangle_volume(10, 20, 10), the three values 10, 20 and 10 are arguments.',
-      ru: 'В вызове rectangle_volume(10, 20, 10) значения 10, 20 и 10 являются аргументами.',
+      en: 'In the call `rectangle_volume(10, 20, 10)`, the three values 10, 20 and 10 are arguments.',
+      ru: 'В вызове `rectangle_volume(10, 20, 10)` значения 10, 20 и 10 являются аргументами.',
     },
     pitfall: {
       en: 'Passing fewer or more arguments than there are parameters causes an error in Python.',
@@ -165,8 +165,8 @@ export const terms: Term[] = [
     papers: ['P2'],
     src: { kind: 'textbook', title: 'Oxford IB DP Computer Science Course Companion (2025)', locator: 'ch. B2.3, p. 372' },
     example: {
-      en: 'volume = rectangle_volume(3, 4, 2) stores 24 in volume, because the function returns 24.',
-      ru: 'Запись volume = rectangle_volume(3, 4, 2) помещает 24 в volume, потому что функция возвращает 24.',
+      en: '`volume = rectangle_volume(3, 4, 2)` stores 24 in volume, because the function returns 24.',
+      ru: 'Запись `volume = rectangle_volume(3, 4, 2)` помещает 24 в volume, потому что функция возвращает 24.',
     },
     pitfall: {
       en: 'Printing a value inside a function does not return it. The calling code can use only the value that is returned.',

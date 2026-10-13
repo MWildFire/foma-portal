@@ -4,12 +4,12 @@ import type { Term } from '../../../../src/contract/types';
 // definitions in the Oxford IB DP Computer Science Course Companion (2025), pp. 376-404. Space complexity is in the
 // syllabus (B2.4.3) but is not defined in the textbook, so that definition is written for this portal.
 const BOOK = 'Oxford IB DP Computer Science Course Companion (2025)';
-const OWN_SCOPE = 'Syllabus statement B2.4.3 (time and space complexity); not defined in the textbook, written for this portal';
+const OWN_SCOPE = 'Syllabus statement B2.4.3 (time and space complexity)';
 
 export const terms: Term[] = [
   {
     id: 'b2-4-big-o',
-    term: { en: 'Big O efficiency', ru: 'эффективность по Big O (Big O efficiency)' },
+    term: { en: 'Big O efficiency', ru: 'оценка сложности по O-нотации (Big O efficiency)' },
     def: {
       en: 'A measure of how the number of operations an algorithm needs grows as its input gets bigger. It is based on the worst case and gives an upper bound, written in forms such as $O(n)$ or $O(n^2)$.',
       ru: 'Мера того, как растёт число операций, которое нужно алгоритму, при увеличении входных данных. Она основана на худшем случае и задаёт верхнюю границу; записывается в виде, например, $O(n)$ или $O(n^2)$.',
@@ -227,8 +227,8 @@ export const terms: Term[] = [
     papers: ['P2'],
     src: { kind: 'textbook', title: BOOK, locator: 'ch. B2.4, p. 404' },
     example: {
-      en: 'For factorial(4), the trace table has a row for each call from n = 4 down to the base case n = 1, and then a row for each returned value.',
-      ru: 'Для factorial(4) таблица трассировки содержит строку на каждый вызов от n = 4 до базового случая n = 1, а затем строку на каждое возвращённое значение.',
+      en: 'For `factorial(4)`, the trace table has a row for each call from n = 4 down to the base case n = 1, and then a row for each returned value.',
+      ru: 'Для `factorial(4)` таблица трассировки содержит строку на каждый вызов от n = 4 до базового случая n = 1, а затем строку на каждое возвращённое значение.',
     },
     pitfall: {
       en: 'A table that shows only the final output shows no working. Record the values at every stage.',

@@ -4,7 +4,7 @@ import type { Term } from '../../../../src/contract/types';
 // definitions in the Oxford IB DP Computer Science Course Companion (2025), pp. 337-346. Global and local variables
 // are in the syllabus (B2.1.1) but not defined in the textbook, so those two definitions are written for this portal.
 const BOOK = 'Oxford IB DP Computer Science Course Companion (2025)';
-const OWN_SCOPE = 'Syllabus statement B2.1.1 (global and local variables); not defined in the textbook, written for this portal';
+const OWN_SCOPE = 'Syllabus statement B2.1.1 (global and local variables)';
 
 export const terms: Term[] = [
   {
@@ -18,8 +18,8 @@ export const terms: Term[] = [
     papers: ['P2'],
     src: { kind: 'textbook', title: BOOK, locator: 'ch. B2.1, p. 337' },
     example: {
-      en: 'In Python, total = 10 creates a variable named total that holds the value 10. No type declaration is needed.',
-      ru: 'В Python запись total = 10 создаёт переменную total, которая хранит значение 10. Объявлять тип не нужно.',
+      en: 'In Python, `total = 10` creates a variable named total that holds the value 10. No type declaration is needed.',
+      ru: 'В Python запись `total = 10` создаёт переменную total, которая хранит значение 10. Объявлять тип не нужно.',
     },
     pitfall: {
       en: 'The = sign assigns a value; it does not compare two values. Use == to compare.',
@@ -75,8 +75,8 @@ export const terms: Term[] = [
     papers: ['P2'],
     src: { kind: 'own', title: OWN_SCOPE },
     example: {
-      en: 'The line score = 0 at the top of a program creates a global variable. A function can read score without any special keyword.',
-      ru: 'Строка score = 0 в начале программы создаёт глобальную переменную. Функция может прочитать score без каких-либо специальных слов.',
+      en: 'The line `score = 0` at the top of a program creates a global variable. A function can read score without any special keyword.',
+      ru: 'Строка `score = 0` в начале программы создаёт глобальную переменную. Функция может прочитать score без каких-либо специальных слов.',
     },
     pitfall: {
       en: 'If a function assigns a value to a name without the global keyword, Python creates a new local variable with that name, and the global value stays unchanged.',
@@ -94,8 +94,8 @@ export const terms: Term[] = [
     papers: ['P2'],
     src: { kind: 'own', title: OWN_SCOPE },
     example: {
-      en: 'In the function def add_bonus(points) with the line total = points + 5, the name total is local. It disappears when the function returns its result.',
-      ru: 'В функции def add_bonus(points) со строкой total = points + 5 имя total локальное. Оно исчезает, когда функция возвращает результат.',
+      en: 'In the function `def add_bonus(points): total = points + 5`, the name total is local. It disappears when the function returns its result.',
+      ru: 'В функции `def add_bonus(points): total = points + 5` имя total локальное. Оно исчезает, когда функция возвращает результат.',
     },
     pitfall: {
       en: 'A local variable can have the same name as a global variable. Inside the function, the local name hides the global one.',
@@ -132,8 +132,8 @@ export const terms: Term[] = [
     papers: ['P2'],
     src: { kind: 'textbook', title: BOOK, locator: 'ch. B2.1, p. 342' },
     example: {
-      en: 'Putting int(entry) inside a try block, with an except ValueError block, prints a message instead of stopping when the entry contains letters.',
-      ru: 'Если поместить int(entry) в блок try с блоком except ValueError, программа выведет сообщение вместо остановки, когда в записи есть буквы.',
+      en: 'Putting `int(entry)` inside a try block, with an except ValueError block, prints a message instead of stopping when the entry contains letters.',
+      ru: 'Если поместить `int(entry)` в блок try с блоком except ValueError, программа выведет сообщение вместо остановки, когда в записи есть буквы.',
     },
     pitfall: {
       en: 'Exception handling does not fix logic errors. A program can run without any exception and still give a wrong answer.',

@@ -45,10 +45,10 @@ export const terms: Term[] = [
   },
   {
     id: 'b1-1-objectives-and-goals',
-    term: { en: 'Objectives and goals', ru: 'цели и конкретные показатели (objectives and goals)' },
+    term: { en: 'Objectives and goals', ru: 'задачи и цели (objectives and goals)' },
     def: {
       en: 'High-level objectives are the broad, directional results a solution should achieve. Specific goals are measurable, usually time-limited targets that act as milestones towards an objective, and each one must be linked to an objective.',
-      ru: 'Высокоуровневые цели — это широкие результаты, которые задают направление и которых должно достичь решение. Конкретные показатели — измеримые, обычно ограниченные по времени целевые значения, которые служат вехами на пути к цели; каждый показатель должен быть связан с одной из целей.',
+      ru: 'Задачи (objectives) — широкие результаты, которые задают направление и которых должно достичь решение. Цели (goals) — измеримые, обычно ограниченные по времени значения, которые служат вехами на пути к задаче; каждая цель связана с одной из задач.',
     },
     syllabus: 'B1.1',
     papers: ['P2'],

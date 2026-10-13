@@ -32,8 +32,8 @@ export const terms: Term[] = [
     papers: ['P2'],
     src: { kind: 'textbook', title: 'Oxford IB DP Computer Science Course Companion (2025)', locator: 'ch. B2.2, p. 350' },
     example: {
-      en: 'A Python list that grows by one item each time append() is called.',
-      ru: 'Список в Python, который увеличивается на один элемент при каждом вызове append().',
+      en: 'A Python list that grows by one item each time `append()` is called.',
+      ru: 'Список в Python, который увеличивается на один элемент при каждом вызове `append()`.',
     },
     pitfall: {
       en: 'Dynamic does not mean unlimited: the computer still needs enough free memory for the items that are stored.',
@@ -70,8 +70,8 @@ export const terms: Term[] = [
     papers: ['P2'],
     src: { kind: 'textbook', title: 'Oxford IB DP Computer Science Course Companion (2025)', locator: 'ch. B2.2, p. 351' },
     example: {
-      en: 'names = ["Ada", "Ben"] creates a Python list with two items.',
-      ru: 'names = ["Ada", "Ben"] создаёт список в Python из двух элементов.',
+      en: '`names = ["Ada", "Ben"]` creates a Python list with two items.',
+      ru: '`names = ["Ada", "Ben"]` создаёт список в Python из двух элементов.',
     },
     pitfall: {
       en: 'A list is dynamic, so its size changes when items are added or removed. Do not confuse it with a static array.',
@@ -108,8 +108,8 @@ export const terms: Term[] = [
     papers: ['P2'],
     src: { kind: 'textbook', title: 'Oxford IB DP Computer Science Course Companion (2025)', locator: 'ch. B2.2, p. 351' },
     example: {
-      en: 'grid = [[3, 5, 1], [4, 0, 2]] has two rows and three columns, and grid[1][2] is 2.',
-      ru: 'grid = [[3, 5, 1], [4, 0, 2]] имеет две строки и три столбца, а grid[1][2] равно 2.',
+      en: '`grid = [[3, 5, 1], [4, 0, 2]]` has two rows and three columns, and `grid[1][2]` is 2.',
+      ru: '`grid = [[3, 5, 1], [4, 0, 2]]` имеет две строки и три столбца, а `grid[1][2]` равно 2.',
     },
     pitfall: {
       en: 'The row index comes first: grid[row][column]. Swapping them gives a different item or an index error.',
@@ -127,8 +127,8 @@ export const terms: Term[] = [
     papers: ['P2'],
     src: { kind: 'textbook', title: 'Oxford IB DP Computer Science Course Companion (2025)', locator: 'ch. B2.2, p. 353' },
     example: {
-      en: 'for name in names: print(name) visits each name in the list, in order.',
-      ru: 'Код for name in names: print(name) по порядку обходит все имена в списке.',
+      en: '`for name in names: print(name)` visits each name in the list, in order.',
+      ru: 'Код `for name in names: print(name)` по порядку обходит все имена в списке.',
     },
     pitfall: {
       en: 'Adding or removing items while a loop is traversing the same list can make it skip items or repeat them.',
@@ -158,8 +158,8 @@ export const terms: Term[] = [
     id: 'b2-2-queue',
     term: { en: 'Queue', ru: 'очередь (queue)' },
     def: {
-      en: 'A first in, first out (FIFO) data structure: items join at the back (enqueue) and leave from the front (dequeue), and front reads the front item.',
-      ru: 'Структура данных «первым пришёл — первым ушёл» (first in, first out, FIFO): элементы встают в конец (enqueue) и уходят из начала (dequeue), а front читает первый элемент.',
+      en: 'A first in, first out (FIFO) data structure: items join at the back (enqueue) and leave from the front (dequeue); front() looks at the front item without removing it.',
+      ru: 'Структура данных «первым пришёл — первым ушёл» (first in, first out, FIFO): элементы встают в конец (enqueue) и уходят из начала (dequeue); операция front() читает первый элемент, не удаляя его.',
     },
     syllabus: 'B2.2',
     papers: ['P2'],
@@ -184,8 +184,8 @@ export const terms: Term[] = [
     papers: ['P2'],
     src: { kind: 'textbook', title: 'Oxford IB DP Computer Science Course Companion (2025)', locator: 'ch. B2.2, p. 357' },
     example: {
-      en: 'point = (3, 5) can be read as point[0], but the statement point[0] = 4 raises a TypeError.',
-      ru: 'point = (3, 5): значение point[0] можно прочитать, но присваивание point[0] = 4 вызовет TypeError.',
+      en: '`point = (3, 5)` can be read as `point[0]`, but the statement `point[0] = 4` raises a TypeError.',
+      ru: '`point = (3, 5)`: значение `point[0]` можно прочитать, но присваивание `point[0] = 4` вызовет TypeError.',
     },
     pitfall: {
       en: 'Use a list when the items must change and a tuple when the data must stay the same.',

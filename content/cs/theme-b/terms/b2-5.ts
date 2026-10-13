@@ -4,7 +4,7 @@ import type { Term } from '../../../../src/contract/types';
 // Computer Science Course Companion (2025), pp. 407-411. The text file term is not defined in the textbook, so its
 // source is marked as own wording.
 const BOOK = 'Oxford IB DP Computer Science Course Companion (2025)';
-const OWN_TEXT = 'Own wording; the textbook uses text files in its examples (pp. 407-412) but does not define the term';
+const OWN_TEXT = 'Own wording';
 
 export const terms: Term[] = [
   {
@@ -113,8 +113,8 @@ export const terms: Term[] = [
     papers: ['P2'],
     src: { kind: 'textbook', title: BOOK, locator: 'ch. B2.5, p. 407' },
     example: {
-      en: 'In Python, readline() returns an empty string at the end of the file, so a loop that stops on an empty string stops in the right place.',
-      ru: 'В Python метод readline() в конце файла возвращает пустую строку, поэтому цикл, который останавливается на пустой строке, останавливается в нужном месте.',
+      en: 'In Python, `readline()` returns an empty string at the end of the file, so a loop that stops on an empty string stops in the right place.',
+      ru: 'В Python метод `readline()` в конце файла возвращает пустую строку, поэтому цикл, который останавливается на пустой строке, останавливается в нужном месте.',
     },
     pitfall: {
       en: 'The textbook Java loop tests for null (p. 410). Python does not return null here, so test for an empty string or use a for loop.',
@@ -189,8 +189,8 @@ export const terms: Term[] = [
     papers: ['P2'],
     src: { kind: 'textbook', title: BOOK, locator: 'ch. B2.5, p. 407' },
     example: {
-      en: 'Calling close() after the last write saves the data still held by the program and frees the file for other programs.',
-      ru: 'Вызов close() после последней записи сохраняет данные, которые ещё держит программа, и освобождает файл для других программ.',
+      en: 'Calling `close()` after the last write saves the data still held by the program and frees the file for other programs.',
+      ru: 'Вызов `close()` после последней записи сохраняет данные, которые ещё держит программа, и освобождает файл для других программ.',
     },
     pitfall: {
       en: 'A with block closes the file when it ends, even after an error, so calling close() inside it is not needed.',

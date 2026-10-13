@@ -4,6 +4,9 @@
 //     (comments may differ).
 //   - Topic bodies (*.en.mdx, *.ru.mdx): every ```python block must run with exit code 0 and no input() call.
 //     A block whose first line is "# cs-verify: skip" is not run.
+//   - Term examples (Theme B, Python): each `...` span in example.en and example.ru is Python. The spans of one
+//     example form one program, which must parse (a header such as `while n != 5:` may stand alone). Theme A
+//     examples use SQL, binary and addresses, so they are not parsed.
 // Usage: node --experimental-strip-types scripts/cs-verify.mjs
 // The question modules are TypeScript, so the strip-types flag is needed (the same flag as scripts/validate-content.ts).
 import { spawnSync } from 'node:child_process';
@@ -110,8 +113,30 @@ for (const file of bodyFiles) {
   }
 }
 
+// 3. Term examples (Theme B). Each code span in an example is parsed as Python, all spans of one example together.
+const parsesAsPython = (code) => {
+  const parse = (text) => spawnSync('python3', ['-c', 'import ast, sys; ast.parse(sys.stdin.read())'], { input: text, encoding: 'utf8', timeout: TIMEOUT_MS });
+  let result = parse(code);
+  if (result.status !== 0 && code.trimEnd().endsWith(':')) result = parse(`${code}\n    pass`);
+  return result.status === 0 ? null : (result.stderr || 'timeout').trim().split('\n').pop();
+};
+let termExamples = 0;
+for (const file of walk(path.join(subjectRoot, 'theme-b'), (name) => /\/terms\/[^/]+\.ts$/.test(name))) {
+  const mod = await import(pathToFileURL(file).href);
+  for (const term of Array.isArray(mod.terms) ? mod.terms : []) {
+    for (const lang of ['en', 'ru']) {
+      const spans = [...(term.example?.[lang] || '').matchAll(/`([^`]+)`/g)].map((match) => match[1]);
+      if (spans.length === 0) continue;
+      termExamples += 1;
+      const error = parsesAsPython(spans.join('\n'));
+      if (error) failures.push(`${term.id} (${lang}): example code does not parse: ${error}`);
+    }
+  }
+}
+
 console.log(`questions read: ${questionCount} (python blocks run: ${codeCount}, answers checked: ${answerCount})`);
 console.log(`topic bodies: ${bodyFiles.length} files, python blocks run: ${bodyBlocks}`);
+console.log(`term examples: ${termExamples} with code checked`);
 notes.forEach((line) => console.log(`note: ${line}`));
 if (failures.length > 0) {
   console.log(`failures (${failures.length}):`);
