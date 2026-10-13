@@ -47,12 +47,13 @@ terraform output name_servers   # four NS for the registrar
 Only [redacted] changes DNS: Spaceship -> Nameservers -> Custom -> paste the four NS.
 
 ## Step 2 - real domain, after delegation
-Run only when `dig NS fomalearningportal.academy +short` lists the four Route 53 servers:
-```sh
-terraform apply -var custom_domain_enabled=true
-```
-Then set the default of `custom_domain_enabled` to `true` in `variables.tf` and commit it,
-otherwise a later plain `terraform apply` removes the aliases and certificate again.
+Run only when `dig NS fomalearningportal.academy +short` lists the four Route 53 servers. In this order:
+1. In `variables.tf` set the default of `custom_domain_enabled` to `true`.
+2. `terraform plan` (expect the certificate, its validation, the A/AAAA records and the distribution aliases).
+3. `terraform apply`, and only then commit `variables.tf`.
+
+Never remove the flag or set it back to `false` and run a plain `terraform apply`: it deletes the
+certificate and the aliases.
 
 ## GitHub deploy
 `.github/workflows/deploy.yml` has two jobs. `build` (read-only token, no OIDC) runs `npm ci`,
