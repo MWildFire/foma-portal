@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useReducer } from 'react';
+import { useEffect, useMemo, useReducer, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import type { Lang } from '../../contract/types';
 import { useNow } from '../../hooks/useExamCountdown';
@@ -12,6 +12,7 @@ import type { Plan } from '../../planner/types';
 export function usePlannerContent(): PlannerContent | undefined {
   const content = getPlannerContent();
   const [, rerender] = useReducer((count: number) => count + 1, 0);
+  const [failure, setFailure] = useState<{ cause: unknown } | null>(null);
   useEffect(() => {
     if (content) return undefined;
     let active = true;
@@ -19,12 +20,16 @@ export function usePlannerContent(): PlannerContent | undefined {
       () => {
         if (active) rerender();
       },
-      error => console.error(error),
+      cause => {
+        if (active) setFailure({ cause });
+      },
     );
     return () => {
       active = false;
     };
   }, [content]);
+  // A failed load is thrown to the nearest error boundary, which shows the load error with a retry instead of a placeholder.
+  if (failure) throw failure.cause;
   return content;
 }
 

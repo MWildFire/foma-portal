@@ -4,7 +4,8 @@ import { isChunkLoadError } from '../../lib/chunk-error';
 import '../content/ui.css';
 import './subject.css';
 
-// Shown when a subject's files could not be loaded. The address may be right, so this is not "not found". The retry
+// Shown when a page's files could not be loaded (a subject, a topic, or any route, see RouteBoundary). The address may be
+// right, so this is not "not found". The retry
 // is a reload: a file that failed to load stays failed in the browser until the page is loaded again.
 export function SubjectLoadError({ cause }: { cause: unknown }) {
   const { t } = useTranslation('subject');
