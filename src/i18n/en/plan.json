@@ -1,0 +1,47 @@
+{
+  "range": "From {{from}} to {{to}}. Days in the plan: {{days}}.",
+  "summary": {
+    "planned": "Planned from today: {{time}}.",
+    "doneToday": "Done today: {{time}}.",
+    "beforeStart": "The plan starts on {{date}}.",
+    "howItWorks": "The plan is recalculated every time you open the portal. Work you did not finish moves to the next day that has time for that subject, and a day can grow by at most 15%. On the day before an exam you only prepare that paper. After its last exam a subject leaves the plan."
+  },
+  "debt": {
+    "title": "Catching up: {{time}} from earlier days",
+    "text": "This work moves to the next days that have time for the subject."
+  },
+  "unplaced": {
+    "title": "Not everything fits before the exams",
+    "minutes": "{{subject}}: {{time}} of earlier work",
+    "timed": "{{subject}}: timed {{papers}}",
+    "text": "Catch up on a weekend, or raise the daily study time in Settings."
+  },
+  "links": {
+    "exams": "Exam calendar",
+    "settings": "Open Settings"
+  },
+  "finished": {
+    "title": "The plan is complete",
+    "text": "All the exams are behind you. There is nothing left to plan."
+  },
+  "expandAll": "Open all days",
+  "collapseAll": "Close all days",
+  "day": {
+    "today": "Today",
+    "kind": {
+      "exam": "Exam day",
+      "rest": "Rest day"
+    },
+    "noTime": "No study time",
+    "nothing": "Nothing planned",
+    "minutesToday": "{{time}} · done {{done}}",
+    "exams": "Exams: {{papers}}",
+    "eve": "Tomorrow: {{papers}}",
+    "examsTitle": "Exams on this day",
+    "room": "room {{room}}",
+    "focus": "Focus",
+    "restText": "This weekday is set to 0 minutes in Settings, so nothing is planned.",
+    "empty": "Nothing is planned for this day.",
+    "openToday": "Go to Today"
+  }
+}
