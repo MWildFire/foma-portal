@@ -1,0 +1,64 @@
+import type { TopicMeta } from '../../../../src/contract/types';
+
+const topic: TopicMeta = {
+  id: 'g4-sustainable-cities',
+  subject: 'geo',
+  code: 'G.4',
+  title: { en: 'Building sustainable urban systems for the future', ru: 'Создание устойчивых городских систем будущего' },
+  papers: ['P1'],
+  option: 'G',
+  order: 4,
+  minutes: 45,
+  priority: 1,
+  inMockScope: 'yes',
+  outcomes: [
+    {
+      en: 'I can define sustainable urban development and explain its environmental, economic and social goals',
+      ru: 'Умею определить устойчивое городское развитие и объяснить его экологические, экономические и социальные цели',
+    },
+    {
+      en: 'I can explain how compact cities and green infrastructure reduce environmental pressure',
+      ru: 'Умею объяснить, как компактный город и зелёная инфраструктура снижают нагрузку на окружающую среду',
+    },
+    {
+      en: 'I can compare transport options using modal split data from a case study',
+      ru: 'Умею сравнивать варианты транспорта по данным о модальном распределении поездок из кейса',
+    },
+    {
+      en: 'I can evaluate eco-city and smart-city approaches, using Masdar City or another case',
+      ru: 'Умею оценивать подходы эко-города и умного города на примере Масдар-Сити или другого кейса',
+    },
+    {
+      en: 'I can discuss trade-offs and the role of community participation in urban planning',
+      ru: 'Умею обсуждать компромиссы и роль участия жителей в городском планировании',
+    },
+    {
+      en: 'I can quote case-study figures with the place, year and source',
+      ru: 'Умею приводить цифры из кейсов с местом, годом и источником',
+    },
+  ],
+  termIds: [
+    'g-sustainable-urban-development',
+    'g-green-infrastructure',
+    'g-bus-rapid-transit',
+    'g-modal-split',
+    'g-compact-city',
+    'g-eco-city',
+    'g-smart-city',
+    'g-car-free-zone',
+    'g-sustainable-transport',
+    'g-urban-carbon-footprint',
+    'g-community-participation',
+    'g-circular-economy',
+    'g-trade-off',
+    'g-active-travel',
+    'g-sustainable-drainage-systems',
+    'g-waste-hierarchy',
+  ],
+  questionIds: ['g4-sq1', 'g4-sq2', 'g4-sq3', 'g4-eq1', 'g4-eq2'],
+  caseIds: ['g-curitiba-brt', 'g-copenhagen-cycling', 'g-vauban-freiburg', 'g-masdar-city'],
+  sims: ['geo.opt-g-transport'],
+  sources: [{ kind: 'ib-guide', title: 'Geography guide (2017), Option G: Urban environments', locator: 'G.4' }],
+};
+
+export default topic;
