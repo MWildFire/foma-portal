@@ -16,7 +16,7 @@ export const terms: FrTerm[] = [
   {
     id: 'gr-subjunctive-stem',
     term: { en: 'subjunctive stem', ru: 'основа сослагательного наклонения', fr: 'le radical du subjonctif' },
-    def: { en: 'the ils form without -ent, to which the endings -e, -es, -e, -ions, -iez and -ent are added', ru: 'форма ils без -ent, к которой добавляют окончания -e, -es, -e, -ions, -iez и -ent' },
+    def: { en: 'the third-person plural form without -ent, to which the endings -e, -es, -e, -ions, -iez and -ent are added', ru: 'форма 3-го лица мн. ч. без -ent, к которой добавляют окончания -e, -es, -e, -ions, -iez и -ent' },
     example: { en: 'It is necessary that you finish your work.', ru: 'Вам нужно закончить работу.', fr: 'Il faut que vous finissiez votre travail.' },
     syllabus: 'G4.subjunctive-imperative',
     papers: ['P1', 'P2'],
@@ -42,7 +42,7 @@ export const terms: FrTerm[] = [
   },
   {
     id: 'gr-indicative-after-je-pense-que',
-    term: { en: 'indicative after "I think that"', ru: 'индикатив после выражения мнения', fr: "l'indicatif après « je pense que »" },
+    term: { en: 'indicative after "I think"', ru: 'индикатив после выражения мнения', fr: "l'indicatif après « je pense que »" },
     def: { en: 'in the affirmative, the verb after "I think that" is in the indicative, not the subjunctive', ru: 'в утвердительной фразе глагол после «я думаю, что» стоит в изъявительном наклонении, а не в сослагательном' },
     example: { en: 'I think he is right.', ru: 'Я думаю, что он прав.', fr: "Je pense qu'il a raison." },
     syllabus: 'G4.subjunctive-imperative',
@@ -72,7 +72,7 @@ export const terms: FrTerm[] = [
   {
     id: 'gr-cod',
     term: { en: 'direct object pronoun', ru: 'местоимение прямого дополнения', fr: "le complément d'objet direct (COD)" },
-    def: { en: 'the object that answers who? or what? with no preposition; the pronoun replaces it and goes before the verb', ru: 'дополнение без предлога, отвечает на вопросы кого? что?; местоимение заменяет его и стоит перед глаголом' },
+    def: { en: 'the object answering who? or what? with no preposition; its pronoun goes before the verb (except in the affirmative imperative)', ru: 'дополнение без предлога, отвечает на вопросы кого? что?; местоимение заменяет его и стоит перед глаголом (кроме утвердительного повелительного)' },
     example: { en: 'I will see her tomorrow.', ru: 'Я увижу её завтра.', fr: 'Je la vois demain.' },
     syllabus: 'G5.pronouns',
     papers: ['P1', 'P2'],
@@ -81,7 +81,7 @@ export const terms: FrTerm[] = [
   {
     id: 'gr-coi',
     term: { en: 'indirect object pronoun', ru: 'местоимение косвенного дополнения', fr: "le complément d'objet indirect (COI)" },
-    def: { en: 'the person who receives the action, after a preposition; the pronoun goes before the verb', ru: 'человек, который получает действие, после предлога; местоимение стоит перед глаголом' },
+    def: { en: 'the person who receives the action, after a preposition; the pronoun goes before the verb (except in the affirmative imperative)', ru: 'человек, который получает действие, после предлога; местоимение стоит перед глаголом (кроме утвердительного повелительного)' },
     example: { en: 'I often write to her.', ru: 'Я часто пишу ей.', fr: 'Je lui écris souvent.' },
     syllabus: 'G5.pronouns',
     papers: ['P1', 'P2'],
@@ -90,7 +90,7 @@ export const terms: FrTerm[] = [
   {
     id: 'gr-y',
     term: { en: 'pronoun y', ru: 'местоимение y', fr: 'le pronom y' },
-    def: { en: 'replaces a place, a thing or an idea after a preposition such as to, in or on', ru: 'заменяет место, предмет или идею после предлога «в», «на» или «к»' },
+    def: { en: 'replaces a place, a thing or an idea after a preposition such as to, in or on', ru: 'заменяет место, предмет или идею после предлога «в», «на», «к» или «о» (для идей)' },
     example: { en: 'I think about it often.', ru: 'Я часто об этом думаю.', fr: "J'y pense souvent." },
     syllabus: 'G5.pronouns',
     papers: ['P1', 'P2'],
@@ -107,8 +107,8 @@ export const terms: FrTerm[] = [
   },
   {
     id: 'gr-pronoun-order',
-    term: { en: 'order of pronouns before the verb', ru: 'порядок местоимений перед глаголом', fr: 'la place des pronoms devant le verbe' },
-    def: { en: 'first and second person pronouns come first, then direct, indirect, place and quantity pronouns', ru: 'местоимения 1-го и 2-го лица стоят первыми, затем прямое, косвенное, местоимения места и количества' },
+    term: { en: 'pronoun order', ru: 'порядок местоимений перед глаголом', fr: 'la place des pronoms devant le verbe' },
+    def: { en: 'me, te, se, nous, vous come first, then le, la, les, then lui, leur, then y, then en', ru: 'me, te, se, nous, vous стоят первыми, затем le, la, les, затем lui, leur, затем y, затем en' },
     example: { en: 'He gives it to me.', ru: 'Он мне его даёт.', fr: 'Il me le donne.' },
     syllabus: 'G5.pronouns',
     papers: ['P1', 'P2'],
@@ -116,7 +116,7 @@ export const terms: FrTerm[] = [
   },
   {
     id: 'gr-imperative-pronoun-order',
-    term: { en: 'pronoun order in the affirmative imperative', ru: 'порядок местоимений в утвердительном повелительном наклонении', fr: "la place des pronoms à l'impératif affirmatif" },
+    term: { en: 'imperative pronoun order', ru: 'порядок местоимений в утвердительном повелительном наклонении', fr: "la place des pronoms à l'impératif affirmatif" },
     def: { en: 'pronouns follow the verb with hyphens, with the direct object before the indirect object', ru: 'местоимения стоят после глагола через дефисы: сначала прямое дополнение, потом косвенное' },
     example: { en: 'Give it to me, please!', ru: 'Дай мне его, пожалуйста!', fr: "Donne-le-moi, s'il te plaît !" },
     syllabus: 'G5.pronouns',
@@ -125,7 +125,7 @@ export const terms: FrTerm[] = [
   },
   {
     id: 'gr-pronoun-agreement',
-    term: { en: 'past participle agreement with a direct object', ru: 'согласование причастия с прямым дополнением', fr: "l'accord du participe passé avec le COD" },
+    term: { en: 'past participle agreement', ru: 'согласование причастия с прямым дополнением', fr: "l'accord du participe passé avec le COD" },
     def: { en: 'in the perfect tense with the auxiliary "have", the past participle agrees with a direct object placed before the verb', ru: 'в прошедшем составном времени с вспомогательным глаголом «иметь» причастие согласуется с прямым дополнением, стоящим перед глаголом' },
     example: { en: 'The letters, she wrote them yesterday.', ru: 'Письма она написала вчера.', fr: 'Les lettres, elle les a écrites hier.' },
     syllabus: 'G5.pronouns',
