@@ -53,8 +53,9 @@ after(async () => {
 // ---- drawing
 
 // A saved progress state in localStorage for the time of one draw (storage.ts reads window.localStorage).
-function withStorage(state, drawIt) {
+function withStorage(state, extra, drawIt) {
   const values = new Map(state ? [['foma-portal-v1', JSON.stringify(state)]] : []);
+  for (const [key, value] of Object.entries(extra ?? {})) values.set(key, typeof value === 'string' ? value : JSON.stringify(value));
   globalThis.window = {
     localStorage: { getItem: key => values.get(key) ?? null, setItem: (key, value) => values.set(key, value) },
     addEventListener: () => {},
@@ -74,10 +75,10 @@ function withStorage(state, drawIt) {
   }
 }
 
-async function draw(element, url, { lang = 'en', state, pattern } = {}) {
+async function draw(element, url, { lang = 'en', state, extra, pattern } = {}) {
   await i18n.changeLanguage(lang);
   const inner = pattern ? createElement(Routes, null, createElement(Route, { path: pattern, element })) : element;
-  return withStorage(state, () => renderToString(createElement(MemoryRouter, { initialEntries: [url] }, inner)));
+  return withStorage(state, extra, () => renderToString(createElement(MemoryRouter, { initialEntries: [url] }, inner)));
 }
 
 const page = (name, pattern, url, options) => draw(createElement(loaded[name]), url, { ...options, pattern });
@@ -245,6 +246,49 @@ test('practice: a subject without timed sets says so', async () => {
   assert.match(html, /no timed sets yet/);
 });
 
+test('practice, timed mode: the results tiles stay out of the way, so the timer is near the top', async () => {
+  const timed = await view('PracticeView', { pack: pack() }, '/s/geo/practice?set=set-a');
+  assert.ok(!timed.includes('Your results'));
+  assert.ok(inOrder(timed, 'Timed practice', 'Prompt of q4'));
+  const normal = await view('PracticeView', { pack: pack() }, '/s/geo/practice');
+  assert.match(normal, /Your results/);
+});
+
+test('practice, timed mode: a saved countdown is picked up again after a reload', async () => {
+  const key = 'foma-portal-timer-v1:geo/set-a';
+  const saved = { status: 'paused', totalMs: 45 * 60_000, remainingMs: 20 * 60_000, endsAt: null, savedAt: Date.now() };
+  const paused = await view('PracticeView', { pack: pack() }, '/s/geo/practice?set=set-a', { extra: { [key]: saved } });
+  assert.match(paused, /20:00/);
+  assert.match(paused, /Paused/);
+  assert.match(paused, /Resume/);
+  assert.ok(!paused.includes('Start the timer'));
+
+  const running = { status: 'running', totalMs: 45 * 60_000, remainingMs: 45 * 60_000, endsAt: Date.now() + 10 * 60_000, savedAt: Date.now() };
+  const resumed = await view('PracticeView', { pack: pack() }, '/s/geo/practice?set=set-a', { extra: { [key]: running } });
+  assert.match(resumed, /(09|10):\d\d/);
+  assert.match(resumed, /Running/);
+  assert.match(resumed, />Pause</);
+
+  const over = { status: 'running', totalMs: 45 * 60_000, remainingMs: 1000, endsAt: Date.now() - 5000, savedAt: Date.now() - 60_000 };
+  const done = await view('PracticeView', { pack: pack() }, '/s/geo/practice?set=set-a', { extra: { [key]: over } });
+  assert.match(done, /00:00/);
+  assert.match(done, /Time is up/);
+});
+
+test('practice, timed mode: a saved countdown of another length, or damaged, is ignored', async () => {
+  const key = 'foma-portal-timer-v1:geo/set-a';
+  const other = { status: 'paused', totalMs: 57 * 60_000, remainingMs: 20 * 60_000, endsAt: null, savedAt: Date.now() };
+  assert.match(await view('PracticeView', { pack: pack() }, '/s/geo/practice?set=set-a', { extra: { [key]: other } }), /45:00/);
+  assert.match(await view('PracticeView', { pack: pack() }, '/s/geo/practice?set=set-a', { extra: { [key]: '{broken' } }), /45:00/);
+});
+
+test('practice: the select shows the filter chosen in the address', async () => {
+  const html = await view('PracticeView', { pack: pack() }, '/s/geo/practice?paper=P2&command=evaluate');
+  assert.match(html, /<option value="P2" selected="">/);
+  assert.match(html, /<option value="evaluate" selected="">/);
+  assert.match(html, /<option value="" selected="">All<\/option>/, 'the topic select stays on "All"');
+});
+
 test('practice in Russian', async () => {
   const state = { settings: { accessArrangements: { extraTime: true } } };
   const html = await view('PracticeView', { pack: pack() }, '/s/geo/practice?set=set-a', { lang: 'ru', state });
@@ -280,15 +324,18 @@ test('glossary: the list is A-Z by the English term and shows the topics that us
   assert.match(html, /Showing 3 of 3 terms/);
 });
 
-test('glossary: the counts at the top show new cards as due and the cards in each box', async () => {
-  const state = { terms: { 'geo/a': { box: 2, due: '2099-01-01' } } };
-  const html = await view('GlossaryView', { pack: pack() }, '/s/geo/terms', { state });
+test('glossary: the counts at the top show the cards due, the new cards and the cards in each box', async () => {
   const tile = (label, value) => new RegExp(`${label}(<[^>]*>[^<]*</[^>]*>)*</dt><dd>${value}</dd>`);
-  assert.match(html, tile('Terms', 2));
-  assert.match(html, tile('Due today', 1));
-  assert.match(html, tile('New', 1));
-  assert.match(html, tile('Box 2', 1));
-  assert.match(html, tile('Box 1', 0));
+  const later = await view('GlossaryView', { pack: pack() }, '/s/geo/terms', { state: { terms: { 'geo/a': { box: 2, due: '2099-01-01' } } } });
+  assert.match(later, tile('Terms', 2));
+  assert.match(later, tile('Due today', 0));
+  assert.match(later, tile('New', 1));
+  assert.match(later, tile('Box 2', 1));
+  assert.match(later, tile('Box 1', 0));
+  assert.match(later, /Up to 10 per session/);
+  const overdue = await view('GlossaryView', { pack: pack() }, '/s/geo/terms', { state: { terms: { 'geo/a': { box: 1, due: '2026-01-01' } } } });
+  assert.match(overdue, tile('Due today', 1));
+  assert.match(overdue, tile('Box 1', 1));
 });
 
 test('flashcards: the first due card shows only the term; the definition waits for Space or a tap', async () => {
@@ -325,6 +372,23 @@ test('glossary in Russian', async () => {
   assert.match(html, /Глоссарий и карточки/);
   assert.match(html, /На сегодня/);
   assert.match(html, /Программа S\.a/);
+});
+
+test('flashcards: a session has at most 10 new cards, however many terms there are', async () => {
+  const many = Array.from({ length: 214 }, (_, index) => term(`n${String(index).padStart(3, '0')}`));
+  const html = await view('GlossaryView', { pack: pack({ terms: many }) }, '/s/geo/terms?mode=cards');
+  assert.match(html, /Card 1 of 10/);
+  assert.match(html, />term n000</);
+  const tiles = await view('GlossaryView', { pack: pack({ terms: many }) }, '/s/geo/terms');
+  assert.match(tiles, /New(<[^>]*>[^<]*<\/[^>]*>)*<\/dt><dd>214<\/dd>/);
+});
+
+test('flashcards: every due card comes before the new ones', async () => {
+  const many = Array.from({ length: 30 }, (_, index) => term(`n${String(index).padStart(2, '0')}`));
+  const state = { terms: { 'geo/n20': { box: 1, due: '2026-01-02' }, 'geo/n05': { box: 3, due: '2026-01-01' } } };
+  const html = await view('GlossaryView', { pack: pack({ terms: many }) }, '/s/geo/terms?mode=cards', { state });
+  assert.match(html, /Card 1 of 12/, 'two due cards and ten new ones');
+  assert.match(html, />term n05</, 'the longest overdue card first');
 });
 
 // ---- formulas

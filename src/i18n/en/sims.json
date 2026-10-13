@@ -7,7 +7,7 @@
   },
   "count": "Simulations: {{n}}",
   "open": "Open",
-  "opened": "Open now",
+  "opened": "Currently open",
   "close": "Close the simulation",
   "topics": "Used in topics",
   "noTopics": "Not linked to a topic yet.",

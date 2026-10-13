@@ -1,4 +1,4 @@
-import { useCallback, useId, useMemo } from 'react';
+import { useCallback, useEffect, useId, useMemo, useRef } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { Play } from 'lucide-react';
@@ -12,6 +12,9 @@ import '../content/ui.css';
 import '../practice/fields.css';
 import '../subject/subject.css';
 import './sims.css';
+
+// The id of the "Open" button of a simulation, so the focus can go back to it when the simulation is closed.
+const openButtonId = (simId: string): string => `sim-open-${simId}`;
 
 function SimGroupSection({ group, selectedId, lang, onOpen }: { group: SimGroup; selectedId: string; lang: 'en' | 'ru'; onOpen: (id: string) => void }) {
   const { t } = useTranslation('sims');
@@ -46,6 +49,7 @@ function SimGroupSection({ group, selectedId, lang, onOpen }: { group: SimGroup;
               <button
                 type="button"
                 className={open ? 'foma-btn' : 'foma-btn foma-btn--primary'}
+                id={openButtonId(sim.id)}
                 aria-pressed={open}
                 aria-describedby={idElement}
                 onClick={() => onOpen(sim.id)}
@@ -73,6 +77,13 @@ export function SimsView({ packs }: { packs: readonly SimPackLike[] }) {
   const selectedId = params.get('sim') ?? '';
   const selected = useMemo(() => findSim(groups, selectedId), [groups, selectedId]);
   const subjectTitle = selected ? pickText(groups.find(group => group.subject === selected.subject)?.title ?? { en: '', ru: '' }, lang) : '';
+
+  // When the open simulation is closed (the button, or Back), the focus goes to its "Open" button, not to the page top.
+  const lastOpen = useRef('');
+  useEffect(() => {
+    if (lastOpen.current && !selected) document.getElementById(openButtonId(lastOpen.current))?.focus({ preventScroll: true });
+    lastOpen.current = selected?.id ?? '';
+  }, [selected]);
 
   const open = useCallback((id: string): void => {
     setParams(previous => {
