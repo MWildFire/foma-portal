@@ -1,0 +1,147 @@
+## Big idea
+
+Real programs contain many classes, and those classes depend on one another. Object-oriented design uses <Term id="b3-2-inheritance"/> to share common code, <Term id="b3-2-polymorphism"/> so that one method call can work with many kinds of object, <Term id="b3-2-abstraction"/> to hide detail behind a common outline, and a <Term id="b3-2-class-relationship"/> to show how classes are linked.
+
+## Explanation
+
+**Inheritance.** An <Term id="b3-2-inheritance"/> lets a subclass reuse the attributes and methods of its superclass. Common code is written once in the superclass, and each subclass adds only what makes it different. In Python the link is written in the class line, as in `class Student(Person):`, and `super().__init__()` runs the superclass constructor. A change made in the superclass then applies to every subclass.
+
+**Visibility.** A private attribute (two leading underscores in Python) is visible only inside its own class, so a subclass must read it through a public getter. A protected attribute can be used by subclasses, and a public attribute can be used anywhere.
+
+**Polymorphism and overriding.** <Term id="b3-2-polymorphism"/> means that one method name can take many forms. Static polymorphism chooses the version from the parameters; this is called method overloading, and Python does not support it in the Java style. Dynamic polymorphism is shown by <Term id="b3-2-method-overriding"/>: a subclass method with the same name replaces the superclass version when the method is called on a subclass object. Static methods cannot be overridden.
+
+**Duck typing.** Python uses <Term id="b3-2-duck-typing"/>, so the methods an object has matter more than its class. A call such as `item.speak()` works for any object that has a `speak()` method. If the method is missing, the error appears only when that line runs.
+
+**Abstraction.** <Term id="b3-2-abstraction"/> hides the detail that a user does not need. An <Term id="b3-2-abstract-class"/> declares abstract methods with no code, cannot be used to create objects, and guarantees that each subclass provides those methods. In Python you import `ABC` and `abstractmethod` from the `abc` module and mark each method with `@abstractmethod`. A single list can therefore hold objects of several subclasses.
+
+**Class relationships.** A <Term id="b3-2-class-relationship"/> is one of three links: `is_a` (inheritance), `has_a` (one object holds references to others) or `part_of` (a stronger form of `has_a`). <Term id="b3-2-aggregation"/> is a `has_a` link in which both objects can exist separately: a playlist holds songs that exist after the playlist is deleted. <Term id="b3-2-composition"/> is a `part_of` link in which the parts cannot exist without the whole: a book creates its chapters, which go when the book goes. In UML, inheritance has a hollow triangle at the superclass end, aggregation a hollow diamond and composition a filled diamond at the whole end. Multiplicity such as `1` or `0..*` at each end shows how many objects take part.
+
+<Callout kind="tip">Ask whether the part could still exist if the whole were deleted. If it could, the link is aggregation; if it could not, the link is composition.</Callout>
+
+**Design patterns.** The course requires you to explain three patterns.
+
+<Callout kind="define">A design pattern is a tested, reusable plan for a common design problem. It shows how classes should work together, but it does not give you the finished code.</Callout>
+
+- <Term id="b3-2-singleton"/> keeps exactly one instance of a class, shared by the whole program. The constructor is hidden, and a static method returns that instance.
+- <Term id="b3-2-factory"/> gives related products one common interface. A factory chooses which subclass to create, so new types can be added without changing the code that uses the interface.
+- <Term id="b3-2-observer"/> connects a publisher to its subscribers. Subscribers add or remove themselves from the publisher's list, and the publisher notifies them when its data changes.
+
+## Worked example
+
+A transport company keeps its vehicles in one list. Every vehicle has a name and a maximum range, cars have an electric flag, and ships have a cargo capacity. The program below uses inheritance and polymorphism, so one loop can print the movement of every vehicle.
+
+```python
+class Vehicle:
+    def __init__(self, name, max_range):
+        self.name = name
+        self.max_range = max_range
+
+    def move(self):
+        return self.name + " is moving"
+
+
+class Car(Vehicle):
+    def __init__(self, name, max_range, electric):
+        super().__init__(name, max_range)
+        self.electric = electric
+
+    def move(self):
+        return self.name + " is driving"
+
+
+class Ship(Vehicle):
+    def __init__(self, name, max_range, cargo):
+        super().__init__(name, max_range)
+        self.cargo = cargo
+
+    def move(self):
+        return self.name + " is sailing"
+
+
+fleet = [Vehicle("Bus", 400), Car("Sedan", 500, True), Ship("Ferry", 800, 3000)]
+for vehicle in fleet:
+    print(vehicle.move())
+print(fleet[1].electric)
+print(fleet[2].max_range)
+```
+
+The program prints:
+
+```text
+Bus is moving
+Sedan is driving
+Ferry is sailing
+True
+800
+```
+
+<Steps>
+
+<Step>Create the superclass Vehicle with the shared attributes and a move() method.</Step>
+
+<Step>Write Car and Ship as subclasses. Each one calls `super().__init__()` for the shared attributes and overrides move() with its own version.</Step>
+
+<Step>Put all three objects in one list. The loop calls move() on each object, and Python runs the version for that object's class.</Step>
+
+<Step>Read the extra attributes from the subclass objects: `fleet[1].electric` is True and `fleet[2].max_range` is 800.</Step>
+
+</Steps>
+
+## Visual
+
+The UML builder below draws classes with their attributes, their methods and the lines that link them. Build the Vehicle superclass and the Car subclass from the worked example, and mark the inheritance link between them.
+
+<Sim id="cs.uml-builder"/>
+
+## How it is examined
+
+Paper 2 has one question without code, on computational thinking and OOP concepts; the others are Python coding questions. Expect these command terms:
+
+- **Identify**: name the item asked for, such as an attribute or a relationship type; a short answer is enough.
+- **Distinguish**: set out the difference between two ideas, with one clear point for each side.
+- **Explain**: give the reason or mechanism, for example why the subclass version of a method runs.
+- **Justify**: support your answer with evidence from the description.
+- **Outline**: give the main steps or features briefly, without detail.
+- **Construct**: write Python code that matches the description, with the inheritance link and any overridden method.
+- **Trace**: follow the code line by line and give every printed line, in order.
+- **Deduce**: work out a result from the code, such as a program's output.
+- **State**: give the answer directly.
+
+<Callout kind="exam">A Trace or Deduce answer must give every printed line in order. Python prints True and False with capital letters, and each print call starts a new line.</Callout>
+
+<Callout kind="exam">For a UML relationship, name the type, the end that carries the triangle or diamond, and the multiplicity at each end if it is asked for.</Callout>
+
+## Common mistakes
+
+<Callout kind="mistake">Expecting the superclass version to run for a subclass object. The subclass version runs whenever it overrides a method of the same name.</Callout>
+
+<Callout kind="mistake">Writing a subclass constructor that never calls `super().__init__()`, so the inherited attributes are never set.</Callout>
+
+<Reveal title="Why can a subclass not read the private attribute of its superclass?">
+
+In Python, `self.__name` is renamed inside the class that writes it, so the subclass looks for a different name and fails. Read the value through a public getter that the superclass provides, such as `get_name()`.
+
+</Reveal>
+
+<Callout kind="mistake">Confusing aggregation with composition because both are has_a links. Ask whether the part can exist after the whole is deleted.</Callout>
+
+<Callout kind="mistake">Creating an object of an abstract class and expecting it to work. Python raises a TypeError, and a subclass that leaves an abstract method unimplemented cannot be created either.</Callout>
+
+## Check yourself
+
+Answer these on paper, then compare with the markscheme.
+
+<Question id="b3-2-q02"/>
+
+<Question id="b3-2-q06"/>
+
+<Question id="b3-2-q09"/>
+
+## Summary
+
+- Inheritance lets a subclass reuse its superclass, and `super()` runs the superclass constructor.
+- Polymorphism lets one call behave differently for different objects; overriding gives the subclass version at runtime.
+- An abstract class declares methods without code and cannot be instantiated; its subclasses must implement those methods.
+- Duck typing checks which methods an object has, not its class, and reports a missing method only when that line runs.
+- Aggregation is a has_a link with independent objects; composition is a part_of link in which the parts cannot exist without the whole.
+- The singleton, factory and observer patterns are proven structures for common design problems.

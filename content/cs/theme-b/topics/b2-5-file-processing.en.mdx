@@ -1,0 +1,134 @@
+## Big idea
+
+A variable exists only while the program runs, but a file keeps its data afterwards. A file is read and written in a strict order, so the open mode, the way you move through the file and the moment you close it decide whether the data is kept, lost or read correctly. Many questions ask you to predict what a short file program prints, so trace it one line at a time.
+
+## Explanation
+
+### Why store data in a file
+
+Data written to a file survives after the program ends, so schools, banks and information systems keep records in files. A <Term id="b2-5-text-file"/> stores plain characters, and each line usually holds one <Term id="b2-5-record"/>, for example a name and a score separated by a comma. The program must split each line into its items before using them, and a number stored as text must be converted with int() before any arithmetic.
+
+Every program that works with a file carries out the same <Term id="b2-5-file-processing-operation"/>s, in order:
+
+<Steps>
+  <Step>Open the file in a mode: "r" to read, "w" to write or "a" to append.</Step>
+  <Step>Read or write the records, one after another.</Step>
+  <Step>Close the file, so that data still held in memory is saved and the file is released.</Step>
+</Steps>
+
+### Sequential files
+
+A <Term id="b2-5-sequential-file"/> stores its records one after another. Figure 17 on page 407 shows records 1 to 5 running from the start of the file to the <Term id="b2-5-end-of-file"/>. To retrieve a record, the program starts at the beginning and reads until it reaches the record it wants. This is <Term id="b2-5-sequential-access"/>, so a record cannot be skipped.
+
+Sequential files are poor at finding one record quickly, but they have low overhead, needing little extra structure or storage. The textbook gives system log files, batch processing and archives as examples (p. 407). A log adds each new event at the end, a bank processes a day's records in one overnight pass, and an archive is rarely opened.
+
+### Write mode and append mode
+
+Opening a file in <Term id="b2-5-write-mode"/> ("w") erases what the file held before, so the data written afterwards becomes the whole file. Opening it in <Term id="b2-5-append-mode"/> ("a") keeps the existing contents and writes new data after them. The textbook shows both modes in Python on page 411.
+
+<Callout kind="mistake">Write mode erases the file as soon as it is opened, before a single line is written. If you only want to add a line, use append mode.</Callout>
+
+### Reading line by line
+
+A file opened in <Term id="b2-5-read-mode"/> ("r") gives the program its text without changing it. The method readline() returns the next line, including its line break. When no lines are left, it returns an empty string, "", so a while loop that stops on "" reads the whole file exactly once. A for loop over the file object does the same job.
+
+### Writing and appending in Python
+
+The method write(text) writes one string. The method writelines(list) writes each string in a list one after another and adds no line breaks, so add the line break yourself when each record needs its own line.
+
+### Simulated files in this portal
+
+The portal's code cannot touch real files, so each example uses io.StringIO, which holds text in memory and works like a file, with a position that moves as you read and write. A new StringIO() starts empty, like a file opened in write mode. A StringIO created with text starts at the beginning, so a write overwrites the characters there; call seek(0, io.SEEK_END) first to add at the end. A real file opened with "r+" behaves the same way, which is why the textbook's label "read" for that mode can mislead.
+
+<Callout kind="tip">Read each program as if every StringIO were a file on disk. Ask two questions: where is the position when the program starts, and what does each write change?</Callout>
+
+### Closing files
+
+<Term id="b2-5-close-file"/> ends a program's use of a file. The textbook notes that closing prevents errors caused by unclosed resources (p. 407). A with block closes the file when it ends, even after an error, so the close() call in the example on page 412 is harmless but not needed.
+
+## Worked example
+
+The program below writes two lines in write mode, appends a third line and reads the file back line by line. Predict every printed line before you run the code.
+
+```python
+import io
+
+# Each StringIO stands in for a file on disk, so no real file is created.
+
+# Write mode ("w"): a new, empty file. Writing starts from nothing.
+disk = io.StringIO()
+disk.writelines(["Mon,rain\n", "Tue,sun\n"])
+text = disk.getvalue()
+disk.close()
+
+# Append mode ("a"): the old text is kept and the write position moves to the end.
+disk = io.StringIO(text)
+disk.seek(0, io.SEEK_END)
+disk.write("Wed,cloud\n")
+
+# Read mode: read the file line by line until the end of the file.
+disk.seek(0)
+line = disk.readline()
+count = 0
+while line != "":
+    count = count + 1
+    print(count, line.rstrip("\n"))
+    line = disk.readline()
+disk.close()
+```
+
+The output is:
+
+```text
+1 Mon,rain
+2 Tue,sun
+3 Wed,cloud
+```
+
+The write step creates two lines from nothing, the append step adds the third line at the end, and the loop stops at the empty string after it.
+
+## Visual
+
+Paste the code from the worked example into the Python runner below, press Run, and compare the Output panel with your own trace table.
+
+<Sim id="cs.python-runner"/>
+
+## How it is examined
+
+Paper 2 can be answered in Java or Python; this portal uses Python. Command terms used in file questions, and what a full answer needs:
+
+- Describe: a detailed account, for example how a program reaches one record in a sequential file.
+- Distinguish: make the difference between two ideas very clear, for example write mode and append mode.
+- Explain: a detailed account with reasons, for example why a sequential file suits batch processing.
+- Outline: a brief account; reasons are not needed.
+- Trace: follow the code line by line, recording values and printed output at each step.
+- Construct: write working code with the right mode, loop and closing step.
+
+## Common mistakes
+
+<Callout kind="mistake">In Python, comparing readline() with None never ends the loop, because the end of the file gives an empty string. Compare with "" or use a for loop.</Callout>
+
+<Callout kind="mistake">writelines() adds no line breaks. Writing the list ["red", "green"] with writelines() gives redgreen on one line, not two lines.</Callout>
+
+<Callout kind="mistake">A number read from a file is text. "12" + "9" gives "129", not 21. Convert the text with int() first.</Callout>
+
+<Callout kind="mistake">Writing to a StringIO that already has text, without moving to the end, overwrites its first characters. A real file opened with "r+" does the same thing.</Callout>
+
+## Check yourself
+
+Answer these questions, then compare your answers with the markscheme.
+
+<Question id="b2-5-q01"/>
+<Question id="b2-5-q05"/>
+<Question id="b2-5-q07"/>
+<Question id="b2-5-q09"/>
+
+<Reveal title="Hint for the overwrite question">Look at where the write position is when the program starts. Then ask what the first write changes.</Reveal>
+
+## Summary
+
+- A sequential file stores records one after another and is read in order.
+- Every file program opens the file in a mode, reads or writes, and closes it.
+- Write mode ("w") erases the file, append mode ("a") adds to its end, and read mode ("r") only reads.
+- Read a text file line by line until readline() returns an empty string.
+- writelines() adds no line breaks, and numbers read from text must be converted with int().

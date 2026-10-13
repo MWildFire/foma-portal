@@ -1,0 +1,92 @@
+## Big idea
+
+<Term id="b1-1-computational-thinking"/> turns a vague problem into parts that a computer can solve. Four ideas do most of the work: decomposition splits the problem, pattern recognition finds what repeats, abstraction keeps only the essentials, and algorithmic design turns the result into clear steps. A good problem specification comes first, so the team knows what success looks like.
+
+## Explanation
+
+### Specifying the problem
+
+A problem <Term id="b1-1-problem-specification"/> is written before the design starts. It has six parts: a problem statement that says why the problem matters; constraints and limitations, such as budget, time or technology; objectives and goals; input specifications; output specifications; and evaluation criteria that define success.
+
+A strong problem statement is specific. The word “inefficient” means little on its own, but “students wait about 12 minutes for a free printer at lunch” is measurable and shows the impact. <Term id="b1-1-objectives-and-goals"/> need a number and a deadline: “cut the average wait to under 5 minutes within one term” can be checked, while “make waiting better” cannot.
+
+An <Term id="b1-1-input-specification"/> gives the format, data type and expected characteristics of the data that goes in. “An 8-digit student ID typed as text” is useful; “the user types data” is not. An <Term id="b1-1-output-specification"/> states the layout, contents and display of the results. Evaluation criteria, such as effectiveness, efficiency and usability, set the benchmarks that the finished solution must meet.
+
+### Decomposition and pattern recognition
+
+<Term id="b1-1-decomposition"/> breaks a complex problem into smaller components, each with one clear task. Ask which steps come in sequence, which parts are independent and which parts repeat. This single responsibility idea later reappears in object-oriented programming.
+
+<Term id="b1-1-pattern-recognition"/> finds recurring similarities, trends or regularities in data, problems or solutions. When two subproblems are alike, one solution can be reused or adapted. A pattern in past data remains a hypothesis until it is checked against new data.
+
+### Abstraction and algorithmic design
+
+<Term id="b1-1-abstraction"/> keeps the essential inputs, outputs and components and filters out detail that does not change the core purpose of the system. The skill lies in deciding what is essential: the colour of a car rarely decides a race, but its engine and tyres do. An abstraction is a simplification, so test it against the outcome it must predict.
+
+<Term id="b1-1-algorithmic-design"/> is the design of a step-by-step procedure with clear, precise and efficient steps. Ask where the decisions are, where a loop repeats, and whether you could explain the process to someone who does not know the solution. The design can be code, pseudocode or a flowchart.
+
+### Flowcharts
+
+A <Term id="b1-1-flowchart"/> shows the process of a program logically and unambiguously, normally from top to bottom and from left to right. Its standard symbols are: start and end (terminal); process, which operates on data by altering its value, format or position; input and output; decision, which has two outcomes and a yes/no or true/false question; connector, which links parts of a large diagram; and the flowline, which shows the order of operations.
+
+<Callout kind="define">A decision symbol has exactly two outcomes. If a question has three possible answers, split it into two decisions.</Callout>
+
+To trace a flowchart, follow the flowlines, write down each variable and decision, and record the values after every step.
+
+## Worked example
+
+A school canteen wants an app that shows how many portions of each dish are left. Here is the start of its specification.
+
+<Steps>
+<Step>Problem statement: at lunch, students queue for about 15 minutes because the kitchen does not know how much of each dish to cook.</Step>
+<Step>Constraints and limitations: the app must run on the canteen’s existing tablets, and development must finish within one term.</Step>
+<Step>Objectives and goals: the high-level objective is a shorter lunch queue. The specific goal is an average wait below 5 minutes within one term, which is measurable, time-limited and linked to the objective.</Step>
+<Step>Input specification: a dish code from a list of 12 dishes, and a portion count from 1 to 10 for each order.</Step>
+<Step>Output specification: a kitchen-screen table of each dish and its portions left, with a red warning below 5 portions.</Step>
+<Step>Evaluation criteria: the average wait, the days the app is unavailable, and the unsold portions at the end of the day.</Step>
+</Steps>
+
+The app decomposes into three parts: reading the order, checking the stock and updating the screen. Every order repeats the same steps, so one algorithm serves all orders. Trace one order with a stock of 5 and an order of 3: the decision “is the stock at least the number ordered?” is true, the stock falls to 2, and the red warning appears.
+
+## Visual
+
+Be able to draw a decomposition tree: the whole system at the top, its components below it, and each component with one clear task. Be able to read a flowchart by following its flowlines from Start to End and recording every variable as you go.
+
+## How it is examined
+
+Question 1 of Paper 2 tests computational thinking without coding. The command terms below set what a full answer needs:
+
+- Define: the precise meaning of a term; no explanation is needed.
+- List: the items only, in order.
+- Identify: choose the correct item, such as the flowchart symbol for a yes/no question.
+- Outline: a brief account of a part of a specification or a process, without reasons.
+- Describe: a detailed account of how a concept works, in several linked points.
+- Construct: write parts of a specification, or a diagram, with measurable and time-limited goals.
+- Sketch: a labelled diagram, such as a flowchart, showing its shape and main features.
+- Trace: follow the algorithm, record variables and decisions at each stage, and give the output.
+- Discuss and To what extent: weigh positives and negatives, then reach a conclusion the reasons support.
+
+<Callout kind="exam">A trace answer needs the values at each stage and the final output. Write the table even when the output looks obvious.</Callout>
+
+## Common mistakes
+
+<Callout kind="mistake">Calling a goal measurable when it has no number or deadline. “Improve the service” is an aim; “reduce the average wait to under 5 minutes by June” is a goal.</Callout>
+
+<Callout kind="mistake">Tracing a loop from memory, or judging a decision with values from an earlier step. Re-read the current values before each decision and record them.</Callout>
+
+## Check yourself
+
+Answer these questions on paper first, then compare your answer with the markscheme.
+
+<Question id="b1-1-q03"/>
+
+<Question id="b1-1-q07"/>
+
+<Question id="b1-1-q10"/>
+
+## Summary
+
+- Computational thinking rests on four ideas: decomposition, pattern recognition, abstraction and algorithmic design.
+- A problem specification covers six areas: a statement of the problem, the constraints and limitations, the objectives and goals, the input and output specifications, and the evaluation criteria.
+- Objectives set the direction; specific goals are measurable, time-limited milestones.
+- A flowchart uses standard symbols; a decision has two outcomes and a yes/no or true/false question.
+- To trace an algorithm, record the variables and decisions at each stage until the output appears.

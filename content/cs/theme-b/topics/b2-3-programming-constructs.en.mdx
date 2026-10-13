@@ -1,0 +1,97 @@
+## Big idea
+
+Programs are built from a few constructs: sequence (instructions run in order), selection (choosing between paths), repetition (running code again) and subroutines (named functions with parameters and return values). Writing a correct program means placing the instructions in the right order, choosing the right kind of loop or condition, and splitting the code into functions that can be tested and reused. These constructs appear in almost every Paper 2 coding question.
+
+## Explanation
+
+**Sequence and order.** Instructions run one after another in the order they are written, so each line uses the values that exist at that moment. A wrong order often gives a wrong result rather than an error: a total printed before it is calculated shows the starting value. Two faults to watch for are an <Term id="b2-3-infinite-loop"/>, which is a loop whose end condition is never met, usually because a counter is not updated, and incorrect input from the user, which can break a program if the program does not check it.
+
+**Selection.** <Term id="b2-3-selection"/> means making decisions in code, usually with an if statement. An if, elif, else chain tests its conditions in turn and runs only the first block whose condition is True; the else block runs when no condition is True. Conditions use comparison operators such as == (equal to), != (not equal to), and the greater-than and less-than operators. They can be joined with and, or and not. If only one branch should run, use one chain rather than several separate if statements, because each separate if is tested on its own.
+
+**Repetition.** <Term id="b2-3-repetition"/> runs a block of code again. A <Term id="b2-3-while-loop"/> repeats while its condition stays True. Use it when you do not know in advance how many repeats are needed, for example when you keep asking for a password until it is correct. The condition is tested before every repeat, so the block may run zero times. A <Term id="b2-3-for-loop"/> repeats a set number of times, for example once for each value in range(0, 11) or once for each item in a list. In Python, range(0, 11) produces the values 0 to 10, because the end value is never included.
+
+**Subroutines.** A <Term id="b2-3-function"/> is a named block of code that performs one task. Its header lists the <Term id="b2-3-parameter"/> names that receive values, and a return statement sends a result back to the caller as a <Term id="b2-3-return-value"/>. Each value passed in a call is an <Term id="b2-3-argument"/>, also called an actual parameter. A variable created inside a function is a local variable and exists only inside that function. A global variable is declared outside every function and can be used throughout the code.
+
+<Callout kind="define">A parameter is a variable named in the function definition. An argument is the value passed in a call. Parameters belong to the definition; arguments belong to the call.</Callout>
+
+**Modularization.** <Term id="b2-3-modularization"/> means splitting code into functions or modules. The code becomes easier to read, because each part has one clear task; easier to test on its own; easier to reuse in other programs; and easier to update, because a change is made in one place.
+
+## Worked example
+
+The program below combines a function, a loop and a selection. Work out the output line by line before you read the steps.
+
+```python
+def label(score):
+    if score >= 50:
+        return "pass"
+    return "fail"
+
+scores = [72, 45, 50]
+passes = 0
+for s in scores:
+    result = label(s)
+    print(s, result)
+    if result == "pass":
+        passes = passes + 1
+print(passes)
+```
+
+<Steps>
+<Step>The function label receives one argument, the score, and returns "pass" when the score is 50 or more.</Step>
+<Step>The for loop takes each score in turn, so label is called three times.</Step>
+<Step>For 72 the function returns "pass", so the loop prints "72 pass" and passes becomes 1.</Step>
+<Step>For 45 the function returns "fail", so the loop prints "45 fail" and passes stays at 1.</Step>
+<Step>For 50 the function returns "pass", because 50 is included, so the loop prints "50 pass" and passes becomes 2. After the loop, print(passes) shows 2.</Step>
+</Steps>
+
+<Reveal title="Show the output">72 pass, then 45 fail, then 50 pass, then 2.</Reveal>
+
+## Visual
+
+Use the trace table below to step through the loop with x = 14: record x, the test and count on each pass. Then run the Python runner to check that your table matches the printed output.
+
+<Sim id="cs.trace-table"/>
+
+<Sim id="cs.python-runner"/>
+
+## How it is examined
+
+The command terms in this topic are used in the following ways.
+
+- **Explain**: give a detailed account with reasons or causes, for example why an infinite loop occurs.
+- **Distinguish**: make clear the differences between two items, for example a parameter and an argument.
+- **Justify**: give valid reasons for a choice, for example a while loop rather than a for loop for a described task.
+- **Outline**: give a brief account without reasons, for example the benefits of modularization.
+- **Calculate**: give a numerical answer and show the stages of the working, for example a completed trace table.
+- **State**: give the output of a program or a brief answer, without explanation.
+- **Construct**: write complete, runnable Python code when the question asks for a function or a program.
+
+<Callout kind="exam">In a construct question, a function must return its result if the question asks for a value back: printing it is not enough. Check that every loop has a variable that changes and reaches the end condition, and that each selection covers the case it is meant for.</Callout>
+
+## Common mistakes
+
+- Printing inside a function when the question asks for a return value. The text appears on screen, but the calling code cannot use it unless the function returns it.
+- Writing several separate if statements where one if, elif, else chain is needed, so that more than one block runs.
+- Forgetting to update the counter in a while loop, so that the loop never ends.
+- Expecting range(0, 11) to include 11. The end value is excluded.
+- Mixing up parameters and arguments. The parameter is the name in the definition; the argument is the value in the call.
+- Using outside a function a variable that was created inside it. That variable is local and does not exist outside the function.
+
+<Callout kind="mistake">Before you move on from a loop, ask two questions: which variable changes on each pass, and does it move the loop towards its end condition?</Callout>
+
+## Check yourself
+
+Try these before you look at the answers. Start with the trace table, then move on to the construct question.
+
+- <Question id="b2-3-q05"/>
+- <Question id="b2-3-q08"/>
+- <Question id="b2-3-q10"/>
+
+## Summary
+
+- Instructions run in order, so a wrong order gives a wrong result.
+- Selection chooses one block from a chain of conditions.
+- A while loop repeats while a condition holds and suits an unknown number of repeats; a for loop suits a known number.
+- An infinite loop occurs when the end condition is never met.
+- A function takes parameters, receives arguments in a call and can send back a return value.
+- Modularization splits code into reusable, testable functions.

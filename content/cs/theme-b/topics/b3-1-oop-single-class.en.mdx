@@ -1,0 +1,123 @@
+## Big idea
+
+Object-oriented programming (OOP) keeps the data about one kind of thing together with the actions that work on that data. The plan for that kind of thing is a <Term id="b3-1-class"/>, and each real item made from the plan is an <Term id="b3-1-object"/>. This topic shows how to design a single class, write it in Python and protect its data.
+
+## Explanation
+
+**Classes and attributes.** A class is a blueprint. It defines the <Term id="b3-1-attribute"/> of each item and the <Term id="b3-1-method"/> that the item can carry out. A class on its own describes a kind of item; it does not hold the values of one particular item. Designing a class therefore starts with two questions: what does each item need to remember, and what does each item need to do?
+
+**Objects and constructors.** Creating an object is called <Term id="b3-1-instantiation"/>. In Python you do it by calling the class name with starting values, for example `Film("Heat", 170)`. This runs the <Term id="b3-1-constructor"/>, a special method named `__init__` whose first parameter is always `self`. Inside it, the line `self.__title = title` stores a value in an attribute of the new object. Each object gets its own attributes, so objects of one class can hold different values.
+
+**Methods and static members.** An attribute stores data, while a method is a function inside the class that uses or changes that data. Methods are called with dot notation, for example `first.get_title()`. Some values, such as a count of created objects, belong to the whole class and are read through the class name. Python calls such a value a class variable, and the general name for this idea is <Term id="b3-1-static"/>. A class variable is written in the class body, before `__init__`, and read as `Film.count`. A non-static attribute is set with `self` in the constructor and belongs to one object only.
+
+**Hiding data.** <Term id="b3-1-encapsulation"/> is the principle of hiding data inside a class, so that other code reaches the data only through public methods. This brings three benefits: the data stays safe, changes inside the class do not break code outside it, and the class can be reused in other programs. Information hiding has the same aim.
+
+**Access levels.** Visibility is controlled by an <Term id="b3-1-access-modifier"/>. There are three: private (only inside the class), protected (the class and its subclasses) and public (any class). In Python, two underscores before a name make an attribute private, as in `self.__balance`. One underscore is a convention for protected, and a name without a prefix is public. Python does not lock private names as strictly as Java: the renamed name stops accidental access, not deliberate access. So a private attribute is usually read through a public getter method, such as `get_balance()`, and changed through a setter method that checks the new value first.
+
+**UML class diagrams.** A <Term id="b3-1-uml-class-diagram"/> shows a class to other developers without code. It has three compartments: the class name, the attributes and the methods. Each line begins with a visibility sign: a minus for private, a plus for public and a hash for protected. Attributes are written as `name: type`, and methods as `name(parameters): return type`. Lines between classes show relationships, such as aggregation (a hollow diamond), composition (a solid diamond) and inheritance (a hollow triangle), which are developed in B3.2.
+
+<Callout kind="define">In this topic, attribute and instance variable mean the same thing.</Callout>
+
+<Callout kind="tip">Before you write any code, list the nouns in the problem as candidate attributes and the verbs as candidate methods. Then remove anything the program does not need.</Callout>
+
+## Worked example
+
+Task: a cinema app stores films. Each `Film` has a private title and a private running time in minutes. The class also has a static counter of films created, a public method `get_title()`, and a public method `is_long()` that returns True when a film lasts more than 150 minutes.
+
+```python
+class Film:
+    # Static attribute: one shared counter for all Film objects
+    count = 0
+
+    def __init__(self, title, minutes):
+        self.__title = title
+        self.__minutes = minutes
+        Film.count = Film.count + 1
+
+    def get_title(self):
+        return self.__title
+
+    def is_long(self):
+        return self.__minutes > 150
+
+
+first = Film("Heat", 170)
+second = Film("Notes", 95)
+print(first.get_title(), first.is_long())
+print(second.is_long(), Film.count)
+```
+
+The program prints:
+
+```text
+Heat True
+False 2
+```
+
+<Steps>
+
+<Step>Name the class and list the data it must remember: the title and the minutes, both private.</Step>
+
+<Step>Write the constructor. It stores the two values and adds one to the static counter through the class name.</Step>
+
+<Step>Write the methods. get_title returns the title, and is_long compares the minutes with 150 and returns the result.</Step>
+
+<Step>Create two objects by instantiation, call the methods with dot notation and print the results.</Step>
+
+</Steps>
+
+## Visual
+
+The UML builder below lets you draw a class with its attributes, its methods and their visibility signs, and check that the diagram matches the code. Draw the `Film` class from the worked example before you write any Python.
+
+<Sim id="cs.uml-builder"/>
+
+Notice which items belong to each object and which to the class as a whole.
+
+## How it is examined
+
+Paper 2 has one question without code; the others are coding questions in Java or Python, and this portal uses Python. For this topic, expect these command terms:
+
+- **Distinguish**: state the difference between two ideas, for example a class and an object.
+- **Identify**: name the items asked for, such as two consequences of a private attribute. A short list is enough.
+- **Construct**: write a UML class diagram or Python code that matches a description.
+- **Evaluate**: weigh advantages against disadvantages for the situation given, and reach a justified conclusion.
+- **Trace**: follow the program line by line and state the exact output.
+
+<Callout kind="exam">A full answer to a Trace question gives every printed line in the correct order. Python prints a Boolean value as True or False, with capital letters.</Callout>
+
+<Callout kind="exam">A UML answer needs a visibility sign before every attribute and method, and the type after the colon. A diagram without signs is incomplete.</Callout>
+
+## Common mistakes
+
+<Callout kind="mistake">Writing an attribute as a plain local variable, such as title = title, in the constructor. That value disappears when the constructor ends; store it with self instead.</Callout>
+
+<Callout kind="mistake">Thinking that a static variable is copied into each object. There is only one shared copy. Read it through the class name, Film.count, rather than through an object.</Callout>
+
+<Reveal title="Why does acc.__balance = 500 leave the balance unchanged?">
+
+Inside the class, Python renames `self.__balance`. Outside the class, the line `acc.__balance = 500` creates a new attribute, so the private value stays the same. Change private data through a setter method that checks the new value.
+
+</Reveal>
+
+<Callout kind="mistake">Putting a plus sign in front of a private attribute in a UML diagram. Use a minus for private, a plus for public and a hash for protected.</Callout>
+
+## Check yourself
+
+Answer these on paper, then compare with the markscheme.
+
+<Question id="b3-1-q02"/>
+
+<Question id="b3-1-q03"/>
+
+<Question id="b3-1-q07"/>
+
+<Question id="b3-1-q09"/>
+
+## Summary
+
+- A class is a blueprint, and an object is created from it by instantiation and the constructor.
+- Attributes store data for each object; methods define what an object does.
+- A static variable or method belongs to the class and is used through the class name.
+- Encapsulation hides data behind public methods; in Python, a double underscore makes an attribute private.
+- A UML class diagram shows the class name, the attributes and the methods, each with a visibility sign.

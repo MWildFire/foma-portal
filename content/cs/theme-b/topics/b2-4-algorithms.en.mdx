@@ -1,0 +1,149 @@
+## Big idea
+
+An algorithm is judged on two things: whether it gives the right answer, and how its work grows when the data gets bigger. Most questions ask you to trace an algorithm step by step, so write down the variables after every step, not only the final output.
+
+## Explanation
+
+### Efficiency and Big O
+
+A <Term id="b2-4-big-o"/> describes how the number of operations an algorithm needs grows as the input grows, where n is the size of the input. It focuses on the worst case, so it gives an upper bound. To find it, count the main operations, ignore constants and code that runs only once, and see how the count changes when n grows. A single calculation is $O(1)$, a loop over n items is $O(n)$, a pair of nested loops over n items is $O(n^2)$, and an algorithm that halves its data at each step is $O(\log n)$. This is what scalability means: an algorithm that is fast for 100 items may be far too slow for 100,000.
+
+### Linear search and binary search
+
+A <Term id="b2-4-linear-search"/> looks at each item in turn, from the first, until it finds the target or reaches the end. It works on unsorted data, but its worst case is $O(n)$.
+
+A <Term id="b2-4-binary-search"/> needs sorted data. It compares the target with the middle item, discards the half that cannot contain the target, and repeats on what is left. Its worst case is $O(\log n)$, and the exact worst-case count is given by <Formula id="cs-binary-worst-case"/>. For 1,000,000 sorted items that is 20 comparisons, against up to 1,000,000 for a linear search.
+
+<Steps>
+  <Step>Set low to the first index and high to the last index.</Step>
+  <Step>Find the middle index and compare the item there with the target.</Step>
+  <Step>If they match, stop. If the middle item is smaller, set low just past it; otherwise set high just before it.</Step>
+  <Step>Repeat while low is not greater than high. If the loop ends, the target is not in the list.</Step>
+</Steps>
+
+### Sorting
+
+A <Term id="b2-4-sort"/> puts the items of a data structure into order. A <Term id="b2-4-bubble-sort"/> compares neighbouring items and swaps any pair that is out of order. Each pass carries the largest unsorted value to the end, so each pass makes one comparison fewer than the one before. A <Term id="b2-4-selection-sort"/> finds the smallest unsorted value, tracking its index, and swaps it into the next place. It makes at most one swap per pass, while bubble sort can make many swaps in a single pass.
+
+Both sorts are $O(n^2)$ and are inefficient on large data sets. Their nested loops make <Formula id="cs-sort-comparisons"/> comparisons whatever the order of the data. Both sort in place, so their <Term id="b2-4-space-complexity"/> is $O(1)$. Merge sort is always $O(n \log n)$ and quick sort is usually $O(n \log n)$, but this topic examines bubble sort and selection sort.
+
+### Recursion
+
+A <Term id="b2-4-recursion"/> is a method in which an algorithm calls itself on a changed input. A recursive algorithm has two parts: a <Term id="b2-4-base-case"/>, which gives a direct answer and ends the chain of calls, and a recursive case, which calls the function again with a smaller or simpler input.
+Each call that has not yet returned waits on the <Term id="b2-4-call-stack"/>. If no base case can be reached, the calls never return, the stack runs out of memory, and the program fails with a <Term id="b2-4-stack-overflow"/>. Recursion can be shorter and clearer than a loop, but it uses more memory. To check a recursive function, write a <Term id="b2-4-trace-table"/> with one row for each call and one row for each returned value.
+
+## Worked example
+
+A quiz app stores four times, in seconds: 48, 31, 55 and 27. The program below sorts them with a selection sort and then finds 31 with a binary search. Both are written with loops, so no built-in sort or search is used. Predict the printed lines before you run the code.
+
+```python
+# Sort the times with a selection sort, then search them with a binary search.
+
+def selection_sort(values):
+    for position in range(len(values) - 1):
+        # Find the index of the smallest value in the unsorted part.
+        smallest = position
+        for index in range(position + 1, len(values)):
+            if values[index] < values[smallest]:
+                smallest = index
+        # Swap it into the next place in the sorted part.
+        temporary = values[position]
+        values[position] = values[smallest]
+        values[smallest] = temporary
+        print("pass", position + 1, values)
+    return values
+
+def binary_search(values, target):
+    low = 0
+    high = len(values) - 1
+    while low <= high:
+        middle = (low + high) // 2
+        if values[middle] == target:
+            return middle
+        elif values[middle] < target:
+            low = middle + 1
+        else:
+            high = middle - 1
+    return -1
+
+times = [48, 31, 55, 27]
+times = selection_sort(times)
+print("sorted", times)
+print("index of 31", binary_search(times, 31))
+```
+
+The output is:
+
+```text
+pass 1 [27, 31, 55, 48]
+pass 2 [27, 31, 55, 48]
+pass 3 [27, 31, 48, 55]
+sorted [27, 31, 48, 55]
+index of 31 1
+```
+
+The second pass changes nothing, because 31 is already the smallest value in the unsorted part. After the sort, the middle item of the four-item list is 31, so the binary search finds it at the first comparison and returns index 1.
+
+## Visual
+
+Start with the sort view: step through bubble sort and selection sort on the same list, and compare how many comparisons and swaps each pass makes.
+
+<Sim id="cs.sort-steps"/>
+
+Then open the binary search view and watch the low, high and middle markers move after each comparison.
+
+<Sim id="cs.binary-search"/>
+
+The Big O view shows how operations grow with n, so you can see why $O(n^2)$ falls behind $O(\log n)$ quickly.
+
+<Sim id="cs.big-o"/>
+
+The recursion view shows the call stack growing and shrinking as a recursive function calls itself and returns.
+
+<Sim id="cs.recursion-stack"/>
+
+Finally, run the programs from this topic in the Python runner and check your trace against the real output.
+
+<Sim id="cs.python-runner"/>
+
+## How it is examined
+
+Paper 2 asks for code, so most answers here are traces, constructions and explanations. These command terms appear most often:
+
+- Trace: follow the algorithm step by step, record variables and decisions at each stage, and give the final output.
+- Calculate: show the working for each stage, such as the comparisons in each pass and their total.
+- State: give a value, an output line or a Big O efficiency, without explanation.
+- Explain: give the reason, such as why binary search needs sorted data or why recursion needs a base case.
+- Construct: write the code with loops to the specification, and check it against the example.
+- Sketch: draw the structure, such as the call stack, with each frame labelled.
+- Evaluate: weigh strengths and limitations, then reach a conclusion for the scenario.
+
+Some questions forbid built-in functions such as sorted(), max() and min(), so write the loop yourself even when the built-in exists.
+
+<Callout kind="exam">A trace answer needs every printed line, in order. For a sort, write the list after each pass, because examiners check the stages as well as the result.</Callout>
+
+## Common mistakes
+
+<Callout kind="mistake">Running a binary search on unsorted data. The first comparison may discard the half that holds the target, and no error is reported.</Callout>
+
+<Callout kind="mistake">Treating Big O as a count of seconds. It describes how the number of operations grows, so an $O(n)$ algorithm is still $O(n)$ on a faster computer.</Callout>
+
+<Callout kind="mistake">Writing a recursive function with no base case, or with a base case that the input never reaches. The result is a stack overflow, not an answer.</Callout>
+
+## Check yourself
+
+Answer these on paper first, then compare your answers with the markscheme.
+
+<Question id="b2-4-q05"/>
+
+<Question id="b2-4-q08"/>
+
+<Question id="b2-4-q11"/>
+
+## Summary
+
+- Big O efficiency describes how the number of operations grows with n in the worst case, and ignores constants and code that runs once.
+- Linear search checks items one by one, $O(n)$. Binary search needs sorted data and halves the remaining items each time, $O(\log n)$.
+- Bubble sort and selection sort are $O(n^2)$, sort in place with $O(1)$ extra space, and make $n(n-1)/2$ comparisons.
+- Recursion calls itself until a base case is reached. Each waiting call sits on the call stack, and a missing base case causes a stack overflow.
+- A trace table records the variables and the calls at each step.

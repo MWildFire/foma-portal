@@ -1,0 +1,93 @@
+## Big idea
+
+A data structure is a way of storing many values so that they can be read, changed and searched efficiently. The right choice depends on whether the number of items is known in advance and on the order in which items are added and removed. In this topic you compare static and dynamic structures, write programs with lists, and explain how stacks (last in, first out) and queues (first in, first out) control access to their items.
+
+## Explanation
+
+**Static or dynamic.** A <Term id="b2-2-static-data-structure"/> has a size that is set when it is declared, at compile time, and that cannot change while the program runs. A <Term id="b2-2-dynamic-data-structure"/> does not need its size set in advance: memory is set aside as items are added and released when they are removed. Think of a bookshelf with exactly ten slots, which is static, and a shopping basket that holds however many items you put in, which is dynamic.
+
+**Choosing between them.** Compare three things. Flexibility: a static structure suits a known number of items, and a dynamic one suits an unknown number. Memory: a dynamic structure uses only the memory it needs, while a static structure reserves its full size even when some elements are empty. Speed: a static structure is usually slightly quicker to reach an element by its index, because a dynamic structure's memory may become fragmented.
+
+**Arrays, tuples and Python.** In Java an <Term id="b2-2-array"/> is a static structure, while an ArrayList is dynamic. In Python a <Term id="b2-2-tuple"/> has a fixed size and its elements cannot be changed, while a list is always dynamic.
+
+**Lists and indexes.** A <Term id="b2-2-list"/> stores several items under one name. Each item has an <Term id="b2-2-index"/>, and in programming the first item has index 0, not 1. In Python you add an item with append(), remove an item by its value with remove(), and remove an item by its index with del. You can visit every item in turn (<Term id="b2-2-traversal"/>) with a loop that uses the index, or with a for loop that takes each item directly.
+
+**Two-dimensional lists.** A <Term id="b2-2-two-dimensional-list"/> is a list of rows, so it can be drawn as a table. In Python the element in row r and column c is written grid[r][c]. A double loop visits every element: the outer loop goes through the rows and the inner loop goes through the columns.
+
+**Stacks.** A <Term id="b2-2-stack"/> works on a last in, first out basis. Push adds an item to the top, pop removes the top item, and peek reads the top item without removing it. Each of these operations takes constant time, O(1), because only the top item is touched. Reaching the item at the bottom takes O(n), because every item above it must be removed first. A fixed-size stack that is full causes a stack overflow error. Stacks are used for recursion, for checking that brackets are matched, for undo features and for reversing a string.
+
+**Queues.** A <Term id="b2-2-queue"/> works on a first in, first out basis. Items join at the back (enqueue), leave from the front (dequeue), and the front item can be read with front(). Removing the front item is O(1); removing the last item is O(n), because everything in front of it must leave first. Print jobs and playlists are everyday examples of queues.
+
+<Callout kind="tip">A plain Python list works as a stack, because append() and pop() work at its end in constant time. For a queue, use collections.deque: its popleft() is constant time, whereas list.pop(0) shifts every remaining item.</Callout>
+
+## Worked example
+
+Work through the program below. Write down the list after every change before you read the output.
+
+```python
+stock = ["pens", "paper", "glue"]
+stock.append("rulers")
+stock.remove("paper")
+del stock[0]
+for index, item in enumerate(stock):
+    print(index, item)
+print(len(stock))
+```
+
+<Steps>
+<Step>append("rulers") adds the new item at the end: ["pens", "paper", "glue", "rulers"].</Step>
+<Step>remove("paper") deletes the first item whose value is "paper": ["pens", "glue", "rulers"].</Step>
+<Step>del stock[0] deletes the item at index 0, the first item: ["glue", "rulers"].</Step>
+<Step>enumerate gives each item together with its index, so the loop prints two values on each line.</Step>
+</Steps>
+
+<Reveal title="Show the output">Output: 0 glue, then 1 rulers, then 2 (the length of the list).</Reveal>
+
+## Visual
+
+The Python runner below lets you run the examples in this topic and change the values to see what happens. Try an index that is outside the list to see the error that Python reports.
+
+<Sim id="cs.python-runner"/>
+
+## How it is examined
+
+Command terms used in this topic:
+
+- **Distinguish**: make clear the differences between two items, such as a static and a dynamic structure.
+- **Justify**: give valid reasons for a choice, such as the structure that suits a described situation.
+- **Sketch**: draw the structure with labelled items, for example a stack after several push and pop operations.
+- **Define**: give the precise meaning of the term. No explanation or example is needed.
+- **State**: give a brief answer, such as a program's output, without explanation.
+- **Explain**: give a detailed account with reasons, for example why a full fixed-size stack overflows.
+- **Calculate**: give a numerical answer and show the stages of the working, such as a trace table.
+- **Construct**: write complete, runnable Python code when a program or a method is requested.
+
+<Callout kind="exam">A construct answer is marked on its logic. Check that indexes stay inside the list, that loops end, and that each operation uses the correct end: the top for a stack, the back and the front for a queue.</Callout>
+
+## Common mistakes
+
+- Saying that the contents of a static structure cannot change. Only its size is fixed: Java array elements can still change, but Python tuple elements cannot.
+- Counting from 1. The first item has index 0, and the last item has an index one less than the length of the list.
+- Writing grid[column][row]. In grid[row][column] the row comes first.
+- Mixing up the two orders. A stack returns the most recently added item; a queue returns the oldest item.
+- Writing a loop over range(len(list) + 1). The last index is one too high and causes an error.
+- Thinking that a Python list must hold one type of data. A Python list can hold mixed types, unlike a Java ArrayList.
+
+<Callout kind="mistake">Remember the two rules: a stack is last in, first out (LIFO) and a queue is first in, first out (FIFO). For every operation, say which end of the structure it works on.</Callout>
+
+## Check yourself
+
+Try these before you look at the answers. Use the trace table method for the first one.
+
+- <Question id="b2-2-q05"/>
+- <Question id="b2-2-q07"/>
+- <Question id="b2-2-q03"/>
+
+## Summary
+
+- A static structure has a size fixed at compile time; a dynamic structure grows and shrinks while the program runs.
+- A list stores many items under one name, and its indexes start at 0.
+- Traverse a list with a loop that uses the index, or with a for loop over the items.
+- A two-dimensional list is a list of rows, accessed as grid[row][column].
+- A stack is LIFO: push, pop and peek work at the top, in O(1) time.
+- A queue is FIFO: enqueue at the back and dequeue at the front, where removing the front item takes O(1) time.

@@ -1,0 +1,92 @@
+## Big idea
+
+Programs keep values in variables, give them data types, change text with string methods, handle unexpected events with exception handling and find faults with debugging. Most questions ask you to trace a program: predict what each line does to the variables, step by step, and state the output exactly.
+
+## Explanation
+
+### Variables and data types
+
+A <Term id="b2-1-variable"/> is a named space in memory that holds a value. Python does not require you to declare a variable before you use it, so total = 10 is enough. Every value still has a <Term id="b2-1-data-type"/>, which decides what it can hold and which operations are allowed. The types to know are int, a whole number such as 29; float, a number with a decimal point such as 7.99; bool, which is True or False; and str, a string of characters such as "Nadia". Python has no separate character type, so a single character is a str of length 1.
+
+Choosing a type is a decision about accuracy. An ID code that may begin with zero should be a string, because a number would lose the zero. A grade such as 6.5 must not be stored as an integer: int(6.5) gives 6, and the half point is lost.
+
+### Global and local variables
+
+A <Term id="b2-1-global-variable"/> is created outside any function and can be read anywhere in the program. A <Term id="b2-1-local-variable"/> is created inside a function, exists only while that function runs and cannot be used outside it. When a function assigns a value to a name, Python creates a local variable with that name unless the name is declared global. The global keyword lets the function change the global variable. When you trace a program, note the scope of each variable and follow global and local values separately.
+
+### Working with strings
+
+The characters of a <Term id="b2-1-string"/> are numbered from 0: in "Old Town", index 4 holds T. A slice [start:end] returns the characters from start up to, but not including, end. find returns the first index of a substring, or -1 if it is absent, and rfind returns the last one. replace changes every occurrence unless a count is given, and split turns a string into a list of words. Joining strings with + is <Term id="b2-1-concatenate"/>. It works only between strings, so a number must be converted with str() first.
+
+### Exception handling
+
+An exception is an unexpected event while a program runs, such as a user typing letters where a number is expected, or a file that does not exist. <Term id="b2-1-exception-handling"/> places risky code in a try block and deals with the error in an except block, so the program can carry on. A finally block runs whether or not an error occurred, which makes it the right place to close a file or print a closing message. Programs can also prevent errors in advance, for example with range checks or a check for an @ sign in an email address.
+
+### Debugging
+
+<Term id="b2-1-debugging"/> is the process of finding and fixing errors. Logic errors are the hardest to find: the program runs without an exception but gives a wrong answer, for example because of a wrong loop range or an infinite loop. A <Term id="b2-1-trace-table"/> records the variables and decisions at each step, so the first wrong value can be seen. A print statement shows which branch or iteration runs and the value of a variable at that point. A <Term id="b2-1-breakpoint"/> pauses the program on a chosen line so that the values can be checked, and step-by-step execution moves through the code one line at a time while the variables are displayed.
+
+## Worked example
+
+A school stores email addresses. This program takes the user name before the @ sign and the domain after it. Predict its three lines of output before you run it.
+
+```python
+# Read a school email address and split it at the @ sign.
+email = "anna.petrova@school.example"
+at = email.find("@")
+if at == -1:
+    print("Invalid email")
+else:
+    name = email[:at]
+    domain = email[at + 1:]
+    print(name)
+    print(domain)
+    print(name.upper() + " at " + domain)
+```
+
+The find call returns 12, the position of the @ sign. The slice email[:12] keeps everything before it, and email[13:] starts one place after the @, so the @ itself is not part of the domain. The check for -1 handles an address with no @ sign at all. The printed lines are anna.petrova, school.example and ANNA.PETROVA at school.example.
+
+## Visual
+
+<Sim id="cs.python-runner"/>
+
+Run the programs from this topic in the Python runner above. Predict each output on paper first, then run the program and compare the two.
+
+## How it is examined
+
+Paper 2 combines computational thinking with programming: question 1 covers computational thinking without coding, and the other questions ask for code. The command terms below set what a full answer needs:
+
+- State: a specific value, output or data type, with no working, for example the output of a short program.
+- Identify: choose the correct data type or item from the options given.
+- Justify: give valid reasons for a choice of data type or method.
+- Trace: follow the program line by line, record the variables and decisions at each stage, and give the final output.
+- Explain: give the reason for an output or an error, for example why a function leaves a global variable unchanged.
+- Construct: write a short Python function or program that meets the specification, and return the value when the question asks for a result.
+- Suggest: propose a debugging technique and explain why it suits the problem.
+
+<Callout kind="exam">A trace answer needs the variable values at each stage and the final output, as the command term requires. Write the table when the question asks for one, even if the output looks obvious.</Callout>
+
+## Common mistakes
+
+<Callout kind="mistake">Assuming that a function changes a global variable. Without the global keyword, the assignment creates a local variable, and the global value stays the same.</Callout>
+
+<Callout kind="mistake">Expecting exception handling to fix a wrong answer. A logic error raises no exception, so find it with a trace table, print statements or a breakpoint.</Callout>
+
+## Check yourself
+
+Answer these questions on paper first, then compare your answer with the markscheme.
+
+<Question id="b2-1-q03"/>
+
+<Question id="b2-1-q07"/>
+
+<Question id="b2-1-q10"/>
+
+## Summary
+
+- A variable is a named space in memory, and its data type sets what it can hold and which operations are allowed.
+- Python needs no declarations, but int, float, str and bool still matter for accuracy and for the operations you can use.
+- A global variable can be read anywhere; a local variable exists only inside its function; the global keyword lets a function change a global variable.
+- Strings can be indexed, sliced, searched, replaced and split, and concatenation joins them with +.
+- Exception handling uses try, except and finally to deal with unexpected events; it does not fix logic errors.
+- Debugging uses trace tables, print statements, breakpoints and step-by-step execution to find the first wrong value.

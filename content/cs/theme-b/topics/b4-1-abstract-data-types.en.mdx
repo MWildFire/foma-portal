@@ -1,0 +1,151 @@
+## Big idea
+
+An abstract data type (ADT) is defined by the operations allowed on its data, not by how the data is stored. Code that uses an ADT can stay the same when the implementation changes. This topic covers the ADT idea, then linked lists, binary search trees, sets and hash tables.
+
+## Explanation
+
+### Abstract data types
+
+An <Term id="b4-1-adt"/> has an interface: the set of operations a user may perform. A queue ADT, for example, offers enqueue, dequeue, peek and isEmpty and nothing else, so its items cannot be sorted through it.
+
+Two principles follow. <Term id="b4-1-abstraction"/> means the user works with what each operation does, not with how it is implemented. <Term id="b4-1-encapsulation"/> means the data can be reached only through the defined operations, so other code cannot break the structure. Because the implementation is hidden, it can be replaced without changing the programs that use the ADT. Stacks and queues are good first examples: see <Term id="b2-2-stack"/> and <Term id="b2-2-queue"/> in B2.2.
+
+Most ADTs use operations such as <Term id="b4-1-insertion"/>, which adds an element, <Term id="b4-1-deletion"/>, which removes one, and <Term id="b4-1-search"/>, which finds an element that meets a condition. Their cost depends on the ADT, not only on the name of the operation.
+
+### Linked lists
+
+A <Term id="b4-1-linked-list"/> is a sequence of nodes. Each node stores a data value and a pointer to the next node. The first node is the head, and in a singly linked list the last node points to None. Adding or removing a node only changes pointers, so insertion at the head and deletion of the head take $O(1)$ time. Finding an item, or adding at the end when there is no tail pointer, takes $O(n)$ time, because the list must be traversed one node at a time.
+
+Compared with an array, a linked list changes size easily and changes cheaply in the middle. It has no direct access by index, and each node stores an extra pointer. Linked lists suit data whose size changes often, while arrays suit data that is read by position.
+
+Another variant is a <Term id="b4-1-doubly-linked-list"/>, in which each node stores a second pointer back to the previous node. With head and tail references, insertion and deletion at either end take $O(1)$ time, and the list can be traversed in both directions. A third variant is a <Term id="b4-1-circular-linked-list"/>: its last node points back to the head, so it has no end marker. It suits repeating tasks such as round-robin scheduling, but a traversal must stop when it returns to the head.
+
+### Binary search trees
+
+A <Term id="b4-1-bst"/> is a tree of nodes with unique keys, in which every node has at most two children. Keys in a node's left subtree are smaller than its key, and keys in its right subtree are larger. Insertion follows the same path as a search. When the tree is balanced, search takes $O(\log n)$ time, because each comparison discards about half of the remaining nodes. If keys arrive in sorted order, the tree becomes a chain and search takes $O(n)$ time.
+
+### Sets
+
+A <Term id="b4-1-set"/> stores distinct elements with no particular order, so adding an element that is already present changes nothing. Its operations are add, remove, membership test, union, intersection and difference. Sets are often built on hash tables, so membership tests and additions take $O(1)$ time on average. In Python, `set` is the built-in type.
+
+### Hash tables and core principles
+
+A <Term id="b4-1-hash-table"/> stores key–value pairs. A hashing function turns each key into an index, so lookup, insertion and deletion take $O(1)$ time on average. A good hashing function is deterministic, spreads keys evenly and is quick to compute. When two keys give the same index, a collision occurs. It can be resolved by separate chaining, where each cell holds a list of entries, or by open addressing, which probes for another free slot.
+
+The load factor, written $\lambda$, is the number of entries divided by the number of buckets. A high load factor means more collisions and slower operations, so many implementations resize the table when $\lambda$ passes a threshold such as 0.7 and rehash every entry.
+
+## Worked example
+
+A music app stores its playlist as a doubly linked list, so the user can move forwards and backwards. The program below adds three songs and prints the playlist in both directions. Predict both lines before you run it.
+
+```python
+# Each song knows the song before it and the song after it.
+class Song:
+    def __init__(self, title):
+        self.title = title
+        self.prev = None
+        self.next = None
+
+
+class Playlist:
+    def __init__(self):
+        self.head = None
+        self.tail = None
+
+    def add_song(self, title):
+        song = Song(title)
+        if self.head is None:
+            self.head = song
+            self.tail = song
+        else:
+            self.tail.next = song
+            song.prev = self.tail
+            self.tail = song
+
+    def forwards(self):
+        titles = []
+        current = self.head
+        while current is not None:
+            titles.append(current.title)
+            current = current.next
+        return titles
+
+    def backwards(self):
+        titles = []
+        current = self.tail
+        while current is not None:
+            titles.append(current.title)
+            current = current.prev
+        return titles
+
+
+playlist = Playlist()
+playlist.add_song("Intro")
+playlist.add_song("Night")
+playlist.add_song("Outro")
+print(playlist.forwards())
+print(playlist.backwards())
+```
+
+<Steps>
+  <Step>The first song becomes both the head and the tail, because the playlist is empty.</Step>
+  <Step>Each later song is linked after the tail, and then the tail moves to it. The old tail's next pointer and the new song's prev pointer are set.</Step>
+  <Step>forwards follows next pointers from the head, and backwards follows prev pointers from the tail. The two lists hold the same titles in opposite orders.</Step>
+</Steps>
+
+The output is ['Intro', 'Night', 'Outro'] on the first line and ['Outro', 'Night', 'Intro'] on the second.
+
+## Visual
+
+Work through the three simulations in this order, and compare each step with your own trace.
+
+<Sim id="cs.stack-queue"/>
+
+The stack and queue simulation shows the contents after each push, pop, enqueue and dequeue.
+
+<Sim id="cs.linked-list"/>
+
+The linked list simulation shows which pointers change during an insertion or a deletion.
+
+<Sim id="cs.bst"/>
+
+The binary search tree simulation shows why sorted input makes a chain.
+
+## How it is examined
+
+Paper 2 questions on this topic use these command terms.
+
+- **Trace**: follow the program and record the variables, the decisions and the output, including the contents after each operation.
+- **Construct**: write a method or structure in Python that meets the stated behaviour. A full answer handles the head, an empty list and a value that is missing.
+- **Explain** and **Describe**: give reasons, or a detailed account of the key features.
+- **Evaluate** and **To what extent**: weigh strengths against limitations and reach a supported judgement.
+- **Calculate**: show the working and give the final value.
+- **State** and **Outline**: give a name, a value or a brief summary.
+
+<Callout kind="exam">A trace question is marked line by line. Write the state after every operation first, then copy the printed lines carefully.</Callout>
+
+## Common mistakes
+
+- Treating an ADT as one specific program. An ADT is defined by its operations, and an array or a linked list can implement it.
+- Looping with `while current is not None` over a circular list. The loop never ends, so stop when the traversal returns to the head.
+- Changing only the deleted node. The node before it must be linked to the node after it.
+- Assuming a binary search tree is always fast. Sorted insertions form a chain, and search then takes $O(n)$ time.
+
+## Check yourself
+
+Answer these before you look at the markschemes.
+
+<Question id="b4-1-q01"/>
+
+<Question id="b4-1-q03"/>
+
+<Question id="b4-1-q07"/>
+
+<Question id="b4-1-q10"/>
+
+## Summary
+
+- An ADT is defined by its operations, and its implementation can change without affecting the code that uses it.
+- Insertion and deletion at the head of a linked list take $O(1)$ time, while access and search take $O(n)$.
+- A balanced binary search tree searches in $O(\log n)$ time; a chain made from sorted keys searches in $O(n)$ time.
+- A set stores distinct elements without order. A hash table gives $O(1)$ average lookups, and the load factor decides when to resize.
