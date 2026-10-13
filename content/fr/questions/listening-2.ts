@@ -1,8 +1,8 @@
 import type { FrQuestion } from '../types';
 
-// Listening items for tracks l5 to l8 (paper 2). Each track has 10 items in the order of its recording: 3 vrai / faux /
+// Listening items for tracks l5 to l8 (paper 2). Each track has 10 items: 3 vrai / faux /
 // non mentionné (Identify), 3 multiple choice (Identify), 2 short answers (State), 1 matching (Match) and 1 note
-// completion (State). topicIds stay empty until the topic listening-strategy exists (Task 19).
+// completion (Note). topicIds stay empty until the topic listening-strategy exists (Task 19).
 
 export const questions: FrQuestion[] = [
   // ---- l5: radio report on rainwater at school ----
@@ -40,8 +40,8 @@ export const questions: FrQuestion[] = [
       fr: "Qu'est-ce que les élèves ont fait d'abord ?\nA) Ils ont demandé de l'argent aux parents d'élèves.\nB) Ils ont mesuré la consommation d'eau pendant un trimestre.\nC) Ils ont peint les cuves en vert.",
     },
     markscheme: {
-      en: "Answer B. Turn 3 (Le professeur): « Ils ont d'abord mesuré la consommation d'eau du lycée pendant un trimestre entier. » 'D'abord' means first. A is about money, which comes later (turn 7); C is not mentioned.",
-      ru: "Ответ B. Реплика 3 (Le professeur): «Ils ont d'abord mesuré la consommation d'eau du lycée pendant un trimestre entier.» Слово d'abord значит: сначала. A — про деньги, это позже (реплика 7), C не упоминается.",
+      en: "Answer B. Turn 3 (Le professeur): « Ils ont d'abord mesuré la consommation d'eau du lycée pendant un trimestre entier. » 'D'abord' means first. Turn 7 says only that the parents' association paid for part of the tanks; the question is what came first (turn 3, d'abord). C is not mentioned.",
+      ru: "Ответ B. Реплика 3 (Le professeur): «Ils ont d'abord mesuré la consommation d'eau du lycée pendant un trimestre entier.» Слово d'abord значит: сначала. Реплика 7 говорит только, что ассоциация родителей оплатила часть цистерн; вопрос в том, что было первым (реплика 3, d'abord). C не упоминается.",
     },
     answer: 'B',
     origin: 'original',
@@ -75,9 +75,9 @@ export const questions: FrQuestion[] = [
     marks: 1,
     command: 'Identify',
     prompt: {
-      en: "Is this statement vrai (true), faux (false) or non mentionné (not mentioned)? « L'eau de pluie est utilisée pour boire à la cantine. »",
-      ru: "Верно ли это утверждение: vrai (верно), faux (неверно) или non mentionné (не упоминается)? « L'eau de pluie est utilisée pour boire à la cantine. »",
-      fr: "Cette affirmation est-elle vraie (vrai), fausse (faux) ou non mentionnée (non mentionné) ? « L'eau de pluie est utilisée pour boire à la cantine. »",
+      en: "Is this statement vrai, faux or non mentionné? « L'eau de pluie est utilisée pour boire à la cantine. »",
+      ru: "Верно ли это утверждение: vrai, faux или non mentionné? « L'eau de pluie est utilisée pour boire à la cantine. »",
+      fr: "Cette affirmation est-elle vraie, fausse ou non mentionnée ? « L'eau de pluie est utilisée pour boire à la cantine. »",
     },
     markscheme: {
       en: "Answer: faux. Turn 5 (Le professeur): « On ne la boit pas, bien sûr. Pour la cantine et les fontaines, on continue à utiliser l'eau du réseau ». Rainwater is not drunk, and the canteen uses mains water.",
@@ -115,13 +115,13 @@ export const questions: FrQuestion[] = [
     marks: 1,
     command: 'Identify',
     prompt: {
-      en: "Is this statement vrai, faux or non mentionné? « La mairie a financé une partie des cuves. »",
-      ru: "Верно ли это утверждение: vrai, faux или non mentionné? « La mairie a financé une partie des cuves. »",
-      fr: "Cette affirmation est-elle vraie, fausse ou non mentionnée ? « La mairie a financé une partie des cuves. »",
+      en: "Is this statement vrai, faux or non mentionné? « The town hall installed the tanks. »",
+      ru: "Верно ли это утверждение: vrai, faux или non mentionné? « Мэрия установила цистерны. »",
+      fr: "Cette affirmation est-elle vraie, fausse ou non mentionnée ? « La mairie a installé les cuves. »",
     },
     markscheme: {
-      en: "Answer: non mentionné. Turn 7 (Le professeur) says that the parents' association paid for part of the tanks and that the rest is mostly the students' work. The town council (mairie) is not mentioned anywhere in the recording.",
-      ru: "Ответ: non mentionné. Реплика 7 (Le professeur): ассоциация родителей оплатила часть цистерн, а остальное — в основном работа учеников. Мэрия (mairie) в записи нигде не упоминается.",
+      en: "Answer: non mentionné. Turn 2 (La journaliste): « deux grandes cuves ont été installées derrière le bâtiment principal ». Nobody says who installed the tanks, and the town council (mairie) is not mentioned anywhere in the recording. Turn 7 (Le professeur) says only that the parents' association paid for part of the tanks.",
+      ru: "Ответ: non mentionné. Реплика 2 (La journaliste): «deux grandes cuves ont été installées derrière le bâtiment principal». Кто установил цистерны, в записи не сказано; мэрия (mairie) нигде не упоминается. Реплика 7 (Le professeur) говорит только, что ассоциация родителей оплатила часть цистерн.",
     },
     answer: 'non mentionné',
     origin: 'original',
@@ -140,7 +140,7 @@ export const questions: FrQuestion[] = [
       fr: "Comment les filtres ont-ils été fabriqués ?\nA) avec des pièces neuves achetées dans un magasin\nB) avec des pièces récupérées\nC) par une entreprise extérieure",
     },
     markscheme: {
-      en: "Answer B. Turn 7 (Le professeur): « ils ont fabriqué eux-mêmes les filtres avec des pièces récupérées ». 'Eux-mêmes' rules out C (a company), and 'récupérées' (recycled) rules out A (new parts).",
+      en: "Answer B. Turn 7 (Le professeur): « ils ont fabriqué eux-mêmes les filtres avec des pièces récupérées ». 'Eux-mêmes' rules out C (a company), and 'récupérées' (salvaged) rules out A (new parts).",
       ru: "Ответ B. Реплика 7 (Le professeur): «ils ont fabriqué eux-mêmes les filtres avec des pièces récupérées». Слово eux-mêmes (сами) исключает C (фирма), а слово récupérées (бывшие в употреблении) исключает A (новые детали).",
     },
     answer: 'B',
@@ -193,11 +193,11 @@ export const questions: FrQuestion[] = [
     paper: 'P2',
     section: 'l5',
     marks: 1,
-    command: 'State',
+    command: 'Note',
     prompt: {
-      en: "Complete the note with one French word (an infinitive) from the recording. The teacher's first advice: ____ how much water you use.",
-      ru: "Допишите заметку одним французским словом (инфинитивом) из записи. Первый совет учителя: ____ , сколько воды вы расходуете.",
-      fr: "Complétez la note avec un mot français (infinitif) de l'enregistrement. Premier conseil du professeur : ____ la quantité d'eau que l'on consomme.",
+      en: "Complete the note with one French word (an infinitive) from the recording. The teacher's advice: ____ how much water you use.",
+      ru: "Допишите заметку одним французским словом (инфинитивом) из записи. Совет учителя: ____, сколько воды вы расходуете.",
+      fr: "Complétez la note avec un mot français (infinitif) de l'enregistrement. Conseil du professeur : ____ la quantité d'eau que l'on consomme.",
     },
     markscheme: {
       en: "Answer: mesurer. Turn 13 (Le professeur): « Oui : commencez par mesurer. » The infinitive is the form used in the recording.",
@@ -375,7 +375,7 @@ export const questions: FrQuestion[] = [
     paper: 'P2',
     section: 'l6',
     marks: 1,
-    command: 'State',
+    command: 'Note',
     prompt: {
       en: "Complete the note with one French word from the recording. For Tuesday, remember to take the ____.",
       ru: "Допишите заметку одним французским словом из записи. На вторник не забудьте взять ____.",
@@ -565,7 +565,7 @@ export const questions: FrQuestion[] = [
     },
     markscheme: {
       en: "Answer: non mentionné. The recording never says which language is spoken at home. Turn 10 (Léa) says only that she wants to talk more easily with her grandparents about her projects.",
-      ru: "Ответ: non mentionné. В записи нигде не говорится, на каком языке звучит дома. В реплике 10 Léa говорит только, что хочет легче обсуждать свои проекты с бабушкой и дедушкой.",
+      ru: "Ответ: non mentionné. В записи нигде не говорится, на каком языке говорят дома. В реплике 10 Léa говорит только, что хочет легче обсуждать свои проекты с бабушкой и дедушкой.",
     },
     answer: 'non mentionné',
     origin: 'original',
@@ -597,7 +597,7 @@ export const questions: FrQuestion[] = [
     paper: 'P2',
     section: 'l7',
     marks: 1,
-    command: 'State',
+    command: 'Note',
     prompt: {
       en: "Complete the note with one French word from the recording. Gabrielle's advice: read one ____ in French every month.",
       ru: "Допишите заметку одним французским словом из записи. Совет Gabrielle: читать по одному ____ в месяц на французском языке.",
@@ -799,7 +799,7 @@ export const questions: FrQuestion[] = [
     paper: 'P2',
     section: 'l8',
     marks: 1,
-    command: 'State',
+    command: 'Note',
     prompt: {
       en: "Complete the note with one French word from the recording. Questions can be sent by ____ to the environment department.",
       ru: "Допишите заметку одним французским словом из записи. Вопросы можно отправить по ____ в отдел экологии (service environnement).",

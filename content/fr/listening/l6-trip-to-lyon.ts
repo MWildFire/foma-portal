@@ -9,7 +9,7 @@ export const track: ListeningTrack = {
   genre: 'dialogue',
   turns: [
     { speaker: 'Léa', voice: 'Lea', fr: "Bon, il faut qu'on organise le déplacement pour le séminaire à Lyon. Tu as déjà regardé les trains ?" },
-    { speaker: 'Rémi', voice: 'Remi', fr: "Oui, hier soir. Un aller-retour coûte environ cent euros par personne, si on réserve maintenant. Le train est direct, donc on met deux heures et quart. Le mieux, c'est de partir le lundi matin." },
+    { speaker: 'Rémi', voice: 'Remi', fr: "Oui, hier soir. Un aller-retour coûte environ cent euros par personne, si on réserve maintenant. Le train est direct, donc on met une heure et quart. Le mieux, c'est de partir le lundi matin." },
     { speaker: 'Léa', voice: 'Lea', fr: "D'accord. Quel train exactement ?" },
     { speaker: 'Rémi', voice: 'Remi', fr: "Celui de huit heures. Le séminaire commence à dix heures, donc on a le temps de poser nos affaires et de prendre un café tranquillement." },
     { speaker: 'Léa', voice: 'Lea', fr: "Très bien. Et le séminaire, il est loin de la gare ?" },

@@ -192,7 +192,7 @@ export const questions: FrQuestion[] = [
     paper: 'P2',
     section: 'l1',
     marks: 1,
-    command: 'Note',
+    command: 'Identify',
     prompt: {
       en: "Note the letter (A, B or C) of the correct answer. Which language does Léa's family mostly speak at home? A) French B) Portuguese C) Breton",
       ru: "Запишите букву (A, B или C) правильного ответа. На каком языке семья Léa в основном говорит дома? A) французский B) португальский C) бретонский",
@@ -394,7 +394,7 @@ export const questions: FrQuestion[] = [
     paper: 'P2',
     section: 'l2',
     marks: 1,
-    command: 'Note',
+    command: 'Match',
     prompt: {
       en: "Note the letter (A to E) of the part of the announcement about the festival. A) the welcome B) a cancelled train C) a delayed train D) the festival E) the rules for passengers",
       ru: "Запишите букву (от A до E) той части объявления, которая посвящена фестивалю. A) приветствие B) отменённый поезд C) поезд с задержкой D) фестиваль E) правила для пассажиров",
@@ -596,7 +596,7 @@ export const questions: FrQuestion[] = [
     paper: 'P2',
     section: 'l3',
     marks: 1,
-    command: 'Note',
+    command: 'Match',
     prompt: {
       en: "Note the letter (A to D) of the feature that was added because users asked for it. A) a single large button B) a printed receipt C) free delivery D) a commission",
       ru: "Запишите букву (от A до D) функции, которую добавили, потому что её просили пользователи. A) одна большая кнопка B) напечатанный чек C) бесплатная доставка D) комиссия",
@@ -798,7 +798,7 @@ export const questions: FrQuestion[] = [
     paper: 'P2',
     section: 'l4',
     marks: 1,
-    command: 'Note',
+    command: 'Identify',
     prompt: {
       en: "Note the letter (A to D) of the correct place. Where is the community fridge? A) at the entrance of the garden B) at the town hall C) at the library D) at the school",
       ru: "Запишите букву (от A до D) правильного места. Где находится солидарный холодильник? A) у входа в сад B) в мэрии C) в библиотеке D) в школе",
