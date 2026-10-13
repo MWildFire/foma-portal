@@ -1,0 +1,1243 @@
+{
+ "checks": [
+  {
+   "ref": "econ-p2-m24-tz1",
+   "fn": "pct_change",
+   "args": {
+    "old": 20,
+    "new": 16
+   },
+   "answer": "-20.0"
+  },
+  {
+   "ref": "econ-p2-m24-tz1",
+   "fn": "pct_change",
+   "args": {
+    "old": 400,
+    "new": 440
+   },
+   "answer": "10.0"
+  },
+  {
+   "ref": "econ-p2-m24-tz1",
+   "fn": "ped",
+   "args": {
+    "q1": 400,
+    "q2": 440,
+    "p1": 20,
+    "p2": 16
+   },
+   "answer": "-0.5"
+  },
+  {
+   "ref": "econ-p2-m24-tz1",
+   "fn": "total_revenue",
+   "args": {
+    "p": 16,
+    "q": 440
+   },
+   "answer": "7040"
+  },
+  {
+   "ref": "econ-p2-m24-tz1",
+   "fn": "total_revenue",
+   "args": {
+    "p": 20,
+    "q": 400
+   },
+   "answer": "8000"
+  },
+  {
+   "ref": "econ-p2-m24-tz1",
+   "fn": "budget_balance",
+   "args": {
+    "tax_revenue": -40,
+    "spending": 70
+   },
+   "answer": "-110"
+  },
+  {
+   "ref": "econ-p2-m24-tz1",
+   "fn": "budget_balance",
+   "args": {
+    "tax_revenue": -110,
+    "spending": 8
+   },
+   "answer": "-118"
+  },
+  {
+   "ref": "econ-p2-m24-tz1",
+   "fn": "budget_balance",
+   "args": {
+    "tax_revenue": -118,
+    "spending": -6
+   },
+   "answer": "-112"
+  },
+  {
+   "ref": "econ-p2-m24-tz1",
+   "fn": "budget_balance",
+   "args": {
+    "tax_revenue": 600,
+    "spending": 320
+   },
+   "answer": "280"
+  },
+  {
+   "ref": "econ-p2-m24-tz1",
+   "fn": "budget_balance",
+   "args": {
+    "tax_revenue": 280,
+    "spending": 90
+   },
+   "answer": "190"
+  },
+  {
+   "ref": "econ-p2-m24-tz1",
+   "fn": "budget_balance",
+   "args": {
+    "tax_revenue": 190,
+    "spending": 110
+   },
+   "answer": "80"
+  },
+  {
+   "ref": "econ-p2-m24-tz1",
+   "fn": "budget_balance",
+   "args": {
+    "tax_revenue": 150,
+    "spending": 80
+   },
+   "answer": "70"
+  },
+  {
+   "ref": "econ-p2-m24-tz1",
+   "fn": "budget_balance",
+   "args": {
+    "tax_revenue": 540,
+    "spending": 500
+   },
+   "answer": "40"
+  },
+  {
+   "ref": "econ-p2-m24-tz1",
+   "fn": "pct_change",
+   "args": {
+    "old": 60,
+    "new": 57
+   },
+   "answer": "-5.0"
+  },
+  {
+   "ref": "econ-p2-m24-tz1",
+   "fn": "pct_change",
+   "args": {
+    "old": 2000,
+    "new": 2200
+   },
+   "answer": "10.0"
+  },
+  {
+   "ref": "econ-p2-m24-tz1",
+   "fn": "yed",
+   "args": {
+    "q1": 60,
+    "q2": 57,
+    "y1": 2000,
+    "y2": 2200
+   },
+   "answer": "-0.50"
+  },
+  {
+   "ref": "econ-p2-m24-tz2",
+   "fn": "pct_change",
+   "args": {
+    "old": 30,
+    "new": 24
+   },
+   "answer": "-20.0"
+  },
+  {
+   "ref": "econ-p2-m24-tz2",
+   "fn": "pct_change",
+   "args": {
+    "old": 100,
+    "new": 140
+   },
+   "answer": "40.0"
+  },
+  {
+   "ref": "econ-p2-m24-tz2",
+   "fn": "ped",
+   "args": {
+    "q1": 100,
+    "q2": 140,
+    "p1": 30,
+    "p2": 24
+   },
+   "answer": "-2.0"
+  },
+  {
+   "ref": "econ-p2-m24-tz2",
+   "fn": "total_revenue",
+   "args": {
+    "p": 24,
+    "q": 140
+   },
+   "answer": "3360"
+  },
+  {
+   "ref": "econ-p2-m24-tz2",
+   "fn": "total_revenue",
+   "args": {
+    "p": 30,
+    "q": 100
+   },
+   "answer": "3000"
+  },
+  {
+   "ref": "econ-p2-m24-tz2",
+   "fn": "budget_balance",
+   "args": {
+    "tax_revenue": -40,
+    "spending": -60
+   },
+   "answer": "20"
+  },
+  {
+   "ref": "econ-p2-m24-tz2",
+   "fn": "budget_balance",
+   "args": {
+    "tax_revenue": 20,
+    "spending": 10
+   },
+   "answer": "10"
+  },
+  {
+   "ref": "econ-p2-m24-tz2",
+   "fn": "budget_balance",
+   "args": {
+    "tax_revenue": 10,
+    "spending": -8
+   },
+   "answer": "18"
+  },
+  {
+   "ref": "econ-p2-m24-tz2",
+   "fn": "budget_balance",
+   "args": {
+    "tax_revenue": 200,
+    "spending": 260
+   },
+   "answer": "-60"
+  },
+  {
+   "ref": "econ-p2-m24-tz2",
+   "fn": "budget_balance",
+   "args": {
+    "tax_revenue": 700,
+    "spending": 120
+   },
+   "answer": "580"
+  },
+  {
+   "ref": "econ-p2-m24-tz2",
+   "fn": "budget_balance",
+   "args": {
+    "tax_revenue": 580,
+    "spending": 130
+   },
+   "answer": "450"
+  },
+  {
+   "ref": "econ-p2-m24-tz2",
+   "fn": "budget_balance",
+   "args": {
+    "tax_revenue": 450,
+    "spending": -60
+   },
+   "answer": "510"
+  },
+  {
+   "ref": "econ-p2-m24-tz2",
+   "fn": "pct_change",
+   "args": {
+    "old": 50,
+    "new": 52
+   },
+   "answer": "4.0"
+  },
+  {
+   "ref": "econ-p2-m24-tz2",
+   "fn": "pct_change",
+   "args": {
+    "old": 1000,
+    "new": 1100
+   },
+   "answer": "10.0"
+  },
+  {
+   "ref": "econ-p2-m24-tz2",
+   "fn": "yed",
+   "args": {
+    "q1": 50,
+    "q2": 52,
+    "y1": 1000,
+    "y2": 1100
+   },
+   "answer": "0.40"
+  },
+  {
+   "ref": "econ-p3-m24-q1",
+   "fn": "current_account",
+   "args": {
+    "exports": 1420,
+    "imports": 960,
+    "net_income": -150,
+    "net_transfers": -20
+   },
+   "answer": "290"
+  },
+  {
+   "ref": "econ-p3-m24-q1",
+   "fn": "budget_balance",
+   "args": {
+    "tax_revenue": 900,
+    "spending": 300
+   },
+   "answer": "600"
+  },
+  {
+   "ref": "econ-p3-m24-q1",
+   "fn": "budget_balance",
+   "args": {
+    "tax_revenue": 600,
+    "spending": 200
+   },
+   "answer": "400"
+  },
+  {
+   "ref": "econ-p3-m24-q1",
+   "fn": "budget_balance",
+   "args": {
+    "tax_revenue": 400,
+    "spending": -100
+   },
+   "answer": "500"
+  },
+  {
+   "ref": "econ-p3-m24-q1",
+   "fn": "total_revenue",
+   "args": {
+    "p": 4.0,
+    "q": 300
+   },
+   "answer": "1200"
+  },
+  {
+   "ref": "econ-p3-m24-q1",
+   "fn": "total_revenue",
+   "args": {
+    "p": 6.0,
+    "q": 180
+   },
+   "answer": "1080"
+  },
+  {
+   "ref": "econ-p3-m24-q1",
+   "fn": "budget_balance",
+   "args": {
+    "tax_revenue": 1080,
+    "spending": 1200
+   },
+   "answer": "-120"
+  },
+  {
+   "ref": "econ-p3-m24-q1",
+   "fn": "pct_change",
+   "args": {
+    "old": 400,
+    "new": 340
+   },
+   "answer": "-15.0"
+  },
+  {
+   "ref": "econ-p3-m24-q1",
+   "fn": "pct_change",
+   "args": {
+    "old": 20,
+    "new": 24
+   },
+   "answer": "20.0"
+  },
+  {
+   "ref": "econ-p3-m24-q1",
+   "fn": "ped",
+   "args": {
+    "q1": 400,
+    "q2": 340,
+    "p1": 20,
+    "p2": 24
+   },
+   "answer": "-0.75"
+  },
+  {
+   "ref": "econ-p3-m24-q1",
+   "fn": "triangle",
+   "args": {
+    "base": 60,
+    "height": 4
+   },
+   "answer": "120"
+  },
+  {
+   "ref": "econ-p3-m24-q1",
+   "fn": "triangle",
+   "args": {
+    "base": 640,
+    "height": 5.5
+   },
+   "answer": "1760"
+  },
+  {
+   "ref": "econ-p3-m24-q2",
+   "fn": "real_gdp",
+   "args": {
+    "nominal": 4680,
+    "deflator": 156.0
+   },
+   "answer": "3000"
+  },
+  {
+   "ref": "econ-p3-m24-q2",
+   "fn": "ratio",
+   "args": {
+    "a": 3000,
+    "b": 72.0
+   },
+   "answer": "41.667"
+  },
+  {
+   "ref": "econ-p3-m24-q2",
+   "fn": "convert",
+   "args": {
+    "amount": 41.667,
+    "rate": 1000
+   },
+   "answer": "41667"
+  },
+  {
+   "ref": "econ-p3-m24-q2",
+   "fn": "inflation",
+   "args": {
+    "index_now": 330.0,
+    "index_before": 200.0
+   },
+   "answer": "65.0"
+  },
+  {
+   "ref": "econ-p3-m24-q2",
+   "fn": "ratio",
+   "args": {
+    "a": 330.0,
+    "b": 200.0
+   },
+   "answer": "1.65"
+  },
+  {
+   "ref": "econ-p3-m24-q2",
+   "fn": "ratio",
+   "args": {
+    "a": 64000,
+    "b": 15.5
+   },
+   "answer": "4129.03"
+  },
+  {
+   "ref": "econ-p3-m24-q2",
+   "fn": "ratio",
+   "args": {
+    "a": 7200,
+    "b": 1.2
+   },
+   "answer": "6000"
+  },
+  {
+   "ref": "econ-p3-m24-q2",
+   "fn": "tax_revenue",
+   "args": {
+    "t": 0.2,
+    "q": 6000
+   },
+   "answer": "1200"
+  },
+  {
+   "ref": "econ-p3-m24-q2",
+   "fn": "tax_revenue",
+   "args": {
+    "t": 0.2,
+    "q": 7200
+   },
+   "answer": "1440"
+  },
+  {
+   "ref": "econ-p2-n24",
+   "fn": "convert",
+   "args": {
+    "amount": 1.5,
+    "rate": 1000
+   },
+   "answer": "1500"
+  },
+  {
+   "ref": "econ-p2-n24",
+   "fn": "gni_per_capita",
+   "args": {
+    "gni": 1500,
+    "population": 0.75
+   },
+   "answer": "2000"
+  },
+  {
+   "ref": "econ-p2-n24",
+   "fn": "convert",
+   "args": {
+    "amount": 1.62,
+    "rate": 1000
+   },
+   "answer": "1620"
+  },
+  {
+   "ref": "econ-p2-n24",
+   "fn": "gni_per_capita",
+   "args": {
+    "gni": 1620,
+    "population": 0.8
+   },
+   "answer": "2025"
+  },
+  {
+   "ref": "econ-p2-n24",
+   "fn": "pct_change",
+   "args": {
+    "old": 2000,
+    "new": 2025
+   },
+   "answer": "1.25"
+  },
+  {
+   "ref": "econ-p2-n24",
+   "fn": "real_gdp",
+   "args": {
+    "nominal": 380,
+    "deflator": 115
+   },
+   "answer": "330.43"
+  },
+  {
+   "ref": "econ-p2-n24",
+   "fn": "convert",
+   "args": {
+    "amount": 330.43,
+    "rate": 1000
+   },
+   "answer": "330430"
+  },
+  {
+   "ref": "econ-p2-n24",
+   "fn": "gni_per_capita",
+   "args": {
+    "gni": 330430,
+    "population": 22
+   },
+   "answer": "15019.55"
+  },
+  {
+   "ref": "econ-p3-n24-q1",
+   "fn": "current_account",
+   "args": {
+    "exports": 820,
+    "imports": 950,
+    "net_income": -60,
+    "net_transfers": 25
+   },
+   "answer": "-165"
+  },
+  {
+   "ref": "econ-p3-n24-q1",
+   "fn": "ratio",
+   "args": {
+    "a": 6600,
+    "b": 27.5
+   },
+   "answer": "240.0"
+  },
+  {
+   "ref": "econ-p3-n24-q1",
+   "fn": "ratio",
+   "args": {
+    "a": 6600,
+    "b": 33.0
+   },
+   "answer": "200.0"
+  },
+  {
+   "ref": "econ-p3-n24-q1",
+   "fn": "budget_balance",
+   "args": {
+    "tax_revenue": 200.0,
+    "spending": 240.0
+   },
+   "answer": "-40.0"
+  },
+  {
+   "ref": "econ-p3-n24-q1",
+   "fn": "budget_balance",
+   "args": {
+    "tax_revenue": 400,
+    "spending": -150
+   },
+   "answer": "550"
+  },
+  {
+   "ref": "econ-p3-n24-q1",
+   "fn": "convert",
+   "args": {
+    "amount": 4.0,
+    "rate": 1.1
+   },
+   "answer": "4.4"
+  },
+  {
+   "ref": "econ-p3-n24-q1",
+   "fn": "total_revenue",
+   "args": {
+    "p": 4.0,
+    "q": 320
+   },
+   "answer": "1280"
+  },
+  {
+   "ref": "econ-p3-n24-q1",
+   "fn": "total_revenue",
+   "args": {
+    "p": 4.4,
+    "q": 290
+   },
+   "answer": "1276"
+  },
+  {
+   "ref": "econ-p3-n24-q1",
+   "fn": "budget_balance",
+   "args": {
+    "tax_revenue": 1276,
+    "spending": 1280
+   },
+   "answer": "-4"
+  },
+  {
+   "ref": "econ-p3-n24-q2",
+   "fn": "triangle",
+   "args": {
+    "base": 2.0,
+    "height": 66
+   },
+   "answer": "66"
+  },
+  {
+   "ref": "econ-p3-n24-q2",
+   "fn": "triangle",
+   "args": {
+    "base": 1.5,
+    "height": 66
+   },
+   "answer": "49.5"
+  },
+  {
+   "ref": "econ-p3-n24-q2",
+   "fn": "multiplier_from_mpc",
+   "args": {
+    "mpc": 0.6
+   },
+   "answer": "2.5"
+  },
+  {
+   "ref": "econ-p3-n24-q2",
+   "fn": "convert",
+   "args": {
+    "amount": 3.0,
+    "rate": 2.5
+   },
+   "answer": "7.5"
+  },
+  {
+   "ref": "econ-p2-m25-tz1",
+   "fn": "pct_change",
+   "args": {
+    "old": 300,
+    "new": 350
+   },
+   "answer": "16.67"
+  },
+  {
+   "ref": "econ-p2-m25-tz1",
+   "fn": "pct_change",
+   "args": {
+    "old": 40,
+    "new": 44
+   },
+   "answer": "10.00"
+  },
+  {
+   "ref": "econ-p2-m25-tz1",
+   "fn": "pes",
+   "args": {
+    "q1": 300,
+    "q2": 350,
+    "p1": 40,
+    "p2": 44
+   },
+   "answer": "1.67"
+  },
+  {
+   "ref": "econ-p2-m25-tz1",
+   "fn": "total_revenue",
+   "args": {
+    "p": 50,
+    "q": 1200
+   },
+   "answer": "60000"
+  },
+  {
+   "ref": "econ-p2-m25-tz1",
+   "fn": "real_gdp",
+   "args": {
+    "nominal": 1000,
+    "deflator": 130
+   },
+   "answer": "769.23"
+  },
+  {
+   "ref": "econ-p2-m25-tz1",
+   "fn": "ratio",
+   "args": {
+    "a": 520,
+    "b": 0.35
+   },
+   "answer": "1485.71"
+  },
+  {
+   "ref": "econ-p2-m25-tz1",
+   "fn": "budget_balance",
+   "args": {
+    "tax_revenue": 1000,
+    "spending": 50
+   },
+   "answer": "950"
+  },
+  {
+   "ref": "econ-p2-m25-tz1",
+   "fn": "budget_balance",
+   "args": {
+    "tax_revenue": 1200,
+    "spending": 40
+   },
+   "answer": "1160"
+  },
+  {
+   "ref": "econ-p2-m25-tz1",
+   "fn": "budget_balance",
+   "args": {
+    "tax_revenue": 1160,
+    "spending": 950
+   },
+   "answer": "210"
+  },
+  {
+   "ref": "econ-p2-m25-tz2",
+   "fn": "current_account",
+   "args": {
+    "exports": 10.0,
+    "imports": 12.5,
+    "net_income": -2.0,
+    "net_transfers": 1.5
+   },
+   "answer": "-3.00"
+  },
+  {
+   "ref": "econ-p2-m25-tz2",
+   "fn": "ratio",
+   "args": {
+    "a": 250,
+    "b": 100
+   },
+   "answer": "2.50"
+  },
+  {
+   "ref": "econ-p2-m25-tz2",
+   "fn": "gdp_deflator",
+   "args": {
+    "nominal": 600,
+    "real": 480
+   },
+   "answer": "125.00"
+  },
+  {
+   "ref": "econ-p2-m25-tz2",
+   "fn": "ratio",
+   "args": {
+    "a": 480,
+    "b": 0.36
+   },
+   "answer": "1333.33"
+  },
+  {
+   "ref": "econ-p2-m25-tz2",
+   "fn": "convert",
+   "args": {
+    "amount": 0.5,
+    "rate": 72
+   },
+   "answer": "36.00"
+  },
+  {
+   "ref": "econ-p2-m25-tz3",
+   "fn": "budget_balance",
+   "args": {
+    "tax_revenue": 9.0,
+    "spending": 12.0
+   },
+   "answer": "-3.00"
+  },
+  {
+   "ref": "econ-p2-m25-tz3",
+   "fn": "current_account",
+   "args": {
+    "exports": 9.0,
+    "imports": 12.0,
+    "net_income": -1.5,
+    "net_transfers": 2.5
+   },
+   "answer": "-2.0"
+  },
+  {
+   "ref": "econ-p2-m25-tz3",
+   "fn": "budget_balance",
+   "args": {
+    "tax_revenue": -1.0,
+    "spending": -2.0
+   },
+   "answer": "1.00"
+  },
+  {
+   "ref": "econ-p2-m25-tz3",
+   "fn": "real_gdp",
+   "args": {
+    "nominal": 1000,
+    "deflator": 120
+   },
+   "answer": "833.33"
+  },
+  {
+   "ref": "econ-p2-m25-tz3",
+   "fn": "ratio",
+   "args": {
+    "a": 833.33,
+    "b": 0.5
+   },
+   "answer": "1666.66"
+  },
+  {
+   "ref": "econ-p2-m25-tz3",
+   "fn": "ratio",
+   "args": {
+    "a": 300000,
+    "b": 60
+   },
+   "answer": "5000.00"
+  },
+  {
+   "ref": "econ-p3-m25-q1",
+   "fn": "triangle",
+   "args": {
+    "base": 60,
+    "height": 4.0
+   },
+   "answer": "120"
+  },
+  {
+   "ref": "econ-p3-m25-q1",
+   "fn": "triangle",
+   "args": {
+    "base": 80,
+    "height": 5.0
+   },
+   "answer": "200"
+  },
+  {
+   "ref": "econ-p3-m25-q1",
+   "fn": "budget_balance",
+   "args": {
+    "tax_revenue": 200,
+    "spending": 120
+   },
+   "answer": "80"
+  },
+  {
+   "ref": "econ-p3-m25-q1",
+   "fn": "total_revenue",
+   "args": {
+    "p": 60.0,
+    "q": 250
+   },
+   "answer": "15000"
+  },
+  {
+   "ref": "econ-p3-m25-q1",
+   "fn": "total_revenue",
+   "args": {
+    "p": 55.0,
+    "q": 350
+   },
+   "answer": "19250"
+  },
+  {
+   "ref": "econ-p3-m25-q1",
+   "fn": "budget_balance",
+   "args": {
+    "tax_revenue": 19250,
+    "spending": 15000
+   },
+   "answer": "4250"
+  },
+  {
+   "ref": "econ-p3-m25-q1",
+   "fn": "ratio",
+   "args": {
+    "a": 4250,
+    "b": 100
+   },
+   "answer": "42.5"
+  },
+  {
+   "ref": "econ-p3-m25-q1",
+   "fn": "profit",
+   "args": {
+    "p": 55.0,
+    "q": 350,
+    "total_cost": 17000
+   },
+   "answer": "2250"
+  },
+  {
+   "ref": "econ-p3-m25-q1",
+   "fn": "profit",
+   "args": {
+    "p": 50.0,
+    "q": 450,
+    "total_cost": 21000
+   },
+   "answer": "1500"
+  },
+  {
+   "ref": "econ-p3-m25-q1",
+   "fn": "budget_balance",
+   "args": {
+    "tax_revenue": 1500,
+    "spending": 2250
+   },
+   "answer": "-750"
+  },
+  {
+   "ref": "econ-p3-m25-q1",
+   "fn": "budget_balance",
+   "args": {
+    "tax_revenue": 18000,
+    "spending": -3000
+   },
+   "answer": "21000"
+  },
+  {
+   "ref": "econ-p3-m25-q1",
+   "fn": "ratio",
+   "args": {
+    "a": 21000,
+    "b": 480
+   },
+   "answer": "43.75"
+  },
+  {
+   "ref": "econ-p3-m25-q2",
+   "fn": "total_revenue",
+   "args": {
+    "p": 135,
+    "q": 3
+   },
+   "answer": "405"
+  },
+  {
+   "ref": "econ-p3-m25-q2",
+   "fn": "total_revenue",
+   "args": {
+    "p": 310,
+    "q": 2
+   },
+   "answer": "620"
+  },
+  {
+   "ref": "econ-p3-m25-q2",
+   "fn": "budget_balance",
+   "args": {
+    "tax_revenue": 405,
+    "spending": -620
+   },
+   "answer": "1025"
+  },
+  {
+   "ref": "econ-p3-m25-q2",
+   "fn": "cpi",
+   "args": {
+    "basket_now": 1025,
+    "basket_base": 880
+   },
+   "answer": "116.48"
+  },
+  {
+   "ref": "econ-p3-m25-q2",
+   "fn": "inflation",
+   "args": {
+    "index_now": 116.48,
+    "index_before": 111.2
+   },
+   "answer": "4.75"
+  },
+  {
+   "ref": "econ-p3-m25-q2",
+   "fn": "budget_balance",
+   "args": {
+    "tax_revenue": 1.8,
+    "spending": 4.75
+   },
+   "answer": "-2.95"
+  },
+  {
+   "ref": "econ-p2-n25-tz1",
+   "fn": "convert",
+   "args": {
+    "amount": 400,
+    "rate": 120.25
+   },
+   "answer": "48100.00"
+  },
+  {
+   "ref": "econ-p2-n25-tz1",
+   "fn": "convert",
+   "args": {
+    "amount": 400,
+    "rate": 240.5
+   },
+   "answer": "96200.00"
+  },
+  {
+   "ref": "econ-p2-n25-tz1",
+   "fn": "convert",
+   "args": {
+    "amount": 2.0,
+    "rate": 4.0
+   },
+   "answer": "8.00"
+  },
+  {
+   "ref": "econ-p2-n25-tz1",
+   "fn": "convert",
+   "args": {
+    "amount": 2000,
+    "rate": 5.0
+   },
+   "answer": "10000.00"
+  },
+  {
+   "ref": "econ-p2-n25-tz3",
+   "fn": "gdp_deflator",
+   "args": {
+    "nominal": 550,
+    "real": 500
+   },
+   "answer": "110.00"
+  },
+  {
+   "ref": "econ-p2-n25-tz3",
+   "fn": "pct_change",
+   "args": {
+    "old": 100,
+    "new": 110
+   },
+   "answer": "10.00"
+  },
+  {
+   "ref": "econ-p2-n25-tz3",
+   "fn": "pct_change",
+   "args": {
+    "old": 20,
+    "new": 18
+   },
+   "answer": "-10.00"
+  },
+  {
+   "ref": "econ-p2-n25-tz3",
+   "fn": "convert",
+   "args": {
+    "amount": -0.5,
+    "rate": -10
+   },
+   "answer": "5.00"
+  },
+  {
+   "ref": "econ-p3-n25-q1",
+   "fn": "pct_change",
+   "args": {
+    "old": 2300.0,
+    "new": 2415.0
+   },
+   "answer": "5.0"
+  },
+  {
+   "ref": "econ-p3-n25-q1",
+   "fn": "budget_balance",
+   "args": {
+    "tax_revenue": 6.5,
+    "spending": 3.2
+   },
+   "answer": "3.3"
+  },
+  {
+   "ref": "econ-p3-n25-q1",
+   "fn": "budget_balance",
+   "args": {
+    "tax_revenue": 540.0,
+    "spending": 610.0
+   },
+   "answer": "-70.0"
+  },
+  {
+   "ref": "econ-p3-n25-q1",
+   "fn": "current_account",
+   "args": {
+    "exports": 540.0,
+    "imports": 610.0,
+    "net_income": -25.0,
+    "net_transfers": -40.0
+   },
+   "answer": "-135.0"
+  },
+  {
+   "ref": "econ-p3-n25-q1",
+   "fn": "budget_balance",
+   "args": {
+    "tax_revenue": -135.0,
+    "spending": 5.0
+   },
+   "answer": "-140.0"
+  },
+  {
+   "ref": "econ-p3-n25-q1",
+   "fn": "convert",
+   "args": {
+    "amount": -140.0,
+    "rate": -1
+   },
+   "answer": "140.0"
+  },
+  {
+   "ref": "econ-p3-n25-q1",
+   "fn": "pct_change",
+   "args": {
+    "old": 6.4,
+    "new": 6.1
+   },
+   "answer": "-4.69"
+  },
+  {
+   "ref": "econ-p3-n25-q2",
+   "fn": "ratio",
+   "args": {
+    "a": 40,
+    "b": 20
+   },
+   "answer": "2.0"
+  },
+  {
+   "ref": "econ-p3-n25-q2",
+   "fn": "ratio",
+   "args": {
+    "a": 30,
+    "b": 10
+   },
+   "answer": "3.0"
+  },
+  {
+   "ref": "econ-p3-n25-q2",
+   "fn": "profit",
+   "args": {
+    "p": 8.0,
+    "q": 3,
+    "total_cost": 15.0
+   },
+   "answer": "9.0"
+  },
+  {
+   "ref": "econ-p3-n25-q2",
+   "fn": "budget_balance",
+   "args": {
+    "tax_revenue": 60.0,
+    "spending": 52.0
+   },
+   "answer": "8.0"
+  },
+  {
+   "ref": "econ-p3-n25-q2",
+   "fn": "ratio",
+   "args": {
+    "a": 8.0,
+    "b": 1
+   },
+   "answer": "8.0"
+  },
+  {
+   "ref": "econ-p3-n25-q2",
+   "fn": "budget_balance",
+   "args": {
+    "tax_revenue": 5,
+    "spending": -10
+   },
+   "answer": "15"
+  },
+  {
+   "ref": "econ-p3-n25-q2",
+   "fn": "budget_balance",
+   "args": {
+    "tax_revenue": 15,
+    "spending": -15
+   },
+   "answer": "30"
+  },
+  {
+   "ref": "econ-p3-n25-q2",
+   "fn": "budget_balance",
+   "args": {
+    "tax_revenue": 150.0,
+    "spending": 120.0
+   },
+   "answer": "30.0"
+  },
+  {
+   "ref": "econ-p3-n25-q2",
+   "fn": "triangle",
+   "args": {
+    "base": 30.0,
+    "height": 2.0
+   },
+   "answer": "30.0"
+  }
+ ]
+}

@@ -11,6 +11,9 @@
 #   - the answer must equal the recomputed value rounded to the decimals the answer is written with;
 #   - a check with "expect_in" must find its recomputed value among the numbers of those fields (for example
 #     "markscheme.en"), within "tol" (default: 0.2 % or 0.005, whichever is larger; absolute values are compared).
+#   - a check with "ref" (a past paper id, no "question") is a calculation written out in a past-paper guide: both the
+#     English and the Russian guide must state every argument and the answer, and the answer must be the recomputed
+#     value rounded to the decimals it is written with. Such checks live in scripts/econ-checks/pastpapers-*.json.
 # Exit code 0 when everything passes, 1 otherwise.
 
 import glob
@@ -212,8 +215,57 @@ def load_checks():
     return checks
 
 
+GUIDE_FIELDS = ('guide.en', 'guide.ru')
+
+
+def check_guide(entry, pastpapers, where, failures):
+    # A calculation written out in a past-paper guide. The guide must state every argument and the answer, in both
+    # languages, and the answer must be the value the function gives, rounded to the decimals it is written with.
+    ref_id = entry.get('ref')
+    ref = pastpapers.get(ref_id)
+    if ref is None:
+        failures.append(f"{where}: past paper {ref_id} is not in content/econ")
+        return False
+    name = entry.get('fn')
+    if name not in FUNCTIONS:
+        failures.append(f"{where}: {ref_id}: unknown function {name}")
+        return False
+    args = entry.get('args', {})
+    try:
+        value = FUNCTIONS[name](**args)
+    except (TypeError, ZeroDivisionError) as error:
+        failures.append(f"{where}: {ref_id}: {name}{args} cannot be computed ({error})")
+        return False
+    answer = str(entry.get('answer', '')).strip()
+    if not re.fullmatch(r'-?\d+(\.\d+)?', answer):
+        failures.append(f"{where}: {ref_id}: answer \"{answer}\" is not a plain decimal number")
+        return False
+    if not rounds_to(value, answer):
+        failures.append(f"{where}: {ref_id}: {name}{args} = {value:.6f}, which is not {answer} at {decimals_of(answer)} decimal places")
+        return False
+    ok = True
+    for field in entry.get('in', GUIDE_FIELDS):
+        numbers = numbers_in(field_text(ref, field))
+        missing = [key for key, arg in args.items() if not any(abs(x - float(arg)) < 1e-9 for x in numbers)]
+        if not numbers:
+            failures.append(f"{where}: {ref_id}: {field} is empty")
+            ok = False
+        elif missing:
+            failures.append(f"{where}: {ref_id}: {field} does not state {', '.join(missing)}")
+            ok = False
+        elif not any(abs(x - float(answer)) < 1e-9 for x in numbers):
+            failures.append(f"{where}: {ref_id}: {field} does not state the answer {answer}")
+            ok = False
+    return ok
+
+
 def main():
-    questions = load_questions()
+    rows = load_questions()
+    questions = [row for row in rows if row.get('kind') != 'pastpaper']
+    pastpapers = {}
+    for row in rows:
+        if row.get('kind') == 'pastpaper':
+            pastpapers.setdefault(row['id'], row)
     by_id = {}
     for question in questions:
         by_id.setdefault(question['id'], question)
@@ -229,6 +281,10 @@ def main():
 
     for entry in checks:
         where = entry['_file']
+        if 'ref' in entry:
+            if check_guide(entry, pastpapers, where, failures):
+                passed += 1
+            continue
         qid = entry.get('question')
         question = by_id.get(qid)
         if question is None:
