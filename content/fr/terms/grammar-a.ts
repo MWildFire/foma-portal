@@ -7,7 +7,7 @@ export const terms: FrTerm[] = [
   {
     id: 'gr-present-regular',
     term: { en: 'present tense (regular verbs)', ru: 'настоящее время (правильные глаголы)', fr: 'le présent des verbes réguliers' },
-    def: { en: 'Regular verbs keep the infinitive stem and take one set of endings for each person.', ru: 'Правильные глаголы сохраняют основу инфинитива и получают один набор окончаний для каждого лица.' },
+    def: { en: 'Regular verbs keep the infinitive stem and take a fixed set of endings that change with the person.', ru: 'Правильные глаголы сохраняют основу инфинитива и получают фиксированный набор окончаний, которые меняются в зависимости от лица.' },
     example: { en: "I work on Saturdays and finish at five o'clock.", ru: 'Я работаю по субботам и заканчиваю в пять часов.', fr: 'Je travaille le samedi et je finis à cinq heures.' },
     syllabus: 'G1.present',
     papers: ['P1', 'P2'],
@@ -44,7 +44,7 @@ export const terms: FrTerm[] = [
   },
   {
     id: 'gr-passe-compose-etre',
-    term: { en: 'perfect tense (with être)', ru: 'сложное прошедшее с être', fr: 'le passé composé avec être' },
+    term: { en: 'perfect tense (with être)', ru: 'сложное прошедшее время с être', fr: 'le passé composé avec être' },
     def: { en: "Some verbs, mostly verbs of movement and change, take 'to be' as their auxiliary instead of 'to have'.", ru: 'Некоторые глаголы, в основном глаголы движения и изменения, образуют прошедшее с вспомогательным глаголом «быть», а не «иметь».' },
     example: { en: 'Yesterday Léa went to the market and came back at noon.', ru: 'Вчера Лена ходила на рынок и вернулась в полдень.', fr: 'Hier, Léa est allée au marché et elle est rentrée à midi.' },
     syllabus: 'G2.past',
@@ -63,7 +63,7 @@ export const terms: FrTerm[] = [
   {
     id: 'gr-imparfait',
     term: { en: 'imperfect tense (imparfait)', ru: 'несовершенное прошедшее время (imparfait)', fr: "l'imparfait" },
-    def: { en: 'Built from the "we" form of the present minus its ending, and used for habits, descriptions and background.', ru: 'Образуется от формы «мы» настоящего времени без окончания; употребляется для привычек, описаний и фона.' },
+    def: { en: "Built from the 'we' form minus its ending, except 'to be'; used for habits, descriptions and background.", ru: 'Образуется от формы «nous» без окончания, кроме глагола «быть»; используется для привычек, описаний и фона.' },
     example: { en: 'When Léa was little, she often played in the garden.', ru: 'Когда Лена была маленькой, она часто играла в саду.', fr: 'Quand Léa était petite, elle jouait souvent dans le jardin.' },
     syllabus: 'G2.past',
     papers: ['P1', 'P2'],
@@ -119,7 +119,7 @@ export const terms: FrTerm[] = [
   {
     id: 'gr-si-real',
     term: { en: 'if-clause, real future', ru: 'реальное условие (if-clause)', fr: 'la phrase avec « si » (réel)' },
-    def: { en: "After 'if', use the present for a real possibility; the main clause uses the future tense.", ru: 'После союза «если» ставится настоящее время для реальной возможности; в главной части — будущее время.' },
+    def: { en: "After 'if', use the present for a real possibility; the main clause usually uses the future.", ru: 'После союза «если» ставится настоящее время для реальной возможности; главное предложение обычно употребляет futur.' },
     example: { en: 'If you have time, we will be able to meet tomorrow.', ru: 'Если у тебя будет время, мы сможем встретиться завтра.', fr: 'Si tu as le temps, on pourra se voir demain.' },
     syllabus: 'G3.future-conditional',
     papers: ['P1', 'P2'],

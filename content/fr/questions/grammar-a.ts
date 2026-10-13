@@ -37,7 +37,7 @@ export const questions: FrQuestion[] = [
     },
     markscheme: {
       en: 'Answer: B. "Depuis" with the present means the action started in the past and continues now: the speakers have lived in Geneva for two years and still do.',
-      ru: 'Ответ: B. «Depuis» с présent означает, что действие началось в прошлом и продолжается сейчас: они живут в Женеве два года и живут там до сих пор.',
+      ru: 'Ответ: B. «Depuis» с présent означает, что действие началось в прошлом и продолжается сейчас: они живут в Женеве уже два года.',
     },
     answer: 'B',
     origin: 'original',

@@ -2,7 +2,7 @@ import type { L } from '../../../src/contract/types';
 
 // Conjugation drills for Grammar A (présent, passé composé, imparfait, futur simple, conditionnel présent).
 // The answer is the verb form without the subject pronoun. For the passé composé it is the auxiliary plus the past
-// participle (ai parlé, est allée). The trainer adds the pronoun and writes j' before a vowel (j'ai).
+// participle (ai parlé, est allée). The trainer adds the pronoun and writes j' before a vowel or a mute h (j'ai).
 // Not collected by content/fr/index.ts: the conjugation trainer imports `drills` directly.
 
 export type DrillTense = 'présent' | 'passé composé' | 'imparfait' | 'futur simple' | 'conditionnel présent';
