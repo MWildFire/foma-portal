@@ -1,6 +1,7 @@
 // Small Markdown reader for the L fields of the content contract: short text, inline Markdown, formulas in $...$.
 // Supported inline: **bold**, *italic* / _italic_, `code`, $math$ and $$display math$$, [text](url), \-escapes.
-// Supported blocks: paragraphs (single line breaks kept), "- " bullet lists and "1. " numbered lists.
+// Supported blocks: paragraphs (single line breaks kept), "- " bullet lists, "1. " numbered lists and GFM tables
+// ("| a | b |" with a "|:--|--:|" row under the header; a pipe inside $...$ or `...` does not split a cell).
 // Pure functions only. The React side lives in src/components/content/RichText.tsx.
 
 export type Inline =
@@ -12,10 +13,14 @@ export type Inline =
   | { type: 'link'; href: string; children: Inline[] }
   | { type: 'br' };
 
+// Column alignment from the row under a table header: ":--" left, ":-:" center, "--:" right, "--" not set.
+export type Align = 'left' | 'center' | 'right' | null;
+
 export type Block =
   | { type: 'p'; children: Inline[] }
   | { type: 'ul'; items: Inline[][] }
-  | { type: 'ol'; items: Inline[][] };
+  | { type: 'ol'; items: Inline[][] }
+  | { type: 'table'; align: Align[]; header: Inline[][]; rows: Inline[][][] };
 
 const ESCAPABLE = '\\`*_$[]';
 
@@ -193,6 +198,76 @@ const BULLET = /^\s*[-*•]\s+(\S.*)$/;
 const ORDERED = /^\s*\d{1,2}[.)]\s+(\S.*)$/;
 
 interface Run { kind: 'p' | 'ul' | 'ol'; lines: string[] }
+interface TableEntry { kind: 'table'; align: Align[]; header: string[]; rows: string[][] }
+type Entry = Run | TableEntry;
+
+// The cells of one table row. A pipe inside $...$ or `...` does not split a cell, "\|" is a pipe, and any other
+// escape is kept for the inline reader. Leading and trailing pipes are optional.
+function splitRow(line: string): string[] {
+  let text = line.trim();
+  if (text.startsWith('|')) text = text.slice(1);
+  if (text.endsWith('|') && !text.endsWith('\\|')) text = text.slice(0, -1);
+  const cells: string[] = [];
+  let cell = '';
+  let i = 0;
+  while (i < text.length) {
+    const ch = text[i];
+    if (ch === '\\' && i + 1 < text.length) {
+      cell += text[i + 1] === '|' ? '|' : ch + text[i + 1];
+      i += 2;
+      continue;
+    }
+    const end = spanEnd(text, i);
+    if (end > i) {
+      cell += text.slice(i, end);
+      i = end;
+      continue;
+    }
+    if (ch === '|') {
+      cells.push(cell.trim());
+      cell = '';
+    } else {
+      cell += ch;
+    }
+    i += 1;
+  }
+  cells.push(cell.trim());
+  return cells;
+}
+
+const DELIMITER_CELL = /^:?-+:?$/;
+
+// The row under a header: one cell per column, each a run of dashes with optional colons. Null when the line is not one.
+function alignmentsOf(line: string): Align[] | null {
+  if (!line.includes('|')) return null;
+  const align: Align[] = [];
+  for (const cell of splitRow(line)) {
+    if (!DELIMITER_CELL.test(cell)) return null;
+    const left = cell.startsWith(':');
+    const right = cell.endsWith(':');
+    align.push(left && right ? 'center' : right ? 'right' : left ? 'left' : null);
+  }
+  return align;
+}
+
+// A table starts at a line with pipes that is followed by an alignment row with the same number of cells. Its body
+// is the lines with pipes after that; a blank line or a line without a pipe ends it. Short rows are padded with empty
+// cells, long rows are cut to the number of columns.
+function readTable(lines: string[], start: number): { entry: TableEntry; next: number } | null {
+  if (!lines[start].includes('|') || start + 1 >= lines.length) return null;
+  const align = alignmentsOf(lines[start + 1]);
+  if (!align) return null;
+  const header = splitRow(lines[start]);
+  if (header.length !== align.length) return null;
+  const rows: string[][] = [];
+  let next = start + 2;
+  while (next < lines.length && lines[next].includes('|')) {
+    const cells = splitRow(lines[next]);
+    rows.push(Array.from({ length: align.length }, (_, column) => cells[column] ?? ''));
+    next += 1;
+  }
+  return { entry: { kind: 'table', align, header, rows }, next };
+}
 
 function withBreaks(lines: string[]): Inline[] {
   const out: Inline[] = [];
@@ -204,13 +279,23 @@ function withBreaks(lines: string[]): Inline[] {
 }
 
 export function parseBlocks(text: string): Block[] {
-  const runs: Run[] = [];
+  const entries: Entry[] = [];
   let last: Run | undefined;
+  const lines = text.replace(/\r\n?/g, '\n').split('\n');
 
-  for (const source of text.replace(/\r\n?/g, '\n').split('\n')) {
+  for (let index = 0; index < lines.length; index += 1) {
+    const source = lines[index];
     const line = source.trimEnd();
     if (!line.trim()) {
       last = undefined;
+      continue;
+    }
+
+    const table = readTable(lines, index);
+    if (table) {
+      entries.push(table.entry);
+      last = undefined;
+      index = table.next - 1;
       continue;
     }
 
@@ -220,7 +305,7 @@ export function parseBlocks(text: string): Block[] {
       const kind = bullet ? 'ul' : 'ol';
       if (!last || last.kind !== kind) {
         last = { kind, lines: [] };
-        runs.push(last);
+        entries.push(last);
       }
       last.lines.push(item[1].trim());
       continue;
@@ -233,13 +318,22 @@ export function parseBlocks(text: string): Block[] {
 
     if (!last || last.kind !== 'p') {
       last = { kind: 'p', lines: [] };
-      runs.push(last);
+      entries.push(last);
     }
     last.lines.push(line.trim());
   }
 
-  return runs.map((run): Block =>
-    run.kind === 'p'
-      ? { type: 'p', children: withBreaks(run.lines) }
-      : { type: run.kind, items: run.lines.map(parseInline) });
+  return entries.map((entry): Block => {
+    if (entry.kind === 'table') {
+      return {
+        type: 'table',
+        align: entry.align,
+        header: entry.header.map(cell => parseInline(cell)),
+        rows: entry.rows.map(row => row.map(cell => parseInline(cell))),
+      };
+    }
+    return entry.kind === 'p'
+      ? { type: 'p', children: withBreaks(entry.lines) }
+      : { type: entry.kind, items: entry.lines.map(parseInline) };
+  });
 }

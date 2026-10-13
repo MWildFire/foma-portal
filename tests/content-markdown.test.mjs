@@ -176,3 +176,71 @@ test('Windows line endings are handled', () => {
     { type: 'ul', items: [[text('b')], [text('c')]] },
   ]);
 });
+
+// ---- tables (GFM)
+
+test('a table: header, alignment row and body rows, with the alignment of each column', () => {
+  assert.deepEqual(parseBlocks('| Price | Quantity |\n|:--|--:|\n| 2 | 10 |\n| 3 | 7 |'), [
+    {
+      type: 'table',
+      align: ['left', 'right'],
+      header: [[text('Price')], [text('Quantity')]],
+      rows: [[[text('2')], [text('10')]], [[text('3')], [text('7')]]],
+    },
+  ]);
+  assert.deepEqual(parseBlocks('| a | b | c |\n|:-:|:--|---:|\n| 1 | 2 | 3 |')[0].align, ['center', 'left', 'right']);
+});
+
+test('a table without alignment markers and without outer pipes', () => {
+  assert.deepEqual(parseBlocks('Good | Bad\n--- | ---\nfast | slow'), [
+    { type: 'table', align: [null, null], header: [[text('Good')], [text('Bad')]], rows: [[[text('fast')], [text('slow')]]] },
+  ]);
+  assert.deepEqual(parseBlocks('| a | b |\n|-|-|')[0].align, [null, null]);
+});
+
+test('a table ends at a blank line or at a line without a pipe, and the text after it is a paragraph', () => {
+  assert.deepEqual(parseBlocks('| a |\n|:-:|\n| 1 |\n\nAfter the table.'), [
+    { type: 'table', align: ['center'], header: [[text('a')]], rows: [[[text('1')]]] },
+    { type: 'p', children: [text('After the table.')] },
+  ]);
+  assert.deepEqual(parseBlocks('| a |\n|---|\n| 1 |\nDone.')[1], { type: 'p', children: [text('Done.')] });
+});
+
+test('a table can follow a paragraph without a blank line', () => {
+  assert.deepEqual(parseBlocks('Compare:\n| x | y |\n|---|---|\n| 1 | 2 |'), [
+    { type: 'p', children: [text('Compare:')] },
+    { type: 'table', align: [null, null], header: [[text('x')], [text('y')]], rows: [[[text('1')], [text('2')]]] },
+  ]);
+});
+
+test('a formula in a cell is one cell, even when it has a pipe inside', () => {
+  const [table] = parseBlocks('| Measure | Value |\n| --- | --- |\n| Elasticity | $|E_d| = \\frac{a}{b}$ |\n| Gap | $P_1 \\mid P_2$ |');
+  assert.equal(table.rows.length, 2);
+  assert.deepEqual(table.rows[0][1], [{ type: 'math', value: '|E_d| = \\frac{a}{b}', display: false }]);
+  assert.deepEqual(table.rows[1][1], [{ type: 'math', value: 'P_1 \\mid P_2', display: false }]);
+  assert.equal(table.rows[0].length, 2, 'the pipe inside the formula does not add a column');
+});
+
+test('a pipe in code stays in the cell; an escaped pipe is a pipe', () => {
+  const [table] = parseBlocks('| Operator | Meaning |\n|---|---|\n| `a|b` | a \\| b |');
+  assert.deepEqual(table.rows[0], [[{ type: 'code', value: 'a|b' }], [text('a | b')]]);
+  assert.deepEqual(parseBlocks('| a \\| b | c |\n|-|-|')[0].header, [[text('a | b')], [text('c')]]);
+});
+
+test('short rows are padded with empty cells, long rows are cut to the number of columns', () => {
+  const [table] = parseBlocks('| a | b |\n| - | - |\n| 1 |\n| 2 | 3 | 4 |');
+  assert.deepEqual(table.rows, [[[text('1')], []], [[text('2')], [text('3')]]]);
+});
+
+test('a line of pipes is not a table unless the alignment row has the same number of cells', () => {
+  assert.deepEqual(parseBlocks('a | b\n--- | --- | ---'), [
+    { type: 'p', children: [text('a | b'), { type: 'br' }, text('--- | --- | ---')] },
+  ]);
+  assert.deepEqual(parseBlocks('a | b'), [{ type: 'p', children: [text('a | b')] }]);
+});
+
+test('inline Markdown works in table cells', () => {
+  const [table] = parseBlocks('| Term | Note |\n|---|---|\n| **Demand** | see [ThinkIB](https://www.thinkib.net/) |');
+  assert.deepEqual(table.rows[0][0], [{ type: 'strong', children: [text('Demand')] }]);
+  assert.deepEqual(table.rows[0][1], [text('see '), { type: 'link', href: 'https://www.thinkib.net/', children: [text('ThinkIB')] }]);
+});

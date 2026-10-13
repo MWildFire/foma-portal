@@ -1,11 +1,14 @@
 import { Fragment, type CSSProperties, type ReactNode } from 'react';
-import { parseBlocks, parseInline, type Inline } from '../../lib/topic-markdown';
+import { parseBlocks, parseInline, type Block, type Inline } from '../../lib/topic-markdown';
+import { useBodyT } from '../mdx/context';
+import '../mdx/mdx.css';
 import { ContentLink } from './ContentLink';
 import { Tex } from './Tex';
 
 // Teaching text stored as plain strings (the L fields of the content contract):
 //   blank line      -> new paragraph
 //   "- " / "1. "    -> bullet / numbered list
+//   "| a | b |" with a "|---|:--:|" row under the header -> table
 //   **bold**, *italic*, `code`, [text](url), $formula$, $$display formula$$
 // Text without these marks renders as one paragraph. The parser is in src/lib/topic-markdown.ts.
 function renderInline(nodes: Inline[]): ReactNode[] {
@@ -29,6 +32,38 @@ function renderInline(nodes: Inline[]): ReactNode[] {
   });
 }
 
+// A table. A wide one scrolls inside its own box, which takes the keyboard focus and has a name, the same as the
+// tables of the MDX body. The column alignment comes from the row under the header.
+function ContentTable({ table }: { table: Extract<Block, { type: 'table' }> }) {
+  const { t } = useBodyT();
+  const cellStyle = (column: number): CSSProperties | undefined => {
+    const align = table.align[column];
+    return align ? { textAlign: align } : undefined;
+  };
+  return (
+    <div className="foma-table-wrap" tabIndex={0} role="region" aria-label={t('table.label')}>
+      <table className="foma-table">
+        <thead>
+          <tr>
+            {table.header.map((cell, column) => (
+              <th key={column} scope="col" className="foma-th" style={cellStyle(column)}>{renderInline(cell)}</th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {table.rows.map((row, rowIndex) => (
+            <tr key={rowIndex}>
+              {row.map((cell, column) => (
+                <td key={column} className="foma-td" style={cellStyle(column)}>{renderInline(cell)}</td>
+              ))}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+}
+
 // Inline-only rendering: no paragraphs or lists, so it is safe inside a <span>, <p> or <li>.
 export function InlineText({ text }: { text?: string | null }) {
   if (!text) return null;
@@ -48,6 +83,8 @@ export function RichText({ text, className, paragraphClassName, style }: { text?
           return <ol key={index} className="my-2 list-decimal space-y-1 pl-6 first:mt-0 last:mb-0">{block.items.map((item, j) => <li key={j}>{renderInline(item)}</li>)}</ol>;
         case 'p':
           return <p key={index} className={['my-2 first:mt-0 last:mb-0', paragraphClassName].filter(Boolean).join(' ')}>{renderInline(block.children)}</p>;
+        case 'table':
+          return <ContentTable key={index} table={block} />;
       }
     })}
   </div>;
