@@ -90,7 +90,7 @@ export const questions: Question[] = [
       en: `**Plan**
 
 1. Thesis: the model is a useful description of the general pattern of change, but it explains the speed, the causes and the role of migration poorly.
-2. Point 1: England and Wales shows the later stages. Its total fertility rate was 1.39 children per woman in 2025, below the replacement level, and live births fell to 585,396 (ONS).
+2. Point 1: Japan shows the later stages. Its crude birth rate was 6.0 and its crude death rate 12.3 per 1000 in 2023, so the population shrinks naturally (UN WPP 2024).
 3. Point 2: speed. Imported medicine cut death rates quickly in many low-income countries, compressing the stages.
 4. Point 3: migration. Japan's population fell by 550,000 in the year to 1 October 2024 (Statistics Bureau of Japan), but that total mixes natural decrease with migration, which the model ignores.
 5. Judgement: useful for broad trends, weak for individual countries without migration and policy.
@@ -101,7 +101,7 @@ The demographic transition model describes a useful general pattern: death rates
       ru: `**План**
 
 1. Тезис: модель — полезное описание общей закономерности изменений, но она плохо объясняет скорость, причины и роль миграции.
-2. Пункт 1: Англия и Уэльс показывают поздние стадии. Суммарный коэффициент рождаемости составил 1,39 ребёнка на женщину в 2025 году, ниже уровня замещения, а число живорождений снизилось до 585 396 (ONS).
+2. Пункт 1: Япония показывает поздние стадии. В 2023 году общий коэффициент рождаемости составлял 6,0, а смертности — 12,3 на 1000 человек, поэтому население убывает естественным путём (UN WPP 2024).
 3. Пункт 2: скорость. Импортированная медицина быстро снизила смертность во многих странах с низкими доходами и сжала стадии.
 4. Пункт 3: миграция. Население Японии сократилось на 550 000 за год до 1 октября 2024 года (Statistics Bureau of Japan), но эта разница объединяет естественную убыль и миграцию, которую модель не учитывает.
 5. Суждение: полезна для общих тенденций, слаба для отдельных стран без учёта миграции и политики.
