@@ -141,7 +141,7 @@ def cmd_index(_args):
             'id': make_id(session, paper, tz) + ('-ms' if kind == 'markscheme' else ''),
             'session': session, 'paper': paper, 'tz': tz, 'kind': kind,
             # 'More Papers M23' repeats the M23 TZ2 papers (word overlap 0.7-1.0), so it is not a separate variant.
-            'inScope': session in SCOPE and tz != 'MORE', 'rel': rel, 'url': pdf_url(rel.split('/', 1)[1]),
+            'inScope': session in SCOPE and tz != 'MORE', 'rel': rel, 'url': pdf_url(rel),
         })
     with open(INDEX_PATH, 'w', encoding='utf-8') as fh:
         json.dump(entries, fh, ensure_ascii=False, indent=1)
@@ -281,7 +281,7 @@ def cmd_check(_args):
 
 
 def ts_string(value):
-    return "'" + value.replace('\\', '\\\\').replace("'", "\\'") + "'"
+    return "'" + value.replace('\\', '\\\\').replace("'", "\\'").replace('\n', '\\n') + "'"
 
 
 def ts_l(value):
@@ -304,7 +304,7 @@ def cmd_build(args):
         guide_path = os.path.join(GUIDE_DIR, doc['id'] + '.json')
         guide = json.load(open(guide_path, encoding='utf-8')) if os.path.exists(guide_path) else None
         ms = index.get(doc['id'] + '-ms')
-        files = [{'kind': 'questions', 'url': doc['url']}]
+        files = [{'kind': 'questions', 'url': index[doc['id']]['url']}]  # the index is the source of PDF links
         if ms:
             files.append({'kind': 'markscheme', 'url': ms['url']})
         out.append('  {')
