@@ -1,7 +1,9 @@
 // Local progress for one browser (localStorage). Unknown or malformed data is dropped, never thrown.
 export const STORAGE_KEY = 'foma-portal-v1';
 export const UPDATE_EVENT = 'foma-portal-state-update';
-export const STORAGE_SCHEMA_VERSION = 1;
+// 2: extra time is on unless a version-2 save switched it off. Version 1 saves wrote the old default (off) back on every
+// save, so normalizeState turns extra time on for them once (decision 5: +25% on all of Fома's exams).
+export const STORAGE_SCHEMA_VERSION = 2;
 
 export type Rag = 'red' | 'amber' | 'green';
 export type Rating = 'right' | 'partial' | 'wrong';
@@ -134,7 +136,8 @@ export function normalizeState(raw: unknown): GlobalState {
   const room: AccessRoom = access.room === 'ACC2' || access.room === 'SpHal2' || access.room === 'unknown'
     ? access.room
     : access.separateRoom === true ? 'ACC2' : 'unknown';
-  state.settings.accessArrangements = { extraTime: access.extraTime !== false, separateRoom: room === 'ACC2', room };
+  const extraTime = raw.version === STORAGE_SCHEMA_VERSION ? access.extraTime !== false : true;
+  state.settings.accessArrangements = { extraTime, separateRoom: room === 'ACC2', room };
   state.settings.dailyLoadMinutes = loadOf(settings.dailyLoadMinutes);
   return state;
 }

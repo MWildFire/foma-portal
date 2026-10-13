@@ -47,8 +47,13 @@ test('a saved state loads back unchanged', () => {
 test('extra time is on by default and the room survives a reload', () => {
   assert.deepEqual(normalizeState({}).settings.accessArrangements, { extraTime: true, separateRoom: false, room: 'unknown' });
   assert.deepEqual(
-    normalizeState({ settings: { accessArrangements: { extraTime: false, room: 'SpHal2' } } }).settings.accessArrangements,
+    normalizeState({ version: 2, settings: { accessArrangements: { extraTime: false, room: 'SpHal2' } } }).settings.accessArrangements,
     { extraTime: false, separateRoom: false, room: 'SpHal2' },
+  );
+  // A version 1 save wrote the old default (off) back on every save: extra time is turned on once.
+  assert.deepEqual(
+    normalizeState({ version: 1, settings: { accessArrangements: { extraTime: false, room: 'SpHal2' } } }).settings.accessArrangements,
+    { extraTime: true, separateRoom: false, room: 'SpHal2' },
   );
   assert.deepEqual(
     normalizeState({ settings: { accessArrangements: { room: 'ACC2' } } }).settings.accessArrangements,
