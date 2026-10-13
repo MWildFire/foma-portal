@@ -45,6 +45,7 @@ export const terms: Term[] = [
     syllabus: 'A3.2',
     papers: ['P1'],
     src: { kind: 'textbook', title: 'Oxford IB DP Computer Science Course Companion (2025)', locator: 'ch. A3.2, p. 174' },
+    example: { en: 'A logical schema lists the entities CUSTOMER and ORDER, their attributes and the key that links each order to its customer, but not the data type of each attribute.', ru: 'Логическая схема перечисляет сущности CUSTOMER и ORDER, их атрибуты и ключ, который связывает заказ с клиентом, но не указывает типы данных атрибутов.' },
     pitfall: {
       en: 'Adding data types at this level. Data types belong to the physical schema.',
       ru: 'Добавление типов данных на этом уровне. Типы данных относятся к физической схеме.',
@@ -75,6 +76,7 @@ export const terms: Term[] = [
     syllabus: 'A3.2',
     papers: ['P1'],
     src: { kind: 'textbook', title: 'Oxford IB DP Computer Science Course Companion (2025)', locator: 'ch. A3.2, p. 173' },
+    example: { en: 'A diagram with two boxes, CUSTOMER and ORDER, joined by a line labelled "places", shows that a customer places orders.', ru: 'Диаграмма с двумя прямоугольниками CUSTOMER и ORDER, соединёнными линией «размещает», показывает, что клиент размещает заказы.' },
     pitfall: {
       en: 'Drawing relationships without cardinality or modality. Every link needs both.',
       ru: 'Рисование связей без кардинальности и модальности. Каждой связи нужны оба свойства.',
@@ -143,6 +145,7 @@ export const terms: Term[] = [
     syllabus: 'A3.2',
     papers: ['P1'],
     src: { kind: 'textbook', title: 'Oxford IB DP Computer Science Course Companion (2025)', locator: 'ch. A3.2, p. 181' },
+    example: { en: 'A table that repeats the customer address in every order row is split into a CUSTOMER table and an ORDER table, so each address is stored once.', ru: 'Таблица, в которой адрес клиента повторяется в каждой строке заказа, делится на таблицу CUSTOMER и таблицу ORDER, поэтому адрес хранится один раз.' },
     pitfall: {
       en: 'Stopping at 1NF. The syllabus requires 3NF, and each step removes a different kind of dependency.',
       ru: 'Остановиться на 1НФ. Программа требует 3НФ, и каждый шаг убирает свой вид зависимости.',

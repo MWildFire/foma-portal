@@ -49,6 +49,7 @@ export const terms: Term[] = [
     syllabus: 'B3.1',
     papers: ['P2'],
     src: { kind: 'textbook', title: BOOK, locator: 'ch. B3.1, p. 418' },
+    example: { en: 'In a Student class, the line `self.name = name` creates an attribute: every Student object keeps its own name.', ru: 'В классе Student строка `self.name = name` создаёт атрибут: каждый объект Student хранит своё имя.' },
     pitfall: {
       en: 'An attribute belongs to one object. A value shared by all objects is a static variable, not an ordinary attribute.',
       ru: 'Атрибут принадлежит одному объекту. Значение, общее для всех объектов, — это статическая переменная, а не обычный атрибут.',
@@ -79,6 +80,7 @@ export const terms: Term[] = [
     syllabus: 'B3.1',
     papers: ['P2'],
     src: { kind: 'textbook', title: BOOK, locator: 'ch. B3.1, p. 420' },
+    example: { en: 'The method `def __init__(self, name): self.name = name` runs when `Student("Ada")` creates an object, so each new Student starts with a name.', ru: 'Метод `def __init__(self, name): self.name = name` выполняется, когда `Student("Ada")` создаёт объект, поэтому каждый новый объект Student получает имя.' },
     pitfall: {
       en: 'In Python the constructor is named __init__, and its first parameter is always self.',
       ru: 'В Python конструктор называется __init__, а его первый параметр всегда self.',
@@ -147,6 +149,7 @@ export const terms: Term[] = [
     syllabus: 'B3.1',
     papers: ['P2'],
     src: { kind: 'textbook', title: BOOK, locator: 'ch. B3.1, p. 435' },
+    example: { en: 'A class keeps its balance in the private attribute `self.__balance`, so outside code changes it only through the method `deposit()`, where the checks run.', ru: 'Класс хранит баланс в закрытом атрибуте `self.__balance`, поэтому внешний код меняет его только через метод `deposit()`, где выполняются проверки.' },
     pitfall: {
       en: 'Putting attributes and methods in one class is not enough. The attributes must also be hidden, for example by making them private.',
       ru: 'Одного объединения атрибутов и методов в одном классе недостаточно. Атрибуты также нужно скрыть, например сделать приватными.',

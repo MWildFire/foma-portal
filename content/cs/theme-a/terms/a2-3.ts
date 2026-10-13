@@ -24,6 +24,7 @@ export const terms: Term[] = [
     syllabus: 'A2.3',
     papers: ['P1'],
     src: { kind: 'textbook', title: 'Oxford IB DP Computer Science Course Companion (2025)', locator: 'ch. A2.3, p. 145' },
+    example: { en: 'A school web server has a public IP address, so any device on the internet can request its pages.', ru: 'У веб-сервера школы есть публичный IP-адрес, поэтому любое устройство в интернете может запросить его страницы.' },
     pitfall: { en: 'Two devices on different private networks can share the same private address, but no two devices can share a public one at the same time.', ru: 'Два устройства в разных частных сетях могут иметь один и тот же частный адрес, но одновременно один публичный адрес не могут иметь два устройства.' },
   },
   {
@@ -48,6 +49,7 @@ export const terms: Term[] = [
     syllabus: 'A2.3',
     papers: ['P1'],
     src: { kind: 'textbook', title: 'Oxford IB DP Computer Science Course Companion (2025)', locator: 'ch. A2.3, p. 146' },
+    example: { en: 'Ten phones in one home share a single public address. The router records which phone sent each request and passes each reply to the right phone.', ru: 'Десять телефонов в одном доме используют один публичный адрес. Роутер запоминает, какой телефон отправил запрос, и передаёт каждый ответ нужному телефону.' },
     pitfall: { en: 'NAT does not give each device its own public address. It shares one address among many devices.', ru: 'NAT не выдаёт каждому устройству собственный публичный адрес. Он делит один адрес между многими устройствами.' },
   },
   {
@@ -72,6 +74,7 @@ export const terms: Term[] = [
     syllabus: 'A2.3',
     papers: ['P1'],
     src: { kind: 'textbook', title: 'Oxford IB DP Computer Science Course Companion (2025)', locator: 'ch. A2.3, p. 146' },
+    example: { en: 'A home router receives a new public address each time it reconnects, because the provider leases addresses from a pool for a limited time.', ru: 'Домашний роутер получает новый публичный адрес при каждом переподключении, потому что провайдер выдаёт адреса из пула на ограниченное время.' },
     pitfall: { en: 'A dynamic address can change between sessions, so it is a poor choice for a server that others must find.', ru: 'Динамический адрес может меняться между сессиями, поэтому он плохо подходит для сервера, который другие должны находить.' },
   },
   {

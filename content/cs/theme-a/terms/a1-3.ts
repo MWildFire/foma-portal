@@ -24,6 +24,7 @@ export const terms: Term[] = [
     syllabus: 'A1.3',
     papers: ['P1'],
     src: { kind: 'textbook', title: 'Oxford IB DP Computer Science Course Companion (2025)', locator: 'ch. A1.3, p. 68' },
+    example: { en: 'Opening a word processor and a music player at the same time creates two processes, each with its own memory space and its own share of CPU time.', ru: 'Одновременное открытие текстового редактора и музыкального плеера создаёт два процесса, у каждого из которых своё адресное пространство памяти и своя доля процессорного времени.' },
     pitfall: { en: 'One program can run as several processes at the same time.', ru: 'Одна программа может выполняться одновременно как несколько процессов.' },
   },
   {
@@ -48,6 +49,7 @@ export const terms: Term[] = [
     syllabus: 'A1.3',
     papers: ['P1'],
     src: { kind: 'textbook', title: 'Oxford IB DP Computer Science Course Companion (2025)', locator: 'ch. A1.3, p. 77' },
+    example: { en: 'A process has used its time slice, so the scheduler interrupts it and gives the CPU to a waiting process with a higher priority.', ru: 'Процесс исчерпал свой квант времени, поэтому планировщик прерывает его и передаёт процессор ожидающему процессу с более высоким приоритетом.' },
     pitfall: { en: 'Pre-emption is a scheduling decision; an interrupt is a signal from a device or program. Keep them apart.', ru: 'Вытеснение — решение планировщика; прерывание — сигнал от устройства или программы. Не путайте их.' },
   },
   {
@@ -60,6 +62,7 @@ export const terms: Term[] = [
     syllabus: 'A1.3',
     papers: ['P1'],
     src: { kind: 'textbook', title: 'Oxford IB DP Computer Science Course Companion (2025)', locator: 'ch. A1.3, p. 82' },
+    example: { en: 'A low-priority print job waits for the CPU for hours because high-priority tasks keep arriving, so it never gets a turn.', ru: 'Задание печати с низким приоритетом ждёт процессор часами, потому что задачи с высоким приоритетом поступают постоянно, и очередь до него не доходит.' },
     pitfall: { en: 'Starvation is not a circular wait (that is deadlock). Ageing, which raises the priority of a waiting process over time, is one fix.', ru: 'Голодание — не циклическое ожидание (это взаимоблокировка). Одно из решений — старение (ageing): приоритет ждущего процесса постепенно растёт.' },
   },
   {
@@ -98,6 +101,7 @@ export const terms: Term[] = [
     syllabus: 'A1.3',
     papers: ['P1'],
     src: { kind: 'textbook', title: 'Oxford IB DP Computer Science Course Companion (2025)', locator: 'ch. A1.3, p. 81' },
+    example: { en: 'A laptop plays music, downloads a file and runs a spreadsheet at the same time by switching the CPU between these processes many times a second.', ru: 'Ноутбук одновременно проигрывает музыку, скачивает файл и работает с таблицей, переключая процессор между этими процессами много раз в секунду.' },
     pitfall: { en: 'Multitasking works at the process level; multithreading means several threads inside one process.', ru: 'Многозадачность работает на уровне процессов; многопоточность — это несколько потоков внутри одного процесса.' },
   },
   {
