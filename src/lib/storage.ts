@@ -4,6 +4,9 @@ export const UPDATE_EVENT = 'foma-portal-state-update';
 export const STORAGE_SCHEMA_VERSION = 1;
 
 export type Rag = 'red' | 'amber' | 'green';
+export type Rating = 'right' | 'partial' | 'wrong';
+export type Weekday = 'mon' | 'tue' | 'wed' | 'thu' | 'fri' | 'sat' | 'sun';
+export const WEEKDAYS: Weekday[] = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
 
 export interface TopicProgress {
   done?: string;     // ISO date when the topic was marked done
@@ -15,13 +18,20 @@ export interface TermProgress {
   due: string;       // YYYY-MM-DD
 }
 
+export interface QuestionProgress {
+  rating: Rating;    // self-check after seeing the markscheme
+  at: string;        // ISO date
+}
+
 export interface GlobalState {
   version: typeof STORAGE_SCHEMA_VERSION;
-  topics: Record<string, TopicProgress>;   // key: `${subject}/${topicId}`
-  terms: Record<string, TermProgress>;     // key: `${subject}/${termId}`
-  blocks: Record<string, string>;          // plan block id -> ISO date when done
+  topics: Record<string, TopicProgress>;       // key: `${subject}/${topicId}`
+  terms: Record<string, TermProgress>;         // key: `${subject}/${termId}`
+  questions: Record<string, QuestionProgress>; // key: `${subject}/${questionId}`
+  blocks: Record<string, string>;              // plan block id -> ISO date when done
   settings: {
     accessArrangements: { extraTime: boolean; separateRoom: boolean };
+    dailyLoadMinutes: Partial<Record<Weekday, number>>;   // overrides of the default load; absent = default
   };
 }
 
@@ -30,8 +40,12 @@ export function emptyState(): GlobalState {
     version: STORAGE_SCHEMA_VERSION,
     topics: {},
     terms: {},
+    questions: {},
     blocks: {},
-    settings: { accessArrangements: { extraTime: false, separateRoom: false } },
+    settings: {
+      accessArrangements: { extraTime: false, separateRoom: false },
+      dailyLoadMinutes: {},
+    },
   };
 }
 
@@ -39,6 +53,8 @@ const isRecord = (value: unknown): value is Record<string, unknown> =>
   typeof value === 'object' && value !== null && !Array.isArray(value);
 
 const isRag = (value: unknown): value is Rag => value === 'red' || value === 'amber' || value === 'green';
+const isRating = (value: unknown): value is Rating => value === 'right' || value === 'partial' || value === 'wrong';
+const isWeekday = (value: string): value is Weekday => (WEEKDAYS as string[]).includes(value);
 
 function mapRecord<T>(raw: unknown, pick: (value: unknown) => T | null): Record<string, T> {
   const out: Record<string, T> = {};
@@ -63,11 +79,28 @@ function termOf(value: unknown): TermProgress | null {
   return { box: Math.min(4, Math.max(1, Math.round(value.box as number))), due: value.due };
 }
 
+function questionOf(value: unknown): QuestionProgress | null {
+  if (!isRecord(value) || !isRating(value.rating) || typeof value.at !== 'string') return null;
+  return { rating: value.rating, at: value.at };
+}
+
+function loadOf(raw: unknown): Partial<Record<Weekday, number>> {
+  const out: Partial<Record<Weekday, number>> = {};
+  if (!isRecord(raw)) return out;
+  for (const [day, minutes] of Object.entries(raw)) {
+    if (isWeekday(day) && typeof minutes === 'number' && Number.isFinite(minutes)) {
+      out[day] = Math.min(600, Math.max(0, Math.round(minutes)));
+    }
+  }
+  return out;
+}
+
 export function normalizeState(raw: unknown): GlobalState {
   const state = emptyState();
   if (!isRecord(raw)) return state;
   state.topics = mapRecord(raw.topics, topicOf);
   state.terms = mapRecord(raw.terms, termOf);
+  state.questions = mapRecord(raw.questions, questionOf);
   state.blocks = mapRecord(raw.blocks, value => (typeof value === 'string' ? value : null));
   const settings = isRecord(raw.settings) ? raw.settings : {};
   const access = isRecord(settings.accessArrangements) ? settings.accessArrangements : {};
@@ -75,6 +108,7 @@ export function normalizeState(raw: unknown): GlobalState {
     extraTime: access.extraTime === true,
     separateRoom: access.separateRoom === true,
   };
+  state.settings.dailyLoadMinutes = loadOf(settings.dailyLoadMinutes);
   return state;
 }
 

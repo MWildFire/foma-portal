@@ -19,19 +19,27 @@ test('malformed nested values are dropped and valid ones kept', () => {
   const state = normalizeState({
     topics: { 'geo/a': { done: '2026-10-13', rag: 'green' }, 'geo/b': { rag: 'purple' }, 'geo/c': null },
     terms: { 'geo/t': { box: 9, due: '2026-10-14' }, 'geo/u': { box: 'x', due: 1 } },
+    questions: { 'geo/q1': { rating: 'partial', at: '2026-10-13' }, 'geo/q2': { rating: 'great', at: '2026-10-13' } },
     blocks: { b1: '2026-10-13', b2: 5 },
-    settings: { accessArrangements: { extraTime: true, separateRoom: 'yes' } },
+    settings: {
+      accessArrangements: { extraTime: true, separateRoom: 'yes' },
+      dailyLoadMinutes: { sat: 270, funday: 60, sun: -5, mon: 'long' },
+    },
   });
   assert.deepEqual(state.topics, { 'geo/a': { done: '2026-10-13', rag: 'green' }, 'geo/b': {} });
   assert.deepEqual(state.terms, { 'geo/t': { box: 4, due: '2026-10-14' } });
+  assert.deepEqual(state.questions, { 'geo/q1': { rating: 'partial', at: '2026-10-13' } });
   assert.deepEqual(state.blocks, { b1: '2026-10-13' });
   assert.deepEqual(state.settings.accessArrangements, { extraTime: true, separateRoom: false });
+  assert.deepEqual(state.settings.dailyLoadMinutes, { sat: 270, sun: 0 });
 });
 
 test('a saved state loads back unchanged', () => {
   values.clear();
   const state = emptyState();
   state.topics['geo/a'] = { rag: 'amber' };
+  state.questions['geo/q1'] = { rating: 'right', at: '2026-10-13' };
+  state.settings.dailyLoadMinutes = { fri: 120 };
   saveState(state);
   assert.deepEqual(loadState(), state);
 });
