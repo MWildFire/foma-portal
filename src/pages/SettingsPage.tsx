@@ -2,6 +2,7 @@ import { AlertCircle, CircleCheck, ClipboardCopy, RotateCcw, Upload } from 'luci
 import { useMemo, useRef, useState, type ReactNode } from 'react';
 import { useTranslation } from 'react-i18next';
 import { formatMinutes } from '../components/planner/labels';
+import { usePageTitle, useScrollToTop } from '../components/planner/usePageTitle';
 import { usePlan } from '../components/planner/usePlan';
 import { Btn, CARD, MUTED } from '../components/planner/ui';
 import { LanguageToggle } from '../components/ui/LanguageToggle';
@@ -233,7 +234,7 @@ function TransferSection({ state, lang }: { state: GlobalState; lang: Lang }) {
     }
   }, [state, i18n.language]);
 
-  const check = input.trim() === '' ? null : checkImport(input);
+  const check = useMemo(() => (input.trim() === '' ? null : checkImport(input)), [input]);
 
   const onCopy = async () => {
     if (!code) return;
@@ -353,6 +354,8 @@ export function SettingsPage() {
   const { t } = useTranslation('settings');
   const { t: tc } = useTranslation();
   const { plan, state, update, lang } = usePlan();
+  usePageTitle(tc('nav.settings'), tc('brand'));
+  useScrollToTop();
   const planned = plan.days.reduce((sum, day) => sum + day.minutes, 0);
 
   return (

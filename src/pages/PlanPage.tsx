@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { describeBlock, formatMinutes, paperLabel } from '../components/planner/labels';
 import { subjectInfo, subjectInfos, type SubjectInfo } from '../components/planner/subjects';
+import { usePageTitle, useScrollToTop } from '../components/planner/usePageTitle';
 import { usePlan } from '../components/planner/usePlan';
 import { Btn, CARD, Chip, MUTED } from '../components/planner/ui';
 import { ROUTES } from '../config/routes';
@@ -142,15 +143,16 @@ function DaySummary({ day, lang, infos }: { day: PlanDay; lang: Lang; infos: Inf
   const { t: tp } = useTranslation('planner');
   const exams = day.exams.map(exam => `${subjectInfo(infos, exam.subject).name} ${paperLabel(tp, exam.paper, exam.part)}`).join(', ');
   const eve = day.eveOf.map(exam => `${subjectInfo(infos, exam.subject).name} ${paperLabel(tp, exam.paper, exam.part)}`).join(', ');
+  // Only spans: <summary> may hold phrasing content only.
   return (
-    <div className="min-w-0 flex-1">
-      <div className="flex flex-wrap items-center gap-2">
+    <span className="block min-w-0 flex-1">
+      <span className="flex flex-wrap items-center gap-2">
         <span className="font-semibold">{capitalize(formatDate(day.date, lang, 'long'))}</span>
         {day.isToday && <Chip strong>{t('day.today')}</Chip>}
         {day.kind === 'exam' && <Chip strong>{t('day.kind.exam')}</Chip>}
         {day.kind === 'rest' && <Chip>{t('day.kind.rest')}</Chip>}
-      </div>
-      <p className={`mt-0.5 break-words text-sm ${MUTED}`}>
+      </span>
+      <span className={`mt-0.5 block break-words text-sm ${MUTED}`}>
         {day.kind === 'rest'
           ? t('day.noTime')
           : day.isToday && day.minutes > 0
@@ -158,10 +160,10 @@ function DaySummary({ day, lang, infos }: { day: PlanDay; lang: Lang; infos: Inf
             : day.minutes > 0
               ? formatMinutes(tp, day.minutes)
               : t('day.nothing')}
-      </p>
-      {exams && <p className="break-words text-sm">{t('day.exams', { papers: exams })}</p>}
-      {eve && <p className="break-words text-sm">{t('day.eve', { papers: eve })}</p>}
-    </div>
+      </span>
+      {exams && <span className="block break-words text-sm">{t('day.exams', { papers: exams })}</span>}
+      {eve && <span className="block break-words text-sm">{t('day.eve', { papers: eve })}</span>}
+    </span>
   );
 }
 
@@ -171,6 +173,8 @@ export function PlanPage() {
   const { t: tc } = useTranslation();
   const { t: tp } = useTranslation('planner');
   const { plan, today, lang } = usePlan();
+  usePageTitle(tc('nav.plan'), tc('brand'));
+  useScrollToTop();
   const infos = useMemo(() => subjectInfos(lang), [lang]);
   const [open, setOpen] = useState<Set<string>>(() => {
     const first = plan.days.find(day => day.isToday)?.date ?? plan.days[0]?.date;

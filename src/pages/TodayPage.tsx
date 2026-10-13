@@ -7,6 +7,7 @@ import { RecallSection } from '../components/planner/RecallSection';
 import { TimerPanel } from '../components/planner/TimerPanel';
 import { studyTimer, useStudyTimer } from '../components/planner/timerStore';
 import { subjectInfo, subjectInfos } from '../components/planner/subjects';
+import { usePageTitle, useScrollToTop } from '../components/planner/usePageTitle';
 import { usePlan } from '../components/planner/usePlan';
 import { CARD, MUTED } from '../components/planner/ui';
 import { formatMinutes, paperLabel } from '../components/planner/labels';
@@ -32,6 +33,8 @@ export function TodayPage() {
   const { t: tc } = useTranslation();
   const { t: tp } = useTranslation('planner');
   const { plan, state, update, today, lang } = usePlan();
+  usePageTitle(tc('nav.today'), tc('brand'));
+  useScrollToTop();
   const { next } = useExamCountdown(state.settings.accessArrangements.extraTime);
   const timer = useStudyTimer();
   const infos = useMemo(() => subjectInfos(lang), [lang]);

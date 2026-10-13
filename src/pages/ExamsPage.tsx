@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { formatMinutes, paperLabel } from '../components/planner/labels';
 import { subjectInfo, subjectInfos } from '../components/planner/subjects';
+import { usePageTitle, useScrollToTop } from '../components/planner/usePageTitle';
 import { CARD, Chip, MUTED } from '../components/planner/ui';
 import { ExamCountdown } from '../components/progress/ExamCountdown';
 import { ROUTES } from '../config/routes';
@@ -33,6 +34,8 @@ export function ExamsPage() {
   const { t: tc } = useTranslation();
   const { t: tp } = useTranslation('planner');
   const lang: Lang = i18n.language.startsWith('ru') ? 'ru' : 'en';
+  usePageTitle(tc('nav.exams'), tc('brand'));
+  useScrollToTop();
   const [state] = useLocalProgress();
   const { extraTime, separateRoom } = state.settings.accessArrangements;
   const { now, next } = useExamCountdown(extraTime);
