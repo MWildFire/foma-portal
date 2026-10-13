@@ -9,3 +9,4 @@ infra/*.tfvars
 .env.*
 sources
 .DS_Store
+*.tsbuildinfo
