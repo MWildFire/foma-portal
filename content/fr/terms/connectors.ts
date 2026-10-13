@@ -73,7 +73,7 @@ export const terms: FrTerm[] = [
   {
     id: 'cn-008',
     term: { en: 'for, because', ru: 'ведь', fr: 'car' },
-    def: { en: 'joins two clauses to give a formal reason; it does not normally start a sentence', ru: 'соединяет две части предложения и даёт формальную причину; обычно не стоит в начале предложения' },
+    def: { en: 'joins two clauses to give a formal reason; in formal writing it follows a comma', ru: 'соединяет две части предложения и даёт формальную причину; в формальном письме стоит после запятой' },
     example: { en: 'We must leave now, for the train leaves at eight.', ru: 'Нужно уйти сейчас, ведь поезд отправляется в восемь.', fr: 'Il faut partir maintenant, car le train part à huit heures.' },
     syllabus: 'P1.connectors',
     papers: ['P1'],
@@ -184,7 +184,7 @@ export const terms: FrTerm[] = [
     id: 'cn-020',
     term: { en: 'nevertheless', ru: 'тем не менее', fr: 'néanmoins' },
     def: { en: 'introduces a result that goes against what one would expect', ru: 'вводит результат, вопреки ожиданиям' },
-    example: { en: 'The weather was cold; nevertheless, the children played outside all day.', ru: 'Погода была холодной; тем не менее дети играли на улице весь день.', fr: 'Le climat était froid ; néanmoins, les enfants ont joué dehors toute la journée.' },
+    example: { en: 'The weather was cold; nevertheless, the children played outside all day.', ru: 'Погода была холодной; тем не менее дети играли на улице весь день.', fr: 'Il faisait froid ; néanmoins, les enfants ont joué dehors toute la journée.' },
     syllabus: 'P1.connectors',
     papers: ['P1'],
     src: { kind: 'own', title: "Authors' French B material (2026)" },
