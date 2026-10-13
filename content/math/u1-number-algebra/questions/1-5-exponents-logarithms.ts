@@ -36,7 +36,7 @@ export const questions: Question[] = [
       ru: 'M1: записывает $5^{n+1}=5^{2}\\times 5^{n-1}$ и $5^{n}=5\\times 5^{n-1}$ по законам степеней. M1: выносит общий множитель в числителе: $5^{2}\\times 5^{n-1}-5^{n-1}=5^{n-1}(25-1)=24\\times 5^{n-1}$. A1: делит и получает $\\dfrac{24\\times 5^{n-1}}{5\\times 5^{n-1}}=\\dfrac{24}{5}$, что и требовалось. AG',
     },
     origin: 'original',
-    minutes: 5,
+    minutes: 3,
   },
   {
     id: 'q-1-5-03',
@@ -44,7 +44,7 @@ export const questions: Question[] = [
     topicIds: ['1-5-exponents-logarithms'],
     paper: 'P2',
     marks: 14,
-    command: 'Find',
+    command: 'Write down, Find',
     prompt: {
       en: 'A swimming pool in Dubai is treated with chlorine. The concentration of free chlorine, $C$ mg per litre, $t$ hours after treatment is modelled by $C(t)=4e^{-0.12t}$, $t\\geq 0$. The pool must be treated again when the concentration falls below 1 mg per litre.\n\n(a) Write down $C(0)$ and find $C(6)$, giving your answer correct to 3 significant figures. [2]\n\n(b) Show that $C(t+1)=e^{-0.12}\\,C(t)$ for all $t\\geq 0$. Hence find the percentage of chlorine remaining after 1 hour, giving your answer correct to 3 significant figures. [3]\n\n(c) Find the half-life of the chlorine, that is the time taken for $C$ to become half of its initial value. Give your answer correct to 2 decimal places. [3]\n\n(d) Find the time, in hours, at which $C(t)=1$. Give your answer correct to 2 decimal places. [3]\n\n(e) Find the least whole number of hours $t$ for which $C(t)<1$. [3]',
       ru: 'Бассейн в Дубае обрабатывают хлором. Концентрация свободного хлора $C$ в мг на литр через $t$ часов после обработки описывается моделью $C(t)=4e^{-0.12t}$, $t\\geq 0$. Бассейн нужно обработать снова, когда концентрация становится меньше 1 мг на литр.\n\n(a) Запишите $C(0)$ и найдите $C(6)$; ответ дайте с точностью до 3 значащих цифр. [2]\n\n(b) Покажите, что $C(t+1)=e^{-0.12}\\,C(t)$ при всех $t\\geq 0$. Затем найдите процент хлора, оставшегося через 1 час; ответ дайте с точностью до 3 значащих цифр. [3]\n\n(c) Найдите период полураспада хлора, то есть время, за которое $C$ уменьшится вдвое. Ответ дайте с точностью до 2 знаков после запятой. [3]\n\n(d) Найдите время в часах, при котором $C(t)=1$. Ответ дайте с точностью до 2 знаков после запятой. [3]\n\n(e) Найдите наименьшее целое число часов $t$, при котором $C(t)<1$. [3]',

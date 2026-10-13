@@ -18,7 +18,7 @@ export const questions: Question[] = [
     },
     answer: '3.74',
     origin: 'original',
-    minutes: 4,
+    minutes: 3,
   },
   {
     id: 'q-3-12-02',
@@ -26,7 +26,7 @@ export const questions: Question[] = [
     topicIds: ['3-12-vector-kinematics'],
     paper: 'P1',
     marks: 4,
-    command: 'Find',
+    command: 'Show that, Find',
     prompt: {
       en: 'Particle A has position vector r_A = t(3, 1) metres at time t seconds. Particle B has position vector r_B = (12, 6) + t(-1, -1) metres at the same time t. Show that the particles collide, and find the time and the position of the collision.',
       ru: 'В момент t секунд вектор положения частицы A равен r_A = t(3, 1) метров, а вектор положения частицы B равен r_B = (12, 6) + t(-1, -1) метров. Покажите, что частицы сталкиваются, и найдите момент и место столкновения.',

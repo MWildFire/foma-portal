@@ -18,7 +18,7 @@ export const questions: Question[] = [
     },
     answer: '5',
     origin: 'original',
-    minutes: 4,
+    minutes: 3,
   },
   {
     id: 'q-5-13-02',
@@ -37,7 +37,7 @@ export const questions: Question[] = [
     },
     answer: '26.67',
     origin: 'original',
-    minutes: 5,
+    minutes: 4,
   },
   {
     id: 'q-5-13-03',
@@ -45,7 +45,7 @@ export const questions: Question[] = [
     topicIds: ['5-13-kinematics-calculus'],
     paper: 'P2',
     marks: 14,
-    command: 'Find',
+    command: 'Show that',
     prompt: {
       en: 'A tram in Dubai leaves station A at time t = 0 and comes to rest at station B 40 seconds later. It moves along a straight track. Let s metres be its displacement from A and v m s⁻¹ its velocity at time t seconds. Its acceleration is a = 1 − t/20 m s⁻² for 0 ≤ t ≤ 40. The tram starts from rest at A.\n\n(a) Show that v = t − t²/40 for 0 ≤ t ≤ 40. [3]\n\n(b) Find the displacement of the tram from A when t = 40. Give your answer correct to 2 decimal places. [4]\n\n(c) Find the time at which the tram has its maximum speed, and this maximum speed in m s⁻¹. Justify that it is a maximum. [4]\n\n(d) Comment on whether the model can be used for t > 40, giving a reason from the context. [3]',
       ru: 'Трамвай в Дубае отправляется от станции A в момент t = 0 и через 40 секунд останавливается на станции B. Он движется по прямой. Пусть s м — его перемещение от станции A, а v м с⁻¹ — его скорость в момент времени t секунд. Ускорение задано формулой a = 1 − t/20 м с⁻² при 0 ≤ t ≤ 40. Трамвай начинает движение с покоя на станции A.\n\n(a) Покажите, что v = t − t²/40 при 0 ≤ t ≤ 40. [3]\n\n(b) Найдите перемещение трамвая от станции A при t = 40. Ответ дайте с точностью до 2 знаков после запятой. [4]\n\n(c) Найдите момент времени, в который скорость трамвая максимальна, и эту максимальную скорость в м с⁻¹. Обоснуйте, что это именно максимум. [4]\n\n(d) Прокомментируйте, можно ли использовать модель при t > 40, и приведите причину из контекста. [3]',

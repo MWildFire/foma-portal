@@ -18,7 +18,7 @@ export const questions: Question[] = [
     },
     answer: '3.693',
     origin: 'original',
-    minutes: 4,
+    minutes: 3,
   },
   {
     id: 'q-5-11-02',
@@ -37,7 +37,7 @@ export const questions: Question[] = [
     },
     answer: '3.75',
     origin: 'original',
-    minutes: 6,
+    minutes: 4,
   },
   {
     id: 'q-5-11-03',
@@ -45,7 +45,7 @@ export const questions: Question[] = [
     topicIds: ['5-11-integration-techniques'],
     paper: 'P2',
     marks: 14,
-    command: 'Find',
+    command: 'Show that',
     prompt: {
       en: 'Water flows into a tank at a rate of 2t e^(t^2) litres per minute for t >= 0, where t is the time in minutes since the flow started. The tank is empty when t = 0.\n\n(a) Using the substitution u = t^2, show that the integral of 2t e^(t^2) dt is e^(t^2) + C. [2]\n(b) Hence find the volume of water that flows in during the first minute. Give your answer correct to 3 decimal places. [3]\n(c) Find the volume of water that flows in between t = 1 and t = 2 minutes. Give your answer correct to 3 decimal places. [3]\n(d) Find the time T, in minutes, at which the total volume of water that has flowed in reaches 20 litres. Give your answer correct to 3 decimal places. [4]\n(e) State one limitation of this model for large values of t, and give a reason. [2]',
       ru: 'В резервуар поступает вода со скоростью 2t e^(t^2) литров в минуту при t >= 0, где t — время в минутах с начала подачи. При t = 0 резервуар пуст.\n\n(a) Используя подстановку u = t^2, покажите, что интеграл от 2t e^(t^2) dt равен e^(t^2) + C. [2]\n(b) Используя этот результат, найдите объём воды, поступившей за первую минуту. Ответ дайте с точностью до 3 знаков после запятой. [3]\n(c) Найдите объём воды, поступившей между t = 1 и t = 2 минутами. Ответ дайте с точностью до 3 знаков после запятой. [3]\n(d) Найдите время T в минутах, при котором суммарный объём поступившей воды достигнет 20 литров. Ответ дайте с точностью до 3 знаков после запятой. [4]\n(e) Укажите одно ограничение этой модели при больших значениях t и объясните причину. [2]',

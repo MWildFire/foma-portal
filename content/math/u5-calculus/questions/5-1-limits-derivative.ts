@@ -7,7 +7,7 @@ export const questions: Question[] = [
     topicIds: ['5-1-limits-derivative'],
     paper: 'P1',
     marks: 3,
-    command: 'Find',
+    command: 'Find, State',
     prompt: {
       en: 'The function $f(x) = x^3 - 6x^2 + 9x + 1$ is given. For $h \\neq 0$, let $g(h)$ be the gradient of the chord joining the points on the graph where $x = 1$ and $x = 1 + h$. Find $g(0.1)$ and $g(0.01)$, giving each answer correct to 4 decimal places. Then state the exact value that $g(h)$ approaches as $h \\to 0$.',
       ru: 'Дана функция $f(x) = x^3 - 6x^2 + 9x + 1$. Для $h \\neq 0$ пусть $g(h)$ — градиент хорды, соединяющей точки графика с $x = 1$ и $x = 1 + h$. Найдите $g(0{,}1)$ и $g(0{,}01)$, каждый ответ округлите до 4 знаков после запятой. Затем укажите точное значение, к которому приближается $g(h)$ при $h \\to 0$.',
@@ -18,7 +18,7 @@ export const questions: Question[] = [
     },
     answer: '-0.2900; -0.0299; 0',
     origin: 'original',
-    minutes: 5,
+    minutes: 3,
   },
   {
     id: 'q-5-1-02',
@@ -26,7 +26,7 @@ export const questions: Question[] = [
     topicIds: ['5-1-limits-derivative'],
     paper: 'P1',
     marks: 3,
-    command: 'Find',
+    command: 'Estimate',
     prompt: {
       en: 'The volume of water in a tank, $V$ litres, is modelled by $V(t) = 0.5t^3 + 4t$, where $t$ is the time in minutes after a tap is opened and $0 \\le t \\le 10$. Use the average rate of change of $V$ over the interval $2 \\le t \\le 2.001$ to estimate the instantaneous rate of change at $t = 2$. Give the rate in litres per minute, correct to 2 decimal places.',
       ru: 'Объём воды в баке $V$ литров моделируется функцией $V(t) = 0{,}5t^3 + 4t$, где $t$ — время в минутах после открытия крана и $0 \\le t \\le 10$. Используя среднюю скорость изменения $V$ на промежутке $2 \\le t \\le 2{,}001$, оцените мгновенную скорость изменения при $t = 2$. Ответ дайте в литрах в минуту с точностью до 2 знаков после запятой.',
@@ -37,7 +37,7 @@ export const questions: Question[] = [
     },
     answer: '10.00',
     origin: 'original',
-    minutes: 5,
+    minutes: 3,
   },
   {
     id: 'q-5-1-03',
@@ -45,7 +45,7 @@ export const questions: Question[] = [
     topicIds: ['5-1-limits-derivative'],
     paper: 'P2',
     marks: 14,
-    command: 'Find',
+    command: 'Show that',
     prompt: {
       en: 'The curve has equation $f(x) = x^3 - 6x^2 + 9x + 1$. For $h \\neq 0$, let $g(h)$ be the gradient of the chord joining the points on the curve where $x = 2$ and $x = 2 + h$.\n\n(a) Show that $g(h) = -3 + h^2$. [3]\n\n(b) Hence write down the gradient of the curve at $x = 2$. [2]\n\n(c) Find the positive value of $h$ for which $g(h) = -2.99$. Give your answer correct to 3 decimal places. [3]\n\n(d) Find $g(0.01) - f\'(2)$, giving your answer correct to 4 decimal places. [3]\n\n(e) Comment on how $g(h)$ behaves as $h \\to 0$, and explain what this means for the gradient of the curve at $x = 2$. [3]',
       ru: 'Кривая задана уравнением $f(x) = x^3 - 6x^2 + 9x + 1$. Для $h \\neq 0$ пусть $g(h)$ — градиент хорды, соединяющей точки кривой с $x = 2$ и $x = 2 + h$.\n\n(a) Покажите, что $g(h) = -3 + h^2$. [3]\n\n(b) Используя это, запишите градиент кривой при $x = 2$. [2]\n\n(c) Найдите положительное значение $h$, при котором $g(h) = -2{,}99$. Ответ дайте с точностью до 3 знаков после запятой. [3]\n\n(d) Найдите $g(0{,}01) - f\'(2)$, ответ дайте с точностью до 4 знаков после запятой. [3]\n\n(e) Прокомментируйте, как ведёт себя $g(h)$ при $h \\to 0$, и объясните, что это означает для градиента кривой при $x = 2$. [3]',

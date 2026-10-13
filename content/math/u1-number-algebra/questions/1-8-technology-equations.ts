@@ -18,7 +18,7 @@ export const questions: Question[] = [
     },
     answer: '13.75; 8.40; 5.90',
     origin: 'original',
-    minutes: 5,
+    minutes: 3,
   },
   {
     id: 'q-1-8-02',
@@ -37,7 +37,7 @@ export const questions: Question[] = [
     },
     answer: '-2.115; 0.254; 1.861',
     origin: 'original',
-    minutes: 5,
+    minutes: 3,
   },
   {
     id: 'q-1-8-03',
@@ -45,7 +45,7 @@ export const questions: Question[] = [
     topicIds: ['1-8-technology-equations'],
     paper: 'P2',
     marks: 14,
-    command: 'Find',
+    command: 'Write down',
     prompt: {
       en: 'A company in Dubai records its monthly profit $P$, in thousands of AED, when it sells $x$ thousand units of its first product. Three records are $x=1$, $P=2.3$; $x=2$, $P=3.9$; and $x=4$, $P=3.1$. The company models the profit by $P(x)=ax^{2}+bx+c$.\n\n(a) Write down three linear equations in $a$, $b$ and $c$ that the model must satisfy. [2]\n\n(b) Use technology to solve the system. Give the values of $a$, $b$ and $c$ correct to 2 decimal places. [3]\n\n(c) Find the two values of $x$ for which $P(x)=0$. These are the break-even points. Give each answer correct to 3 significant figures. [3]\n\nThe second product has profit $Q(x)=3x-C(x)$, in thousands of AED, where $C(x)=0.1x^{3}-0.9x^{2}+2.4x+0.5$ is its cost.\n\n(d) Find the values of $x>0$ for which $Q(x)=0$. Give each answer correct to 2 decimal places. [4]\n\n(e) The equation $Q(x)=0$ has a third root, which is negative. Explain why this root is not used in the context of the company. [2]',
       ru: 'Компания в Дубае ежемесячно фиксирует свою прибыль $P$ (в тысячах AED) при продаже $x$ тысяч единиц первого продукта. Три наблюдения: $x=1$, $P=2{,}3$; $x=2$, $P=3{,}9$; $x=4$, $P=3{,}1$. Компания описывает прибыль моделью $P(x)=ax^{2}+bx+c$.\n\n(a) Запишите три линейных уравнения относительно $a$, $b$ и $c$, которым должна удовлетворять модель. [2]\n\n(b) Решите систему с помощью технологии. Найдите значения $a$, $b$ и $c$ с точностью до 2 знаков после запятой. [3]\n\n(c) Найдите два значения $x$, при которых $P(x)=0$. Это точки безубыточности. Каждый ответ дайте с точностью до 3 значащих цифр. [3]\n\nПрибыль второго продукта равна $Q(x)=3x-C(x)$ (в тысячах AED), где $C(x)=0{,}1x^{3}-0{,}9x^{2}+2{,}4x+0{,}5$ — его себестоимость.\n\n(d) Найдите значения $x>0$, при которых $Q(x)=0$. Каждый ответ дайте с точностью до 2 знаков после запятой. [4]\n\n(e) Уравнение $Q(x)=0$ имеет третий корень, и он отрицательный. Объясните, почему этот корень не используется в контексте компании. [2]',

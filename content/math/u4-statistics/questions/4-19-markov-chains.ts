@@ -7,7 +7,7 @@ export const questions: Question[] = [
     topicIds: ['4-19-markov-chains'],
     paper: 'P1',
     marks: 3,
-    command: 'Find',
+    command: 'State, Find',
     prompt: {
       en: 'A Markov chain has a transition matrix whose first column is (0.8, 0.2) and whose second column is (0.3, 0.7). The first state is provider A and the second is provider B. Columns give the current state and rows give the next state. At the start, all customers use provider A. Find the proportion of customers using provider A and the proportion using provider B after two months.',
       ru: 'Матрица переходов цепи Маркова имеет первый столбец (0,8; 0,2) и второй столбец (0,3; 0,7). Первое состояние — провайдер A, второе — провайдер B. Столбцы задают текущее состояние, строки — следующее. В начале все клиенты пользуются провайдером A. Найдите долю клиентов, пользующихся провайдером A, и долю пользующихся провайдером B через два месяца.',
@@ -18,7 +18,7 @@ export const questions: Question[] = [
     },
     answer: '0.70; 0.30',
     origin: 'original',
-    minutes: 4,
+    minutes: 3,
   },
   {
     id: 'q-4-19-02',
@@ -26,7 +26,7 @@ export const questions: Question[] = [
     topicIds: ['4-19-markov-chains'],
     paper: 'P1',
     marks: 4,
-    command: 'Find',
+    command: 'Show that',
     prompt: {
       en: 'Each year a gym member is either in state S (keeps the membership) or state C (cancels). The transition matrix has first column (0.9, 0.1) and second column (0.4, 0.6). Columns give the current state and rows give the next state.\n\n(a) Show that the Markov chain is regular. [1]\n\n(b) Find the long-run proportion of members in state S and in state C. [3]',
       ru: 'Членство в спортклубе ежегодно находится в одном из состояний: S (членство сохраняется) или C (членство отменено). Матрица переходов имеет первый столбец (0,9; 0,1) и второй столбец (0,4; 0,6). Столбцы задают текущее состояние, строки — следующее.\n\n(a) Покажите, что цепь Маркова регулярна. [1]\n\n(b) Найдите долю членов клуба в состоянии S и в состоянии C в долгосрочной перспективе. [3]',
@@ -37,7 +37,7 @@ export const questions: Question[] = [
     },
     answer: '0.80; 0.20',
     origin: 'original',
-    minutes: 5,
+    minutes: 4,
   },
   {
     id: 'q-4-19-03',
@@ -45,7 +45,7 @@ export const questions: Question[] = [
     topicIds: ['4-19-markov-chains'],
     paper: 'P2',
     marks: 14,
-    command: 'Find',
+    command: 'Write down, Show that',
     prompt: {
       en: 'The weather on a school day in Dubai is classed as sunny (S), cloudy (C) or dusty (D), in that order for the rows and columns of the transition matrix. The columns give the current day and the rows give the next day. From a sunny day: 0.6 sunny, 0.3 cloudy, 0.1 dusty. From a cloudy day: 0.4 sunny, 0.2 cloudy, 0.4 dusty. From a dusty day: 0.5 sunny, 0.5 cloudy and 0 dusty, so a dusty day is never followed by another dusty day. Assume that the weather follows a Markov chain with these probabilities.\n\n(a) Write down the transition matrix T, and show that the Markov chain is regular. [4]\n\n(b) Given that day 1 is sunny, find the probability that day 3 is dusty. Give your answer to 3 decimal places. [4]\n\n(c) Find the steady state distribution of the weather. Give your answers to 3 decimal places. [4]\n\n(d) Explain why the long-run proportions in part (c) do not depend on the weather on day 1. [2]',
       ru: 'Погода в учебный день в Дубае классифицируется как солнечная (S), облачная (C) или пыльная (D); такой же порядок используется для строк и столбцов матрицы переходов. Столбцы задают текущий день, строки — следующий. После солнечного дня: 0,6 солнечный, 0,3 облачный, 0,1 пыльный. После облачного дня: 0,4 солнечный, 0,2 облачный, 0,4 пыльный. После пыльного дня: 0,5 солнечный, 0,5 облачный и 0 пыльный, то есть пыльный день никогда не следует за пыльным. Считайте, что погода следует цепи Маркова с этими вероятностями.\n\n(a) Запишите матрицу переходов T и покажите, что цепь Маркова регулярна. [4]\n\n(b) Известно, что первый день солнечный. Найдите вероятность того, что третий день окажется пыльным. Ответ дайте с точностью до 3 знаков после запятой. [4]\n\n(c) Найдите установившееся распределение погоды. Ответы дайте с точностью до 3 знаков после запятой. [4]\n\n(d) Объясните, почему долгосрочные доли в пункте (c) не зависят от погоды в первый день. [2]',

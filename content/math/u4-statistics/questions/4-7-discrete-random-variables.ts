@@ -7,7 +7,7 @@ export const questions: Question[] = [
     topicIds: ['4-7-discrete-random-variables'],
     paper: 'P1',
     marks: 4,
-    command: 'Find',
+    command: 'Find, Hence',
     prompt: {
       en: 'The discrete random variable $X$ takes the values 0, 1, 2 and 3. Its probability distribution is $P(X = 0) = 0.1$, $P(X = 1) = 0.4$, $P(X = 2) = k$ and $P(X = 3) = 0.2$. Find the value of $k$, correct to three decimal places, and hence find $E(X)$, correct to two decimal places.',
       ru: 'Дискретная случайная величина $X$ принимает значения 0, 1, 2 и 3. Её распределение задано: $P(X = 0) = 0{,}1$, $P(X = 1) = 0{,}4$, $P(X = 2) = k$ и $P(X = 3) = 0{,}2$. Найдите значение $k$ с точностью до трёх знаков после запятой, а затем найдите $E(X)$ с точностью до двух знаков после запятой.',
@@ -18,7 +18,7 @@ export const questions: Question[] = [
     },
     answer: '0.300; 1.60',
     origin: 'original',
-    minutes: 5,
+    minutes: 4,
   },
   {
     id: 'q-4-7-02',
@@ -37,7 +37,7 @@ export const questions: Question[] = [
     },
     answer: '-3.33',
     origin: 'original',
-    minutes: 4,
+    minutes: 3,
   },
   {
     id: 'q-4-7-03',

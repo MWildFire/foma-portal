@@ -37,7 +37,7 @@ export const questions: Question[] = [
     },
     answer: '4.5; 8',
     origin: 'original',
-    minutes: 4,
+    minutes: 3,
   },
   {
     id: 'q-2-8-03',
@@ -45,7 +45,7 @@ export const questions: Question[] = [
     topicIds: ['2-8-transformations'],
     paper: 'P2',
     marks: 14,
-    command: 'Find',
+    command: 'Express, Hence, Write down',
     prompt: {
       en: 'The function f is defined for all real x by f(x) = x² − 4x + 5.\n\n(a) Express f(x) in the form (x − h)² + k. Hence write down the coordinates of the minimum point of the graph of y = f(x). [3]\n\n(b) The graph of y = g(x) is obtained from the graph of y = f(x) by a translation of 3 units to the left, followed by a vertical stretch with scale factor 2, followed by a translation of 4 units up. Show that g(x) = 2(x + 1)² + 6. [3]\n\n(c) Write down the coordinates of the minimum point of the graph of y = g(x). [2]\n\n(d) Find the values of x for which g(x) = 14. [3]\n\n(e) The graph of y = h(x) is obtained from the graph of y = f(x) by a horizontal stretch with scale factor 2. Find the coordinates of the minimum point of the graph of y = h(x). [3]',
       ru: 'Функция f задана для всех действительных x формулой f(x) = x² − 4x + 5.\n\n(a) Запишите f(x) в виде (x − h)² + k. Затем укажите координаты точки минимума графика y = f(x). [3]\n\n(b) График y = g(x) получается из графика y = f(x) сдвигом на 3 единицы влево, затем вертикальным растяжением с коэффициентом 2 и затем сдвигом на 4 единицы вверх. Покажите, что g(x) = 2(x + 1)² + 6. [3]\n\n(c) Укажите координаты точки минимума графика y = g(x). [2]\n\n(d) Найдите значения x, при которых g(x) = 14. [3]\n\n(e) График y = h(x) получается из графика y = f(x) горизонтальным растяжением с коэффициентом 2. Найдите координаты точки минимума графика y = h(x). [3]',

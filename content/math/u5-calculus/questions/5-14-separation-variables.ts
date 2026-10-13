@@ -7,7 +7,7 @@ export const questions: Question[] = [
     topicIds: ['5-14-separation-variables'],
     paper: 'P1',
     marks: 3,
-    command: 'Find',
+    command: 'Solve, Find',
     prompt: {
       en: 'Solve the differential equation dy/dx = 2xy, given that y = 3 when x = 0. Find the value of y when x = 1, giving your answer correct to 2 decimal places.',
       ru: 'Решите дифференциальное уравнение dy/dx = 2xy, если y = 3 при x = 0. Найдите значение y при x = 1. Ответ дайте с точностью до 2 знаков после запятой.',
@@ -18,7 +18,7 @@ export const questions: Question[] = [
     },
     answer: '8.15',
     origin: 'original',
-    minutes: 4,
+    minutes: 3,
   },
   {
     id: 'q-5-14-02',
@@ -37,7 +37,7 @@ export const questions: Question[] = [
     },
     answer: '297',
     origin: 'original',
-    minutes: 5,
+    minutes: 4,
   },
   {
     id: 'q-5-14-03',
@@ -45,7 +45,7 @@ export const questions: Question[] = [
     topicIds: ['5-14-separation-variables'],
     paper: 'P2',
     marks: 14,
-    command: 'Find',
+    command: 'Show that',
     prompt: {
       en: 'A tank contains 500 litres of water in which 40 kg of salt is dissolved. At time t = 0, fresh water starts to flow into the tank at 5 litres per minute, and the well-mixed solution flows out of the tank at the same rate, so the volume stays at 500 litres. Let A kg be the mass of salt in the tank at time t minutes.\n\n(a) Show that dA/dt = −A/100. [3]\n\n(b) Given that A = 40 when t = 0, solve the differential equation by separation of variables to show that A = 40e^(−t/100). [4]\n\n(c) Find the time, in minutes, at which the mass of salt in the tank is 10 kg. Give your answer correct to 1 decimal place. [3]\n\n(d) Find the mass of salt in the tank after 2 hours. Give your answer correct to 2 decimal places. [2]\n\n(e) Comment on the behaviour of A as t becomes very large. [2]',
       ru: 'В бак вместимостью 500 литров налита вода, в которой растворены 40 кг соли. В момент t = 0 в бак начинает поступать пресная вода со скоростью 5 литров в минуту, а хорошо перемешанный раствор вытекает с той же скоростью, так что объём остаётся 500 литров. Пусть A кг — масса соли в баке в момент времени t минут.\n\n(a) Покажите, что dA/dt = −A/100. [3]\n\n(b) Учитывая, что A = 40 при t = 0, решите дифференциальное уравнение разделением переменных и покажите, что A = 40e^(−t/100). [4]\n\n(c) Найдите время в минутах, через которое масса соли в баке станет 10 кг. Ответ дайте с точностью до 1 знака после запятой. [3]\n\n(d) Найдите массу соли в баке через 2 часа. Ответ дайте с точностью до 2 знаков после запятой. [2]\n\n(e) Прокомментируйте поведение A при очень больших t. [2]',

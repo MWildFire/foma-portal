@@ -18,7 +18,7 @@ export const questions: Question[] = [
     },
     answer: '21',
     origin: 'original',
-    minutes: 4,
+    minutes: 3,
   },
   {
     id: 'q-3-16-02',
@@ -37,7 +37,7 @@ export const questions: Question[] = [
     },
     answer: '60',
     origin: 'original',
-    minutes: 5,
+    minutes: 3,
   },
   {
     id: 'q-3-16-03',
@@ -45,7 +45,7 @@ export const questions: Question[] = [
     topicIds: ['3-16-graph-algorithms'],
     paper: 'P2',
     marks: 14,
-    command: 'Find',
+    command: 'Show that, State',
     prompt: {
       en: 'Graph G has the vertices A, B, C, D and E and the edges AB = 3, AC = 10, AD = 5, BC = 1, BD = 11, BE = 9 and CD = 7. Graph H is complete on the same five vertices, with AB = 11, AC = 18, AD = 3, AE = 20, BC = 8, BD = 6, BE = 5, CD = 13, CE = 10 and DE = 4.\n\n(a) Show that G has exactly four vertices of odd degree, and state them. [2]\n\n(b) Find the minimum length of a closed route that traverses every edge of G at least once. [4]\n\n(c) Use the nearest neighbour algorithm, starting at A, to find an upper bound for the weight of a Hamiltonian cycle of H. [3]\n\n(d) Use the deleted vertex algorithm, deleting A, to find a lower bound for the weight of a Hamiltonian cycle of H. [3]\n\n(e) Explain whether the bounds in parts (c) and (d) determine the minimum weight of a Hamiltonian cycle of H exactly. [2]',
       ru: 'Граф G имеет вершины A, B, C, D и E и рёбра AB = 3, AC = 10, AD = 5, BC = 1, BD = 11, BE = 9 и CD = 7. Граф H — полный граф на тех же пяти вершинах с весами AB = 11, AC = 18, AD = 3, AE = 20, BC = 8, BD = 6, BE = 5, CD = 13, CE = 10 и DE = 4.\n\n(a) Покажите, что у графа G ровно четыре вершины нечётной степени, и назовите их. [2]\n\n(b) Найдите наименьшую длину замкнутого маршрута, который проходит каждое ребро графа G хотя бы один раз. [4]\n\n(c) Используя алгоритм ближайшего соседа и начиная с A, найдите верхнюю оценку веса гамильтонова цикла графа H. [3]\n\n(d) Используя метод удаления вершины с удалением A, найдите нижнюю оценку веса гамильтонова цикла графа H. [3]\n\n(e) Объясните, определяют ли оценки из частей (c) и (d) точно минимальный вес гамильтонова цикла графа H. [2]',

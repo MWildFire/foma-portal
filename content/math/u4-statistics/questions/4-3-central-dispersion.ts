@@ -7,7 +7,7 @@ export const questions: Question[] = [
     topicIds: ['4-3-central-dispersion'],
     paper: 'P1',
     marks: 3,
-    command: 'Calculate',
+    command: 'Calculate, Estimate',
     prompt: {
       en: 'The heights, h cm, of 60 plants are grouped as follows: 0 to 10 cm: 6 plants; 10 to 20 cm: 18 plants; 20 to 30 cm: 24 plants; 30 to 40 cm: 12 plants. Calculate an estimate of the mean height of the plants. Give your answer correct to 1 decimal place.',
       ru: 'Высоты h (в см) 60 растений сгруппированы так: от 0 до 10 см: 6 растений; от 10 до 20 см: 18 растений; от 20 до 30 см: 24 растения; от 30 до 40 см: 12 растений. Вычислите оценку средней высоты растений. Дайте ответ с точностью до 1 знака после запятой.',
@@ -18,7 +18,7 @@ export const questions: Question[] = [
     },
     answer: '22.0',
     origin: 'original',
-    minutes: 5,
+    minutes: 3,
   },
   {
     id: 'q-4-3-02',
@@ -37,7 +37,7 @@ export const questions: Question[] = [
     },
     answer: '33; 7',
     origin: 'original',
-    minutes: 5,
+    minutes: 3,
   },
   {
     id: 'q-4-3-03',
@@ -45,7 +45,7 @@ export const questions: Question[] = [
     topicIds: ['4-3-central-dispersion'],
     paper: 'P2',
     marks: 14,
-    command: 'Find',
+    command: 'Estimate',
     prompt: {
       en: 'The daily steps, in thousands, of 40 students are grouped as follows: 0 to 4: 5 students; 4 to 6: 12 students; 6 to 8: 14 students; 8 to 12: 9 students. The daily steps, in thousands, of six other students are: 3, 5, 6, 7, 9, 12.\n\n(a) (i) Estimate the mean number of steps of the 40 students. Give your answer correct to 2 decimal places. [3]\n(ii) Write down the modal class. [1]\n\n(b) For the six students, (i) find the mean. [1] (ii) find the standard deviation, correct to 2 decimal places. [3]\n\n(c) For the six students, find the lower quartile, the upper quartile and the interquartile range. [4]\n\n(d) Explain which measure of spread, the standard deviation or the interquartile range, better describes the six values. [2]',
       ru: 'Ежедневное количество шагов (в тысячах) 40 учеников сгруппировано так: от 0 до 4: 5 учеников; от 4 до 6: 12 учеников; от 6 до 8: 14 учеников; от 8 до 12: 9 учеников. Ежедневное количество шагов (в тысячах) у шести других учеников: 3, 5, 6, 7, 9, 12.\n\n(a) (i) Оцените среднее количество шагов у 40 учеников. Дайте ответ с точностью до 2 знаков после запятой. [3]\n(ii) Укажите модальный класс. [1]\n\n(b) Для шести учеников (i) найдите среднее. [1] (ii) найдите стандартное отклонение с точностью до 2 знаков после запятой. [3]\n\n(c) Для шести учеников найдите нижний квартиль, верхний квартиль и межквартильный размах. [4]\n\n(d) Объясните, какая мера разброса — стандартное отклонение или межквартильный размах — лучше описывает шесть значений. [2]',

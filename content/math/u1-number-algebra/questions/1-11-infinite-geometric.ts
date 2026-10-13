@@ -7,7 +7,7 @@ export const questions: Question[] = [
     topicIds: ['1-11-infinite-geometric'],
     paper: 'P1',
     marks: 3,
-    command: 'Find',
+    command: 'Show that, Find',
     prompt: {
       en: 'A geometric sequence has first term 12 and common ratio $-0.25$. Show that the sum to infinity exists, and find its value.',
       ru: 'Геометрическая прогрессия имеет первый член 12 и знаменатель $-0{,}25$. Покажите, что сумма бесконечной прогрессии существует, и найдите её значение.',
@@ -18,7 +18,7 @@ export const questions: Question[] = [
     },
     answer: '9.6',
     origin: 'original',
-    minutes: 4,
+    minutes: 3,
   },
   {
     id: 'q-1-11-02',
@@ -26,7 +26,7 @@ export const questions: Question[] = [
     topicIds: ['1-11-infinite-geometric'],
     paper: 'P1',
     marks: 4,
-    command: 'Determine',
+    command: 'Determine, State',
     prompt: {
       en: 'A geometric sequence has first term 10 and sum to infinity 40. Determine the common ratio $r$, and state the condition on $r$ that makes this sum valid.',
       ru: 'Геометрическая прогрессия имеет первый член 10, а сумма бесконечной прогрессии равна 40. Найдите знаменатель $r$ и укажите условие на $r$, при котором эта сумма существует.',
@@ -37,7 +37,7 @@ export const questions: Question[] = [
     },
     answer: '0.75',
     origin: 'original',
-    minutes: 4,
+    minutes: 5,
   },
   {
     id: 'q-1-11-03',

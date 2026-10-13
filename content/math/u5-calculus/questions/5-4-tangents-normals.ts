@@ -18,7 +18,7 @@ export const questions: Question[] = [
     },
     answer: '7.40',
     origin: 'original',
-    minutes: 4,
+    minutes: 3,
   },
   {
     id: 'q-5-4-02',
@@ -45,7 +45,7 @@ export const questions: Question[] = [
     topicIds: ['5-4-tangents-normals'],
     paper: 'P2',
     marks: 14,
-    command: 'Find',
+    command: 'Show that, Find',
     prompt: {
       en: 'A ski jump is modelled as a hill with cross-section C: y = 6x - x^2 for 0 ≤ x ≤ 6, where x and y are in metres and the ground is y = 0. A skier leaves the hill at the point P(5, 5) and moves in a straight line along the tangent to C at P.\n\n(a) Show that P lies on C, and find the gradient of the tangent at P. [3]\n\n(b) Find the x-coordinate of the point A where the tangent meets the ground. [2]\n\n(c) Find the straight-line distance PA, correct to 3 significant figures. [3]\n\n(d) The normal to C at P meets C again at the point Q. Find the x-coordinate of Q. [4]\n\n(e) Comment on whether a straight line is a good model for the path of the skier. State one reason. [2]',
       ru: 'Прыжковый трамплин моделируется холмом с поперечным сечением C: y = 6x - x^2 при 0 ≤ x ≤ 6, где x и y измеряются в метрах, а земля задана уравнением y = 0. Лыжник покидает холм в точке P(5, 5) и движется по прямой, касательной к C в точке P.\n\n(a) Покажите, что P лежит на C, и найдите угловой коэффициент касательной в точке P. [3]\n\n(b) Найдите x-координату точки A, в которой касательная пересекает землю. [2]\n\n(c) Найдите расстояние по прямой PA с точностью до 3 значащих цифр. [3]\n\n(d) Нормаль к C в точке P снова пересекает C в точке Q. Найдите x-координату Q. [4]\n\n(e) Прокомментируйте, годится ли прямая в качестве модели пути лыжника. Назовите одну причину. [2]',

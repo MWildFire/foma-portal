@@ -18,7 +18,7 @@ export const questions: Question[] = [
     },
     answer: '0.592; 0.117',
     origin: 'original',
-    minutes: 5,
+    minutes: 4,
   },
   {
     id: 'q-4-14-02',
@@ -37,7 +37,7 @@ export const questions: Question[] = [
     },
     answer: '4.50; 5.85',
     origin: 'original',
-    minutes: 5,
+    minutes: 4,
   },
   {
     id: 'q-4-14-03',
@@ -45,7 +45,7 @@ export const questions: Question[] = [
     topicIds: ['4-14-linear-transformations'],
     paper: 'P2',
     marks: 14,
-    command: 'Find',
+    command: 'Show that, Estimate',
     prompt: {
       en: 'A bakery makes loaves whose masses, in grams, are independent random variables with the same mean μ and the same variance σ². A random sample of n = 5 loaves has masses 512, 498, 505, 530 and 489 grams.\n\n(a) Show that the sample mean X̄ = (1/n)(X1 + X2 + ... + Xn) is an unbiased estimate of μ. [3]\n\n(b) Find the sample mean x̄ and the value of s²(n−1) for this sample. [4]\n\n(c) Use your answers to part (b) to estimate the mean and the variance of the total mass T = X1 + X2 + X3 of three loaves chosen at random. [4]\n\n(d) Explain why the divisor n − 1 is used in s²(n−1) rather than n when estimating σ². [3]',
       ru: 'Пекарня выпекает булки, массы которых в граммах — независимые случайные величины с одинаковым средним μ и одинаковой дисперсией σ². Случайная выборка из n = 5 булок имеет массы 512, 498, 505, 530 и 489 граммов.\n\n(a) Покажите, что выборочное среднее X̄ = (1/n)(X1 + X2 + ... + Xn) является несмещённой оценкой μ. [3]\n\n(b) Найдите выборочное среднее x̄ и значение s²(n−1) для этой выборки. [4]\n\n(c) Используя ответы к пункту (b), оцените среднее и дисперсию общей массы T = X1 + X2 + X3 трёх случайно выбранных булок. [4]\n\n(d) Объясните, почему при оценке σ² используется делитель n − 1 в s²(n−1), а не n. [3]',

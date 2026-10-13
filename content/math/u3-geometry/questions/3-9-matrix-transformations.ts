@@ -18,7 +18,7 @@ export const questions: Question[] = [
     },
     answer: '1.134; 3.964',
     origin: 'original',
-    minutes: 4,
+    minutes: 3,
   },
   {
     id: 'q-3-9-02',
@@ -26,7 +26,7 @@ export const questions: Question[] = [
     topicIds: ['3-9-matrix-transformations'],
     paper: 'P1',
     marks: 4,
-    command: 'Find',
+    command: 'Find, Hence',
     prompt: {
       en: 'The transformation of the plane with matrix A = [[3, −1], [2, 2]] maps a region R of area 4 square units onto a region R′. Find det A and hence the area of R′.',
       ru: 'Преобразование плоскости с матрицей A = [[3, −1], [2, 2]] переводит область R площадью 4 квадратные единицы в область R′. Найдите det A и с его помощью площадь R′.',
@@ -37,7 +37,7 @@ export const questions: Question[] = [
     },
     answer: '8; 32',
     origin: 'original',
-    minutes: 5,
+    minutes: 4,
   },
   {
     id: 'q-3-9-03',
@@ -45,7 +45,7 @@ export const questions: Question[] = [
     topicIds: ['3-9-matrix-transformations'],
     paper: 'P2',
     marks: 14,
-    command: 'Find',
+    command: 'Write down, Show that',
     prompt: {
       en: 'A transformation T of the plane is the composition of two transformations: first a rotation R through 90° anticlockwise about the origin O, then a stretch S with scale factor 3 parallel to the y-axis.\n\n(a) Write down the matrices of R and S, and show that the matrix of T is M = [[0, −1], [3, 0]]. [3]\n\n(b) Find the image of the point P(2, 5) under T. [2]\n\n(c) The unit square with vertices O(0, 0), A(1, 0), B(1, 1) and C(0, 1) is transformed by T. Find the area of its image. [2]\n\n(d) Find the coordinates of the point Q such that T(Q) = (6, −9). [3]\n\n(e) A second transformation U has matrix N = [[k, 1], [2, 1]], where k is a constant. Find the values of k for which the image of the unit square under U has area 5 square units. [4]',
       ru: 'Преобразование T плоскости является композицией двух преобразований: сначала поворот R на 90° против часовой стрелки вокруг начала координат O, затем растяжение S с коэффициентом 3 вдоль оси y.\n\n(a) Запишите матрицы R и S и покажите, что матрица T равна M = [[0, −1], [3, 0]]. [3]\n\n(b) Найдите образ точки P(2, 5) при преобразовании T. [2]\n\n(c) Единичный квадрат с вершинами O(0, 0), A(1, 0), B(1, 1) и C(0, 1) переводится преобразованием T. Найдите площадь его образа. [2]\n\n(d) Найдите координаты точки Q, для которой T(Q) = (6, −9). [3]\n\n(e) Второе преобразование U имеет матрицу N = [[k, 1], [2, 1]], где k — постоянная. Найдите значения k, при которых образ единичного квадрата при U имеет площадь 5 квадратных единиц. [4]',

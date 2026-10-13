@@ -7,7 +7,7 @@ export const questions: Question[] = [
     topicIds: ['1-4-financial-sequences', '1-7-amortisation-annuities', '1-5-exponents-logarithms'],
     paper: 'P3',
     marks: 26,
-    command: 'Find',
+    command: 'Show that',
     prompt: {
       en: 'Omar wants to buy a car that costs AED 60 000. He compares two options. All numbers in this task are illustrative. Use technology where needed and do not round intermediate values.\n\nOption 1 (save): Omar deposits AED 1 500 at the end of each month into an account that pays 3.6% per year, compounded monthly. Let S_n be the balance of the account after n months.\n\nOption 2 (borrow): Omar borrows AED 60 000 at 6% per year, compounded monthly. He repays the loan in 48 equal monthly payments made at the end of each month.\n\n(a) Show that S_n = P((1 + i)^n − 1)/i, where P is the monthly deposit and i is the monthly interest rate. [3]\n\n(b) Find S_24, the balance of Option 1 after 2 years. Give your answer correct to 2 decimal places. [3]\n\n(c) Find the value of n for which S_n = 60 000, correct to 2 decimal places. Hence find the least whole number of months after which the balance is at least AED 60 000. [4]\n\n(d) For Option 2, find the monthly payment, the balance of the loan after 12 payments and the total interest paid in the first 12 months. Give each answer correct to 2 decimal places. [5]\n\n(e) After the car is bought, it loses 12% of its value each year (reducing-balance depreciation). Find the value of the car, bought for AED 60 000, after 3 years, correct to 2 decimal places. Find also the least whole number of years after which its value is below AED 30 000. [5]\n\n(f) Assume that the interest rates and the price of the car stay constant over the whole period. Recommend Option 1 or Option 2 to Omar. Support your recommendation with the total interest on the loan, the interest earned on the savings by the time the car is bought (after 38 months) and the total amount that Omar pays in each option. Comment on one limitation of these assumptions. [6]',
       ru: 'Омар хочет купить автомобиль стоимостью 60 000 AED. Он сравнивает два варианта. Все числа в этом задании условные. Используйте технологии там, где это нужно, и не округляйте промежуточные значения.\n\nВариант 1 (накопления): Омар вносит 1 500 AED в конце каждого месяца на счёт, который начисляет 3,6% годовых с ежемесячным начислением процентов. Пусть S_n — баланс счёта через n месяцев.\n\nВариант 2 (кредит): Омар берёт в кредит 60 000 AED под 6% годовых с ежемесячным начислением процентов. Он погашает кредит 48 равными ежемесячными платежами, которые вносятся в конце каждого месяца.\n\n(a) Покажите, что S_n = P((1 + i)^n − 1)/i, где P — ежемесячный взнос, а i — месячная процентная ставка. [3]\n\n(b) Найдите S_24 — баланс варианта 1 через 2 года. Ответ дайте с точностью до 2 знаков после запятой. [3]\n\n(c) Найдите значение n, при котором S_n = 60 000, с точностью до 2 знаков после запятой. Затем найдите наименьшее целое число месяцев, через которое баланс будет не меньше 60 000 AED. [4]\n\n(d) Для варианта 2 найдите ежемесячный платёж, остаток долга после 12 платежей и общую сумму процентов, уплаченных за первые 12 месяцев. Каждый ответ дайте с точностью до 2 знаков после запятой. [5]\n\n(e) После покупки автомобиль теряет 12% стоимости в год (амортизация от остатка). Найдите стоимость автомобиля, купленного за 60 000 AED, через 3 года с точностью до 2 знаков после запятой. Найдите также наименьшее целое число лет, через которое его стоимость станет ниже 30 000 AED. [5]\n\n(f) Считайте, что процентные ставки и цена автомобиля остаются постоянными на всём периоде. Порекомендуйте Омару вариант 1 или вариант 2. Опирайтесь на общую сумму процентов по кредиту, проценты, заработанные на накоплениях к моменту покупки (через 38 месяцев), и общую сумму, которую Омар заплатит в каждом варианте. Прокомментируйте одно ограничение этих допущений. [6]',
@@ -18,7 +18,7 @@ export const questions: Question[] = [
     },
     answer: '37269.76; 37.83; 38; 1409.10; 46318.61; 3227.83; 40888.32; 6',
     origin: 'original',
-    minutes: 40,
+    minutes: 35,
   },
   {
     id: 'q-p3-05',
@@ -37,7 +37,7 @@ export const questions: Question[] = [
     },
     answer: '0.430; 0.320; 0.250; 0.252; 0.429; 0.321; 0.250; 1; 0.2; 0.248',
     origin: 'original',
-    minutes: 35,
+    minutes: 34,
   },
   {
     id: 'q-p3-06',
@@ -45,7 +45,7 @@ export const questions: Question[] = [
     topicIds: ['3-3-trig-applications', '3-8-unit-circle', '5-6-stationary-points'],
     paper: 'P3',
     marks: 28,
-    command: 'Determine',
+    command: 'Find',
     prompt: {
       en: 'A fair has a Ferris wheel. The height h of the capsule above the ground, in metres, is recorded at time t minutes after a passenger boards at the lowest point (t = 0). The heights were recorded every minute during one full turn of the wheel:\n\nt (min): 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12\nh (m): 1.6, 5.7, 14.3, 26.9, 39.6, 49.0, 51.8, 48.9, 39.6, 26.8, 14.5, 5.4, 2.2\n\nThe heights are modelled by h(t) = a sin(bt + c) + d. All numbers in this task are illustrative. Do not round intermediate values.\n\n(a) Use technology to find the sinusoidal model of best fit, with a > 0, 0 < b < π and 0 ≤ c < 2π. Give a and d correct to 2 decimal places, and b and c correct to 3 decimal places. [6]\n\n(b) Find the period T of the wheel, in minutes, correct to 2 decimal places. Interpret the meaning of a and d in this context. [4]\n\n(c) Let θ = bt + c. Use the unit circle to solve the equations in θ below.\n(i) Solve sin θ = 1 and hence find the first time t ≥ 0 at which the capsule is at its highest point. Give your answer correct to 2 decimal places. [3]\n(ii) Find the two times in the first turn (0 ≤ t ≤ T) at which the capsule is at a height of 40 m. Give each time correct to 2 decimal places. [3]\n\n(d) The rate of change of the height is h′(t).\n(i) Find h′(t). [1]\n(ii) Show that the stationary points of h′(t) occur where h″(t) = 0, and that the first such point with t ≥ 0 gives a maximum of h′(t). [2]\n(iii) Find the time in the first turn at which the rate of change of height is greatest, and this greatest rate in metres per minute. Give each answer correct to 2 decimal places. [3]\n\n(e) The fair operator wants to use the model to predict the height at t = 20 minutes.\n(i) Find h(20), correct to 1 decimal place. [2]\n(ii) Recommend whether the operator should rely on this prediction, and comment on one limitation of the model. [4]',
       ru: 'На ярмарке есть колесо обозрения. Высота h кабинки над землёй в метрах измеряется в момент времени t минут после того, как пассажир сел в кабинку в нижней точке (t = 0). Высоту записывали каждую минуту за один полный оборот колеса:\n\nt (мин): 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12\nh (м): 1,6; 5,7; 14,3; 26,9; 39,6; 49,0; 51,8; 48,9; 39,6; 26,8; 14,5; 5,4; 2,2\n\nВысота моделируется функцией h(t) = a sin(bt + c) + d. Все числа в этом задании условные. Не округляйте промежуточные значения.\n\n(a) С помощью технологий найдите синусоидальную модель наилучшего приближения при a > 0, 0 < b < π и 0 ≤ c < 2π. Значения a и d дайте с точностью до 2 знаков после запятой, а b и c — с точностью до 3 знаков после запятой. [6]\n\n(b) Найдите период T колеса в минутах с точностью до 2 знаков после запятой. Объясните смысл a и d в этом контексте. [4]\n\n(c) Пусть θ = bt + c. С помощью единичной окружности решите уравнения относительно θ.\n(i) Решите sin θ = 1 и найдите первый момент времени t ≥ 0, когда кабинка находится в самой высокой точке. Ответ дайте с точностью до 2 знаков после запятой. [3]\n(ii) Найдите два момента времени в первом обороте (0 ≤ t ≤ T), когда кабинка находится на высоте 40 м. Каждый момент дайте с точностью до 2 знаков после запятой. [3]\n\n(d) Скорость изменения высоты равна h′(t).\n(i) Найдите h′(t). [1]\n(ii) Покажите, что стационарные точки h′(t) находятся там, где h″(t) = 0, и что первая такая точка при t ≥ 0 даёт максимум h′(t). [2]\n(iii) Найдите момент времени в первом обороте, когда скорость изменения высоты наибольшая, и эту наибольшую скорость в метрах в минуту. Каждый ответ дайте с точностью до 2 знаков после запятой. [3]\n\n(e) Оператор аттракциона хочет использовать модель для прогноза высоты через 20 минут.\n(i) Найдите h(20) с точностью до 1 знака после запятой. [2]\n(ii) Порекомендуйте, стоит ли оператору полагаться на этот прогноз, и прокомментируйте одно ограничение модели. [4]',
@@ -56,6 +56,6 @@ export const questions: Question[] = [
     },
     answer: '25.05; 0.524; 4.710; 27.05; 11.99; 6.00; 4.04; 7.96; 3.00; 13.13; 39.4',
     origin: 'original',
-    minutes: 40,
+    minutes: 39,
   },
 ];

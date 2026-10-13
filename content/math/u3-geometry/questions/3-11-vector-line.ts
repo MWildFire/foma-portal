@@ -37,7 +37,7 @@ export const questions: Question[] = [
     },
     answer: '0.25; -2.75',
     origin: 'original',
-    minutes: 4,
+    minutes: 3,
   },
   {
     id: 'q-3-11-03',
@@ -45,7 +45,7 @@ export const questions: Question[] = [
     topicIds: ['3-11-vector-line'],
     paper: 'P2',
     marks: 14,
-    command: 'Find',
+    command: 'Find, Hence, Write down',
     prompt: {
       en: 'A zip line runs from the top of a tower to the ground. Take the ground as the plane z = 0 and measure in metres. The top of the tower is A(0, 0, 40) and the landing point is B(120, 60, 0). The zip line is the straight line L1 through A and B.\n\n(a) Find a direction vector for L1 with integer components whose highest common factor is 1. Hence write down the vector equation of L1 in the form r = a + λb. [2]\n\n(b) The point C lies on L1 at a height of 25 m. Find the coordinates of C. [3]\n\n(c) A second zip line L2 has vector equation r = (35, 11, 20) + μ(-5, 4, 10). Show that L1 and L2 meet, and find the coordinates of their point of intersection. [4]\n\n(d) A third zip line L3 is parallel to L1 and passes through the point Q(20, 0, 31). Find the coordinates of the point on L3 whose x-coordinate is 50. [3]\n\n(e) Find the coordinates of the point where L2 meets the ground. [2]',
       ru: 'Тросовая переправа (zip line) идёт с вершины башни до земли. Считайте землю плоскостью z = 0, расстояния измеряйте в метрах. Вершина башни — точка A(0, 0, 40), точка приземления — B(120, 60, 0). Переправа — прямая L1, проходящая через A и B.\n\n(a) Найдите направляющий вектор L1 с целыми координатами, наибольший общий делитель которых равен 1. Затем запишите векторное уравнение L1 в виде r = a + λb. [2]\n\n(b) Точка C лежит на L1 на высоте 25 м. Найдите координаты C. [3]\n\n(c) Вторая переправа L2 задана векторным уравнением r = (35, 11, 20) + μ(-5, 4, 10). Покажите, что L1 и L2 пересекаются, и найдите координаты точки пересечения. [4]\n\n(d) Третья переправа L3 параллельна L1 и проходит через точку Q(20, 0, 31). Найдите координаты точки на L3, у которой x-координата равна 50. [3]\n\n(e) Найдите координаты точки, в которой L2 выходит на землю. [2]',

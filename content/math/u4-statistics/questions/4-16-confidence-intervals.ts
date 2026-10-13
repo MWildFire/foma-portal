@@ -18,7 +18,7 @@ export const questions: Question[] = [
     },
     answer: '250.58; 252.22',
     origin: 'original',
-    minutes: 5,
+    minutes: 4,
   },
   {
     id: 'q-4-16-02',
@@ -37,7 +37,7 @@ export const questions: Question[] = [
     },
     answer: '13.10; 16.10',
     origin: 'original',
-    minutes: 4,
+    minutes: 3,
   },
   {
     id: 'q-4-16-03',
@@ -45,7 +45,7 @@ export const questions: Question[] = [
     topicIds: ['4-16-confidence-intervals'],
     paper: 'P2',
     marks: 14,
-    command: 'Find',
+    command: 'Explain, Estimate',
     prompt: {
       en: 'A bottling plant fills water bottles. The volumes, in ml, are normally distributed. A random sample of 15 bottles has mean volume 500.8 ml and sample standard deviation (divisor n − 1) 3.2 ml.\n\n(a) Explain why a t interval, rather than a z interval, should be used to estimate the mean volume. [2]\n\n(b) Find a 95% confidence interval for the mean volume of bottles from this plant. Give both end points correct to 2 decimal places. [3]\n\n(c) Interpret the interval found in part (b). [2]\n\n(d) Find a 99% confidence interval for the mean volume, using the same sample. Give both end points correct to 2 decimal places. [4]\n\n(e) Assume that the population standard deviation is known to be 3.2 ml. Find the least sample size n for which a 95% confidence interval for the mean volume has a margin of error of at most 1 ml. [3]',
       ru: 'Завод разливает питьевую воду в бутылки. Объёмы в мл распределены нормально. Случайная выборка из 15 бутылок имеет средний объём 500,8 мл, а выборочное стандартное отклонение (с делителем n − 1) равно 3,2 мл.\n\n(a) Объясните, почему для оценки среднего объёма следует использовать t-интервал, а не z-интервал. [2]\n\n(b) Найдите 95% доверительный интервал для среднего объёма бутылок с этого завода. Оба конца интервала дайте с точностью до 2 знаков после запятой. [3]\n\n(c) Интерпретируйте интервал, найденный в пункте (b). [2]\n\n(d) Найдите 99% доверительный интервал для среднего объёма по той же выборке. Оба конца интервала дайте с точностью до 2 знаков после запятой. [4]\n\n(e) Предположим, что стандартное отклонение совокупности известно и равно 3,2 мл. Найдите наименьший объём выборки n, при котором 95% доверительный интервал для среднего объёма имеет погрешность не более 1 мл. [3]',

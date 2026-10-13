@@ -45,7 +45,7 @@ export const questions: Question[] = [
     topicIds: ['5-7-optimisation'],
     paper: 'P2',
     marks: 14,
-    command: 'Find',
+    command: 'Show that, State',
     prompt: {
       en: 'A rectangular sheet of card measures 20 cm by 30 cm. Equal squares of side $x$ cm are cut from the four corners. The sides are then folded up to make an open box with no lid.\n\n(a) Show that the volume of the box is $V(x)=4x^{3}-100x^{2}+600x$, and state the domain of $x$ for which the box exists. [3]\n\n(b) Find $V\'(x)$. [2]\n\n(c) Solve $V\'(x)=0$, giving each solution to 3 significant figures. [3]\n\n(d) Justify that the valid solution gives a maximum volume. [3]\n\n(e) Find the maximum volume of the box, to the nearest cubic centimetre. [3]',
       ru: 'Прямоугольный лист картона размером 20 см на 30 см. Из четырёх углов вырезаны равные квадраты со стороной $x$ см. Затем стороны поднимают и получают открытую коробку без крышки.\n\n(a) Покажите, что объём коробки равен $V(x)=4x^{3}-100x^{2}+600x$, и укажите область значений $x$, при которой коробка существует. [3]\n\n(b) Найдите $V\'(x)$. [2]\n\n(c) Решите $V\'(x)=0$ и запишите каждое решение с точностью до 3 значащих цифр. [3]\n\n(d) Обоснуйте, что допустимое решение даёт наибольший объём. [3]\n\n(e) Найдите наибольший объём коробки с точностью до кубического сантиметра. [3]',

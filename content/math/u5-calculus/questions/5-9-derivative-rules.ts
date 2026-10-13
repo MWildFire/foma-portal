@@ -18,7 +18,7 @@ export const questions: Question[] = [
     },
     answer: '0.680',
     origin: 'original',
-    minutes: 5,
+    minutes: 4,
   },
   {
     id: 'q-5-9-02',
@@ -37,7 +37,7 @@ export const questions: Question[] = [
     },
     answer: '12.57',
     origin: 'original',
-    minutes: 4,
+    minutes: 3,
   },
   {
     id: 'q-5-9-03',
@@ -45,7 +45,7 @@ export const questions: Question[] = [
     topicIds: ['5-9-derivative-rules'],
     paper: 'P2',
     marks: 14,
-    command: 'Find',
+    command: 'Show that',
     prompt: {
       en: 'A conical tank stands with its vertex at the bottom. The top of the tank is a circle of radius 4 m, and the tank is 10 m high. When the depth of water is $h$ metres, the water fills a cone of height $h$ and radius $r$. Water is added at a constant rate of 2 m$^{3}$ per minute.\n\n(a) Show that the volume of water when the depth is $h$ is $V = \\dfrac{4\\pi}{75}h^{3}$. [3]\n\n(b) Show that $\\dfrac{dV}{dt} = \\dfrac{4\\pi}{25}h^{2}\\dfrac{dh}{dt}$. [2]\n\n(c) Find $\\dfrac{dh}{dt}$ when $h = 5$. Give your answer correct to 3 decimal places. [3]\n\n(d) Find the rate at which the area of the water surface is increasing when $h = 5$. Give your answer to 3 significant figures. [3]\n\n(e) Comment on how $\\dfrac{dh}{dt}$ changes as $h$ increases. [3]',
       ru: 'В коническую ёмкость, стоящую вершиной вниз, наливают воду. Верхний круг ёмкости имеет радиус 4 м, высота ёмкости 10 м. Когда глубина воды равна $h$ метрам, вода занимает конус высотой $h$ и радиусом $r$. Воду доливают с постоянной скоростью 2 м$^{3}$ в минуту.\n\n(a) Покажите, что объём воды при глубине $h$ равен $V = \\dfrac{4\\pi}{75}h^{3}$. [3]\n\n(b) Покажите, что $\\dfrac{dV}{dt} = \\dfrac{4\\pi}{25}h^{2}\\dfrac{dh}{dt}$. [2]\n\n(c) Найдите $\\dfrac{dh}{dt}$ при $h = 5$. Ответ дайте с точностью до 3 знаков после запятой. [3]\n\n(d) Найдите скорость, с которой растёт площадь поверхности воды при $h = 5$. Ответ дайте с точностью до 3 значащих цифр. [3]\n\n(e) Прокомментируйте, как меняется $\\dfrac{dh}{dt}$ при увеличении $h$. [3]',

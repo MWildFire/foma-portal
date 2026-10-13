@@ -18,7 +18,7 @@ export const questions: Question[] = [
     },
     answer: '0.208',
     origin: 'original',
-    minutes: 4,
+    minutes: 3,
   },
   {
     id: 'q-4-8-02',
@@ -37,7 +37,7 @@ export const questions: Question[] = [
     },
     answer: '0.118',
     origin: 'original',
-    minutes: 4,
+    minutes: 3,
   },
   {
     id: 'q-4-8-03',
@@ -45,7 +45,7 @@ export const questions: Question[] = [
     topicIds: ['4-8-binomial'],
     paper: 'P2',
     marks: 14,
-    command: 'Find',
+    command: 'Show that, Justify',
     prompt: {
       en: 'A bottling plant in Dubai fills 1.5 litre bottles. Each bottle is faulty independently of the others, with probability 0.04. Bottles are packed in crates of 20. Let $X$ be the number of faulty bottles in one crate. Give all probabilities correct to 3 decimal places.\n\n(a) Show that $X$ can be modelled by $\\text{B}(20, 0.04)$, giving two conditions that justify the model. [3]\n\n(b) Find $E(X)$ and $\\text{Var}(X)$. [2]\n\n(c) Find the probability that a crate contains exactly 2 faulty bottles, and the probability that it contains at least one faulty bottle. [4]\n\n(d) A sample of $n$ bottles is chosen at random from the plant. Find the least value of $n$ such that the probability that the sample contains at least one faulty bottle is greater than 0.95. [3]\n\n(e) One crate is found to contain 3 faulty bottles. Find $P(X \\ge 3)$ and comment on whether this is evidence that the fault rate is higher than 0.04. [2]',
       ru: 'Завод в Дубае разливает напитки в бутылки по 1,5 литра. Каждая бутылка независимо от других оказывается бракованной с вероятностью 0,04. Бутылки упаковывают в ящики по 20 штук. Пусть $X$ — число бракованных бутылок в одном ящике. Все вероятности давайте с точностью до 3 знаков после запятой.\n\n(a) Покажите, что $X$ можно описать распределением $\\text{B}(20, 0{,}04)$, указав два условия, которые обосновывают модель. [3]\n\n(b) Найдите $E(X)$ и $\\text{Var}(X)$. [2]\n\n(c) Найдите вероятность того, что в ящике ровно 2 бракованные бутылки, и вероятность того, что в нём есть хотя бы одна бракованная бутылка. [4]\n\n(d) Из продукции завода наугад выбирают выборку из $n$ бутылок. Найдите наименьшее значение $n$, при котором вероятность того, что в выборке есть хотя бы одна бракованная бутылка, больше 0,95. [3]\n\n(e) В одном ящике нашли 3 бракованные бутылки. Найдите $P(X \\ge 3)$ и прокомментируйте, является ли это доказательством того, что доля брака выше 0,04. [2]',

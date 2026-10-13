@@ -18,7 +18,7 @@ export const questions: Question[] = [
     },
     answer: '3.50',
     origin: 'original',
-    minutes: 5,
+    minutes: 3,
   },
   {
     id: 'q-4-13-02',
@@ -37,7 +37,7 @@ export const questions: Question[] = [
     },
     answer: '0.996',
     origin: 'original',
-    minutes: 5,
+    minutes: 3,
   },
   {
     id: 'q-4-13-03',
@@ -45,7 +45,7 @@ export const questions: Question[] = [
     topicIds: ['4-13-nonlinear-regression'],
     paper: 'P2',
     marks: 15,
-    command: 'Determine',
+    command: 'Find',
     prompt: {
       en: 'A smoothie stand in Dubai Marina opened on day 0. On day x, the average number of customers per day was y, in hundreds. The data for seven days are:\n\nDay x: 1, 2, 3, 5, 7, 10, 14\nCustomers y (hundreds): 3.4, 4.2, 5.5, 6.1, 7.3, 7.7, 8.2\n\n(a) Find the logarithmic regression model y = a + b ln x. Give a and b correct to 2 decimal places. [3]\n\n(b) Find the coefficient of determination R² for this model, correct to 3 decimal places. [2]\n\n(c) Find R² for the linear model y = px + q, correct to 3 decimal places. State which model fits the data better. [3]\n\n(d) Use the logarithmic model to estimate the average number of customers per day on day 21. Give your answer in hundreds, correct to 2 decimal places. [3]\n\n(e) Interpret the value of b in this context. Comment on the reliability of your estimate in part (d). [4]',
       ru: 'Киоск смузи в Дубай-Марина открылся в день 0. В день x среднее число покупателей за день составило y (в сотнях). Данные за семь дней:\n\nДень x: 1, 2, 3, 5, 7, 10, 14\nПокупатели y (сотни): 3,4; 4,2; 5,5; 6,1; 7,3; 7,7; 8,2\n\n(a) Найдите логарифмическую регрессионную модель y = a + b ln x. Дайте a и b с точностью до 2 знаков после запятой. [3]\n\n(b) Найдите коэффициент детерминации R² для этой модели с точностью до 3 знаков после запятой. [2]\n\n(c) Найдите R² для линейной модели y = px + q с точностью до 3 знаков после запятой. Укажите, какая модель лучше подходит к данным. [3]\n\n(d) С помощью логарифмической модели оцените среднее число покупателей за день в день 21. Ответ дайте в сотнях с точностью до 2 знаков после запятой. [3]\n\n(e) Истолкуйте значение b в этом контексте. Прокомментируйте надёжность вашей оценки в части (d). [4]',

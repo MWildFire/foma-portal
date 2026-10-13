@@ -7,7 +7,7 @@ export const questions: Question[] = [
     topicIds: ['5-3-differentiating-powers'],
     paper: 'P1',
     marks: 3,
-    command: 'Find',
+    command: 'Find, Hence',
     prompt: {
       en: 'The curve has equation $y = 4x^5 - 3x^2 + 7x - 2$. Find $\\dfrac{dy}{dx}$, and hence find the value of $\\dfrac{dy}{dx}$ at $x = 2$.',
       ru: 'Кривая задана уравнением $y = 4x^5 - 3x^2 + 7x - 2$. Найдите $\\dfrac{dy}{dx}$, а затем значение $\\dfrac{dy}{dx}$ при $x = 2$.',
@@ -18,7 +18,7 @@ export const questions: Question[] = [
     },
     answer: '315',
     origin: 'original',
-    minutes: 4,
+    minutes: 3,
   },
   {
     id: 'q-5-3-02',
@@ -37,7 +37,7 @@ export const questions: Question[] = [
     },
     answer: '15',
     origin: 'original',
-    minutes: 4,
+    minutes: 3,
   },
   {
     id: 'q-5-3-03',

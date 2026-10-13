@@ -37,7 +37,7 @@ export const questions: Question[] = [
     },
     answer: '4.35',
     origin: 'original',
-    minutes: 4,
+    minutes: 3,
   },
   {
     id: 'q-1-6-03',
@@ -45,7 +45,7 @@ export const questions: Question[] = [
     topicIds: ['1-6-approximation-errors'],
     paper: 'P2',
     marks: 14,
-    command: 'Find',
+    command: 'Write down',
     prompt: {
       en: 'A rectangular garden plot is measured as 12.4 m long and 8.6 m wide, each correct to 1 decimal place. Its area is calculated as 12.4 × 8.6 = 106.64 m².\n\n(a) Write down the lower and upper bounds of the length and of the width. [2]\n\n(b) Find the lower and upper bounds of the area, giving each answer to 2 decimal places. [3]\n\n(c) Estimate the area by rounding each measurement to 1 significant figure. Hence find the percentage error of this estimate compared with the calculated area of 106.64 m², giving the percentage error to 2 decimal places. [4]\n\n(d) Comment on whether the area can be given as 107 m² correct to 3 significant figures, using your bounds from part (b). [3]\n\n(e) Suggest one way of reducing the uncertainty in the calculated area. [2]',
       ru: 'Прямоугольный участок сада измерен: длина 12,4 м и ширина 8,6 м, каждая величина указана с точностью до 1 знака после запятой. Его площадь вычислена как 12,4 × 8,6 = 106,64 м².\n\n(a) Запишите нижнюю и верхнюю границы длины и ширины. [2]\n\n(b) Найдите нижнюю и верхнюю границы площади; каждый ответ запишите с 2 знаками после запятой. [3]\n\n(c) Оцените площадь, округлив каждое измерение до одной значащей цифры. Затем найдите процентную погрешность этой оценки по сравнению с вычисленной площадью 106,64 м², ответ запишите с 2 знаками после запятой. [4]\n\n(d) Прокомментируйте, можно ли записать площадь как 107 м² с точностью до 3 значащих цифр, используя границы из части (b). [3]\n\n(e) Предложите один способ уменьшить неопределённость вычисленной площади. [2]',

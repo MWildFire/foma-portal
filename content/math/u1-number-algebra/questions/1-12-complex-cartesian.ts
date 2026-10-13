@@ -18,7 +18,7 @@ export const questions: Question[] = [
     },
     answer: '-0.588; 0.647',
     origin: 'original',
-    minutes: 4,
+    minutes: 3,
   },
   {
     id: 'q-1-12-02',
@@ -45,7 +45,7 @@ export const questions: Question[] = [
     topicIds: ['1-12-complex-cartesian'],
     paper: 'P2',
     marks: 14,
-    command: 'Find',
+    command: 'Find, Write down',
     prompt: {
       en: 'Let p(z) = z^2 - 6z + 34.\n\n(a) Find the roots of p(z) = 0 in the form a + bi and a - bi, where b > 0. Write down the values of a and b. [3]\n\n(b) Plot the two roots on an Argand diagram, and find the modulus of each root, correct to 2 decimal places. [2]\n\n(c) Find the argument of the root with positive imaginary part, in degrees, correct to 2 decimal places. [3]\n\n(d) Find (3 + 5i)^3 in the form x + yi. [3]\n\n(e) Find the least positive integer n such that |(3 + 5i)^n| > 1000. [3]',
       ru: 'Пусть p(z) = z^2 - 6z + 34.\n\n(a) Найдите корни уравнения p(z) = 0 в виде a + bi и a - bi, где b > 0. Укажите значения a и b. [3]\n\n(b) Отметьте два корня на диаграмме Аргана и найдите модуль каждого корня с точностью до 2 знаков после запятой. [2]\n\n(c) Найдите аргумент корня с положительной мнимой частью в градусах с точностью до 2 знаков после запятой. [3]\n\n(d) Найдите (3 + 5i)^3 в виде x + yi. [3]\n\n(e) Найдите наименьшее натуральное n, при котором |(3 + 5i)^n| > 1000. [3]',

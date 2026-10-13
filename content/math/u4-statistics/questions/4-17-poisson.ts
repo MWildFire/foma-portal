@@ -18,7 +18,7 @@ export const questions: Question[] = [
     },
     answer: '0.180',
     origin: 'original',
-    minutes: 4,
+    minutes: 3,
   },
   {
     id: 'q-4-17-02',
@@ -37,7 +37,7 @@ export const questions: Question[] = [
     },
     answer: '0.849',
     origin: 'original',
-    minutes: 4,
+    minutes: 3,
   },
   {
     id: 'q-4-17-03',
@@ -45,7 +45,7 @@ export const questions: Question[] = [
     topicIds: ['4-17-poisson'],
     paper: 'P2',
     marks: 14,
-    command: 'Find',
+    command: 'Show that, State',
     prompt: {
       en: 'Customers arrive at a café at random, at an average rate of 4 per 10 minutes. Assume that customers arrive independently and at a constant rate.\n\n(a) Show that the number of customers, X, arriving in a 30 minute period can be modelled by a Poisson distribution, and state its mean. [3]\n\n(b) Find the probability that exactly 10 customers arrive in a 30 minute period. [3]\n\n(c) Find the least value of n such that P(X ≤ n) > 0.95. [3]\n\n(d) Find P(X ≥ 16) for a 30 minute period. [2]\n\n(e) During one lunch hour, 16 customers arrive in a 30 minute period. Comment on whether this is evidence that the arrival rate has increased. [3]',
       ru: 'Посетители приходят в кафе случайно, в среднем 4 за 10 минут. Считайте, что посетители приходят независимо друг от друга и с постоянной средней частотой.\n\n(a) Покажите, что число посетителей X за 30 минут можно описать распределением Пуассона, и укажите его среднее. [3]\n\n(b) Найдите вероятность того, что за 30 минут придут ровно 10 посетителей. [3]\n\n(c) Найдите наименьшее n, при котором P(X ≤ n) > 0,95. [3]\n\n(d) Найдите P(X ≥ 16) за 30 минут. [2]\n\n(e) В один обеденный час за 30 минут пришли 16 посетителей. Прокомментируйте, является ли это доказательством роста частоты прихода. [3]',

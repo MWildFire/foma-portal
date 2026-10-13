@@ -7,7 +7,7 @@ export const questions: Question[] = [
     topicIds: ['3-6-voronoi'],
     paper: 'P1',
     marks: 3,
-    command: 'Find',
+    command: 'Find, Justify',
     prompt: {
       en: 'Three towns are at A(1, 1), B(7, 2) and C(4, 8), with coordinates in km. A house is at P(5, 4). Find the distance from P to its nearest town, correct to 2 decimal places, and justify your choice of town by comparing distances.',
       ru: 'Три города находятся в точках A(1; 1), B(7; 2) и C(4; 8), координаты даны в км. Дом находится в точке P(5; 4). Найдите расстояние от P до ближайшего города с точностью до 2 знаков после запятой и обоснуйте выбор города, сравнив расстояния.',
@@ -18,7 +18,7 @@ export const questions: Question[] = [
     },
     answer: '2.83',
     origin: 'original',
-    minutes: 4,
+    minutes: 3,
   },
   {
     id: 'q-3-6-02',
@@ -37,7 +37,7 @@ export const questions: Question[] = [
     },
     answer: '18.0; 2.24',
     origin: 'original',
-    minutes: 4,
+    minutes: 3,
   },
   {
     id: 'q-3-6-03',
@@ -45,7 +45,7 @@ export const questions: Question[] = [
     topicIds: ['3-6-voronoi'],
     paper: 'P2',
     marks: 14,
-    command: 'Determine',
+    command: 'Show that, Find',
     prompt: {
       en: 'A regional authority has four monitoring stations at A(0, 0), B(8, 0), C(2, 6) and D(9, 6), with coordinates in km. The stations are the sites of a Voronoi diagram. First consider only A, B and C: their diagram has a vertex V, the point equidistant from all three.\n\n(a) Show that V(4, 2) is equidistant from A, B and C, and find this distance, correct to 2 decimal places. [3]\n\n(b) Station D is added to the diagram. The new vertex W is the circumcentre of triangle BCD. Find the coordinates of W, correct to 2 decimal places. [4]\n\n(c) Find the distance from W to its nearest station, correct to 2 decimal places. [2]\n\n(d) A toxic waste dump must be placed at whichever of the vertices V or W is further from its nearest station. Determine the coordinates of the dump site. [3]\n\n(e) Monitoring readings are 14 ppm at A, 9 ppm at B, 21 ppm at C and 11 ppm at D. Use nearest-neighbour interpolation to estimate the reading at the point P(7, 4). [2]',
       ru: 'Региональная служба имеет четыре станции мониторинга в точках A(0; 0), B(8; 0), C(2; 6) и D(9; 6), координаты даны в км. Станции — это пункты диаграммы Вороного. Сначала рассмотрим только A, B и C: их диаграмма имеет вершину V, равноудалённую от всех трёх.\n\n(a) Покажите, что V(4; 2) равноудалена от A, B и C, и найдите это расстояние с точностью до 2 знаков после запятой. [3]\n\n(b) Станция D добавлена в диаграмму. Новая вершина W — центр описанной окружности треугольника BCD. Найдите координаты W с точностью до 2 знаков после запятой. [4]\n\n(c) Найдите расстояние от W до ближайшей станции с точностью до 2 знаков после запятой. [2]\n\n(d) Место свалки токсичных отходов должно быть в той из вершин V или W, которая дальше от своей ближайшей станции. Определите координаты места свалки. [3]\n\n(e) Показания станций: 14 ppm в A, 9 ppm в B, 21 ppm в C и 11 ppm в D. Используя интерполяцию по ближайшему соседу, оцените показание в точке P(7; 4). [2]',

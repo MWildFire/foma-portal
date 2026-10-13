@@ -26,7 +26,7 @@ export const questions: Question[] = [
     topicIds: ['2-5-standard-models'],
     paper: 'P1',
     marks: 4,
-    command: 'Find',
+    command: 'Write down',
     prompt: {
       en: 'A simplified model for the number of daylight hours D at a location near Dubai is D(t) = 12 - 1.5cos(πt/6), where t is the number of months after the start of January and 0 ≤ t ≤ 12. (a) Write down the maximum and the minimum number of daylight hours, giving each to 1 decimal place. (b) Find the least value of t for which D(t) = 12.75. Give your answer as an exact value.',
       ru: 'Упрощённая модель числа часов дневного света D в районе Дубая: D(t) = 12 - 1,5cos(πt/6), где t — число месяцев после начала января, 0 ≤ t ≤ 12. (a) Запишите наибольшее и наименьшее число часов дневного света, каждое с точностью до 1 знака после запятой. (b) Найдите наименьшее значение t, при котором D(t) = 12,75. Ответ дайте точным значением.',
@@ -45,7 +45,7 @@ export const questions: Question[] = [
     topicIds: ['2-5-standard-models'],
     paper: 'P2',
     marks: 14,
-    command: 'Determine',
+    command: 'Show that, Explain',
     prompt: {
       en: 'An open box is made from a square sheet of card of side 30 cm. A square of side x cm is cut from each corner, and the sides are folded up. The volume of the box is V(x) = x(30 - 2x)^2 cm^3 for 0 < x < 15.\n\n(a) Show that V(x) = 4x^3 - 120x^2 + 900x. Explain why the values of x are restricted to 0 < x < 15. [3]\n\n(b) Find the value of x for which V(x) is a maximum, and the maximum volume. Give x to 2 decimal places and the volume to the nearest cm^3. [3]\n\n(c) Find the two values of x for which V(x) = 1000. Give your answers to 2 decimal places. [3]\n\n(d) Explain the meaning of V(x) approaching 0 as x approaches 0, and as x approaches 15. [3]\n\n(e) Find the volume of the box when x = 2. [2]',
       ru: 'Открытую коробку делают из квадратного листа картона со стороной 30 см. В каждом углу вырезают квадрат со стороной x см, а стенки загибают вверх. Объём коробки V(x) = x(30 - 2x)^2 см^3 при 0 < x < 15.\n\n(a) Покажите, что V(x) = 4x^3 - 120x^2 + 900x. Объясните, почему допустимы только значения 0 < x < 15. [3]\n\n(b) Найдите значение x, при котором V(x) максимально, и максимальный объём. Значение x дайте с точностью до 2 знаков после запятой, объём — с точностью до целых см^3. [3]\n\n(c) Найдите два значения x, при которых V(x) = 1000. Ответы дайте с точностью до 2 знаков после запятой. [3]\n\n(d) Объясните смысл того, что V(x) стремится к 0 при x, стремящемся к 0, и при x, стремящемся к 15. [3]\n\n(e) Найдите объём коробки при x = 2. [2]',

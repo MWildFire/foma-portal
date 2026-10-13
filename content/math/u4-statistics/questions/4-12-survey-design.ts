@@ -18,7 +18,7 @@ export const questions: Question[] = [
     },
     answer: '4',
     origin: 'original',
-    minutes: 3,
+    minutes: 2,
   },
   {
     id: 'q-4-12-02',
@@ -37,7 +37,7 @@ export const questions: Question[] = [
     },
     answer: '20.4; 26.1',
     origin: 'original',
-    minutes: 5,
+    minutes: 4,
   },
   {
     id: 'q-4-12-03',
@@ -45,7 +45,7 @@ export const questions: Question[] = [
     topicIds: ['4-12-survey-design'],
     paper: 'P2',
     marks: 14,
-    command: 'Determine',
+    command: 'Estimate',
     prompt: {
       en: 'A school counts the students who arrive late to their first lesson on each of 80 school days. The counts are: no late arrivals on 20 days, 1 late arrival on 26 days, 2 on 18 days, 3 on 10 days and 4 on 6 days. The school wants to know whether a Poisson distribution is a suitable model for the number of late arrivals per day.\n\n(a) Give one reason why counting the late arrivals on every school day is a more valid data-collection method than asking students to estimate how often they are late. [2]\n\n(b) Estimate the mean number of late arrivals per day. [2]\n\n(c) Using the Poisson model with the mean from part (b), find the expected number of days with exactly 4 late arrivals. Give your answer to 2 decimal places. Explain why the categories for 3 and 4 late arrivals should be combined before the test. [4]\n\n(d) Combine the categories 3 and 4 into "3 or more". Using the categories 0, 1, 2 and "3 or more", find the value of the chi-squared test statistic. Give your answer to 3 significant figures. [4]\n\n(e) Write down the number of degrees of freedom of the test. State, with a reason, whether the Poisson model should be rejected at the 5% significance level. [2]',
       ru: 'В школе считают учеников, которые опоздали на первый урок, за каждый из 80 учебных дней. Результаты: в 20 дней опозданий не было, в 26 днях — 1 опоздание, в 18 днях — 2, в 10 днях — 3 и в 6 днях — 4. Школа хочет понять, подходит ли распределение Пуассона как модель числа опозданий за день.\n\n(a) Приведите одну причину, почему подсчёт опоздавших в каждый учебный день — более валидный способ сбора данных, чем просьба к ученикам оценить, как часто они опаздывают. [2]\n\n(b) Оцените среднее число опоздавших за день. [2]\n\n(c) Используя модель Пуассона со средним из части (b), найдите ожидаемое число дней ровно с 4 опоздавшими. Ответ дайте с 2 знаками после запятой. Объясните, почему категории для 3 и 4 опоздавших нужно объединить перед тестом. [4]\n\n(d) Объедините категории 3 и 4 в «3 или больше». Используя категории 0, 1, 2 и «3 или больше», найдите значение статистики χ². Ответ дайте с 3 значащими цифрами. [4]\n\n(e) Запишите число степеней свободы теста. Укажите с обоснованием, следует ли отклонить модель Пуассона на уровне значимости 5%. [2]',

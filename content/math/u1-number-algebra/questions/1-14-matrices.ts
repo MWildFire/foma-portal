@@ -18,7 +18,7 @@ export const questions: Question[] = [
     },
     answer: '0.667',
     origin: 'original',
-    minutes: 4,
+    minutes: 3,
   },
   {
     id: 'q-1-14-02',
@@ -26,7 +26,7 @@ export const questions: Question[] = [
     topicIds: ['1-14-matrices'],
     paper: 'P1',
     marks: 4,
-    command: 'Calculate',
+    command: 'Find',
     prompt: {
       en: 'The simultaneous equations $3x - y = 7$ and $x + 2y = 4$ are written as $M\\mathbf{x} = \\mathbf{b}$. Use the inverse of $M$ to find $x$ and $y$, giving each answer to 3 significant figures.',
       ru: 'Система уравнений $3x - y = 7$ и $x + 2y = 4$ записана в виде $M\\mathbf{x} = \\mathbf{b}$. С помощью обратной матрицы $M$ найдите $x$ и $y$, каждый ответ округлите до 3 значащих цифр.',
@@ -45,7 +45,7 @@ export const questions: Question[] = [
     topicIds: ['1-14-matrices'],
     paper: 'P2',
     marks: 14,
-    command: 'Determine',
+    command: 'Find, Explain',
     prompt: {
       en: 'A café in Dubai makes two drinks, a latte (L) and a flat white (F). The matrix $R = \\begin{pmatrix} 1 & 2 \\\\ 3 & 1 \\end{pmatrix}$ shows, for one drink of each type, the number of espresso shots (row 1) and the number of units of milk (row 2). Column 1 is for L and column 2 is for F.\n\n(a) Find the determinant of $R$, and explain what it tells you about whether $R^{-1}$ exists. [3]\n\n(b) Find $R^{-1}$, giving its entries exactly, row by row. [3]\n\n(c) One morning the café uses 8 espresso shots and 9 units of milk. Use $R^{-1}$ to find how many lattes and how many flat whites were made. [3]\n\n(d) The matrix $O = \\begin{pmatrix} 4 & 1 \\\\ 2 & 3 \\end{pmatrix}$ gives the number of drinks sold on Monday (column 1) and on Tuesday (column 2), with row 1 for L and row 2 for F. Find the matrix $RO$, giving its entries row by row. [3]\n\n(e) Explain why $RO$ has a sensible meaning for the café, but $OR$ does not. [2]',
       ru: 'Кафе в Дубае готовит два напитка: латте (L) и флэт уайт (F). Матрица $R = \\begin{pmatrix} 1 & 2 \\\\ 3 & 1 \\end{pmatrix}$ показывает для одной порции каждого напитка число порций эспрессо (первая строка) и число единиц молока (вторая строка). Первый столбец относится к L, второй — к F.\n\n(a) Найдите определитель $R$ и объясните, что он говорит о существовании $R^{-1}$. [3]\n\n(b) Найдите $R^{-1}$ и запишите её элементы точно, по строкам. [3]\n\n(c) Одним утром кафе использовало 8 порций эспрессо и 9 единиц молока. С помощью $R^{-1}$ найдите, сколько латте и сколько флэт уайт было приготовлено. [3]\n\n(d) Матрица $O = \\begin{pmatrix} 4 & 1 \\\\ 2 & 3 \\end{pmatrix}$ показывает число напитков, проданных в понедельник (первый столбец) и во вторник (второй столбец); первая строка — L, вторая — F. Найдите матрицу $RO$ и запишите её элементы по строкам. [3]\n\n(e) Объясните, почему $RO$ имеет понятный смысл для кафе, а $OR$ — нет. [2]',

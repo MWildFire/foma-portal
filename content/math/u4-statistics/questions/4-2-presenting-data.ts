@@ -18,7 +18,7 @@ export const questions: Question[] = [
     },
     answer: '0.5; 25',
     origin: 'original',
-    minutes: 5,
+    minutes: 3,
   },
   {
     id: 'q-4-2-02',
@@ -37,7 +37,7 @@ export const questions: Question[] = [
     },
     answer: '18; 7.5',
     origin: 'original',
-    minutes: 5,
+    minutes: 3,
   },
   {
     id: 'q-4-2-03',
@@ -45,7 +45,7 @@ export const questions: Question[] = [
     topicIds: ['4-2-presenting-data'],
     paper: 'P2',
     marks: 14,
-    command: 'Find',
+    command: 'Write down',
     prompt: {
       en: 'The waiting times, in minutes, of 80 students at a school bus stop on one morning are grouped as follows: 0 to 5 minutes: 4 students; 5 to 10 minutes: 12 students; 10 to 15 minutes: 20 students; 15 to 20 minutes: 24 students; 20 to 25 minutes: 14 students; 25 to 30 minutes: 6 students.\n\n(a) Write down the cumulative frequency at each upper class boundary: 5, 10, 15, 20, 25 and 30 minutes. [2]\n\n(b) Draw the cumulative frequency graph for these data. [2]\n\n(c) Use your graph, with straight lines between the plotted points, to estimate the median and the lower quartile. Give both answers correct to 1 decimal place. [3]\n\n(d) Estimate the upper quartile and the 90th percentile. Give both answers correct to 1 decimal place. [3]\n\n(e) Find the interquartile range, correct to 1 decimal place. [2]\n\n(f) Find the percentage of students who waited at least 10 minutes and less than 20 minutes. Give your answer to the nearest whole number. [2]',
       ru: 'Время ожидания автобуса t (в минутах) у 80 учеников на одной остановке утром сгруппировано так: от 0 до 5 минут: 4 ученика; от 5 до 10 минут: 12 учеников; от 10 до 15 минут: 20 учеников; от 15 до 20 минут: 24 ученика; от 20 до 25 минут: 14 учеников; от 25 до 30 минут: 6 учеников.\n\n(a) Выпишите накопленные частоты при верхних границах классов: 5, 10, 15, 20, 25 и 30 минут. [2]\n\n(b) Постройте график накопленных частот для этих данных. [2]\n\n(c) По графику, соединяя отмеченные точки отрезками, оцените медиану и нижний квартиль. Дайте оба ответа с точностью до 1 знака после запятой. [3]\n\n(d) Оцените верхний квартиль и 90-й перцентиль. Дайте оба ответа с точностью до 1 знака после запятой. [3]\n\n(e) Найдите межквартильный размах с точностью до 1 знака после запятой. [2]\n\n(f) Найдите процент учеников, которые ждали не меньше 10 минут и меньше 20 минут. Дайте ответ с точностью до целого. [2]',

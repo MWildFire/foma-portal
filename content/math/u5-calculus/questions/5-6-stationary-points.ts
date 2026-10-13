@@ -45,7 +45,7 @@ export const questions: Question[] = [
     topicIds: ['5-6-stationary-points'],
     paper: 'P2',
     marks: 14,
-    command: 'Find',
+    command: 'Show that',
     prompt: {
       en: 'The number of fish, $P$ thousand, in a reservoir $t$ years after 2020 is modelled by $P(t)=t^{3}-12t^{2}+45t+40$ for $0\\le t\\le 8$.\n\n(a) Show that $P\'(t)=3(t-3)(t-5)$. [2]\n\n(b) Find the values of $t$ for which $P\'(t)=0$. [2]\n\n(c) Justify whether each of these values gives a local maximum or a local minimum of $P$. [3]\n\n(d) Find the number of fish at each local maximum point and at each local minimum point. [3]\n\n(e) Find the greatest number of fish for $0\\le t\\le 8$, and the value of $t$ at which it occurs. [4]',
       ru: 'Количество рыбы $P$ (тысяч) в водохранилище через $t$ лет после 2020 года описывается моделью $P(t)=t^{3}-12t^{2}+45t+40$ при $0\\le t\\le 8$.\n\n(a) Покажите, что $P\'(t)=3(t-3)(t-5)$. [2]\n\n(b) Найдите значения $t$, при которых $P\'(t)=0$. [2]\n\n(c) Обоснуйте, даёт ли каждое из этих значений локальный максимум или локальный минимум функции $P$. [3]\n\n(d) Найдите количество рыбы в каждой точке локального максимума и в каждой точке локального минимума. [3]\n\n(e) Найдите наибольшее количество рыбы при $0\\le t\\le 8$ и значение $t$, при котором оно достигается. [4]',

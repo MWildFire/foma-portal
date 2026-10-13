@@ -7,7 +7,7 @@ export const questions: Question[] = [
     topicIds: ['4-18-hypothesis-errors'],
     paper: 'P1',
     marks: 5,
-    command: 'Find',
+    command: 'Find, State',
     prompt: {
       en: 'The drying time of a paint is claimed to have a mean of 6.0 hours. A random sample of 16 tins has a mean drying time of 6.4 hours and a standard deviation of 0.8 hours. Assume that drying times are normally distributed. Test at the 5% significance level whether the mean drying time differs from 6.0 hours. Find the t-statistic, correct to 2 decimal places, and the two-tailed p-value, correct to 3 decimal places. State your conclusion.',
       ru: 'Заявлено, что среднее время высыхания краски равно 6,0 часа. Случайная выборка из 16 банок показала среднее время высыхания 6,4 часа и стандартное отклонение 0,8 часа. Считайте, что время высыхания распределено нормально. Проверьте на уровне значимости 5%, отличается ли среднее время высыхания от 6,0 часа. Найдите t-статистику с точностью до 2 знаков после запятой и двустороннее p-значение с точностью до 3 знаков после запятой. Сформулируйте вывод.',
@@ -18,7 +18,7 @@ export const questions: Question[] = [
     },
     answer: '2.00; 0.064',
     origin: 'original',
-    minutes: 5,
+    minutes: 6,
   },
   {
     id: 'q-4-18-02',
@@ -26,7 +26,7 @@ export const questions: Question[] = [
     topicIds: ['4-18-hypothesis-errors'],
     paper: 'P1',
     marks: 5,
-    command: 'Find',
+    command: 'Find, State',
     prompt: {
       en: 'A researcher measures two quantities on 12 people and assumes that the pairs come from a bivariate normal population. The sample correlation coefficient is r = 0.62. Test H0: rho = 0 against H1: rho > 0 at the 5% significance level. Find the t-statistic, correct to 3 significant figures, and the one-tailed p-value, correct to 3 decimal places. State your conclusion.',
       ru: 'Исследователь измерил две величины у 12 человек и предполагает, что пары взяты из двумерной нормальной совокупности. Выборочный коэффициент корреляции равен r = 0,62. Проверьте на уровне значимости 5% гипотезу H0: ρ = 0 против H1: ρ > 0. Найдите t-статистику с точностью до 3 значащих цифр и одностороннее p-значение с точностью до 3 знаков после запятой. Сформулируйте вывод.',
@@ -37,7 +37,7 @@ export const questions: Question[] = [
     },
     answer: '2.50; 0.016',
     origin: 'original',
-    minutes: 5,
+    minutes: 6,
   },
   {
     id: 'q-4-18-03',
@@ -45,7 +45,7 @@ export const questions: Question[] = [
     topicIds: ['4-18-hypothesis-errors'],
     paper: 'P2',
     marks: 14,
-    command: 'Find',
+    command: 'Write down, State',
     prompt: {
       en: 'A welding robot in a factory produces faults at random. Under the standard settings the mean number of faults per shift is 10. After a new maintenance routine, the manager wants to test whether the mean has decreased. Assume that the number of faults per shift is Poisson distributed, that shifts are independent and that the rate is constant. Let T be the total number of faults over three shifts.\n\n(a) Write down H0 and H1 for the mean number of faults per shift, m, and state the distribution of T under H0. [3]\n\n(b) Find the critical region for T at the 5% significance level, and the actual significance level of this test. [4]\n\n(c) Find the probability of a Type II error when the true mean is 7 faults per shift. [4]\n\n(d) Explain, in context, what a Type II error would mean for the manager. [3]',
       ru: 'Сварочный робот на заводе выпускает дефекты случайным образом. При стандартных настройках среднее число дефектов за смену равно 10. После новой процедуры обслуживания менеджер хочет проверить, снизилось ли это среднее. Считайте, что число дефектов за смену распределено по Пуассону, смены независимы и частота постоянна. Пусть T — общее число дефектов за три смены.\n\n(a) Запишите H0 и H1 для среднего числа дефектов за смену m и укажите распределение T при H0. [3]\n\n(b) Найдите критическую область для T на уровне значимости 5% и фактический уровень значимости этого теста. [4]\n\n(c) Найдите вероятность ошибки II рода, если истинное среднее равно 7 дефектам за смену. [4]\n\n(d) Объясните в контексте, что означала бы ошибка II рода для менеджера. [3]',

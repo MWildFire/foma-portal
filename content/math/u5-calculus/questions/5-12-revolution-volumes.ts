@@ -18,7 +18,7 @@ export const questions: Question[] = [
     },
     answer: '10.04',
     origin: 'original',
-    minutes: 4,
+    minutes: 3,
   },
   {
     id: 'q-5-12-02',
@@ -37,7 +37,7 @@ export const questions: Question[] = [
     },
     answer: '25.13',
     origin: 'original',
-    minutes: 5,
+    minutes: 4,
   },
   {
     id: 'q-5-12-03',

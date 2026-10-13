@@ -7,7 +7,7 @@ export const questions: Question[] = [
     topicIds: ['2-6-modelling-process'],
     paper: 'P1',
     marks: 3,
-    command: 'Find',
+    command: 'Find, Predict',
     prompt: {
       en: 'A café in Dubai Marina records its monthly sales S, in thousands of AED, for the first six months of a year, where t = 1 is January. The data are t = 1, 2, 3, 4, 5, 6 and S = 41.2, 43.5, 44.1, 47.0, 48.6, 50.4. Use technology to find the least-squares line S = mt + c. Give m and c to 2 decimal places. Then predict the sales for t = 9 (September), giving your answer to 2 decimal places. Use unrounded values in your working.',
       ru: 'Кафе в районе Дубай-Марина ведёт учёт месячных продаж S в тысячах AED за первые шесть месяцев года, где t = 1 соответствует январю. Данные: t = 1, 2, 3, 4, 5, 6 и S = 41,2; 43,5; 44,1; 47,0; 48,6; 50,4. С помощью калькулятора найдите прямую наименьших квадратов S = mt + c. Значения m и c дайте с точностью до 2 знаков после запятой. Затем предскажите продажи при t = 9 (сентябрь) с точностью до 2 знаков после запятой. В вычислениях используйте неокруглённые значения.',
@@ -18,7 +18,7 @@ export const questions: Question[] = [
     },
     answer: '1.83; 39.38; 55.89',
     origin: 'original',
-    minutes: 5,
+    minutes: 3,
   },
   {
     id: 'q-2-6-02',
@@ -37,7 +37,7 @@ export const questions: Question[] = [
     },
     answer: '1.3; 61.11',
     origin: 'original',
-    minutes: 5,
+    minutes: 6,
   },
   {
     id: 'q-2-6-03',
@@ -45,7 +45,7 @@ export const questions: Question[] = [
     topicIds: ['2-6-modelling-process'],
     paper: 'P2',
     marks: 14,
-    command: 'Determine',
+    command: 'Calculate, Comment',
     prompt: {
       en: 'The population P, in thousands, of a new residential district in Dubai was recorded each year, with t = 0 for 2020: P = 118, 127, 137, 148 and 160 for t = 0, 1, 2, 3 and 4. The developers model the growth by an exponential model P = k × a^t.\n\n(a) Calculate the ratios P(1)/P(0) and P(4)/P(3), each to 3 decimal places. Comment on whether an exponential model is appropriate. [3]\n\n(b) Use exponential regression to find k, giving it to 4 significant figures, and a, giving it to 3 decimal places. [3]\n\n(c) Use the model to predict the population in 2030 (t = 10), to the nearest thousand. [2]\n\n(d) Find the least integer value of t for which the model predicts a population greater than 300 thousand. [3]\n\n(e) The planning limit for the district is 300 thousand. Comment on whether it is reasonable to use this model for the whole period from 2030 onwards. [3]',
       ru: 'Численность населения P (в тысячах) нового жилого района в Дубае фиксировали каждый год, при t = 0 для 2020 года: P = 118, 127, 137, 148 и 160 при t = 0, 1, 2, 3 и 4. Застройщики моделируют рост экспоненциальной моделью P = k × a^t.\n\n(a) Вычислите отношения P(1)/P(0) и P(4)/P(3) с точностью до 3 знаков после запятой. Прокомментируйте, подходит ли экспоненциальная модель. [3]\n\n(b) С помощью экспоненциальной регрессии найдите k с точностью до 4 значащих цифр и a с точностью до 3 знаков после запятой. [3]\n\n(c) Используйте модель, чтобы предсказать численность населения в 2030 году (t = 10), с точностью до тысячи. [2]\n\n(d) Найдите наименьшее целое значение t, при котором модель предсказывает численность больше 300 тысяч. [3]\n\n(e) Предельная численность района по плану — 300 тысяч. Прокомментируйте, разумно ли использовать эту модель для всего периода начиная с 2030 года. [3]',

@@ -18,7 +18,7 @@ export const questions: Question[] = [
     },
     answer: '10',
     origin: 'original',
-    minutes: 4,
+    minutes: 3,
   },
   {
     id: 'q-3-14-02',
@@ -37,7 +37,7 @@ export const questions: Question[] = [
     },
     answer: '2',
     origin: 'original',
-    minutes: 4,
+    minutes: 3,
   },
   {
     id: 'q-3-14-03',
@@ -45,7 +45,7 @@ export const questions: Question[] = [
     topicIds: ['3-14-graph-basics'],
     paper: 'P2',
     marks: 14,
-    command: 'Find',
+    command: 'Write down, Find',
     prompt: {
       en: 'Six rooms, A, B, C, D, E and F, are joined by doors. Each door joins two different rooms, and each pair of rooms has at most one door between them. The doors join the rooms as follows: A–B, A–C, B–C, B–D, C–E, D–E, D–F, E–F. This network is the graph G.\n\n(a) Write down the degree of room D, and find the sum of the degrees of the six rooms. [3]\n\n(b) Hence find the number of doors in G. [2]\n\n(c) Find the number of pairs of rooms that are not joined by a door. [3]\n\n(d) Room F and all of its doors are removed, which leaves a subgraph H of G. Find the number of doors in H. [3]\n\n(e) Show that G is not a tree. [3]',
       ru: 'Шесть комнат, A, B, C, D, E и F, соединены дверями. Каждая дверь соединяет две разные комнаты, и между любыми двумя комнатами не более одной двери. Двери соединяют комнаты так: A–B, A–C, B–C, B–D, C–E, D–E, D–F, E–F. Эта схема — граф G.\n\n(a) Запишите степень комнаты D и найдите сумму степеней всех шести комнат. [3]\n\n(b) Отсюда найдите число дверей в G. [2]\n\n(c) Найдите число пар комнат, которые не соединены дверью. [3]\n\n(d) Комната F и все её двери удаляются; остаётся подграф H графа G. Найдите число дверей в H. [3]\n\n(e) Покажите, что G не является деревом. [3]',

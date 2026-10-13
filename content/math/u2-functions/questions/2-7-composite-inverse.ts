@@ -45,7 +45,7 @@ export const questions: Question[] = [
     topicIds: ['2-7-composite-inverse'],
     paper: 'P2',
     marks: 14,
-    command: 'Find',
+    command: 'Show that',
     prompt: {
       en: 'A workshop in Dubai makes a product. After t hours it has made n(t) = 50t items, for t ≥ 0. The total cost, in AED, of making n items is C(n) = 0.01(n + 100)², for n ≥ 0.\n\n(a) Show that the total cost after t hours is 25(t + 2)² AED. [2]\n\n(b) Find the total cost after 3 hours. [2]\n\n(c) (i) Find an expression for C⁻¹(x) and state its domain. [4]\n\n(ii) Hence find the number of items that can be made for a total cost of 400 AED. [2]\n\n(d) Find the time, in hours, at which the total cost reaches 1600 AED. [4]',
       ru: 'Мастерская в Дубае выпускает изделие. Через t часов она выпускает n(t) = 50t изделий при t ≥ 0. Полная стоимость производства n изделий (в AED) равна C(n) = 0,01(n + 100)² при n ≥ 0.\n\n(a) Покажите, что полная стоимость через t часов равна 25(t + 2)² AED. [2]\n\n(b) Найдите полную стоимость через 3 часа. [2]\n\n(c) (i) Найдите выражение для C⁻¹(x) и укажите его область определения. [4]\n\n(ii) Используя результат (c)(i), найдите количество изделий, которое можно выпустить при полной стоимости 400 AED. [2]\n\n(d) Найдите время в часах, через которое полная стоимость достигнет 1600 AED. [4]',

@@ -18,7 +18,7 @@ export const questions: Question[] = [
     },
     answer: '1; 3',
     origin: 'original',
-    minutes: 3,
+    minutes: 2,
   },
   {
     id: 'q-5-2-02',
@@ -37,7 +37,7 @@ export const questions: Question[] = [
     },
     answer: '-1; 1',
     origin: 'original',
-    minutes: 5,
+    minutes: 3,
   },
   {
     id: 'q-5-2-03',
@@ -45,7 +45,7 @@ export const questions: Question[] = [
     topicIds: ['5-2-increasing-decreasing'],
     paper: 'P2',
     marks: 14,
-    command: 'Find',
+    command: 'Show that',
     prompt: {
       en: 'The function $f$ is defined by $f(x) = x^3 - 6x^2 + 9x + 1$ for $-1 \\le x \\le 5$.\n\n(a) Show that $f\'(x) = 3(x - 1)(x - 3)$. [2]\n\n(b) Find the $x$-coordinates of the points where the gradient of the graph of $f$ is zero. [2]\n\n(c) Find the total length of the intervals on which $f$ is increasing. [3]\n\n(d) Justify, using the sign of $f\'(x)$, why $f$ is decreasing on $1 < x < 3$. Then find $f\'(2)$. [3]\n\n(e) Find the value of $x$ in the interval $3 < x \\le 5$ for which $f\'(x) = 9$. [4]',
       ru: 'Функция $f$ задана формулой $f(x) = x^3 - 6x^2 + 9x + 1$ при $-1 \\le x \\le 5$.\n\n(a) Покажите, что $f\'(x) = 3(x - 1)(x - 3)$. [2]\n\n(b) Найдите $x$-координаты точек графика $f$, в которых градиент равен нулю. [2]\n\n(c) Найдите суммарную длину промежутков, на которых $f$ возрастает. [3]\n\n(d) Обоснуйте, используя знак $f\'(x)$, почему $f$ убывает при $1 < x < 3$. Затем найдите $f\'(2)$. [3]\n\n(e) Найдите значение $x$ на промежутке $3 < x \\le 5$, при котором $f\'(x) = 9$. [4]',

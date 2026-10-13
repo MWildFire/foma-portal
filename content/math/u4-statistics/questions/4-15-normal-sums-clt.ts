@@ -18,7 +18,7 @@ export const questions: Question[] = [
     },
     answer: '0.083',
     origin: 'original',
-    minutes: 5,
+    minutes: 4,
   },
   {
     id: 'q-4-15-02',
@@ -37,7 +37,7 @@ export const questions: Question[] = [
     },
     answer: '0.119',
     origin: 'original',
-    minutes: 5,
+    minutes: 4,
   },
   {
     id: 'q-4-15-03',
@@ -45,7 +45,7 @@ export const questions: Question[] = [
     topicIds: ['4-15-normal-sums-clt'],
     paper: 'P2',
     marks: 14,
-    command: 'Find',
+    command: 'Write down',
     prompt: {
       en: 'A factory makes chocolate bars. The masses of the bars, in grams, are independent and normally distributed with mean 100 and variance 9.\n\n(a) Write down the distribution of T, the total mass of a pack of three bars, stating its mean and variance. [3]\n\n(b) Find P(T < 295), giving your answer correct to 3 decimal places. [3]\n\n(c) A random sample of 25 bars is taken and the sample mean mass is x̄. Find P(x̄ > 101), giving your answer correct to 3 decimal places. [3]\n\n(d) Find the least sample size n such that the standard error of the sample mean is at most 0.4 grams. [3]\n\n(e) Explain why the answer to part (c) would be approximately valid if the masses were not normally distributed, provided that the sample size is large. [2]',
       ru: 'Фабрика выпускает шоколадные плитки. Массы плиток в граммах — независимые нормальные величины со средним 100 и дисперсией 9.\n\n(a) Запишите распределение T — общей массы упаковки из трёх плиток, указав среднее и дисперсию. [3]\n\n(b) Найдите P(T < 295), ответ дайте с точностью до 3 знаков после запятой. [3]\n\n(c) Взята случайная выборка из 25 плиток, средняя масса в ней равна x̄. Найдите P(x̄ > 101), ответ дайте с точностью до 3 знаков после запятой. [3]\n\n(d) Найдите наименьший объём выборки n, при котором стандартная ошибка выборочного среднего не превышает 0,4 грамма. [3]\n\n(e) Объясните, почему ответ к пункту (c) был бы приблизительно верным, если бы массы не были нормальными, при условии что объём выборки велик. [2]',

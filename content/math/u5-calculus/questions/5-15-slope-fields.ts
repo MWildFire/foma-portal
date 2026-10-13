@@ -18,7 +18,7 @@ export const questions: Question[] = [
     },
     answer: '0.5; -0.25',
     origin: 'original',
-    minutes: 4,
+    minutes: 3,
   },
   {
     id: 'q-5-15-02',
@@ -37,7 +37,7 @@ export const questions: Question[] = [
     },
     answer: '-1; 1',
     origin: 'original',
-    minutes: 4,
+    minutes: 3,
   },
   {
     id: 'q-5-15-03',
@@ -45,7 +45,7 @@ export const questions: Question[] = [
     topicIds: ['5-15-slope-fields'],
     paper: 'P2',
     marks: 14,
-    command: 'Determine',
+    command: 'Show that',
     prompt: {
       en: 'A population of rabbits in a reserve is modelled by $\\dfrac{dy}{dx} = y\\left(1 - \\dfrac{y}{4}\\right)$, where $y$ is the population in hundreds and $x$ is the time in years. At $x = 0$ the population is 100 rabbits, so the solution curve passes through $(0, 1)$. The solution is $y = \\dfrac{4}{1 + 3e^{-x}}$.\n\n(a) Show that $y = \\dfrac{4}{1 + 3e^{-x}}$ satisfies the differential equation. [3]\n\n(b) Using the slope field, determine the two values of $y$ (in hundreds) at which the population does not change. [3]\n\n(c) Find the rate of change of the population, in rabbits per year, when the population is 200 rabbits. [3]\n\n(d) Find the time, in years, when the population first reaches 300 rabbits. Give your answer to 3 decimal places. [4]\n\n(e) Comment on whether the model is realistic for the population in the long run. [1]',
       ru: 'Популяция кроликов в заповеднике описывается уравнением $\\dfrac{dy}{dx} = y\\left(1 - \\dfrac{y}{4}\\right)$, где $y$ — численность в сотнях, а $x$ — время в годах. В момент $x = 0$ популяция составляет 100 кроликов, поэтому кривая решения проходит через точку $(0, 1)$. Решение: $y = \\dfrac{4}{1 + 3e^{-x}}$.\n\n(a) Покажите, что $y = \\dfrac{4}{1 + 3e^{-x}}$ удовлетворяет дифференциальному уравнению. [3]\n\n(b) По полю направлений определите два значения $y$ (в сотнях), при которых численность не меняется. [3]\n\n(c) Найдите скорость изменения численности, в кроликах в год, когда популяция составляет 200 кроликов. [3]\n\n(d) Найдите время в годах, когда численность впервые достигнет 300 кроликов. Ответ дайте с точностью до 3 знаков после запятой. [4]\n\n(e) Прокомментируйте, реалистична ли модель для численности в долгосрочной перспективе. [1]',

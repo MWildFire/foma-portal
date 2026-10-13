@@ -7,7 +7,7 @@ export const questions: Question[] = [
     topicIds: ['5-16-euler-first-order'],
     paper: 'P1',
     marks: 3,
-    command: 'Find',
+    command: 'Estimate',
     prompt: {
       en: 'A solution curve of $\\dfrac{dy}{dx} = x + y$ passes through the point $(1, 2)$.\n\n(a) Use Euler’s method with step length $h = 0.5$ to estimate $y$ when $x = 2$. Give your answer to 2 decimal places. [2]\n\n(b) State, with a reason, whether your estimate is an overestimate or an underestimate of the true value. [1]',
       ru: 'Кривая решения уравнения $\\dfrac{dy}{dx} = x + y$ проходит через точку $(1, 2)$.\n\n(a) Используйте метод Эйлера с шагом $h = 0{,}5$, чтобы оценить $y$ при $x = 2$. Ответ дайте с точностью до 2 знаков после запятой. [2]\n\n(b) Укажите с обоснованием, является ли ваша оценка завышенной или заниженной по сравнению с истинным значением. [1]',
@@ -18,7 +18,7 @@ export const questions: Question[] = [
     },
     answer: '6.00',
     origin: 'original',
-    minutes: 4,
+    minutes: 3,
   },
   {
     id: 'q-5-16-02',
@@ -26,7 +26,7 @@ export const questions: Question[] = [
     topicIds: ['5-16-euler-first-order'],
     paper: 'P1',
     marks: 3,
-    command: 'Find',
+    command: 'Estimate',
     prompt: {
       en: 'A coupled system is modelled by $\\dfrac{dx}{dt} = x + y$ and $\\dfrac{dy}{dt} = t - x$, where $x = 2$ and $y = 3$ when $t = 0$. Use Euler’s method with step length $h = 0.5$ to estimate the values of $x$ and $y$ when $t = 1$. Give each answer to 2 decimal places.',
       ru: 'Связанная система описывается уравнениями $\\dfrac{dx}{dt} = x + y$ и $\\dfrac{dy}{dt} = t - x$, где $x = 2$ и $y = 3$ при $t = 0$. Используйте метод Эйлера с шагом $h = 0{,}5$, чтобы оценить значения $x$ и $y$ при $t = 1$. Каждый ответ дайте с точностью до 2 знаков после запятой.',
@@ -37,7 +37,7 @@ export const questions: Question[] = [
     },
     answer: '7.75; 0.00',
     origin: 'original',
-    minutes: 4,
+    minutes: 3,
   },
   {
     id: 'q-5-16-03',
@@ -45,7 +45,7 @@ export const questions: Question[] = [
     topicIds: ['5-16-euler-first-order'],
     paper: 'P2',
     marks: 14,
-    command: 'Determine',
+    command: 'Estimate',
     prompt: {
       en: 'A cup of tea cools in a room. Its temperature $T$ (in °C) at time $t$ (in minutes) satisfies $\\dfrac{dT}{dt} = -0.2(T - 20)$, and $T = 80$ when $t = 0$. The exact solution is $T = 20 + 60e^{-0.2t}$.\n\n(a) Use Euler’s method with step length $h = 2$ to estimate the temperature at $t = 4$. Give your answer to 2 decimal places. [3]\n\n(b) Show that $T = 20 + 60e^{-0.2t}$ satisfies the differential equation and the initial condition. [3]\n\n(c) Find the exact temperature at $t = 4$, and the difference between the exact temperature and the Euler estimate from part (a). Give each answer to 2 decimal places. [3]\n\n(d) Find the time, in minutes, when the exact temperature is 30 °C. Give your answer to 3 decimal places. [3]\n\n(e) State, with a reason, whether the Euler estimate in part (a) is an overestimate or an underestimate. [2]',
       ru: 'Чашка чая остывает в комнате. Её температура $T$ (в °C) в момент времени $t$ (в минутах) удовлетворяет уравнению $\\dfrac{dT}{dt} = -0{,}2(T - 20)$, а при $t = 0$ температура $T = 80$. Точное решение: $T = 20 + 60e^{-0{,}2t}$.\n\n(a) Используйте метод Эйлера с шагом $h = 2$, чтобы оценить температуру при $t = 4$. Ответ дайте с точностью до 2 знаков после запятой. [3]\n\n(b) Покажите, что $T = 20 + 60e^{-0{,}2t}$ удовлетворяет дифференциальному уравнению и начальному условию. [3]\n\n(c) Найдите точную температуру при $t = 4$ и разность между точным значением и оценкой Эйлера из пункта (a). Каждый ответ дайте с точностью до 2 знаков после запятой. [3]\n\n(d) Найдите время в минутах, когда точная температура равна 30 °C. Ответ дайте с точностью до 3 знаков после запятой. [3]\n\n(e) Укажите с обоснованием, является ли оценка Эйлера из пункта (a) завышенной или заниженной. [2]',

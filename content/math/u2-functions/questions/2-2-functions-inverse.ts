@@ -18,7 +18,7 @@ export const questions: Question[] = [
     },
     answer: '1.099',
     origin: 'original',
-    minutes: 4,
+    minutes: 3,
   },
   {
     id: 'q-2-2-02',
@@ -45,7 +45,7 @@ export const questions: Question[] = [
     topicIds: ['2-2-functions-inverse'],
     paper: 'P2',
     marks: 14,
-    command: 'Find',
+    command: 'Write down',
     prompt: {
       en: 'A bottle of juice at 22 °C is placed in a fridge kept at 4 °C. The temperature T °C of the juice t minutes after it is placed in the fridge is modelled by T(t) = 4 + 18e^(-0.4t), for t ≥ 0.\n\n(a) Write down T(0), and the temperature that the juice approaches as t increases. [2]\n\n(b) Find T(5), giving your answer to 2 decimal places. [2]\n\n(c) Find the time at which the juice reaches 10 °C, giving your answer to 2 decimal places. [3]\n\n(d) Show that the inverse function is T^(-1)(θ) = 2.5 ln(18/(θ - 4)), for 4 < θ ≤ 22, and explain why its domain is 4 < θ ≤ 22. [4]\n\n(e) Use T^(-1) to find the time at which the juice reaches 5 °C, giving your answer to 2 decimal places. [3]',
       ru: 'Бутылку сока при 22 °C кладут в холодильник, который поддерживает температуру 4 °C. Температура T °C сока через t минут после того, как его положили в холодильник, описывается моделью T(t) = 4 + 18e^(-0.4t) при t ≥ 0.\n\n(a) Запишите T(0) и температуру, к которой приближается сок при возрастании t. [2]\n\n(b) Найдите T(5); ответ округлите до 2 знаков после запятой. [2]\n\n(c) Найдите время, через которое сок достигнет 10 °C; ответ округлите до 2 знаков после запятой. [3]\n\n(d) Покажите, что обратная функция равна T^(-1)(θ) = 2,5 ln(18/(θ - 4)) при 4 < θ ≤ 22, и объясните, почему её область определения — 4 < θ ≤ 22. [4]\n\n(e) С помощью T^(-1) найдите время, через которое сок достигнет 5 °C; ответ округлите до 2 знаков после запятой. [3]',

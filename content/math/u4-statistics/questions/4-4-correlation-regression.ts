@@ -18,7 +18,7 @@ export const questions: Question[] = [
     },
     answer: '0.98; 17.42',
     origin: 'original',
-    minutes: 5,
+    minutes: 3,
   },
   {
     id: 'q-4-4-02',
@@ -37,7 +37,7 @@ export const questions: Question[] = [
     },
     answer: '0.968',
     origin: 'original',
-    minutes: 4,
+    minutes: 3,
   },
   {
     id: 'q-4-4-03',
@@ -45,7 +45,7 @@ export const questions: Question[] = [
     topicIds: ['4-4-correlation-regression'],
     paper: 'P2',
     marks: 14,
-    command: 'Determine',
+    command: 'Calculate, Comment',
     prompt: {
       en: 'A café in Dubai records the maximum temperature x (°C) and the number of iced coffees sold y on seven days.\n\nMaximum temperature x (°C): 31, 33, 35, 36, 38, 40, 42\nIced coffees sold y: 54, 63, 66, 68, 77, 79, 84\n\nAssume that a linear model is suitable.\n\n(a) Calculate Pearson\'s product-moment correlation coefficient r. Comment on what it shows. [3]\n\n(b) Find the equation of the regression line of y on x, giving a and b correct to 2 decimal places. [3]\n\n(c) Interpret the value of a in this context. [2]\n\n(d) Estimate the number of iced coffees sold on a day when the maximum temperature is 38 °C. Give your answer correct to 1 decimal place. [3]\n\n(e) The café manager uses your regression line to predict the sales on a day when the maximum temperature is 50 °C. Comment on the reliability of this prediction. [3]',
       ru: 'Кафе в Дубае записывает максимальную температуру x (°C) и количество проданных холодных кофе y за семь дней.\n\nМаксимальная температура x (°C): 31, 33, 35, 36, 38, 40, 42\nПроданные холодные кофе y: 54, 63, 66, 68, 77, 79, 84\n\nСчитайте, что линейная модель подходит.\n\n(a) Вычислите коэффициент корреляции Пирсона r. Прокомментируйте, что он показывает. [3]\n\n(b) Найдите уравнение линии регрессии y на x, дав a и b с точностью до 2 знаков после запятой. [3]\n\n(c) Истолкуйте значение a в этом контексте. [2]\n\n(d) Оцените количество холодных кофе, проданных в день, когда максимальная температура 38 °C. Ответ дайте с точностью до 1 знака после запятой. [3]\n\n(e) Менеджер кафе использует линию регрессии, чтобы предсказать продажи в день, когда максимальная температура 50 °C. Прокомментируйте надёжность этого прогноза. [3]',

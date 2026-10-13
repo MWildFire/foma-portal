@@ -18,7 +18,7 @@ export const questions: Question[] = [
     },
     answer: '1.75',
     origin: 'original',
-    minutes: 4,
+    minutes: 3,
   },
   {
     id: 'q-2-3-02',
@@ -45,7 +45,7 @@ export const questions: Question[] = [
     topicIds: ['2-3-graphs-sketching'],
     paper: 'P2',
     marks: 14,
-    command: 'Find',
+    command: 'Show that',
     prompt: {
       en: 'A food truck in Dubai sells wraps. For x wraps sold per day, where 0 ≤ x ≤ 500, the revenue is R(x) = 18x AED and the cost is C(x) = 0.02x^2 + 6x + 900 AED. The profit is P(x) = R(x) - C(x).\n\n(a) Show that P(x) = -0.02x^2 + 12x - 900. [3]\n\n(b) On the same axes, sketch the graphs of y = R(x) and y = C(x) for 0 ≤ x ≤ 500. Find the x-coordinate of their point of intersection with x > 0, giving your answer to 2 decimal places. [3]\n\n(c) Find the least whole number of wraps that must be sold for the profit to be positive. [2]\n\n(d) Find the number of wraps that gives the maximum profit for 0 ≤ x ≤ 500, and the maximum profit in AED. [3]\n\n(e) The price is raised so that the revenue becomes R2(x) = 20x for 0 ≤ x ≤ 500. Find the least whole number of wraps that gives a positive profit at this price. [3]',
       ru: 'Фудтрак в Дубае продаёт врапы (wraps). При продаже x врапов в день, где 0 ≤ x ≤ 500, выручка равна R(x) = 18x AED, а издержки равны C(x) = 0,02x^2 + 6x + 900 AED. Прибыль равна P(x) = R(x) - C(x).\n\n(a) Покажите, что P(x) = -0,02x^2 + 12x - 900. [3]\n\n(b) На одних осях постройте графики y = R(x) и y = C(x) при 0 ≤ x ≤ 500. Найдите абсциссу их точки пересечения при x > 0; ответ округлите до 2 знаков после запятой. [3]\n\n(c) Найдите наименьшее целое число врапов, которое нужно продать, чтобы прибыль была положительной. [2]\n\n(d) Найдите число врапов, при котором прибыль максимальна при 0 ≤ x ≤ 500, и максимальную прибыль в AED. [3]\n\n(e) Цену повышают так, что выручка становится R2(x) = 20x при 0 ≤ x ≤ 500. Найдите наименьшее целое число врапов, при котором прибыль по новой цене положительна. [3]',

@@ -18,7 +18,7 @@ export const questions: Question[] = [
     },
     answer: '360',
     origin: 'original',
-    minutes: 5,
+    minutes: 3,
   },
   {
     id: 'q-4-1-02',
@@ -37,7 +37,7 @@ export const questions: Question[] = [
     },
     answer: '166.0',
     origin: 'original',
-    minutes: 4,
+    minutes: 2,
   },
   {
     id: 'q-4-1-03',
@@ -45,7 +45,7 @@ export const questions: Question[] = [
     topicIds: ['4-1-sampling'],
     paper: 'P2',
     marks: 14,
-    command: 'Find',
+    command: 'Explain',
     prompt: {
       en: 'A school in Dubai has 1200 students. The principal wants to estimate the proportion of students who travel to school by bus. The full list of the 1200 students is available as a numbered list.\n\n(a) Explain why surveying the first 60 students who arrive at the main gate in the morning is not a random sample. [3]\n\n(b) Describe how the principal could choose a random sample of 60 students from the list. [3]\n\n(c) In a random sample of 60 students, 42 travel by bus. Estimate the proportion of all 1200 students who travel by bus. Give your answer to 3 decimal places. [2]\n\n(d) Use your answer to part (c) to estimate the number of students who travel by bus. [2]\n\n(e) A second random sample of 8 bus students records their journey times, in minutes: 12, 15, 18, 14, 16, 45, 13, 17.\n(i) Find the mean journey time with the value 45 included, and the mean with it removed. Give both answers to 2 decimal places. [2]\n(ii) Comment on the effect of the value 45 on the mean, and on whether the mean describes this sample well. [2]',
       ru: 'Школа в Дубае насчитывает 1200 учеников. Директор хочет оценить долю учеников, которые добираются до школы на автобусе. Полный список из 1200 учеников есть в виде нумерованного списка.\n\n(a) Объясните, почему опрос первых 60 учеников, которые утром приходят к главным воротам, не является случайной выборкой. [3]\n\n(b) Опишите, как директор может выбрать случайную выборку из 60 учеников по этому списку. [3]\n\n(c) В случайной выборке из 60 учеников 42 добираются на автобусе. Оцените долю всех 1200 учеников, которые добираются на автобусе. Дайте ответ с точностью до 3 знаков после запятой. [2]\n\n(d) Используя ответ на часть (c), оцените число учеников, которые добираются на автобусе. [2]\n\n(e) Вторая случайная выборка из 8 учеников, которые едут на автобусе, записала время в пути в минутах: 12, 15, 18, 14, 16, 45, 13, 17.\n(i) Найдите среднее время в пути с учётом значения 45 и среднее без него. Дайте оба ответа с точностью до 2 знаков после запятой. [2]\n(ii) Прокомментируйте влияние значения 45 на среднее и на то, хорошо ли среднее описывает эту выборку. [2]',

@@ -18,7 +18,7 @@ export const questions: Question[] = [
     },
     answer: '5',
     origin: 'original',
-    minutes: 4,
+    minutes: 3,
   },
   {
     id: 'q-1-9-02',
@@ -45,7 +45,7 @@ export const questions: Question[] = [
     topicIds: ['1-9-log-laws'],
     paper: 'P2',
     marks: 14,
-    command: 'Find',
+    command: 'Show that',
     prompt: {
       en: 'The sound level $L$, in decibels (dB), of a sound of intensity $I$ watts per square metre is $L=10\\log_{10}\\left(\\dfrac{I}{I_0}\\right)$, where $I_0=1.0\\times 10^{-12}$ W m$^{-2}$ is the threshold of hearing.\n\n(a) Show that the sound level of two identical, independent sources playing together, each of intensity $I$, is $L+10\\log_{10}2$. [3]\n\n(b) Hence find the increase in sound level, in dB, when two identical sources play together. Give your answer correct to 2 decimal places. [2]\n\n(c) A machine produces a sound of intensity $2.0\\times 10^{-5}$ W m$^{-2}$. Find its sound level in dB, correct to 1 decimal place. [3]\n\n(d) Sound A has a level of 80 dB and sound B has a level of 70 dB. Find the ratio $\\dfrac{I_A}{I_B}$. [3]\n\n(e) Ten identical sources play together. Find the increase in sound level in dB, and explain why this increase is not ten times the increase found in part (b). [3]',
       ru: 'Уровень звука $L$ в децибелах (дБ) для звука интенсивностью $I$ Вт на квадратный метр равен $L=10\\log_{10}\\left(\\dfrac{I}{I_0}\\right)$, где $I_0=1{,}0\\times 10^{-12}$ Вт м$^{-2}$ — порог слышимости.\n\n(a) Покажите, что уровень звука двух одинаковых независимых источников, звучащих вместе, каждый интенсивностью $I$, равен $L+10\\log_{10}2$. [3]\n\n(b) Используя результат (a), найдите увеличение уровня звука в дБ при одновременной работе двух одинаковых источников. Ответ дайте с точностью до 2 знаков после запятой. [2]\n\n(c) Машина издаёт звук интенсивностью $2{,}0\\times 10^{-5}$ Вт м$^{-2}$. Найдите её уровень звука в дБ с точностью до 1 знака после запятой. [3]\n\n(d) Звук A имеет уровень 80 дБ, а звук B — 70 дБ. Найдите отношение $\\dfrac{I_A}{I_B}$. [3]\n\n(e) Десять одинаковых источников звучат вместе. Найдите увеличение уровня звука в дБ и объясните, почему оно не в десять раз больше увеличения из части (b). [3]',

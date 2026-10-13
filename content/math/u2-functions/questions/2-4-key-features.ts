@@ -37,7 +37,7 @@ export const questions: Question[] = [
     },
     answer: '0.28; 1.27',
     origin: 'original',
-    minutes: 4,
+    minutes: 3,
   },
   {
     id: 'q-2-4-03',
@@ -45,7 +45,7 @@ export const questions: Question[] = [
     topicIds: ['2-4-key-features'],
     paper: 'P2',
     marks: 14,
-    command: 'Find',
+    command: 'Show that',
     prompt: {
       en: 'A desert safari company sells x tickets per day, for 0 ≤ x ≤ 300. Its revenue is R(x) = 350x - 0.5x^2 AED and its cost is C(x) = 4000 + 120x AED. The profit is P(x) = R(x) - C(x).\n\n(a) Show that P(x) = -0.5x^2 + 230x - 4000. [2]\n\n(b) Find the number of tickets at which P(x) = 0 within the domain 0 ≤ x ≤ 300. Give your answer to 2 decimal places. [3]\n\n(c) Find the number of tickets that gives the maximum profit, and the maximum profit to the nearest AED. [3]\n\n(d) The average cost per ticket is A(x) = C(x)/x. Write down the horizontal asymptote of A, and explain its meaning in this context. [3]\n\n(e) Find the number of tickets for which the average cost per ticket is AED 150. Give your answer to 2 decimal places. [3]',
       ru: 'Компания-организатор сафари в пустыне продаёт x билетов в день, при 0 ≤ x ≤ 300. Её выручка R(x) = 350x - 0,5x^2 AED, а затраты C(x) = 4000 + 120x AED. Прибыль P(x) = R(x) - C(x).\n\n(a) Покажите, что P(x) = -0,5x^2 + 230x - 4000. [2]\n\n(b) Найдите число билетов, при котором P(x) = 0 в области 0 ≤ x ≤ 300. Ответ дайте с точностью до 2 знаков после запятой. [3]\n\n(c) Найдите число билетов, при котором прибыль максимальна, и максимальную прибыль с точностью до целых AED. [3]\n\n(d) Средняя стоимость одного билета равна A(x) = C(x)/x. Запишите горизонтальную асимптоту A и объясните её смысл в этом контексте. [3]\n\n(e) Найдите число билетов, при котором средняя стоимость одного билета равна 150 AED. Ответ дайте с точностью до 2 знаков после запятой. [3]',

@@ -18,7 +18,7 @@ export const questions: Question[] = [
     },
     answer: '1.00; 1.25',
     origin: 'original',
-    minutes: 6,
+    minutes: 4,
   },
   {
     id: 'q-5-18-02',
@@ -36,7 +36,7 @@ export const questions: Question[] = [
       ru: 'M1: подставьте $x_{n+1}$ и $v_{n+1}$ в $E_{n+1} = \\omega^{2}x_{n+1}^{2} + v_{n+1}^{2}$. M1: раскройте скобки; перекрёстные члены $+2h\\omega^{2}x_n v_n$ и $-2h\\omega^{2}x_n v_n$ сокращаются. A1: $E_{n+1} = \\omega^{2}x_n^{2} + v_n^{2} + h^{2}\\omega^{2}(\\omega^{2}x_n^{2} + v_n^{2}) = (1 + h^{2}\\omega^{2})E_n$ (AG).',
     },
     origin: 'original',
-    minutes: 5,
+    minutes: 3,
   },
   {
     id: 'q-5-18-03',

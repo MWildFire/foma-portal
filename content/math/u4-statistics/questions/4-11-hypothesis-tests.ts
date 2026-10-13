@@ -18,7 +18,7 @@ export const questions: Question[] = [
     },
     answer: '2.80; 5',
     origin: 'original',
-    minutes: 5,
+    minutes: 4,
   },
   {
     id: 'q-4-11-02',
@@ -37,7 +37,7 @@ export const questions: Question[] = [
     },
     answer: '0.0366',
     origin: 'original',
-    minutes: 4,
+    minutes: 3,
   },
   {
     id: 'q-4-11-03',
@@ -45,7 +45,7 @@ export const questions: Question[] = [
     topicIds: ['4-11-hypothesis-tests'],
     paper: 'P2',
     marks: 14,
-    command: 'Determine',
+    command: 'State',
     prompt: {
       en: 'A survey of 150 students at a school in Dubai asked each student where they usually study alone (library, home or café) and whether their main subjects are sciences or humanities. The results are:\n\nSciences: library 34, home 21, café 15 (total 70).\nHumanities: library 18, home 33, café 29 (total 80).\n\nA chi-squared test of independence is carried out at the 5% significance level.\n\n(a) State the null and alternative hypotheses for this test. [2]\n\n(b) Find the expected frequency of sciences students who study alone in the library. Give your answer to 3 significant figures. [2]\n\n(c) Find the value of the chi-squared test statistic. Give your answer to 2 decimal places. [4]\n\n(d) Write down the number of degrees of freedom, and find the p-value of the test. Give the p-value to 3 significant figures. [3]\n\n(e) Using the p-value, state with a reason whether the null hypothesis should be rejected at the 5% level. [3]',
       ru: 'Опрос 150 учеников школы в Дубае спросил, где они обычно занимаются в одиночку (библиотека, дом или кафе), и выяснил, являются ли их основные предметы естественно-научными или гуманитарными. Результаты:\n\nЕстественные науки: библиотека 34, дом 21, кафе 15 (всего 70).\nГуманитарные науки: библиотека 18, дом 33, кафе 29 (всего 80).\n\nПроводится χ²-тест независимости на уровне значимости 5%.\n\n(a) Запишите нулевую и альтернативную гипотезы для этого теста. [2]\n\n(b) Найдите ожидаемую частоту учеников естественных наук, которые занимаются в библиотеке. Ответ дайте с 3 значащими цифрами. [2]\n\n(c) Найдите значение статистики χ²-теста. Ответ дайте с 2 знаками после запятой. [4]\n\n(d) Запишите число степеней свободы и найдите p-значение теста. p-значение дайте с 3 значащими цифрами. [3]\n\n(e) Используя p-значение, укажите с обоснованием, отклоняем ли нулевую гипотезу на уровне 5%. [3]',
