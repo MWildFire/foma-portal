@@ -60,7 +60,7 @@ export function readSubjectFiles(root: string, subject: string, withText: boolea
 }
 
 // What a file under content/<s>/ is, using the same patterns as the import.meta.glob calls in content/<s>/index.ts.
-export type FileKind = 'syllabus' | 'topic-meta' | 'topic-mdx' | 'terms' | 'formulas' | 'questions' | 'cases' | 'papers' | 'past-papers' | 'other';
+export type FileKind = 'syllabus' | 'topic-meta' | 'topic-mdx' | 'terms' | 'formulas' | 'questions' | 'cases' | 'papers' | 'past-papers' | 'assignments' | 'other';
 
 export function classifyFile(relInSubject: string): FileKind {
   const parts = relInSubject.split('/');
@@ -69,6 +69,7 @@ export function classifyFile(relInSubject: string): FileKind {
   if (base === 'syllabus.ts') return 'syllabus';
   if (base === 'papers.ts') return 'papers';
   if (base === 'pastpapers.ts') return 'past-papers';
+  if (base === 'assignments.ts') return 'assignments';
   if (parent === 'topics' && /\.meta\.ts$/.test(base)) return 'topic-meta';
   if (parent === 'topics' && /\.(en|ru)\.mdx$/.test(base)) return 'topic-mdx';
   if (base.slice(-3) === '.ts') {

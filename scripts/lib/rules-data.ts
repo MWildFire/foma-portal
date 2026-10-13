@@ -318,6 +318,7 @@ export function checkTexts(r: Report, ctx: DataCtx): void {
     { noun: 'case', kind: 'case', items: records(pack.cases), idOf: item => textOf(item.id) },
     { noun: 'paper guide', kind: 'paper', items: records(pack.papers), idOf: item => textOf(item.paper) },
     { noun: 'past paper', kind: 'pastPaper', items: records(list(pack.pastPapers)), idOf: item => textOf(item.id) },
+    { noun: 'assignment', kind: 'assignment', items: records(list(pack.assignments)), idOf: item => textOf(item.id) },
   ];
   owners.forEach(owner => owner.items.forEach(item => {
     const id = owner.idOf(item);

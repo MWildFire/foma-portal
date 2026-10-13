@@ -1,4 +1,4 @@
-import type { CaseStudy, Formula, Lang, PaperGuide, PastPaperRef, Question, SimId, SyllabusItem, Term, TopicMeta } from '../contract/types';
+import type { Assignment, CaseStudy, Formula, Lang, PaperGuide, PastPaperRef, Question, SimId, SyllabusItem, Term, TopicMeta } from '../contract/types';
 import type { SimComponent, SubjectMeta, SubjectPack, TopicBodyLoader, TopicBodyLoaders } from '../contract/pack';
 
 // Raw module maps from the import.meta.glob calls in content/<s>/index.ts.
@@ -12,6 +12,7 @@ export interface RawModules {
   cases: Record<string, { cases: CaseStudy[] }>;
   papers: Record<string, { papers: PaperGuide[] }>;
   pastPapers: Record<string, { pastPapers: PastPaperRef[] }>;
+  assignments: Record<string, { assignments: Assignment[] }>;
   sims: Record<string, () => Promise<{ default: SimComponent }>>;
 }
 
@@ -47,6 +48,7 @@ export function buildPack(meta: SubjectMeta, raw: RawModules): SubjectPack {
     cases: collect(raw.cases, m => m.cases),
     papers: collect(raw.papers, m => m.papers),
     pastPapers: collect(raw.pastPapers, m => m.pastPapers),
+    assignments: collect(raw.assignments, m => m.assignments),
     sims,
   };
 }

@@ -53,6 +53,9 @@ export interface PaperGuide {
   timedSets?: TimedSet[];
 }
 
+// A task the teacher set (Assignment in src/contract/types.ts). Read defensively, like the rest.
+export interface Assignment { id: string; title?: LText; due?: string; url?: string; topicIds?: string[] }
+
 // A past paper the portal links to (PastPaperRef in src/contract/types.ts). Read defensively, like the rest.
 export interface PastPaperRef {
   id: string;
@@ -81,10 +84,11 @@ export interface Pack {
   cases: CaseStudy[];
   papers: PaperGuide[];
   pastPapers: PastPaperRef[];
+  assignments: Assignment[];
 }
 
-export type Collection = 'syllabus' | 'topics' | 'terms' | 'formulas' | 'questions' | 'cases' | 'papers' | 'pastPapers';
-const COLLECTIONS: Collection[] = ['syllabus', 'topics', 'terms', 'formulas', 'questions', 'cases', 'papers', 'pastPapers'];
+export type Collection = 'syllabus' | 'topics' | 'terms' | 'formulas' | 'questions' | 'cases' | 'papers' | 'pastPapers' | 'assignments';
+const COLLECTIONS: Collection[] = ['syllabus', 'topics', 'terms', 'formulas', 'questions', 'cases', 'papers', 'pastPapers', 'assignments'];
 
 export function hasOwn(object: object, key: string): boolean {
   return Object.prototype.hasOwnProperty.call(object, key);

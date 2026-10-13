@@ -31,7 +31,8 @@
   "tools": {
     "heading": "Пейперы и инструменты",
     "paperGuide": "Гид: {{paper}} — {{title}}",
-    "flashcards": "Карточки"
+    "flashcards": "Карточки",
+    "pastPapers": "Прошлые экзамены"
   },
   "topics": {
     "heading": "Темы",
@@ -72,5 +73,13 @@
       "amber": "Жёлтый: почти",
       "green": "Зелёный: уверен"
     }
+  },
+  "assignments": {
+    "heading": "Задания учителя",
+    "due": "Срок: {{date}}",
+    "overdue": "Просрочено",
+    "today": "Срок сегодня",
+    "open": "Открыть задание",
+    "topics": "Темы"
   }
 }

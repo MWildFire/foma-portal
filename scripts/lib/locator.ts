@@ -5,7 +5,7 @@ import type { Pos } from './report.ts';
 // recovers that from the TypeScript source: it looks for `id: '...'` (or `code: '...'`) lines in the files the
 // index.ts globs read. It only makes error messages more precise; rules never depend on it.
 
-export type ItemKind = 'syllabus' | 'topic' | 'term' | 'formula' | 'question' | 'case' | 'timedSet' | 'paper' | 'pastPaper';
+export type ItemKind = 'syllabus' | 'topic' | 'term' | 'formula' | 'question' | 'case' | 'timedSet' | 'paper' | 'pastPaper' | 'assignment';
 
 export interface Locator {
   // Every line that defines this item, in file order.
@@ -24,6 +24,7 @@ const DEFINES: { [kind in FileKind]?: { kind: ItemKind; key: string }[] } = {
   cases: [{ kind: 'case', key: 'id' }],
   papers: [{ kind: 'timedSet', key: 'id' }, { kind: 'paper', key: 'paper' }],
   'past-papers': [{ kind: 'pastPaper', key: 'id' }],
+  assignments: [{ kind: 'assignment', key: 'id' }],
 };
 
 export function createLocator(files: SubjectFile[], subject: string): Locator {

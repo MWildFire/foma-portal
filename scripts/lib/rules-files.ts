@@ -23,6 +23,7 @@ const EXPORT_NAME: Partial<Record<FileKind, string>> = {
   cases: 'cases',
   papers: 'papers',
   'past-papers': 'pastPapers',
+  assignments: 'assignments',
 };
 
 export function hasNamedExport(code: string, name: string): boolean {

@@ -61,3 +61,13 @@ export interface PastPaperRef {
   items: { q: string; marks: number; topicIds: string[]; command?: string; option?: string; inMockScope?: boolean }[];
   guide?: L;                     // our own write-up: how to answer, what earns marks, where marks are lost
 }
+
+// A task the teacher set, with its due date (content/<s>/**/assignments.ts, export const assignments). Shown on the
+// subject page. Links are public pages only: never Classlink, Google Drive or Toddle.
+export interface Assignment {
+  id: string;                    // kebab, unique within the subject
+  title: L;
+  due: string;                   // 'YYYY-MM-DD'
+  url?: string;                  // https:// public page
+  topicIds: string[];            // topics this task practises
+}

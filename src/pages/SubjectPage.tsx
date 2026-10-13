@@ -5,6 +5,7 @@ import { ContentLangSwitch } from '../components/content/ContentLangSwitch';
 import { SectionHeading } from '../components/content/TopicHero';
 import { useContentLang } from '../components/content/useContentLang';
 import { usePageTitle, useScrollToTop } from '../components/content/usePageTitle';
+import { AssignmentList } from '../components/subject/AssignmentList';
 import { ProgressSummary } from '../components/subject/ProgressSummary';
 import { SubjectHeader } from '../components/subject/SubjectHeader';
 import { SubjectLinks } from '../components/subject/SubjectLinks';
@@ -45,6 +46,13 @@ export function SubjectPage() {
         <SectionHeading id={`${base}-progress`}>{t('progress.heading')}</SectionHeading>
         <ProgressSummary progress={progress} />
       </section>
+
+      {pack.assignments.length > 0 ? (
+        <section aria-labelledby={`${base}-assignments`}>
+          <SectionHeading id={`${base}-assignments`}>{t('assignments.heading')}</SectionHeading>
+          <AssignmentList subject={subject} assignments={pack.assignments} topics={pack.topics} />
+        </section>
+      ) : null}
 
       <section aria-labelledby={`${base}-tools`}>
         <SectionHeading id={`${base}-tools`}>{t('tools.heading')}</SectionHeading>

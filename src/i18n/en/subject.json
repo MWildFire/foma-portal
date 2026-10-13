@@ -31,7 +31,8 @@
   "tools": {
     "heading": "Papers and tools",
     "paperGuide": "{{paper}} guide: {{title}}",
-    "flashcards": "Flashcards"
+    "flashcards": "Flashcards",
+    "pastPapers": "Past papers"
   },
   "topics": {
     "heading": "Topics",
@@ -72,5 +73,13 @@
       "amber": "Amber: getting there",
       "green": "Green: confident"
     }
+  },
+  "assignments": {
+    "heading": "Teacher's tasks",
+    "due": "Due {{date}}",
+    "overdue": "Overdue",
+    "today": "Due today",
+    "open": "Open the task",
+    "topics": "Topics"
   }
 }
