@@ -41,8 +41,10 @@ test('with a separate room the countdown uses the ACC2 start when the schedule g
   assert.deepEqual([hall.exam.id, hall.phase, hall.start, hall.remainingMs], ['math-p3', 'upcoming', '10:15', 35 * 60_000]);
   const room = nextExam(exams, at('2026-10-27', '09:40'), false, true);
   assert.deepEqual([room.exam.id, room.phase, room.start, room.remainingMs], ['math-p3', 'running', '09:30', 65 * 60_000]);
-  // With extra time Geography P2 (08:15) runs until 09:49, past the ACC2 start of Maths P3: the running paper comes first.
-  assert.equal(nextExam(exams, at('2026-10-27', '09:40'), true, true).exam.id, 'geo-p2');
+  // Geography P2 starts in ACC2 at 08:00 and with extra time runs until 09:34, past the ACC2 start of Maths P3 (09:30):
+  // while both run, the paper that started first comes first.
+  assert.equal(nextExam(exams, at('2026-10-27', '09:31'), true, true).exam.id, 'geo-p2');
+  assert.equal(nextExam(exams, at('2026-10-27', '09:40'), true, true).exam.id, 'math-p3');
   const both = nextExam(exams, at('2026-10-27', '09:55'), true, true);
   assert.deepEqual([both.exam.id, both.phase], ['math-p3', 'running']);
   assert.equal(both.endMs, at('2026-10-27', '11:04'));

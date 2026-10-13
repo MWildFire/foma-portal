@@ -1,5 +1,5 @@
 // Types shared by the planner modules. Types only, so every `import type` of this file is erased at run time.
-import type { L, PaperId, SubjectId } from '../contract/types.ts';
+import type { L, PaperId, PastPaperRef, SubjectId } from '../contract/types.ts';
 import type { GlobalState, Rag, Weekday } from '../lib/storage.ts';
 
 export type { GlobalState, Rag, Weekday };
@@ -22,11 +22,18 @@ export interface ExamPaper {
   note?: string;
 }
 
+export interface ExamAccess {
+  extraTime: number;              // 0.25 = 25% on top of the printed length
+  room: string;                   // the student's room as the school gives it ('tbd' until it is known)
+  noExtraTime: string[];          // ids of papers without extra time (the French listening)
+}
+
 export interface ExamsFile {
   timezone: string;
   defaultRoom: string;
   papers: ExamPaper[];            // sorted by date, then start time
-  accessMinutes: Record<string, number>;   // paper minutes -> minutes with 25% extra time
+  accessMinutes: Record<string, number>;   // paper minutes -> minutes with extra time (the school's table)
+  access: ExamAccess;
 }
 
 export interface TimedEntry {
@@ -86,6 +93,7 @@ export interface PlannerInput {
   quotas: QuotasFile;
   subjects: PlannerSubject[];
   state: GlobalState;
+  pastPapers?: readonly PastPaperRef[];   // every subject's past papers (SubjectPack.pastPapers); none = no links
 }
 
 // ---------------------------------------------------------------------------------------------
@@ -94,6 +102,14 @@ export interface PlannerInput {
 
 export type BlockKind = 'recall' | 'topic' | 'practice' | 'timed' | 'paper' | 'study';
 export type BlockStatus = 'planned' | 'moved' | 'done';
+
+// The past IB paper a timed or practice block works on (PastPaperRef in the contract; the planner keeps only the link).
+export interface PastPaperLink {
+  id: string;                     // 'geo-p2-m24-tz1'
+  session: string;                // 'M24'
+  paper: PaperId;
+  part?: string;
+}
 
 export interface PlanBlock {
   id: string;                     // stable between recalculations; also the key in `state.blocks`
@@ -114,6 +130,8 @@ export interface PlanBlock {
   part?: string;                  // 'reading' | 'listening' for French P2
   examId?: string;
   note?: string;                  // text from plan-quotas.json (English)
+  pastPaper?: PastPaperLink;      // timed sitting or practice on a past IB paper
+  pastItems?: string[];           // practice on a past paper: the ids of the questions to do (a section or a set of questions)
   rag?: Rag;                      // current confidence of the topic
   ready?: { en: boolean; ru: boolean };
   links?: { title: string; url: string }[];

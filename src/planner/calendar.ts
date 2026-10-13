@@ -10,8 +10,8 @@ const PAPER_IDS: PaperId[] = ['P1', 'P2', 'P3'];
 
 // PLAN.md §5: on an exam day only the evening is available.
 export const EXAM_EVENING_MINUTES = 60;
-// Extra time for access arrangements is 25% on top of the sitting.
-const EXTRA_TIME_FACTOR = 1.25;
+// Used only when data/exams.json has no `access` block: extra time is 25% on top of the sitting.
+export const DEFAULT_EXTRA_TIME_FACTOR = 0.25;
 
 const isRecord = (value: unknown): value is Record<string, unknown> =>
   typeof value === 'object' && value !== null && !Array.isArray(value);
@@ -51,7 +51,13 @@ export function parseExams(raw: unknown): ExamsFile {
   if (isRecord(file.accessMinutes)) {
     for (const [key, value] of Object.entries(file.accessMinutes)) if (positive(value)) accessMinutes[key] = value;
   }
-  return { timezone: text(file.timezone, 'Asia/Dubai'), defaultRoom, papers, accessMinutes };
+  const rawAccess = isRecord(file.access) ? file.access : {};
+  const access = {
+    extraTime: positive(rawAccess.extraTime) ? rawAccess.extraTime : DEFAULT_EXTRA_TIME_FACTOR,
+    room: text(rawAccess.room, 'tbd'),
+    noExtraTime: Array.isArray(rawAccess.noExtraTime) ? rawAccess.noExtraTime.filter((id): id is string => typeof id === 'string') : [],
+  };
+  return { timezone: text(file.timezone, 'Asia/Dubai'), defaultRoom, papers, accessMinutes, access };
 }
 
 function timedOf(raw: unknown): TimedEntry | null {
@@ -135,10 +141,29 @@ export function lastExamOverall(exams: ExamsFile): string | null {
   return last;
 }
 
-// A sitting's length with 25% extra time: the school's table first, plain arithmetic otherwise.
+// A sitting's length with extra time: the school's table first, plain arithmetic (rounded) otherwise.
 export function extendedMinutes(exams: ExamsFile, minutes: number): number {
   const fromTable = exams.accessMinutes[String(minutes)];
-  return typeof fromTable === 'number' ? fromTable : Math.round(minutes * EXTRA_TIME_FACTOR);
+  if (typeof fromTable === 'number') return fromTable;
+  const factor = exams.access?.extraTime ?? DEFAULT_EXTRA_TIME_FACTOR;
+  return Math.round(minutes * (1 + factor));
+}
+
+// The papers the schedule marks as "no extra time" (access.noExtraTime, by exam id), e.g. the French listening.
+export function hasExtraTime(exams: ExamsFile, exam: ExamPaper): boolean {
+  return !(exams.access?.noExtraTime ?? []).includes(exam.id);
+}
+
+// Minutes a student has for one paper: the printed length, or the extended one when the student has extra time and the
+// paper allows it.
+export function sittingMinutes(exams: ExamsFile, exam: ExamPaper, extraTime: boolean): number {
+  return extraTime && hasExtraTime(exams, exam) ? extendedMinutes(exams, exam.minutes) : exam.minutes;
+}
+
+// True when every paper of this subject and paper number (and part, when given) is one without extra time.
+export function noExtraTimeFor(exams: ExamsFile, subject: SubjectId, paper: PaperId, part?: string): boolean {
+  const matching = exams.papers.filter(exam => exam.subject === subject && exam.paper === paper && (part === undefined || exam.part === part));
+  return matching.length > 0 && matching.every(exam => !hasExtraTime(exams, exam));
 }
 
 // The start time the student actually has: the separate room (ACC2) has its own start when the schedule gives one,
@@ -152,6 +177,5 @@ export function examStartMs(exam: ExamPaper, separateRoom = false): number {
 }
 
 export function examEndMs(exam: ExamPaper, exams: ExamsFile, extraTime: boolean, separateRoom = false): number {
-  const length = extraTime ? extendedMinutes(exams, exam.minutes) : exam.minutes;
-  return examStartMs(exam, separateRoom) + length * 60_000;
+  return examStartMs(exam, separateRoom) + sittingMinutes(exams, exam, extraTime) * 60_000;
 }
