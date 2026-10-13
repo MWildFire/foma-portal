@@ -1,0 +1,39 @@
+{
+  "intro": "Mock exams: {{n}} papers from {{from}} to {{to}}.",
+  "timesNote": "Times are Dubai time (UTC+4) for the main hall, as printed in the school's mock schedule.",
+  "today": "Today",
+  "dubaiTime": "Dubai time",
+  "empty": "The exam calendar is empty.",
+  "countdown": {
+    "next": "Next exam",
+    "running": "Exam in progress",
+    "none": "There are no more exams on the schedule.",
+    "room": "Room: {{room}}",
+    "untilStart": "until it starts",
+    "untilEnd": "until it ends",
+    "extraTime": "With your 25% extra time: {{time}}."
+  },
+  "access": {
+    "title": "Access arrangements",
+    "none": "none",
+    "extraTime": "25% extra time",
+    "separateRoom": "separate room (ACC2)",
+    "change": "Change in Settings"
+  },
+  "status": {
+    "finished": "Finished",
+    "running": "In progress",
+    "next": "Next"
+  },
+  "fields": {
+    "duration": "Duration",
+    "room": "Room",
+    "separateRoom": "Separate room",
+    "extraTime": "Extra time",
+    "note": "Schedule note"
+  },
+  "separateStart": "ACC2, starts at {{time}}",
+  "noSeparateStart": "no separate start time in the schedule",
+  "extraTimeValue": "{{time}} ({{range}})",
+  "paperGuide": "Paper guide"
+}

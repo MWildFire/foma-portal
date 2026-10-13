@@ -1,0 +1,74 @@
+{
+  "dateLine": "{{date}}, Dubai time",
+  "focus": "Focus",
+  "progressLabel": "Done today",
+  "progress": "Done: {{done}} of {{total}}",
+  "plan": {
+    "title": "Today's plan"
+  },
+  "notes": {
+    "exam": "Exam day: only the evening is planned, after your exam.",
+    "eve": "Tomorrow: {{papers}}. Today is only for these papers, no new topics.",
+    "moved": "{{time}} of unfinished work has moved here from earlier days.",
+    "extraTime": "Timed papers include your 25% extra time.",
+    "separateRoom": "Separate room (ACC2): your next exam starts there at {{time}} (main hall: {{hall}}).",
+    "separateRoomUnknown": "Separate room (ACC2): the schedule gives no separate start for your next exam ({{time}}, room {{room}}). Check with the exams office."
+  },
+  "empty": {
+    "finished": {
+      "title": "All exams are done",
+      "text": "Every subject has had its last mock exam. Well done! The plan is complete."
+    },
+    "nothing": {
+      "title": "Nothing planned for today",
+      "text": "Have a rest, or look ahead in the plan."
+    },
+    "beforeStart": "The plan starts on {{date}}.",
+    "firstDay": "First day: {{list}}.",
+    "examDay": {
+      "title": "Exam day",
+      "text": "Nothing else is planned for today. Good luck!"
+    },
+    "rest": "Rest day: this weekday is set to 0 minutes in Settings."
+  },
+  "links": {
+    "plan": "See the whole plan",
+    "exams": "Exam calendar"
+  },
+  "subject": {
+    "done": "Done: {{done}} of {{total}}"
+  },
+  "block": {
+    "start": "Start",
+    "running": "Running",
+    "done": "Done",
+    "undo": "Undo"
+  },
+  "recall": {
+    "intro": "{{n}} min at the start of the day: the flashcards that are due, then the key terms of your red topics.",
+    "total": "Cards due today: {{n}}",
+    "due": "Due: {{n}}",
+    "red": "Red-topic terms: {{n}}",
+    "suggested": "For today: {{n}}",
+    "open": "Open flashcards",
+    "crowded": "More cards are waiting than fit into {{n}} min: you can do about {{cards}}. Start with the number suggested for each subject.",
+    "none": "No flashcards are due today.",
+    "noneHint": "Learn cards in a subject's glossary; they come back here when they are due. Meanwhile, look through a glossary:"
+  },
+  "timer": {
+    "title": "Timer",
+    "work": "Focus, 25 min",
+    "break": "Break, 5 min",
+    "paper": "Timed",
+    "finished": "Finished",
+    "paused": "paused",
+    "forBlock": "Block: {{name}}",
+    "left": "Time left: {{time}}",
+    "pause": "Pause",
+    "resume": "Resume",
+    "skipToBreak": "Take the break now",
+    "finish": "Finish",
+    "again": "Start again",
+    "stop": "Close timer"
+  }
+}

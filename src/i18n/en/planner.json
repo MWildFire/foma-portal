@@ -1,0 +1,47 @@
+{
+  "paper": "Paper {{n}}",
+  "part": {
+    "reading": "reading",
+    "listening": "listening"
+  },
+  "minutes": "{{n}} min",
+  "hours": "{{h}} h",
+  "hoursMinutes": "{{h}} h {{m}} min",
+  "unit": {
+    "d": "d",
+    "h": "h",
+    "min": "min"
+  },
+  "lessThanMinute": "less than 1 min",
+  "kind": {
+    "recall": "Recall",
+    "topic": "First pass",
+    "practice": "Practice",
+    "timed": "Timed paper",
+    "paper": "Exam prep",
+    "study": "Study"
+  },
+  "recallTitle": "Flashcards and key terms",
+  "slice": "Minutes {{from}}–{{to}} of {{total}}",
+  "paperHint": "Exam tomorrow: go through this paper's guide and practise under time. No new topics today.",
+  "studyTitle": "Study session",
+  "studyHint": "The topics of this subject are still being written. Open the subject page and work from your textbook and class notes.",
+  "noLessonText": "The lesson text is not ready yet. Start with these:",
+  "opensInNewTab": "opens in a new tab",
+  "openPractice": "Open practice",
+  "openPaper": "Open the paper guide",
+  "openSubject": "Open the subject",
+  "openTopic": "Open the topic",
+  "status": {
+    "done": "Done",
+    "moved": "Moved",
+    "planned": "Planned"
+  },
+  "movedFrom": "Moved from {{date}}",
+  "rag": {
+    "question": "How confident are you with “{{name}}” now?",
+    "red": "Red: not yet",
+    "amber": "Amber: getting there",
+    "green": "Green: confident"
+  }
+}
