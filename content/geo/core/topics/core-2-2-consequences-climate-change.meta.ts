@@ -42,7 +42,7 @@ const topic: TopicMeta = {
     { kind: 'web', title: 'WHO, Climate change fact sheet (updated 12 October 2023)', url: 'https://www.who.int/news-room/fact-sheets/detail/climate-change-and-health' },
     { kind: 'web', title: 'WMO, Atlas of Mortality and Economic Losses from Weather, Climate and Water-related Hazards (1970–2021), press release of 22 May 2023', url: 'https://wmo.int/news/media-centre/economic-costs-of-weather-related-disasters-soars-early-warnings-save-lives' },
     { kind: 'web', title: 'World Bank, Groundswell press release (13 September 2021)', url: 'https://www.worldbank.org/en/news/press-release/2021/09/13/climate-change-could-force-216-million-people-to-migrate-within-their-own-countries-by-2050' },
-    { kind: 'web', title: 'UNDP, Tuvalu Coastal Adaptation Project, GCF project document (2016)', url: 'https://www.undp.org/sites/g/files/zskgke326/files/migration/pacific/5c6f1a9f1b85558d2815083ad2d275c6322c84a574571dff3803a196e298c92f.pdf' },
+    { kind: 'web', title: 'GCF, funding proposal FP015 (2015), Tuvalu Coastal Adaptation Project, page 10', url: 'https://www.greenclimate.fund/sites/default/files/document/funding-proposal-fp015-undp-tuvalu.pdf' },
   ],
 };
 

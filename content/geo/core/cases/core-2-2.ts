@@ -50,15 +50,15 @@ export const cases: CaseStudy[] = [
     lat: -8.517,
     lng: 179.2,
     facts: {
-      en: 'UNDP (2016), Tuvalu Coastal Adaptation Project, project document (section II): the total land area is 26 km², the average elevation is 1.83 m, and Funafuti atoll, where the capital is, is home to about half of the population. The project is financed by a Green Climate Fund grant of USD 36.0 million within a total cost of USD 38.9 million (para. 122). World Bank WDI (2024): Tuvalu had 9,646 people and a land area of 26 km². Australian High Commission in Tuvalu (2026): under the Falepili Union, the Falepili Mobility Pathway offers up to 280 visa places in the 2026–27 round, the second program year. The Falepili Union was announced in November 2023 (Devpolicy Centre, November 2023).',
-      ru: 'UNDP (2016), документ проекта Tuvalu Coastal Adaptation Project (раздел II): общая площадь суши 26 км², средняя высота 1,83 м; около половины населения живёт на атолле Фунафути, где находится столица. Проект финансируется грантом Зелёного климатического фонда на 36,0 млн долларов США при общей стоимости 38,9 млн долларов США (пункт 122). Всемирный банк, WDI (2024): в Тувалу жило 9 646 человек, площадь суши составляла 26 км². Австралийская высокая комиссия на Тувалу (2026): в рамках соглашения Falepili Union программа Falepili Mobility Pathway предлагает до 280 виз в раунде 2026–2027 годов, втором году программы. Соглашение было объявлено в ноябре 2023 года (Devpolicy Centre, ноябрь 2023).',
+      en: 'GCF (2015), funding proposal FP015 for the Tuvalu Coastal Adaptation Project, page 10: the total land area is 26 km², the average elevation is 1.83 m, and Funafuti atoll, where the capital is, is home to about half of the population (2015). The project is financed by a Green Climate Fund grant of USD 36.0 million (2015 proposal) within a total cost of USD 38.9 million (para. 122). World Bank WDI (2024): Tuvalu had 9,646 people and a land area of 26 km². Australian High Commission in Tuvalu (2026): under the Falepili Union, the Falepili Mobility Pathway offers up to 280 visa places in the 2026–27 round, the second program year. The Falepili Union was announced in November 2023 (Devpolicy Centre, November 2023).',
+      ru: 'GCF (2015), предложение FP015 для проекта Tuvalu Coastal Adaptation Project, стр. 10: общая площадь суши 26 км², средняя высота 1,83 м; около половины населения (2015 год) живёт на атолле Фунафути, где находится столица. Проект финансируется грантом Зелёного климатического фонда на 36,0 млн долларов США при общей стоимости 38,9 млн долларов США (пункт 122). Всемирный банк, WDI (2024): в Тувалу жило 9 646 человек, площадь суши составляла 26 км². Австралийская высокая комиссия на Тувалу (2026): в рамках соглашения Falepili Union программа Falepili Mobility Pathway предлагает до 280 виз в раунде 2026–2027 годов, втором году программы. Соглашение было объявлено в ноябре 2023 года (Devpolicy Centre, ноябрь 2023).',
     },
     usedFor: TOPIC,
     src: [
       {
         kind: 'web',
-        title: 'UNDP, Tuvalu Coastal Adaptation Project, GCF project document (2016), section II and para. 122',
-        url: 'https://www.undp.org/sites/g/files/zskgke326/files/migration/pacific/5c6f1a9f1b85558d2815083ad2d275c6322c84a574571dff3803a196e298c92f.pdf',
+        title: 'GCF, funding proposal FP015 (2015), Tuvalu Coastal Adaptation Project, page 10',
+        url: 'https://www.greenclimate.fund/sites/default/files/document/funding-proposal-fp015-undp-tuvalu.pdf',
       },
       {
         kind: 'web',
