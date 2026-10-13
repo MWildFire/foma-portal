@@ -1,12 +1,11 @@
 // Access arrangements (PLAN.md §0): the exam file, the extra-time lengths, the ACC2 starts, the halls and the clashes.
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { exams } from './planner-fixtures.mjs';
-import { extendedMinutes, hasExtraTime, noExtraTimeFor, sittingMinutes } from '../src/planner/calendar.ts';
+import { dayOf, emptyState, exams, plan, withSettings } from './planner-fixtures.mjs';
+import { extendedMinutes, hasExtraTime, noExtraTimeFor, parseQuotas, sittingMinutes, timedEntryMinutes } from '../src/planner/calendar.ts';
 import { hallClashes, hallOf, hallWindows } from '../src/planner/rooms.ts';
 import { accessChoiceOf } from '../src/planner/access.ts';
 import { setExamRoom } from '../src/planner/actions.ts';
-import { emptyState } from './planner-fixtures.mjs';
 
 const minutesOf = clock => Number(clock.slice(0, 2)) * 60 + Number(clock.slice(3, 5));
 const byId = id => exams.papers.find(exam => exam.id === id);
@@ -129,4 +128,33 @@ test('choosing the room writes it into the settings and keeps the old flag in st
   assert.equal(state.settings.accessArrangements.room, 'SpHal2');
   assert.equal(state.settings.accessArrangements.separateRoom, false);
   assert.equal(state.settings.accessArrangements.extraTime, false, 'the extra time choice is left alone');
+});
+
+test('timed entries of the plan: the French listening keeps its printed 60 minutes, the reading gets the table 56, economics P3 gets 75', () => {
+  const entry = (subject, paper, minutes, part) => ({ subject, paper, minutes, ...(part ? { part } : {}) });
+  assert.equal(timedEntryMinutes(exams, entry('fr', 'P2', 60, 'listening'), true), 60);
+  assert.equal(timedEntryMinutes(exams, entry('fr', 'P2', 60, 'listening'), false), 60);
+  assert.equal(timedEntryMinutes(exams, entry('fr', 'P2', 45, 'reading'), true), 56);
+  assert.equal(timedEntryMinutes(exams, entry('fr', 'P2', 45, 'reading'), false), 45);
+  assert.equal(timedEntryMinutes(exams, entry('econ', 'P3', 60), true), 75);
+  assert.equal(timedEntryMinutes(exams, entry('cs', 'P1', 60), true), 75);
+});
+
+test('the quotas file keeps the part of a timed entry, so the plan shows the listening at 60 and the reading at 56 with extra time', () => {
+  const quotasFile = parseQuotas({
+    start: '2026-10-22',
+    end: '2026-10-23',
+    days: [
+      { date: '2026-10-22', quota: { fr: 120 }, timed: [{ subject: 'fr', paper: 'P2', part: 'listening', minutes: 60 }] },
+      { date: '2026-10-23', quota: { fr: 120 }, timed: [{ subject: 'fr', paper: 'P2', part: 'reading', minutes: 45 }] },
+    ],
+  });
+  assert.equal(quotasFile.days[0].timed[0].part, 'listening');
+  const frTimedMinutes = (date, extraTime) => {
+    const result = plan('2026-10-14', { state: withSettings(emptyState(), { accessArrangements: { extraTime } }), quotasFile });
+    return dayOf(result, date).blocks.find(block => block.kind === 'timed' && block.subject === 'fr')?.minutes;
+  };
+  assert.equal(frTimedMinutes('2026-10-22', true), 60, 'listening: no extra time');
+  assert.equal(frTimedMinutes('2026-10-23', true), 56, 'reading: the table');
+  assert.equal(frTimedMinutes('2026-10-23', false), 45, 'reading without extra time');
 });

@@ -19,7 +19,7 @@ import type { Interval } from './queue.ts';
 // The .ts extensions are what Node's test runner needs.
 import { ROUTES } from '../config/routes.ts';
 import { addDays, dateRange, weekdayOf } from './dates.ts';
-import { EXAM_EVENING_MINUTES, SUBJECT_IDS, examsOn, extendedMinutes, lastExamDate, lastExamOverall, sittingPapers } from './calendar.ts';
+import { EXAM_EVENING_MINUTES, SUBJECT_IDS, examsOn, lastExamDate, lastExamOverall, sittingPapers, timedEntryMinutes } from './calendar.ts';
 import { paperBlockId, parseBlockId, practiceBlockId, recallBlockId, studyBlockId, timedBlockId, topicBlockId } from './blocks.ts';
 import { UNIT_MINUTES, addInterval, effectiveMinutes, firstGap, isCovered, topicQueue } from './queue.ts';
 import { buildRecall } from './recall.ts';
@@ -91,7 +91,8 @@ export function buildPlan(input: PlannerInput): Plan {
   const { today, exams, quotas, state } = input;
   const settings = state.settings;
   const extraTime = settings.accessArrangements.extraTime;
-  const ext = (minutes: number): number => (extraTime ? extendedMinutes(exams, minutes) : minutes);
+  // Minutes a timed entry runs for: with extra time where the schedule allows it (never for the French listening).
+  const ext = (entry: TimedEntry): number => timedEntryMinutes(exams, entry, extraTime);
 
   const lastOverall = lastExamOverall(exams);
   const firstDate = quotas.start || exams.papers[0]?.date || today;
@@ -148,7 +149,7 @@ export function buildPlan(input: PlannerInput): Plan {
     const rows = subjects.map(subject => {
       const timed = qd.timed.filter(entry => entry.subject === subject);
       const nominal = timed.reduce((sum, entry) => sum + entry.minutes, 0);
-      const actual = timed.reduce((sum, entry) => sum + ext(entry.minutes), 0);
+      const actual = timed.reduce((sum, entry) => sum + ext(entry), 0);
       const quota = Math.max(qd.quota[subject] ?? 0, nominal);
       // The review and regular minutes are what the quota keeps after the printed sitting. Extra time stacks on top of
       // the quota; phase 1b moves the review on when the day would go past its overload.
@@ -452,7 +453,7 @@ export function buildPlan(input: PlannerInput): Plan {
       kind: 'timed',
       subject,
       date,
-      minutes: ext(item.entry.minutes),
+      minutes: ext(item.entry),
       ...doneStatus(item.id, movedFrom !== undefined),
       route: ROUTES.paper(subject, item.entry.paper),
       paper: item.entry.paper,
@@ -573,11 +574,11 @@ export function buildPlan(input: PlannerInput): Plan {
       const stillWaiting: TimedItem[] = [];
       for (const item of carried.get(subject) ?? []) {
         if (!paperAhead(subject, item.entry.paper, date)) continue;   // the paper has been sat: nothing left to move
-        const need = ceil5(ext(item.entry.minutes));
+        const need = ceil5(ext(item.entry));
         const finishedToday = state.blocks[item.id] !== undefined;
         if ((!eve || sits(item.entry)) && (finishedToday || flex >= need)) {
           items.push(item);
-          moved += ext(item.entry.minutes);
+          moved += ext(item.entry);
           const swapped = Math.min(flex, need);   // the paper takes the place of regular work
           flex -= swapped;
           if (!eve) debt.set(subject, (debt.get(subject) ?? 0) + swapped);
@@ -596,7 +597,7 @@ export function buildPlan(input: PlannerInput): Plan {
       }
       carried.set(subject, stillWaiting);
 
-      planned += items.reduce((sum, item) => sum + ext(item.entry.minutes), 0) + flex;
+      planned += items.reduce((sum, item) => sum + ext(item.entry), 0) + flex;
       slots.set(subject, { subject, sitting, items, flex, extra: 0 });
     }
 

@@ -39,6 +39,7 @@ export interface ExamsFile {
 export interface TimedEntry {
   subject: SubjectId;
   paper: PaperId;
+  part?: string;                  // 'reading' | 'listening' for French P2; without it the entry is the whole paper
   minutes: number;                // the timed sitting itself; the rest of the quota is review
   note?: string;
 }

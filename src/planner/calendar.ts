@@ -63,6 +63,7 @@ export function parseExams(raw: unknown): ExamsFile {
 function timedOf(raw: unknown): TimedEntry | null {
   if (!isRecord(raw) || !isSubject(raw.subject) || !isPaper(raw.paper) || !positive(raw.minutes)) return null;
   const entry: TimedEntry = { subject: raw.subject, paper: raw.paper, minutes: raw.minutes };
+  if (typeof raw.part === 'string') entry.part = raw.part;
   if (typeof raw.note === 'string') entry.note = raw.note;
   return entry;
 }
@@ -164,6 +165,12 @@ export function sittingMinutes(exams: ExamsFile, exam: ExamPaper, extraTime: boo
 export function noExtraTimeFor(exams: ExamsFile, subject: SubjectId, paper: PaperId, part?: string): boolean {
   const matching = exams.papers.filter(exam => exam.subject === subject && exam.paper === paper && (part === undefined || exam.part === part));
   return matching.length > 0 && matching.every(exam => !hasExtraTime(exams, exam));
+}
+
+// Minutes a timed entry of the quotas file runs for. The same rule as a sitting: the school's table with extra time,
+// the printed time without it, and the printed time for a paper or part the schedule marks as having none (the listening).
+export function timedEntryMinutes(exams: ExamsFile, entry: TimedEntry, extraTime: boolean): number {
+  return extraTime && !noExtraTimeFor(exams, entry.subject, entry.paper, entry.part) ? extendedMinutes(exams, entry.minutes) : entry.minutes;
 }
 
 // The start time the student actually has: the separate room (ACC2) has its own start when the schedule gives one,
