@@ -148,6 +148,7 @@ export default function ReadingPractice({ lang }: { lang: Lang }) {
   const chooseSet = (index: number): void => {
     setSetIndex(index);
     setPassageId(SETS[index]?.[0]?.id ?? passageId);
+    setAnswers({});
     setChecked({});
     setTimer(null);
   };
