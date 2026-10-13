@@ -1,0 +1,5 @@
+# Copy to infra/auth.auto.tfvars (gitignored) and fill in real values.
+# Generate each password with: openssl rand -base64 18
+# The real values also live in ~/.foma-portal/credentials.txt (chmod 600).
+foma_password   = "CHANGE_ME_foma_password"
+dmitry_password = "CHANGE_ME_dmitry_password"
