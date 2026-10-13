@@ -7,9 +7,10 @@ import type { PaperId, Term, TopicMeta } from '../../contract/types';
 import { useLocalProgress } from '../../hooks/useLocalProgress';
 import { BOXES, INTERVAL_DAYS, NEW_PER_SESSION, deckStats, review, termKey, type Answer } from '../../lib/leitner';
 import type { TermProgress } from '../../lib/storage';
-import { toLang } from '../../lib/topic-lang';
 import { dubaiDate } from '../../lib/topic-progress';
+import { ContentLangSwitch } from '../content/ContentLangSwitch';
 import { TopicHero } from '../content/TopicHero';
+import { useContentLang } from '../content/useContentLang';
 import { FilterSelect, SearchField, StatGrid } from '../practice/fields';
 import { FlashcardDeck } from './FlashcardDeck';
 import { GlossaryEntry } from './GlossaryEntry';
@@ -23,8 +24,9 @@ const NO_TOPICS: readonly TopicMeta[] = [];
 // #/s/:subject/terms. Counts of the flashcard boxes at the top, then either the glossary (all terms, searchable) or
 // the flashcards (?mode=cards): one due card at a time with a Leitner schedule.
 export function GlossaryView({ pack }: { pack: SubjectPack }) {
-  const { t, i18n } = useTranslation(['glossary', 'subject', 'common']);
-  const lang = toLang(i18n.language);
+  const { t } = useTranslation(['glossary', 'subject', 'common']);
+  // The text language (EN, RU or both) is the same choice as on the topic pages.
+  const [contentLang, setContentLang] = useContentLang();
   const subject = pack.meta.id;
   const [state, update] = useLocalProgress();
   const [params, setParams] = useSearchParams();
@@ -113,6 +115,10 @@ export function GlossaryView({ pack }: { pack: SubjectPack }) {
         </section>
       ) : (
         <>
+          <div className="mb-6">
+            <ContentLangSwitch value={contentLang} onChange={setContentLang} />
+          </div>
+
           <section aria-labelledby={statsId}>
             <h2 id={statsId} className="study-h2">{t('stats.heading')}</h2>
             <StatGrid tiles={tiles} />
@@ -142,7 +148,7 @@ export function GlossaryView({ pack }: { pack: SubjectPack }) {
               terms={pack.terms}
               progress={state.terms}
               today={today}
-              lang={lang}
+              mode={contentLang}
               nextDue={stats.nextDue}
               fresh={stats.fresh}
               onAnswer={answerCard}
@@ -168,7 +174,7 @@ export function GlossaryView({ pack }: { pack: SubjectPack }) {
                 <ul className="gl-list">
                   {visible.map(term => (
                     <li key={term.id}>
-                      <GlossaryEntry term={term} lang={lang} subject={subject} topics={topicsByTerm.get(term.id) ?? NO_TOPICS} />
+                      <GlossaryEntry term={term} mode={contentLang} subject={subject} topics={topicsByTerm.get(term.id) ?? NO_TOPICS} />
                     </li>
                   ))}
                 </ul>

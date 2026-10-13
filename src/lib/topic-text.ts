@@ -2,6 +2,12 @@ const escapeRegExp = (value: string): string => value.replace(/[.*+?^${}()|[\]\\
 
 const sameText = (a: string, b: string): boolean => a.trim().toLowerCase() === b.trim().toLowerCase();
 
+// The Russian term without the English copy in brackets: "спрос (demand)" gives "спрос".
+function russianOnly(en: string, ru: string): string {
+  const copy = new RegExp(`\\s*\\(\\s*${escapeRegExp(en)}\\s*\\)\\s*$`, 'i');
+  return ru.replace(copy, '').trim();
+}
+
 // "EN term (RU term)". The Russian term in the content is often written "спрос (demand)": the Russian
 // word plus the English term in brackets. That trailing copy of the English term is dropped here, so the
 // label reads "demand (спрос)" and not "demand (спрос (demand))". When the Russian term adds nothing
@@ -10,10 +16,25 @@ export function termLabel(term: { en: string; ru: string }): string {
   const en = term.en.trim();
   const ru = term.ru.trim();
   if (!ru || !en) return en || ru;
-  const copy = new RegExp(`\\s*\\(\\s*${escapeRegExp(en)}\\s*\\)\\s*$`, 'i');
-  const russian = ru.replace(copy, '').trim();
+  const russian = russianOnly(en, ru);
   if (!russian || sameText(russian, en)) return en;
   return `${en} (${russian})`;
+}
+
+// "RU term (EN term)": the same term for a reader who reads Russian, the English term in brackets ("спрос (demand)").
+// Same rules as termLabel for the copies and for an empty Russian term.
+export function termLabelRu(term: { en: string; ru: string }): string {
+  const en = term.en.trim();
+  const ru = term.ru.trim();
+  if (!ru || !en) return ru || en;
+  const russian = russianOnly(en, ru);
+  if (!russian || sameText(russian, en)) return en;
+  return `${russian} (${en})`;
+}
+
+// An own-notes source ("kind: own") is a note for the reviewer, not a reference for the student, so it is not shown.
+export function showsSource(source: { kind: string }): boolean {
+  return source.kind !== 'own';
 }
 
 // '<CaseMap ids="a, b,,a"/>' -> ['a', 'b']. Order is kept, duplicates and blanks are dropped.

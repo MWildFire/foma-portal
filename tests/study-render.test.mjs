@@ -300,8 +300,9 @@ test('practice in Russian', async () => {
 
 // ---- glossary and flashcards
 
-test('glossary, example subject: English term and definition come before the Russian ones, with syllabus and source', async () => {
-  const html = await page('GlossaryPage', '/s/:subject/terms', '/s/_example/terms');
+test('glossary, example subject: English term and definition come before the Russian ones, with syllabus; own notes are not shown as a source', async () => {
+  // The text language is set to EN+RU, so both definitions are on the page (the EN-only and RU-only layouts are in lang-mode.test.mjs).
+  const html = await page('GlossaryPage', '/s/:subject/terms', '/s/_example/terms', { extra: { 'foma-content-lang': 'en+ru' } });
   assert.ok(example.terms.length > 0, 'the example subject has terms');
   for (const t of example.terms) {
     assert.ok(html.includes(`Syllabus ${esc(t.syllabus)}`), `syllabus code of ${t.id}`);
@@ -311,7 +312,9 @@ test('glossary, example subject: English term and definition come before the Rus
     assert.ok(html.includes(esc(t.term.ru)), `the Russian term of ${t.id}`);
     if (t.pitfall) assert.ok(html.includes(start(t.pitfall.en)), `the pitfall of ${t.id}`);
   }
-  assert.match(html, /Source/);
+  // The example terms have "own" sources: the internal note is not shown, and neither is the source line that holds it.
+  assert.doesNotMatch(html, /Own notes/);
+  assert.doesNotMatch(html, /Source(<!-- -->)?:/);
   assert.match(html, /Due today/);
 });
 
@@ -433,7 +436,7 @@ test('formulas: links to the topics that use a formula; an empty pack gives an e
   const html = await view('FormulasView', { pack: pack() }, '/s/geo/formulas');
   assert.match(html, /Used in topics/);
   assert.match(html, /Topic t1/);
-  assert.match(await view('FormulasView', { pack: empty() }, '/s/geo/formulas'), /No formulas yet/);
+  assert.match(await view('FormulasView', { pack: empty() }, '/s/geo/formulas'), /<h2 id="[^"]*">No formulas<\/h2>/);
 });
 
 test('formulas: a formula that does not compile does not crash the page', async () => {

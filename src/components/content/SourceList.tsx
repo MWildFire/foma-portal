@@ -1,5 +1,5 @@
 import type { Lang, SourceRef } from '../../contract/types';
-import { publicUrl } from '../../lib/topic-text';
+import { publicUrl, showsSource } from '../../lib/topic-text';
 import { ContentLink } from './ContentLink';
 import { useLangT } from './useLangT';
 import './ui.css';
@@ -18,11 +18,13 @@ export function SourceItem({ source, lang }: { source: SourceRef; lang?: Lang })
   );
 }
 
+// Own notes are not a reference for the student, so they are left out of the list.
 export function SourceList({ sources, lang }: { sources: readonly SourceRef[]; lang?: Lang }) {
-  if (sources.length === 0) return null;
+  const shown = sources.filter(showsSource);
+  if (shown.length === 0) return null;
   return (
     <ul className="m-0 list-none space-y-2 p-0">
-      {sources.map((source, index) => (
+      {shown.map((source, index) => (
         <li key={index} className="[overflow-wrap:anywhere]"><SourceItem source={source} lang={lang} /></li>
       ))}
     </ul>

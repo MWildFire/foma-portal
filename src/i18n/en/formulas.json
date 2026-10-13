@@ -2,8 +2,8 @@
   "title": "Formulas",
   "intro": "The formulas of this subject. A formula marked “In the formula booklet” is given to you in the exam; learn the others by heart.",
   "empty": {
-    "title": "No formulas yet",
-    "body": "The formulas for this subject are still being written."
+    "title": "No formulas",
+    "body": "No formulas are listed for this subject."
   },
   "filter": {
     "label": "Filter",

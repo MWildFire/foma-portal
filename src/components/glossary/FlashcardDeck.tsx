@@ -1,10 +1,12 @@
-import { useCallback, useEffect, useId, useMemo, useRef, useState } from 'react';
+import { useCallback, useEffect, useId, useMemo, useRef, useState, type ReactNode } from 'react';
 import { useTranslation } from 'react-i18next';
 import { BookMarked, CircleCheck, CircleHelp, CircleX, type LucideIcon } from 'lucide-react';
 import type { Lang, Term } from '../../contract/types';
 import { ANSWERS, NEW_PER_SESSION, deckKeyAction, dueQueue, sessionView, type Answer } from '../../lib/leitner';
 import type { GlobalState } from '../../lib/storage';
-import { frenchOf, pickText } from '../../lib/text';
+import { frenchOf, primaryTermIn, shownLangs, textsIn } from '../../lib/text';
+import type { ContentLang } from '../../lib/topic-lang';
+import { showsSource } from '../../lib/topic-text';
 import { InlineText } from '../content/RichText';
 import { SourceItem } from '../content/SourceList';
 import { FrenchText } from '../ui/FrenchText';
@@ -20,7 +22,8 @@ interface Props {
   progress: GlobalState['terms'];
   /** Today in Dubai, YYYY-MM-DD. */
   today: string;
-  lang: Lang;
+  /** Text language of the glossary: EN, RU or both. */
+  mode: ContentLang;
   /** The earliest day a card that is not due yet comes back. */
   nextDue: string | null;
   /** Cards that were never answered, to offer another batch of new cards when the session is done. */
@@ -38,36 +41,57 @@ function matches(target: EventTarget | null, selector: string): boolean {
   return target instanceof Element && target.closest(selector) !== null;
 }
 
-// The back of a card: the definition in English and in Russian, then example, pitfall and source. The front of a
-// French card shows only the French term, so on its back the English line names the English term too, the way the
-// Russian line always names the Russian term.
-export function CardBack({ term, lang }: { term: Term; lang: Lang }) {
+// The front of a card: the French term, or else the term in the first language of the mode (the English term, or the
+// Russian term with the English one in brackets for RU).
+function frontOf(term: Term, mode: ContentLang): { lang: string; text: string } {
+  const french = frenchOf(term.term);
+  return french ? { lang: 'fr', text: french } : primaryTermIn(term.term, mode);
+}
+
+// The back of a card: the definition in each language the mode shows, then example, pitfall and source. A term name
+// that the front already shows is not repeated: the English name is on the back of a French card only, and the Russian
+// name is on the back when the front shows the English term (EN+RU). Without a mode, both languages are shown.
+export function CardBack({ term, mode }: { term: Term; mode?: ContentLang }) {
   const { t } = useTranslation('glossary');
-  // Any other card has the English term on its front, so the back does not repeat it.
-  const english = frenchOf(term.term) ? term.term.en.trim() : '';
-  const russian = term.term.ru.trim();
+  const langs = shownLangs(mode);
+  const french = frenchOf(term.term) !== undefined;
+  const nameLine = (lang: Lang): ReactNode => {
+    const onFront = !french && lang === langs[0];
+    const name = term.term[lang].trim();
+    return !onFront && name ? <><strong>{name}</strong>{' — '}</> : null;
+  };
   return (
     <div className="gl-card__back">
-      <p className="gl-entry__def" lang="en">
-        <span className="foma-tag">EN</span>{' '}
-        {english ? <><strong>{english}</strong>{' — '}</> : null}
-        <InlineText text={term.def.en} />
-      </p>
-      <p className="gl-entry__def" lang="ru">
-        <span className="foma-tag">RU</span>{' '}
-        {russian ? <><strong>{russian}</strong>{' — '}</> : null}
-        <InlineText text={term.def.ru} />
-      </p>
+      {langs.includes('en') ? (
+        <p className="gl-entry__def" lang="en">
+          <span className="foma-tag">EN</span>{' '}
+          {nameLine('en')}
+          <InlineText text={term.def.en} />
+        </p>
+      ) : null}
+      {langs.includes('ru') ? (
+        <p className="gl-entry__def" lang="ru">
+          <span className="foma-tag">RU</span>{' '}
+          {nameLine('ru')}
+          <InlineText text={term.def.ru} />
+        </p>
+      ) : null}
       <FrenchText text={term.example} rich />
-      {term.example ? (
-        <p className="gl-entry__extra" lang={lang}><strong>{t('entry.example')}:</strong> <InlineText text={pickText(term.example, lang)} /></p>
+      {textsIn(term.example, mode).map(({ lang, text }) => (
+        <p key={`example-${lang}`} className="gl-entry__extra" lang={lang}>
+          <strong>{t('entry.example', { lng: lang })}:</strong> <InlineText text={text} />
+        </p>
+      ))}
+      {textsIn(term.pitfall, mode).map(({ lang, text }) => (
+        <p key={`pitfall-${lang}`} className="gl-entry__extra" lang={lang}>
+          <strong>{t('entry.pitfall', { lng: lang })}:</strong> <InlineText text={text} />
+        </p>
+      ))}
+      {showsSource(term.src) ? (
+        <p className="gl-entry__extra">
+          <strong>{t('entry.source', { lng: langs[0] })}:</strong> <SourceItem source={term.src} lang={langs[0]} />
+        </p>
       ) : null}
-      {term.pitfall ? (
-        <p className="gl-entry__extra" lang={lang}><strong>{t('entry.pitfall')}:</strong> <InlineText text={pickText(term.pitfall, lang)} /></p>
-      ) : null}
-      <p className="gl-entry__extra">
-        <strong>{t('entry.source')}:</strong> <SourceItem source={term.src} lang={lang} />
-      </p>
     </div>
   );
 }
@@ -77,7 +101,7 @@ export function CardBack({ term, lang }: { term: Term; lang: Lang }) {
 // it. A session is the cards that are due today or earlier plus a few new ones (NEW_PER_SESSION); it is fixed when
 // the deck opens, and a card answered now leaves it. When the session is done the student can ask for another batch
 // of new cards.
-export function FlashcardDeck({ subject, terms, progress, today, lang, nextDue, fresh, onAnswer, onShowGlossary }: Props) {
+export function FlashcardDeck({ subject, terms, progress, today, mode, nextDue, fresh, onAnswer, onShowGlossary }: Props) {
   const { t } = useTranslation('glossary');
   const [session, setSession] = useState<string[]>(() => dueQueue(subject, terms, progress, today).map(term => term.id));
   const [answered, setAnswered] = useState<string[]>([]);
@@ -109,10 +133,10 @@ export function FlashcardDeck({ subject, terms, progress, today, lang, nextDue, 
     if (!current || answeredIds.current.has(current.id)) return;
     answeredIds.current.add(current.id);
     const saved = onAnswer(current, value);
-    setLast({ term: frenchOf(current.term) ?? current.term.en, box: saved.box, due: saved.due });
+    setLast({ term: frontOf(current, mode).text, box: saved.box, due: saved.due });
     setAnswered(list => [...list, current.id]);
     setRevealed(false);
-  }, [current, onAnswer]);
+  }, [current, onAnswer, mode]);
 
   // Keyboard: Space shows the definition, 1 / 2 / 3 answer. A held key does not repeat, and typing in a field or
   // pressing Space on a button is left to the browser.
@@ -185,7 +209,7 @@ export function FlashcardDeck({ subject, terms, progress, today, lang, nextDue, 
   }
 
   // A term with a French text is asked in French: the French term is the front, the English and Russian terms are on the back.
-  const french = frenchOf(current.term);
+  const front = frontOf(current, mode);
 
   return (
     <section className="gl-deck" aria-label={t('cards.heading')}>
@@ -201,11 +225,7 @@ export function FlashcardDeck({ subject, terms, progress, today, lang, nextDue, 
         <p className="foma-kind"><BookMarked size={14} aria-hidden="true" />{t('cards.front')}</p>
         {/* Tapping the card shows the definition; the button below does the same for the keyboard. */}
         <div className={revealed ? undefined : 'gl-card__front'} onClick={revealed ? undefined : reveal}>
-          {french ? (
-            <p className="gl-card__term" lang="fr">{french}</p>
-          ) : (
-            <p className="gl-card__term" lang="en">{current.term.en}</p>
-          )}
+          <p className="gl-card__term" lang={front.lang}>{front.text}</p>
           {revealed ? null : (
             <button ref={revealButton} type="button" className="foma-btn foma-btn--primary gl-card__reveal" onClick={reveal}>
               {t('cards.reveal')}
@@ -215,7 +235,7 @@ export function FlashcardDeck({ subject, terms, progress, today, lang, nextDue, 
         {revealed ? null : <p className="study-muted gl-card__hint">{t('cards.revealHint')}</p>}
 
         <div aria-live="polite">
-          {revealed ? <CardBack term={current} lang={lang} /> : null}
+          {revealed ? <CardBack term={current} mode={mode} /> : null}
         </div>
 
         {revealed ? (
