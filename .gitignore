@@ -8,6 +8,10 @@ infra/*.tfvars
 .env
 .env.*
 sources
+# Private sources stay out of git. The librarian's index of them is the one shared file.
+!ops/sources/
+ops/sources/*
+!ops/sources/index.md
 .DS_Store
 *.tsbuildinfo
 *.tfplan
