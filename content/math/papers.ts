@@ -8,8 +8,8 @@ export const papers: PaperGuide[] = [
     subject: 'math',
     paper: 'P1',
     title: {
-      en: 'Paper 1: 120 minutes, 110 marks, short-answer questions on all topics, GDC allowed',
-      ru: 'Работа 1 (Paper 1): 120 минут, 110 баллов, короткие вопросы по всем темам, GDC разрешён',
+      en: 'Paper 1: 120 minutes (150 with +25% extra time), 110 marks, short-answer questions on all topics, GDC allowed',
+      ru: 'Работа 1 (Paper 1): 120 минут (150 с доп. временем +25%), 110 баллов, короткие вопросы по всем темам, GDC разрешён',
     },
     minutes: 120,
     marks: 110,
@@ -53,7 +53,7 @@ export const papers: PaperGuide[] = [
       },
       {
         id: 'diagnostic',
-        title: { en: 'Diagnostic: 15 questions, 45 marks', ru: 'Диагностика: 15 вопросов, 45 баллов' },
+        title: { en: 'Diagnostic: 15 questions, 45 marks (45 minutes; 56 with +25% extra time)', ru: 'Диагностика: 15 вопросов, 45 баллов (45 минут; 56 с доп. временем +25%)' },
         questionIds: [
           'diag-01', 'diag-02', 'diag-03', 'diag-04', 'diag-05', 'diag-06', 'diag-07', 'diag-08',
           'diag-09', 'diag-10', 'diag-11', 'diag-12', 'diag-13', 'diag-14', 'diag-15',
@@ -66,8 +66,8 @@ export const papers: PaperGuide[] = [
     subject: 'math',
     paper: 'P2',
     title: {
-      en: 'Paper 2: 120 minutes, 110 marks, extended-response questions, GDC allowed',
-      ru: 'Работа 2 (Paper 2): 120 минут, 110 баллов, развёрнутые задачи, GDC разрешён',
+      en: 'Paper 2: 120 minutes (150 with +25% extra time), 110 marks, extended-response questions, GDC allowed',
+      ru: 'Работа 2 (Paper 2): 120 минут (150 с доп. временем +25%), 110 баллов, развёрнутые задачи, GDC разрешён',
     },
     minutes: 120,
     marks: 110,
@@ -98,8 +98,8 @@ export const papers: PaperGuide[] = [
     subject: 'math',
     paper: 'P3',
     title: {
-      en: 'Paper 3: 75 minutes, 55 marks, investigation tasks, GDC and formula booklet allowed',
-      ru: 'Работа 3 (Paper 3): 75 минут, 55 баллов, исследовательские задания, GDC и сборник формул разрешены',
+      en: 'Paper 3: 75 minutes (94 with +25% extra time), 55 marks, investigation tasks, GDC and formula booklet allowed',
+      ru: 'Работа 3 (Paper 3): 75 минут (94 с доп. временем +25%), 55 баллов, исследовательские задания, GDC и сборник формул разрешены',
     },
     minutes: 75,
     marks: 55,
