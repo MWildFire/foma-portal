@@ -3,6 +3,7 @@
     { "question": "econ-measuring-economic-activity-01", "fn": "real_gdp", "args": { "nominal": 2400, "deflator": 120 } },
     { "question": "econ-measuring-economic-activity-02", "fn": "gdp_deflator", "args": { "nominal": 1365, "real": 1300 } },
     { "question": "econ-measuring-economic-activity-03", "fn": "pct_change", "args": { "old": 1800, "new": 1854 } },
-    { "question": "econ-measuring-economic-activity-04", "fn": "ratio", "args": { "a": 1200, "b": 9.6 } }
+    { "question": "econ-measuring-economic-activity-04", "fn": "ratio", "args": { "a": 1200, "b": 9.6 } },
+    { "question": "econ-measuring-economic-activity-05", "fn": "gdp_expenditure", "args": { "c": 600, "i": 150, "g": 250, "x": 400, "m": 300 } }
   ]
 }

@@ -92,6 +92,7 @@ export const questions: Question[] = [
       en: '1 mark: GDP = C + I + G + (X - M). 1 mark: C + I + G = 600 + 150 + 250 = 1000. 1 mark: X - M = 400 - 300 = 100. 1 mark: GDP = 1000 + 100 = AED 1100 bn.',
       ru: '1 балл: ВВП = C + I + G + (X - M). 1 балл: C + I + G = 600 + 150 + 250 = 1000. 1 балл: X - M = 400 - 300 = 100. 1 балл: ВВП = 1000 + 100 = 1100 млрд AED.',
     },
+    answer: '1100',
     origin: 'original',
     minutes: 5,
   },

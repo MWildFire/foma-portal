@@ -3,7 +3,7 @@
     { "question": "econ-balance-of-payments-01", "fn": "current_account", "args": { "exports": 420, "imports": 510, "net_income": 35, "net_transfers": -15 } },
     { "question": "econ-balance-of-payments-02", "fn": "terms_of_trade", "args": { "export_index": 112, "import_index": 96 } },
     { "question": "econ-balance-of-payments-03", "fn": "pct_change", "args": { "old": 116.7, "new": 105.0 } },
-    { "question": "econ-balance-of-payments-04", "fn": "current_account", "args": { "exports": 1350, "imports": 1180, "net_income": 0, "net_transfers": 0 } },
+    { "question": "econ-balance-of-payments-04", "fn": "trade_balance", "args": { "exports": 1350, "imports": 1180 } },
     { "question": "econ-balance-of-payments-05", "fn": "current_account", "args": { "exports": 980, "imports": 905, "net_income": -40, "net_transfers": 12 } }
   ]
 }

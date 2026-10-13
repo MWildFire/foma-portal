@@ -7,6 +7,8 @@
 #
 # Rules (also in the brief for the content agents):
 #   - every Question with an "answer" needs a check entry for it;
+#   - every Question with the command Calculate needs an "answer" or a check entry for it;
+#   - a check with "signed": true also compares the sign (the markscheme must then write the sign, for example -2.4);
 #   - the arguments of a check must appear as numbers in the question's prompt or stimulus (the student sees them);
 #   - the answer must equal the recomputed value rounded to the decimals the answer is written with;
 #   - a check with "expect_in" must find its recomputed value among the numbers of those fields (for example
@@ -144,6 +146,23 @@ def gni_per_capita(gni, population):
     return gni / population
 
 
+def gdp_expenditure(c, i, g, x, m):
+    return c + i + g + (x - m)
+
+
+def mr_mc_quantity(a, b, mc):
+    # A monopolist with inverse demand P = a - bQ and constant marginal cost mc: MR = a - 2bQ is set equal to mc.
+    return (a - mc) / (2 * b)
+
+
+def trade_balance(exports, imports):
+    return exports - imports
+
+
+def difference(a, b):
+    return a - b
+
+
 FUNCTIONS = {
     'pct_change': pct_change, 'pct': pct_change,
     'ped': ped, 'pes': ped, 'yed': yed, 'xed': xed,
@@ -156,6 +175,8 @@ FUNCTIONS = {
     'gini': gini, 'budget_balance': budget_balance, 'convert': convert,
     'terms_of_trade': terms_of_trade, 'current_account': current_account,
     'ratio': ratio, 'gni_per_capita': gni_per_capita,
+    'gdp_expenditure': gdp_expenditure, 'mr_mc_quantity': mr_mc_quantity, 'trade_balance': trade_balance,
+    'difference': difference,
 }
 
 NUMBER = re.compile(r'(?<![\w.])-?\d+(?:[.,]\d+)?')
@@ -278,6 +299,8 @@ def main():
         answer = question.get('answer')
         if answer not in (None, '') and question['id'] not in checked:
             failures.append(f"{question['id']}: answer {answer} has no check entry in scripts/econ-checks/")
+        if question.get('command') == 'Calculate' and answer in (None, '') and question['id'] not in checked:
+            failures.append(f"{question['id']}: Calculate question has neither an answer nor a check entry in scripts/econ-checks/")
 
     for entry in checks:
         where = entry['_file']
@@ -328,7 +351,11 @@ def main():
             found = False
             for field in entry['expect_in']:
                 for number in numbers_in(field_text(question, field)):
-                    if abs(abs(number) - abs(value)) <= tolerance:
+                    if entry.get('signed'):
+                        matches = abs(number - value) <= tolerance
+                    else:
+                        matches = abs(abs(number) - abs(value)) <= tolerance
+                    if matches:
                         found = True
                         break
                 if found:
