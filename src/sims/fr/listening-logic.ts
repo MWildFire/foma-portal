@@ -3,8 +3,11 @@ import type { FrQuestion, ListeningTrack } from '../../../content/fr/types';
 // Pure logic for the listening player (listening-player.tsx). The real tracks and questions are checked by
 // tests/fr-listening-logic.test.mjs.
 
-// The pause between the two plays of a recording, in seconds. Exam style: every recording is played twice.
-export const PAUSE_SECONDS = 30;
+// The pause between the two plays of a recording, in seconds. Source: IB French B SL, Paper 2 (listening comprehension),
+// instructions to candidates, the 2022 to 2025 papers: each audio text is played twice, with a two-minute pause before
+// the repeat. The practice player keeps its own constant (LISTENING_PAUSE_SECONDS in src/components/practice/listening.ts);
+// it must hold the same value.
+export const PAUSE_SECONDS = 120;
 
 // The speeds the student can choose (1 is normal speed).
 export const SPEEDS = [0.9, 1] as const;
@@ -85,14 +88,22 @@ function numeralsToWords(text: string): string {
   });
 }
 
-// One leading article or preposition is ignored: "la salle des fêtes" and "salle des fêtes" are the same answer.
-function withoutLeadingWord(text: string): string {
-  const rest = text.replace(/^(?:(?:le|la|les|un|une|des|du|de|au|aux|en)\s+|(?:l|d)'\s*)/, '');
-  return rest === '' ? text : rest;
+// Leading articles and prepositions are ignored, one after another: "la salle des fêtes" and "salle des fêtes" are the same
+// answer, and so are "à Rennes" and "Rennes", or "à l'école" and "école". A word left on its own is kept.
+const LEADING_WORD = /^(?:(?:à|le|la|les|un|une|des|du|de|au|aux|en)\s+|(?:l|d)'\s*)/;
+
+function withoutLeadingWords(text: string): string {
+  let rest = text;
+  let next = rest.replace(LEADING_WORD, '');
+  while (next !== rest && next !== '') {
+    rest = next;
+    next = rest.replace(LEADING_WORD, '');
+  }
+  return rest;
 }
 
 // Case, spacing, typographic apostrophes and final punctuation do not matter; accents and letters do. Numerals from 0
-// to 100 match their French words, and one leading article or preposition is ignored.
+// to 100 match their French words, and leading articles and prepositions are ignored.
 export function normalizeAnswer(text: string): string {
   const plain = text
     .normalize('NFC')
@@ -102,7 +113,7 @@ export function normalizeAnswer(text: string): string {
     .replace(/[.,;:!?]+$/, '')
     .trim()
     .toLowerCase();
-  return withoutLeadingWord(numeralsToWords(plain));
+  return withoutLeadingWords(numeralsToWords(plain));
 }
 
 export function isCorrect(answer: string, response: string): boolean {

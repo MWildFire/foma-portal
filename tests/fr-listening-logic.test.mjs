@@ -45,8 +45,8 @@ test('nextPhase keeps done as done and does not start a run by itself', () => {
   assert.equal(nextPhase('idle'), 'idle');
 });
 
-test('the pause is a positive number of seconds, and the speeds are 0.9 and 1', () => {
-  assert.ok(Number.isInteger(PAUSE_SECONDS) && PAUSE_SECONDS > 0);
+test('the pause is the two minutes of the IB instructions, and the speeds are 0.9 and 1', () => {
+  assert.equal(PAUSE_SECONDS, 120);
   assert.deepEqual([...SPEEDS], [0.9, 1]);
 });
 
@@ -103,6 +103,11 @@ test('a leading article or preposition is ignored, the other words are not', () 
   assert.equal(isCorrect('les collégiens', 'Collégiens'), true);
   assert.equal(isCorrect('au Québec', 'Montréal'), false);
   assert.equal(isCorrect('la salle des fêtes', 'gymnase'), false);
+  assert.equal(isCorrect('Rennes', 'à Rennes'), true);
+  assert.equal(isCorrect('salle des fêtes', 'à la salle des fêtes'), true);
+  assert.equal(isCorrect('école', "à l'école"), true);
+  assert.equal(isCorrect('Rennes', 'à Nantes'), false);
+  assert.equal(isCorrect('salle des fêtes', 'à la gare'), false);
 });
 
 test('optionLetters reads the options of a prompt, and falls back to A to C', () => {
@@ -151,4 +156,12 @@ test('each track finds exactly its own questions, and every answer fits the kind
       }
     }
   }
+});
+
+test('the real items accept the answer with its leading preposition: l2-q08 "à Rennes", l8-q05 "à la salle des fêtes"', async () => {
+  const questions = (await modulesIn(path.join(root, 'content', 'fr', 'questions'), /^listening-/))
+    .flatMap(mod => mod.questions ?? []);
+  const byId = new Map(questions.map(question => [question.id, question]));
+  assert.equal(isCorrect(byId.get('l2-q08').answer, 'à Rennes'), true);
+  assert.equal(isCorrect(byId.get('l8-q05').answer, 'à la salle des fêtes'), true);
 });
