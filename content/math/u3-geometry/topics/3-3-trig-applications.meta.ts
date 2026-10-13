@@ -9,7 +9,7 @@ const topic: TopicMeta = {
   order: 28,
   minutes: 40,
   priority: 1,
-  inMockScope: 'unknown',
+  inMockScope: 'yes',
   outcomes: [
     {
       en: 'I can draw and label a diagram from a written description of a problem',

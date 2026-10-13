@@ -10,7 +10,7 @@ const topic: TopicMeta = {
   order: 54,
   minutes: 45,
   priority: 2,
-  inMockScope: 'unknown',
+  inMockScope: 'yes',
   outcomes: [
     {
       en: 'I can fit a logarithmic least-squares model with the GDC and interpret its coefficients',

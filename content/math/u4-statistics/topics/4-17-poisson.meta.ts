@@ -10,7 +10,7 @@ const topic: TopicMeta = {
   order: 58,
   minutes: 40,
   priority: 2,
-  inMockScope: 'unknown',
+  inMockScope: 'yes',
   outcomes: [
     {
       en: 'I can check that a count can be modelled as Poisson and state its mean for a given interval',

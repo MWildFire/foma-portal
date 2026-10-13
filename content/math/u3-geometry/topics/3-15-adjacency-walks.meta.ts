@@ -10,7 +10,7 @@ const topic: TopicMeta = {
   order: 40,
   minutes: 45,
   priority: 2,
-  inMockScope: 'unknown',
+  inMockScope: 'no',
   outcomes: [
     {
       en: 'I can write the adjacency matrix of a graph or a directed graph from its edges or arcs',

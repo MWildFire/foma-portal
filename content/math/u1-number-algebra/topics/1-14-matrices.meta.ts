@@ -10,7 +10,7 @@ const topic: TopicMeta = {
   order: 14,
   minutes: 50,
   priority: 2,
-  inMockScope: 'unknown',
+  inMockScope: 'no',
   outcomes: [
     {
       en: 'I can add, subtract and multiply matrices and scale them, and state the order of a product before I multiply',

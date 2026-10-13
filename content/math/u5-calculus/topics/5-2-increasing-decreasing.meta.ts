@@ -9,7 +9,7 @@ const topic: TopicMeta = {
   order: 62,
   minutes: 30,
   priority: 1,
-  inMockScope: 'unknown',
+  inMockScope: 'no',
   outcomes: [
     {
       en: 'I can read the sign of f′(x) from a graph and say where f is increasing, decreasing or stationary',

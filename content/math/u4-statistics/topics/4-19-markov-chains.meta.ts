@@ -10,7 +10,7 @@ const topic: TopicMeta = {
   order: 60,
   minutes: 50,
   priority: 2,
-  inMockScope: 'unknown',
+  inMockScope: 'no',
   outcomes: [
     {
       en: 'I can write a transition matrix from a description and check that its columns sum to 1',

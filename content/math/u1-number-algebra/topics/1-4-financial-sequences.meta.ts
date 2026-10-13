@@ -9,7 +9,7 @@ const topic: TopicMeta = {
   order: 4,
   minutes: 40,
   priority: 1,
-  inMockScope: 'unknown',
+  inMockScope: 'yes',
   outcomes: [
     {
       en: 'I can find the future value of a deposit with compound interest, including interest added monthly',

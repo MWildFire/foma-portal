@@ -10,7 +10,7 @@ const topic: TopicMeta = {
   order: 77,
   minutes: 50,
   priority: 2,
-  inMockScope: 'unknown',
+  inMockScope: 'no',
   outcomes: [
     {
       en: 'I can write a coupled linear system as a matrix and find its trace, determinant and eigenvalues',

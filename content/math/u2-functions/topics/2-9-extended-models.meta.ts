@@ -10,7 +10,7 @@ const topic: TopicMeta = {
   order: 24,
   minutes: 45,
   priority: 2,
-  inMockScope: 'unknown',
+  inMockScope: 'yes',
   outcomes: [
     {
       en: 'I can choose a half-life, logistic, sinusoidal, logarithmic or piecewise model from the shape of the data and the context',

@@ -10,7 +10,7 @@ const topic: TopicMeta = {
   order: 12,
   minutes: 45,
   priority: 2,
-  inMockScope: 'unknown',
+  inMockScope: 'yes',
   outcomes: [
     {
       en: 'I can write a complex number as a + bi, find its real and imaginary parts, and add, multiply and divide such numbers',

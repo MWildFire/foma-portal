@@ -10,7 +10,7 @@ const topic: TopicMeta = {
   order: 75,
   minutes: 40,
   priority: 2,
-  inMockScope: 'unknown',
+  inMockScope: 'no',
   outcomes: [
     {
       en: 'I can draw a slope field for dy/dx = f(x, y) from the gradients at grid points',

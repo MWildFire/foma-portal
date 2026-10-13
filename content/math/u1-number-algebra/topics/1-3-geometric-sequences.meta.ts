@@ -9,7 +9,7 @@ const topic: TopicMeta = {
   order: 3,
   minutes: 35,
   priority: 1,
-  inMockScope: 'unknown',
+  inMockScope: 'yes',
   outcomes: [
     {
       en: 'I can recognise a geometric sequence, find its common ratio r and the nth term u_n = u_1 r^(n − 1)',

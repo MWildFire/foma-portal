@@ -9,7 +9,7 @@ const topic: TopicMeta = {
   order: 68,
   minutes: 30,
   priority: 1,
-  inMockScope: 'unknown',
+  inMockScope: 'no',
   outcomes: [
     {
       en: 'I can estimate the area under a curve with the trapezoidal rule, from a formula or from a table of values',

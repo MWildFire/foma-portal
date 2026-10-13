@@ -9,7 +9,7 @@ const topic: TopicMeta = {
   order: 52,
   minutes: 60,
   priority: 1,
-  inMockScope: 'unknown',
+  inMockScope: 'yes',
   outcomes: [
     {
       en: 'I can state null and alternative hypotheses and choose a one-tailed or a two-tailed test',

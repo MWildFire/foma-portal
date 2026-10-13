@@ -9,7 +9,7 @@ const topic: TopicMeta = {
   order: 48,
   minutes: 40,
   priority: 1,
-  inMockScope: 'unknown',
+  inMockScope: 'yes',
   outcomes: [
     {
       en: 'I can write a probability distribution as a table and check that its probabilities add to 1',

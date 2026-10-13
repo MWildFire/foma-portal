@@ -9,7 +9,7 @@ const topic: TopicMeta = {
   order: 64,
   minutes: 30,
   priority: 1,
-  inMockScope: 'unknown',
+  inMockScope: 'no',
   outcomes: [
     {
       en: 'I can find the gradient of a curve at a point and write the equation of the tangent there',

@@ -9,7 +9,7 @@ const topic: TopicMeta = {
   order: 8,
   minutes: 25,
   priority: 1,
-  inMockScope: 'unknown',
+  inMockScope: 'yes',
   outcomes: [
     {
       en: 'I can set up a system of up to three linear equations from a context and solve it with technology',

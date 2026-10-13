@@ -10,7 +10,7 @@ const topic: TopicMeta = {
   order: 74,
   minutes: 50,
   priority: 2,
-  inMockScope: 'unknown',
+  inMockScope: 'no',
   outcomes: [
     {
       en: 'I can set up a first-order differential equation from a description of a rate of change in context',

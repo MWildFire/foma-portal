@@ -10,7 +10,7 @@ const topic: TopicMeta = {
   order: 73,
   minutes: 40,
   priority: 2,
-  inMockScope: 'unknown',
+  inMockScope: 'no',
   outcomes: [
     {
       en: 'I can move between displacement, velocity and acceleration by differentiating and integrating in context',

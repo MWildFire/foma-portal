@@ -10,7 +10,7 @@ const topic: TopicMeta = {
   order: 22,
   minutes: 35,
   priority: 2,
-  inMockScope: 'unknown',
+  inMockScope: 'yes',
   outcomes: [
     {
       en: 'I can evaluate a composite function and say which function is applied first',

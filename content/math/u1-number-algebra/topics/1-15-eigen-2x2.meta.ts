@@ -10,7 +10,7 @@ const topic: TopicMeta = {
   order: 15,
   minutes: 50,
   priority: 2,
-  inMockScope: 'unknown',
+  inMockScope: 'no',
   outcomes: [
     {
       en: 'I can write the characteristic equation of a 2 × 2 matrix and find its eigenvalues',

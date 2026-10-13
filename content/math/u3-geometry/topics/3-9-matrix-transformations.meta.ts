@@ -10,7 +10,7 @@ const topic: TopicMeta = {
   order: 34,
   minutes: 45,
   priority: 2,
-  inMockScope: 'unknown',
+  inMockScope: 'no',
   outcomes: [
     {
       en: 'I can write the 2 × 2 matrix of a reflection, stretch, enlargement or rotation and use it to find the image of a point',

@@ -9,7 +9,7 @@ const topic: TopicMeta = {
   order: 65,
   minutes: 40,
   priority: 1,
-  inMockScope: 'unknown',
+  inMockScope: 'no',
   outcomes: [
     {
       en: 'I can integrate a sum of power terms and add the constant of integration',

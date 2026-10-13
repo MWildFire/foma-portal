@@ -9,7 +9,7 @@ const topic: TopicMeta = {
   order: 26,
   minutes: 40,
   priority: 1,
-  inMockScope: 'unknown',
+  inMockScope: 'yes',
   outcomes: [
     {
       en: 'I can find the distance between two points in 3D and the coordinates of their midpoint',

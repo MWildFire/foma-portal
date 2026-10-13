@@ -9,7 +9,7 @@ const topic: TopicMeta = {
   order: 20,
   minutes: 45,
   priority: 1,
-  inMockScope: 'unknown',
+  inMockScope: 'yes',
   outcomes: [
     {
       en: 'I can choose a linear, quadratic, exponential, power or sinusoidal model from the shape of the data and the context',

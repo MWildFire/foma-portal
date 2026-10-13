@@ -9,7 +9,7 @@ const topic: TopicMeta = {
   order: 18,
   minutes: 35,
   priority: 1,
-  inMockScope: 'unknown',
+  inMockScope: 'yes',
   outcomes: [
     {
       en: 'I can identify the key features of the graph of y = f(x) and label them on a sketch',

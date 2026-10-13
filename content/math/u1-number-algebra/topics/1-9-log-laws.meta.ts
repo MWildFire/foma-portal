@@ -10,7 +10,7 @@ const topic: TopicMeta = {
   order: 9,
   minutes: 25,
   priority: 2,
-  inMockScope: 'unknown',
+  inMockScope: 'yes',
   outcomes: [
     {
       en: 'I can apply the product, quotient and power laws of logarithms to combine or split them',

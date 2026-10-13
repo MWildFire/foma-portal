@@ -9,7 +9,7 @@ const topic: TopicMeta = {
   order: 31,
   minutes: 45,
   priority: 1,
-  inMockScope: 'unknown',
+  inMockScope: 'yes',
   outcomes: [
     {
       en: 'I can explain the sites, cells, edges and vertices of a Voronoi diagram, and find the site a point belongs to',

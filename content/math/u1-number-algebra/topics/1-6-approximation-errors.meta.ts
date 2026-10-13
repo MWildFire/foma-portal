@@ -9,7 +9,7 @@ const topic: TopicMeta = {
   order: 6,
   minutes: 30,
   priority: 1,
-  inMockScope: 'unknown',
+  inMockScope: 'yes',
   outcomes: [
     {
       en: 'I can round to decimal places and significant figures, and state how many digits of a value are meaningful',

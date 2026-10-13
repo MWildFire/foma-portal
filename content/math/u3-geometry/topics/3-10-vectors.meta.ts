@@ -10,7 +10,7 @@ const topic: TopicMeta = {
   order: 35,
   minutes: 40,
   priority: 2,
-  inMockScope: 'unknown',
+  inMockScope: 'yes',
   outcomes: [
     {
       en: 'I can write a vector in component and unit-vector form and find its magnitude',

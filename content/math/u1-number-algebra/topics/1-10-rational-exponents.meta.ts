@@ -10,7 +10,7 @@ const topic: TopicMeta = {
   order: 10,
   minutes: 30,
   priority: 2,
-  inMockScope: 'unknown',
+  inMockScope: 'yes',
   outcomes: [
     {
       en: 'I can rewrite a root as a power with a fractional exponent, and back, for a positive base',

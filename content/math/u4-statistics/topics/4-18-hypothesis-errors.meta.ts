@@ -13,7 +13,7 @@ const topic: TopicMeta = {
   order: 59,
   minutes: 45,
   priority: 2,
-  inMockScope: 'unknown',
+  inMockScope: 'yes',
   outcomes: [
     {
       en: 'I can test a population mean with a t-test or a Poisson test, state H0 and H1, and give a conclusion in context',

@@ -10,7 +10,7 @@ const topic: TopicMeta = {
   order: 32,
   minutes: 25,
   priority: 2,
-  inMockScope: 'unknown',
+  inMockScope: 'yes',
   outcomes: [
     {
       en: 'I can define a radian as the angle at the centre subtended by an arc equal in length to the radius',

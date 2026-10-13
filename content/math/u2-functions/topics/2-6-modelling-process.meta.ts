@@ -9,7 +9,7 @@ const topic: TopicMeta = {
   order: 21,
   minutes: 35,
   priority: 1,
-  inMockScope: 'unknown',
+  inMockScope: 'yes',
   outcomes: [
     {
       en: 'I can choose an appropriate model and state its parameters for a given context',

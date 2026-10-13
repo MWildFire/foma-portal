@@ -9,7 +9,7 @@ const topic: TopicMeta = {
   order: 29,
   minutes: 30,
   priority: 1,
-  inMockScope: 'unknown',
+  inMockScope: 'yes',
   outcomes: [
     {
       en: 'I can find the arc length of a sector from its radius and central angle',

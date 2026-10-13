@@ -9,7 +9,7 @@ const topic: TopicMeta = {
   order: 19,
   minutes: 35,
   priority: 1,
-  inMockScope: 'unknown',
+  inMockScope: 'yes',
   outcomes: [
     {
       en: 'I can find the intercepts of a graph and the asymptotes of a rational function',

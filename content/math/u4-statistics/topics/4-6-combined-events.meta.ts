@@ -9,7 +9,7 @@ const topic: TopicMeta = {
   order: 47,
   minutes: 45,
   priority: 1,
-  inMockScope: 'unknown',
+  inMockScope: 'yes',
   outcomes: [
     {
       en: 'I can draw a Venn diagram or a tree diagram for two events and read combined probabilities from it',

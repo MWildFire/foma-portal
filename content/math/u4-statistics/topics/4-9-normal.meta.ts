@@ -9,7 +9,7 @@ const topic: TopicMeta = {
   order: 50,
   minutes: 45,
   priority: 1,
-  inMockScope: 'unknown',
+  inMockScope: 'yes',
   outcomes: [
     {
       en: 'I can describe the normal curve and its properties and sketch a labelled diagram',

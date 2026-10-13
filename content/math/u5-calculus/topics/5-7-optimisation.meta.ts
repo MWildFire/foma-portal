@@ -9,7 +9,7 @@ const topic: TopicMeta = {
   order: 67,
   minutes: 40,
   priority: 1,
-  inMockScope: 'unknown',
+  inMockScope: 'no',
   outcomes: [
     {
       en: 'I can turn a practical problem into one function of one variable and state its domain',

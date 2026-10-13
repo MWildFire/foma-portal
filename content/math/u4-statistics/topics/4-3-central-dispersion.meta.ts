@@ -9,7 +9,7 @@ const topic: TopicMeta = {
   order: 44,
   minutes: 40,
   priority: 1,
-  inMockScope: 'unknown',
+  inMockScope: 'yes',
   outcomes: [
     {
       en: 'I can find the mean, median and mode of a data set, and estimate the mean and the modal class from grouped data',

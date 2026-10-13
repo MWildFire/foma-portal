@@ -9,7 +9,7 @@ const topic: TopicMeta = {
   order: 43,
   minutes: 40,
   priority: 1,
-  inMockScope: 'unknown',
+  inMockScope: 'yes',
   outcomes: [
     {
       en: 'I can build a histogram from a grouped frequency table, using frequency density when the class widths differ',

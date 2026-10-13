@@ -10,7 +10,7 @@ const topic: TopicMeta = {
   order: 13,
   minutes: 45,
   priority: 2,
-  inMockScope: 'unknown',
+  inMockScope: 'yes',
   outcomes: [
     {
       en: 'I can convert a complex number between Cartesian, modulus–argument and exponential form',

@@ -10,7 +10,7 @@ const topic: TopicMeta = {
   order: 71,
   minutes: 45,
   priority: 2,
-  inMockScope: 'unknown',
+  inMockScope: 'no',
   outcomes: [
     {
       en: 'I can integrate x^n (n rational, including n = -1), sin x, cos x, 1/cos^2 x and e^x, and add the constant C',

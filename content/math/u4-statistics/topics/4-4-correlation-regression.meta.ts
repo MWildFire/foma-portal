@@ -9,7 +9,7 @@ const topic: TopicMeta = {
   order: 45,
   minutes: 45,
   priority: 1,
-  inMockScope: 'unknown',
+  inMockScope: 'yes',
   outcomes: [
     {
       en: 'I can calculate Pearson\'s r and describe the strength and direction of a linear relationship',

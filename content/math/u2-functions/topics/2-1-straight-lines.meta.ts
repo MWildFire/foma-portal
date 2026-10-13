@@ -9,7 +9,7 @@ const topic: TopicMeta = {
   order: 16,
   minutes: 30,
   priority: 1,
-  inMockScope: 'unknown',
+  inMockScope: 'yes',
   outcomes: [
     {
       en: 'I can find the gradient of a line from two points or from its equation',

@@ -9,7 +9,7 @@ const topic: TopicMeta = {
   order: 42,
   minutes: 30,
   priority: 1,
-  inMockScope: 'unknown',
+  inMockScope: 'yes',
   outcomes: [
     {
       en: 'I can tell a population from a sample and explain why a random sample is needed',

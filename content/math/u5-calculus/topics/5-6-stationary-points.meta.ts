@@ -9,7 +9,7 @@ const topic: TopicMeta = {
   order: 66,
   minutes: 35,
   priority: 1,
-  inMockScope: 'unknown',
+  inMockScope: 'no',
   outcomes: [
     {
       en: 'I can find the points where the gradient is zero by solving f′(x) = 0',

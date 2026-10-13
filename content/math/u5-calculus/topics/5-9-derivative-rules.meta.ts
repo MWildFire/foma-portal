@@ -10,7 +10,7 @@ const topic: TopicMeta = {
   order: 69,
   minutes: 45,
   priority: 2,
-  inMockScope: 'unknown',
+  inMockScope: 'no',
   outcomes: [
     {
       en: 'I can differentiate sin x, cos x, tan x, e^x, ln x and powers x^n with a rational n',

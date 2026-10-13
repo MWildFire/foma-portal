@@ -10,7 +10,7 @@ const topic: TopicMeta = {
   order: 11,
   minutes: 30,
   priority: 2,
-  inMockScope: 'unknown',
+  inMockScope: 'yes',
   outcomes: [
     {
       en: 'I can test whether |r| < 1, so that the sum to infinity exists',

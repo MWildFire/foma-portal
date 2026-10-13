@@ -9,7 +9,7 @@ const topic: TopicMeta = {
   order: 63,
   minutes: 30,
   priority: 1,
-  inMockScope: 'unknown',
+  inMockScope: 'no',
   outcomes: [
     {
       en: 'I can differentiate a x^n for any integer n, including negative powers',

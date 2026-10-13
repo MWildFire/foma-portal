@@ -10,7 +10,7 @@ const topic: TopicMeta = {
   order: 72,
   minutes: 45,
   priority: 2,
-  inMockScope: 'unknown',
+  inMockScope: 'no',
   outcomes: [
     {
       en: 'I can find the area between a curve and the x-axis or the y-axis for a given interval',

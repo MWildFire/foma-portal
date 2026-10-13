@@ -10,7 +10,7 @@ const topic: TopicMeta = {
   order: 23,
   minutes: 40,
   priority: 2,
-  inMockScope: 'unknown',
+  inMockScope: 'yes',
   outcomes: [
     {
       en: 'I can describe a transformation of a graph: translations, reflections and stretches, with their scale factors',

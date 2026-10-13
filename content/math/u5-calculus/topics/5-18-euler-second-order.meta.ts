@@ -10,7 +10,7 @@ const topic: TopicMeta = {
   order: 78,
   minutes: 45,
   priority: 2,
-  inMockScope: 'unknown',
+  inMockScope: 'no',
   outcomes: [
     {
       en: 'I can rewrite a second-order equation as two first-order equations, using v = dx/dt',

@@ -10,7 +10,7 @@ const topic: TopicMeta = {
   order: 38,
   minutes: 45,
   priority: 2,
-  inMockScope: 'unknown',
+  inMockScope: 'yes',
   outcomes: [
     {
       en: 'I can calculate a scalar product from components, and from the magnitudes and the angle, and use it to find an angle',

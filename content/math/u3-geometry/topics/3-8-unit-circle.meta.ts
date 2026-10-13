@@ -10,7 +10,7 @@ const topic: TopicMeta = {
   order: 33,
   minutes: 45,
   priority: 2,
-  inMockScope: 'unknown',
+  inMockScope: 'yes',
   outcomes: [
     {
       en: 'I can place the point (cos θ, sin θ) on the unit circle and give the sign of each ratio by quadrant',

@@ -10,7 +10,7 @@ const topic: TopicMeta = {
   order: 57,
   minutes: 45,
   priority: 2,
-  inMockScope: 'unknown',
+  inMockScope: 'yes',
   outcomes: [
     {
       en: 'I can choose a z or a t interval for the mean of a normal population, depending on whether σ is known',

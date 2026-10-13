@@ -9,7 +9,7 @@ const topic: TopicMeta = {
   order: 46,
   minutes: 35,
   priority: 1,
-  inMockScope: 'unknown',
+  inMockScope: 'yes',
   outcomes: [
     {
       en: 'I can define a trial, an outcome, the sample space and an event, and check that outcomes are equally likely',

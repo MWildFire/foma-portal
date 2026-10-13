@@ -9,7 +9,7 @@ const topic: TopicMeta = {
   order: 7,
   minutes: 35,
   priority: 1,
-  inMockScope: 'unknown',
+  inMockScope: 'yes',
   outcomes: [
     {
       en: 'I can calculate the equal payment for a loan, with the rate and the number of periods matched to the payment frequency',

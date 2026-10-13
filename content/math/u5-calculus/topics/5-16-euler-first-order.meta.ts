@@ -13,7 +13,7 @@ const topic: TopicMeta = {
   order: 76,
   minutes: 45,
   priority: 2,
-  inMockScope: 'unknown',
+  inMockScope: 'no',
   outcomes: [
     {
       en: "I can apply Euler's method with step length h to dy/dx = f(x, y) by filling in a table of values",

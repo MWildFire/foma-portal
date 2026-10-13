@@ -10,7 +10,7 @@ const topic: TopicMeta = {
   order: 70,
   minutes: 35,
   priority: 2,
-  inMockScope: 'unknown',
+  inMockScope: 'no',
   outcomes: [
     {
       en: 'I can find f\'\'(x) by differentiating f\'(x) and evaluate it at a given point',

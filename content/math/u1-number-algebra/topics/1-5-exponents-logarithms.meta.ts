@@ -9,7 +9,7 @@ const topic: TopicMeta = {
   order: 5,
   minutes: 30,
   priority: 1,
-  inMockScope: 'unknown',
+  inMockScope: 'yes',
   outcomes: [
     {
       en: 'I can apply the laws of integer exponents to simplify and evaluate expressions',

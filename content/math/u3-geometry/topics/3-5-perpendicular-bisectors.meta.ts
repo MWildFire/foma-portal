@@ -9,7 +9,7 @@ const topic: TopicMeta = {
   order: 30,
   minutes: 30,
   priority: 1,
-  inMockScope: 'unknown',
+  inMockScope: 'yes',
   outcomes: [
     {
       en: 'I can find the midpoint of a segment and the gradient of its perpendicular bisector',

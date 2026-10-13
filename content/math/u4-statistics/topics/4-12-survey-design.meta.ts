@@ -13,7 +13,7 @@ const topic: TopicMeta = {
   order: 53,
   minutes: 45,
   priority: 2,
-  inMockScope: 'unknown',
+  inMockScope: 'yes',
   outcomes: [
     {
       en: 'I can judge whether a survey is valid: sampling method, question wording, pilot test and bias',

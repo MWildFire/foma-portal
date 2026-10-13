@@ -10,7 +10,7 @@ const topic: TopicMeta = {
   order: 56,
   minutes: 40,
   priority: 2,
-  inMockScope: 'unknown',
+  inMockScope: 'yes',
   outcomes: [
     {
       en: 'I can state the distribution of a linear combination of independent normal variables, with its mean and variance',

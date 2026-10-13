@@ -9,7 +9,7 @@ const topic: TopicMeta = {
   order: 61,
   minutes: 35,
   priority: 1,
-  inMockScope: 'unknown',
+  inMockScope: 'no',
   outcomes: [
     {
       en: 'I can explain the limit of a function, using a table of values and the idea of getting arbitrarily close',

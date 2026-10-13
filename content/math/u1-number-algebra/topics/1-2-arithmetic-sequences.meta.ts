@@ -9,7 +9,7 @@ const topic: TopicMeta = {
   order: 2,
   minutes: 35,
   priority: 1,
-  inMockScope: 'unknown',
+  inMockScope: 'yes',
   outcomes: [
     {
       en: 'I can find the common difference d and the nth term u_n = u_1 + (n − 1)d of an arithmetic sequence',

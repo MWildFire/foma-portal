@@ -9,7 +9,7 @@ const topic: TopicMeta = {
   order: 51,
   minutes: 40,
   priority: 1,
-  inMockScope: 'unknown',
+  inMockScope: 'yes',
   outcomes: [
     {
       en: 'I can rank data and calculate Spearman\'s rank correlation coefficient r_s',

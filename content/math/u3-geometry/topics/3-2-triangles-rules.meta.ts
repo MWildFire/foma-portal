@@ -9,7 +9,7 @@ const topic: TopicMeta = {
   order: 27,
   minutes: 40,
   priority: 1,
-  inMockScope: 'unknown',
+  inMockScope: 'yes',
   outcomes: [
     {
       en: 'I can use SOH CAH TOA to find sides and angles in right-angled triangles',

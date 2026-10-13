@@ -9,7 +9,7 @@ const topic: TopicMeta = {
   order: 49,
   minutes: 40,
   priority: 1,
-  inMockScope: 'unknown',
+  inMockScope: 'yes',
   outcomes: [
     {
       en: 'I can check the conditions for a binomial model and name n and p for a situation',

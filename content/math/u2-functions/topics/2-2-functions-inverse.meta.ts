@@ -9,7 +9,7 @@ const topic: TopicMeta = {
   order: 17,
   minutes: 35,
   priority: 1,
-  inMockScope: 'unknown',
+  inMockScope: 'yes',
   outcomes: [
     {
       en: 'I can state the domain and range of a function and evaluate f(x), v(t) or C(n) in context',

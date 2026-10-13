@@ -10,7 +10,7 @@ const topic: TopicMeta = {
   order: 55,
   minutes: 40,
   priority: 2,
-  inMockScope: 'unknown',
+  inMockScope: 'yes',
   outcomes: [
     {
       en: 'I can transform a random variable as Y = aX + b and find the mean and the variance of Y',
