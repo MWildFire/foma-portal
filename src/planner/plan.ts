@@ -24,7 +24,7 @@ import { paperBlockId, parseBlockId, practiceBlockId, recallBlockId, studyBlockI
 import { UNIT_MINUTES, addInterval, effectiveMinutes, firstGap, isCovered, topicQueue } from './queue.ts';
 import { buildRecall } from './recall.ts';
 import { shareFairly } from './share.ts';
-import { GEO_FULL_PAPER_DAYS, GEO_PAST_FROM, PAST_SHARE, itemsFrom, linkOf, pastPool, recentFirst } from './past.ts';
+import { GEO_FULL_PAPER_DAYS, GEO_PAST_FROM, PAST_SHARE, itemsFrom, linkOf, pastPool, unsolvedFirst } from './past.ts';
 
 const STEP = 5;                 // all quotas and slices are multiples of 5 minutes
 const OVERLOAD = 1.15;          // a day may exceed its capacity by at most 15%
@@ -121,12 +121,13 @@ export function buildPlan(input: PlannerInput): Plan {
   // earlier timed sitting uses. The links are made in the order of the quotas file, so a block keeps its paper when the
   // plan is recalculated, and a block without a free paper simply has no link.
   const pastRefs = input.pastPapers ?? [];
+  const pastProgress = state.pastPapers;
   const timedLinks = new Map<string, PastPaperLink>();
   if (pastRefs.length > 0) {
     const takenPapers = new Set<string>();
     for (const day of quotas.days) {
       for (const entry of day.timed) {
-        const pick = pastPool(pastRefs, entry.subject, entry.paper).find(ref => !takenPapers.has(ref.id));
+        const pick = unsolvedFirst(pastPool(pastRefs, entry.subject, entry.paper), pastProgress).find(ref => !takenPapers.has(ref.id));
         if (!pick) continue;
         takenPapers.add(pick.id);
         timedLinks.set(timedBlockId(day.date, entry.subject, entry.paper), linkOf(pick));
@@ -466,7 +467,7 @@ export function buildPlan(input: PlannerInput): Plan {
   // on past papers, counting the timed past papers of the day. On the Geography paper days the share is full papers.
   // Each block works on the most recent past paper that still has questions left; the blocks are made in day order.
   function pastPractice(subject: SubjectId, date: string, regular: number, own: PlanBlock[]): { blocks: PlanBlock[]; minutes: number } {
-    const pool = recentFirst(pastRefs.filter(ref => ref.subject === subject && ref.items.length > 0));
+    const pool = unsolvedFirst(pastRefs.filter(ref => ref.subject === subject && ref.items.length > 0), pastProgress);
     const blocks: PlanBlock[] = [];
     if (subject !== 'geo' || date < GEO_PAST_FROM || pool.length === 0) return { blocks, minutes: 0 };
     const quota = quotaByDate.get(date)?.quota.geo ?? 0;

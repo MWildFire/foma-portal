@@ -30,6 +30,22 @@ export function pastPool(refs: readonly PastPaperRef[], subject: SubjectId, pape
   return recentFirst(refs.filter(ref => ref.subject === subject && ref.paper === paper));
 }
 
+// The student's progress on past papers (state.pastPapers, by `${subject}/${id}`): a paper marked solved has a date.
+export type PastProgress = Readonly<Record<string, { solved?: string }>> | undefined;
+
+export const isSolved = (progress: PastProgress, subject: SubjectId, id: string): boolean =>
+  typeof progress?.[`${subject}/${id}`]?.solved === 'string';
+
+// Unsolved papers first, each group the most recent first: the planner picks from the top, so a paper the student
+// has solved comes up only when nothing else is left.
+export function unsolvedFirst(refs: readonly PastPaperRef[], progress: PastProgress): PastPaperRef[] {
+  const sorted = recentFirst(refs);
+  return [
+    ...sorted.filter(ref => !isSolved(progress, ref.subject, ref.id)),
+    ...sorted.filter(ref => isSolved(progress, ref.subject, ref.id)),
+  ];
+}
+
 export function linkOf(ref: PastPaperRef): PastPaperLink {
   return { id: ref.id, session: ref.session, paper: ref.paper, ...(ref.part ? { part: ref.part } : {}) };
 }

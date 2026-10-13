@@ -20,8 +20,11 @@ const REFS = [
   paper('math-p2-n23', 'math', 'P2', 'N23', 120, 80),
 ];
 
-const planWith = (today, pastPapers, quotasFile = quotas) =>
-  buildPlan({ today, exams, quotas: quotasFile, subjects: makeSubjects(), state: emptyState(), pastPapers });
+// `solved` lists the past papers the student has marked solved, as state.pastPapers keys ('math/math-p2-m24').
+const planWith = (today, pastPapers, quotasFile = quotas, solved = []) => {
+  const state = { ...emptyState(), pastPapers: Object.fromEntries(solved.map(key => [key, { solved: '2026-10-01' }])) };
+  return buildPlan({ today, exams, quotas: quotasFile, subjects: makeSubjects(), state, pastPapers });
+};
 const past = (day, subject) => minutesOf(blocksOf(day, subject).filter(block => block.pastPaper));
 
 test('the most recent session comes first: May 2024 before November 2023, an unknown session last', () => {
@@ -99,6 +102,29 @@ test('the practice goes on through the questions of a past paper from one day to
   assert.deepEqual(first.pastItems, ['q1', 'q2', 'q3']);
   assert.equal(second.pastPaper.id, 'geo-p2-m24');
   assert.deepEqual(second.pastItems, ['q4', 'q5', 'q6']);
+});
+
+test('a paper marked solved waits behind the unsolved ones; when all are solved the most recent comes back', () => {
+  const twice = {
+    ...quotas,
+    days: quotas.days.map(day => (day.date === '2026-10-22'
+      ? { ...day, timed: [...day.timed, { subject: 'math', paper: 'P2', minutes: 120 }] }
+      : day)),
+  };
+  // Maths P2 May 2024 is solved: the first sitting takes November 2023, the second one falls back to the solved paper.
+  const oneSolved = planWith('2026-10-14', REFS, twice, ['math/math-p2-m24']);
+  assert.equal(blocksOf(dayOf(oneSolved, '2026-10-22'), 'math').find(block => block.kind === 'timed').pastPaper.id, 'math-p2-n23');
+  assert.equal(blocksOf(dayOf(oneSolved, '2026-10-24'), 'math').find(block => block.kind === 'timed').pastPaper.id, 'math-p2-m24');
+  // Both solved: the most recent one again.
+  const allSolved = planWith('2026-10-14', REFS, twice, ['math/math-p2-m24', 'math/math-p2-n23']);
+  assert.equal(blocksOf(dayOf(allSolved, '2026-10-22'), 'math').find(block => block.kind === 'timed').pastPaper.id, 'math-p2-m24');
+});
+
+test('the Geography practice starts with an unsolved paper', () => {
+  // geo-p2-m24 is solved: the first practice block works on the unsolved Geography paper of the same session (P1).
+  const result = planWith('2026-10-14', REFS, quotas, ['geo/geo-p2-m24']);
+  const first = blocksOf(dayOf(result, '2026-10-15'), 'geo').find(block => block.pastPaper);
+  assert.equal(first.pastPaper.id, 'geo-p1-m24');
 });
 
 test('on 24 and 25 Oct the share is full papers: the timed Geography papers count, the rest is a whole paper', () => {
