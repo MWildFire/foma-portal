@@ -1,0 +1,125 @@
+import type { Lang } from '../../contract/types';
+import { StepPlayer, fn, type CurveSpec, type Step, type TickSpec } from './_lib/graph';
+
+// Specific (per-unit) tax of 3 on a market with D: P = 12 - 0.5Q and S: P = 0.5Q.
+// Before the tax E is (Q 12, P 6). With the tax, S shifts up by 3: S+t: P = 0.5Q + 3.
+// New equilibrium: 12 - 0.5Q = 0.5Q + 3, so Q = 9. Buyers pay 7.5 (on D at Q 9); sellers keep 4.5 (on S at Q 9).
+// Tax revenue = 3 x 9 = 27 (rectangle). Deadweight loss = 1/2 x 3 x 3 = 4.5 (triangle between Q 9 and Q 12).
+const D = fn(q => 12 - 0.5 * q, 0, 24, 1);
+const S = fn(q => 0.5 * q, 0, 24, 1);
+const St = fn(q => 0.5 * q + 3, 0, 20, 1);
+
+const ticks = (values: number[]): TickSpec[] => values.map(value => ({ value, label: { en: String(value), ru: String(value) } }));
+
+const axes = {
+  xMax: 28,
+  yMax: 14,
+  xLabel: { en: 'Quantity (Q)', ru: 'Количество (Q)' },
+  yLabel: { en: 'Price (P)', ru: 'Цена (P)' },
+  xTicks: ticks([9, 12]),
+  yTicks: ticks([3, 4.5, 6, 7.5, 12]),
+};
+
+const demand: CurveSpec = { id: 'd', points: D, tone: 'demand', label: { en: 'D', ru: 'D' } };
+const supplyOld: CurveSpec = { id: 's', points: S, tone: 'muted', dashed: true, label: { en: 'S', ru: 'S' } };
+const supplyTax: CurveSpec = { id: 'st', points: St, tone: 'policy', label: { en: 'S+t', ru: 'S+t' } };
+
+const oldE = { id: 'E', at: [12, 6] as [number, number], tone: 'ink' as const, label: { en: 'E', ru: 'E' }, dx: 4, dy: -14 };
+const newE = { id: 'E1', at: [9, 7.5] as [number, number], tone: 'policy' as const, label: { en: 'E1', ru: 'E1' }, dx: -49, dy: 16 };
+
+const steps: Step[] = [
+  {
+    title: { en: 'Market before the tax', ru: 'Рынок до налога' },
+    text: {
+      en: 'Demand (D) and supply (S) cross at E: Q = 12 and P = 6. This is the free-market equilibrium.',
+      ru: 'Спрос (D) и предложение (S) пересекаются в точке E: Q = 12 и P = 6. Это равновесие свободного рынка.',
+    },
+    graph: {
+      ...axes,
+      curves: [demand, { ...supplyOld, dashed: false, tone: 'supply' }],
+      guides: [
+        { id: 'e-v', from: [12, 0], to: [12, 6], tone: 'muted' },
+      ],
+      marks: [oldE],
+    },
+  },
+  {
+    title: { en: 'Tax shifts supply up by 3', ru: 'Налог сдвигает предложение вверх на 3' },
+    text: {
+      en: 'A specific tax of 3 per unit adds 3 to the cost of every unit sold. Sellers need 3 more for each unit, so S shifts up by 3 to S+t.',
+      ru: 'Специфический налог 3 на единицу добавляет 3 к издержкам каждой проданной единицы. Продавцам нужно на 3 больше за каждую единицу, поэтому S сдвигается вверх на 3 до S+t.',
+    },
+    graph: {
+      ...axes,
+      curves: [demand, supplyOld, supplyTax],
+      guides: [{ id: 'gap', from: [4, 2], to: [4, 5], tone: 'policy' }],
+    },
+  },
+  {
+    title: { en: 'New equilibrium at Q 9', ru: 'Новое равновесие при Q 9' },
+    text: {
+      en: 'The new equilibrium is E1 at Q = 9. Buyers pay 7.5 (the blue line to D). Sellers keep 4.5 (the orange line to S), which is 3 less.',
+      ru: 'Новое равновесие E1 при Q = 9. Покупатели платят 7.5 (синяя линия к D). Продавцы получают 4.5 (оранжевая линия к S), то есть на 3 меньше.',
+    },
+    graph: {
+      ...axes,
+      curves: [demand, supplyOld, supplyTax],
+      guides: [
+        { id: 'q9', from: [9, 0], to: [9, 7.5], tone: 'ink' },
+        { id: 'pc', from: [0, 7.5], to: [9, 7.5], tone: 'demand' },
+        { id: 'pp', from: [0, 4.5], to: [9, 4.5], tone: 'supply' },
+      ],
+      marks: [newE, { id: 'Sp', at: [9, 4.5], tone: 'supply' }],
+    },
+  },
+  {
+    title: { en: 'Tax revenue', ru: 'Налоговая выручка' },
+    text: {
+      en: 'Government revenue is the tax per unit times the quantity sold: 3 x 9 = 27. It is the purple rectangle between the buyers price 7.5 and the sellers price 4.5, for Q from 0 to 9.',
+      ru: 'Выручка государства равна налогу на единицу, умноженному на проданное количество: 3 x 9 = 27. Это фиолетовый прямоугольник между ценой покупателя 7.5 и ценой продавца 4.5 при Q от 0 до 9.',
+    },
+    graph: {
+      ...axes,
+      curves: [demand, supplyOld, supplyTax],
+      areas: [{ id: 'rev', points: [[0, 4.5], [9, 4.5], [9, 7.5], [0, 7.5]], tone: 'policy' }],
+      guides: [
+        { id: 'q9', from: [9, 0], to: [9, 7.5], tone: 'ink' },
+        { id: 'pc', from: [0, 7.5], to: [9, 7.5], tone: 'demand' },
+        { id: 'pp', from: [0, 4.5], to: [9, 4.5], tone: 'supply' },
+      ],
+      marks: [newE, { id: 'Sp', at: [9, 4.5], tone: 'supply' }],
+    },
+  },
+  {
+    title: { en: 'Deadweight loss (complete picture)', ru: 'Чистые потери (полная картина)' },
+    text: {
+      en: 'Quantity falls from 12 to 9, so trade worth 1/2 x 3 x 3 = 4.5 is lost. The red triangle is the deadweight loss (DWL). E is kept for comparison.',
+      ru: 'Количество падает с 12 до 9, поэтому теряется обмен на сумму 1/2 x 3 x 3 = 4.5. Красный треугольник — это чистые потери (DWL). Точка E оставлена для сравнения.',
+    },
+    graph: {
+      ...axes,
+      curves: [demand, supplyOld, supplyTax],
+      areas: [
+        { id: 'rev', points: [[0, 4.5], [9, 4.5], [9, 7.5], [0, 7.5]], tone: 'policy' },
+        { id: 'dwl', points: [[9, 7.5], [12, 6], [9, 4.5]], tone: 'loss' },
+      ],
+      guides: [
+        { id: 'q9', from: [9, 0], to: [9, 7.5], tone: 'ink' },
+        { id: 'pc', from: [0, 7.5], to: [9, 7.5], tone: 'demand' },
+        { id: 'pp', from: [0, 4.5], to: [9, 4.5], tone: 'supply' },
+        { id: 'dwl-leader', from: [12, 6], to: [12, 1.5], tone: 'loss', label: { en: 'DWL 4.5', ru: 'потери 4.5' }, labelAt: 'end' },
+      ],
+      marks: [oldE, newE, { id: 'Sp', at: [9, 4.5], tone: 'supply' }],
+    },
+  },
+];
+
+export default function SpecificTax({ lang }: { lang: Lang }) {
+  return (
+    <StepPlayer
+      lang={lang}
+      label={{ en: 'Specific tax: tax revenue and deadweight loss', ru: 'Налог на единицу: выручка и чистые потери' }}
+      steps={steps}
+    />
+  );
+}
