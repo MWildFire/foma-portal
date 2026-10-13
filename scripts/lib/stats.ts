@@ -1,9 +1,19 @@
-import { list, type Pack } from './model.ts';
+import { list, type Pack, type SourceRef } from './model.ts';
 import { formatPercent, type Coverage } from './syllabus-coverage.ts';
 
 // Rule 11 (per-subject figures) and rule 13 (an empty subject is information, not a warning).
 
 const TEXTBOOK_SHARE_TARGET = 70;   // percent of terms whose src is a textbook or an IB guide
+
+// ThinkIB is the course text of Geography: its eBook sections are the locators (round 4, decision 2). So for geo a
+// ThinkIB source with a locator is textbook level. The other subjects have no such course text yet.
+const COURSE_TEXT_KINDS: Record<string, string[]> = { geo: ['thinkib'] };
+
+// True when a term's source is textbook level: a textbook, an IB guide, or the course text of its subject with a locator.
+export function isTextbookLevel(src: SourceRef, subject: string): boolean {
+  if (src.kind === 'textbook' || src.kind === 'ib-guide') return true;
+  return src.kind !== undefined && (COURSE_TEXT_KINDS[subject] ?? []).includes(src.kind) && (src.locator ?? '').trim() !== '';
+}
 
 export interface SubjectStats {
   topics: number;
@@ -24,7 +34,7 @@ export interface SubjectStats {
 const percentOf = (part: number, whole: number): number | null => (whole === 0 ? null : (part / whole) * 100);
 
 export function computeStats(pack: Pack, coverage: Coverage, simCount: number): SubjectStats {
-  const termsFromBooks = pack.terms.filter(term => term.src && (term.src.kind === 'textbook' || term.src.kind === 'ib-guide')).length;
+  const termsFromBooks = pack.terms.filter(term => term.src && isTextbookLevel(term.src, pack.meta.id)).length;
   return {
     topics: pack.topics.length,
     codes: pack.syllabus.length,
