@@ -8,7 +8,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 
 const variantMap = {
   primary:
-    'bg-accent-warm text-bg-secondary border border-accent-warm hover:opacity-90 active:opacity-80',
+    'bg-accent text-bg-secondary border border-accent hover:opacity-90 active:opacity-80',
   secondary:
     'bg-bg-secondary text-text-primary border border-border hover:bg-bg-tertiary',
   ghost:

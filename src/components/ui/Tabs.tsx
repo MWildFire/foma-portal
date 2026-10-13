@@ -49,7 +49,7 @@ interface SimulationPanelProps {
 export function SimulationPanel({ title, description, children }: SimulationPanelProps) {
   return (
     <section className="bg-bg-secondary border border-border rounded-lg shadow-card overflow-hidden">
-      <header className="px-6 py-4 border-b border-border bg-bg-primary/40">
+      <header className="px-6 py-4 border-b border-border bg-bg-tertiary">
         <h3 className="text-xl font-serif font-medium text-text-primary">{title}</h3>
         {description ? (
           <p className="mt-1 text-sm text-text-secondary">{description}</p>
