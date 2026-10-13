@@ -1,5 +1,6 @@
 // Changes to the progress store made from the plan. All functions return a new state and never touch their input.
 import type { SubjectId } from '../contract/types.ts';
+import type { ExamRoom } from './access.ts';
 import type { GlobalState, PlanBlock, Rag, Weekday } from './types.ts';
 import type { Interval } from './queue.ts';
 // The .ts extensions are what Node's test runner needs.
@@ -77,4 +78,10 @@ export function setDailyLoad(state: GlobalState, day: Weekday, minutes: number |
 
 export function setAccessArrangement(state: GlobalState, key: 'extraTime' | 'separateRoom', value: boolean): GlobalState {
   return { ...state, settings: { ...state.settings, accessArrangements: { ...state.settings.accessArrangements, [key]: value } } };
+}
+
+// The room from Settings. The old separateRoom flag follows it, so readers that still use the flag agree with the choice.
+export function setExamRoom(state: GlobalState, room: ExamRoom): GlobalState {
+  const accessArrangements = { ...state.settings.accessArrangements, room, separateRoom: room === 'ACC2' };
+  return { ...state, settings: { ...state.settings, accessArrangements } };
 }
