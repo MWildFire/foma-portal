@@ -76,7 +76,7 @@ export function RecallSection({ block, recall, infos, activeSubjects, timerRunni
                       {crowded ? ` · ${t('recall.suggested', { n: row.suggested })}` : ''}
                     </p>
                   </div>
-                  <Link to={ROUTES.terms(row.subject)} className={LINK_CLASS}>
+                  <Link to={ROUTES.flashcards(row.subject)} className={LINK_CLASS}>
                     {t('recall.open')}
                     <span className="sr-only"> — {info.name}</span>
                   </Link>

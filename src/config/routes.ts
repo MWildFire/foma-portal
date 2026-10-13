@@ -6,6 +6,7 @@ export const ROUTES = {
   subject: (subject: string) => `/s/${subject}`,
   topic: (subject: string, topic: string) => `/s/${subject}/t/${topic}`,
   terms: (subject: string) => `/s/${subject}/terms`,
+  flashcards: (subject: string) => `/s/${subject}/terms?mode=cards`,
   formulas: (subject: string) => `/s/${subject}/formulas`,
   practice: (subject: string) => `/s/${subject}/practice`,
   paper: (subject: string, paper: string) => `/s/${subject}/paper/${paper}`,

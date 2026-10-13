@@ -30,7 +30,8 @@
   },
   "tools": {
     "heading": "Пейперы и инструменты",
-    "paperGuide": "Гид: {{paper}} — {{title}}"
+    "paperGuide": "Гид: {{paper}} — {{title}}",
+    "flashcards": "Карточки"
   },
   "topics": {
     "heading": "Темы",

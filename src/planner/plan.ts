@@ -467,7 +467,7 @@ export function buildPlan(input: PlannerInput): Plan {
     let recallBlock: PlanBlock | null = null;
     if (base.recall > 0 && active.length > 0) {
       const id = recallBlockId(date);
-      recallBlock = { id, kind: 'recall', subject: null, date, minutes: base.recall, ...doneStatus(id), route: active[0] ? ROUTES.terms(active[0]) : ROUTES.today() };
+      recallBlock = { id, kind: 'recall', subject: null, date, minutes: base.recall, ...doneStatus(id), route: active[0] ? ROUTES.flashcards(active[0]) : ROUTES.today() };
       planned += base.recall;
     }
 
@@ -560,7 +560,7 @@ export function buildPlan(input: PlannerInput): Plan {
     if (isToday && recallBlock) {
       recall = buildRecall({ date, minutes: base.recall, subjects: input.subjects, active, state });
       const lead = recall.subjects[0]?.subject;
-      if (lead) recallBlock.route = ROUTES.terms(lead);
+      if (lead) recallBlock.route = ROUTES.flashcards(lead);
     }
 
     return {

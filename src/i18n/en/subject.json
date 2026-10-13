@@ -30,7 +30,8 @@
   },
   "tools": {
     "heading": "Papers and tools",
-    "paperGuide": "{{paper}} guide: {{title}}"
+    "paperGuide": "{{paper}} guide: {{title}}",
+    "flashcards": "Flashcards"
   },
   "topics": {
     "heading": "Topics",
