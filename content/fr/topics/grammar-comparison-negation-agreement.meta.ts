@@ -22,7 +22,7 @@ const topic: TopicMeta = {
   ],
   termIds: [
     'gr-comparatif', 'gr-comparatif-quantite', 'gr-meilleur-mieux', 'gr-superlatif', 'gr-ne-pas', 'gr-ne-jamais-plus',
-    'gr-rien-personne', 'gr-ni-ni', 'gr-accord-participe-passe',
+    'gr-rien-personne', 'gr-ni-ni', 'gr-participle-agreement',
   ],
   questionIds: ['grammar-comparison-negation-agreement-q1', 'grammar-comparison-negation-agreement-q2'],
   sources: [{ kind: 'own', title: "Authors' French B material (2026)" }],

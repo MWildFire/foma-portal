@@ -296,24 +296,4 @@ export const terms: FrTerm[] = [
     papers: ['P1', 'P2'],
     src: { kind: 'own', title: "Authors' French B material (2026)" },
   },
-  {
-    id: 'gr-accord-participe-passe',
-    term: { en: 'past participle agreement', ru: 'согласование причастия прошедшего времени', fr: "l'accord du participe passé" },
-    def: {
-      en: "with 'to be' it agrees with the subject; with 'to have' it agrees with a preceding direct object.",
-      ru: 'с вспомогательным глаголом «быть» согласуется с подлежащим; с глаголом «иметь» — с прямым дополнением, стоящим перед глаголом.',
-    },
-    example: {
-      en: 'The letters that I wrote were very long.',
-      ru: 'Письма, которые я написал, были очень длинными.',
-      fr: "Les lettres que j'ai écrites étaient très longues.",
-    },
-    pitfall: {
-      en: "With « avoir », there is no agreement when the object comes after the verb: « J'ai écrit des lettres. »",
-      ru: 'С «avoir» согласования нет, если дополнение стоит после глагола: «J\'ai écrit des lettres».',
-    },
-    syllabus: 'G7.comparison-negation-agreement',
-    papers: ['P1', 'P2'],
-    src: { kind: 'own', title: "Authors' French B material (2026)" },
-  },
 ];
