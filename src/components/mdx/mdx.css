@@ -219,10 +219,13 @@
   text-align: center;
 }
 
+/* An SVG with only a viewBox has no size of its own; width: 100% lets it fill the column, up to 36rem. */
 .foma-figure__frame img {
-  display: inline-block;
-  max-width: 100%;
+  display: block;
+  width: 100%;
+  max-width: 36rem;
   height: auto;
+  margin: 0 auto;
 }
 
 .foma-figure figcaption {
