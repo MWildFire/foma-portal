@@ -1,0 +1,98 @@
+## Big idea
+
+Cities concentrate people, buildings and activity, which creates environmental stresses (heat, air pollution, flooding, land subsidence, water shortage) and social stresses (poverty, inequality, housing costs, congestion). Stress is greatest where hazards meet vulnerable people, so the harm a hazard causes depends on both the hazard and the community's ability to cope.
+
+## Explanation
+
+Environmental stress starts with the materials and activity of the city. An <Term id="g-urban-heat-island"/> forms because dark, dense surfaces have a low <Term id="g-albedo"/> and absorb solar energy; the stored heat leaves slowly after sunset, so most of the difference appears in the evening and at night. In Phoenix, Arizona, night-time lows were reported to be 10 to 15 degrees Fahrenheit higher than in rural areas (see the case below). Traffic and industry add <Term id="g-particulate-pollution"/>, which can damage the lungs and heart, and fast growth can create <Term id="g-water-stress"/> when demand for water exceeds the supply a city can draw on.
+
+<Case id="g-phoenix-heat"/>
+
+Water cannot soak into an <Term id="g-impermeable-surface"/> such as concrete, asphalt or a roof, so rain runs off quickly and reaches the drains much faster than it would on open land. When drains are too small, blocked or overloaded, <Term id="g-urban-flooding"/> follows. On 26 July 2005 the Santacruz station recorded 944 mm of rain in 24 hours in Mumbai, and roads and railway lines were flooded. Subsidence adds a second threat: in Jakarta, <Term id="g-land-subsidence"/> driven by intensive groundwater extraction and rapid urbanisation has lowered coastal districts, so high tides and heavy rain flood them more easily.
+
+<Case id="g-mumbai-floods-2005"/>
+
+<Case id="g-jakarta-subsidence"/>
+
+Social stress falls unevenly. <Term id="g-urban-poverty"/> means that households lack the income to pay for adequate housing, clean water or healthcare, and <Term id="g-urban-inequality"/> is the gap between such households and wealthier districts. Where <Term id="g-housing-affordability"/> is poor, families rent crowded rooms and cut their spending on food and health. The 2009 census counted 170,070 people in the eight locations that make up Kibera, Nairobi, although some claims put the population at a million or more. <Term id="g-congestion"/> adds to the pressure: when road demand exceeds capacity, journeys take longer, fuel use and pollution rise, and workers lose time and income.
+
+<Case id="g-kibera"/>
+
+Geographers separate the physical event from its human impact. A <Term id="g-hazard"/> is a potentially damaging event, such as a flood or a heatwave, and it exists whether or not anyone is exposed to it. <Term id="g-vulnerability"/> describes how likely people and property are to be harmed, depending on their exposure, their sensitivity (for example poverty, age or poor health) and their ability to cope. <Term id="g-risk"/> combines the likelihood of the hazard with the vulnerability of those exposed, so the same storm carries more risk in a poorly drained informal settlement than in a protected district. <Term id="g-urban-resilience"/> is the capacity to absorb a shock and recover, for example through early warning, better drainage and strong community networks.
+
+<Callout kind="define">Hazard is the event. Risk is the chance of harm: it needs a hazard, and people or property that are both exposed to it and vulnerable.</Callout>
+
+Urban stress can be measured with indicators such as air pollution, flood exposure, housing costs as a share of income, access to public transport and access to green space. Each indicator is scaled from 0 to 100 and weighted, and the weighted average gives a simple <Term id="g-urban-stress"/> index. The index is only as good as its data and its weights, so every result needs a source and a caveat.
+
+<CaseMap ids="g-phoenix-heat,g-mumbai-floods-2005,g-jakarta-subsidence,g-kibera"/>
+
+## Worked example
+
+Example 1. A district scores 70 for air pollution, 40 for flood risk, 80 for housing unaffordability, 60 for access to transport and 20 for access to green space, all on a 0 to 100 scale. The weights are 2, 1, 2, 1 and 2. The two access scores are inverted, because a high access score means less stress.
+
+<Steps>
+<Step>Convert the access scores into stress scores: transport 100 − 60 = 40; green space 100 − 20 = 80.</Step>
+<Step>Multiply each stress score by its weight: 70 × 2 = 140; 40 × 1 = 40; 80 × 2 = 160; 40 × 1 = 40; 80 × 2 = 160.</Step>
+<Step>Add the weighted scores: 140 + 40 + 160 + 40 + 160 = 540.</Step>
+<Step>Add the weights: 2 + 1 + 2 + 1 + 2 = 8.</Step>
+<Step>Divide: 540 ÷ 8 = 67.5. The index is 67.5 out of 100 (illustrative figures, not data for a real district).</Step>
+</Steps>
+
+$$
+I = \frac{\sum_i w_i s_i}{\sum_i w_i}
+$$
+
+where $s_i$ is the stress score of indicator $i$ and $w_i$ is its weight.
+
+Example 2. Phoenix reports a difference of 10 to 15 degrees Fahrenheit. Express it in degrees Celsius.
+
+<Steps>
+<Step>A difference is converted with the factor 5/9 only; the +32 and −32 used for absolute temperatures do not apply.</Step>
+<Step>10 × 5/9 = 5.6 °C and 15 × 5/9 = 8.3 °C.</Step>
+<Step>The night-time heat island was therefore about 5.6 to 8.3 °C. Quote the range, not a single value.</Step>
+</Steps>
+
+## Visual
+
+The first simulation shows how vegetation, albedo, building density and wind change the heat island along a transect from the suburbs to the city centre. It is illustrative, so use it to test cause and effect rather than to predict a real city.
+
+<Sim id="geo.opt-g-heat"/>
+
+The second simulation calculates a weighted stress index from five indicators and shows how much each one adds to the total.
+
+<Sim id="geo.opt-g-stress"/>
+
+## How it is examined
+
+Command words set the depth of the answer. Describe asks what the pattern or feature is. Explain asks why, with each cause linked to an effect. Suggest asks for practical ideas and how they would work. Discuss and To what extent need a judgement that weighs both sides. Structured questions give marks for each correct point and an extra mark for development; extended questions are marked in levels, so the conclusion has to answer the question directly.
+
+<Callout kind="exam">Always name the case, its year and one figure: "944 mm in 24 hours in Mumbai in 2005" earns more than "very heavy rain".</Callout>
+
+## Common mistakes
+
+- Describing the urban heat island as a daytime effect only. In Phoenix most of the difference is in the evening and at night, and by day the urban core can be cooler than the desert.
+- Confusing hazard and risk. A flood in an empty area is a hazard, but with no people or property exposed to it there is no risk.
+- Saying that impermeable surfaces cause flooding on their own. Flooding also needs heavy rain and weak drainage.
+- Quoting a population or disaster figure without a source or year. Say which estimate you use and why, for example the 2009 census for Kibera.
+
+<Callout kind="mistake">Turn every cause into a consequence: "impermeable surfaces increase runoff, so the drains fill faster". A list of causes without the link earns few marks.</Callout>
+
+## Check yourself
+
+Answer these under timed conditions, then compare your answer with the markscheme and the case evidence.
+
+<Question id="g3-sq1"/>
+
+<Question id="g3-sq2"/>
+
+<Question id="g3-eq1"/>
+
+## Summary
+
+- The urban heat island is strongest at night: dark, dense surfaces with a low albedo store heat, and missing vegetation removes evaporative cooling.
+- Impermeable surfaces increase runoff, so heavy rain such as 944 mm in 24 hours in Mumbai in 2005 causes urban flooding where drainage fails.
+- Land subsidence in Jakarta is driven by intensive groundwater extraction and rapid urbanisation, and it raises flood risk on the coast.
+- Social stress comes from poverty, inequality, housing affordability and congestion; informal settlements such as Kibera combine several of them.
+- Risk combines the hazard with the vulnerability and exposure of people; resilience reduces the harm.
+- The urban stress index is a weighted average of 0 to 100 indicators, so the weights and the data decide the result.
+- Give every figure with its place, year and source.
