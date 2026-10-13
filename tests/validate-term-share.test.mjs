@@ -2,9 +2,10 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { isTextbookLevel } from '../scripts/lib/stats.ts';
 
-test('a ThinkIB source with a locator is textbook level for geo, and only there', () => {
+test('a ThinkIB source with a locator is textbook level for geo and French B, and not for the others', () => {
   const src = { kind: 'thinkib', locator: 'ThinkIB eBook, Option A › A.2 › Flood hydrographs' };
   assert.equal(isTextbookLevel(src, 'geo'), true);
+  assert.equal(isTextbookLevel(src, 'fr'), true);
   assert.equal(isTextbookLevel(src, 'math'), false);
 });
 

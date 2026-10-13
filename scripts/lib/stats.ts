@@ -5,9 +5,10 @@ import { formatPercent, type Coverage } from './syllabus-coverage.ts';
 
 const TEXTBOOK_SHARE_TARGET = 70;   // percent of terms whose src is a textbook or an IB guide
 
-// ThinkIB is the course text of Geography: its eBook sections are the locators (round 4, decision 2). So for geo a
-// ThinkIB source with a locator is textbook level. The other subjects have no such course text yet.
-const COURSE_TEXT_KINDS: Record<string, string[]> = { geo: ['thinkib'] };
+// ThinkIB is the course text of Geography and French B: no printed book is used for them, and the eBook sections are the
+// locators (round 4, decision 2). So for those subjects a ThinkIB source with a locator is textbook level. The other
+// subjects have no such course text (their books are the textbooks, or the IB guide is cited).
+const COURSE_TEXT_KINDS: Record<string, string[]> = { geo: ['thinkib'], fr: ['thinkib'] };
 
 // True when a term's source is textbook level: a textbook, an IB guide, or the course text of its subject with a locator.
 export function isTextbookLevel(src: SourceRef, subject: string): boolean {
