@@ -2,13 +2,13 @@ import type { FrQuestion } from '../types';
 
 // Listening items (Paper 2) for listening tracks L1 to L4 (content/fr/listening/). Each track has 10 items:
 // 3 vrai / faux / non mentionné, 3 multiple choice (A, B, C), 2 short answers, 2 note completion or matching.
-// topicIds stay empty until the topic listening-strategy exists (Task 19 sets them).
+// topicIds point to the topic listening-strategy.
 export const questions: FrQuestion[] = [
   // ---- L1: family roots and languages (T1, B1 dialogue) ----
   {
     id: 'l1-q01',
     subject: 'fr',
-    topicIds: [],
+    topicIds: ['listening-strategy'],
     paper: 'P2',
     section: 'l1',
     marks: 1,
@@ -28,7 +28,7 @@ export const questions: FrQuestion[] = [
   {
     id: 'l1-q02',
     subject: 'fr',
-    topicIds: [],
+    topicIds: ['listening-strategy'],
     paper: 'P2',
     section: 'l1',
     marks: 1,
@@ -48,7 +48,7 @@ export const questions: FrQuestion[] = [
   {
     id: 'l1-q03',
     subject: 'fr',
-    topicIds: [],
+    topicIds: ['listening-strategy'],
     paper: 'P2',
     section: 'l1',
     marks: 1,
@@ -68,7 +68,7 @@ export const questions: FrQuestion[] = [
   {
     id: 'l1-q04',
     subject: 'fr',
-    topicIds: [],
+    topicIds: ['listening-strategy'],
     paper: 'P2',
     section: 'l1',
     marks: 1,
@@ -88,7 +88,7 @@ export const questions: FrQuestion[] = [
   {
     id: 'l1-q05',
     subject: 'fr',
-    topicIds: [],
+    topicIds: ['listening-strategy'],
     paper: 'P2',
     section: 'l1',
     marks: 1,
@@ -108,7 +108,7 @@ export const questions: FrQuestion[] = [
   {
     id: 'l1-q06',
     subject: 'fr',
-    topicIds: [],
+    topicIds: ['listening-strategy'],
     paper: 'P2',
     section: 'l1',
     marks: 1,
@@ -128,7 +128,7 @@ export const questions: FrQuestion[] = [
   {
     id: 'l1-q07',
     subject: 'fr',
-    topicIds: [],
+    topicIds: ['listening-strategy'],
     paper: 'P2',
     section: 'l1',
     marks: 1,
@@ -148,7 +148,7 @@ export const questions: FrQuestion[] = [
   {
     id: 'l1-q08',
     subject: 'fr',
-    topicIds: [],
+    topicIds: ['listening-strategy'],
     paper: 'P2',
     section: 'l1',
     marks: 1,
@@ -168,7 +168,7 @@ export const questions: FrQuestion[] = [
   {
     id: 'l1-q09',
     subject: 'fr',
-    topicIds: [],
+    topicIds: ['listening-strategy'],
     paper: 'P2',
     section: 'l1',
     marks: 1,
@@ -188,7 +188,7 @@ export const questions: FrQuestion[] = [
   {
     id: 'l1-q10',
     subject: 'fr',
-    topicIds: [],
+    topicIds: ['listening-strategy'],
     paper: 'P2',
     section: 'l1',
     marks: 1,
@@ -210,7 +210,7 @@ export const questions: FrQuestion[] = [
   {
     id: 'l2-q01',
     subject: 'fr',
-    topicIds: [],
+    topicIds: ['listening-strategy'],
     paper: 'P2',
     section: 'l2',
     marks: 1,
@@ -230,7 +230,7 @@ export const questions: FrQuestion[] = [
   {
     id: 'l2-q02',
     subject: 'fr',
-    topicIds: [],
+    topicIds: ['listening-strategy'],
     paper: 'P2',
     section: 'l2',
     marks: 1,
@@ -250,7 +250,7 @@ export const questions: FrQuestion[] = [
   {
     id: 'l2-q03',
     subject: 'fr',
-    topicIds: [],
+    topicIds: ['listening-strategy'],
     paper: 'P2',
     section: 'l2',
     marks: 1,
@@ -270,7 +270,7 @@ export const questions: FrQuestion[] = [
   {
     id: 'l2-q04',
     subject: 'fr',
-    topicIds: [],
+    topicIds: ['listening-strategy'],
     paper: 'P2',
     section: 'l2',
     marks: 1,
@@ -290,7 +290,7 @@ export const questions: FrQuestion[] = [
   {
     id: 'l2-q05',
     subject: 'fr',
-    topicIds: [],
+    topicIds: ['listening-strategy'],
     paper: 'P2',
     section: 'l2',
     marks: 1,
@@ -310,7 +310,7 @@ export const questions: FrQuestion[] = [
   {
     id: 'l2-q06',
     subject: 'fr',
-    topicIds: [],
+    topicIds: ['listening-strategy'],
     paper: 'P2',
     section: 'l2',
     marks: 1,
@@ -330,7 +330,7 @@ export const questions: FrQuestion[] = [
   {
     id: 'l2-q07',
     subject: 'fr',
-    topicIds: [],
+    topicIds: ['listening-strategy'],
     paper: 'P2',
     section: 'l2',
     marks: 1,
@@ -350,7 +350,7 @@ export const questions: FrQuestion[] = [
   {
     id: 'l2-q08',
     subject: 'fr',
-    topicIds: [],
+    topicIds: ['listening-strategy'],
     paper: 'P2',
     section: 'l2',
     marks: 1,
@@ -370,7 +370,7 @@ export const questions: FrQuestion[] = [
   {
     id: 'l2-q09',
     subject: 'fr',
-    topicIds: [],
+    topicIds: ['listening-strategy'],
     paper: 'P2',
     section: 'l2',
     marks: 1,
@@ -390,7 +390,7 @@ export const questions: FrQuestion[] = [
   {
     id: 'l2-q10',
     subject: 'fr',
-    topicIds: [],
+    topicIds: ['listening-strategy'],
     paper: 'P2',
     section: 'l2',
     marks: 1,
@@ -412,7 +412,7 @@ export const questions: FrQuestion[] = [
   {
     id: 'l3-q01',
     subject: 'fr',
-    topicIds: [],
+    topicIds: ['listening-strategy'],
     paper: 'P2',
     section: 'l3',
     marks: 1,
@@ -432,7 +432,7 @@ export const questions: FrQuestion[] = [
   {
     id: 'l3-q02',
     subject: 'fr',
-    topicIds: [],
+    topicIds: ['listening-strategy'],
     paper: 'P2',
     section: 'l3',
     marks: 1,
@@ -452,7 +452,7 @@ export const questions: FrQuestion[] = [
   {
     id: 'l3-q03',
     subject: 'fr',
-    topicIds: [],
+    topicIds: ['listening-strategy'],
     paper: 'P2',
     section: 'l3',
     marks: 1,
@@ -472,7 +472,7 @@ export const questions: FrQuestion[] = [
   {
     id: 'l3-q04',
     subject: 'fr',
-    topicIds: [],
+    topicIds: ['listening-strategy'],
     paper: 'P2',
     section: 'l3',
     marks: 1,
@@ -492,7 +492,7 @@ export const questions: FrQuestion[] = [
   {
     id: 'l3-q05',
     subject: 'fr',
-    topicIds: [],
+    topicIds: ['listening-strategy'],
     paper: 'P2',
     section: 'l3',
     marks: 1,
@@ -512,7 +512,7 @@ export const questions: FrQuestion[] = [
   {
     id: 'l3-q06',
     subject: 'fr',
-    topicIds: [],
+    topicIds: ['listening-strategy'],
     paper: 'P2',
     section: 'l3',
     marks: 1,
@@ -532,7 +532,7 @@ export const questions: FrQuestion[] = [
   {
     id: 'l3-q07',
     subject: 'fr',
-    topicIds: [],
+    topicIds: ['listening-strategy'],
     paper: 'P2',
     section: 'l3',
     marks: 1,
@@ -552,7 +552,7 @@ export const questions: FrQuestion[] = [
   {
     id: 'l3-q08',
     subject: 'fr',
-    topicIds: [],
+    topicIds: ['listening-strategy'],
     paper: 'P2',
     section: 'l3',
     marks: 1,
@@ -572,7 +572,7 @@ export const questions: FrQuestion[] = [
   {
     id: 'l3-q09',
     subject: 'fr',
-    topicIds: [],
+    topicIds: ['listening-strategy'],
     paper: 'P2',
     section: 'l3',
     marks: 1,
@@ -592,7 +592,7 @@ export const questions: FrQuestion[] = [
   {
     id: 'l3-q10',
     subject: 'fr',
-    topicIds: [],
+    topicIds: ['listening-strategy'],
     paper: 'P2',
     section: 'l3',
     marks: 1,
@@ -614,7 +614,7 @@ export const questions: FrQuestion[] = [
   {
     id: 'l4-q01',
     subject: 'fr',
-    topicIds: [],
+    topicIds: ['listening-strategy'],
     paper: 'P2',
     section: 'l4',
     marks: 1,
@@ -634,7 +634,7 @@ export const questions: FrQuestion[] = [
   {
     id: 'l4-q02',
     subject: 'fr',
-    topicIds: [],
+    topicIds: ['listening-strategy'],
     paper: 'P2',
     section: 'l4',
     marks: 1,
@@ -654,7 +654,7 @@ export const questions: FrQuestion[] = [
   {
     id: 'l4-q03',
     subject: 'fr',
-    topicIds: [],
+    topicIds: ['listening-strategy'],
     paper: 'P2',
     section: 'l4',
     marks: 1,
@@ -674,7 +674,7 @@ export const questions: FrQuestion[] = [
   {
     id: 'l4-q04',
     subject: 'fr',
-    topicIds: [],
+    topicIds: ['listening-strategy'],
     paper: 'P2',
     section: 'l4',
     marks: 1,
@@ -694,7 +694,7 @@ export const questions: FrQuestion[] = [
   {
     id: 'l4-q05',
     subject: 'fr',
-    topicIds: [],
+    topicIds: ['listening-strategy'],
     paper: 'P2',
     section: 'l4',
     marks: 1,
@@ -714,7 +714,7 @@ export const questions: FrQuestion[] = [
   {
     id: 'l4-q06',
     subject: 'fr',
-    topicIds: [],
+    topicIds: ['listening-strategy'],
     paper: 'P2',
     section: 'l4',
     marks: 1,
@@ -734,7 +734,7 @@ export const questions: FrQuestion[] = [
   {
     id: 'l4-q07',
     subject: 'fr',
-    topicIds: [],
+    topicIds: ['listening-strategy'],
     paper: 'P2',
     section: 'l4',
     marks: 1,
@@ -754,7 +754,7 @@ export const questions: FrQuestion[] = [
   {
     id: 'l4-q08',
     subject: 'fr',
-    topicIds: [],
+    topicIds: ['listening-strategy'],
     paper: 'P2',
     section: 'l4',
     marks: 1,
@@ -774,7 +774,7 @@ export const questions: FrQuestion[] = [
   {
     id: 'l4-q09',
     subject: 'fr',
-    topicIds: [],
+    topicIds: ['listening-strategy'],
     paper: 'P2',
     section: 'l4',
     marks: 1,
@@ -794,7 +794,7 @@ export const questions: FrQuestion[] = [
   {
     id: 'l4-q10',
     subject: 'fr',
-    topicIds: [],
+    topicIds: ['listening-strategy'],
     paper: 'P2',
     section: 'l4',
     marks: 1,
