@@ -1416,3 +1416,5 @@ pre.code, .code-block {
 /* Wide tables and code blocks scroll inside their own box, so a lab page never grows wider than a 390 px screen. */
 .table-scroll { max-width: 100%; overflow-x: auto; }
 pre { max-width: 100%; overflow-x: auto; }
+/* English summaries in the Russian pages repeat the English text in EN mode */
+[data-lang="en"] .en-summary { display: none; }

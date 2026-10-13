@@ -1,0 +1,1083 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A2.4 Сетевая безопасность · IB CS Theme A</title>
+<meta name="description" content="A2.4 Network security — подробный разбор на русском: межсетевые экраны, уязвимости (DDoS, malware, фишинг, MITM, SQL-инъекции), контрмеры (IDS/IPS, MFA, VPN), шифрование симметричное и асимметричное, цифровые сертификаты, аутентификация и контроль доступа.">
+<link rel="stylesheet" href="styles.css?v=11">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%231a3a5e'/%3E%3Ctext x='50' y='62' font-family='Helvetica' font-size='42' font-weight='700' fill='white' text-anchor='middle'%3EA%3C/text%3E%3C/svg%3E">
+<style>
+  /* Standalone page styling — single-language Russian, focused reading */
+  .device-page {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 40px 24px 80px;
+  }
+  .device-page h1 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    color: var(--primary);
+    margin: 16px 0 8px;
+    letter-spacing: -0.02em;
+  }
+  .device-page .lede {
+    font-size: 1.15rem;
+    color: var(--text-muted);
+    max-width: 760px;
+    margin: 8px 0 32px;
+    line-height: 1.6;
+  }
+  .device-page h2 {
+    font-size: 1.65rem;
+    color: var(--primary);
+    margin: 48px 0 12px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--border);
+  }
+  .device-page h3 {
+    font-size: 1.25rem;
+    color: var(--text);
+    margin: 28px 0 8px;
+  }
+  .summary-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 18px 0 32px;
+    font-size: 0.95rem;
+    box-shadow: var(--shadow-sm);
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+  .summary-table th {
+    background: var(--primary);
+    color: #fff;
+    text-align: left;
+    padding: 12px 16px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  .summary-table td {
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+  .summary-table tr:last-child td { border-bottom: 0; }
+  .summary-table tr:nth-child(even) { background: var(--surface-2); }
+  .summary-table td:first-child { font-weight: 600; color: var(--primary); white-space: nowrap; }
+  .device-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 5px solid var(--accent);
+    border-radius: var(--radius);
+    padding: 20px 24px;
+    margin: 18px 0;
+    box-shadow: var(--shadow-sm);
+  }
+  /* Threat card (red) */
+  .threat-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 5px solid #ef4444;
+    border-radius: var(--radius);
+    padding: 20px 24px;
+    margin: 18px 0;
+    box-shadow: var(--shadow-sm);
+  }
+  .threat-card h3 {
+    margin: 0 0 8px;
+    font-size: 1.2rem;
+    color: #b91c1c;
+    display: flex; align-items: center; gap: 10px;
+  }
+  [data-theme="dark"] .threat-card h3 { color: #fca5a5; }
+  .threat-card p { margin: 6px 0; line-height: 1.65; }
+  .threat-card ul { padding-left: 22px; line-height: 1.7; margin: 6px 0; }
+  .threat-card .example-tag {
+    display: inline-block;
+    margin-top: 8px;
+    padding: 4px 10px;
+    background: rgba(239,68,68,0.10);
+    color: #b91c1c;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: 600;
+  }
+  [data-theme="dark"] .threat-card .example-tag {
+    background: rgba(239,68,68,0.18);
+    color: #fca5a5;
+  }
+  /* Defense card (green) */
+  .defense-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 5px solid var(--green);
+    border-radius: var(--radius);
+    padding: 20px 24px;
+    margin: 18px 0;
+    box-shadow: var(--shadow-sm);
+  }
+  .defense-card h3 {
+    margin: 0 0 8px;
+    font-size: 1.2rem;
+    color: #047857;
+    display: flex; align-items: center; gap: 10px;
+  }
+  [data-theme="dark"] .defense-card h3 { color: #6ee7b7; }
+  .defense-card p { margin: 6px 0; line-height: 1.65; }
+  .defense-card ul { padding-left: 22px; line-height: 1.7; margin: 6px 0; }
+  /* Amber warning card */
+  .warn-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 5px solid var(--amber);
+    border-radius: var(--radius);
+    padding: 18px 22px;
+    margin: 16px 0;
+    box-shadow: var(--shadow-sm);
+  }
+  .warn-card h3 {
+    margin: 0 0 6px;
+    font-size: 1.15rem;
+    color: #b45309;
+    display: flex; align-items: center; gap: 10px;
+  }
+  [data-theme="dark"] .warn-card h3 { color: #fcd34d; }
+  .warn-card p, .warn-card li { line-height: 1.65; }
+  .device-card h3 {
+    margin: 0 0 4px;
+    font-size: 1.3rem;
+    color: var(--primary);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .device-card .device-emoji { font-size: 1.6rem; }
+  .device-card p { margin: 8px 0; line-height: 1.65; }
+  .device-card ul { margin: 8px 0; padding-left: 22px; line-height: 1.7; }
+  .device-card li { margin-bottom: 6px; }
+  .question-card {
+    background: rgba(139,92,246,0.06);
+    border: 1px solid var(--border);
+    border-left: 5px solid var(--violet);
+    border-radius: var(--radius);
+    padding: 16px 20px;
+    margin: 14px 0;
+  }
+  [data-theme="dark"] .question-card { background: rgba(139,92,246,0.10); }
+  .question-card summary {
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--violet);
+    list-style: none;
+    user-select: none;
+  }
+  .question-card summary::-webkit-details-marker { display: none; }
+  .question-card summary::before {
+    content: '▶ ';
+    display: inline-block;
+    transition: transform 0.2s;
+    margin-right: 4px;
+  }
+  .question-card[open] summary::before { transform: rotate(90deg); }
+  .question-card .answer {
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px dashed var(--border);
+    color: var(--text);
+  }
+  .marks-tag {
+    display: inline-block;
+    padding: 2px 8px;
+    background: var(--surface-2);
+    border-radius: 4px;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-left: 6px;
+    font-weight: 500;
+  }
+  .real-case {
+    background: rgba(245,158,11,0.08);
+    border-left: 4px solid var(--amber);
+    padding: 12px 16px;
+    margin: 10px 0;
+    border-radius: var(--radius-sm);
+    font-size: 0.93rem;
+  }
+  [data-theme="dark"] .real-case { background: rgba(245,158,11,0.12); }
+  .real-case b { color: #b45309; }
+  [data-theme="dark"] .real-case b { color: #fcd34d; }
+  .ru-tip {
+    background: rgba(245,158,11,0.08);
+    border-left: 4px solid var(--amber);
+    padding: 10px 16px;
+    margin: 14px 0;
+    border-radius: var(--radius-sm);
+    font-size: 0.92rem;
+  }
+  [data-theme="dark"] .ru-tip { background: rgba(245,158,11,0.12); }
+  .back-link {
+    display: inline-block;
+    margin: 0 0 16px;
+    color: var(--accent);
+    font-size: 0.95rem;
+  }
+  .sim-link {
+    display: inline-block;
+    margin: 8px 0 16px;
+    padding: 12px 18px;
+    background: rgba(14,165,233,0.10);
+    border: 1px solid var(--accent);
+    border-radius: var(--radius);
+    color: var(--accent);
+    font-weight: 600;
+    text-decoration: none;
+  }
+  .sim-link:hover { background: rgba(14,165,233,0.18); }
+  .hero-eyebrow {
+    display: inline-block;
+    padding: 6px 14px;
+    border-radius: 99px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  .grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin: 16px 0;
+  }
+  @media (max-width: 720px) {
+    .grid-2 { grid-template-columns: 1fr; }
+  }
+  .crypto-table td:first-child {
+    background: var(--surface-2);
+    color: var(--primary);
+    width: 22%;
+  }
+  .pill {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 99px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    margin-right: 4px;
+  }
+  .pill-red { background: rgba(239,68,68,0.12); color: #b91c1c; }
+  .pill-green { background: rgba(16,185,129,0.12); color: #047857; }
+  .pill-amber { background: rgba(245,158,11,0.14); color: #b45309; }
+  .pill-blue { background: rgba(14,165,233,0.12); color: #0369a1; }
+  [data-theme="dark"] .pill-red { color: #fca5a5; }
+  [data-theme="dark"] .pill-green { color: #6ee7b7; }
+  [data-theme="dark"] .pill-amber { color: #fcd34d; }
+  [data-theme="dark"] .pill-blue { color: #7dd3fc; }
+  /* English parallel-summary block */
+  .en-summary {
+    background: rgba(14,165,233,0.06);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--accent);
+    border-radius: var(--radius-sm);
+    padding: 14px 18px;
+    margin: 18px 0 24px;
+    font-size: 0.94rem;
+    line-height: 1.6;
+  }
+  [data-theme="dark"] .en-summary { background: rgba(14,165,233,0.10); }
+  .en-summary .en-eyebrow {
+    display: inline-block;
+    font-size: 0.74rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 6px;
+  }
+  .en-summary p { margin: 6px 0; }
+  .en-summary ul { margin: 6px 0; padding-left: 22px; }
+  .en-summary li { margin: 3px 0; }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="nav">
+    <a href="index.html" class="brand"><span class="lang-ru-inline">
+      <span class="brand-mark">A</span>
+      IB CS · Тема A
+    </span><span class="lang-en-inline"><span class="brand-mark">A</span> IB CS · Theme A</span></a>
+    <div class="nav-links"><span class="lang-ru-inline">
+      <a href="index.html">Обзор</a>
+      <a href="fundamentals.html">A1 Основы</a>
+      <a href="networks.html">A2 Сети</a>
+      <a href="setevye-ustroistva.html">A2.1.3 Устройства</a>
+      <a href="databases.html">A3 Базы данных</a>
+      <a href="ml.html">A4 ML</a>
+      <a href="quiz.html">Квиз</a>
+    </span><span class="lang-en-inline"><a href="index.html">Overview</a> <a href="fundamentals.html">A1 Fundamentals</a> <a href="networks.html">A2 Networks</a> <a href="setevye-ustroistva.html">A2.1.3 Network devices (RU)</a> <a href="databases.html">A3 Databases</a> <a href="ml.html">A4 ML</a> <a href="quiz.html">Quiz</a></span></div>
+    <div class="nav-actions">
+      <button class="theme-toggle" data-theme-toggle>☽</button>
+      <button class="lang-toggle" data-lang-toggle>EN</button>
+    </div>
+  </nav>
+</header>
+
+<main class="device-page">
+
+  <a href="networks.html" class="back-link"><span class="lang-ru-inline">← Назад к A2 Сети</span><span class="lang-en-inline">← Back to A2 Networks</span></a>
+
+  <span class="hero-eyebrow" style="background:rgba(239,68,68,0.12); color:#b91c1c">
+    A2.4 · Network Security
+  </span>
+
+  <h1><span class="lang-ru-inline">🔒 Сетевая безопасность</span><span class="lang-en-inline">🔒 Network security</span></h1>
+
+  <p class="lede"><span class="lang-ru-inline">
+    Эта тема (<b>A2.4</b>) — про то, как сети защищают данные от <b>угроз</b> (threats) и <b>уязвимостей</b> (vulnerabilities). Ты узнаешь, как работают межсетевые экраны и системы обнаружения вторжений, чем симметричное шифрование отличается от асимметричного, зачем нужны цифровые сертификаты и HTTPS, как устроены 2FA, VPN и политики безопасности. Все понятия покрывают четыре подтемы: <b>A2.4.1 файрволы</b>, <b>A2.4.2 уязвимости</b>, <b>A2.4.3 контрмеры</b>, <b>A2.4.4 шифрование и сертификаты</b>.
+  </span><span class="lang-en-inline">This topic (<b>A2.4</b>) is about how networks protect data from <b>threats</b> and <b>vulnerabilities</b>. You will learn how firewalls and intrusion detection systems work, how symmetric encryption differs from asymmetric encryption, why digital certificates and HTTPS are needed, and how 2FA, VPNs and security policies work. The topic covers four subtopics: <b>A2.4.1 firewalls</b>, <b>A2.4.2 vulnerabilities</b>, <b>A2.4.3 countermeasures</b>, <b>A2.4.4 encryption and certificates</b>.</span></p>
+    
+
+  
+
+  <a href="networks.html#encryption-sim" class="sim-link"><span class="lang-ru-inline">🔐 Открыть симуляцию: симметричное vs асимметричное шифрование →</span><span class="lang-en-inline">🔐 Open the simulation: symmetric vs asymmetric encryption →</span></a>
+
+  <!-- ============ SECTION 1: BIG PICTURE ============ -->
+  <h2><span class="lang-ru-inline">1. С чего начать: триада CIA и общая картина</span><span class="lang-en-inline">1. Getting started: the CIA triad and the big picture</span></h2>
+
+  <div class="en-summary">
+    <span class="en-eyebrow">English summary · CIA triad</span>
+    <p>Network security is built around three goals, known as the <b>CIA triad</b>:</p>
+    <ul>
+      <li><b>Confidentiality</b> — only intended recipients can read the data (achieved with encryption, access control, authentication).</li>
+      <li><b>Integrity</b> — data is not altered in transit or at rest (achieved with hashing, digital signatures, checksums).</li>
+      <li><b>Availability</b> — the service is reachable when needed (achieved with DDoS protection, backups, redundancy).</li>
+    </ul>
+    <p>Almost any A2.4 exam question maps to one of these three letters: name <i>which</i> goal a technology protects or breaks and half the answer is already written.</p>
+  </div>
+
+  <p><span class="lang-ru-inline">
+    Сетевая безопасность строится вокруг трёх целей — их часто называют <b>триадой CIA</b>:
+  </span><span class="lang-en-inline">Network security is built around three goals, often called the <b>CIA triad</b>:</span></p>
+
+  <div class="table-scroll"><table class="summary-table">
+    <thead>
+      <tr>
+        <th><span class="lang-ru-inline">Цель</span><span class="lang-en-inline">Goal</span></th>
+        <th><span class="lang-ru-inline">Что значит</span><span class="lang-en-inline">What it means</span></th>
+        <th><span class="lang-ru-inline">Чем достигается</span><span class="lang-en-inline">How it is achieved</span></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="lang-ru-inline">Confidentiality (Конфиденциальность)</span><span class="lang-en-inline">Confidentiality</span></td>
+        <td><span class="lang-ru-inline">Данные видит только тот, кому они адресованы.</span><span class="lang-en-inline">Only the intended recipient can see the data.</span></td>
+        <td><span class="lang-ru-inline">Шифрование, контроль доступа, аутентификация.</span><span class="lang-en-inline">Encryption, access control, authentication.</span></td>
+      </tr>
+      <tr>
+        <td><span class="lang-ru-inline">Integrity (Целостность)</span><span class="lang-en-inline">Integrity</span></td>
+        <td><span class="lang-ru-inline">Данные не были изменены в пути или в хранилище.</span><span class="lang-en-inline">The data has not been changed in transit or in storage.</span></td>
+        <td><span class="lang-ru-inline">Хеши, цифровые подписи, контрольные суммы.</span><span class="lang-en-inline">Hashes, digital signatures, checksums.</span></td>
+      </tr>
+      <tr>
+        <td><span class="lang-ru-inline">Availability (Доступность)</span><span class="lang-en-inline">Availability</span></td>
+        <td><span class="lang-ru-inline">Сервис работает, когда он нужен пользователю.</span><span class="lang-en-inline">The service works when the user needs it.</span></td>
+        <td><span class="lang-ru-inline">Защита от DDoS, резервное копирование, отказоустойчивость.</span><span class="lang-en-inline">Protection against DDoS, backups, fault tolerance.</span></td>
+      </tr>
+    </tbody>
+  </table></div>
+
+  <div class="ru-tip"><span class="lang-ru-inline">
+    💡 <b>Подсказка для запоминания:</b> почти любой вопрос экзамена по A2.4 связан с одной из трёх букв CIA. Если ты можешь сказать, <i>какую</i> из трёх целей защищает или ломает технология — половина ответа уже есть.
+  </span><span class="lang-en-inline">💡 <b>Memory tip:</b> almost any exam question on A2.4 is linked to one of the three letters of CIA. If you can say <i>which</i> of the three goals a technology protects or breaks, half of the answer is already there.</span></div>
+
+  <!-- ============ SECTION 2: FIREWALLS ============ -->
+  <h2><span class="lang-ru-inline">2. 🛡️ Межсетевые экраны (Firewalls) — подтема A2.4.1</span><span class="lang-en-inline">2. 🛡️ Firewalls — subtopic A2.4.1</span></h2>
+
+  <div class="en-summary">
+    <span class="en-eyebrow">English summary · Firewalls (A2.4.1)</span>
+    <p>A <b>firewall</b> is hardware or software that inspects packets entering and leaving a network and applies an ordered rule set based on source/destination IP, port number, and protocol. Next-generation firewalls (NGFW, layer 7) also inspect packet contents via deep packet inspection.</p>
+    <ul>
+      <li><b>Whitelist</b> — deny by default, allow only listed sources (safer).</li>
+      <li><b>Blacklist</b> — allow by default, block listed sources (must know every attacker in advance).</li>
+    </ul>
+    <p><b>Strengths:</b> access control, traffic logging and alerting, layer-7 filtering, easy scaling. <b>Limitations:</b> blind to insider threats, bypassed by sophisticated or zero-day attacks hidden in encrypted traffic, hard to configure, and DPI adds latency.</p>
+    <p><b>NAT</b> hides internal IP addresses behind one public address (IP masquerading) — a basic form of access control on top of address conservation.</p>
+  </div>
+
+  <p><span class="lang-ru-inline">
+    <b>Файрвол</b> (firewall) — это устройство или программа, которая <b>отслеживает и фильтрует входящий и исходящий сетевой трафик на уровне пакетов</b>. Современные файрволы «нового поколения» (next-generation firewall, NGFW), они же <b>layer 7</b>-файрволы, умеют смотреть не только заголовки пакетов, но и сам контент.
+  </span><span class="lang-en-inline"><b>A firewall</b> is a device or program that <b>monitors and filters incoming and outgoing network traffic at the packet level</b>. Modern next-generation firewalls (NGFW), also known as <b>layer 7</b> firewalls, can look not only at packet headers but also at the content itself.</span></p>
+
+  <h3><span class="lang-ru-inline">Как файрвол принимает решение</span><span class="lang-en-inline">How a firewall makes a decision</span></h3>
+  <p><span class="lang-ru-inline">
+    Файрвол проверяет каждый пакет, который пытается войти или выйти, и применяет к нему набор <b>правил</b>. Правила опираются на:
+  </span><span class="lang-en-inline">A firewall checks every packet that tries to enter or leave and applies a set of <b>rules</b> to it. The rules are based on:</span></p>
+  <ul>
+    <li><span class="lang-ru-inline"><b>IP-адреса</b> источника и назначения;</span><span class="lang-en-inline">source and destination <b>IP addresses</b>;</span></li>
+    <li><span class="lang-ru-inline"><b>Номера портов</b> (например, 80 — HTTP, 443 — HTTPS, 22 — SSH);</span><span class="lang-en-inline"><b>port numbers</b> (for example, 80 for HTTP, 443 for HTTPS, 22 for SSH);</span></li>
+    <li><span class="lang-ru-inline"><b>Протоколы</b> (TCP, UDP);</span><span class="lang-en-inline"><b>protocols</b> (TCP, UDP);</span></li>
+    <li><span class="lang-ru-inline">Для NGFW — <b>содержимое пакета</b> (deep packet inspection, DPI).</span><span class="lang-en-inline">for NGFW, the <b>packet content</b> (deep packet inspection, DPI).</span></li>
+  </ul>
+  <p><span class="lang-ru-inline">
+    Правила обрабатываются <b>по порядку</b>. Файрвол идёт сверху вниз; как только нашёл совпадение — выполняет действие (allow или block) и останавливается.
+  </span><span class="lang-en-inline">Rules are processed <b>in order</b>. The firewall goes from top to bottom; as soon as it finds a match, it applies the action (allow or block) and stops.</span></p>
+
+  <div class="grid-2">
+    <div class="defense-card">
+      <h3><span class="lang-ru-inline">✅ Whitelist (белый список)</span><span class="lang-en-inline">✅ Whitelist</span></h3>
+      <p><span class="lang-ru-inline">Список <b>разрешённых</b> IP-адресов, доменов или приложений. Всё, чего нет в списке — <b>блокируется по умолчанию</b>. Более безопасный подход.</span><span class="lang-en-inline">A list of <b>allowed</b> IP addresses, domains or applications. Anything not on the list is <b>blocked by default</b>. A safer approach.</span></p>
+    </div>
+    <div class="threat-card">
+      <h3><span class="lang-ru-inline">⛔ Blacklist (чёрный список)</span><span class="lang-en-inline">⛔ Blacklist</span></h3>
+      <p><span class="lang-ru-inline">Список <b>запрещённых</b> IP-адресов, доменов или приложений. Всё, чего нет в списке — <b>пропускается по умолчанию</b>. Требует знать всех плохих заранее — отсюда дыры.</span><span class="lang-en-inline">A list of <b>blocked</b> IP addresses, domains or applications. Anything not on the list is <b>allowed by default</b>. It requires knowing all the bad ones in advance, which is why it leaves gaps.</span></p>
+    </div>
+  </div>
+
+  <h3><span class="lang-ru-inline">Сильные стороны файрволов</span><span class="lang-en-inline">Strengths of firewalls</span></h3>
+  <div class="table-scroll"><table class="summary-table">
+    <thead><tr><th><span class="lang-ru-inline">Преимущество</span><span class="lang-en-inline">Advantage</span></th><th><span class="lang-ru-inline">Подробнее</span><span class="lang-en-inline">Details</span></th></tr></thead>
+    <tbody>
+      <tr><td><span class="lang-ru-inline">Контроль доступа</span><span class="lang-en-inline">Access control</span></td><td><span class="lang-ru-inline">Фильтрует трафик по IP, доменам, портам и протоколам — резко снижает риск несанкционированного доступа.</span><span class="lang-en-inline">Filters traffic by IP address, domain, port and protocol, which sharply reduces the risk of unauthorised access.</span></td></tr>
+      <tr><td><span class="lang-ru-inline">Мониторинг и логирование</span><span class="lang-en-inline">Monitoring and logging</span></td><td><span class="lang-ru-inline">Записывает всё, что видит, и поднимает тревогу при подозрительной активности.</span><span class="lang-en-inline">Records everything it sees and raises an alarm when activity looks suspicious.</span></td></tr>
+      <tr><td><span class="lang-ru-inline">Универсальность и масштабируемость</span><span class="lang-en-inline">Versatility and scalability</span></td><td><span class="lang-ru-inline">Современные файрволы дают VPN, IPS и DPI «из коробки», легко расширяются под рост сети.</span><span class="lang-en-inline">Modern firewalls provide VPN, IPS and DPI out of the box and are easy to scale as the network grows.</span></td></tr>
+      <tr><td><span class="lang-ru-inline">Защита на уровне приложений</span><span class="lang-en-inline">Application-level protection</span></td><td><span class="lang-ru-inline">NGFW (layer 7) смотрят содержимое пакетов — это даёт точечный контроль и защиту от атак, спрятанных внутри легального трафика.</span><span class="lang-en-inline">NGFW (layer 7) inspect packet content, which gives precise control and protection against attacks hidden inside legitimate traffic.</span></td></tr>
+    </tbody>
+  </table></div>
+
+  <h3><span class="lang-ru-inline">Ограничения файрволов</span><span class="lang-en-inline">Limitations of firewalls</span></h3>
+  <div class="table-scroll"><table class="summary-table">
+    <thead><tr><th><span class="lang-ru-inline">Ограничение</span><span class="lang-en-inline">Limitation</span></th><th><span class="lang-ru-inline">Подробнее</span><span class="lang-en-inline">Details</span></th></tr></thead>
+    <tbody>
+      <tr><td><span class="lang-ru-inline">Внутренние угрозы</span><span class="lang-en-inline">Insider threats</span></td><td><span class="lang-ru-inline">Файрвол смотрит на границу. Если злоумышленник уже внутри сети (например, недовольный сотрудник) — файрвол его не остановит.</span><span class="lang-en-inline">A firewall watches the boundary. If an attacker is already inside the network (for example, a disgruntled employee), the firewall will not stop them.</span></td></tr>
+      <tr><td><span class="lang-ru-inline">Изощрённые атаки</span><span class="lang-en-inline">Sophisticated attacks</span></td><td><span class="lang-ru-inline">APT-группировки, zero-day и часть malware обходят файрвол: маскируются под легальный трафик или используют шифрование.</span><span class="lang-en-inline">APT groups, zero-day exploits and some malware bypass the firewall: they disguise themselves as legitimate traffic or use encryption.</span></td></tr>
+      <tr><td><span class="lang-ru-inline">Сложность настройки</span><span class="lang-en-inline">Complexity of configuration</span></td><td><span class="lang-ru-inline">Файрвол — мощный инструмент, но требует экспертизы. Неправильно настроенный файрвол либо открывает дыры, либо ломает легальный трафик.</span><span class="lang-en-inline">A firewall is a powerful tool, but it needs expertise. A badly configured firewall either opens holes or breaks legitimate traffic.</span></td></tr>
+      <tr><td><span class="lang-ru-inline">Влияние на производительность</span><span class="lang-en-inline">Impact on performance</span></td><td><span class="lang-ru-inline">Глубокая инспекция пакетов (DPI) добавляет задержку — особенно заметно на высоконагруженных сервисах.</span><span class="lang-en-inline">Deep packet inspection (DPI) adds delay, which is especially noticeable on heavily loaded services.</span></td></tr>
+    </tbody>
+  </table></div>
+
+  <h3><span class="lang-ru-inline">NAT как дополнительная защита</span><span class="lang-en-inline">NAT as an extra layer of protection</span></h3>
+  <p><span class="lang-ru-inline">
+    <b>Network Address Translation (NAT)</b> — это не только способ экономить IPv4-адреса, но и слой защиты. NAT прячет внутренние IP-адреса за одним публичным («<b>IP masquerading</b>»), и атакующий извне просто не знает, к какому именно внутреннему устройству ему стучаться. Это <b>базовая форма контроля доступа</b> к внутренней сети.
+  </span><span class="lang-en-inline"><b>Network Address Translation (NAT)</b> is not only a way to save IPv4 addresses but also a layer of protection. NAT hides internal IP addresses behind one public address (“<b>IP masquerading</b>”), so an outside attacker simply does not know which internal device to target. It is a <b>basic form of access control</b> for the internal network.</span></p>
+
+  <div class="real-case"><span class="lang-ru-inline">
+    🌍 <b>Реальный пример:</b> в любой домашней Wi-Fi-сети маршрутизатор использует NAT. Твой ноутбук имеет адрес типа <code>192.168.1.5</code>, но в интернете «видится» как один публичный IP роутера. Атакующий не может напрямую направить пакет на твой ноутбук — сначала надо пробить NAT.
+  </span><span class="lang-en-inline">🌍 <b>Real example:</b> in any home Wi-Fi network, the router uses NAT. Your laptop has an address such as <code>192.168.1.5</code>, but on the internet it appears as the one public IP address of the router. An attacker cannot send a packet directly to your laptop — they would first have to get past the NAT.</span></div>
+
+  
+
+  
+
+  <!-- ============ SECTION 3: VULNERABILITIES ============ -->
+  <h2><span class="lang-ru-inline">3. ⚠️ Распространённые сетевые уязвимости — подтема A2.4.2</span><span class="lang-en-inline">3. ⚠️ Common network vulnerabilities — subtopic A2.4.2</span></h2>
+
+  <div class="en-summary">
+    <span class="en-eyebrow">English summary · Common network vulnerabilities (A2.4.2)</span>
+    <p>A <b>vulnerability</b> is a weakness an attacker can exploit. Core IB CS list:</p>
+    <ul>
+      <li><b>DDoS</b> — botnet floods a service so legitimate users are locked out (hits Availability).</li>
+      <li><b>Insecure protocols</b> — Telnet, FTP send credentials as cleartext, easy to sniff.</li>
+      <li><b>Malware</b> — virus (attached to a host program), worm (self-spreading across networks), trojan (disguised as legitimate software), ransomware (encrypts files for payment), spyware (silently exfiltrates data).</li>
+      <li><b>MITM</b> — attacker secretly relays between two endpoints, often via a rogue Wi-Fi access point.</li>
+      <li><b>Phishing / social engineering</b> — fake messages trick users into revealing credentials.</li>
+      <li><b>SQL injection</b> — malicious SQL fragments in input fields execute against the database.</li>
+      <li><b>Cross-site scripting (XSS)</b> — injected scripts run inside other users' browsers.</li>
+      <li><b>Brute force / weak authentication</b> — automated password guessing against poorly protected logins.</li>
+      <li><b>Unpatched software</b> — known fixes exist but were not installed (e.g. Equifax 2017).</li>
+      <li><b>Zero-day exploits</b> — attacks against unknown vulnerabilities with no patch available (e.g. Heartbleed).</li>
+    </ul>
+  </div>
+
+  <p><span class="lang-ru-inline">
+    <b>Уязвимость</b> (vulnerability) — это слабое место в системе, через которое возможна атака. Ниже — десять ключевых уязвимостей, которые требует знать IB CS.
+  </span><span class="lang-en-inline">A <b>vulnerability</b> is a weakness in a system through which an attack is possible. Below are ten key vulnerabilities that IB CS requires you to know.</span></p>
+
+  <!-- DDoS -->
+  <div class="threat-card">
+    <h3>🌊 DDoS — Distributed Denial of Service</h3>
+    <p><span class="lang-ru-inline">Цель — <b>перегрузить сайт или сервис</b> огромным количеством запросов из множества источников, чтобы он стал недоступен легальным пользователям. Атакует <b>Availability</b> из триады CIA.</span><span class="lang-en-inline">The aim is to <b>overload a website or service</b> with a huge number of requests from many sources, so that legitimate users cannot reach it. It attacks <b>Availability</b> from the CIA triad.</span></p>
+    <span class="example-tag"><span class="lang-ru-inline">Пример: интернет-магазин падает во время большой распродажи под потоком трафика с тысяч заражённых компьютеров (ботнет).</span><span class="lang-en-inline">Example: an online shop crashes during a big sale under a flood of traffic from thousands of infected computers (a botnet).</span></span>
+  </div>
+
+  <!-- Insecure protocols -->
+  <div class="threat-card">
+    <h3><span class="lang-ru-inline">📡 Небезопасные протоколы (Insecure network protocols)</span><span class="lang-en-inline">📡 Insecure network protocols</span></h3>
+    <p><span class="lang-ru-inline">Протоколы, в которых данные передаются <b>в открытом виде</b>, без шифрования. Их легко перехватить и прочитать.</span><span class="lang-en-inline">Protocols that send data <b>in plain text</b>, without encryption. Such data is easy to intercept and read.</span></p>
+    <span class="example-tag"><span class="lang-ru-inline">Пример: использование <code>Telnet</code> или <code>FTP</code> для удалённого доступа — пароли и данные летят по сети открытым текстом.</span><span class="lang-en-inline">Example: using <code>Telnet</code> or <code>FTP</code> for remote access — passwords and data travel across the network in plain text.</span></span>
+  </div>
+
+  <!-- Malware -->
+  <div class="threat-card">
+    <h3><span class="lang-ru-inline">🦠 Malware (вредоносное ПО)</span><span class="lang-en-inline">🦠 Malware</span></h3>
+    <p><span class="lang-ru-inline">Программное обеспечение, созданное, чтобы <b>повредить, нарушить работу или получить несанкционированный доступ</b> к системе. Семейство включает:</span><span class="lang-en-inline">Software designed to <b>damage, disrupt or gain unauthorised access</b> to a system. The family includes:</span></p>
+    <ul>
+      <li><span class="lang-ru-inline"><b>Вирус (virus)</b> — встраивается в другие программы, заражает их при запуске.</span><span class="lang-en-inline"><b>Virus</b> — embeds itself in other programs and infects them when they run.</span></li>
+      <li><span class="lang-ru-inline"><b>Червь (worm)</b> — самораспространяющийся, не нуждается в программе-носителе, расползается по сети сам.</span><span class="lang-en-inline"><b>Worm</b> — self-replicating; it does not need a host program and spreads across the network on its own.</span></li>
+      <li><span class="lang-ru-inline"><b>Троян (trojan)</b> — маскируется под полезную программу, внутри — вредоносный код.</span><span class="lang-en-inline"><b>Trojan</b> — disguises itself as a useful program but contains malicious code.</span></li>
+      <li><span class="lang-ru-inline"><b>Ransomware (вымогатель)</b> — шифрует файлы жертвы и требует выкуп за расшифровку.</span><span class="lang-en-inline"><b>Ransomware</b> — encrypts the victim’s files and demands a ransom for the decryption.</span></li>
+      <li><span class="lang-ru-inline"><b>Spyware (шпионское ПО)</b> — тайно собирает данные о пользователе (пароли, кейлоггинг, история).</span><span class="lang-en-inline"><b>Spyware</b> — secretly collects data about the user (passwords, keylogging, browsing history).</span></li>
+    </ul>
+    <span class="example-tag"><span class="lang-ru-inline">Пример: ransomware шифрует файлы на компьютере жертвы и требует биткойны за ключ расшифровки.</span><span class="lang-en-inline">Example: ransomware encrypts files on the victim’s computer and demands bitcoin for the decryption key.</span></span>
+    <div class="real-case"><span class="lang-ru-inline">
+      🌍 <b>Реальный случай — WannaCry (2017):</b> червь-вымогатель использовал уязвимость Windows (EternalBlue), за несколько дней заразил более 200 000 компьютеров в 150 странах, парализовал работу британской NHS, заводов Renault и Honda. Microsoft выпускала патч за 2 месяца до атаки — но многие не обновились. Это самый известный пример того, почему важен <b>patch management</b>.
+    </span><span class="lang-en-inline">🌍 <b>Real case — WannaCry (2017):</b> a ransomware worm exploited a Windows vulnerability (EternalBlue), infected more than 200,000 computers in 150 countries within a few days, and paralysed work at the British NHS and at Renault and Honda factories. Microsoft had released a patch two months before the attack, but many systems had not been updated. It is the best-known example of why <b>patch management</b> matters.</span></div>
+  </div>
+
+  <!-- MITM -->
+  <div class="threat-card">
+    <h3><span class="lang-ru-inline">👤 Man-in-the-Middle (MITM, «человек посередине»)</span><span class="lang-en-inline">👤 Man-in-the-middle (MITM)</span></h3>
+    <p><span class="lang-ru-inline">Атакующий <b>тайно вклинивается</b> между двумя сторонами, которые думают, что общаются напрямую. Может читать и подменять сообщения.</span><span class="lang-en-inline">The attacker <b>secretly inserts</b> themselves between two parties who think they are communicating directly. They can read and alter the messages.</span></p>
+    <span class="example-tag"><span class="lang-ru-inline">Пример: атакующий поднимает фальшивую Wi-Fi-точку в кафе, перехватывает данные карт при онлайн-покупках.</span><span class="lang-en-inline">Example: an attacker sets up a fake Wi-Fi hotspot in a café and intercepts card details during online purchases.</span></span>
+  </div>
+
+  <!-- Phishing -->
+  <div class="threat-card">
+    <h3><span class="lang-ru-inline">🎣 Phishing (фишинг) и социальная инженерия</span><span class="lang-en-inline">🎣 Phishing and social engineering</span></h3>
+    <p><span class="lang-ru-inline">Обманные попытки <b>выманить чувствительные данные</b> (логины, пароли, реквизиты карт), выдавая себя за доверенную сторону. Это форма <b>социальной инженерии</b> (social engineering) — атаки на человека, а не на технологию.</span><span class="lang-en-inline">Deceptive attempts to <b>obtain sensitive data</b> (logins, passwords, card details) by pretending to be a trusted party. It is a form of <b>social engineering</b> — an attack on people rather than on technology.</span></p>
+    <span class="example-tag"><span class="lang-ru-inline">Пример: письмо «из банка» с просьбой подтвердить данные на фальшивом сайте, копирующем дизайн настоящего.</span><span class="lang-en-inline">Example: an email “from the bank” asks the user to confirm their details on a fake website that copies the design of the real one.</span></span>
+  </div>
+
+  <!-- SQL injection -->
+  <div class="threat-card">
+    <h3><span class="lang-ru-inline">💉 SQL-инъекция</span><span class="lang-en-inline">💉 SQL injection</span></h3>
+    <p><span class="lang-ru-inline">Атака, при которой во <b>входное поле</b> (поиск, форма логина) вставляется <b>специально сконструированный SQL-код</b>, который сервер выполняет и выдаёт защищённые данные или меняет базу.</span><span class="lang-en-inline">An attack in which <b>specially crafted SQL code</b> is entered into an <b>input field</b> (search, login form), and the server runs it and reveals protected data or changes the database.</span></p>
+    <span class="example-tag"><span class="lang-ru-inline">Пример: в поле поиска вводится <code>' OR '1'='1</code> — и сайт показывает данные всех пользователей.</span><span class="lang-en-inline">Example: the string <code>' OR '1'='1</code> is entered into the search box, and the site shows the data of all users.</span></span>
+  </div>
+
+  <!-- XSS -->
+  <div class="threat-card">
+    <h3>📜 Cross-Site Scripting (XSS)</h3>
+    <p><span class="lang-ru-inline">Уязвимость веб-приложений: атакующий <b>внедряет вредоносный скрипт</b> в контент, который потом видят другие пользователи. Скрипт выполняется в их браузерах.</span><span class="lang-en-inline">A web application vulnerability: the attacker <b>injects a malicious script</b> into content that other users later see. The script runs in their browsers.</span></p>
+    <span class="example-tag"><span class="lang-ru-inline">Пример: комментарий на блоге содержит JavaScript, который ворует cookie-сессии у тех, кто прочитает пост.</span><span class="lang-en-inline">Example: a blog comment contains JavaScript that steals session cookies from anyone who reads the post.</span></span>
+  </div>
+
+  <!-- Brute force / weak auth -->
+  <div class="threat-card">
+    <h3><span class="lang-ru-inline">🔑 Brute force и слабая аутентификация</span><span class="lang-en-inline">🔑 Brute force and weak authentication</span></h3>
+    <p><span class="lang-ru-inline">Атакующий <b>перебирает пароли</b> (brute force) или использует «словарные» атаки. Уязвимость усиливается, если пароли простые, нет блокировки после N неверных попыток или нет MFA.</span><span class="lang-en-inline">The attacker <b>tries passwords one after another</b> (brute force) or uses dictionary attacks. The risk increases if passwords are simple, there is no lock-out after N failed attempts, or there is no MFA.</span></p>
+    <span class="example-tag"><span class="lang-ru-inline">Пример: сайт требует только логин и простой пароль, без второго фактора — атакующий за часы подбирает пароль <code>password123</code>.</span><span class="lang-en-inline">Example: a site asks only for a login and a simple password, with no second factor — the attacker guesses the password <code>password123</code> within hours.</span></span>
+  </div>
+
+  <!-- Unpatched software -->
+  <div class="threat-card">
+    <h3><span class="lang-ru-inline">🩹 Необновлённое ПО (unpatched software)</span><span class="lang-en-inline">🩹 Unpatched software</span></h3>
+    <p><span class="lang-ru-inline">ПО, в котором <b>не установлены последние патчи безопасности</b>. Известные уязвимости опубликованы — но конкретная система к ним всё ещё уязвима.</span><span class="lang-en-inline">Software that has <b>not had the latest security patches installed</b>. Known vulnerabilities are published, but a particular system is still vulnerable to them.</span></p>
+    <span class="example-tag"><span class="lang-ru-inline">Пример: ОС без обновлений несколько лет — атакующие используют любые известные дыры.</span><span class="lang-en-inline">Example: an operating system that has not been updated for several years — attackers use any known holes.</span></span>
+    <div class="real-case"><span class="lang-ru-inline">
+      🌍 <b>Реальный случай — Equifax (2017):</b> утечка персональных данных <b>147 миллионов</b> американцев. Причина: компания не установила вышедший за 2 месяца патч для веб-фреймворка Apache Struts. Прямой урок: <b>patch management — не бюрократия, а защита.</b>
+    </span><span class="lang-en-inline">🌍 <b>Real case — Equifax (2017):</b> a leak of the personal data of <b>147 million</b> Americans. The cause: the company did not install a patch for the Apache Struts web framework that had been released two months earlier. The direct lesson: <b>patch management is not bureaucracy, it is protection.</b></span></div>
+  </div>
+
+  <!-- Zero-day -->
+  <div class="threat-card">
+    <h3>0️⃣ Zero-day exploits</h3>
+    <p><span class="lang-ru-inline">Атаки, использующие <b>ранее неизвестную уязвимость</b> — до того, как разработчик выпустил патч и общественность узнала о проблеме. Самые опасные, потому что защититься нечем.</span><span class="lang-en-inline">Attacks that use a <b>previously unknown vulnerability</b> — before the developer has released a patch and the public knows about the problem. They are the most dangerous, because there is no defence against them.</span></p>
+    <span class="example-tag"><span class="lang-ru-inline">Пример: атакующий находит дыру в популярном браузере и пишет эксплойт раньше, чем разработчики успевают выпустить обновление.</span><span class="lang-en-inline">Example: an attacker finds a hole in a popular browser and writes an exploit before the developers manage to release an update.</span></span>
+    <div class="real-case"><span class="lang-ru-inline">
+      🌍 <b>Реальный случай — Heartbleed (2014):</b> уязвимость в OpenSSL (библиотека для HTTPS) позволяла читать содержимое памяти серверов — включая закрытые ключи и пароли. Дыра существовала <b>два года</b>, прежде чем её нашли. Затронуты были две трети всех HTTPS-сайтов в интернете.
+    </span><span class="lang-en-inline">🌍 <b>Real case — Heartbleed (2014):</b> a vulnerability in OpenSSL (a library used for HTTPS) allowed the contents of server memory to be read, including private keys and passwords. The hole existed for <b>two years</b> before it was found. Two thirds of all HTTPS sites on the internet were affected.</span></div>
+  </div>
+
+  
+
+  <!-- ============ SECTION 4: COUNTERMEASURES ============ -->
+  <h2><span class="lang-ru-inline">4. 🛡️ Контрмеры (Countermeasures) — подтема A2.4.3</span><span class="lang-en-inline">4. 🛡️ Countermeasures — subtopic A2.4.3</span></h2>
+
+  <div class="en-summary">
+    <span class="en-eyebrow">English summary · Countermeasures (A2.4.3)</span>
+    <p>Each vulnerability has matching defences. The IB list covers technical and policy controls:</p>
+    <ul>
+      <li><b>CSP</b> restricts script sources in the browser, stopping XSS injection.</li>
+      <li><b>Strong password policies</b> raise length and complexity, blocking dictionary and brute-force attempts.</li>
+      <li><b>Encrypted protocols (HTTPS / SSH)</b> protect traffic from eavesdropping and MITM.</li>
+      <li><b>SSL/TLS certificates</b> prove server identity so HTTPS resists impersonation.</li>
+      <li><b>Patch management</b> closes known exploits before attackers reach them.</li>
+      <li><b>DDoS mitigation</b> filters malicious flood traffic at the network edge.</li>
+      <li><b>Input validation</b> blocks SQL injection and XSS at the server.</li>
+      <li><b>Email filtering</b> catches phishing and malware attachments.</li>
+      <li><b>IDS</b> detects intrusions and raises alerts (passive); <b>IPS</b> detects and actively blocks (inline).</li>
+      <li><b>MFA / 2FA</b> requires multiple factors — knowledge, possession, biometrics — defeating credential leaks.</li>
+      <li><b>VPN</b> creates an encrypted tunnel for safe use of untrusted networks.</li>
+      <li><b>Authentication</b>: passwords, MFA, biometrics, SSO, OAuth (delegated authorisation; OIDC adds authentication).</li>
+      <li><b>Access control</b>: RBAC assigns rights by role; least privilege grants the minimum needed; ACLs list permissions per resource.</li>
+      <li><b>Wireless</b>: MAC filtering plus WPA2/WPA3 — but MAC spoofing limits filtering alone.</li>
+      <li><b>Penetration testing</b> and <b>security awareness training</b> close human and configuration gaps.</li>
+    </ul>
+  </div>
+
+  <p><span class="lang-ru-inline">
+    На каждую уязвимость существует своя контрмера. IB CS перечисляет следующие основные политики и инструменты защиты:
+  </span><span class="lang-en-inline">Each vulnerability has its own countermeasure. IB CS lists the following main policies and protection tools:</span></p>
+
+  <!-- CSP -->
+  <div class="defense-card">
+    <h3>📋 Content Security Policy (CSP)</h3>
+    <p><span class="lang-ru-inline">Браузерный механизм, который <b>предотвращает XSS</b>. CSP диктует браузеру, <b>с каких доменов</b> разрешено загружать скрипты, стили и изображения.</span><span class="lang-en-inline">A browser mechanism that <b>prevents XSS</b>. CSP tells the browser <b>which domains</b> it may load scripts, styles and images from.</span></p>
+    <p><span class="lang-ru-inline"><b>Защищает от:</b> <span class="pill pill-red">XSS</span></span><span class="lang-en-inline"><b>Protects against:</b> <span class="pill pill-red">XSS</span></span></p>
+    <p><span class="lang-ru-inline"><i>Пример:</i> сайт устанавливает CSP, разрешающую скрипты только со своего домена и доверенного CDN — это блокирует попытки внедрить чужой код.</span><span class="lang-en-inline"><i>Example:</i> a site sets a CSP that allows scripts only from its own domain and a trusted CDN — this blocks attempts to inject someone else’s code.</span></p>
+  </div>
+
+  <!-- Password policies -->
+  <div class="defense-card">
+    <h3><span class="lang-ru-inline">🔐 Сложные политики паролей</span><span class="lang-en-inline">🔐 Strong password policies</span></h3>
+    <p><span class="lang-ru-inline">Правила требующие <b>сильные пароли</b>: микс заглавных/строчных, цифр, символов, минимальная длина. Часто включают <b>истечение срока</b> и <b>запрет повторного использования</b>.</span><span class="lang-en-inline">Rules that require <b>strong passwords</b>: a mix of upper- and lower-case letters, digits and symbols, and a minimum length. They often include <b>password expiry</b> and a <b>ban on password reuse</b>.</span></p>
+    <p><span class="lang-ru-inline"><b>Защищает от:</b> <span class="pill pill-red">brute force</span> <span class="pill pill-red">словарные атаки</span></span><span class="lang-en-inline"><b>Protects against:</b> <span class="pill pill-red">brute force</span> <span class="pill pill-red">dictionary attacks</span></span></p>
+    <p><span class="lang-ru-inline"><i>Пример:</i> компания требует пароли минимум 12 символов с разными типами знаков.</span><span class="lang-en-inline"><i>Example:</i> a company requires passwords of at least 12 characters, with several types of characters.</span></p>
+  </div>
+
+  <!-- Encrypted protocols -->
+  <div class="defense-card">
+    <h3><span class="lang-ru-inline">🔒 Шифрованные протоколы (HTTPS, SSH)</span><span class="lang-en-inline">🔒 Encrypted protocols (HTTPS, SSH)</span></h3>
+    <p><span class="lang-ru-inline"><b>HTTPS</b> = HTTP + TLS. Шифрует общение между браузером и сервером — никто в середине не прочитает.</span><span class="lang-en-inline"><b>HTTPS</b> = HTTP + TLS. It encrypts the communication between the browser and the server, so nobody in the middle can read it.</span></p>
+    <p><span class="lang-ru-inline"><b>Защищает от:</b> <span class="pill pill-red">MITM</span> <span class="pill pill-red">подслушивание</span></span><span class="lang-en-inline"><b>Protects against:</b> <span class="pill pill-red">MITM</span> <span class="pill pill-red">eavesdropping</span></span></p>
+    <p><span class="lang-ru-inline"><i>Пример:</i> ты заходишь на сайт магазина с <code>https://</code> — данные карты передаются в зашифрованном виде.</span><span class="lang-en-inline"><i>Example:</i> you open a shop’s website with <code>https://</code> — card details are sent in encrypted form.</span></p>
+  </div>
+
+  <!-- SSL/TLS cert -->
+  <div class="defense-card">
+    <h3><span class="lang-ru-inline">📜 SSL/TLS-сертификаты</span><span class="lang-en-inline">📜 SSL/TLS certificates</span></h3>
+    <p><span class="lang-ru-inline">Цифровые сертификаты на веб-сервере — позволяют использовать HTTPS и <b>подтверждают подлинность</b> сервера. Иконка замка в адресной строке — признак валидного сертификата.</span><span class="lang-en-inline">Digital certificates on a web server allow HTTPS to be used and <b>confirm the authenticity</b> of the server. A padlock icon in the address bar is a sign of a valid certificate.</span></p>
+    <p><span class="lang-ru-inline"><b>Защищает от:</b> <span class="pill pill-red">MITM</span> <span class="pill pill-red">фишинг</span></span><span class="lang-en-inline"><b>Protects against:</b> <span class="pill pill-red">MITM</span> <span class="pill pill-red">phishing</span></span></p>
+  </div>
+
+  <!-- Update -->
+  <div class="defense-card">
+    <h3><span class="lang-ru-inline">🩹 Patch management (регулярные обновления)</span><span class="lang-en-inline">🩹 Patch management (regular updates)</span></h3>
+    <p><span class="lang-ru-inline">Своевременная установка <b>обновлений безопасности</b> ОС, приложений и прошивок. Закрывает уже известные уязвимости.</span><span class="lang-en-inline">Timely installation of <b>security updates</b> for operating systems, applications and firmware. It closes vulnerabilities that are already known.</span></p>
+    <p><span class="lang-ru-inline"><b>Защищает от:</b> <span class="pill pill-red">unpatched exploits</span> <span class="pill pill-red">malware</span></span><span class="lang-en-inline"><b>Protects against:</b> <span class="pill pill-red">unpatched exploits</span> <span class="pill pill-red">malware</span></span></p>
+    <p><span class="lang-ru-inline"><i>Пример:</i> Windows присылает критическое обновление — установишь сразу, не отложишь.</span><span class="lang-en-inline"><i>Example:</i> Windows releases a critical update — you install it straight away instead of postponing it.</span></p>
+  </div>
+
+  <!-- DDoS mitigation -->
+  <div class="defense-card">
+    <h3>🌊 DDoS mitigation tools</h3>
+    <p><span class="lang-ru-inline">Сервисы (Cloudflare, AWS Shield), которые <b>обнаруживают и фильтруют</b> вредоносный трафик во время DDoS-атаки, оставляя сайт доступным для легальных пользователей.</span><span class="lang-en-inline">Services (Cloudflare, AWS Shield) that <b>detect and filter</b> malicious traffic during a DDoS attack, keeping the site available to legitimate users.</span></p>
+    <p><span class="lang-ru-inline"><b>Защищает от:</b> <span class="pill pill-red">DDoS</span></span><span class="lang-en-inline"><b>Protects against:</b> <span class="pill pill-red">DDoS</span></span></p>
+  </div>
+
+  <!-- Input validation -->
+  <div class="defense-card">
+    <h3><span class="lang-ru-inline">✅ Валидация ввода (input validation)</span><span class="lang-en-inline">✅ Input validation</span></h3>
+    <p><span class="lang-ru-inline">Проверка пользовательских данных <b>на сервере</b>: правильный формат, отсутствие вредоносного кода. <b>Фильтрация</b> убирает плохие символы; <b>whitelisting</b> разрешает только определённые шаблоны.</span><span class="lang-en-inline">Checking user data <b>on the server</b>: correct format and no malicious code. <b>Filtering</b> removes bad characters; <b>whitelisting</b> allows only certain patterns.</span></p>
+    <p><span class="lang-ru-inline"><b>Защищает от:</b> <span class="pill pill-red">SQL-инъекции</span> <span class="pill pill-red">XSS</span></span><span class="lang-en-inline"><b>Protects against:</b> <span class="pill pill-red">SQL injection</span> <span class="pill pill-red">XSS</span></span></p>
+    <p><span class="lang-ru-inline"><i>Пример:</i> попытка ввести в имя пользователя <code>&lt;script&gt;alert('XSS')&lt;/script&gt;</code> блокируется валидацией.</span><span class="lang-en-inline"><i>Example:</i> an attempt to enter <code>&lt;script&gt;alert('XSS')&lt;/script&gt;</code> as a user name is blocked by validation.</span></p>
+  </div>
+
+  <!-- Email filtering -->
+  <div class="defense-card">
+    <h3><span class="lang-ru-inline">📧 Фильтрация email</span><span class="lang-en-inline">📧 Email filtering</span></h3>
+    <p><span class="lang-ru-inline">Системы, обнаруживающие <b>спам, фишинг и malware</b> во входящей почте. Анализируют отправителя, заголовки, текст, вложения.</span><span class="lang-en-inline">Systems that detect <b>spam, phishing and malware</b> in incoming mail. They analyse the sender, headers, text and attachments.</span></p>
+    <p><span class="lang-ru-inline"><b>Защищает от:</b> <span class="pill pill-red">фишинг</span> <span class="pill pill-red">malware во вложениях</span></span><span class="lang-en-inline"><b>Protects against:</b> <span class="pill pill-red">phishing</span> <span class="pill pill-red">malware in attachments</span></span></p>
+  </div>
+
+  <!-- IDS / IPS -->
+  <div class="defense-card">
+    <h3>👁️ IDS — Intrusion Detection System</h3>
+    <p><span class="lang-ru-inline">Система <b>обнаружения</b> вторжений: мониторит сеть или хост, ищет подозрительную активность и <b>поднимает тревогу</b>. Сама ничего не блокирует.</span><span class="lang-en-inline">An intrusion <b>detection</b> system: it monitors the network or a host, looks for suspicious activity and <b>raises an alarm</b>. It does not block anything itself.</span></p>
+    <p><span class="lang-ru-inline"><b>Защищает от:</b> <span class="pill pill-amber">общее обнаружение атак</span></span><span class="lang-en-inline"><b>Protects against:</b> <span class="pill pill-amber">general attack detection</span></span></p>
+    <p><span class="lang-ru-inline"><i>Пример:</i> IDS видит нетипичный port scan на корпоративной сети и шлёт алерт безопаснику.</span><span class="lang-en-inline"><i>Example:</i> an IDS sees an unusual port scan on the corporate network and sends an alert to a security specialist.</span></p>
+  </div>
+
+  <div class="defense-card">
+    <h3>🚨 IPS — Intrusion Prevention System</h3>
+    <p><span class="lang-ru-inline">Расширение IDS: помимо обнаружения, <b>сама принимает меры</b> — блокирует IP-адрес атакующего, режет соединение, не пускает пакет.</span><span class="lang-en-inline">An extension of IDS: in addition to detection, it <b>takes action itself</b> — it blocks the attacker’s IP address, cuts the connection, and stops the packet.</span></p>
+    <p><span class="lang-ru-inline"><b>Защищает от:</b> <span class="pill pill-red">активные атаки</span> <span class="pill pill-red">brute force</span></span><span class="lang-en-inline"><b>Protects against:</b> <span class="pill pill-red">active attacks</span> <span class="pill pill-red">brute force</span></span></p>
+    <p><span class="lang-ru-inline"><i>Пример:</i> IPS замечает 4 неудачных входа подряд с одного IP — блокирует этот IP автоматически.</span><span class="lang-en-inline"><i>Example:</i> an IPS notices 4 failed logins in a row from one IP address and blocks that address automatically.</span></p>
+  </div>
+
+  <div class="ru-tip"><span class="lang-ru-inline">
+    💡 <b>IDS vs IPS — ключевое отличие:</b> IDS = <b>детектив</b> (видит и сообщает), IPS = <b>охранник</b> (видит и действует). IPS стоит «в линии» с трафиком, IDS — «сбоку».
+  </span><span class="lang-en-inline">💡 <b>IDS vs IPS — the key difference:</b> an IDS is a <b>detective</b> (it sees and reports), an IPS is a <b>guard</b> (it sees and acts). An IPS sits “in line” with the traffic, while an IDS sits “to the side”.</span></div>
+
+  <!-- MFA -->
+  <div class="defense-card">
+    <h3><span class="lang-ru-inline">🔐 MFA — Multi-Factor Authentication (2FA, многофакторная аутентификация)</span><span class="lang-en-inline">🔐 MFA — Multi-Factor Authentication (2FA)</span></h3>
+    <p><span class="lang-ru-inline">Требование <b>нескольких форм подтверждения</b> личности при входе. Резко снижает риск компрометации аккаунта.</span><span class="lang-en-inline">Requiring <b>several forms of proof</b> of identity at login. It sharply reduces the risk of an account being compromised.</span></p>
+    <p><span class="lang-ru-inline">Три классических «фактора»:</span><span class="lang-en-inline">Three classic “factors”:</span></p>
+    <ul>
+      <li><span class="lang-ru-inline"><b>Знание</b> (something you know) — пароль, PIN;</span><span class="lang-en-inline"><b>Knowledge</b> (something you know) — a password, a PIN;</span></li>
+      <li><span class="lang-ru-inline"><b>Владение</b> (something you have) — телефон с приложением-генератором, аппаратный токен (YubiKey);</span><span class="lang-en-inline"><b>Possession</b> (something you have) — a phone with an authenticator app, a hardware token (YubiKey);</span></li>
+      <li><span class="lang-ru-inline"><b>Биометрия</b> (something you are) — отпечаток, лицо, голос.</span><span class="lang-en-inline"><b>Biometrics</b> (something you are) — a fingerprint, face or voice.</span></li>
+    </ul>
+    <p><span class="lang-ru-inline">Если используется ≥ 2 разных факторов — это MFA. 2FA = частный случай MFA с двумя факторами.</span><span class="lang-en-inline">If two or more different factors are used, it is MFA. 2FA is a special case of MFA with two factors.</span></p>
+    <p><span class="lang-ru-inline"><b>Защищает от:</b> <span class="pill pill-red">brute force</span> <span class="pill pill-red">слив пароля</span> <span class="pill pill-red">фишинг</span></span><span class="lang-en-inline"><b>Protects against:</b> <span class="pill pill-red">brute force</span> <span class="pill pill-red">password leaks</span> <span class="pill pill-red">phishing</span></span></p>
+    <p><span class="lang-ru-inline"><i>Пример:</i> вход в банк = пароль + одноразовый код из SMS или приложения Google Authenticator.</span><span class="lang-en-inline"><i>Example:</i> logging in to a bank = a password + a one-time code from an SMS or from the Google Authenticator app.</span></p>
+  </div>
+
+  <!-- VPN -->
+  <div class="defense-card">
+    <h3>🌐 VPN — Virtual Private Network</h3>
+    <p><span class="lang-ru-inline">«Расширяет» приватную сеть через публичную, создавая <b>защищённый зашифрованный туннель</b> между устройством и сетью. Все данные внутри туннеля защищены от подслушивания.</span><span class="lang-en-inline">“Extends” a private network across a public one by creating a <b>secure encrypted tunnel</b> between the device and the network. All data inside the tunnel is protected from eavesdropping.</span></p>
+    <p><span class="lang-ru-inline"><b>Защищает от:</b> <span class="pill pill-red">MITM в публичном Wi-Fi</span> <span class="pill pill-red">слежка ISP</span></span><span class="lang-en-inline"><b>Protects against:</b> <span class="pill pill-red">MITM on public Wi-Fi</span> <span class="pill pill-red">ISP surveillance</span></span></p>
+    <p><span class="lang-ru-inline"><i>Пример:</i> сотрудник в кафе подключается к корпоративной сети через VPN — все его данные зашифрованы.</span><span class="lang-en-inline"><i>Example:</i> an employee in a café connects to the corporate network through a VPN — all of their data is encrypted.</span></p>
+  </div>
+
+  <h3><span class="lang-ru-inline">Беспроводная безопасность: MAC-фильтрация и WPA2/WPA3</span><span class="lang-en-inline">Wireless security: MAC filtering and WPA2/WPA3</span></h3>
+  <p><span class="lang-ru-inline">
+    Каждая сетевая карта имеет уникальный <b>MAC-адрес</b>. <b>MAC-фильтрация</b> позволяет задать список MAC-адресов, которым разрешено подключение к Wi-Fi. Это дополнительный слой защиты поверх WPA2/WPA3-шифрования.
+  </span><span class="lang-en-inline">Every network card has a unique <b>MAC address</b>. <b>MAC filtering</b> lets you set a list of MAC addresses that are allowed to connect to the Wi-Fi. It is an extra layer of protection on top of WPA2/WPA3 encryption.</span></p>
+  <div class="warn-card">
+    <h3><span class="lang-ru-inline">⚠️ Важно понимать ограничение MAC-фильтрации</span><span class="lang-en-inline">⚠️ Important: understand the limitation of MAC filtering</span></h3>
+    <p><span class="lang-ru-inline">MAC-адреса можно <b>подделать</b> (MAC spoofing). Современные устройства часто используют <b>случайные MAC-адреса</b> ради приватности — это ломает MAC-фильтрацию. Поэтому MAC-фильтрация работает только в комбинации с сильным шифрованием (WPA2/WPA3) и не должна быть единственной защитой.</span><span class="lang-en-inline">MAC addresses can be <b>faked</b> (MAC spoofing). Modern devices often use <b>random MAC addresses</b> for privacy, which breaks MAC filtering. That is why MAC filtering works only in combination with strong encryption (WPA2/WPA3) and must not be the only protection.</span></p>
+  </div>
+
+  <h3><span class="lang-ru-inline">Аутентификация: пароли, SSO, OAuth, биометрия</span><span class="lang-en-inline">Authentication: passwords, SSO, OAuth, biometrics</span></h3>
+  <div class="table-scroll"><table class="summary-table">
+    <thead>
+      <tr><th><span class="lang-ru-inline">Метод</span><span class="lang-en-inline">Method</span></th><th><span class="lang-ru-inline">Как работает</span><span class="lang-en-inline">How it works</span></th><th><span class="lang-ru-inline">Минусы</span><span class="lang-en-inline">Drawbacks</span></th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="lang-ru-inline">Пароль</span><span class="lang-en-inline">Password</span></td>
+        <td><span class="lang-ru-inline">Пользователь знает секрет, сообщает его системе при входе.</span><span class="lang-en-inline">The user knows a secret and gives it to the system at login.</span></td>
+        <td><span class="lang-ru-inline">Слабые пароли, переиспользование, фишинг, brute force.</span><span class="lang-en-inline">Weak passwords, reuse, phishing, brute force.</span></td>
+      </tr>
+      <tr>
+        <td>2FA / MFA</td>
+        <td><span class="lang-ru-inline">Пароль + второй фактор (SMS-код, OTP-приложение, аппаратный токен).</span><span class="lang-en-inline">Password + a second factor (SMS code, OTP app, hardware token).</span></td>
+        <td><span class="lang-ru-inline">SMS — слабее, чем OTP-приложение (SIM swap).</span><span class="lang-en-inline">SMS is weaker than an OTP app (SIM swap).</span></td>
+      </tr>
+      <tr>
+        <td><span class="lang-ru-inline">Биометрия</span><span class="lang-en-inline">Biometrics</span></td>
+        <td><span class="lang-ru-inline">Отпечаток пальца, Face ID, сетчатка, голос.</span><span class="lang-en-inline">Fingerprint, Face ID, retina, voice.</span></td>
+        <td><span class="lang-ru-inline">Биометрию нельзя «сменить», если она утекла. Чувствительные данные.</span><span class="lang-en-inline">Biometrics cannot be “changed” if they leak. Sensitive data.</span></td>
+      </tr>
+      <tr>
+        <td>SSO (Single Sign-On)</td>
+        <td><span class="lang-ru-inline">Одно входит в одно приложение — даёт доступ ко многим (Google как SSO для всех Google-сервисов).</span><span class="lang-en-inline">One sign-in gives access to many applications (Google as SSO for all Google services).</span></td>
+        <td><span class="lang-ru-inline">Если компрометируется главный аккаунт — компрометируется всё. Защита: MFA.</span><span class="lang-en-inline">If the main account is compromised, everything is compromised. Protection: MFA.</span></td>
+      </tr>
+      <tr>
+        <td>OAuth</td>
+        <td><span class="lang-ru-inline">Протокол <b>делегирования доступа</b>: «Войти через Google/Facebook» — приложение получает токен, но не пароль.</span><span class="lang-en-inline">A protocol for <b>delegated access</b>: “Sign in with Google/Facebook” — the app gets a token, but not the password.</span></td>
+        <td><span class="lang-ru-inline">Нужно понимать, какие разрешения ты отдаёшь приложению.</span><span class="lang-en-inline">You need to understand which permissions you give to the app.</span></td>
+      </tr>
+    </tbody>
+  </table></div>
+
+  <div class="ru-tip"><span class="lang-ru-inline">
+    💡 <b>OAuth ≠ аутентификация:</b> технически OAuth — это <b>авторизация</b> (даёт приложению доступ к твоим ресурсам у провайдера). Для аутентификации поверх OAuth используется надстройка <b>OpenID Connect (OIDC)</b>. Но «Sign in with Google» в обиходе называют OAuth-логином.
+  </span><span class="lang-en-inline">💡 <b>OAuth ≠ authentication:</b> technically, OAuth is <b>authorisation</b> (it gives the app access to your resources held by the provider). For authentication on top of OAuth, the extension <b>OpenID Connect (OIDC)</b> is used. But “Sign in with Google” is commonly called an OAuth login.</span></div>
+
+  <h3><span class="lang-ru-inline">Контроль доступа: RBAC, least privilege, ACL</span><span class="lang-en-inline">Access control: RBAC, least privilege, ACL</span></h3>
+  <div class="defense-card">
+    <h3>👥 RBAC — Role-Based Access Control</h3>
+    <p><span class="lang-ru-inline">Права доступа выдаются <b>не отдельным пользователям</b>, а <b>ролям</b> (admin, manager, employee, guest). Пользователь получает права через свою роль. Управляется проще и масштабируется лучше, чем индивидуальные права.</span><span class="lang-en-inline">Access rights are given <b>not to individual users</b> but to <b>roles</b> (admin, manager, employee, guest). A user gets rights through their role. It is simpler to manage and scales better than individual rights.</span></p>
+  </div>
+  <div class="defense-card">
+    <h3><span class="lang-ru-inline">🔑 Least Privilege (принцип наименьших привилегий)</span><span class="lang-en-inline">🔑 Least privilege</span></h3>
+    <p><span class="lang-ru-inline">Каждому пользователю и процессу даётся <b>минимум прав</b>, необходимых для работы — и ни одного больше. Если аккаунт взломан, ущерб ограничен.</span><span class="lang-en-inline">Each user and process is given the <b>minimum rights</b> needed to do the job — and no more. If an account is hacked, the damage is limited.</span></p>
+  </div>
+  <div class="defense-card">
+    <h3>📋 ACL — Access Control List</h3>
+    <p><span class="lang-ru-inline">Список <b>«кто что может»</b> для ресурса. Например, файл может иметь ACL: «Alice — чтение, Bob — чтение и запись, остальные — нельзя». Используется в файловых системах и на сетевых устройствах (на маршрутизаторах ACL — это правила, кому разрешён трафик).</span><span class="lang-en-inline">A list of <b>“who can do what”</b> for a resource. For example, a file may have an ACL: “Alice — read, Bob — read and write, others — no access”. ACLs are used in file systems and on network devices (on routers, ACLs are rules that decide which traffic is allowed).</span></p>
+  </div>
+
+  <h3><span class="lang-ru-inline">Регулярное тестирование и обучение сотрудников</span><span class="lang-en-inline">Regular testing and staff training</span></h3>
+  <p><span class="lang-ru-inline">
+    Безопасность — это <b>не разовое событие</b>. Учебник подчёркивает два процесса:
+  </span><span class="lang-en-inline">Security is <b>not a one-off event</b>. The textbook stresses two processes:</span></p>
+  <ul>
+    <li><span class="lang-ru-inline"><b>Регулярные тесты на проникновение (penetration tests) и vulnerability scans</b> — имитация атак, чтобы найти уязвимости до того, как их найдут хакеры. Также проверяют, что файрвол, IDS/IPS правильно настроены.</span><span class="lang-en-inline"><b>Regular penetration tests and vulnerability scans</b> — simulated attacks that find vulnerabilities before hackers do. They also check that the firewall and IDS/IPS are configured correctly.</span></li>
+    <li><span class="lang-ru-inline"><b>Обучение сотрудников</b> (security awareness training). Сотрудник — часто самое слабое звено: фишинг, социальная инженерия. Обученный сотрудник распознаёт подозрительные письма и не кликает по фейковым ссылкам.</span><span class="lang-en-inline"><b>Staff training</b> (security awareness training). The employee is often the weakest link: phishing, social engineering. A trained employee recognises suspicious emails and does not click on fake links.</span></li>
+  </ul>
+
+  
+
+  
+
+  <!-- ============ SECTION 5: ENCRYPTION ============ -->
+  <h2><span class="lang-ru-inline">5. 🔐 Шифрование и цифровые сертификаты — подтема A2.4.4</span><span class="lang-en-inline">5. 🔐 Encryption and digital certificates — subtopic A2.4.4</span></h2>
+
+  <div class="en-summary">
+    <span class="en-eyebrow">English summary · Encryption &amp; certificates (A2.4.4)</span>
+    <p><b>Encryption</b> converts plaintext into ciphertext that only the holder of the correct key can decrypt.</p>
+    <ul>
+      <li><b>Symmetric</b> — one shared secret key encrypts and decrypts (AES, DES). Fast, low CPU; the hard part is distributing the key safely. Used for bulk data (files, video).</li>
+      <li><b>Asymmetric / public-key</b> — a public-private key pair (RSA, ECC). The public key encrypts or verifies; the private key decrypts or signs. Slower but no pre-shared secret needed. Used for key exchange and digital signatures.</li>
+      <li><b>Hybrid (TLS)</b> — asymmetric exchanges a symmetric session key, then symmetric encrypts the actual traffic — combining safety and speed.</li>
+      <li><b>Digital certificates</b> bind a public key to an identity. A trusted <b>Certificate Authority</b> signs the certificate; browsers verify the CA signature to trust the site, then run TLS to set up HTTPS.</li>
+      <li><b>Digital signatures</b> sign a document's hash with the sender's private key; the recipient verifies with the public key — providing authentication and integrity (not secrecy).</li>
+      <li><b>Hashing</b> is a one-way, deterministic function with avalanche effect (SHA-256 today; MD5/SHA-1 are broken). Used for file integrity, password storage with salt (bcrypt, Argon2), and signatures.</li>
+      <li><b>Key management</b> covers safe generation, rotation, backup, and restricted access — required by GDPR, HIPAA, PCI DSS.</li>
+    </ul>
+  </div>
+
+  <p><span class="lang-ru-inline">
+    <b>Шифрование (encryption)</b> — процесс превращения данных в закодированную форму, чтобы их не мог прочитать никто, кроме адресата. Алгоритмы превращают <b>открытый текст (plaintext)</b> в <b>шифртекст (ciphertext)</b>, который можно расшифровать только при наличии правильного ключа.
+  </span><span class="lang-en-inline"><b>Encryption</b> is the process of converting data into a coded form so that nobody except the intended recipient can read it. Algorithms turn <b>plaintext</b> into <b>ciphertext</b>, which can be decrypted only with the correct key.</span></p>
+
+  <a href="networks.html#encryption-sim" class="sim-link"><span class="lang-ru-inline">🔐 Открыть симуляцию: как работают симметричное и асимметричное шифрование →</span><span class="lang-en-inline">🔐 Open the simulation: how symmetric and asymmetric encryption work →</span></a>
+
+  <h3><span class="lang-ru-inline">Симметричное vs асимметричное шифрование</span><span class="lang-en-inline">Symmetric vs asymmetric encryption</span></h3>
+
+  <div class="grid-2">
+    <div class="defense-card">
+      <h3><span class="lang-ru-inline">🔑 Симметричное шифрование</span><span class="lang-en-inline">🔑 Symmetric encryption</span></h3>
+      <p><span class="lang-ru-inline"><b>Один и тот же секретный ключ</b> используется и для шифрования, и для расшифровки. Стороны должны заранее <b>безопасно обменяться ключом</b>.</span><span class="lang-en-inline"><b>The same secret key</b> is used for both encryption and decryption. The parties must <b>exchange the key securely</b> in advance.</span></p>
+      <p><span class="lang-ru-inline"><b>Алгоритмы:</b> AES, DES, 3DES.</span><span class="lang-en-inline"><b>Algorithms:</b> AES, DES, 3DES.</span></p>
+      <p><span class="lang-ru-inline"><b>Плюс:</b> очень быстро, мало нагружает процессор.</span><span class="lang-en-inline"><b>Advantage:</b> very fast, puts little load on the processor.</span></p>
+      <p><span class="lang-ru-inline"><b>Минус:</b> проблема <i>распространения ключа</i> — как безопасно передать ключ собеседнику?</span><span class="lang-en-inline"><b>Disadvantage:</b> the problem of <i>key distribution</i> — how to pass the key to the other party securely?</span></p>
+    </div>
+    <div class="defense-card">
+      <h3><span class="lang-ru-inline">🗝️ Асимметричное шифрование (public-key)</span><span class="lang-en-inline">🗝️ Asymmetric encryption (public-key)</span></h3>
+      <p><span class="lang-ru-inline">Используется <b>пара ключей</b>: <b>публичный</b> (открыто раздаётся всем) и <b>приватный</b> (хранится в секрете владельцем).</span><span class="lang-en-inline">A <b>pair of keys</b> is used: a <b>public</b> key (openly shared with everyone) and a <b>private</b> key (kept secret by its owner).</span></p>
+      <p><span class="lang-ru-inline">То, что зашифровано <b>публичным</b> ключом, расшифровать можно <b>только приватным</b> — и наоборот.</span><span class="lang-en-inline">What is encrypted with the <b>public</b> key can be decrypted only with the <b>private</b> key — and vice versa.</span></p>
+      <p><span class="lang-ru-inline"><b>Алгоритмы:</b> RSA, ECC, ElGamal.</span><span class="lang-en-inline"><b>Algorithms:</b> RSA, ECC, ElGamal.</span></p>
+      <p><span class="lang-ru-inline"><b>Плюс:</b> не нужно безопасно передавать ключ заранее.</span><span class="lang-en-inline"><b>Advantage:</b> there is no need to pass the key securely in advance.</span></p>
+      <p><span class="lang-ru-inline"><b>Минус:</b> в десятки раз медленнее симметричного.</span><span class="lang-en-inline"><b>Disadvantage:</b> tens of times slower than symmetric encryption.</span></p>
+    </div>
+  </div>
+
+  <div class="table-scroll"><table class="summary-table crypto-table">
+    <thead>
+      <tr>
+        <th><span class="lang-ru-inline">Признак</span><span class="lang-en-inline">Feature</span></th>
+        <th><span class="lang-ru-inline">Симметричное</span><span class="lang-en-inline">Symmetric</span></th>
+        <th><span class="lang-ru-inline">Асимметричное</span><span class="lang-en-inline">Asymmetric</span></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="lang-ru-inline">Ключи</span><span class="lang-en-inline">Keys</span></td>
+        <td><span class="lang-ru-inline">Один секретный ключ для шифрования и расшифровки.</span><span class="lang-en-inline">One secret key for encryption and decryption.</span></td>
+        <td><span class="lang-ru-inline">Два ключа: публичный (encrypt) + приватный (decrypt).</span><span class="lang-en-inline">Two keys: public (encrypt) + private (decrypt).</span></td>
+      </tr>
+      <tr>
+        <td><span class="lang-ru-inline">Распространение ключей</span><span class="lang-en-inline">Key distribution</span></td>
+        <td><span class="lang-ru-inline">Ключи нужно передать безопасно — это проблема.</span><span class="lang-en-inline">The keys must be passed on securely — this is a problem.</span></td>
+        <td><span class="lang-ru-inline">Публичный ключ можно свободно отдавать; приватный остаётся секретным.</span><span class="lang-en-inline">The public key can be shared freely; the private key stays secret.</span></td>
+      </tr>
+      <tr>
+        <td><span class="lang-ru-inline">Скорость</span><span class="lang-en-inline">Speed</span></td>
+        <td><span class="lang-ru-inline">Быстрее — простые алгоритмы.</span><span class="lang-en-inline">Faster — simpler algorithms.</span></td>
+        <td><span class="lang-ru-inline">Медленнее — сложная математика.</span><span class="lang-en-inline">Slower — complex mathematics.</span></td>
+      </tr>
+      <tr>
+        <td><span class="lang-ru-inline">Когда использовать</span><span class="lang-en-inline">When to use</span></td>
+        <td><span class="lang-ru-inline">Большие объёмы данных (файлы, потоковое видео).</span><span class="lang-en-inline">Large volumes of data (files, streaming video).</span></td>
+        <td><span class="lang-ru-inline">Обмен ключами, цифровые подписи, защищённая связь без предварительной встречи.</span><span class="lang-en-inline">Key exchange, digital signatures, secure communication without a prior meeting.</span></td>
+      </tr>
+      <tr>
+        <td><span class="lang-ru-inline">Безопасность</span><span class="lang-en-inline">Security</span></td>
+        <td><span class="lang-ru-inline">Зависит от секретности ключа и безопасного обмена.</span><span class="lang-en-inline">Depends on keeping the key secret and on a secure exchange.</span></td>
+        <td><span class="lang-ru-inline">Высокая для онлайн-связи без предварительного обмена ключами.</span><span class="lang-en-inline">High for online communication without a prior exchange of keys.</span></td>
+      </tr>
+      <tr>
+        <td><span class="lang-ru-inline">Вычислительные затраты</span><span class="lang-en-inline">Computational cost</span></td>
+        <td><span class="lang-ru-inline">Низкие — подходит даже для слабых устройств.</span><span class="lang-en-inline">Low — suitable even for weak devices.</span></td>
+        <td><span class="lang-ru-inline">Высокие — нужны более мощные процессоры.</span><span class="lang-en-inline">High — more powerful processors are needed.</span></td>
+      </tr>
+    </tbody>
+  </table></div>
+
+  <div class="ru-tip"><span class="lang-ru-inline">
+    💡 <b>Hybrid encryption — как работает HTTPS в реальности:</b> TLS использует <b>оба</b> подхода. Сначала через <b>асимметричное</b> шифрование стороны безопасно обмениваются <b>симметричным сеансовым ключом</b>. А дальше весь трафик шифруется уже <b>симметричным</b> ключом — потому что быстрее. Это даёт лучшее обоих миров: безопасный обмен ключами + быстрая работа.
+  </span><span class="lang-en-inline">💡 <b>Hybrid encryption — how HTTPS works in practice:</b> TLS uses <b>both</b> approaches. First, through <b>asymmetric</b> encryption, the parties securely exchange a <b>symmetric session key</b>. After that, all traffic is encrypted with the <b>symmetric</b> key, because it is faster. This gives the best of both worlds: a secure key exchange and fast operation.</span></div>
+
+  <h3><span class="lang-ru-inline">Пример Alice и Bob: симметричное</span><span class="lang-en-inline">Alice and Bob example: symmetric</span></h3>
+  <p><span class="lang-ru-inline">Alice хочет послать Bob сообщение «<i>Встретимся в полдень</i>»:</span><span class="lang-en-inline">Alice wants to send Bob the message “<i><span lang="ru">Встретимся в полдень</span></i>”:</span></p>
+  <ol>
+    <li><span class="lang-ru-inline">Alice и Bob заранее лично договорились о секретном ключе.</span><span class="lang-en-inline">Alice and Bob agree on a secret key in advance, in person.</span></li>
+    <li><span class="lang-ru-inline">Alice шифрует сообщение этим ключом — получается шифртекст.</span><span class="lang-en-inline">Alice encrypts the message with this key — the result is ciphertext.</span></li>
+    <li><span class="lang-ru-inline">Alice посылает шифртекст по интернету (хоть и не защищённому каналу).</span><span class="lang-en-inline">Alice sends the ciphertext over the internet, even though the channel is not secure.</span></li>
+    <li><span class="lang-ru-inline">Bob расшифровывает его тем же самым ключом — получает оригинал.</span><span class="lang-en-inline">Bob decrypts it with the same key and gets the original message.</span></li>
+  </ol>
+  <p><span class="lang-ru-inline"><b>Проблема:</b> если хакер перехватит ключ — он тоже прочитает всё.</span><span class="lang-en-inline"><b>Problem:</b> if a hacker intercepts the key, they can read everything too.</span></p>
+
+  <h3><span class="lang-ru-inline">Пример Alice и Bob: асимметричное</span><span class="lang-en-inline">Alice and Bob example: asymmetric</span></h3>
+  <p><span class="lang-ru-inline">То же сообщение, но без предварительного обмена ключом:</span><span class="lang-en-inline">The same message, but without an advance exchange of keys:</span></p>
+  <ol>
+    <li><span class="lang-ru-inline">Bob генерирует пару ключей: публичный (отдаёт Alice) и приватный (хранит у себя).</span><span class="lang-en-inline">Bob generates a pair of keys: a public key (given to Alice) and a private key (kept by Bob).</span></li>
+    <li><span class="lang-ru-inline">Alice пишет сообщение и шифрует его <b>публичным ключом Bob</b>.</span><span class="lang-en-inline">Alice writes the message and encrypts it with <b>Bob’s public key</b>.</span></li>
+    <li><span class="lang-ru-inline">Alice посылает зашифрованное сообщение.</span><span class="lang-en-inline">Alice sends the encrypted message.</span></li>
+    <li><span class="lang-ru-inline">Bob расшифровывает <b>своим приватным ключом</b> — только он может это сделать.</span><span class="lang-en-inline">Bob decrypts it with the <b>private key</b> — only Bob can do this.</span></li>
+  </ol>
+  <p><span class="lang-ru-inline"><b>Преимущество:</b> даже если хакер перехватит публичный ключ и шифртекст — он не сможет прочитать сообщение.</span><span class="lang-en-inline"><b>Advantage:</b> even if a hacker intercepts the public key and the ciphertext, they cannot read the message.</span></p>
+
+  <h3><span class="lang-ru-inline">Цифровые сертификаты (digital certificates)</span><span class="lang-en-inline">Digital certificates</span></h3>
+  <p><span class="lang-ru-inline">
+    <b>Цифровой сертификат</b> — электронный документ, который <b>связывает публичный ключ с идентичностью</b> (имя человека/организации, домен). Сертификаты выпускают <b>Certificate Authorities (CA)</b> — доверенные центры сертификации (DigiCert, Let's Encrypt, GlobalSign).
+  </span><span class="lang-en-inline">A <b>digital certificate</b> is an electronic document that <b>links a public key to an identity</b> (the name of a person or organisation, or a domain). Certificates are issued by <b>certificate authorities (CA)</b> — trusted certification centres (DigiCert, Let's Encrypt, GlobalSign).</span></p>
+
+  <p><span class="lang-ru-inline"><b>Как Alice получает HTTPS-сертификат для своего сайта:</b></span><span class="lang-en-inline"><b>How Alice gets an HTTPS certificate for her website:</b></span></p>
+  <ol>
+    <li><span class="lang-ru-inline">Alice генерирует пару ключей: публичный и приватный.</span><span class="lang-en-inline">Alice generates a pair of keys: a public key and a private key.</span></li>
+    <li><span class="lang-ru-inline">Alice отправляет в CA <b>Certificate Signing Request (CSR)</b> — содержит её публичный ключ и данные о сайте.</span><span class="lang-en-inline">Alice sends a <b>Certificate Signing Request (CSR)</b> to the CA — it contains the public key and information about the website.</span></li>
+    <li><span class="lang-ru-inline">CA проверяет личность Alice и подлинность сайта.</span><span class="lang-en-inline">The CA checks Alice’s identity and the authenticity of the website.</span></li>
+    <li><span class="lang-ru-inline">Если проверка прошла, CA выпускает сертификат и <b>подписывает его своим приватным ключом</b>.</span><span class="lang-en-inline">If the check is passed, the CA issues the certificate and <b>signs it with its private key</b>.</span></li>
+    <li><span class="lang-ru-inline">Alice устанавливает сертификат на свой веб-сервер.</span><span class="lang-en-inline">Alice installs the certificate on the web server.</span></li>
+    <li><span class="lang-ru-inline">Когда пользователь заходит на сайт, его браузер проверяет сертификат: подпись CA правильная → значит, сайт настоящий → можно устанавливать шифрованное соединение.</span><span class="lang-en-inline">When a user visits the site, their browser checks the certificate: the CA’s signature is correct → so the site is genuine → an encrypted connection can be set up.</span></li>
+  </ol>
+
+  <div class="real-case"><span class="lang-ru-inline">
+    🌍 <b>SSL/TLS и HTTPS:</b> SSL — старый протокол (устарел), TLS — современный. Когда ты видишь <b>замок</b> в адресной строке браузера, это значит: сайт предъявил валидный сертификат, и трафик между тобой и сайтом зашифрован TLS. HTTPS = HTTP «поверх» TLS.
+  </span><span class="lang-en-inline">🌍 <b>SSL/TLS and HTTPS:</b> SSL is an old protocol (now obsolete), TLS is the modern one. When you see a <b>padlock</b> in the browser’s address bar, it means that the site presented a valid certificate and the traffic between you and the site is encrypted with TLS. HTTPS = HTTP “over” TLS.</span></div>
+
+  <p><span class="lang-ru-inline"><b>Другие применения цифровых сертификатов:</b></span><span class="lang-en-inline"><b>Other uses of digital certificates:</b></span></p>
+  <ul>
+    <li><span class="lang-ru-inline"><b>SSH-ключи</b> — для безопасного удалённого входа на серверы без пароля.</span><span class="lang-en-inline"><b>SSH keys</b> — for secure remote login to servers without a password.</span></li>
+    <li><span class="lang-ru-inline"><b>Code signing</b> — разработчик подписывает программу. Пользователь при запуске видит, что код от настоящего автора и не был изменён.</span><span class="lang-en-inline"><b>Code signing</b> — a developer signs a program. When the program is launched, the user can see that the code comes from the genuine author and has not been changed.</span></li>
+    <li><span class="lang-ru-inline"><b>VPN</b> — сервер и клиент аутентифицируются через сертификаты, прежде чем устанавливать туннель.</span><span class="lang-en-inline"><b>VPN</b> — the server and the client authenticate each other with certificates before the tunnel is set up.</span></li>
+    <li><span class="lang-ru-inline"><b>Подпись документов</b> — PDF, Word: подтверждает автора и целостность.</span><span class="lang-en-inline"><b>Signing documents</b> — PDF, Word: confirms the author and integrity.</span></li>
+  </ul>
+
+  <h3><span class="lang-ru-inline">Цифровые подписи (digital signatures)</span><span class="lang-en-inline">Digital signatures</span></h3>
+  <p><span class="lang-ru-inline">
+    Подпись использует <b>асимметричное шифрование наоборот</b>: подписывают <b>приватным</b> ключом, проверяют — <b>публичным</b>. Цель — не секретность, а <b>подтверждение авторства и целостности</b>.
+  </span><span class="lang-en-inline">A signature uses <b>asymmetric encryption in reverse</b>: it is created with the <b>private</b> key and checked with the <b>public</b> key. The aim is not secrecy but <b>confirmation of authorship and integrity</b>.</span></p>
+  <ol>
+    <li><span class="lang-ru-inline">Отправитель берёт документ и считает его <b>хеш</b> (короткий уникальный «отпечаток»).</span><span class="lang-en-inline">The sender takes the document and calculates its <b>hash</b> (a short, unique “fingerprint”).</span></li>
+    <li><span class="lang-ru-inline">Шифрует этот хеш своим <b>приватным</b> ключом — получается <b>цифровая подпись</b>.</span><span class="lang-en-inline">Encrypts this hash with the sender’s <b>private</b> key — the result is a <b>digital signature</b>.</span></li>
+    <li><span class="lang-ru-inline">Прикрепляет подпись к документу и отправляет.</span><span class="lang-en-inline">Attaches the signature to the document and sends it.</span></li>
+    <li><span class="lang-ru-inline">Получатель расшифровывает подпись <b>публичным</b> ключом отправителя — получает хеш.</span><span class="lang-en-inline">The recipient decrypts the signature with the sender’s <b>public</b> key and obtains the hash.</span></li>
+    <li><span class="lang-ru-inline">Сам вычисляет хеш из полученного документа.</span><span class="lang-en-inline">Calculates the hash of the received document independently.</span></li>
+    <li><span class="lang-ru-inline">Если хеши совпадают — документ <b>не изменён</b> и <b>действительно от этого отправителя</b>.</span><span class="lang-en-inline">If the hashes match, the document is <b>unchanged</b> and <b>really comes from this sender</b>.</span></li>
+  </ol>
+
+  <h3><span class="lang-ru-inline">Хеш-функции (hashing)</span><span class="lang-en-inline">Hash functions (hashing)</span></h3>
+  <p><span class="lang-ru-inline">
+    <b>Хеш-функция</b> — алгоритм, который превращает любой ввод (текст, файл) в <b>строку фиксированной длины</b>. Свойства:
+  </span><span class="lang-en-inline">A <b>hash function</b> is an algorithm that turns any input (text, file) into a <b>string of fixed length</b>. Its properties:</span></p>
+  <ul>
+    <li><span class="lang-ru-inline"><b>Односторонняя:</b> по хешу нельзя восстановить исходные данные.</span><span class="lang-en-inline"><b>One-way:</b> the original data cannot be recovered from the hash.</span></li>
+    <li><span class="lang-ru-inline"><b>Детерминированная:</b> один и тот же ввод всегда даёт один и тот же хеш.</span><span class="lang-en-inline"><b>Deterministic:</b> the same input always gives the same hash.</span></li>
+    <li><span class="lang-ru-inline"><b>Лавинный эффект:</b> малейшее изменение ввода полностью меняет хеш.</span><span class="lang-en-inline"><b>Avalanche effect:</b> the smallest change to the input completely changes the hash.</span></li>
+  </ul>
+  <p><span class="lang-ru-inline">Пример: MD5(«Hello, world!») = <code>6cd3556deb0da54bca060b4c39479839</code>. Поменяй заглавную <b>H</b> на строчную <b>h</b> — хеш будет совершенно другой.</span><span class="lang-en-inline">Example: MD5(“Hello, world!”) = <code>6cd3556deb0da54bca060b4c39479839</code>. Change the capital <b>H</b> to a lowercase <b>h</b> — the hash will be completely different.</span></p>
+  <p><span class="lang-ru-inline"><b>Где используется:</b> проверка целостности файлов; хранение паролей (сохраняют не сам пароль, а его хеш + salt); цифровые подписи; уникальные идентификаторы.</span><span class="lang-en-inline"><b>Where it is used:</b> checking the integrity of files; storing passwords (not the password itself, but its hash + salt); digital signatures; unique identifiers.</span></p>
+  <div class="warn-card">
+    <h3><span class="lang-ru-inline">⚠️ MD5 и SHA-1 — устарели</span><span class="lang-en-inline">⚠️ MD5 and SHA-1 are obsolete</span></h3>
+    <p><span class="lang-ru-inline">MD5 и SHA-1 уязвимы к коллизиям (когда два разных ввода дают одинаковый хеш) — нельзя использовать для безопасности. Современный стандарт — <b>SHA-256</b> (или SHA-3). Для хранения паролей используют специальные функции: <b>bcrypt, Argon2, scrypt</b> — они нарочно медленные, чтобы усложнить brute force.</span><span class="lang-en-inline">MD5 and SHA-1 are vulnerable to collisions (when two different inputs give the same hash) and must not be used for security. The modern standard is <b>SHA-256</b> (or SHA-3). For storing passwords, special functions are used: <b>bcrypt, Argon2, scrypt</b> — they are deliberately slow, to make brute force harder.</span></p>
+  </div>
+
+  <h3><span class="lang-ru-inline">Управление ключами шифрования (key management)</span><span class="lang-en-inline">Encryption key management</span></h3>
+  <p><span class="lang-ru-inline">
+    Шифрование бесполезно, если ключи скомпрометированы. <b>Key management</b> — процесс безопасной генерации, хранения, ротации и резервного копирования ключей.
+  </span><span class="lang-en-inline">Encryption is useless if the keys are compromised. <b>Key management</b> is the process of generating, storing, rotating and backing up keys securely.</span></p>
+  <ul>
+    <li><span class="lang-ru-inline">Ключи доступны только авторизованным сторонам.</span><span class="lang-en-inline">Keys are available only to authorised parties.</span></li>
+    <li><span class="lang-ru-inline">Регулярная ротация ключей снижает риски при утечке.</span><span class="lang-en-inline">Regular key rotation reduces the risks if a key leaks.</span></li>
+    <li><span class="lang-ru-inline">Резервные копии ключей — иначе потеря ключа = потеря доступа к данным навсегда.</span><span class="lang-en-inline">Key backups: otherwise losing a key means losing access to the data permanently.</span></li>
+    <li><span class="lang-ru-inline">Регуляторы (<b>GDPR, HIPAA, PCI DSS</b>) требуют строгого управления ключами; нарушение = большие штрафы.</span><span class="lang-en-inline">Regulators (<b>GDPR, HIPAA, PCI DSS</b>) require strict key management; a breach means large fines.</span></li>
+  </ul>
+
+  
+
+  
+
+  
+
+  <!-- ============ SECTION 6: POLICIES & PRIVACY ============ -->
+  <h2><span class="lang-ru-inline">6. 📜 Политики безопасности и приватность</span><span class="lang-en-inline">6. 📜 Security policies and privacy</span></h2>
+
+  <div class="en-summary">
+    <span class="en-eyebrow">English summary · Policies &amp; privacy</span>
+    <ul>
+      <li><b>Backup strategy</b> — the 3-2-1 rule: three copies, two media types, one off-site. Full backups are simple to restore; incremental backups are fast to run. Restores must be tested regularly.</li>
+      <li><b>Patch management</b> — track, test, and deploy security patches on a schedule. Lapses cause mass breaches (Equifax, WannaCry).</li>
+      <li><b>Incident response</b> — six phases: preparation, identification, containment, eradication, recovery, lessons learned.</li>
+      <li><b>GDPR</b> — EU privacy law (2018). Core principles include lawful basis, data minimisation, purpose limitation, right to erasure, 72-hour breach notification, and fines up to 4% of global turnover.</li>
+      <li><b>Encryption in transit</b> protects data on the network (HTTPS/TLS, SSH, VPN); <b>encryption at rest</b> protects stored data (full-disk encryption, TDE, cloud server-side encryption). Mature security uses both — losing either layer exposes the data.</li>
+    </ul>
+  </div>
+
+  <h3><span class="lang-ru-inline">Резервное копирование (backup strategies)</span><span class="lang-en-inline">Backup strategies</span></h3>
+  <p><span class="lang-ru-inline">
+    Защита от потери данных при сбое, ransomware, ошибке пользователя или физическом уничтожении.
+  </span><span class="lang-en-inline">Protection against data loss caused by a failure, ransomware, user error or physical destruction.</span></p>
+  <ul>
+    <li><span class="lang-ru-inline"><b>Правило 3-2-1:</b> минимум <b>3</b> копии данных на <b>2</b> разных типах носителя, <b>1</b> — вне основной локации (off-site/облако).</span><span class="lang-en-inline"><b>The 3-2-1 rule:</b> at least <b>3</b> copies of the data on <b>2</b> different types of media, with <b>1</b> copy off-site (in another location or the cloud).</span></li>
+    <li><span class="lang-ru-inline"><b>Full backup</b> — полная копия всего; долго, но восстанавливается просто.</span><span class="lang-en-inline"><b>Full backup</b> — a complete copy of everything; slow to make, but simple to restore.</span></li>
+    <li><span class="lang-ru-inline"><b>Incremental backup</b> — только то, что изменилось с прошлого бэкапа; быстро делать, дольше восстанавливать.</span><span class="lang-en-inline"><b>Incremental backup</b> — only what has changed since the last backup; quick to make, slower to restore.</span></li>
+    <li><span class="lang-ru-inline"><b>Проверка восстановления!</b> Бэкап без регулярной проверки — это игра в надежду.</span><span class="lang-en-inline"><b>Test your restores!</b> A backup without regular checks is wishful thinking.</span></li>
+  </ul>
+
+  <h3><span class="lang-ru-inline">Управление обновлениями (patch management)</span><span class="lang-en-inline">Patch management</span></h3>
+  <p><span class="lang-ru-inline">
+    Систематический процесс: отслеживать выходящие патчи, тестировать их, ставить на все системы в разумные сроки. Без этого появляются «висящие» уязвимости — главный путь массовых атак (см. Equifax, WannaCry).
+  </span><span class="lang-en-inline">A systematic process: track newly released patches, test them, and install them on all systems within a reasonable time. Without this, unpatched vulnerabilities remain open — the main route for mass attacks (see Equifax, WannaCry).</span></p>
+
+  <h3><span class="lang-ru-inline">Реагирование на инциденты (incident response)</span><span class="lang-en-inline">Incident response</span></h3>
+  <p><span class="lang-ru-inline">Когда атака уже случилась — нужен план. Классические этапы:</span><span class="lang-en-inline">When an attack has already happened, a plan is needed. The classic stages are:</span></p>
+  <ol>
+    <li><span class="lang-ru-inline"><b>Preparation</b> — план и команда подготовлены заранее.</span><span class="lang-en-inline"><b>Preparation</b> — a plan and a team are ready in advance.</span></li>
+    <li><span class="lang-ru-inline"><b>Identification</b> — обнаружение, что произошёл инцидент.</span><span class="lang-en-inline"><b>Identification</b> — detecting that an incident has happened.</span></li>
+    <li><span class="lang-ru-inline"><b>Containment</b> — изоляция, чтобы не распространилось дальше.</span><span class="lang-en-inline"><b>Containment</b> — isolating the problem so that it does not spread further.</span></li>
+    <li><span class="lang-ru-inline"><b>Eradication</b> — удаление вредоносного кода и причины.</span><span class="lang-en-inline"><b>Eradication</b> — removing the malicious code and its cause.</span></li>
+    <li><span class="lang-ru-inline"><b>Recovery</b> — восстановление сервисов из бэкапов.</span><span class="lang-en-inline"><b>Recovery</b> — restoring services from backups.</span></li>
+    <li><span class="lang-ru-inline"><b>Lessons learned</b> — разбор полётов: что улучшить.</span><span class="lang-en-inline"><b>Lessons learned</b> — a review of what happened and what to improve.</span></li>
+  </ol>
+
+  <h3><span class="lang-ru-inline">Приватность и регулирование</span><span class="lang-en-inline">Privacy and regulation</span></h3>
+  <div class="defense-card">
+    <h3>🇪🇺 GDPR — General Data Protection Regulation</h3>
+    <p><span class="lang-ru-inline">Закон ЕС о защите персональных данных (с 2018). Ключевые принципы:</span><span class="lang-en-inline">The EU law on the protection of personal data (since 2018). Key principles:</span></p>
+    <ul>
+      <li><span class="lang-ru-inline"><b>Lawfulness</b> — обработка только на законных основаниях (согласие, контракт, закон).</span><span class="lang-en-inline"><b>Lawfulness</b> — processing only on a lawful basis (consent, contract, law).</span></li>
+      <li><span class="lang-ru-inline"><b>Data minimization (минимизация данных)</b> — собирать <b>только то, что действительно нужно</b>, не «на всякий случай».</span><span class="lang-en-inline"><b>Data minimisation</b> — collecting <b>only what is really needed</b>, not “just in case”.</span></li>
+      <li><span class="lang-ru-inline"><b>Purpose limitation</b> — данные используются только для заявленной цели.</span><span class="lang-en-inline"><b>Purpose limitation</b> — data is used only for the stated purpose.</span></li>
+      <li><span class="lang-ru-inline"><b>Right to erasure («право быть забытым»)</b> — пользователь может потребовать удалить свои данные.</span><span class="lang-en-inline"><b>Right to erasure (“right to be forgotten”)</b> — the user can ask for their data to be deleted.</span></li>
+      <li><span class="lang-ru-inline"><b>Breach notification</b> — об утечке нужно сообщить за 72 часа.</span><span class="lang-en-inline"><b>Breach notification</b> — a data breach must be reported within 72 hours.</span></li>
+      <li><span class="lang-ru-inline"><b>Штрафы — до 4% мирового оборота компании.</b></span><span class="lang-en-inline"><b>Fines — up to 4% of the company’s global turnover.</b></span></li>
+    </ul>
+  </div>
+
+  <h3><span class="lang-ru-inline">Шифрование at-rest vs in-transit</span><span class="lang-en-inline">Encryption at rest vs in transit</span></h3>
+  <div class="table-scroll"><table class="summary-table">
+    <thead><tr><th><span class="lang-ru-inline">Тип</span><span class="lang-en-inline">Type</span></th><th><span class="lang-ru-inline">Что значит</span><span class="lang-en-inline">What it means</span></th><th><span class="lang-ru-inline">Чем достигается</span><span class="lang-en-inline">How it is achieved</span></th></tr></thead>
+    <tbody>
+      <tr>
+        <td>Encryption in transit</td>
+        <td><span class="lang-ru-inline">Данные шифруются <b>во время передачи</b> по сети.</span><span class="lang-en-inline">Data is encrypted <b>during transmission</b> over the network.</span></td>
+        <td><span class="lang-ru-inline">HTTPS/TLS, SSH, VPN, шифрованный email (S/MIME, PGP).</span><span class="lang-en-inline">HTTPS/TLS, SSH, VPN, encrypted email (S/MIME, PGP).</span></td>
+      </tr>
+      <tr>
+        <td>Encryption at rest</td>
+        <td><span class="lang-ru-inline">Данные шифруются <b>в хранилище</b> (диск, база данных, бэкап).</span><span class="lang-en-inline">Data is encrypted <b>in storage</b> (disk, database, backup).</span></td>
+        <td><span class="lang-ru-inline">Full disk encryption (BitLocker, FileVault, LUKS), TDE в БД, шифрование объектов в облаке (S3 SSE).</span><span class="lang-en-inline">Full disk encryption (BitLocker, FileVault, LUKS), TDE in databases, encryption of objects in the cloud (S3 SSE).</span></td>
+      </tr>
+    </tbody>
+  </table></div>
+  <p><span class="lang-ru-inline">
+    Зрелая защита требует <b>и того, и другого</b>: HTTPS защищает данные в пути, дисковое шифрование защищает их в покое. Если шифровать только in-transit, то украденный жёсткий диск выдаёт всё. Если только at-rest — данные перехватываются по сети.
+  </span><span class="lang-en-inline">Mature protection requires <b>both</b>: HTTPS protects data in transit, and disk encryption protects it at rest. If only in-transit encryption is used, a stolen hard disk reveals everything. If only at-rest encryption is used, data can be intercepted on the network.</span></p>
+
+  <!-- ============ SECTION 7: CLOSING ============ -->
+  <h2><span class="lang-ru-inline">7. Что важно запомнить (экзаменационные подсказки)</span><span class="lang-en-inline">7. What to remember (exam tips)</span></h2>
+  <ul style="line-height: 1.8; font-size: 1.02rem;">
+    <li><span class="lang-ru-inline">Любой ответ по A2.4 проще структурировать через <b>триаду CIA</b> (Confidentiality, Integrity, Availability) — назови, какую цель защищает или ломает технология.</span><span class="lang-en-inline">Any A2.4 answer is easier to structure using the <b>CIA triad</b> (Confidentiality, Integrity, Availability) — name the goal that the technology protects or breaks.</span></li>
+    <li><span class="lang-ru-inline"><b>Файрвол</b> = фильтр трафика по IP/портам/протоколам. Сильные стороны: контроль доступа, мониторинг. Слабые: внутренние угрозы, изощрённые атаки, сложность настройки.</span><span class="lang-en-inline"><b>Firewall</b> = a traffic filter based on IP addresses, ports and protocols. Strengths: access control, monitoring. Weaknesses: insider threats, sophisticated attacks, complex configuration.</span></li>
+    <li><span class="lang-ru-inline"><b>Whitelist</b> — что разрешено (безопаснее по умолчанию). <b>Blacklist</b> — что запрещено (требует знать всех плохих).</span><span class="lang-en-inline"><b>Whitelist</b> — what is allowed (safer by default). <b>Blacklist</b> — what is forbidden (requires knowing all the bad ones).</span></li>
+    <li><span class="lang-ru-inline"><b>IDS</b> = обнаруживает и сообщает. <b>IPS</b> = обнаруживает и блокирует.</span><span class="lang-en-inline"><b>IDS</b> = detects and reports. <b>IPS</b> = detects and blocks.</span></li>
+    <li><span class="lang-ru-inline"><b>Симметричное шифрование</b> — один ключ, быстро, проблема обмена. <b>Асимметричное</b> — пара ключей, медленнее, решает проблему обмена. <b>TLS использует оба</b> в гибридной схеме.</span><span class="lang-en-inline"><b>Symmetric encryption</b> — one key, fast, but the key exchange is a problem. <b>Asymmetric</b> — a key pair, slower, solves the key exchange problem. <b>TLS uses both</b> in a hybrid scheme.</span></li>
+    <li><span class="lang-ru-inline"><b>Цифровой сертификат</b> = публичный ключ + идентичность, подписанные <b>CA</b>. HTTPS работает только с валидным сертификатом.</span><span class="lang-en-inline"><b>Digital certificate</b> = a public key + an identity, signed by a <b>CA</b>. HTTPS works only with a valid certificate.</span></li>
+    <li><span class="lang-ru-inline"><b>Цифровая подпись</b> — приватным ключом подписываешь хеш, публичным проверяешь. Даёт <b>аутентификацию + целостность</b>, но не секретность.</span><span class="lang-en-inline"><b>Digital signature</b> — you sign the hash with the private key and verify it with the public key. It gives <b>authentication + integrity</b>, but not secrecy.</span></li>
+    <li><span class="lang-ru-inline"><b>MFA</b> — главная защита от слива пароля и brute force. Три фактора: знание / владение / биометрия.</span><span class="lang-en-inline"><b>MFA</b> — the main protection against password leaks and brute force. Three factors: knowledge / possession / biometrics.</span></li>
+    <li><span class="lang-ru-inline"><b>Patch management</b> и <b>обучение сотрудников</b> — самые «скучные», но самые эффективные контрмеры (см. WannaCry, Equifax).</span><span class="lang-en-inline"><b>Patch management</b> and <b>staff training</b> are the most “boring” but also the most effective countermeasures (see WannaCry, Equifax).</span></li>
+    <li><span class="lang-ru-inline">Часто экзаменационный формат: «<b>опиши, как контрмера X снижает риск уязвимости Y</b>» (3-4 балла). Структура ответа: 1) что такое уязвимость, 2) что делает контрмера, 3) как именно это блокирует атаку.</span><span class="lang-en-inline">A common exam format: “<b>describe how countermeasure X reduces the risk of vulnerability Y</b>” (3-4 marks). Structure of the answer: 1) what the vulnerability is, 2) what the countermeasure does, 3) how exactly it blocks the attack.</span></li>
+    <li><span class="lang-ru-inline">NAT — это <b>и экономия IPv4, и безопасность</b> (IP masquerading скрывает внутренние адреса).</span><span class="lang-en-inline">NAT is <b>both a way to save IPv4 addresses and a security feature</b> (IP masquerading hides internal addresses).</span></li>
+    <li><span class="lang-ru-inline"><b>Encryption at rest</b> и <b>in transit</b> — нужны оба для зрелой защиты.</span><span class="lang-en-inline"><b>Encryption at rest</b> and <b>in transit</b> — both are needed for mature protection.</span></li>
+  </ul>
+
+  <p style="margin-top:32px"><span class="lang-ru-inline">
+    <a href="networks.html" class="back-link">← Назад к A2 Сети</a>
+    &nbsp; · &nbsp;
+    <a href="networks.html#encryption-sim" class="back-link">🔐 Симуляция шифрования →</a>
+    &nbsp; · &nbsp;
+    <a href="quiz.html?topic=A2.4" class="back-link">К квизу A2.4 →</a>
+  </span><span class="lang-en-inline"><a href="networks.html" class="back-link">← Back to A2 Networks</a> &nbsp; · &nbsp; <a href="networks.html#encryption-sim" class="back-link">🔐 Encryption simulation →</a> &nbsp; · &nbsp; <a href="quiz.html?topic=A2.4" class="back-link">To the A2.4 quiz →</a></span></p>
+
+</main>
+
+<footer class="footer">
+  <p><span class="lang-ru-inline">
+    IB CS Тема A · A2.4 Сетевая безопасность · По материалам Oxford IB DP 2025 Computer Science · <a href="index.html">На главную</a>
+  </span><span class="lang-en-inline">IB CS Topic A · A2.4 Network security · Based on Oxford IB DP 2025 Computer Science · <a href="index.html">Home</a></span></p>
+</footer>
+
+<script src="js/app.js?v=11"></script>
+</body>
+</html>

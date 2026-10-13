@@ -311,11 +311,12 @@
 
 <header class="site-header">
   <nav class="nav">
-    <a href="index.html" class="brand">
+    <a href="index.html" class="brand"><span class="lang-ru-inline">
       <span class="brand-mark">A</span>
       IB CS · Тема A
-    </a>
-    <div class="nav-links">
+    </span><span class="lang-en-inline"><span class="brand-mark">A</span>
+      IB CS · Theme A</span></a>
+    <div class="nav-links"><span class="lang-ru-inline">
       <a href="index.html">Обзор</a>
       <a href="fundamentals.html">A1 Основы</a>
       <a href="networks.html">A2 Сети</a>
@@ -323,7 +324,13 @@
       <a href="databases.html">A3 Базы данных</a>
       <a href="ml.html">A4 ML</a>
       <a href="quiz.html">Квиз</a>
-    </div>
+    </span><span class="lang-en-inline"><a href="index.html">Overview</a>
+      <a href="fundamentals.html">A1 Fundamentals</a>
+      <a href="networks.html">A2 Networks</a>
+      <a href="setevye-ustroistva.html">A2.1.3 Network devices</a>
+      <a href="databases.html">A3 Databases</a>
+      <a href="ml.html">A4 ML</a>
+      <a href="quiz.html">Quiz</a></span></div>
     <div class="nav-actions">
       <button class="theme-toggle" data-theme-toggle>☽</button>
       <button class="lang-toggle" data-lang-toggle>EN</button>
@@ -333,17 +340,17 @@
 
 <main class="device-page">
 
-  <a href="databases.html" class="back-link">← Назад к A3 Базы данных</a>
+  <a href="databases.html" class="back-link"><span class="lang-ru-inline">← Назад к A3 Базы данных</span><span class="lang-en-inline">← Back to A3 Databases</span></a>
 
   <span class="hero-eyebrow" style="background:rgba(14,165,233,0.12); color:#0369a1">
     A3.3 · Database programming (SQL)
   </span>
 
-  <h1>SQL и программирование БД</h1>
+  <h1><span class="lang-ru-inline">SQL и программирование БД</span><span class="lang-en-inline">SQL and database programming</span></h1>
 
-  <p class="lede">
+  <p class="lede"><span class="lang-ru-inline">
     Эта тема (<b>A3.3</b>) — про то, как реально <b>разговаривать с базой данных</b>. Язык, на котором мы говорим, называется <b>SQL</b> (Structured Query Language — «структурированный язык запросов»). С его помощью мы создаём таблицы, добавляем данные, ищем, обновляем, удаляем и связываем информацию из разных таблиц. Тут мы разберём <b>четыре подсемейства SQL</b> (DDL/DML/DCL/TCL), все ключевые операторы, объединения таблиц (JOIN), агрегатные функции, подзапросы, транзакции и свойства ACID.
-  </p>
+  </span><span class="lang-en-inline">This topic (<b>A3.3</b>) is about how to actually <b>talk to a database</b>. The language we use is called <b>SQL</b> (Structured Query Language). With it we create tables, add data, search, update, delete and link information from different tables. Here we go through the <b>four sub-languages of SQL</b> (DDL/DML/DCL/TCL), all the key statements, table joins (JOIN), aggregate functions, subqueries, transactions and the ACID properties.</span></p>
 
   
 
@@ -352,125 +359,126 @@
   <!-- Quick CTA to the live SQL playground -->
   <div class="sim-cta">
     <div class="icon">💾</div>
-    <div class="text">
+    <div class="text"><span class="lang-ru-inline">
       <strong>Открой живую SQL-песочницу прямо сейчас</strong>
       Реальный SQLite в браузере: пиши <code>SELECT</code>, <code>JOIN</code>, <code>GROUP BY</code> по школьной БД пациентов и врачей. Любая теория ниже — её можно тут же проверить.
-    </div>
-    <a class="btn-link" href="databases.html?v=11#sql-sim">→ Запустить SQL-песочницу</a>
+    </span><span class="lang-en-inline"><strong>Open the live SQL sandbox right now</strong>
+      Real SQLite in the browser: write <code>SELECT</code>, <code>JOIN</code>, <code>GROUP BY</code> on a school-level database of patients and doctors. Any theory below can be checked straight away.</span></div>
+    <a class="btn-link" href="databases.html?v=11#sql-sim"><span class="lang-ru-inline">→ Запустить SQL-песочницу</span><span class="lang-en-inline">→ Launch the SQL sandbox</span></a>
   </div>
 
   <!-- Mini TOC -->
   <div class="mini-toc">
-    <h4>Что разберём</h4>
+    <h4><span class="lang-ru-inline">Что разберём</span><span class="lang-en-inline">What we cover</span></h4>
     <ol>
-      <li><a href="#categories">4 категории SQL: DDL · DML · DCL · TCL</a></li>
-      <li><a href="#ddl">DDL — создаём структуру (CREATE / ALTER / DROP)</a></li>
-      <li><a href="#constraints">Ограничения (PRIMARY KEY, FOREIGN KEY, NOT NULL, UNIQUE, CHECK, DEFAULT)</a></li>
-      <li><a href="#select">SELECT — главный оператор</a></li>
+      <li><span class="lang-ru-inline"><a href="#categories">4 категории SQL: DDL · DML · DCL · TCL</a></span><span class="lang-en-inline"><a href="#categories">4 sub-languages of SQL: DDL · DML · DCL · TCL</a></span></li>
+      <li><span class="lang-ru-inline"><a href="#ddl">DDL — создаём структуру (CREATE / ALTER / DROP)</a></span><span class="lang-en-inline"><a href="#ddl">DDL — building the structure (CREATE / ALTER / DROP)</a></span></li>
+      <li><span class="lang-ru-inline"><a href="#constraints">Ограничения (PRIMARY KEY, FOREIGN KEY, NOT NULL, UNIQUE, CHECK, DEFAULT)</a></span><span class="lang-en-inline"><a href="#constraints">Constraints (PRIMARY KEY, FOREIGN KEY, NOT NULL, UNIQUE, CHECK, DEFAULT)</a></span></li>
+      <li><span class="lang-ru-inline"><a href="#select">SELECT — главный оператор</a></span><span class="lang-en-inline"><a href="#select">SELECT — the main statement</a></span></li>
       <li><a href="#where">WHERE, BETWEEN, LIKE, IN, AND/OR/NOT</a></li>
       <li><a href="#order-distinct">ORDER BY, DISTINCT, LIMIT, AS</a></li>
-      <li><a href="#aggregates">Агрегатные функции (COUNT, SUM, AVG, MIN, MAX)</a></li>
-      <li><a href="#group">GROUP BY и HAVING</a></li>
+      <li><span class="lang-ru-inline"><a href="#aggregates">Агрегатные функции (COUNT, SUM, AVG, MIN, MAX)</a></span><span class="lang-en-inline"><a href="#aggregates">Aggregate functions (COUNT, SUM, AVG, MIN, MAX)</a></span></li>
+      <li><span class="lang-ru-inline"><a href="#group">GROUP BY и HAVING</a></span><span class="lang-en-inline"><a href="#group">GROUP BY and HAVING</a></span></li>
       <li><a href="#joins">JOIN: INNER · LEFT · RIGHT · FULL OUTER</a></li>
-      <li><a href="#subqueries">Подзапросы (вложенный SELECT)</a></li>
-      <li><a href="#insert-update-delete">INSERT, UPDATE, DELETE — изменяем данные</a></li>
-      <li><a href="#transactions">Транзакции и ACID</a></li>
-      <li><a href="#views">Представления (VIEW) и DCL</a></li>
-      <li><a href="#remember">Что важно запомнить</a></li>
+      <li><span class="lang-ru-inline"><a href="#subqueries">Подзапросы (вложенный SELECT)</a></span><span class="lang-en-inline"><a href="#subqueries">Subqueries (nested SELECT)</a></span></li>
+      <li><span class="lang-ru-inline"><a href="#insert-update-delete">INSERT, UPDATE, DELETE — изменяем данные</a></span><span class="lang-en-inline"><a href="#insert-update-delete">INSERT, UPDATE, DELETE — changing data</a></span></li>
+      <li><span class="lang-ru-inline"><a href="#transactions">Транзакции и ACID</a></span><span class="lang-en-inline"><a href="#transactions">Transactions and ACID</a></span></li>
+      <li><span class="lang-ru-inline"><a href="#views">Представления (VIEW) и DCL</a></span><span class="lang-en-inline"><a href="#views">Views (VIEW) and DCL</a></span></li>
+      <li><span class="lang-ru-inline"><a href="#remember">Что важно запомнить</a></span><span class="lang-en-inline"><a href="#remember">Key points to remember</a></span></li>
     </ol>
   </div>
 
   <!-- ============ 1. CATEGORIES ============ -->
-  <h2 id="categories">1. Четыре категории SQL</h2>
+  <h2 id="categories"><span class="lang-ru-inline">1. Четыре категории SQL</span><span class="lang-en-inline">1. The four sub-languages of SQL</span></h2>
 
-  <div class="ru-tip" style="border-left-color:var(--accent); background:rgba(14,165,233,0.06);">
+  <div class="ru-tip en-summary" style="border-left-color:var(--accent); background:rgba(14,165,233,0.06);">
     <b>🌐 EN summary — Four SQL sub-languages.</b>
     SQL is split into four families by purpose. <b>DDL</b> (Data Definition Language) defines the schema with commands like CREATE, ALTER and DROP. <b>DML</b> (Data Manipulation Language) works with the rows inside tables: SELECT, INSERT, UPDATE, DELETE. <b>DCL</b> (Data Control Language) manages permissions with GRANT and REVOKE. <b>TCL</b> (Transaction Control Language) controls transactions with COMMIT, ROLLBACK and SAVEPOINT. Exam questions often ask which family a given keyword belongs to, so the categorisation matters as much as the syntax itself.
   </div>
 
-  <p>
+  <p><span class="lang-ru-inline">
     СУБД (<b>Система Управления Базами Данных</b>, англ. <i>Database Management System</i>) использует <b>четыре подсемейства языка</b> SQL. Они отличаются <b>задачей</b>: одни строят структуру, другие работают с данными, третьи управляют доступом, четвёртые — целостностью транзакций. На экзамене любят спрашивать «к какой категории относится команда <code>X</code>?» — выучи эту таблицу.
-  </p>
+  </span><span class="lang-en-inline">The <b>DBMS</b> (<i>database management system</i>) uses <b>four sub-languages</b> of SQL. They differ in <b>purpose</b>: some build the structure, others work with the data, others control access, and the fourth manages the integrity of transactions. Exam questions often ask "which category does command <code>X</code> belong to?" — learn this table.</span></p>
 
   <div class="cat-grid">
     <div class="cat-card ddl">
       <h4>DDL · Data Definition Language</h4>
-      <div class="sub">Язык определения данных. Создаёт <b>схему</b> — таблицы, поля, ограничения.</div>
+      <div class="sub"><span class="lang-ru-inline">Язык определения данных. Создаёт <b>схему</b> — таблицы, поля, ограничения.</span><span class="lang-en-inline">Data definition language. Creates the <b>schema</b> — tables, fields, constraints.</span></div>
       <ul>
-        <li><code>CREATE</code> — создать объект (таблицу, БД, индекс)</li>
-        <li><code>ALTER</code> — изменить структуру таблицы</li>
-        <li><code>DROP</code> — удалить объект целиком</li>
-        <li><code>TRUNCATE</code> — удалить все записи (саму таблицу оставить)</li>
-        <li><code>RENAME</code> — переименовать объект</li>
-        <li><code>COMMENT</code> — добавить комментарий</li>
+        <li><span class="lang-ru-inline"><code>CREATE</code> — создать объект (таблицу, БД, индекс)</span><span class="lang-en-inline"><code>CREATE</code> — create an object (table, database, index)</span></li>
+        <li><span class="lang-ru-inline"><code>ALTER</code> — изменить структуру таблицы</span><span class="lang-en-inline"><code>ALTER</code> — change the structure of a table</span></li>
+        <li><span class="lang-ru-inline"><code>DROP</code> — удалить объект целиком</span><span class="lang-en-inline"><code>DROP</code> — delete an object entirely</span></li>
+        <li><span class="lang-ru-inline"><code>TRUNCATE</code> — удалить все записи (саму таблицу оставить)</span><span class="lang-en-inline"><code>TRUNCATE</code> — delete all rows (keep the table itself)</span></li>
+        <li><span class="lang-ru-inline"><code>RENAME</code> — переименовать объект</span><span class="lang-en-inline"><code>RENAME</code> — rename an object</span></li>
+        <li><span class="lang-ru-inline"><code>COMMENT</code> — добавить комментарий</span><span class="lang-en-inline"><code>COMMENT</code> — add a comment</span></li>
       </ul>
     </div>
     <div class="cat-card dml">
       <h4>DML · Data Manipulation Language</h4>
-      <div class="sub">Язык манипуляции данными. Работает <b>внутри</b> таблиц.</div>
+      <div class="sub"><span class="lang-ru-inline">Язык манипуляции данными. Работает <b>внутри</b> таблиц.</span><span class="lang-en-inline">Data manipulation language. Works <b>inside</b> tables.</span></div>
       <ul>
-        <li><code>SELECT</code> — извлечь данные</li>
-        <li><code>INSERT</code> — добавить запись</li>
-        <li><code>UPDATE</code> — изменить запись</li>
-        <li><code>DELETE</code> — удалить записи (структура остаётся)</li>
-        <li><code>CALL</code> — вызвать процедуру SQL</li>
-        <li><code>LOCK TABLE</code> — заблокировать таблицу (для параллельной работы)</li>
+        <li><span class="lang-ru-inline"><code>SELECT</code> — извлечь данные</span><span class="lang-en-inline"><code>SELECT</code> — retrieve data</span></li>
+        <li><span class="lang-ru-inline"><code>INSERT</code> — добавить запись</span><span class="lang-en-inline"><code>INSERT</code> — add a row</span></li>
+        <li><span class="lang-ru-inline"><code>UPDATE</code> — изменить запись</span><span class="lang-en-inline"><code>UPDATE</code> — change a row</span></li>
+        <li><span class="lang-ru-inline"><code>DELETE</code> — удалить записи (структура остаётся)</span><span class="lang-en-inline"><code>DELETE</code> — delete rows (the structure stays)</span></li>
+        <li><span class="lang-ru-inline"><code>CALL</code> — вызвать процедуру SQL</span><span class="lang-en-inline"><code>CALL</code> — call an SQL procedure</span></li>
+        <li><span class="lang-ru-inline"><code>LOCK TABLE</code> — заблокировать таблицу (для параллельной работы)</span><span class="lang-en-inline"><code>LOCK TABLE</code> — lock a table (for concurrent work)</span></li>
       </ul>
     </div>
     <div class="cat-card dcl">
       <h4>DCL · Data Control Language</h4>
-      <div class="sub">Язык управления доступом. Кто что может делать.</div>
+      <div class="sub"><span class="lang-ru-inline">Язык управления доступом. Кто что может делать.</span><span class="lang-en-inline">Data control language. Who can do what.</span></div>
       <ul>
-        <li><code>GRANT</code> — выдать привилегию (право на действие)</li>
-        <li><code>REVOKE</code> — отозвать привилегию</li>
+        <li><span class="lang-ru-inline"><code>GRANT</code> — выдать привилегию (право на действие)</span><span class="lang-en-inline"><code>GRANT</code> — give a privilege (a right to perform an action)</span></li>
+        <li><span class="lang-ru-inline"><code>REVOKE</code> — отозвать привилегию</span><span class="lang-en-inline"><code>REVOKE</code> — take back a privilege</span></li>
       </ul>
     </div>
     <div class="cat-card tcl">
       <h4>TCL · Transaction Control Language</h4>
-      <div class="sub">Язык управления транзакциями. Сохраняем или откатываем.</div>
+      <div class="sub"><span class="lang-ru-inline">Язык управления транзакциями. Сохраняем или откатываем.</span><span class="lang-en-inline">Transaction control language. Saves or rolls back changes.</span></div>
       <ul>
-        <li><code>COMMIT</code> — закрепить (сохранить) изменения навсегда</li>
-        <li><code>ROLLBACK</code> — откатить к последнему <code>COMMIT</code></li>
-        <li><code>SAVEPOINT</code> — поставить «закладку» для частичного отката</li>
+        <li><span class="lang-ru-inline"><code>COMMIT</code> — закрепить (сохранить) изменения навсегда</span><span class="lang-en-inline"><code>COMMIT</code> — make the changes permanent (save them)</span></li>
+        <li><span class="lang-ru-inline"><code>ROLLBACK</code> — откатить к последнему <code>COMMIT</code></span><span class="lang-en-inline"><code>ROLLBACK</code> — return to the last <code>COMMIT</code></span></li>
+        <li><span class="lang-ru-inline"><code>SAVEPOINT</code> — поставить «закладку» для частичного отката</span><span class="lang-en-inline"><code>SAVEPOINT</code> — set a "bookmark" for a partial rollback</span></li>
       </ul>
     </div>
   </div>
 
-  <div class="ru-tip">
+  <div class="ru-tip"><span class="lang-ru-inline">
     💡 <b>Аналогия:</b> DDL — это <b>архитектор</b> (строит здание). DML — <b>жилец</b> (двигает мебель внутри). DCL — <b>охранник</b> (выдаёт пропуска). TCL — <b>нотариус</b> (фиксирует или отменяет сделку).
-  </div>
+  </span><span class="lang-en-inline">💡 <b>Analogy:</b> DDL is the <b>architect</b> (builds the building). DML is the <b>tenant</b> (moves the furniture around inside). DCL is the <b>security guard</b> (issues the passes). TCL is the <b>notary</b> (confirms or cancels the deal).</span></div>
 
   <!-- ============ 2. DDL ============ -->
-  <h2 id="ddl">2. DDL — строим структуру базы</h2>
+  <h2 id="ddl"><span class="lang-ru-inline">2. DDL — строим структуру базы</span><span class="lang-en-inline">2. DDL — building the database structure</span></h2>
 
-  <div class="ru-tip" style="border-left-color:var(--accent); background:rgba(14,165,233,0.06);">
+  <div class="ru-tip en-summary" style="border-left-color:var(--accent); background:rgba(14,165,233,0.06);">
     <b>🌐 EN summary — DDL builds the schema.</b>
     DDL covers commands that define database structure rather than touch the data itself. <code>CREATE DATABASE</code> makes a new empty database; <code>CREATE TABLE</code> defines columns with data types and optional inline constraints such as primary key or foreign key. <code>ALTER TABLE</code> adds, removes or modifies columns on an existing table, and <code>DROP TABLE</code> deletes the table along with all of its rows. Because DDL changes shape rather than rows, mistakes here are destructive and usually require restoring from a backup.
   </div>
 
-  <h3 id="create-db">2.1 Создаём базу данных</h3>
+  <h3 id="create-db"><span class="lang-ru-inline">2.1 Создаём базу данных</span><span class="lang-en-inline">2.1 Creating a database</span></h3>
   <pre class="code-block"><code>CREATE DATABASE school_db;</code></pre>
-  <p>Эта команда создаёт пустую базу — внутри неё мы потом сделаем таблицы.</p>
+  <p><span class="lang-ru-inline">Эта команда создаёт пустую базу — внутри неё мы потом сделаем таблицы.</span><span class="lang-en-inline">This command creates an empty database — we will create the tables inside it later.</span></p>
 
-  <h3 id="create-table">2.2 Создаём таблицу — <code>CREATE TABLE</code></h3>
-  <p>Минимальный шаблон таблицы — без явного первичного ключа:</p>
+  <h3 id="create-table"><span class="lang-ru-inline">2.2 Создаём таблицу — <code>CREATE TABLE</code></span><span class="lang-en-inline">2.2 Creating a table — <code>CREATE TABLE</code></span></h3>
+  <p><span class="lang-ru-inline">Минимальный шаблон таблицы — без явного первичного ключа:</span><span class="lang-en-inline">Minimal table template — without an explicit primary key:</span></p>
   <pre class="code-block"><code>CREATE TABLE table_name (
     Attribute1 datatype,
     Attribute2 datatype,
     Attribute3 datatype
 );</code></pre>
 
-  <p>Пример: таблица <b>Customer</b> с первичным ключом:</p>
+  <p><span class="lang-ru-inline">Пример: таблица <b>Customer</b> с первичным ключом:</span><span class="lang-en-inline">Example: the <b>Customer</b> table with a primary key:</span></p>
   <pre class="code-block"><code>CREATE TABLE Customer (
     CustomerID    int          NOT NULL PRIMARY KEY,
     CustomerEmail varchar(255),
     CustomerAddress varchar(255)
 );</code></pre>
-  <p>
+  <p><span class="lang-ru-inline">
     <code>NOT NULL PRIMARY KEY</code> означает, что <code>CustomerID</code> <b>не может быть пустым</b> и должен быть <b>уникальным</b> — это первичный ключ (primary key).
-  </p>
+  </span><span class="lang-en-inline"><code>NOT NULL PRIMARY KEY</code> means that <code>CustomerID</code> <b>cannot be empty</b> and must be <b>unique</b> — this is the primary key.</span></p>
 
-  <p>Пример с <b>внешним ключом</b> (foreign key) — таблица <b>Item</b> ссылается на <b>Artist</b>:</p>
+  <p><span class="lang-ru-inline">Пример с <b>внешним ключом</b> (foreign key) — таблица <b>Item</b> ссылается на <b>Artist</b>:</span><span class="lang-en-inline">Example with a <b>foreign key</b> — table <b>Item</b> refers to <b>Artist</b>:</span></p>
   <pre class="code-block"><code>CREATE TABLE Item (
     ItemID   int          NOT NULL PRIMARY KEY,
     ItemDesc varchar(255),
@@ -479,7 +487,7 @@
     FOREIGN KEY (ArtistID) REFERENCES Artist(ArtistID)
 );</code></pre>
 
-  <p>Пример с <b>составным ключом</b> (concatenated key) — два поля вместе образуют первичный ключ:</p>
+  <p><span class="lang-ru-inline">Пример с <b>составным ключом</b> (concatenated key) — два поля вместе образуют первичный ключ:</span><span class="lang-en-inline">Example with a <b>concatenated key</b> — two fields together form the primary key:</span></p>
   <pre class="code-block"><code>CREATE TABLE Purchase (
     ItemID     int  NOT NULL,
     Quantity   int,
@@ -490,71 +498,71 @@
     FOREIGN KEY (CustomerID) REFERENCES Customer(CustomerID)
 );</code></pre>
 
-  <h3 id="alter-table">2.3 Меняем таблицу — <code>ALTER TABLE</code></h3>
-  <p>Добавить колонку:</p>
+  <h3 id="alter-table"><span class="lang-ru-inline">2.3 Меняем таблицу — <code>ALTER TABLE</code></span><span class="lang-en-inline">2.3 Changing a table — <code>ALTER TABLE</code></span></h3>
+  <p><span class="lang-ru-inline">Добавить колонку:</span><span class="lang-en-inline">Add a column:</span></p>
   <pre class="code-block"><code>ALTER TABLE Customer
 ADD deliveryAddress varchar(255);</code></pre>
-  <p>Удалить колонку:</p>
+  <p><span class="lang-ru-inline">Удалить колонку:</span><span class="lang-en-inline">Delete a column:</span></p>
   <pre class="code-block"><code>ALTER TABLE Customer
 DROP COLUMN deliveryPreference;</code></pre>
 
-  <h3 id="drop-table">2.4 Удаляем таблицу — <code>DROP TABLE</code></h3>
+  <h3 id="drop-table"><span class="lang-ru-inline">2.4 Удаляем таблицу — <code>DROP TABLE</code></span><span class="lang-en-inline">2.4 Deleting a table — <code>DROP TABLE</code></span></h3>
   <pre class="code-block"><code>DROP TABLE delivery;</code></pre>
-  <div class="danger-tip">
+  <div class="danger-tip"><span class="lang-ru-inline">
     ⚠️ <b>Осторожно:</b> <code>DROP TABLE</code> удаляет <b>и данные, и структуру</b>. Восстановить можно только из резервной копии.
-  </div>
+  </span><span class="lang-en-inline">⚠️ <b>Warning:</b> <code>DROP TABLE</code> deletes <b>both the data and the structure</b>. It can be restored only from a backup.</span></div>
 
   <!-- ============ 3. CONSTRAINTS ============ -->
-  <h2 id="constraints">3. Ограничения (constraints)</h2>
+  <h2 id="constraints"><span class="lang-ru-inline">3. Ограничения (constraints)</span><span class="lang-en-inline">3. Constraints</span></h2>
 
-  <div class="ru-tip" style="border-left-color:var(--accent); background:rgba(14,165,233,0.06);">
+  <div class="ru-tip en-summary" style="border-left-color:var(--accent); background:rgba(14,165,233,0.06);">
     <b>🌐 EN summary — Constraints enforce data integrity.</b>
     Constraints are rules the DBMS checks automatically on every insert or update. A <b>primary key</b> uniquely identifies each row and cannot be NULL. A <b>foreign key</b> ensures a column only stores values that exist as a primary key in another table, preventing orphan records. <b>NOT NULL</b> requires a value, <b>UNIQUE</b> blocks duplicates (NULL allowed), <b>CHECK</b> validates a boolean condition and <b>DEFAULT</b> supplies a fallback value. If any rule is broken the operation is rejected, so constraints are the schema-level guarantee that bad data never enters the database.
   </div>
 
-  <p>
+  <p><span class="lang-ru-inline">
     Ограничения — это правила, которые СУБД <b>сама проверяет</b> при вставке или обновлении строки. Если правило нарушено — операция отменяется, и пользователь получает ошибку. Это важнейший инструмент <b>целостности данных</b>.
-  </p>
+  </span><span class="lang-en-inline">Constraints are rules that the DBMS <b>checks itself</b> when a row is inserted or updated. If a rule is broken, the operation is cancelled and the user gets an error. This is the most important tool for <b>data integrity</b>.</span></p>
 
   <div class="table-scroll"><table class="summary-table">
     <thead>
-      <tr><th>Ограничение</th><th>Что гарантирует</th><th>Пример</th></tr>
+      <tr><th><span class="lang-ru-inline">Ограничение</span><span class="lang-en-inline">Constraint</span></th><th><span class="lang-ru-inline">Что гарантирует</span><span class="lang-en-inline">What it guarantees</span></th><th><span class="lang-ru-inline">Пример</span><span class="lang-en-inline">Example</span></th></tr>
     </thead>
     <tbody>
       <tr>
         <td>PRIMARY KEY</td>
-        <td>Уникально идентифицирует каждую строку. Не может быть NULL и должен быть уникальным.</td>
+        <td><span class="lang-ru-inline">Уникально идентифицирует каждую строку. Не может быть NULL и должен быть уникальным.</span><span class="lang-en-inline">Uniquely identifies each row. Cannot be NULL and must be unique.</span></td>
         <td><code>StudentID int PRIMARY KEY</code></td>
       </tr>
       <tr>
         <td>FOREIGN KEY</td>
-        <td>Поле ссылается на <b>первичный ключ</b> другой таблицы. Нельзя сослаться на несуществующую запись.</td>
+        <td><span class="lang-ru-inline">Поле ссылается на <b>первичный ключ</b> другой таблицы. Нельзя сослаться на несуществующую запись.</span><span class="lang-en-inline">The field refers to a <b>primary key</b> of another table. You cannot refer to a row that does not exist.</span></td>
         <td><code>FOREIGN KEY (ClassID) REFERENCES Class(ClassID)</code></td>
       </tr>
       <tr>
         <td>NOT NULL</td>
-        <td>Поле <b>обязательно</b> к заполнению — пусто оставить нельзя.</td>
+        <td><span class="lang-ru-inline">Поле <b>обязательно</b> к заполнению — пусто оставить нельзя.</span><span class="lang-en-inline">The field <b>must be filled in</b> — it cannot be left empty.</span></td>
         <td><code>LastName varchar(50) NOT NULL</code></td>
       </tr>
       <tr>
         <td>UNIQUE</td>
-        <td>Все значения в колонке должны быть разными (но допускается NULL — в отличие от PK).</td>
+        <td><span class="lang-ru-inline">Все значения в колонке должны быть разными (но допускается NULL — в отличие от PK).</span><span class="lang-en-inline">All values in the column must be different (but NULL is allowed — unlike the PK).</span></td>
         <td><code>Email varchar(100) UNIQUE</code></td>
       </tr>
       <tr>
         <td>CHECK</td>
-        <td>Проверяет логическое условие. Если оно ложно — запись не сохранится.</td>
+        <td><span class="lang-ru-inline">Проверяет логическое условие. Если оно ложно — запись не сохранится.</span><span class="lang-en-inline">Checks a logical condition. If it is false, the row is not saved.</span></td>
         <td><code>CHECK (Age &gt;= 0 AND Age &lt; 120)</code></td>
       </tr>
       <tr>
         <td>DEFAULT</td>
-        <td>Если значение не указано при вставке — подставит указанное по умолчанию.</td>
+        <td><span class="lang-ru-inline">Если значение не указано при вставке — подставит указанное по умолчанию.</span><span class="lang-en-inline">If no value is given on insert, the specified default value is used.</span></td>
         <td><code>RegisteredAt date DEFAULT CURRENT_DATE</code></td>
       </tr>
     </tbody>
   </table></div>
 
-  <p>Сводная таблица школьной базы — практический пример:</p>
+  <p><span class="lang-ru-inline">Сводная таблица школьной базы — практический пример:</span><span class="lang-en-inline">Summary table of the school database — a practical example:</span></p>
   <pre class="code-block"><code>CREATE TABLE Student (
     StudentID   int          NOT NULL PRIMARY KEY,
     FirstName   varchar(50)  NOT NULL,
@@ -567,26 +575,30 @@ DROP COLUMN deliveryPreference;</code></pre>
 );</code></pre>
 
   <!-- ============ 4. SELECT ============ -->
-  <h2 id="select">4. SELECT — главный оператор</h2>
+  <h2 id="select"><span class="lang-ru-inline">4. SELECT — главный оператор</span><span class="lang-en-inline">4. SELECT — the main statement</span></h2>
 
-  <div class="ru-tip" style="border-left-color:var(--accent); background:rgba(14,165,233,0.06);">
+  <div class="ru-tip en-summary" style="border-left-color:var(--accent); background:rgba(14,165,233,0.06);">
     <b>🌐 EN summary — SELECT retrieves data.</b>
     A <b>query</b> is an SQL instruction that extracts information from a database. The <code>SELECT</code> statement names the columns to return and <code>FROM</code> names the source table. Listing column names explicitly is preferred over <code>SELECT *</code> because it is faster and the output is more predictable. Queries can filter rows, perform pattern matching and sort results — and form the foundation that more advanced features (joins, aggregation, subqueries) extend. When data comes from a single table no join is needed; multiple tables require a join expression.
   </div>
 
-  <p>
+  <p><span class="lang-ru-inline">
     <b>SELECT</b> — самый важный оператор в SQL. Им мы <b>извлекаем</b> данные из таблиц. В IB-учебнике <b>«запрос» (query)</b> определяется как «инструкция на SQL для извлечения информации из БД». Запросы умеют: <b>фильтровать</b> (find), <b>искать по образцу</b> (pattern matching), <b>сортировать</b> данные.
-  </p>
+  </span><span class="lang-en-inline"><b>SELECT</b> is the most important statement in SQL. We use it to <b>retrieve</b> data from tables. In the IB textbook, a <b>query</b> is defined as an SQL statement for retrieving information from a database. Queries can <b>filter</b> (find), <b>search by pattern</b> (pattern matching) and <b>sort</b> the data.</span></p>
 
-  <h3 id="select-basic">4.1 Базовый синтаксис</h3>
-  <pre class="code-block"><code>-- Конкретные колонки
+  <h3 id="select-basic"><span class="lang-ru-inline">4.1 Базовый синтаксис</span><span class="lang-en-inline">4.1 Basic syntax</span></h3>
+  <pre class="code-block"><span class="lang-ru-inline"><code>-- Конкретные колонки
 SELECT ArtistID, ArtistName FROM Artist;
 
 -- Все колонки
-SELECT * FROM Artist;</code></pre>
+SELECT * FROM Artist;</code></span><span class="lang-en-inline"><code>-- Specific columns
+SELECT ArtistID, ArtistName FROM Artist;
+
+-- All columns
+SELECT * FROM Artist;</code></span></pre>
 
   <div class="result-preview">
-    <div class="result-label">Результат — SELECT ArtistID, ArtistName FROM Artist;</div>
+    <div class="result-label"><span class="lang-ru-inline">Результат — SELECT ArtistID, ArtistName FROM Artist;</span><span class="lang-en-inline">Result — SELECT ArtistID, ArtistName FROM Artist;</span></div>
     <div class="table-scroll"><table>
       <thead><tr><th>ArtistID</th><th>ArtistName</th></tr></thead>
       <tbody>
@@ -599,30 +611,30 @@ SELECT * FROM Artist;</code></pre>
     </table></div>
   </div>
 
-  <div class="ru-tip">
+  <div class="ru-tip"><span class="lang-ru-inline">
     💡 <b>Звёздочка</b> <code>*</code> означает «все колонки». На практике её лучше избегать в продакшене — указывай явно нужные поля, чтобы запрос был быстрее и понятнее.
-  </div>
+  </span><span class="lang-en-inline">💡 <b>The asterisk</b> <code>*</code> means "all columns". In practice it is better to avoid it in production: name the fields you need explicitly, so that the query is faster and clearer.</span></div>
 
-  <h3 id="select-from">4.2 <code>FROM</code> — откуда брать данные</h3>
+  <h3 id="select-from"><span class="lang-ru-inline">4.2 <code>FROM</code> — откуда брать данные</span><span class="lang-en-inline">4.2 <code>FROM</code> — where the data comes from</span></h3>
   <pre class="code-block"><code>SELECT * FROM Customer;</code></pre>
-  <p>
+  <p><span class="lang-ru-inline">
     Если данные нужны <b>из одной</b> таблицы — JOIN не нужен. Если из <b>двух и более</b> — нужен JOIN (см. раздел 9).
-  </p>
+  </span><span class="lang-en-inline">If the data is needed from <b>one</b> table, no JOIN is needed. If it is needed from <b>two or more</b>, a JOIN is needed (see section 9).</span></p>
 
   <!-- ============ 5. WHERE & filters ============ -->
-  <h2 id="where">5. WHERE и фильтрация</h2>
+  <h2 id="where"><span class="lang-ru-inline">5. WHERE и фильтрация</span><span class="lang-en-inline">5. WHERE and filtering</span></h2>
 
-  <div class="ru-tip" style="border-left-color:var(--accent); background:rgba(14,165,233,0.06);">
+  <div class="ru-tip en-summary" style="border-left-color:var(--accent); background:rgba(14,165,233,0.06);">
     <b>🌐 EN summary — WHERE filters rows.</b>
     <code>WHERE</code> keeps only rows whose condition is true, much like an <code>if</code> in a programming language. Comparison operators (=, &lt;, &gt;, !=) work on numbers, text and dates. <code>BETWEEN x AND y</code> matches an inclusive range. <code>LIKE</code> performs pattern matching with two wildcards — <code>_</code> for exactly one character and <code>%</code> for any number of characters. <code>IN (list)</code> is shorthand for several OR conditions. The boolean operators <code>AND</code>, <code>OR</code> and <code>NOT</code> combine and negate conditions, letting one WHERE clause express complex filters cleanly.
   </div>
 
-  <h3>5.1 <code>WHERE</code> — условие отбора</h3>
-  <p>Аналогично оператору <code>if</code> в программировании — строка попадёт в результат только если условие <b>истинно</b>.</p>
+  <h3><span class="lang-ru-inline">5.1 <code>WHERE</code> — условие отбора</span><span class="lang-en-inline">5.1 <code>WHERE</code> — the selection condition</span></h3>
+  <p><span class="lang-ru-inline">Аналогично оператору <code>if</code> в программировании — строка попадёт в результат только если условие <b>истинно</b>.</span><span class="lang-en-inline">Like the <code>if</code> statement in programming, a row is included in the result only if the condition is <b>true</b>.</span></p>
   <pre class="code-block"><code>SELECT * FROM Item WHERE ItemCost &gt; 300;</code></pre>
 
   <div class="result-preview">
-    <div class="result-label">Результат — товары дороже 300</div>
+    <div class="result-label"><span class="lang-ru-inline">Результат — товары дороже 300</span><span class="lang-en-inline">Result — items costing more than 300</span></div>
     <div class="table-scroll"><table>
       <thead><tr><th>ItemID</th><th>ItemDesc</th><th>ItemCost</th><th>ArtistID</th></tr></thead>
       <tbody>
@@ -633,12 +645,12 @@ SELECT * FROM Artist;</code></pre>
     </table></div>
   </div>
 
-  <h3>5.2 <code>BETWEEN</code> — диапазон значений</h3>
-  <p>Включает оба граничных значения. Работает с числами, текстом, датами.</p>
+  <h3><span class="lang-ru-inline">5.2 <code>BETWEEN</code> — диапазон значений</span><span class="lang-en-inline">5.2 <code>BETWEEN</code> — range of values</span></h3>
+  <p><span class="lang-ru-inline">Включает оба граничных значения. Работает с числами, текстом, датами.</span><span class="lang-en-inline">Includes both end values. Works with numbers, text and dates.</span></p>
   <pre class="code-block"><code>SELECT * FROM Item WHERE ItemCost BETWEEN 100 AND 200;</code></pre>
 
   <div class="result-preview">
-    <div class="result-label">Результат — товары от 100 до 200 включительно</div>
+    <div class="result-label"><span class="lang-ru-inline">Результат — товары от 100 до 200 включительно</span><span class="lang-en-inline">Result — items from 100 to 200 inclusive</span></div>
     <div class="table-scroll"><table>
       <thead><tr><th>ItemID</th><th>ItemDesc</th><th>ItemCost</th></tr></thead>
       <tbody>
@@ -648,20 +660,22 @@ SELECT * FROM Artist;</code></pre>
     </table></div>
   </div>
 
-  <h3>5.3 <code>LIKE</code> — поиск по образцу (pattern matching)</h3>
-  <p>
+  <h3><span class="lang-ru-inline">5.3 <code>LIKE</code> — поиск по образцу (pattern matching)</span><span class="lang-en-inline">5.3 <code>LIKE</code> — pattern matching</span></h3>
+  <p><span class="lang-ru-inline">
     <code>LIKE</code> используется в <code>WHERE</code> для <b>неточного совпадения</b>. Два метасимвола:
-  </p>
+  </span><span class="lang-en-inline"><code>LIKE</code> is used in <code>WHERE</code> for a <b>partial match</b>. Two wildcard characters:</span></p>
   <ul>
-    <li><code>_</code> — <b>ровно один</b> произвольный символ</li>
-    <li><code>%</code> — <b>сколько угодно</b> символов (включая ноль)</li>
+    <li><span class="lang-ru-inline"><code>_</code> — <b>ровно один</b> произвольный символ</span><span class="lang-en-inline"><code>_</code> — <b>exactly one</b> character of any kind</span></li>
+    <li><span class="lang-ru-inline"><code>%</code> — <b>сколько угодно</b> символов (включая ноль)</span><span class="lang-en-inline"><code>%</code> — <b>any number of</b> characters (including zero)</span></li>
   </ul>
-  <pre class="code-block"><code>-- Все художники, в имени которых есть слово "work"
+  <pre class="code-block"><span class="lang-ru-inline"><code>-- Все художники, в имени которых есть слово "work"
 SELECT * FROM Artist
-WHERE ArtistName LIKE '%work%';</code></pre>
+WHERE ArtistName LIKE '%work%';</code></span><span class="lang-en-inline"><code>-- All artists with the word "work" in their name
+SELECT * FROM Artist
+WHERE ArtistName LIKE '%work%';</code></span></pre>
 
   <div class="result-preview">
-    <div class="result-label">Результат — содержит «work»</div>
+    <div class="result-label"><span class="lang-ru-inline">Результат — содержит «work»</span><span class="lang-en-inline">Result — contains "work"</span></div>
     <div class="table-scroll"><table>
       <thead><tr><th>ArtistID</th><th>ArtistName</th><th>ArtistEmail</th></tr></thead>
       <tbody>
@@ -671,47 +685,51 @@ WHERE ArtistName LIKE '%work%';</code></pre>
     </table></div>
   </div>
 
-  <h3>5.4 <code>IN</code> — значение из списка</h3>
+  <h3><span class="lang-ru-inline">5.4 <code>IN</code> — значение из списка</span><span class="lang-en-inline">5.4 <code>IN</code> — a value from a list</span></h3>
   <pre class="code-block"><code>SELECT * FROM Student WHERE Grade IN (10, 11, 12);</code></pre>
-  <p>Эквивалентно <code>WHERE Grade = 10 OR Grade = 11 OR Grade = 12</code>, но короче и читаемее.</p>
+  <p><span class="lang-ru-inline">Эквивалентно <code>WHERE Grade = 10 OR Grade = 11 OR Grade = 12</code>, но короче и читаемее.</span><span class="lang-en-inline">Equivalent to <code>WHERE Grade = 10 OR Grade = 11 OR Grade = 12</code>, but shorter and easier to read.</span></p>
 
-  <h3>5.5 Логические операторы — <code>AND</code>, <code>OR</code>, <code>NOT</code></h3>
-  <p><b>AND</b> — все условия должны быть истинны:</p>
+  <h3><span class="lang-ru-inline">5.5 Логические операторы — <code>AND</code>, <code>OR</code>, <code>NOT</code></span><span class="lang-en-inline">5.5 Logical operators — <code>AND</code>, <code>OR</code>, <code>NOT</code></span></h3>
+  <p><span class="lang-ru-inline"><b>AND</b> — все условия должны быть истинны:</span><span class="lang-en-inline"><b>AND</b> — all conditions must be true:</span></p>
   <pre class="code-block"><code>SELECT itemID, ItemDesc, ItemCost
 FROM Item
 WHERE ItemCost &gt; 40 AND ItemDesc LIKE '%featur%';</code></pre>
 
-  <p><b>OR</b> — достаточно одного условия:</p>
+  <p><span class="lang-ru-inline"><b>OR</b> — достаточно одного условия:</span><span class="lang-en-inline"><b>OR</b> — one condition is enough:</span></p>
   <pre class="code-block"><code>SELECT * FROM Customer
 WHERE CustomerCountry = 'Italy' OR CustomerCountry = 'France';</code></pre>
 
-  <p><b>NOT</b> — отрицание:</p>
+  <p><span class="lang-ru-inline"><b>NOT</b> — отрицание:</span><span class="lang-en-inline"><b>NOT</b> — negation:</span></p>
   <pre class="code-block"><code>SELECT * FROM Customer
 WHERE NOT CustomerCountry = 'Italy' AND NOT CustomerCountry = 'France';</code></pre>
-  <p>(оставит покупателей, которые <b>не</b> из Италии и <b>не</b> из Франции.)</p>
+  <p><span class="lang-ru-inline">(оставит покупателей, которые <b>не</b> из Италии и <b>не</b> из Франции.)</span><span class="lang-en-inline">(this keeps customers who are <b>not</b> from Italy and <b>not</b> from France.)</span></p>
 
   <!-- ============ 6. ORDER / DISTINCT / LIMIT / AS ============ -->
   <h2 id="order-distinct">6. ORDER BY, DISTINCT, LIMIT, AS</h2>
 
-  <div class="ru-tip" style="border-left-color:var(--accent); background:rgba(14,165,233,0.06);">
+  <div class="ru-tip en-summary" style="border-left-color:var(--accent); background:rgba(14,165,233,0.06);">
     <b>🌐 EN summary — Shaping the result set.</b>
     Four clauses control how results are presented. <code>ORDER BY</code> sorts rows ascending (<code>ASC</code>, the default) or descending (<code>DESC</code>), and can sort by several columns in priority order. <code>DISTINCT</code> removes duplicate rows from the result. <code>LIMIT n</code> caps the number of rows returned, useful for top-N queries when combined with <code>ORDER BY</code>. <code>AS</code> assigns a temporary alias to a column or table, which improves readability and is essential when joining tables that share column names.
   </div>
 
-  <h3>6.1 <code>ORDER BY</code> — сортировка</h3>
-  <p>По возрастанию <code>ASC</code> (по умолчанию) или по убыванию <code>DESC</code>. Можно сортировать сразу по нескольким полям.</p>
-  <pre class="code-block"><code>-- От дешёвого к дорогому
+  <h3><span class="lang-ru-inline">6.1 <code>ORDER BY</code> — сортировка</span><span class="lang-en-inline">6.1 <code>ORDER BY</code> — sorting</span></h3>
+  <p><span class="lang-ru-inline">По возрастанию <code>ASC</code> (по умолчанию) или по убыванию <code>DESC</code>. Можно сортировать сразу по нескольким полям.</span><span class="lang-en-inline">Ascending, <code>ASC</code> (the default), or descending, <code>DESC</code>. You can sort by several fields at once.</span></p>
+  <pre class="code-block"><span class="lang-ru-inline"><code>-- От дешёвого к дорогому
 SELECT * FROM Item ORDER BY ItemCost ASC;
 
 -- Сначала по цене (от дорогого), потом по названию (по алфавиту)
-SELECT * FROM Item ORDER BY ItemCost DESC, ItemDesc ASC;</code></pre>
+SELECT * FROM Item ORDER BY ItemCost DESC, ItemDesc ASC;</code></span><span class="lang-en-inline"><code>-- From cheapest to most expensive
+SELECT * FROM Item ORDER BY ItemCost ASC;
 
-  <h3>6.2 <code>DISTINCT</code> — только уникальные значения</h3>
-  <p>Используй, когда нужно убрать дубликаты. Пример: список <b>разных</b> товаров, которые когда-либо покупали:</p>
+-- First by price (from the most expensive), then by name (alphabetically)
+SELECT * FROM Item ORDER BY ItemCost DESC, ItemDesc ASC;</code></span></pre>
+
+  <h3><span class="lang-ru-inline">6.2 <code>DISTINCT</code> — только уникальные значения</span><span class="lang-en-inline">6.2 <code>DISTINCT</code> — unique values only</span></h3>
+  <p><span class="lang-ru-inline">Используй, когда нужно убрать дубликаты. Пример: список <b>разных</b> товаров, которые когда-либо покупали:</span><span class="lang-en-inline">Use it when you need to remove duplicates. Example: a list of <b>different</b> items that have ever been bought:</span></p>
   <pre class="code-block"><code>SELECT DISTINCT ItemID FROM Purchase;</code></pre>
 
   <div class="result-preview">
-    <div class="result-label">Результат — уникальные ItemID</div>
+    <div class="result-label"><span class="lang-ru-inline">Результат — уникальные ItemID</span><span class="lang-en-inline">Result — unique ItemID values</span></div>
     <div class="table-scroll"><table>
       <thead><tr><th>ItemID</th></tr></thead>
       <tbody>
@@ -727,52 +745,62 @@ SELECT * FROM Item ORDER BY ItemCost DESC, ItemDesc ASC;</code></pre>
     </table></div>
   </div>
 
-  <h3>6.3 <code>LIMIT</code> — ограничить количество строк</h3>
-  <pre class="code-block"><code>-- Топ-5 самых дорогих товаров
+  <h3><span class="lang-ru-inline">6.3 <code>LIMIT</code> — ограничить количество строк</span><span class="lang-en-inline">6.3 <code>LIMIT</code> — limiting the number of rows</span></h3>
+  <pre class="code-block"><span class="lang-ru-inline"><code>-- Топ-5 самых дорогих товаров
 SELECT ItemDesc, ItemCost
 FROM Item
 ORDER BY ItemCost DESC
-LIMIT 5;</code></pre>
-  <div class="ru-tip">
+LIMIT 5;</code></span><span class="lang-en-inline"><code>-- Top 5 most expensive items
+SELECT ItemDesc, ItemCost
+FROM Item
+ORDER BY ItemCost DESC
+LIMIT 5;</code></span></pre>
+  <div class="ru-tip"><span class="lang-ru-inline">
     💡 <b>Заметка:</b> <code>LIMIT</code> — это синтаксис SQLite, MySQL, PostgreSQL. В Microsoft SQL Server то же самое называется <code>SELECT TOP 5 ...</code>, в Oracle — <code>ROWNUM &lt;= 5</code>. Для IB достаточно знать <code>LIMIT</code>.
-  </div>
+  </span><span class="lang-en-inline">💡 <b>Note:</b> <code>LIMIT</code> is the syntax of SQLite, MySQL and PostgreSQL. In Microsoft SQL Server the same thing is called <code>SELECT TOP 5 ...</code>, and in Oracle <code>ROWNUM &lt;= 5</code>. For IB it is enough to know <code>LIMIT</code>.</span></div>
 
-  <h3>6.4 <code>AS</code> — псевдонимы (алиасы)</h3>
-  <p>Даём колонке или таблице временное имя — для удобства чтения результата:</p>
-  <pre class="code-block"><code>SELECT FirstName AS Имя, LastName AS Фамилия
+  <h3><span class="lang-ru-inline">6.4 <code>AS</code> — псевдонимы (алиасы)</span><span class="lang-en-inline">6.4 <code>AS</code> — aliases</span></h3>
+  <p><span class="lang-ru-inline">Даём колонке или таблице временное имя — для удобства чтения результата:</span><span class="lang-en-inline">We give a column or a table a temporary name to make the result easier to read:</span></p>
+  <pre class="code-block"><span class="lang-ru-inline"><code>SELECT FirstName AS Имя, LastName AS Фамилия
 FROM Student;
 
 -- Алиас на таблицу (для JOIN-ов)
 SELECT s.FirstName, c.ClassName
 FROM Student AS s
-INNER JOIN Class AS c ON s.ClassID = c.ClassID;</code></pre>
+INNER JOIN Class AS c ON s.ClassID = c.ClassID;</code></span><span class="lang-en-inline"><code>SELECT FirstName AS <span lang="ru">Имя</span>, LastName AS <span lang="ru">Фамилия</span>
+FROM Student;
+
+-- Alias for a table (for JOINs)
+SELECT s.FirstName, c.ClassName
+FROM Student AS s
+INNER JOIN Class AS c ON s.ClassID = c.ClassID;</code></span></pre>
 
   <!-- ============ 7. AGGREGATES ============ -->
-  <h2 id="aggregates">7. Агрегатные функции</h2>
+  <h2 id="aggregates"><span class="lang-ru-inline">7. Агрегатные функции</span><span class="lang-en-inline">7. Aggregate functions</span></h2>
 
-  <div class="ru-tip" style="border-left-color:var(--accent); background:rgba(14,165,233,0.06);">
+  <div class="ru-tip en-summary" style="border-left-color:var(--accent); background:rgba(14,165,233,0.06);">
     <b>🌐 EN summary — Aggregate functions collapse rows into one value.</b>
     Aggregate functions reduce many rows down to a single summary number. <code>COUNT(*)</code> returns the total number of rows including NULLs, while <code>COUNT(column)</code> counts only non-NULL values in that column. <code>SUM</code> adds numeric values and <code>AVG</code> computes the arithmetic mean. <code>MIN</code> and <code>MAX</code> return the smallest and largest value respectively. A key rule: aggregate functions cannot appear in <code>WHERE</code> — they belong in <code>SELECT</code> or <code>HAVING</code>. Combined with grouping, they answer questions like total revenue, average price or how many records exist per category.
   </div>
 
-  <p>
+  <p><span class="lang-ru-inline">
     Агрегатные функции <b>сворачивают</b> множество строк в одно значение — это <b>A3.3.4</b> на экзамене. Главное правило: их нельзя использовать в <code>WHERE</code>, только в <code>SELECT</code> и в <code>HAVING</code>.
-  </p>
+  </span><span class="lang-en-inline">Aggregate functions <b>collapse</b> a set of rows into one value — this is <b>A3.3.4</b> on the exam. The main rule: they cannot be used in <code>WHERE</code>, only in <code>SELECT</code> and in <code>HAVING</code>.</span></p>
 
   <div class="table-scroll"><table class="summary-table">
-    <thead><tr><th>Функция</th><th>Что считает</th><th>Пример</th></tr></thead>
+    <thead><tr><th><span class="lang-ru-inline">Функция</span><span class="lang-en-inline">Function</span></th><th><span class="lang-ru-inline">Что считает</span><span class="lang-en-inline">What it calculates</span></th><th><span class="lang-ru-inline">Пример</span><span class="lang-en-inline">Example</span></th></tr></thead>
     <tbody>
-      <tr><td>COUNT(*)</td><td>Количество строк (включая NULL-значения)</td><td>Сколько всего товаров?</td></tr>
-      <tr><td>COUNT(col)</td><td>Количество <b>не-NULL</b> значений в колонке</td><td>Сколько товаров имеют email-адрес?</td></tr>
-      <tr><td>SUM(col)</td><td>Сумма числовых значений</td><td>Общая выручка</td></tr>
-      <tr><td>AVG(col)</td><td>Среднее арифметическое</td><td>Средняя цена</td></tr>
-      <tr><td>MIN(col)</td><td>Минимальное значение</td><td>Самый дешёвый товар</td></tr>
-      <tr><td>MAX(col)</td><td>Максимальное значение</td><td>Самый дорогой товар</td></tr>
+      <tr><td>COUNT(*)</td><td><span class="lang-ru-inline">Количество строк (включая NULL-значения)</span><span class="lang-en-inline">Number of rows (including NULL values)</span></td><td><span class="lang-ru-inline">Сколько всего товаров?</span><span class="lang-en-inline">How many items are there in total?</span></td></tr>
+      <tr><td>COUNT(col)</td><td><span class="lang-ru-inline">Количество <b>не-NULL</b> значений в колонке</span><span class="lang-en-inline">Number of <b>non-NULL</b> values in a column</span></td><td><span class="lang-ru-inline">Сколько товаров имеют email-адрес?</span><span class="lang-en-inline">How many items have an email address?</span></td></tr>
+      <tr><td>SUM(col)</td><td><span class="lang-ru-inline">Сумма числовых значений</span><span class="lang-en-inline">Sum of numeric values</span></td><td><span class="lang-ru-inline">Общая выручка</span><span class="lang-en-inline">Total revenue</span></td></tr>
+      <tr><td>AVG(col)</td><td><span class="lang-ru-inline">Среднее арифметическое</span><span class="lang-en-inline">Arithmetic mean</span></td><td><span class="lang-ru-inline">Средняя цена</span><span class="lang-en-inline">Average price</span></td></tr>
+      <tr><td>MIN(col)</td><td><span class="lang-ru-inline">Минимальное значение</span><span class="lang-en-inline">Minimum value</span></td><td><span class="lang-ru-inline">Самый дешёвый товар</span><span class="lang-en-inline">The cheapest item</span></td></tr>
+      <tr><td>MAX(col)</td><td><span class="lang-ru-inline">Максимальное значение</span><span class="lang-en-inline">Maximum value</span></td><td><span class="lang-ru-inline">Самый дорогой товар</span><span class="lang-en-inline">The most expensive item</span></td></tr>
     </tbody>
   </table></div>
 
-  <h4>7.1 Примеры в действии — магазин <b>Negozio</b></h4>
-  <pre class="code-block"><code>-- Сколько всего покупок?
+  <h4><span class="lang-ru-inline">7.1 Примеры в действии — магазин <b>Negozio</b></span><span class="lang-en-inline">7.1 Examples in action — the <b>Negozio</b> shop</span></h4>
+  <pre class="code-block"><span class="lang-ru-inline"><code>-- Сколько всего покупок?
 SELECT COUNT(*) AS TotalPurchases FROM Purchase;
 
 -- Общая выручка магазина
@@ -785,10 +813,23 @@ SELECT MIN(ItemCost) AS Cheapest, MAX(ItemCost) AS MostExpensive
 FROM Item;
 
 -- Средний чек покупателя
-SELECT AVG(ItemCost) AS AverageItemPrice FROM Item;</code></pre>
+SELECT AVG(ItemCost) AS AverageItemPrice FROM Item;</code></span><span class="lang-en-inline"><code>-- How many purchases in total?
+SELECT COUNT(*) AS TotalPurchases FROM Purchase;
+
+-- Total revenue of the shop
+SELECT SUM(Quantity * ItemCost) AS Revenue
+FROM Purchase
+JOIN Item ON Purchase.ItemID = Item.ItemID;
+
+-- The most expensive and the cheapest items
+SELECT MIN(ItemCost) AS Cheapest, MAX(ItemCost) AS MostExpensive
+FROM Item;
+
+-- Average bill per customer
+SELECT AVG(ItemCost) AS AverageItemPrice FROM Item;</code></span></pre>
 
   <div class="result-preview">
-    <div class="result-label">Результат — MIN/MAX по ItemCost</div>
+    <div class="result-label"><span class="lang-ru-inline">Результат — MIN/MAX по ItemCost</span><span class="lang-en-inline">Result — MIN/MAX of ItemCost</span></div>
     <div class="table-scroll"><table>
       <thead><tr><th>Cheapest</th><th>MostExpensive</th></tr></thead>
       <tbody>
@@ -798,24 +839,27 @@ SELECT AVG(ItemCost) AS AverageItemPrice FROM Item;</code></pre>
   </div>
 
   <!-- ============ 8. GROUP / HAVING ============ -->
-  <h2 id="group">8. GROUP BY и HAVING</h2>
+  <h2 id="group"><span class="lang-ru-inline">8. GROUP BY и HAVING</span><span class="lang-en-inline">8. GROUP BY and HAVING</span></h2>
 
-  <div class="ru-tip" style="border-left-color:var(--accent); background:rgba(14,165,233,0.06);">
+  <div class="ru-tip en-summary" style="border-left-color:var(--accent); background:rgba(14,165,233,0.06);">
     <b>🌐 EN summary — GROUP BY buckets rows; HAVING filters those buckets.</b>
     <code>GROUP BY column</code> collapses rows that share the same value of that column into one row per group, allowing aggregate functions to run per group rather than across the whole table. <code>HAVING</code> then filters those grouped results — it works on aggregate values, whereas <code>WHERE</code> filters individual rows before grouping. The full execution order for a query is FROM, then WHERE, then GROUP BY, then HAVING, then SELECT, then ORDER BY, then LIMIT. Remembering this pipeline explains why aggregates are blocked from WHERE.
   </div>
 
-  <h3>8.1 <code>GROUP BY</code> — группируем строки</h3>
-  <p>
+  <h3><span class="lang-ru-inline">8.1 <code>GROUP BY</code> — группируем строки</span><span class="lang-en-inline">8.1 <code>GROUP BY</code> — grouping rows</span></h3>
+  <p><span class="lang-ru-inline">
     <code>GROUP BY</code> объединяет строки с <b>одинаковым</b> значением выбранного поля в одну «сводную». Применяется вместе с агрегатными функциями.
-  </p>
-  <pre class="code-block"><code>-- Сколько покупателей в каждой стране?
+  </span><span class="lang-en-inline"><code>GROUP BY</code> combines rows with the <b>same</b> value of the chosen field into one "summary" row. It is used together with aggregate functions.</span></p>
+  <pre class="code-block"><span class="lang-ru-inline"><code>-- Сколько покупателей в каждой стране?
 SELECT COUNT(CustomerID) AS Total, CustomerCountry
 FROM Customer
-GROUP BY CustomerCountry;</code></pre>
+GROUP BY CustomerCountry;</code></span><span class="lang-en-inline"><code>-- How many customers are there in each country?
+SELECT COUNT(CustomerID) AS Total, CustomerCountry
+FROM Customer
+GROUP BY CustomerCountry;</code></span></pre>
 
   <div class="result-preview">
-    <div class="result-label">Результат — кол-во по странам</div>
+    <div class="result-label"><span class="lang-ru-inline">Результат — кол-во по странам</span><span class="lang-en-inline">Result — count by country</span></div>
     <div class="table-scroll"><table>
       <thead><tr><th>Total</th><th>CustomerCountry</th></tr></thead>
       <tbody>
@@ -826,18 +870,22 @@ GROUP BY CustomerCountry;</code></pre>
     </table></div>
   </div>
 
-  <h3>8.2 <code>HAVING</code> — условие для агрегата</h3>
-  <p>
+  <h3><span class="lang-ru-inline">8.2 <code>HAVING</code> — условие для агрегата</span><span class="lang-en-inline">8.2 <code>HAVING</code> — a condition on an aggregate</span></h3>
+  <p><span class="lang-ru-inline">
     <code>WHERE</code> фильтрует <b>строки до</b> агрегирования. <code>HAVING</code> фильтрует <b>группы после</b> агрегирования. Если в условии используется <code>COUNT()</code>, <code>SUM()</code> и др. — нужен <code>HAVING</code>.
-  </p>
-  <pre class="code-block"><code>-- Страны, где у нас больше 2 покупателей
+  </span><span class="lang-en-inline"><code>WHERE</code> filters <b>rows before</b> aggregation. <code>HAVING</code> filters <b>groups after</b> aggregation. If the condition uses <code>COUNT()</code>, <code>SUM()</code> etc., you need <code>HAVING</code>.</span></p>
+  <pre class="code-block"><span class="lang-ru-inline"><code>-- Страны, где у нас больше 2 покупателей
 SELECT COUNT(CustomerID), CustomerCountry
 FROM Customer
 GROUP BY CustomerCountry
-HAVING COUNT(CustomerID) &gt; 2;</code></pre>
+HAVING COUNT(CustomerID) &gt; 2;</code></span><span class="lang-en-inline"><code>-- Countries where we have more than 2 customers
+SELECT COUNT(CustomerID), CustomerCountry
+FROM Customer
+GROUP BY CustomerCountry
+HAVING COUNT(CustomerID) &gt; 2;</code></span></pre>
 
   <div class="result-preview">
-    <div class="result-label">Результат — только многочисленные страны</div>
+    <div class="result-label"><span class="lang-ru-inline">Результат — только многочисленные страны</span><span class="lang-en-inline">Result — only the countries with many customers</span></div>
     <div class="table-scroll"><table>
       <thead><tr><th>COUNT(CustomerID)</th><th>CustomerCountry</th></tr></thead>
       <tbody>
@@ -847,23 +895,25 @@ HAVING COUNT(CustomerID) &gt; 2;</code></pre>
     </table></div>
   </div>
 
-  <div class="ru-tip">
+  <div class="ru-tip"><span class="lang-ru-inline">
     💡 <b>Шпаргалка порядка операций в SELECT:</b><br>
     <code>FROM</code> → <code>WHERE</code> → <code>GROUP BY</code> → <code>HAVING</code> → <code>SELECT</code> → <code>ORDER BY</code> → <code>LIMIT</code>.<br>
     Сначала откуда, потом фильтр строк, потом группировка, потом фильтр групп, потом выбор колонок, потом сортировка, потом ограничение.
-  </div>
+  </span><span class="lang-en-inline">💡 <b>Quick reference: the order of operations in SELECT:</b><br>
+    <code>FROM</code> → <code>WHERE</code> → <code>GROUP BY</code> → <code>HAVING</code> → <code>SELECT</code> → <code>ORDER BY</code> → <code>LIMIT</code>.<br>
+    First where the data comes from, then the row filter, then grouping, then the group filter, then the choice of columns, then sorting, then the limit.</span></div>
 
   <!-- ============ 9. JOINs ============ -->
-  <h2 id="joins">9. JOIN — объединяем таблицы</h2>
+  <h2 id="joins"><span class="lang-ru-inline">9. JOIN — объединяем таблицы</span><span class="lang-en-inline">9. JOIN — combining tables</span></h2>
 
-  <div class="ru-tip" style="border-left-color:var(--accent); background:rgba(14,165,233,0.06);">
+  <div class="ru-tip en-summary" style="border-left-color:var(--accent); background:rgba(14,165,233,0.06);">
     <b>🌐 EN summary — Joins combine rows from related tables.</b>
     A join links rows from two tables on a shared field, typically a foreign key that references the primary key of the other table. <b>INNER JOIN</b> returns only rows that match on both sides — the intersection. <b>LEFT JOIN</b> keeps every row from the left table and fills missing right-side matches with NULL. <b>RIGHT JOIN</b> mirrors that behaviour for the right table. <b>FULL OUTER JOIN</b> includes every row from both tables, with NULLs where there is no counterpart. The join condition (usually <code>ON tableA.fk = tableB.pk</code>) is what makes a relational schema actually relational.
   </div>
 
-  <p>
+  <p><span class="lang-ru-inline">
     <code>JOIN</code> склеивает строки из <b>двух разных</b> таблиц по <b>общему полю</b> — обычно по внешнему ключу. Это <b>A3.3.2</b> на экзамене. Есть несколько типов соединений.
-  </p>
+  </span><span class="lang-en-inline"><code>JOIN</code> joins rows from <b>two different</b> tables on a <b>common field</b> — usually on a foreign key. This is <b>A3.3.2</b> on the exam. There are several types of join.</span></p>
 
   <div class="join-grid">
     <div class="join-card">
@@ -873,7 +923,7 @@ HAVING COUNT(CustomerID) &gt; 2;</code></pre>
         <path d="M 60,18 a 28,28 0 0,1 0,44 a 28,28 0 0,1 0,-44 z" fill="#0ea5e9" opacity="0.85"/>
       </svg>
       <h4>INNER JOIN</h4>
-      <p>Только строки, где есть совпадение в <b>обеих</b> таблицах.</p>
+      <p><span class="lang-ru-inline">Только строки, где есть совпадение в <b>обеих</b> таблицах.</span><span class="lang-en-inline">Only rows where there is a match in <b>both</b> tables.</span></p>
     </div>
     <div class="join-card">
       <svg width="120" height="80" viewBox="0 0 120 80">
@@ -881,7 +931,7 @@ HAVING COUNT(CustomerID) &gt; 2;</code></pre>
         <circle cx="45" cy="40" r="28" fill="#0ea5e9" opacity="0.85"/>
       </svg>
       <h4>LEFT JOIN</h4>
-      <p>Все строки <b>левой</b> таблицы + совпадения справа. Если справа нет — NULL.</p>
+      <p><span class="lang-ru-inline">Все строки <b>левой</b> таблицы + совпадения справа. Если справа нет — NULL.</span><span class="lang-en-inline">All rows of the <b>left</b> table, plus the matching rows on the right. If there is no match on the right, the result is NULL.</span></p>
     </div>
     <div class="join-card">
       <svg width="120" height="80" viewBox="0 0 120 80">
@@ -889,7 +939,7 @@ HAVING COUNT(CustomerID) &gt; 2;</code></pre>
         <circle cx="75" cy="40" r="28" fill="#0ea5e9" opacity="0.85"/>
       </svg>
       <h4>RIGHT JOIN</h4>
-      <p>Все строки <b>правой</b> таблицы + совпадения слева. Если слева нет — NULL.</p>
+      <p><span class="lang-ru-inline">Все строки <b>правой</b> таблицы + совпадения слева. Если слева нет — NULL.</span><span class="lang-en-inline">All rows of the <b>right</b> table, plus the matching rows on the left. If there is no match on the left, the result is NULL.</span></p>
     </div>
     <div class="join-card">
       <svg width="120" height="80" viewBox="0 0 120 80">
@@ -897,11 +947,11 @@ HAVING COUNT(CustomerID) &gt; 2;</code></pre>
         <circle cx="75" cy="40" r="28" fill="#0ea5e9" opacity="0.85"/>
       </svg>
       <h4>FULL OUTER JOIN</h4>
-      <p>Все строки из <b>обеих</b> таблиц. Где нет пары — NULL.</p>
+      <p><span class="lang-ru-inline">Все строки из <b>обеих</b> таблиц. Где нет пары — NULL.</span><span class="lang-en-inline">All rows from <b>both</b> tables. Where there is no match, the result is NULL.</span></p>
     </div>
   </div>
 
-  <h3>9.1 INNER JOIN — самый частый</h3>
+  <h3><span class="lang-ru-inline">9.1 INNER JOIN — самый частый</span><span class="lang-en-inline">9.1 INNER JOIN — the most common</span></h3>
   <pre class="code-block"><code>SELECT Item.ItemID, Item.ItemDesc, Item.ItemCost,
        Artist.ArtistName, Artist.ArtistEmail
 FROM Item
@@ -909,7 +959,7 @@ INNER JOIN Artist ON Item.ArtistID = Artist.ArtistID
 WHERE ItemCost &gt; 100;</code></pre>
 
   <div class="result-preview">
-    <div class="result-label">Результат — товары дороже 100 + автор</div>
+    <div class="result-label"><span class="lang-ru-inline">Результат — товары дороже 100 + автор</span><span class="lang-en-inline">Result — items costing more than 100 + artist</span></div>
     <div class="table-scroll"><table>
       <thead><tr><th>ItemID</th><th>ItemDesc</th><th>ItemCost</th><th>ArtistName</th><th>ArtistEmail</th></tr></thead>
       <tbody>
@@ -921,41 +971,47 @@ WHERE ItemCost &gt; 100;</code></pre>
     </table></div>
   </div>
 
-  <h3>9.2 LEFT JOIN — сохраняем «левых» даже без пары</h3>
-  <p>Пример: показать всех студентов и их классные руководители — даже тех, кому ещё не назначили класс.</p>
+  <h3><span class="lang-ru-inline">9.2 LEFT JOIN — сохраняем «левых» даже без пары</span><span class="lang-en-inline">9.2 LEFT JOIN — keeping the "left" rows even without a match</span></h3>
+  <p><span class="lang-ru-inline">Пример: показать всех студентов и их классные руководители — даже тех, кому ещё не назначили класс.</span><span class="lang-en-inline">Example: show all students and their class teachers — even those who have not yet been assigned a class.</span></p>
   <pre class="code-block"><code>SELECT Student.FirstName, Student.LastName, Class.ClassName
 FROM Student
 LEFT JOIN Class ON Student.ClassID = Class.ClassID;</code></pre>
 
   <div class="result-preview">
-    <div class="result-label">Результат — все студенты (даже без класса)</div>
+    <div class="result-label"><span class="lang-ru-inline">Результат — все студенты (даже без класса)</span><span class="lang-en-inline">Result — all students (even without a class)</span></div>
     <div class="table-scroll"><table>
       <thead><tr><th>FirstName</th><th>LastName</th><th>ClassName</th></tr></thead>
       <tbody>
-        <tr><td>Анна</td><td>Иванова</td><td>10-A</td></tr>
-        <tr><td>Борис</td><td>Петров</td><td>10-A</td></tr>
-        <tr><td>Виктория</td><td>Семёнова</td><td>11-Б</td></tr>
-        <tr><td>Глеб</td><td>Сидоров</td><td><i>NULL</i></td></tr>
+        <tr><td><span class="lang-ru-inline">Анна</span><span class="lang-en-inline"><span lang="ru">Анна</span></span></td><td><span class="lang-ru-inline">Иванова</span><span class="lang-en-inline"><span lang="ru">Иванова</span></span></td><td>10-A</td></tr>
+        <tr><td><span class="lang-ru-inline">Борис</span><span class="lang-en-inline"><span lang="ru">Борис</span></span></td><td><span class="lang-ru-inline">Петров</span><span class="lang-en-inline"><span lang="ru">Петров</span></span></td><td>10-A</td></tr>
+        <tr><td><span class="lang-ru-inline">Виктория</span><span class="lang-en-inline"><span lang="ru">Виктория</span></span></td><td><span class="lang-ru-inline">Семёнова</span><span class="lang-en-inline"><span lang="ru">Семёнова</span></span></td><td><span class="lang-ru-inline">11-Б</span><span class="lang-en-inline"><span lang="ru">11-Б</span></span></td></tr>
+        <tr><td><span class="lang-ru-inline">Глеб</span><span class="lang-en-inline"><span lang="ru">Глеб</span></span></td><td><span class="lang-ru-inline">Сидоров</span><span class="lang-en-inline"><span lang="ru">Сидоров</span></span></td><td><i>NULL</i></td></tr>
       </tbody>
     </table></div>
   </div>
 
-  <h3>9.3 RIGHT JOIN — наоборот, сохраняем «правых»</h3>
-  <pre class="code-block"><code>-- Все классы + их студенты, даже пустые классы
+  <h3><span class="lang-ru-inline">9.3 RIGHT JOIN — наоборот, сохраняем «правых»</span><span class="lang-en-inline">9.3 RIGHT JOIN — the other way round: keeping the "right" rows</span></h3>
+  <pre class="code-block"><span class="lang-ru-inline"><code>-- Все классы + их студенты, даже пустые классы
 SELECT Student.FirstName, Class.ClassName
 FROM Student
-RIGHT JOIN Class ON Student.ClassID = Class.ClassID;</code></pre>
+RIGHT JOIN Class ON Student.ClassID = Class.ClassID;</code></span><span class="lang-en-inline"><code>-- All classes + their students, even empty classes
+SELECT Student.FirstName, Class.ClassName
+FROM Student
+RIGHT JOIN Class ON Student.ClassID = Class.ClassID;</code></span></pre>
 
-  <h3>9.4 FULL OUTER JOIN — всё подряд</h3>
-  <pre class="code-block"><code>-- Все студенты и все классы, даже не связанные
+  <h3><span class="lang-ru-inline">9.4 FULL OUTER JOIN — всё подряд</span><span class="lang-en-inline">9.4 FULL OUTER JOIN — everything</span></h3>
+  <pre class="code-block"><span class="lang-ru-inline"><code>-- Все студенты и все классы, даже не связанные
 SELECT Student.FirstName, Class.ClassName
 FROM Student
-FULL OUTER JOIN Class ON Student.ClassID = Class.ClassID;</code></pre>
-  <div class="ru-tip">
+FULL OUTER JOIN Class ON Student.ClassID = Class.ClassID;</code></span><span class="lang-en-inline"><code>-- All students and all classes, even those that are not linked
+SELECT Student.FirstName, Class.ClassName
+FROM Student
+FULL OUTER JOIN Class ON Student.ClassID = Class.ClassID;</code></span></pre>
+  <div class="ru-tip"><span class="lang-ru-inline">
     💡 <b>Заметка:</b> в SQLite (наша песочница) <code>FULL OUTER JOIN</code> не поддерживается напрямую — эмулируют через <code>LEFT JOIN UNION RIGHT JOIN</code>. В Oracle, PostgreSQL, MS SQL — работает «из коробки».
-  </div>
+  </span><span class="lang-en-inline">💡 <b>Note:</b> in SQLite (our sandbox) <code>FULL OUTER JOIN</code> is not supported directly — it is emulated with <code>LEFT JOIN UNION RIGHT JOIN</code>. In Oracle, PostgreSQL and MS SQL it works out of the box.</span></div>
 
-  <h3>9.5 JOIN с дополнительными условиями</h3>
+  <h3><span class="lang-ru-inline">9.5 JOIN с дополнительными условиями</span><span class="lang-en-inline">9.5 JOIN with additional conditions</span></h3>
   <pre class="code-block"><code>SELECT Purchase.ItemID, Purchase.Quantity, Purchase.Date,
        Customer.CustomerID, Customer.CustomerEmail
 FROM Purchase
@@ -964,36 +1020,46 @@ WHERE Customer.CustomerCountry = 'Italy'
   AND Purchase.Date &lt; '2025-07-01';</code></pre>
 
   <!-- ============ 10. SUBQUERIES ============ -->
-  <h2 id="subqueries">10. Подзапросы (вложенный SELECT)</h2>
+  <h2 id="subqueries"><span class="lang-ru-inline">10. Подзапросы (вложенный SELECT)</span><span class="lang-en-inline">10. Subqueries (nested SELECT)</span></h2>
 
-  <div class="ru-tip" style="border-left-color:var(--accent); background:rgba(14,165,233,0.06);">
+  <div class="ru-tip en-summary" style="border-left-color:var(--accent); background:rgba(14,165,233,0.06);">
     <b>🌐 EN summary — Subqueries nest one query inside another.</b>
     A subquery is a <code>SELECT</code> statement embedded inside another SQL statement, often used when an intermediate value must be computed before the outer query can run. Subqueries in <code>WHERE</code> are common — for example, comparing each row to an aggregate value such as the average price. Combined with <code>IN</code>, a subquery returns a set of values to match against. Placed in <code>FROM</code>, the subquery becomes a derived table that the outer query treats as its source. Subqueries make complex multi-step questions answerable in a single statement.
   </div>
 
-  <p>
+  <p><span class="lang-ru-inline">
     <b>Подзапрос</b> — это <code>SELECT</code> внутри другого <code>SELECT</code> (или <code>UPDATE</code>, <code>DELETE</code>). Применяют, когда нужно сначала <b>вычислить промежуточное значение</b>, а затем по нему отфильтровать или соединить данные.
-  </p>
+  </span><span class="lang-en-inline"><b>A subquery</b> is a <code>SELECT</code> inside another <code>SELECT</code> (or <code>UPDATE</code>, <code>DELETE</code>). It is used when you first need to <b>calculate an intermediate value</b>, and then filter or join the data using it.</span></p>
 
-  <h3>10.1 Подзапрос в <code>WHERE</code></h3>
-  <pre class="code-block"><code>-- Все товары, цена которых выше средней по магазину
+  <h3><span class="lang-ru-inline">10.1 Подзапрос в <code>WHERE</code></span><span class="lang-en-inline">10.1 Subquery in <code>WHERE</code></span></h3>
+  <pre class="code-block"><span class="lang-ru-inline"><code>-- Все товары, цена которых выше средней по магазину
 SELECT ItemDesc, ItemCost
 FROM Item
-WHERE ItemCost &gt; (SELECT AVG(ItemCost) FROM Item);</code></pre>
-  <p>Сначала СУБД посчитает среднюю цену (одно число), потом применит его как фильтр.</p>
+WHERE ItemCost &gt; (SELECT AVG(ItemCost) FROM Item);</code></span><span class="lang-en-inline"><code>-- All items whose price is above the shop's average
+SELECT ItemDesc, ItemCost
+FROM Item
+WHERE ItemCost &gt; (SELECT AVG(ItemCost) FROM Item);</code></span></pre>
+  <p><span class="lang-ru-inline">Сначала СУБД посчитает среднюю цену (одно число), потом применит его как фильтр.</span><span class="lang-en-inline">First the DBMS calculates the average price (one number), then applies it as a filter.</span></p>
 
-  <h3>10.2 Подзапрос с <code>IN</code></h3>
-  <pre class="code-block"><code>-- Все художники, у которых хотя бы один товар был продан
+  <h3><span class="lang-ru-inline">10.2 Подзапрос с <code>IN</code></span><span class="lang-en-inline">10.2 Subquery with <code>IN</code></span></h3>
+  <pre class="code-block"><span class="lang-ru-inline"><code>-- Все художники, у которых хотя бы один товар был продан
 SELECT ArtistName
 FROM Artist
 WHERE ArtistID IN (
     SELECT DISTINCT ArtistID
     FROM Item
     WHERE ItemID IN (SELECT ItemID FROM Purchase)
-);</code></pre>
+);</code></span><span class="lang-en-inline"><code>-- All artists with at least one item sold
+SELECT ArtistName
+FROM Artist
+WHERE ArtistID IN (
+    SELECT DISTINCT ArtistID
+    FROM Item
+    WHERE ItemID IN (SELECT ItemID FROM Purchase)
+);</code></span></pre>
 
-  <h3>10.3 Подзапрос в <code>FROM</code> (производная таблица)</h3>
-  <pre class="code-block"><code>-- Средний чек по странам — сначала суммируем по покупателям, потом усредняем
+  <h3><span class="lang-ru-inline">10.3 Подзапрос в <code>FROM</code> (производная таблица)</span><span class="lang-en-inline">10.3 Subquery in <code>FROM</code> (derived table)</span></h3>
+  <pre class="code-block"><span class="lang-ru-inline"><code>-- Средний чек по странам — сначала суммируем по покупателям, потом усредняем
 SELECT Country, AVG(TotalSpent) AS AvgSpending
 FROM (
     SELECT Customer.CustomerCountry AS Country,
@@ -1003,74 +1069,88 @@ FROM (
     INNER JOIN Item     ON Purchase.ItemID     = Item.ItemID
     GROUP BY Customer.CustomerID
 ) AS PerCustomer
-GROUP BY Country;</code></pre>
+GROUP BY Country;</code></span><span class="lang-en-inline"><code>-- Average bill by country — first sum up per customer, then take the average
+SELECT Country, AVG(TotalSpent) AS AvgSpending
+FROM (
+    SELECT Customer.CustomerCountry AS Country,
+           SUM(Item.ItemCost * Purchase.Quantity) AS TotalSpent
+    FROM Customer
+    INNER JOIN Purchase ON Customer.CustomerID = Purchase.CustomerID
+    INNER JOIN Item     ON Purchase.ItemID     = Item.ItemID
+    GROUP BY Customer.CustomerID
+) AS PerCustomer
+GROUP BY Country;</code></span></pre>
 
   <!-- ============ 11. INSERT / UPDATE / DELETE ============ -->
-  <h2 id="insert-update-delete">11. INSERT, UPDATE, DELETE — изменяем данные</h2>
+  <h2 id="insert-update-delete"><span class="lang-ru-inline">11. INSERT, UPDATE, DELETE — изменяем данные</span><span class="lang-en-inline">11. INSERT, UPDATE, DELETE — changing data</span></h2>
 
-  <div class="ru-tip" style="border-left-color:var(--accent); background:rgba(14,165,233,0.06);">
+  <div class="ru-tip en-summary" style="border-left-color:var(--accent); background:rgba(14,165,233,0.06);">
     <b>🌐 EN summary — DML statements that modify rows.</b>
     <code>INSERT INTO ... VALUES</code> adds a new row with explicit values, while <code>INSERT INTO ... SELECT</code> bulk-inserts rows taken from another query result. <code>UPDATE table SET column = value WHERE condition</code> modifies existing rows that match the condition. <code>DELETE FROM table WHERE condition</code> removes matching rows while leaving the table structure intact. The critical safety rule: omitting <code>WHERE</code> from <code>UPDATE</code> or <code>DELETE</code> applies the operation to every row in the table — one of the most damaging mistakes possible. Always run a matching <code>SELECT</code> first to preview affected rows.
   </div>
 
-  <h3>11.1 <code>INSERT INTO ... VALUES</code> — добавить запись</h3>
+  <h3><span class="lang-ru-inline">11.1 <code>INSERT INTO ... VALUES</code> — добавить запись</span><span class="lang-en-inline">11.1 <code>INSERT INTO ... VALUES</code> — adding a row</span></h3>
   <pre class="code-block"><code>INSERT INTO Customer (CustomerID, CustomerEmail, CustomerAddress, deliveryAddress)
 VALUES ('2', 'Christopher@mail.com', '34 Maple Crescent, Midtown',
        'Unit A Industry Road, Midtown');</code></pre>
 
-  <h3>11.2 <code>INSERT INTO ... SELECT</code> — добавить из другой таблицы</h3>
-  <pre class="code-block"><code>-- Скопировать всех VIP-покупателей в архивную таблицу
+  <h3><span class="lang-ru-inline">11.2 <code>INSERT INTO ... SELECT</code> — добавить из другой таблицы</span><span class="lang-en-inline">11.2 <code>INSERT INTO ... SELECT</code> — adding rows from another table</span></h3>
+  <pre class="code-block"><span class="lang-ru-inline"><code>-- Скопировать всех VIP-покупателей в архивную таблицу
 INSERT INTO VIPArchive (CustomerID, Email)
 SELECT CustomerID, CustomerEmail
 FROM Customer
-WHERE TotalSpent &gt; 10000;</code></pre>
+WHERE TotalSpent &gt; 10000;</code></span><span class="lang-en-inline"><code>-- Copy all VIP customers to the archive table
+INSERT INTO VIPArchive (CustomerID, Email)
+SELECT CustomerID, CustomerEmail
+FROM Customer
+WHERE TotalSpent &gt; 10000;</code></span></pre>
 
-  <h3>11.3 <code>UPDATE ... SET ... WHERE</code> — изменить существующее</h3>
+  <h3><span class="lang-ru-inline">11.3 <code>UPDATE ... SET ... WHERE</code> — изменить существующее</span><span class="lang-en-inline">11.3 <code>UPDATE ... SET ... WHERE</code> — changing existing rows</span></h3>
   <pre class="code-block"><code>UPDATE Item
 SET ArtistID = '101'
 WHERE ItemID = '2940';</code></pre>
-  <p>Изменили принадлежность товара <code>2940</code> другому автору.</p>
+  <p><span class="lang-ru-inline">Изменили принадлежность товара <code>2940</code> другому автору.</span><span class="lang-en-inline">We reassigned item <code>2940</code> to a different artist.</span></p>
 
-  <p>Можно менять <b>несколько полей</b> сразу:</p>
+  <p><span class="lang-ru-inline">Можно менять <b>несколько полей</b> сразу:</span><span class="lang-en-inline">You can change <b>several fields</b> at once:</span></p>
   <pre class="code-block"><code>UPDATE Student
 SET Grade = 11, ClassID = 22
 WHERE StudentID = 105;</code></pre>
 
   <div class="danger-tip">
-    ⚠️ <b>Главное предупреждение:</b> если в <code>UPDATE</code> <b>забыть <code>WHERE</code></b> — <b>все строки</b> в таблице получат новое значение. Это <b>самая частая ошибка</b> с катастрофическими последствиями.
-    <pre class="code-block" style="margin:6px 0"><code>UPDATE Item SET ItemCost = 0;   -- ОПАСНО! Все товары станут бесплатными.</code></pre>
+    ⚠️ <b><span class="lang-ru-inline">Главное предупреждение:</span><span class="lang-en-inline">Main warning:</span></b> <span class="lang-ru-inline">если в</span><span class="lang-en-inline">if you run an</span> <code>UPDATE</code> <b><span class="lang-ru-inline">забыть <code>WHERE</code></span><span class="lang-en-inline">without <code>WHERE</code></span></b> — <b><span class="lang-ru-inline">все строки</span><span class="lang-en-inline">all rows</span></b> <span class="lang-ru-inline">в таблице получат новое значение. Это</span><span class="lang-en-inline">in the table get a new value. This is the</span> <b><span class="lang-ru-inline">самая частая ошибка</span><span class="lang-en-inline">most common mistake</span></b> <span class="lang-ru-inline">с катастрофическими последствиями.</span><span class="lang-en-inline">with catastrophic consequences.</span>
+    <pre class="code-block" style="margin:6px 0"><span class="lang-ru-inline"><code>UPDATE Item SET ItemCost = 0;   -- ОПАСНО! Все товары станут бесплатными.</code></span><span class="lang-en-inline"><code>UPDATE Item SET ItemCost = 0;   -- DANGER! All items will become free.</code></span></pre>
   </div>
 
-  <h3>11.4 <code>DELETE FROM ... WHERE</code> — удалить записи</h3>
+  <h3><span class="lang-ru-inline">11.4 <code>DELETE FROM ... WHERE</code> — удалить записи</span><span class="lang-en-inline">11.4 <code>DELETE FROM ... WHERE</code> — deleting rows</span></h3>
   <pre class="code-block"><code>DELETE FROM Item WHERE ItemID = '49393';</code></pre>
 
-  <div class="danger-tip">
+  <div class="danger-tip"><span class="lang-ru-inline">
     ⚠️ <b>Та же ловушка:</b> <code>DELETE FROM Item;</code> <b>без WHERE</b> — удалит <b>все</b> строки в таблице. Сама таблица останется (это не <code>DROP</code>), но опустеет. Всегда сначала пиши <code>SELECT</code> с тем же условием, чтобы увидеть, что попадает под удаление.
-  </div>
+  </span><span class="lang-en-inline">⚠️ <b>The same trap:</b> <code>DELETE FROM Item;</code> <b>without WHERE</b> deletes <b>all</b> rows in the table. The table itself stays (this is not <code>DROP</code>), but it is empty. Always write a <code>SELECT</code> with the same condition first, to see which rows will be deleted.</span></div>
 
-  <h4>Безопасная последовательность изменений</h4>
+  <h4><span class="lang-ru-inline">Безопасная последовательность изменений</span><span class="lang-en-inline">A safe sequence of changes</span></h4>
   <ol>
-    <li>Сначала <b>SELECT</b> с тем же <code>WHERE</code> — глазами проверяем, что строки правильные.</li>
-    <li>Запускаем транзакцию: <code>BEGIN TRANSACTION;</code></li>
-    <li>Выполняем <code>UPDATE</code> или <code>DELETE</code>.</li>
-    <li>Снова <code>SELECT</code> — убеждаемся, что изменения те, что нужно.</li>
-    <li>Если всё ок — <code>COMMIT;</code>. Если что-то не так — <code>ROLLBACK;</code> (см. раздел 12).</li>
+    <li><span class="lang-ru-inline">Сначала <b>SELECT</b> с тем же <code>WHERE</code> — глазами проверяем, что строки правильные.</span><span class="lang-en-inline">First, a <b>SELECT</b> with the same <code>WHERE</code> — check by eye that the rows are correct.</span></li>
+    <li><span class="lang-ru-inline">Запускаем транзакцию: <code>BEGIN TRANSACTION;</code></span><span class="lang-en-inline">Start a transaction: <code>BEGIN TRANSACTION;</code></span></li>
+    <li><span class="lang-ru-inline">Выполняем <code>UPDATE</code> или <code>DELETE</code>.</span><span class="lang-en-inline">Run the <code>UPDATE</code> or <code>DELETE</code>.</span></li>
+    <li><span class="lang-ru-inline">Снова <code>SELECT</code> — убеждаемся, что изменения те, что нужно.</span><span class="lang-en-inline">Run <code>SELECT</code> again — check that the changes are the right ones.</span></li>
+    <li><span class="lang-ru-inline">Если всё ок — <code>COMMIT;</code>. Если что-то не так — <code>ROLLBACK;</code> (см. раздел 12).</span><span class="lang-en-inline">If everything is fine — <code>COMMIT;</code>. If something is wrong — <code>ROLLBACK;</code> (see section 12).</span></li>
   </ol>
 
   <!-- ============ 12. TRANSACTIONS / ACID ============ -->
-  <h2 id="transactions">12. Транзакции и ACID</h2>
+  <h2 id="transactions"><span class="lang-ru-inline">12. Транзакции и ACID</span><span class="lang-en-inline">12. Transactions and ACID</span></h2>
 
-  <div class="ru-tip" style="border-left-color:var(--accent); background:rgba(14,165,233,0.06);">
+  <div class="ru-tip en-summary" style="border-left-color:var(--accent); background:rgba(14,165,233,0.06);">
     <b>🌐 EN summary — Transactions and the ACID properties.</b>
     A <b>transaction</b> is a group of SQL operations treated as one indivisible unit of work — either every step succeeds and is committed, or none of them take effect. <code>BEGIN TRANSACTION</code> starts the block, <code>COMMIT</code> makes changes permanent, and <code>ROLLBACK</code> undoes everything since the begin. The DBMS guarantees four properties known as <b>ACID</b>. <b>Atomicity</b> enforces all-or-nothing execution. <b>Consistency</b> ensures the database moves from one valid state to another, respecting all constraints. <b>Isolation</b> hides intermediate states from concurrent transactions. <b>Durability</b> guarantees that once committed, changes survive crashes by being written to persistent storage.
   </div>
 
-  <p>
+  <p><span class="lang-ru-inline">
     Это <b>A3.3.6</b> на экзамене (AHL — Higher Level). <b>Транзакция</b> — это <b>группа SQL-операций</b>, которые СУБД выполняет как <b>одно целое</b>: либо все успешно, либо ни одной (как будто ничего не было).
-  </p>
+  </span><span class="lang-en-inline">This is <b>A3.3.6</b> on the exam (AHL — Higher Level). A <b>transaction</b> is a <b>group of SQL operations</b> that the DBMS carries out as <b>one whole</b>: either all of them succeed, or none of them (as if nothing had happened).</span></p>
 
   <h3>12.1 BEGIN, COMMIT, ROLLBACK</h3>
-  <pre class="code-block"><code>BEGIN TRANSACTION;            -- начали транзакцию
+  <pre class="code-block"><span class="lang-ru-inline"><code>BEGIN TRANSACTION;            -- начали транзакцию
 
 UPDATE Account
 SET Balance = Balance - 100
@@ -1081,77 +1161,89 @@ SET Balance = Balance + 100
 WHERE AccountID = 2;          -- зачислили 100$ на счёт Б
 
 COMMIT;                       -- если оба прошли — фиксируем
--- или ROLLBACK; если что-то сломалось</code></pre>
+-- или ROLLBACK; если что-то сломалось</code></span><span class="lang-en-inline"><code>BEGIN TRANSACTION;            -- start the transaction
 
-  <p>
+UPDATE Account
+SET Balance = Balance - 100
+WHERE AccountID = 1;          -- withdraw 100$ from account A
+
+UPDATE Account
+SET Balance = Balance + 100
+WHERE AccountID = 2;          -- deposit 100$ into account B
+
+COMMIT;                       -- if both succeed — commit
+-- or ROLLBACK; if something has gone wrong</code></span></pre>
+
+  <p><span class="lang-ru-inline">
     <b>COMMIT</b> «застывает» изменения навсегда. <b>ROLLBACK</b> восстанавливает БД к состоянию <b>до</b> <code>BEGIN</code> — отменяет всё, что произошло внутри транзакции.
-  </p>
+  </span><span class="lang-en-inline"><b>COMMIT</b> makes the changes permanent. <b>ROLLBACK</b> restores the database to its state <b>before</b> <code>BEGIN</code> — it cancels everything that happened inside the transaction.</span></p>
 
   <div class="sim-cta">
     <div class="icon">⚛️</div>
-    <div class="text">
+    <div class="text"><span class="lang-ru-inline">
       <strong>Симуляция ACID-транзакции (с инжекцией сбоя)</strong>
       Запусти перевод 100$ со счёта на счёт, а потом нажми «крах» — увидишь, как ROLLBACK защищает целостность.
-    </div>
-    <a class="btn-link" href="databases.html?v=11#acid-sim">→ Открыть ACID-симуляцию</a>
+    </span><span class="lang-en-inline"><strong>Simulation of an ACID transaction (with an injected failure)</strong>
+      Run a transfer of 100$ from one account to another, then press "crash" — you will see how ROLLBACK protects integrity.</span></div>
+    <a class="btn-link" href="databases.html?v=11#acid-sim"><span class="lang-ru-inline">→ Открыть ACID-симуляцию</span><span class="lang-en-inline">→ Open the ACID simulation</span></a>
   </div>
 
-  <h3>12.2 Свойства ACID</h3>
-  <p>
+  <h3><span class="lang-ru-inline">12.2 Свойства ACID</span><span class="lang-en-inline">12.2 The ACID properties</span></h3>
+  <p><span class="lang-ru-inline">
     Чтобы СУБД могла гарантировать корректность транзакций, она обеспечивает <b>четыре свойства</b>, аббревиатура — <b>ACID</b>:
-  </p>
+  </span><span class="lang-en-inline">So that the DBMS can guarantee correct transactions, it provides <b>four properties</b>; the abbreviation is <b>ACID</b>:</span></p>
 
   <div class="acid-grid">
     <div class="acid-card">
-      <span class="letter">A</span><h4>Atomicity — Атомарность</h4>
-      <p><b>«Всё или ничего».</b> Если хоть одна операция в транзакции сломалась — отменяется <b>вся</b> транзакция. Не бывает «полупроведённой» сделки. Аналогия: перевод между счетами — нельзя списать у одного и не зачислить другому.</p>
+      <span class="letter">A</span><h4><span class="lang-ru-inline">Atomicity — Атомарность</span><span class="lang-en-inline">Atomicity</span></h4>
+      <p><span class="lang-ru-inline"><b>«Всё или ничего».</b> Если хоть одна операция в транзакции сломалась — отменяется <b>вся</b> транзакция. Не бывает «полупроведённой» сделки. Аналогия: перевод между счетами — нельзя списать у одного и не зачислить другому.</span><span class="lang-en-inline"><b>"All or nothing".</b> If even one operation in a transaction fails, the <b>whole</b> transaction is cancelled. There is no such thing as a half-completed deal. Analogy: a transfer between accounts — you cannot take money from one account and not credit the other.</span></p>
     </div>
     <div class="acid-card">
-      <span class="letter">C</span><h4>Consistency — Согласованность</h4>
-      <p>БД должна перейти из одного <b>корректного</b> состояния в другое. Все ограничения (PRIMARY KEY, FOREIGN KEY, CHECK) после транзакции остаются выполненными. Если транзакция нарушает правило — она откатится.</p>
+      <span class="letter">C</span><h4><span class="lang-ru-inline">Consistency — Согласованность</span><span class="lang-en-inline">Consistency</span></h4>
+      <p><span class="lang-ru-inline">БД должна перейти из одного <b>корректного</b> состояния в другое. Все ограничения (PRIMARY KEY, FOREIGN KEY, CHECK) после транзакции остаются выполненными. Если транзакция нарушает правило — она откатится.</span><span class="lang-en-inline">The database must move from one <b>correct</b> state to another. All constraints (PRIMARY KEY, FOREIGN KEY, CHECK) remain satisfied after the transaction. If a transaction breaks a rule, it is rolled back.</span></p>
     </div>
     <div class="acid-card">
-      <span class="letter">I</span><h4>Isolation — Изолированность</h4>
-      <p>Параллельные транзакции <b>не видят</b> промежуточные состояния друг друга. Результат должен быть таким, как будто они шли по очереди — даже если на самом деле они шли параллельно.</p>
+      <span class="letter">I</span><h4><span class="lang-ru-inline">Isolation — Изолированность</span><span class="lang-en-inline">Isolation</span></h4>
+      <p><span class="lang-ru-inline">Параллельные транзакции <b>не видят</b> промежуточные состояния друг друга. Результат должен быть таким, как будто они шли по очереди — даже если на самом деле они шли параллельно.</span><span class="lang-en-inline">Concurrent transactions <b>do not see</b> each other's intermediate states. The result must be the same as if they had run one after another — even if in reality they ran in parallel.</span></p>
     </div>
     <div class="acid-card">
-      <span class="letter">D</span><h4>Durability — Долговечность</h4>
-      <p>После <code>COMMIT</code> данные сохраняются <b>надёжно</b> — даже если сразу после этого сервер выключат из розетки. СУБД записывает изменения в журнал на диск.</p>
+      <span class="letter">D</span><h4><span class="lang-ru-inline">Durability — Долговечность</span><span class="lang-en-inline">Durability</span></h4>
+      <p><span class="lang-ru-inline">После <code>COMMIT</code> данные сохраняются <b>надёжно</b> — даже если сразу после этого сервер выключат из розетки. СУБД записывает изменения в журнал на диск.</span><span class="lang-en-inline">After <code>COMMIT</code>, the data is saved <b>reliably</b> — even if the server is unplugged right after that. The DBMS writes the changes to a log on disk.</span></p>
     </div>
   </div>
 
-  <div class="ru-tip">
+  <div class="ru-tip"><span class="lang-ru-inline">
     💡 <b>Как запомнить:</b> «<b>А</b>томарно, <b>с</b>огласованно, <b>и</b>золированно, <b>д</b>олговечно». Каждое свойство решает свою проблему: A — сбои внутри транзакции; C — нарушение правил БД; I — конфликты параллелизма; D — отказы оборудования после успеха.
-  </div>
+  </span><span class="lang-en-inline">💡 <b>How to remember:</b> each letter stands for a property: <b>A</b>tomicity, <b>C</b>onsistency, <b>I</b>solation, <b>D</b>urability. Each property solves its own problem: A — failures inside a transaction; C — breaking the rules of the database; I — conflicts of concurrent access; D — hardware failures after success.</span></div>
 
-  <h4>Классический пример — банковский перевод</h4>
-  <p>Перевод 100$ со счёта Алисы на счёт Боба. Без транзакции:</p>
+  <h4><span class="lang-ru-inline">Классический пример — банковский перевод</span><span class="lang-en-inline">A classic example — a bank transfer</span></h4>
+  <p><span class="lang-ru-inline">Перевод 100$ со счёта Алисы на счёт Боба. Без транзакции:</span><span class="lang-en-inline">A transfer of 100$ from Alice's account to Bob's account. Without a transaction:</span></p>
   <ol>
-    <li>Снимаем 100$ у Алисы. Баланс: −100$.</li>
-    <li><b>Сервер падает</b> ⚡</li>
-    <li>Зачисление Бобу не произошло. 100$ <b>пропали</b>.</li>
+    <li><span class="lang-ru-inline">Снимаем 100$ у Алисы. Баланс: −100$.</span><span class="lang-en-inline">Withdraw 100$ from Alice. Balance: −100$.</span></li>
+    <li><span class="lang-ru-inline"><b>Сервер падает</b> ⚡</span><span class="lang-en-inline"><b>The server crashes</b> ⚡</span></li>
+    <li><span class="lang-ru-inline">Зачисление Бобу не произошло. 100$ <b>пропали</b>.</span><span class="lang-en-inline">The credit to Bob never happens. 100$ <b>has disappeared</b>.</span></li>
   </ol>
-  <p>С транзакцией (ACID):</p>
+  <p><span class="lang-ru-inline">С транзакцией (ACID):</span><span class="lang-en-inline">With a transaction (ACID):</span></p>
   <ol>
     <li><code>BEGIN TRANSACTION</code></li>
-    <li>UPDATE Алиса −100$</li>
-    <li><b>Сервер падает</b> ⚡</li>
-    <li>При перезапуске СУБД видит незавершённую транзакцию → автоматический <code>ROLLBACK</code> → баланс Алисы восстановлен.</li>
+    <li><span class="lang-ru-inline">UPDATE Алиса −100$</span><span class="lang-en-inline">UPDATE Alice −100$</span></li>
+    <li><span class="lang-ru-inline"><b>Сервер падает</b> ⚡</span><span class="lang-en-inline"><b>The server crashes</b> ⚡</span></li>
+    <li><span class="lang-ru-inline">При перезапуске СУБД видит незавершённую транзакцию → автоматический <code>ROLLBACK</code> → баланс Алисы восстановлен.</span><span class="lang-en-inline">When the DBMS restarts, it sees the unfinished transaction → automatic <code>ROLLBACK</code> → Alice's balance is restored.</span></li>
   </ol>
 
   <!-- ============ 13. VIEWS / DCL ============ -->
-  <h2 id="views">13. Представления (VIEW) и DCL</h2>
+  <h2 id="views"><span class="lang-ru-inline">13. Представления (VIEW) и DCL</span><span class="lang-en-inline">13. Views (VIEW) and DCL</span></h2>
 
-  <div class="ru-tip" style="border-left-color:var(--accent); background:rgba(14,165,233,0.06);">
+  <div class="ru-tip en-summary" style="border-left-color:var(--accent); background:rgba(14,165,233,0.06);">
     <b>🌐 EN summary — Views and access control.</b>
     A <b>database view</b> is a virtual table built from a stored <code>SELECT</code> query. The view itself contains no duplicated data — every time it is queried the underlying SELECT runs again against the base tables. Views simplify complex joins behind a friendly name, provide a security layer by exposing only chosen columns to certain users, and shield application code from schema changes. <b>DCL</b> handles permissions: <code>GRANT</code> gives a user or role specific privileges on an object, while <code>REVOKE</code> takes them back. Together, views and DCL implement the principle of least privilege.
   </div>
 
-  <h3>13.1 Что такое VIEW</h3>
-  <p>
+  <h3><span class="lang-ru-inline">13.1 Что такое VIEW</span><span class="lang-en-inline">13.1 What a VIEW is</span></h3>
+  <p><span class="lang-ru-inline">
     <b>Представление (view)</b> — это <b>виртуальная таблица</b>, основанная на сохранённом <code>SELECT</code>-запросе. Физически данные не дублируются; каждый раз, когда обращаемся к view, СУБД на лету выполняет лежащий внутри запрос.
-  </p>
-  <pre class="code-block"><code>-- Создаём view: только активные товары с автором
+  </span><span class="lang-en-inline"><b>A view</b> is a <b>virtual table</b> based on a stored <code>SELECT</code> query. Physically, the data is not duplicated; each time we access the view, the DBMS runs the query it contains on the fly.</span></p>
+  <pre class="code-block"><span class="lang-ru-inline"><code>-- Создаём view: только активные товары с автором
 CREATE VIEW ActiveItemsWithArtist AS
 SELECT Item.ItemID, Item.ItemDesc, Item.ItemCost,
        Artist.ArtistName
@@ -1160,42 +1252,58 @@ INNER JOIN Artist ON Item.ArtistID = Artist.ArtistID
 WHERE Item.Active = 1;
 
 -- Теперь можно обращаться как к обычной таблице
-SELECT * FROM ActiveItemsWithArtist WHERE ItemCost &gt; 100;</code></pre>
+SELECT * FROM ActiveItemsWithArtist WHERE ItemCost &gt; 100;</code></span><span class="lang-en-inline"><code>-- Create a view: only active items with their artist
+CREATE VIEW ActiveItemsWithArtist AS
+SELECT Item.ItemID, Item.ItemDesc, Item.ItemCost,
+       Artist.ArtistName
+FROM Item
+INNER JOIN Artist ON Item.ArtistID = Artist.ArtistID
+WHERE Item.Active = 1;
 
-  <h4>Зачем нужны views</h4>
+-- Now you can access it like an ordinary table
+SELECT * FROM ActiveItemsWithArtist WHERE ItemCost &gt; 100;</code></span></pre>
+
+  <h4><span class="lang-ru-inline">Зачем нужны views</span><span class="lang-en-inline">Why we use views</span></h4>
   <ul>
-    <li><b>Упрощение запросов:</b> сложный JOIN прячется за коротким именем view.</li>
-    <li><b>Безопасность:</b> можно дать пользователю доступ только к view, а не к исходной таблице — он не увидит «лишние» колонки (например, зарплаты сотрудников).</li>
-    <li><b>Совместимость:</b> схема меняется, а view остаётся «фасадом» с привычной структурой.</li>
+    <li><span class="lang-ru-inline"><b>Упрощение запросов:</b> сложный JOIN прячется за коротким именем view.</span><span class="lang-en-inline"><b>Simpler queries:</b> a complex JOIN is hidden behind a short view name.</span></li>
+    <li><span class="lang-ru-inline"><b>Безопасность:</b> можно дать пользователю доступ только к view, а не к исходной таблице — он не увидит «лишние» колонки (например, зарплаты сотрудников).</span><span class="lang-en-inline"><b>Security:</b> you can give a user access only to the view, not to the original table — they will not see the "extra" columns (for example, staff salaries).</span></li>
+    <li><span class="lang-ru-inline"><b>Совместимость:</b> схема меняется, а view остаётся «фасадом» с привычной структурой.</span><span class="lang-en-inline"><b>Compatibility:</b> the schema changes, but the view remains a "facade" with the familiar structure.</span></li>
   </ul>
 
-  <h3>13.2 DCL — GRANT и REVOKE</h3>
-  <p><code>GRANT</code> выдаёт пользователю права; <code>REVOKE</code> их забирает.</p>
-  <pre class="code-block"><code>-- Дать пользователю librarian право только читать таблицу Book
+  <h3><span class="lang-ru-inline">13.2 DCL — GRANT и REVOKE</span><span class="lang-en-inline">13.2 DCL — GRANT and REVOKE</span></h3>
+  <p><span class="lang-ru-inline"><code>GRANT</code> выдаёт пользователю права; <code>REVOKE</code> их забирает.</span><span class="lang-en-inline"><code>GRANT</code> gives a user privileges; <code>REVOKE</code> takes them away.</span></p>
+  <pre class="code-block"><span class="lang-ru-inline"><code>-- Дать пользователю librarian право только читать таблицу Book
 GRANT SELECT ON Book TO librarian;
 
 -- Дать админу полные права на всю БД
 GRANT ALL PRIVILEGES ON school_db.* TO admin;
 
 -- Забрать право на удаление
-REVOKE DELETE ON Book FROM librarian;</code></pre>
+REVOKE DELETE ON Book FROM librarian;</code></span><span class="lang-en-inline"><code>-- Give the user librarian the privilege to only read the Book table
+GRANT SELECT ON Book TO librarian;
+
+-- Give admin full privileges on the whole database
+GRANT ALL PRIVILEGES ON school_db.* TO admin;
+
+-- Take away the delete privilege
+REVOKE DELETE ON Book FROM librarian;</code></span></pre>
 
   <!-- ============ 14. PRACTICE TASKS ============ -->
-  <h2 id="remember">Что важно запомнить</h2>
+  <h2 id="remember"><span class="lang-ru-inline">Что важно запомнить</span><span class="lang-en-inline">Key points to remember</span></h2>
   <ul style="line-height: 1.8; font-size: 1.02rem;">
-    <li><b>Четыре категории SQL:</b> DDL строит структуру, DML работает с данными, DCL управляет доступом, TCL — транзакциями.</li>
-    <li><b>Порядок предложений в SELECT:</b> FROM → WHERE → GROUP BY → HAVING → SELECT → ORDER BY → LIMIT.</li>
-    <li><b>WHERE</b> фильтрует строки <b>до</b> агрегации; <b>HAVING</b> — группы <b>после</b> агрегации. Агрегатные функции нельзя в WHERE.</li>
-    <li><b>JOIN</b>: INNER — пересечение; LEFT/RIGHT — сохраняем «свою» сторону; FULL OUTER — всё подряд.</li>
-    <li><b>Обязательное правило безопасности:</b> <code>UPDATE</code> и <code>DELETE</code> почти всегда требуют <code>WHERE</code>. Без него — катастрофа.</li>
-    <li><b>Ограничения</b> (PRIMARY KEY, FOREIGN KEY, NOT NULL, UNIQUE, CHECK, DEFAULT) — СУБД проверяет их сама и не даст нарушить целостность данных.</li>
-    <li><b>Транзакция</b> = группа операций как одно целое. <code>COMMIT</code> фиксирует, <code>ROLLBACK</code> откатывает.</li>
-    <li><b>ACID</b>: Atomicity (всё или ничего), Consistency (правила не нарушаются), Isolation (без конфликтов параллелизма), Durability (после COMMIT данные надёжны).</li>
-    <li><b>Views</b> — виртуальные таблицы, удобны для безопасности и упрощения сложных запросов.</li>
-    <li>На экзамене любят: «к какой категории SQL относится X?», «напиши JOIN», «объясни ACID», «зачем GROUP BY с HAVING». Всегда пиши <b>точечно</b> и <b>с примером</b>.</li>
+    <li><span class="lang-ru-inline"><b>Четыре категории SQL:</b> DDL строит структуру, DML работает с данными, DCL управляет доступом, TCL — транзакциями.</span><span class="lang-en-inline"><b>The four sub-languages of SQL:</b> DDL builds the structure, DML works with data, DCL manages access, TCL — transactions.</span></li>
+    <li><span class="lang-ru-inline"><b>Порядок предложений в SELECT:</b> FROM → WHERE → GROUP BY → HAVING → SELECT → ORDER BY → LIMIT.</span><span class="lang-en-inline"><b>Order of clauses in SELECT:</b> FROM → WHERE → GROUP BY → HAVING → SELECT → ORDER BY → LIMIT.</span></li>
+    <li><span class="lang-ru-inline"><b>WHERE</b> фильтрует строки <b>до</b> агрегации; <b>HAVING</b> — группы <b>после</b> агрегации. Агрегатные функции нельзя в WHERE.</span><span class="lang-en-inline"><b>WHERE</b> filters rows <b>before</b> aggregation; <b>HAVING</b> filters groups <b>after</b> aggregation. Aggregate functions cannot be used in WHERE.</span></li>
+    <li><span class="lang-ru-inline"><b>JOIN</b>: INNER — пересечение; LEFT/RIGHT — сохраняем «свою» сторону; FULL OUTER — всё подряд.</span><span class="lang-en-inline"><b>JOIN</b>: INNER — the intersection; LEFT/RIGHT — keep all rows of the chosen side; FULL OUTER — everything.</span></li>
+    <li><span class="lang-ru-inline"><b>Обязательное правило безопасности:</b> <code>UPDATE</code> и <code>DELETE</code> почти всегда требуют <code>WHERE</code>. Без него — катастрофа.</span><span class="lang-en-inline"><b>Mandatory safety rule:</b> <code>UPDATE</code> and <code>DELETE</code> almost always need a <code>WHERE</code>. Without it — a disaster.</span></li>
+    <li><span class="lang-ru-inline"><b>Ограничения</b> (PRIMARY KEY, FOREIGN KEY, NOT NULL, UNIQUE, CHECK, DEFAULT) — СУБД проверяет их сама и не даст нарушить целостность данных.</span><span class="lang-en-inline"><b>Constraints</b> (PRIMARY KEY, FOREIGN KEY, NOT NULL, UNIQUE, CHECK, DEFAULT) — the DBMS checks them itself and will not let data integrity be broken.</span></li>
+    <li><span class="lang-ru-inline"><b>Транзакция</b> = группа операций как одно целое. <code>COMMIT</code> фиксирует, <code>ROLLBACK</code> откатывает.</span><span class="lang-en-inline"><b>A transaction</b> = a group of operations as one whole. <code>COMMIT</code> makes the changes permanent, <code>ROLLBACK</code> undoes them.</span></li>
+    <li><span class="lang-ru-inline"><b>ACID</b>: Atomicity (всё или ничего), Consistency (правила не нарушаются), Isolation (без конфликтов параллелизма), Durability (после COMMIT данные надёжны).</span><span class="lang-en-inline"><b>ACID</b>: Atomicity (all or nothing), Consistency (the rules are not broken), Isolation (no concurrency conflicts), Durability (after COMMIT the data is safe).</span></li>
+    <li><span class="lang-ru-inline"><b>Views</b> — виртуальные таблицы, удобны для безопасности и упрощения сложных запросов.</span><span class="lang-en-inline"><b>Views</b> — virtual tables; useful for security and for simplifying complex queries.</span></li>
+    <li><span class="lang-ru-inline">На экзамене любят: «к какой категории SQL относится X?», «напиши JOIN», «объясни ACID», «зачем GROUP BY с HAVING». Всегда пиши <b>точечно</b> и <b>с примером</b>.</span><span class="lang-en-inline">In the exam, they often ask: "which SQL category does X belong to?", "write a JOIN", "explain ACID", "why use GROUP BY with HAVING". Always write <b>precisely</b> and <b>with an example</b>.</span></li>
   </ul>
 
-  <p style="margin-top:32px">
+  <p style="margin-top:32px"><span class="lang-ru-inline">
     <a href="databases.html" class="back-link">← Назад к A3 Базы данных</a>
     &nbsp; · &nbsp;
     <a href="databases.html?v=11#sql-sim" class="back-link">💾 SQL-песочница →</a>
@@ -1203,14 +1311,20 @@ REVOKE DELETE ON Book FROM librarian;</code></pre>
     <a href="databases.html?v=11#acid-sim" class="back-link">⚛️ ACID-симуляция →</a>
     &nbsp; · &nbsp;
     <a href="quiz.html?topic=A3.3" class="back-link">К квизу A3.3 →</a>
-  </p>
+  </span><span class="lang-en-inline"><a href="databases.html" class="back-link">← Back to A3 Databases</a>
+    &nbsp; · &nbsp;
+    <a href="databases.html?v=11#sql-sim" class="back-link">💾 SQL sandbox →</a>
+    &nbsp; · &nbsp;
+    <a href="databases.html?v=11#acid-sim" class="back-link">⚛️ ACID simulation →</a>
+    &nbsp; · &nbsp;
+    <a href="quiz.html?topic=A3.3" class="back-link">To the A3.3 quiz →</a></span></p>
 
 </main>
 
 <footer class="footer">
-  <p>
+  <p><span class="lang-ru-inline">
     IB CS Тема A · A3.3 SQL и программирование БД · Адаптировано из учебника Oxford IB DP Computer Science 2025 · <a href="index.html">На главную</a>
-  </p>
+  </span><span class="lang-en-inline">IB CS Theme A · A3.3 SQL and database programming · Adapted from the Oxford IB DP Computer Science 2025 textbook · <a href="index.html">Home</a></span></p>
 </footer>
 
 <script src="js/app.js?v=11"></script>

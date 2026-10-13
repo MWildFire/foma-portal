@@ -352,11 +352,12 @@
 
 <header class="site-header">
   <nav class="nav">
-    <a href="index.html" class="brand">
+    <a href="index.html" class="brand"><span class="lang-ru-inline">
       <span class="brand-mark">A</span>
       IB CS · Тема A
-    </a>
-    <div class="nav-links">
+    </span><span class="lang-en-inline"><span class="brand-mark">A</span>
+      IB CS · Theme A</span></a>
+    <div class="nav-links"><span class="lang-ru-inline">
       <a href="index.html">Обзор</a>
       <a href="fundamentals.html">A1 Основы</a>
       <a href="networks.html">A2 Сети</a>
@@ -364,7 +365,13 @@
       <a href="databases.html">A3 Базы данных</a>
       <a href="ml.html">A4 ML</a>
       <a href="quiz.html">Квиз</a>
-    </div>
+    </span><span class="lang-en-inline"><a href="index.html">Overview</a>
+      <a href="fundamentals.html">A1 Fundamentals</a>
+      <a href="networks.html">A2 Networks</a>
+      <a href="setevye-ustroistva.html">A2.1.3 Network devices</a>
+      <a href="databases.html">A3 Databases</a>
+      <a href="ml.html">A4 ML</a>
+      <a href="quiz.html">Quiz</a></span></div>
     <div class="nav-actions">
       <button class="theme-toggle" data-theme-toggle>☽</button>
       <button class="lang-toggle" data-lang-toggle>EN</button>
@@ -374,64 +381,64 @@
 
 <main class="device-page">
 
-  <a href="fundamentals.html" class="back-link">← Назад к A1 Основы</a>
+  <a href="fundamentals.html" class="back-link"><span class="lang-ru-inline">← Назад к A1 Основы</span><span class="lang-en-inline">← Back to A1 Fundamentals</span></a>
 
   <span class="hero-eyebrow" style="background:rgba(220,38,38,0.10); color:#b91c1c">
     A1.4.1 · Translation processes <span class="hl-badge">HL</span>
   </span>
 
-  <h1>Трансляция <span class="hl-badge">HL</span></h1>
+  <h1><span class="lang-ru-inline">Трансляция <span class="hl-badge">HL</span></span><span class="lang-en-inline">Translation <span class="hl-badge">HL</span></span></h1>
 
-  <p class="lede">
+  <p class="lede"><span class="lang-ru-inline">
     Эта тема (<b>A1.4 — Translation</b>, только HL) — про то, как код, который ты пишешь на Python, Java или C++, превращается в <b>машинные инструкции</b>, которые понимает процессор. Есть три основных подхода: <b>компилятор</b> (compiler) переводит всю программу заранее, <b>интерпретатор</b> (interpreter) — строка за строкой во время выполнения, а <b>JIT</b> (just-in-time) — гибрид, который компилирует «на лету». Каждый подход — это компромисс между скоростью разработки, скоростью выполнения, портируемостью и моментом обнаружения ошибок.
-  </p>
+  </span><span class="lang-en-inline">This topic (<b>A1.4 — Translation</b>, HL only) is about how code that you write in Python, Java or C++ becomes <b>machine instructions</b> that the processor understands. There are three main approaches: a <b>compiler</b> translates the whole program in advance, an <b>interpreter</b> works line by line during execution, and <b>JIT</b> (just-in-time) is a hybrid that compiles “on the fly”. Each approach is a trade-off between development speed, execution speed, portability and the point at which errors are detected.</span></p>
 
   
 
     
 
   <!-- ============ SECTION 1: WHY TRANSLATION ============ -->
-  <h2>1. Что такое трансляция и зачем она нужна</h2>
+  <h2><span class="lang-ru-inline">1. Что такое трансляция и зачем она нужна</span><span class="lang-en-inline">1. What translation is and why it is needed</span></h2>
 
-  <p>
+  <p><span class="lang-ru-inline">
     Процессор (CPU) понимает только <b>машинный код</b> (machine code) — последовательности двоичных бит, каждая из которых кодирует одну простую операцию: «загрузи число в регистр», «сложи два числа», «прыгни на адрес». Эти команды очень близки к железу и зависят от архитектуры (x86, ARM, MIPS — у каждой свой набор инструкций).
-  </p>
-  <p>
+  </span><span class="lang-en-inline">The processor (CPU) understands only <b>machine code</b> — sequences of binary bits, each of which encodes one simple operation: “load a number into a register”, “add two numbers”, “jump to an address”. These instructions are very close to the hardware and depend on the architecture (x86, ARM, MIPS — each has its own instruction set).</span></p>
+  <p><span class="lang-ru-inline">
     Человек писать в машинных кодах не может: они нечитаемы, привязаны к конкретному процессору и громоздки. Поэтому программисты пишут на <b>языках высокого уровня</b> (Python, Java, C++, JavaScript, Rust, Go и т.д.), а специальные программы — <b>трансляторы</b> — переводят этот код в машинные инструкции. <b>Трансляция (translation)</b> — это и есть процесс превращения человеко-понятного кода в команды, которые исполняет CPU.
-  </p>
+  </span><span class="lang-en-inline">People cannot write in machine code: it is unreadable, tied to a specific processor and cumbersome. So programmers write in <b>high-level languages</b> (Python, Java, C++, JavaScript, Rust, Go, etc.), and special programs — <b>translators</b> — convert this code into machine instructions. <b>Translation</b> is precisely the process of turning human-readable code into the commands that the CPU executes.</span></p>
 
-  <h3>Уровни кода — от человека к процессору</h3>
+  <h3><span class="lang-ru-inline">Уровни кода — от человека к процессору</span><span class="lang-en-inline">Levels of code — from the human to the processor</span></h3>
 
   <div class="table-scroll"><table class="summary-table">
     <thead>
       <tr>
-        <th>Уровень</th>
-        <th>Пример</th>
-        <th>Кто читает</th>
+        <th><span class="lang-ru-inline">Уровень</span><span class="lang-en-inline">Level</span></th>
+        <th><span class="lang-ru-inline">Пример</span><span class="lang-en-inline">Example</span></th>
+        <th><span class="lang-ru-inline">Кто читает</span><span class="lang-en-inline">Who reads it</span></th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td>Высокоуровневый язык</td>
+        <td><span class="lang-ru-inline">Высокоуровневый язык</span><span class="lang-en-inline">High-level language</span></td>
         <td><code>score = 42</code></td>
-        <td>Человек</td>
+        <td><span class="lang-ru-inline">Человек</span><span class="lang-en-inline">Human</span></td>
       </tr>
       <tr>
-        <td>Ассемблер (Assembly)</td>
+        <td><span class="lang-ru-inline">Ассемблер (Assembly)</span><span class="lang-en-inline">Assembly language</span></td>
         <td><code>MOV R2, #42</code></td>
-        <td>Человек (с трудом) и ассемблер</td>
+        <td><span class="lang-ru-inline">Человек (с трудом) и ассемблер</span><span class="lang-en-inline">Human (with difficulty) and the assembler</span></td>
       </tr>
       <tr>
-        <td>Машинный код (Machine code)</td>
+        <td><span class="lang-ru-inline">Машинный код (Machine code)</span><span class="lang-en-inline">Machine code</span></td>
         <td><code>0110 0000 0100 0010</code></td>
-        <td>Только процессор</td>
+        <td><span class="lang-ru-inline">Только процессор</span><span class="lang-en-inline">Processor only</span></td>
       </tr>
     </tbody>
   </table></div>
 
-  <div class="ru-tip">
+  <div class="ru-tip"><span class="lang-ru-inline">
     💡 <b>Ассемблер (assembly language)</b> — это «чуть более читаемый» машинный код. Каждая ассемблерная команда (MOV, ADD, JMP) почти один-к-одному превращается в одну машинную инструкцию. Программист может пользоваться метками вместо адресов памяти, но всё ещё работает на уровне регистров CPU. <b>Ассемблер (assembler) как программа</b> — это переводчик из ассемблерного кода в машинный.
-  </div>
+  </span><span class="lang-en-inline">💡 <b>Assembly language</b> is “slightly more readable” machine code. Each assembly command (MOV, ADD, JMP) is converted almost one-to-one into a single machine instruction. The programmer can use labels instead of memory addresses, but still works at the level of the CPU’s registers. <b>The assembler (as a program)</b> is the translator from assembly code to machine code.</span></div>
 
   <details class="en-summary" style="margin:12px 0; padding:12px 16px; background:var(--surface-2); border-radius:var(--radius); border-left:3px solid var(--text-faint)">
     <summary style="cursor:pointer; font-weight:600; color:var(--text-muted); font-size:0.92rem">🇬🇧 English summary (click to expand)</summary>
@@ -441,72 +448,72 @@
   </details>
 
   <!-- ============ SECTION 2: SUMMARY COMPARISON ============ -->
-  <h2>2. Кратко: компилятор vs интерпретатор vs JIT</h2>
+  <h2><span class="lang-ru-inline">2. Кратко: компилятор vs интерпретатор vs JIT</span><span class="lang-en-inline">2. In brief: compiler vs interpreter vs JIT</span></h2>
 
   <div class="table-scroll"><table class="summary-table">
     <thead>
       <tr>
-        <th>Критерий</th>
-        <th>Компилятор</th>
-        <th>Интерпретатор</th>
-        <th>JIT-компилятор</th>
+        <th><span class="lang-ru-inline">Критерий</span><span class="lang-en-inline">Criterion</span></th>
+        <th><span class="lang-ru-inline">Компилятор</span><span class="lang-en-inline">Compiler</span></th>
+        <th><span class="lang-ru-inline">Интерпретатор</span><span class="lang-en-inline">Interpreter</span></th>
+        <th><span class="lang-ru-inline">JIT-компилятор</span><span class="lang-en-inline">JIT compiler</span></th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td>Когда переводит</td>
-        <td>Один раз, заранее (до запуска)</td>
-        <td>Строка за строкой, во время выполнения</td>
-        <td>Во время выполнения, «горячие» участки кода</td>
+        <td><span class="lang-ru-inline">Когда переводит</span><span class="lang-en-inline">When it translates</span></td>
+        <td><span class="lang-ru-inline">Один раз, заранее (до запуска)</span><span class="lang-en-inline">Once, in advance (before the program runs)</span></td>
+        <td><span class="lang-ru-inline">Строка за строкой, во время выполнения</span><span class="lang-en-inline">Line by line, during execution</span></td>
+        <td><span class="lang-ru-inline">Во время выполнения, «горячие» участки кода</span><span class="lang-en-inline">During execution, “hot” sections of code</span></td>
       </tr>
       <tr>
-        <td>Результат</td>
-        <td>Бинарный исполняемый файл (.exe / a.out)</td>
-        <td>Файла нет, читает исходник напрямую</td>
-        <td>Машинный код в памяти, кэшируется</td>
+        <td><span class="lang-ru-inline">Результат</span><span class="lang-en-inline">Result</span></td>
+        <td><span class="lang-ru-inline">Бинарный исполняемый файл (.exe / a.out)</span><span class="lang-en-inline">Binary executable (.exe / a.out)</span></td>
+        <td><span class="lang-ru-inline">Файла нет, читает исходник напрямую</span><span class="lang-en-inline">No file; it reads the source code directly</span></td>
+        <td><span class="lang-ru-inline">Машинный код в памяти, кэшируется</span><span class="lang-en-inline">Machine code in memory, cached</span></td>
       </tr>
       <tr>
-        <td>Скорость выполнения</td>
-        <td>Очень быстрая (нативный машинный код)</td>
-        <td>Медленная (трансляция на каждый запуск)</td>
-        <td>Средняя/быстрая (после прогрева — почти как у компилятора)</td>
+        <td><span class="lang-ru-inline">Скорость выполнения</span><span class="lang-en-inline">Execution speed</span></td>
+        <td><span class="lang-ru-inline">Очень быстрая (нативный машинный код)</span><span class="lang-en-inline">Very fast (native machine code)</span></td>
+        <td><span class="lang-ru-inline">Медленная (трансляция на каждый запуск)</span><span class="lang-en-inline">Slow (translation on every run)</span></td>
+        <td><span class="lang-ru-inline">Средняя/быстрая (после прогрева — почти как у компилятора)</span><span class="lang-en-inline">Medium/fast (after warm-up, almost as fast as a compiler)</span></td>
       </tr>
       <tr>
-        <td>Обнаружение ошибок</td>
-        <td>Многие ошибки видны на этапе компиляции (до запуска)</td>
-        <td>Ошибки всплывают во время выполнения, в момент исполнения строки</td>
-        <td>Гибрид: часть ошибок на этапе компиляции в байткод, часть во время JIT</td>
+        <td><span class="lang-ru-inline">Обнаружение ошибок</span><span class="lang-en-inline">Error detection</span></td>
+        <td><span class="lang-ru-inline">Многие ошибки видны на этапе компиляции (до запуска)</span><span class="lang-en-inline">Many errors are visible at compile time (before the program runs)</span></td>
+        <td><span class="lang-ru-inline">Ошибки всплывают во время выполнения, в момент исполнения строки</span><span class="lang-en-inline">Errors appear during execution, when the line is run</span></td>
+        <td><span class="lang-ru-inline">Гибрид: часть ошибок на этапе компиляции в байткод, часть во время JIT</span><span class="lang-en-inline">Hybrid: some errors are found when the code is compiled to bytecode, some during JIT compilation</span></td>
       </tr>
       <tr>
-        <td>Портируемость</td>
-        <td>Низкая: бинарь привязан к ОС и архитектуре CPU</td>
-        <td>Высокая: достаточно поставить интерпретатор на любую ОС</td>
-        <td>Высокая на уровне байткода; машинный код — для текущей платформы</td>
+        <td><span class="lang-ru-inline">Портируемость</span><span class="lang-en-inline">Portability</span></td>
+        <td><span class="lang-ru-inline">Низкая: бинарь привязан к ОС и архитектуре CPU</span><span class="lang-en-inline">Low: the binary is tied to the OS and the CPU architecture</span></td>
+        <td><span class="lang-ru-inline">Высокая: достаточно поставить интерпретатор на любую ОС</span><span class="lang-en-inline">High: it is enough to install an interpreter on any OS</span></td>
+        <td><span class="lang-ru-inline">Высокая на уровне байткода; машинный код — для текущей платформы</span><span class="lang-en-inline">High at bytecode level; machine code is for the current platform</span></td>
       </tr>
       <tr>
-        <td>Скорость разработки</td>
-        <td>Медленнее (нужен цикл «правка → компиляция → запуск»)</td>
-        <td>Быстрая (правка → сразу запуск)</td>
-        <td>Быстрая (правка → запуск, JIT прозрачен)</td>
+        <td><span class="lang-ru-inline">Скорость разработки</span><span class="lang-en-inline">Development speed</span></td>
+        <td><span class="lang-ru-inline">Медленнее (нужен цикл «правка → компиляция → запуск»)</span><span class="lang-en-inline">Slower (needs an edit → compile → run cycle)</span></td>
+        <td><span class="lang-ru-inline">Быстрая (правка → сразу запуск)</span><span class="lang-en-inline">Fast (edit → run immediately)</span></td>
+        <td><span class="lang-ru-inline">Быстрая (правка → запуск, JIT прозрачен)</span><span class="lang-en-inline">Fast (edit → run; JIT is transparent)</span></td>
       </tr>
       <tr>
-        <td>Типичные языки</td>
+        <td><span class="lang-ru-inline">Типичные языки</span><span class="lang-en-inline">Typical languages</span></td>
         <td>C, C++, Rust, Go</td>
         <td>Python, JavaScript, Ruby, PHP</td>
         <td>Java, C#, JavaScript (V8), Python (PyPy)</td>
       </tr>
       <tr>
-        <td>Где применяют</td>
-        <td>Игры, ОС, системное ПО, HFT-трейдинг</td>
-        <td>Скрипты, web-бэкенд, прототипы, наука</td>
-        <td>Серверные приложения, мобильные, кроссплатформенный enterprise-софт</td>
+        <td><span class="lang-ru-inline">Где применяют</span><span class="lang-en-inline">Where it is used</span></td>
+        <td><span class="lang-ru-inline">Игры, ОС, системное ПО, HFT-трейдинг</span><span class="lang-en-inline">Games, operating systems, system software, HFT trading</span></td>
+        <td><span class="lang-ru-inline">Скрипты, web-бэкенд, прототипы, наука</span><span class="lang-en-inline">Scripts, web back ends, prototypes, science</span></td>
+        <td><span class="lang-ru-inline">Серверные приложения, мобильные, кроссплатформенный enterprise-софт</span><span class="lang-en-inline">Server applications, mobile apps, cross-platform enterprise software</span></td>
       </tr>
     </tbody>
   </table></div>
 
-  <div class="ru-tip">
+  <div class="ru-tip"><span class="lang-ru-inline">
     💡 <b>Аналогия:</b> представь, что нужно перевести книгу с английского на русский. <b>Компилятор</b> = переводчик переводит всю книгу заранее, ты потом читаешь готовый русский том. <b>Интерпретатор</b> = синхронист переводит фразу за фразой, пока ты слушаешь оратора. <b>JIT</b> = синхронист, который запоминает часто повторяющиеся фразы и держит их в кармане в готовом виде.
-  </div>
+  </span><span class="lang-en-inline">💡 <b>Analogy:</b> imagine you need to translate a book from English into Russian. A <b>compiler</b> = a translator who translates the whole book in advance, so you then read the finished Russian volume. An <b>interpreter</b> = a simultaneous interpreter who translates phrase by phrase while you listen to the speaker. <b>JIT</b> = a simultaneous interpreter who memorizes the phrases that come up often and keeps them ready to use.</span></div>
 
   <details class="en-summary" style="margin:12px 0; padding:12px 16px; background:var(--surface-2); border-radius:var(--radius); border-left:3px solid var(--text-faint)">
     <summary style="cursor:pointer; font-weight:600; color:var(--text-muted); font-size:0.92rem">🇬🇧 English summary (click to expand)</summary>
@@ -516,41 +523,41 @@
   </details>
 
   <!-- ============ SECTION 3: COMPILER ============ -->
-  <h2>3. Компилятор (Compiler)</h2>
+  <h2><span class="lang-ru-inline">3. Компилятор (Compiler)</span><span class="lang-en-inline">3. Compiler</span></h2>
 
   <div class="device-card">
-    <h3><span class="device-emoji">⚙️</span> A. Что делает компилятор</h3>
+    <h3><span class="lang-ru-inline"><span class="device-emoji">⚙️</span> A. Что делает компилятор</span><span class="lang-en-inline"><span class="device-emoji">⚙️</span> A. What a compiler does</span></h3>
     <div class="label-row">
-      <div class="label">Определение</div>
-      <div>Компилятор переводит исходный код в машинный код <b>один раз, до запуска программы</b>. Результат — бинарный исполняемый файл (binary executable), который ОС загружает в память и CPU исполняет напрямую.</div>
-      <div class="label">Этапы</div>
-      <div>Лексический анализ → синтаксический → семантический → оптимизация → генерация кода. (См. подробно ниже в разделе 6.)</div>
-      <div class="label">Что хорошо</div>
+      <div class="label"><span class="lang-ru-inline">Определение</span><span class="lang-en-inline">Definition</span></div>
+      <div><span class="lang-ru-inline">Компилятор переводит исходный код в машинный код <b>один раз, до запуска программы</b>. Результат — бинарный исполняемый файл (binary executable), который ОС загружает в память и CPU исполняет напрямую.</span><span class="lang-en-inline">A compiler translates source code into machine code <b>once, before the program runs</b>. The result is a binary executable file, which the OS loads into memory and the CPU runs directly.</span></div>
+      <div class="label"><span class="lang-ru-inline">Этапы</span><span class="lang-en-inline">Stages</span></div>
+      <div><span class="lang-ru-inline">Лексический анализ → синтаксический → семантический → оптимизация → генерация кода. (См. подробно ниже в разделе 6.)</span><span class="lang-en-inline">Lexical analysis → syntax analysis → semantic analysis → optimization → code generation. (See section 6 below for details.)</span></div>
+      <div class="label"><span class="lang-ru-inline">Что хорошо</span><span class="lang-en-inline">Strengths</span></div>
       <div>
         <ul>
-          <li><b>Скорость выполнения</b> — машинный код выполняется напрямую CPU без накладных расходов на трансляцию.</li>
-          <li><b>Ошибки ловятся заранее</b>: синтаксические, типовые, многие семантические — компилятор не создаст исполняемый файл, пока их не исправишь.</li>
-          <li><b>Оптимизация всей программы</b> — компилятор видит весь код и может переставлять инструкции, удалять «мёртвый» код, инлайнить функции.</li>
-          <li><b>Защита исходника</b> — пользователю отдаётся только бинарь, исходный код не нужен.</li>
+          <li><span class="lang-ru-inline"><b>Скорость выполнения</b> — машинный код выполняется напрямую CPU без накладных расходов на трансляцию.</span><span class="lang-en-inline"><b>Execution speed</b> — machine code runs directly on the CPU with no overhead from translation.</span></li>
+          <li><span class="lang-ru-inline"><b>Ошибки ловятся заранее</b>: синтаксические, типовые, многие семантические — компилятор не создаст исполняемый файл, пока их не исправишь.</span><span class="lang-en-inline"><b>Errors are caught early</b>: syntax errors, type errors and many semantic errors — the compiler will not produce an executable file until you fix them.</span></li>
+          <li><span class="lang-ru-inline"><b>Оптимизация всей программы</b> — компилятор видит весь код и может переставлять инструкции, удалять «мёртвый» код, инлайнить функции.</span><span class="lang-en-inline"><b>Whole-program optimization</b> — the compiler sees all the code and can reorder instructions, remove “dead” code and inline functions.</span></li>
+          <li><span class="lang-ru-inline"><b>Защита исходника</b> — пользователю отдаётся только бинарь, исходный код не нужен.</span><span class="lang-en-inline"><b>Protects the source code</b> — the user gets only the binary file, and the source code is not needed.</span></li>
         </ul>
       </div>
-      <div class="label">Что неудобно</div>
+      <div class="label"><span class="lang-ru-inline">Что неудобно</span><span class="lang-en-inline">Drawbacks</span></div>
       <div>
         <ul>
-          <li><b>Цикл разработки длиннее</b>: каждое изменение требует пересборки (может занимать секунды или минуты).</li>
-          <li><b>Низкая портируемость</b>: бинарь, собранный под Windows x86, не запустится на macOS ARM — нужна отдельная компиляция под каждую платформу.</li>
-          <li>На этапе компиляции <b>больше расходуется память</b> (компилятор строит AST, таблицы символов и т.д.).</li>
+          <li><span class="lang-ru-inline"><b>Цикл разработки длиннее</b>: каждое изменение требует пересборки (может занимать секунды или минуты).</span><span class="lang-en-inline"><b>Longer development cycle</b>: every change needs a rebuild (which can take seconds or minutes).</span></li>
+          <li><span class="lang-ru-inline"><b>Низкая портируемость</b>: бинарь, собранный под Windows x86, не запустится на macOS ARM — нужна отдельная компиляция под каждую платформу.</span><span class="lang-en-inline"><b>Low portability</b>: a binary built for Windows on x86 will not run on macOS on ARM — a separate compilation is needed for each platform.</span></li>
+          <li><span class="lang-ru-inline">На этапе компиляции <b>больше расходуется память</b> (компилятор строит AST, таблицы символов и т.д.).</span><span class="lang-en-inline">The compilation stage <b>uses more memory</b> (the compiler builds an AST, symbol tables, etc.).</span></li>
         </ul>
       </div>
-      <div class="label">Примеры языков</div>
-      <div><b>C, C++, Rust, Go</b>. Компиляторы: GCC, Clang/LLVM, Microsoft Visual C++ (MSVC).</div>
+      <div class="label"><span class="lang-ru-inline">Примеры языков</span><span class="lang-en-inline">Example languages</span></div>
+      <div><span class="lang-ru-inline"><b>C, C++, Rust, Go</b>. Компиляторы: GCC, Clang/LLVM, Microsoft Visual C++ (MSVC).</span><span class="lang-en-inline"><b>C, C++, Rust, Go</b>. Compilers: GCC, Clang/LLVM, Microsoft Visual C++ (MSVC).</span></div>
     </div>
 
-    <p><b>Пример исходника на Rust:</b></p>
+    <p><span class="lang-ru-inline"><b>Пример исходника на Rust:</b></span><span class="lang-en-inline"><b>Example Rust source code:</b></span></p>
     <pre class="code-snippet"><span class="keyword">fn</span> main() {
     println!(<span class="string">"Hello, world!"</span>);
 }</pre>
-    <p>После команды <code>rustc main.rs</code> компилятор создаёт исполняемый файл <code>main</code> (или <code>main.exe</code> на Windows), который при запуске напрямую выводит строку — без участия Rust-инструментов.</p>
+    <p><span class="lang-ru-inline">После команды <code>rustc main.rs</code> компилятор создаёт исполняемый файл <code>main</code> (или <code>main.exe</code> на Windows), который при запуске напрямую выводит строку — без участия Rust-инструментов.</span><span class="lang-en-inline">After the command <code>rustc main.rs</code>, the compiler creates an executable file <code>main</code> (or <code>main.exe</code> on Windows), which prints the line directly when it is run — without any Rust tools being involved.</span></p>
   </div>
 
   <details class="en-summary" style="margin:12px 0; padding:12px 16px; background:var(--surface-2); border-radius:var(--radius); border-left:3px solid var(--text-faint)">
@@ -561,53 +568,53 @@
   </details>
 
   <!-- ============ SECTION 4: INTERPRETER ============ -->
-  <h2>4. Интерпретатор (Interpreter)</h2>
+  <h2><span class="lang-ru-inline">4. Интерпретатор (Interpreter)</span><span class="lang-en-inline">4. Interpreter</span></h2>
 
   <div class="device-card">
-    <h3><span class="device-emoji">📜</span> B. Что делает интерпретатор</h3>
+    <h3><span class="lang-ru-inline"><span class="device-emoji">📜</span> B. Что делает интерпретатор</span><span class="lang-en-inline"><span class="device-emoji">📜</span> B. What an interpreter does</span></h3>
     <div class="label-row">
-      <div class="label">Определение</div>
-      <div>Интерпретатор читает исходный код <b>строка за строкой</b> и исполняет каждую инструкцию на лету. Бинарного файла нет — программа существует только как текст исходника плюс работающий интерпретатор.</div>
-      <div class="label">Как работает</div>
+      <div class="label"><span class="lang-ru-inline">Определение</span><span class="lang-en-inline">Definition</span></div>
+      <div><span class="lang-ru-inline">Интерпретатор читает исходный код <b>строка за строкой</b> и исполняет каждую инструкцию на лету. Бинарного файла нет — программа существует только как текст исходника плюс работающий интерпретатор.</span><span class="lang-en-inline">An interpreter reads the source code <b>line by line</b> and executes each instruction on the fly. There is no binary file — the program exists only as the source text plus a running interpreter.</span></div>
+      <div class="label"><span class="lang-ru-inline">Как работает</span><span class="lang-en-inline">How it works</span></div>
       <div>
         <ul>
-          <li>Берёт следующую строку.</li>
-          <li>Разбирает её (лексика, синтаксис, семантика — на лету).</li>
-          <li>Превращает в байткод или внутреннее представление.</li>
-          <li>Выполняет.</li>
-          <li>Если встретилась <b>ошибка — останавливается на этой строке</b>, всё что было до — уже исполнено.</li>
+          <li><span class="lang-ru-inline">Берёт следующую строку.</span><span class="lang-en-inline">Takes the next line.</span></li>
+          <li><span class="lang-ru-inline">Разбирает её (лексика, синтаксис, семантика — на лету).</span><span class="lang-en-inline">Parses it (lexical analysis, syntax and semantics — on the fly).</span></li>
+          <li><span class="lang-ru-inline">Превращает в байткод или внутреннее представление.</span><span class="lang-en-inline">Converts it into bytecode or an internal representation.</span></li>
+          <li><span class="lang-ru-inline">Выполняет.</span><span class="lang-en-inline">Executes it.</span></li>
+          <li><span class="lang-ru-inline">Если встретилась <b>ошибка — останавливается на этой строке</b>, всё что было до — уже исполнено.</span><span class="lang-en-inline">If it meets an <b>error, it stops at that line</b>; everything before it has already been executed.</span></li>
         </ul>
       </div>
-      <div class="label">Что хорошо</div>
+      <div class="label"><span class="lang-ru-inline">Что хорошо</span><span class="lang-en-inline">Strengths</span></div>
       <div>
         <ul>
-          <li><b>Очень быстрый цикл разработки</b>: правишь файл, сразу запускаешь — без шага компиляции.</li>
-          <li><b>Высокая портируемость</b>: один и тот же скрипт работает на Windows, macOS, Linux, лишь бы стоял интерпретатор.</li>
-          <li><b>Меньше памяти под трансляцию</b> (нет промежуточного бинаря).</li>
-          <li><b>Динамическая типизация</b> чаще всего: меньше «бойлерплейта», быстрее писать.</li>
-          <li><b>Интерактивность</b>: REPL (Python, JS-консоль) позволяет пробовать код прямо в командной строке.</li>
+          <li><span class="lang-ru-inline"><b>Очень быстрый цикл разработки</b>: правишь файл, сразу запускаешь — без шага компиляции.</span><span class="lang-en-inline"><b>Very fast development cycle</b>: you edit the file and run it straight away — with no compilation step.</span></li>
+          <li><span class="lang-ru-inline"><b>Высокая портируемость</b>: один и тот же скрипт работает на Windows, macOS, Linux, лишь бы стоял интерпретатор.</span><span class="lang-en-inline"><b>High portability</b>: the same script runs on Windows, macOS and Linux, as long as the interpreter is installed.</span></li>
+          <li><span class="lang-ru-inline"><b>Меньше памяти под трансляцию</b> (нет промежуточного бинаря).</span><span class="lang-en-inline"><b>Less memory needed for translation</b> (there is no intermediate binary file).</span></li>
+          <li><span class="lang-ru-inline"><b>Динамическая типизация</b> чаще всего: меньше «бойлерплейта», быстрее писать.</span><span class="lang-en-inline"><b>Dynamic typing</b> is common: less “boilerplate” code, so programs are quicker to write.</span></li>
+          <li><span class="lang-ru-inline"><b>Интерактивность</b>: REPL (Python, JS-консоль) позволяет пробовать код прямо в командной строке.</span><span class="lang-en-inline"><b>Interactivity</b>: a REPL (Python, the JS console) lets you try code directly at the command line.</span></li>
         </ul>
       </div>
-      <div class="label">Что неудобно</div>
+      <div class="label"><span class="lang-ru-inline">Что неудобно</span><span class="lang-en-inline">Drawbacks</span></div>
       <div>
         <ul>
-          <li><b>Медленнее выполняется</b>: каждая строка переводится заново при каждом запуске.</li>
-          <li><b>Ошибки всплывают поздно</b> — только когда строка реально исполнится. Опечатка в редко вызываемой функции может пройти в продакшен.</li>
-          <li><b>Нужен интерпретатор у пользователя</b> — программу нельзя просто «отдать как .exe».</li>
+          <li><span class="lang-ru-inline"><b>Медленнее выполняется</b>: каждая строка переводится заново при каждом запуске.</span><span class="lang-en-inline"><b>Slower execution</b>: each line is translated again on every run.</span></li>
+          <li><span class="lang-ru-inline"><b>Ошибки всплывают поздно</b> — только когда строка реально исполнится. Опечатка в редко вызываемой функции может пройти в продакшен.</span><span class="lang-en-inline"><b>Errors appear late</b> — only when the line is actually executed. A typo in a rarely called function can reach production.</span></li>
+          <li><span class="lang-ru-inline"><b>Нужен интерпретатор у пользователя</b> — программу нельзя просто «отдать как .exe».</span><span class="lang-en-inline"><b>The user needs an interpreter</b> — the program cannot simply be handed over as an .exe.</span></li>
         </ul>
       </div>
-      <div class="label">Примеры языков</div>
+      <div class="label"><span class="lang-ru-inline">Примеры языков</span><span class="lang-en-inline">Example languages</span></div>
       <div><b>Python, JavaScript, Ruby, PHP</b>.</div>
     </div>
 
-    <p><b>Пример на Python:</b></p>
+    <p><span class="lang-ru-inline"><b>Пример на Python:</b></span><span class="lang-en-inline"><b>Example in Python:</b></span></p>
     <pre class="code-snippet"><span class="keyword">print</span>(<span class="string">"Hello, World!"</span>)</pre>
-    <p>Запуск: <code>python hello.py</code>. Интерпретатор сам разберёт, скомпилирует в байткод и тут же выполнит. Никакого <code>.exe</code> на диске не появится.</p>
+    <p><span class="lang-ru-inline">Запуск: <code>python hello.py</code>. Интерпретатор сам разберёт, скомпилирует в байткод и тут же выполнит. Никакого <code>.exe</code> на диске не появится.</span><span class="lang-en-inline">Run it with: <code>python hello.py</code>. The interpreter itself parses the code, compiles it to bytecode and runs it straight away. No <code>.exe</code> file will appear on the disk.</span></p>
   </div>
 
-  <div class="ru-tip">
+  <div class="ru-tip"><span class="lang-ru-inline">
     💬 <b>Реальная история (из учебника):</b> когда команда Кэти Боуман получила первое изображение чёрной дыры, обработка огромных объёмов данных с радиотелескопов делалась на <b>Python</b> — потому что интерпретируемый язык позволял быстро менять алгоритм, прогонять заново и видеть результат, не теряя время на пересборку.
-  </div>
+  </span><span class="lang-en-inline">💬 <b>Real story (from the textbook):</b> when Katie Bouman’s team received the first image of a black hole, the huge volumes of data from radio telescopes were processed in <b>Python</b> — because an interpreted language made it possible to change the algorithm quickly, run it again and see the result without losing time on rebuilding.</span></div>
 
   <details class="en-summary" style="margin:12px 0; padding:12px 16px; background:var(--surface-2); border-radius:var(--radius); border-left:3px solid var(--text-faint)">
     <summary style="cursor:pointer; font-weight:600; color:var(--text-muted); font-size:0.92rem">🇬🇧 English summary (click to expand)</summary>
@@ -617,93 +624,93 @@
   </details>
 
   <!-- ============ SECTION 5: JIT & BYTECODE ============ -->
-  <h2>5. JIT-компиляция и байткод-интерпретаторы</h2>
+  <h2><span class="lang-ru-inline">5. JIT-компиляция и байткод-интерпретаторы</span><span class="lang-en-inline">5. JIT compilation and bytecode interpreters</span></h2>
 
   <div class="device-card">
     <h3><span class="device-emoji">⚡</span> C. JIT (Just-in-time compilation)</h3>
     <div class="label-row">
-      <div class="label">Определение</div>
-      <div>Гибрид компиляции и интерпретации. Исходник <b>сначала компилируется в байткод</b> (платформо-независимое промежуточное представление), а потом <b>виртуальная машина</b> исполняет этот байткод и <b>«на лету» компилирует «горячие» куски</b> (часто исполняемые) в нативный машинный код, который кэшируется и используется в следующих вызовах.</div>
-      <div class="label">Логика</div>
+      <div class="label"><span class="lang-ru-inline">Определение</span><span class="lang-en-inline">Definition</span></div>
+      <div><span class="lang-ru-inline">Гибрид компиляции и интерпретации. Исходник <b>сначала компилируется в байткод</b> (платформо-независимое промежуточное представление), а потом <b>виртуальная машина</b> исполняет этот байткод и <b>«на лету» компилирует «горячие» куски</b> (часто исполняемые) в нативный машинный код, который кэшируется и используется в следующих вызовах.</span><span class="lang-en-inline">A hybrid of compilation and interpretation. The source code is <b>first compiled to bytecode</b> (a platform-independent intermediate representation), and then a <b>virtual machine</b> executes this bytecode and <b>compiles the “hot” parts on the fly</b> (the frequently executed ones) into native machine code, which is cached and used in later calls.</span></div>
+      <div class="label"><span class="lang-ru-inline">Логика</span><span class="lang-en-inline">The logic</span></div>
       <div>
         <ul>
-          <li>Загрузка байткода в VM.</li>
-          <li>Сначала байткод <b>интерпретируется</b> — это даёт быстрый старт.</li>
-          <li>VM считает, сколько раз вызывается каждый кусок (метод, цикл).</li>
-          <li>Когда счётчик переваливает порог — кусок <b>компилируется в нативный код</b> и кэшируется.</li>
-          <li>Следующие вызовы того же куска идут уже через кэш — почти со скоростью полностью скомпилированного кода.</li>
+          <li><span class="lang-ru-inline">Загрузка байткода в VM.</span><span class="lang-en-inline">The bytecode is loaded into the VM.</span></li>
+          <li><span class="lang-ru-inline">Сначала байткод <b>интерпретируется</b> — это даёт быстрый старт.</span><span class="lang-en-inline">At first the bytecode is <b>interpreted</b> — this gives a fast start.</span></li>
+          <li><span class="lang-ru-inline">VM считает, сколько раз вызывается каждый кусок (метод, цикл).</span><span class="lang-en-inline">The VM counts how many times each part (a method, a loop) is called.</span></li>
+          <li><span class="lang-ru-inline">Когда счётчик переваливает порог — кусок <b>компилируется в нативный код</b> и кэшируется.</span><span class="lang-en-inline">When the counter passes a threshold, the part is <b>compiled into native code</b> and cached.</span></li>
+          <li><span class="lang-ru-inline">Следующие вызовы того же куска идут уже через кэш — почти со скоростью полностью скомпилированного кода.</span><span class="lang-en-inline">Later calls of the same part go through the cache — almost as fast as fully compiled code.</span></li>
         </ul>
       </div>
-      <div class="label">Преимущества</div>
+      <div class="label"><span class="lang-ru-inline">Преимущества</span><span class="lang-en-inline">Advantages</span></div>
       <div>
         <ul>
-          <li><b>Гибкость интерпретации + скорость компиляции</b>: горячие куски быстрые, холодные — гибкие.</li>
-          <li><b>Адаптивная оптимизация</b>: JIT видит реальное поведение программы (какие типы реально приходят) и оптимизирует под них.</li>
-          <li><b>Портируемость на уровне байткода</b>: один и тот же .class или .dll работает на любой ОС, где есть JVM/CLR.</li>
+          <li><span class="lang-ru-inline"><b>Гибкость интерпретации + скорость компиляции</b>: горячие куски быстрые, холодные — гибкие.</span><span class="lang-en-inline"><b>Flexibility of interpretation + speed of compilation</b>: hot parts are fast, cold parts stay flexible.</span></li>
+          <li><span class="lang-ru-inline"><b>Адаптивная оптимизация</b>: JIT видит реальное поведение программы (какие типы реально приходят) и оптимизирует под них.</span><span class="lang-en-inline"><b>Adaptive optimization</b>: the JIT sees the program’s real behaviour (which types actually arrive) and optimizes for them.</span></li>
+          <li><span class="lang-ru-inline"><b>Портируемость на уровне байткода</b>: один и тот же .class или .dll работает на любой ОС, где есть JVM/CLR.</span><span class="lang-en-inline"><b>Portability at bytecode level</b>: the same .class or .dll file runs on any OS where the JVM or CLR is installed.</span></li>
         </ul>
       </div>
-      <div class="label">Недостатки</div>
+      <div class="label"><span class="lang-ru-inline">Недостатки</span><span class="lang-en-inline">Drawbacks</span></div>
       <div>
         <ul>
-          <li><b>«Прогрев» (warm-up)</b>: в начале запуск медленнее, пока JIT не успел скомпилировать горячие части.</li>
-          <li>JIT-компилятор сам потребляет CPU и память.</li>
-          <li>Машинный код, который JIT генерирует, всё равно <b>привязан к текущей платформе</b> — портируется именно байткод.</li>
+          <li><span class="lang-ru-inline"><b>«Прогрев» (warm-up)</b>: в начале запуск медленнее, пока JIT не успел скомпилировать горячие части.</span><span class="lang-en-inline"><b>Warm-up</b>: at first the program runs more slowly, until the JIT has compiled the hot parts.</span></li>
+          <li><span class="lang-ru-inline">JIT-компилятор сам потребляет CPU и память.</span><span class="lang-en-inline">The JIT compiler itself uses CPU time and memory.</span></li>
+          <li><span class="lang-ru-inline">Машинный код, который JIT генерирует, всё равно <b>привязан к текущей платформе</b> — портируется именно байткод.</span><span class="lang-en-inline">The machine code that the JIT generates is still <b>tied to the current platform</b> — it is the bytecode that is portable.</span></li>
         </ul>
       </div>
-      <div class="label">Примеры</div>
+      <div class="label"><span class="lang-ru-inline">Примеры</span><span class="lang-en-inline">Examples</span></div>
       <div>
         <ul>
-          <li><b>Java</b> + JVM (HotSpot, OpenJ9): .java → javac → .class (байткод) → JVM с JIT.</li>
-          <li><b>C# / .NET</b>: .cs → csc → CIL/MSIL → CLR с JIT (RyuJIT).</li>
-          <li><b>JavaScript</b> в браузерах: V8 (Chrome), SpiderMonkey (Firefox), JavaScriptCore (Safari) — все используют JIT.</li>
-          <li><b>PyPy</b> — альтернативная реализация Python с JIT, в разы быстрее CPython на математике.</li>
+          <li><span class="lang-ru-inline"><b>Java</b> + JVM (HotSpot, OpenJ9): .java → javac → .class (байткод) → JVM с JIT.</span><span class="lang-en-inline"><b>Java</b> + JVM (HotSpot, OpenJ9): .java → javac → .class (bytecode) → JVM with JIT.</span></li>
+          <li><span class="lang-ru-inline"><b>C# / .NET</b>: .cs → csc → CIL/MSIL → CLR с JIT (RyuJIT).</span><span class="lang-en-inline"><b>C# / .NET</b>: .cs → csc → CIL/MSIL → CLR with JIT (RyuJIT).</span></li>
+          <li><span class="lang-ru-inline"><b>JavaScript</b> в браузерах: V8 (Chrome), SpiderMonkey (Firefox), JavaScriptCore (Safari) — все используют JIT.</span><span class="lang-en-inline"><b>JavaScript</b> in browsers: V8 (Chrome), SpiderMonkey (Firefox), JavaScriptCore (Safari) — all of them use JIT.</span></li>
+          <li><span class="lang-ru-inline"><b>PyPy</b> — альтернативная реализация Python с JIT, в разы быстрее CPython на математике.</span><span class="lang-en-inline"><b>PyPy</b> — an alternative implementation of Python with a JIT, several times faster than CPython on mathematical computations.</span></li>
         </ul>
       </div>
     </div>
   </div>
 
   <div class="device-card">
-    <h3><span class="device-emoji">📦</span> D. Байткод-интерпретаторы (Bytecode interpreters)</h3>
+    <h3><span class="lang-ru-inline"><span class="device-emoji">📦</span> D. Байткод-интерпретаторы (Bytecode interpreters)</span><span class="lang-en-inline"><span class="device-emoji">📦</span> D. Bytecode interpreters</span></h3>
     <div class="label-row">
-      <div class="label">Определение</div>
-      <div>Байткод (bytecode) — это набор инструкций <b>низкого уровня, но платформо-независимый</b>, спроектированный для эффективного исполнения программной виртуальной машиной. Это не машинный код реального CPU, а команды для «виртуального процессора» (например, JVM или Python VM).</div>
-      <div class="label">Поток</div>
+      <div class="label"><span class="lang-ru-inline">Определение</span><span class="lang-en-inline">Definition</span></div>
+      <div><span class="lang-ru-inline">Байткод (bytecode) — это набор инструкций <b>низкого уровня, но платформо-независимый</b>, спроектированный для эффективного исполнения программной виртуальной машиной. Это не машинный код реального CPU, а команды для «виртуального процессора» (например, JVM или Python VM).</span><span class="lang-en-inline">Bytecode is a set of <b>low-level but platform-independent</b> instructions, designed for efficient execution by a software virtual machine. It is not the machine code of a real CPU, but commands for a “virtual processor” (for example, the JVM or the Python VM).</span></div>
+      <div class="label"><span class="lang-ru-inline">Поток</span><span class="lang-en-inline">Process</span></div>
       <div>
         <ul>
-          <li><b>Шаг 1.</b> Исходный код компилируется в байткод (один раз, либо при первом запуске).</li>
-          <li><b>Шаг 2.</b> Байткод-интерпретатор (виртуальная машина) читает эти байты и исполняет.</li>
+          <li><span class="lang-ru-inline"><b>Шаг 1.</b> Исходный код компилируется в байткод (один раз, либо при первом запуске).</span><span class="lang-en-inline"><b>Step 1.</b> The source code is compiled to bytecode (once, or on the first run).</span></li>
+          <li><span class="lang-ru-inline"><b>Шаг 2.</b> Байткод-интерпретатор (виртуальная машина) читает эти байты и исполняет.</span><span class="lang-en-inline"><b>Step 2.</b> The bytecode interpreter (the virtual machine) reads these bytes and executes them.</span></li>
         </ul>
       </div>
-      <div class="label">Где это видно</div>
+      <div class="label"><span class="lang-ru-inline">Где это видно</span><span class="lang-en-inline">Where you can see this</span></div>
       <div>
         <ul>
-          <li><b>Python (CPython)</b> — при импорте модуля или повторном запуске Python кэширует скомпилированный байткод в файлах <code>.pyc</code> (папка <code>__pycache__</code>). Это <b>не</b> ускоряет выполнение самого кода, но избавляет от повторной компиляции при следующем запуске.</li>
-          <li><b>Java</b> — компилятор <code>javac</code> делает <code>.class</code>-файлы с байткодом, которые потом исполняет JVM.</li>
-          <li><b>Ruby (YARV)</b> — Yet Another Ruby VM, исполняет байткод.</li>
-          <li><b>Erlang (BEAM)</b> — виртуальная машина для байткода Erlang/Elixir.</li>
+          <li><span class="lang-ru-inline"><b>Python (CPython)</b> — при импорте модуля или повторном запуске Python кэширует скомпилированный байткод в файлах <code>.pyc</code> (папка <code>__pycache__</code>). Это <b>не</b> ускоряет выполнение самого кода, но избавляет от повторной компиляции при следующем запуске.</span><span class="lang-en-inline"><b>Python (CPython)</b> — when a module is imported or the program is run again, Python caches the compiled bytecode in <code>.pyc</code> files (in the <code>__pycache__</code> folder). This does <b>not</b> speed up the execution of the code itself, but it avoids recompilation on the next run.</span></li>
+          <li><span class="lang-ru-inline"><b>Java</b> — компилятор <code>javac</code> делает <code>.class</code>-файлы с байткодом, которые потом исполняет JVM.</span><span class="lang-en-inline"><b>Java</b> — the <code>javac</code> compiler produces <code>.class</code> files with bytecode, which the JVM then executes.</span></li>
+          <li><span class="lang-ru-inline"><b>Ruby (YARV)</b> — Yet Another Ruby VM, исполняет байткод.</span><span class="lang-en-inline"><b>Ruby (YARV)</b> — Yet Another Ruby VM, executes bytecode.</span></li>
+          <li><span class="lang-ru-inline"><b>Erlang (BEAM)</b> — виртуальная машина для байткода Erlang/Elixir.</span><span class="lang-en-inline"><b>Erlang (BEAM)</b> — a virtual machine for Erlang/Elixir bytecode.</span></li>
         </ul>
       </div>
-      <div class="label">Плюсы</div>
+      <div class="label"><span class="lang-ru-inline">Плюсы</span><span class="lang-en-inline">Advantages</span></div>
       <div>
         <ul>
-          <li><b>Портируемость</b> — байткод одинаков везде, где есть VM.</li>
-          <li><b>Быстрее «голой» интерпретации исходника</b> — байткод уже разобран, не нужно повторно делать лексику/синтаксис.</li>
-          <li><b>Меньший размер</b> — байткод компактнее исходного текста.</li>
+          <li><span class="lang-ru-inline"><b>Портируемость</b> — байткод одинаков везде, где есть VM.</span><span class="lang-en-inline"><b>Portability</b> — the bytecode is the same wherever a VM is available.</span></li>
+          <li><span class="lang-ru-inline"><b>Быстрее «голой» интерпретации исходника</b> — байткод уже разобран, не нужно повторно делать лексику/синтаксис.</span><span class="lang-en-inline"><b>Faster than plain interpretation of source code</b> — the bytecode is already parsed, so lexical and syntax analysis do not have to be repeated.</span></li>
+          <li><span class="lang-ru-inline"><b>Меньший размер</b> — байткод компактнее исходного текста.</span><span class="lang-en-inline"><b>Smaller size</b> — bytecode is more compact than the source text.</span></li>
         </ul>
       </div>
-      <div class="label">Минусы</div>
+      <div class="label"><span class="lang-ru-inline">Минусы</span><span class="lang-en-inline">Drawbacks</span></div>
       <div>
         <ul>
-          <li>Без JIT — всё равно медленнее, чем нативный машинный код.</li>
-          <li>Часть ошибок ловится только при исполнении конкретной инструкции байткода.</li>
+          <li><span class="lang-ru-inline">Без JIT — всё равно медленнее, чем нативный машинный код.</span><span class="lang-en-inline">Without a JIT, it is still slower than native machine code.</span></li>
+          <li><span class="lang-ru-inline">Часть ошибок ловится только при исполнении конкретной инструкции байткода.</span><span class="lang-en-inline">Some errors are caught only when a particular bytecode instruction is executed.</span></li>
         </ul>
       </div>
     </div>
   </div>
 
-  <div class="ru-tip">
+  <div class="ru-tip"><span class="lang-ru-inline">
     🧩 <b>Где граница между байткодом и JIT?</b> Сам по себе байткод-интерпретатор просто исполняет байты по очереди — без перевода в нативный код. <b>JIT — это слой сверху</b>, который замечает горячие участки и компилирует их в нативный код. Java и C# почти всегда идут с JIT; стандартный CPython — это «чистый» байткод-интерпретатор без JIT (а PyPy — с JIT).
-  </div>
+  </span><span class="lang-en-inline">🧩 <b>Where is the boundary between bytecode and JIT?</b> A bytecode interpreter on its own simply executes the bytes one after another, without translating them into native code. <b>JIT is a layer on top</b>, which notices the hot parts and compiles them into native code. Java and C# almost always ship with a JIT; standard CPython is a “pure” bytecode interpreter without a JIT (whereas PyPy has a JIT).</span></div>
 
   <details class="en-summary" style="margin:12px 0; padding:12px 16px; background:var(--surface-2); border-radius:var(--radius); border-left:3px solid var(--text-faint)">
     <summary style="cursor:pointer; font-weight:600; color:var(--text-muted); font-size:0.92rem">🇬🇧 English summary (click to expand)</summary>
@@ -713,103 +720,114 @@
   </details>
 
   <!-- ============ SECTION 6: COMPILATION STAGES ============ -->
-  <h2>6. Этапы компиляции (важно для экзамена)</h2>
+  <h2><span class="lang-ru-inline">6. Этапы компиляции (важно для экзамена)</span><span class="lang-en-inline">6. Stages of compilation (important for the exam)</span></h2>
 
-  <p>
+  <p><span class="lang-ru-inline">
     Когда компилятор превращает исходник в машинный код (или интерпретатор — в байткод), он проходит через несколько чётко определённых этапов. На экзамене часто просят описать эту цепочку. Запомни её в таком порядке:
-  </p>
+  </span><span class="lang-en-inline">When a compiler turns source code into machine code (or an interpreter turns it into bytecode), it goes through several clearly defined stages. The exam often asks you to describe this chain. Remember it in this order:</span></p>
 
   <div class="stages-diagram" role="img" aria-label="Этапы компиляции: лексический анализ, синтаксический анализ, семантический анализ, оптимизация, генерация кода, исполнение">
     <div class="stages-flow">
-      <div class="stage-box">
+      <div class="stage-box"><span class="lang-ru-inline">
         <span class="stage-num">1</span>
         <span class="stage-name">Лексика</span>
         <span class="stage-desc">Lexical analysis<br>Текст → токены</span>
-      </div>
+      </span><span class="lang-en-inline"><span class="stage-num">1</span>
+        <span class="stage-name">Lexical</span>
+        <span class="stage-desc">Lexical analysis<br>Text → tokens</span></span></div>
       <div class="stage-arrow">→</div>
-      <div class="stage-box">
+      <div class="stage-box"><span class="lang-ru-inline">
         <span class="stage-num">2</span>
         <span class="stage-name">Синтаксис</span>
         <span class="stage-desc">Syntax / parsing<br>Токены → AST</span>
-      </div>
+      </span><span class="lang-en-inline"><span class="stage-num">2</span>
+        <span class="stage-name">Syntax</span>
+        <span class="stage-desc">Syntax / parsing<br>Tokens → AST</span></span></div>
       <div class="stage-arrow">→</div>
-      <div class="stage-box">
+      <div class="stage-box"><span class="lang-ru-inline">
         <span class="stage-num">3</span>
         <span class="stage-name">Семантика</span>
         <span class="stage-desc">Semantic analysis<br>Проверка смысла, типов</span>
-      </div>
+      </span><span class="lang-en-inline"><span class="stage-num">3</span>
+        <span class="stage-name">Semantics</span>
+        <span class="stage-desc">Semantic analysis<br>Checks meaning and types</span></span></div>
       <div class="stage-arrow">→</div>
-      <div class="stage-box">
+      <div class="stage-box"><span class="lang-ru-inline">
         <span class="stage-num">4</span>
         <span class="stage-name">Оптимизация</span>
         <span class="stage-desc">Optimization<br>Ускорение, упрощение</span>
-      </div>
+      </span><span class="lang-en-inline"><span class="stage-num">4</span>
+        <span class="stage-name">Optimization</span>
+        <span class="stage-desc">Optimization<br>Speeding up, simplifying</span></span></div>
       <div class="stage-arrow">→</div>
-      <div class="stage-box">
+      <div class="stage-box"><span class="lang-ru-inline">
         <span class="stage-num">5</span>
         <span class="stage-name">Генерация кода</span>
         <span class="stage-desc">Code generation<br>AST → машинный код</span>
-      </div>
+      </span><span class="lang-en-inline"><span class="stage-num">5</span>
+        <span class="stage-name">Code generation</span>
+        <span class="stage-desc">Code generation<br>AST → machine code</span></span></div>
     </div>
-    <div class="stages-input-output">
+    <div class="stages-input-output"><span class="lang-ru-inline">
       <span>Вход: исходный код <code>score = 42</code></span>
       <span>Выход: машинные инструкции <code>0110 0000 0100 0010</code></span>
-    </div>
+    </span><span class="lang-en-inline"><span>Input: source code <code>score = 42</code></span>
+      <span>Output: machine instructions <code>0110 0000 0100 0010</code></span></span></div>
   </div>
 
-  <h3>Этап 1 — Лексический анализ (Lexical analysis)</h3>
-  <p>
+  <h3><span class="lang-ru-inline">Этап 1 — Лексический анализ (Lexical analysis)</span><span class="lang-en-inline">Stage 1 — Lexical analysis</span></h3>
+  <p><span class="lang-ru-inline">
     Компилятор разбивает исходный текст на <b>токены</b> (tokens): ключевые слова, идентификаторы, операторы, литералы, скобки. Это как «нарезать» предложение на отдельные слова и знаки препинания. На этом этапе ловятся ошибки вроде «неизвестный символ».
-  </p>
-  <p>
+  </span><span class="lang-en-inline">The compiler splits the source text into <b>tokens</b>: keywords, identifiers, operators, literals and brackets. This is like “cutting” a sentence into separate words and punctuation marks. At this stage, errors such as “unknown character” are caught.</span></p>
+  <p><span class="lang-ru-inline">
     <b>Пример.</b> Для строки <code>print("Hello World!")</code> лексер выделит токены: <code>print</code> (идентификатор/ключевое слово), <code>(</code> (открывающая скобка), <code>"Hello World!"</code> (строковый литерал), <code>)</code> (закрывающая скобка).
-  </p>
+  </span><span class="lang-en-inline"><b>Example.</b> For the line <code>print("Hello World!")</code>, the lexer identifies these tokens: <code>print</code> (identifier/keyword), <code>(</code> (opening bracket), <code>"Hello World!"</code> (string literal), <code>)</code> (closing bracket).</span></p>
 
-  <h3>Этап 2 — Синтаксический анализ / парсинг (Syntax analysis / parsing)</h3>
-  <p>
+  <h3><span class="lang-ru-inline">Этап 2 — Синтаксический анализ / парсинг (Syntax analysis / parsing)</span><span class="lang-en-inline">Stage 2 — Syntax analysis / parsing</span></h3>
+  <p><span class="lang-ru-inline">
     Поток токенов проверяется на соответствие <b>грамматике языка</b>. Парсер (<b>parser</b>) строит из токенов иерархическую структуру — <b>дерево разбора</b> (parse tree) или <b>абстрактное синтаксическое дерево</b> (AST, abstract syntax tree). Тут ловятся ошибки вроде «не хватает закрывающей скобки» или «после <code>if</code> нет условия».
-  </p>
-  <p>
+  </span><span class="lang-en-inline">The stream of tokens is checked against the <b>grammar of the language</b>. The <b>parser</b> builds a hierarchical structure from the tokens: a <b>parse tree</b> or an <b>abstract syntax tree</b> (AST). Errors such as “a closing bracket is missing” or “there is no condition after <code>if</code>” are caught here.</span></p>
+  <p><span class="lang-ru-inline">
     Например, выражение <code>print("Hello World!")</code> должно соответствовать структуре «функциональный вызов»: <i>имя функции, за ним скобки, в скобках — аргументы</i>. Если эта структура нарушена — синтаксическая ошибка.
-  </p>
+  </span><span class="lang-en-inline">For example, the expression <code>print("Hello World!")</code> must match the structure of a “function call”: <i>the function name, followed by brackets, with the arguments inside the brackets</i>. If this structure is broken, it is a syntax error.</span></p>
 
-  <h3>Этап 3 — Семантический анализ (Semantic analysis)</h3>
-  <p>
+  <h3><span class="lang-ru-inline">Этап 3 — Семантический анализ (Semantic analysis)</span><span class="lang-en-inline">Stage 3 — Semantic analysis</span></h3>
+  <p><span class="lang-ru-inline">
     Парсер уже знает <b>структуру</b> кода. Семантика — это его <b>смысл</b>. Здесь компилятор проверяет:
-  </p>
+  </span><span class="lang-en-inline">The parser already knows the <b>structure</b> of the code. Semantics is its <b>meaning</b>. Here the compiler checks:</span></p>
   <ul>
-    <li>Существует ли вызываемая функция (<code>print</code> — существует).</li>
-    <li>Совпадают ли типы (нельзя сложить число и список без явного преобразования).</li>
-    <li>Объявлены ли все переменные до использования.</li>
-    <li>Совместимы ли типы аргументов с сигнатурой функции.</li>
+    <li><span class="lang-ru-inline">Существует ли вызываемая функция (<code>print</code> — существует).</span><span class="lang-en-inline">Whether the function being called exists (<code>print</code> — it does).</span></li>
+    <li><span class="lang-ru-inline">Совпадают ли типы (нельзя сложить число и список без явного преобразования).</span><span class="lang-en-inline">Whether the types match (a number and a list cannot be added without an explicit conversion).</span></li>
+    <li><span class="lang-ru-inline">Объявлены ли все переменные до использования.</span><span class="lang-en-inline">Whether all variables are declared before they are used.</span></li>
+    <li><span class="lang-ru-inline">Совместимы ли типы аргументов с сигнатурой функции.</span><span class="lang-en-inline">Whether the argument types are compatible with the function signature.</span></li>
   </ul>
-  <p>
+  <p><span class="lang-ru-inline">
     Это самый «умный» из ранних этапов. Семантические ошибки звучат как «<i>variable not declared</i>» или «<i>type mismatch: expected int, got string</i>».
-  </p>
+  </span><span class="lang-en-inline">This is the “smartest” of the early stages. Semantic errors look like “<i>variable not declared</i>” or “<i>type mismatch: expected int, got string</i>”.</span></p>
 
-  <h3>Этап 4 — Оптимизация (Optimization)</h3>
-  <p>
+  <h3><span class="lang-ru-inline">Этап 4 — Оптимизация (Optimization)</span><span class="lang-en-inline">Stage 4 — Optimization</span></h3>
+  <p><span class="lang-ru-inline">
     Компилятор улучшает код, <b>не меняя его поведение</b>: переставляет инструкции, удаляет недостижимый код, разворачивает циклы, сворачивает константы (<code>2 + 3</code> сразу → <code>5</code>), инлайнит маленькие функции. Цель — чтобы исполнение шло быстрее или потребляло меньше памяти. У интерпретаторов этот этап обычно ограничен или отсутствует.
-  </p>
-  <p>
+  </span><span class="lang-en-inline">The compiler improves the code <b>without changing its behaviour</b>: it reorders instructions, removes unreachable code, unrolls loops, folds constants (<code>2 + 3</code> → <code>5</code> straight away), and inlines small functions. The aim is for execution to be faster or to use less memory. In interpreters this stage is usually limited or absent.</span></p>
+  <p><span class="lang-ru-inline">
     <b>Этого этапа нет в интерпретаторах</b> в полном объёме — или он минимальный. Полноценная оптимизация — преимущество именно компиляторов (и JIT, который оптимизирует адаптивно).
-  </p>
+  </span><span class="lang-en-inline"><b>Interpreters do not have this stage in full</b> — or it is minimal. Full optimization is a particular advantage of compilers (and of the JIT, which optimizes adaptively).</span></p>
 
-  <h3>Этап 5 — Генерация кода (Code generation)</h3>
-  <p>
+  <h3><span class="lang-ru-inline">Этап 5 — Генерация кода (Code generation)</span><span class="lang-en-inline">Stage 5 — Code generation</span></h3>
+  <p><span class="lang-ru-inline">
     Финальная стадия. Оптимизированное промежуточное представление превращается в:
-  </p>
+  </span><span class="lang-en-inline">The final stage. The optimized intermediate representation is turned into:</span></p>
   <ul>
-    <li><b>Машинный код</b> для конкретной архитектуры — у «полных» компиляторов (C, Rust, Go).</li>
-    <li><b>Байткод</b> — у интерпретаторов и гибридных систем (Python <code>.pyc</code>, Java <code>.class</code>).</li>
+    <li><span class="lang-ru-inline"><b>Машинный код</b> для конкретной архитектуры — у «полных» компиляторов (C, Rust, Go).</span><span class="lang-en-inline"><b>Machine code</b> for a specific architecture — produced by “full” compilers (C, Rust, Go).</span></li>
+    <li><span class="lang-ru-inline"><b>Байткод</b> — у интерпретаторов и гибридных систем (Python <code>.pyc</code>, Java <code>.class</code>).</span><span class="lang-en-inline"><b>Bytecode</b> — in interpreters and hybrid systems (Python <code>.pyc</code>, Java <code>.class</code>).</span></li>
   </ul>
-  <p>
+  <p><span class="lang-ru-inline">
     После этого код готов к исполнению: либо ОС запускает бинарь напрямую, либо виртуальная машина / интерпретатор начинает исполнять байткод.
-  </p>
+  </span><span class="lang-en-inline">After this, the code is ready to run: either the OS runs the binary directly, or the virtual machine / interpreter starts executing the bytecode.</span></p>
 
-  <div class="ru-tip">
+  <div class="ru-tip"><span class="lang-ru-inline">
     🎯 <b>Запомни мнемонику:</b> «Лена Сидит Семантически и Оптимально Готовит код» — <b>Л</b>ексика → <b>С</b>интаксис → <b>С</b>емантика → <b>О</b>птимизация → <b>Г</b>енерация кода. В интерпретаторе те же первые три этапа, затем сразу генерация байткода и исполнение — без полноценной оптимизации.
-  </div>
+  </span><span class="lang-en-inline">🎯 <b>Remember the mnemonic:</b> “Lazy Sheep Sleep On Grass” — <b>L</b>exical → <b>S</b>yntax → <b>S</b>emantics → <b>O</b>ptimization → code <b>g</b>eneration. In an interpreter the first three stages are the same, then bytecode is generated and executed straight away — without full optimization.</span></div>
 
   <details class="en-summary" style="margin:12px 0; padding:12px 16px; background:var(--surface-2); border-radius:var(--radius); border-left:3px solid var(--text-faint)">
     <summary style="cursor:pointer; font-weight:600; color:var(--text-muted); font-size:0.92rem">🇬🇧 English summary (click to expand)</summary>
@@ -819,40 +837,40 @@
   </details>
 
   <!-- ============ SECTION 7: LINKERS & LOADERS ============ -->
-  <h2>7. Линкеры и загрузчики (Linkers &amp; Loaders)</h2>
+  <h2><span class="lang-ru-inline">7. Линкеры и загрузчики (Linkers &amp; Loaders)</span><span class="lang-en-inline">7. Linkers and loaders</span></h2>
 
-  <p>
+  <p><span class="lang-ru-inline">
     После того, как компилятор превратил каждый <code>.c</code> или <code>.cpp</code> файл в <b>объектный код</b> (<code>.o</code>, <code>.obj</code>) — это ещё не готовая программа. Современные программы состоят из множества файлов и используют <b>стандартные библиотеки</b> (standard library) и сторонние библиотеки.
-  </p>
+  </span><span class="lang-en-inline">After the compiler has turned each <code>.c</code> or <code>.cpp</code> file into <b>object code</b> (<code>.o</code>, <code>.obj</code>), this is still not a finished program. Modern programs consist of many files and use <b>standard libraries</b> and third-party libraries.</span></p>
 
   <div class="device-card">
-    <h3><span class="device-emoji">🔗</span> Линкер (Linker)</h3>
+    <h3><span class="lang-ru-inline"><span class="device-emoji">🔗</span> Линкер (Linker)</span><span class="lang-en-inline"><span class="device-emoji">🔗</span> Linker</span></h3>
     <div class="label-row">
-      <div class="label">Что делает</div>
-      <div>Берёт все объектные файлы и нужные библиотеки, <b>склеивает их в один исполняемый файл</b>. Разрешает ссылки между файлами: если в одном файле вызывается <code>printf</code>, линкер находит её в стандартной библиотеке C и подставляет правильный адрес.</div>
-      <div class="label">Виды линковки</div>
+      <div class="label"><span class="lang-ru-inline">Что делает</span><span class="lang-en-inline">What it does</span></div>
+      <div><span class="lang-ru-inline">Берёт все объектные файлы и нужные библиотеки, <b>склеивает их в один исполняемый файл</b>. Разрешает ссылки между файлами: если в одном файле вызывается <code>printf</code>, линкер находит её в стандартной библиотеке C и подставляет правильный адрес.</span><span class="lang-en-inline">The linker takes all the object files and the libraries it needs and <b>combines them into a single executable file</b>. It resolves references between files: if one file calls <code>printf</code>, the linker finds it in the C standard library and fills in the correct address.</span></div>
+      <div class="label"><span class="lang-ru-inline">Виды линковки</span><span class="lang-en-inline">Types of linking</span></div>
       <div>
         <ul>
-          <li><b>Статическая</b>: библиотека «вшивается» внутрь .exe → файл больше, но не нужны внешние зависимости.</li>
-          <li><b>Динамическая</b>: .exe ссылается на <code>.dll</code> (Windows) или <code>.so</code> (Linux) → файл меньше, но при отсутствии библиотеки программа не запустится.</li>
+          <li><span class="lang-ru-inline"><b>Статическая</b>: библиотека «вшивается» внутрь .exe → файл больше, но не нужны внешние зависимости.</span><span class="lang-en-inline"><b>Static</b>: the library is built into the .exe → the file is larger, but no external dependencies are needed.</span></li>
+          <li><span class="lang-ru-inline"><b>Динамическая</b>: .exe ссылается на <code>.dll</code> (Windows) или <code>.so</code> (Linux) → файл меньше, но при отсутствии библиотеки программа не запустится.</span><span class="lang-en-inline"><b>Dynamic</b>: the .exe refers to a <code>.dll</code> (Windows) or <code>.so</code> (Linux) → the file is smaller, but if the library is missing, the program will not run.</span></li>
         </ul>
       </div>
     </div>
   </div>
 
   <div class="device-card">
-    <h3><span class="device-emoji">📥</span> Загрузчик (Loader)</h3>
+    <h3><span class="lang-ru-inline"><span class="device-emoji">📥</span> Загрузчик (Loader)</span><span class="lang-en-inline"><span class="device-emoji">📥</span> Loader</span></h3>
     <div class="label-row">
-      <div class="label">Что делает</div>
-      <div>Часть ОС: когда пользователь запускает программу, загрузчик <b>читает исполняемый файл с диска, размещает его в памяти</b>, настраивает регистры, передаёт управление на первую инструкцию (entry point).</div>
-      <div class="label">Этапы</div>
+      <div class="label"><span class="lang-ru-inline">Что делает</span><span class="lang-en-inline">What it does</span></div>
+      <div><span class="lang-ru-inline">Часть ОС: когда пользователь запускает программу, загрузчик <b>читает исполняемый файл с диска, размещает его в памяти</b>, настраивает регистры, передаёт управление на первую инструкцию (entry point).</span><span class="lang-en-inline">Part of the OS: when the user runs a program, the loader <b>reads the executable file from disk and places it in memory</b>, sets up the registers and passes control to the first instruction (the entry point).</span></div>
+      <div class="label"><span class="lang-ru-inline">Этапы</span><span class="lang-en-inline">Stages</span></div>
       <div>
         <ul>
-          <li>Читает заголовок .exe / ELF.</li>
-          <li>Выделяет адресное пространство процесса.</li>
-          <li>Копирует код и данные в нужные области памяти.</li>
-          <li>При динамической линковке загружает .dll / .so в память.</li>
-          <li>Передаёт управление CPU на стартовый адрес.</li>
+          <li><span class="lang-ru-inline">Читает заголовок .exe / ELF.</span><span class="lang-en-inline">Reads the .exe / ELF header.</span></li>
+          <li><span class="lang-ru-inline">Выделяет адресное пространство процесса.</span><span class="lang-en-inline">Allocates the address space of the process.</span></li>
+          <li><span class="lang-ru-inline">Копирует код и данные в нужные области памяти.</span><span class="lang-en-inline">Copies the code and data into the correct areas of memory.</span></li>
+          <li><span class="lang-ru-inline">При динамической линковке загружает .dll / .so в память.</span><span class="lang-en-inline">With dynamic linking, loads the .dll / .so files into memory.</span></li>
+          <li><span class="lang-ru-inline">Передаёт управление CPU на стартовый адрес.</span><span class="lang-en-inline">Passes control to the CPU at the starting address.</span></li>
         </ul>
       </div>
     </div>
@@ -866,42 +884,42 @@
   </details>
 
   <!-- ============ SECTION 8: USE CASES ============ -->
-  <h2>8. Когда какой подход выбирать</h2>
+  <h2><span class="lang-ru-inline">8. Когда какой подход выбирать</span><span class="lang-en-inline">8. When to choose which approach</span></h2>
 
-  <p>
+  <p><span class="lang-ru-inline">
     Программа существует ради задачи. Выбор подхода зависит от того, что важнее: скорость выполнения, скорость разработки, портируемость или баланс.
-  </p>
+  </span><span class="lang-en-inline">A program exists to solve a task. The choice of approach depends on what matters more: execution speed, development speed, portability or a balance of these.</span></p>
 
   <div class="usecase-grid">
     <div class="usecase-card">
-      <span class="uc-tag interpreted">Интерпретатор</span>
-      <h4>Быстрая разработка и тестирование</h4>
-      <p>Стартап-команда прототипирует IoT-приложение для управления умными устройствами в реальном времени. <b>Python</b> или <b>JavaScript</b> позволяют быстро менять код и сразу видеть результат, без шага компиляции. На раннем этапе важна гибкость, а не скорость выполнения.</p>
+      <span class="uc-tag interpreted"><span class="lang-ru-inline">Интерпретатор</span><span class="lang-en-inline">Interpreter</span></span>
+      <h4><span class="lang-ru-inline">Быстрая разработка и тестирование</span><span class="lang-en-inline">Fast development and testing</span></h4>
+      <p><span class="lang-ru-inline">Стартап-команда прототипирует IoT-приложение для управления умными устройствами в реальном времени. <b>Python</b> или <b>JavaScript</b> позволяют быстро менять код и сразу видеть результат, без шага компиляции. На раннем этапе важна гибкость, а не скорость выполнения.</span><span class="lang-en-inline">A start-up team is prototyping an IoT application for controlling smart devices in real time. <b>Python</b> or <b>JavaScript</b> let you change the code quickly and see the result straight away, with no compilation step. At an early stage, flexibility matters more than execution speed.</span></p>
     </div>
     <div class="usecase-card">
-      <span class="uc-tag compiled">Компилятор</span>
-      <h4>Производительность критична</h4>
-      <p>Платформа высокочастотного трейдинга (HFT), где сделки исполняются за микросекунды. <b>C++, Rust или Go</b> компилируются в нативный машинный код, который CPU исполняет напрямую. Игры и VR-приложения — та же логика: каждый кадр должен укладываться в 16 миллисекунд.</p>
+      <span class="uc-tag compiled"><span class="lang-ru-inline">Компилятор</span><span class="lang-en-inline">Compiler</span></span>
+      <h4><span class="lang-ru-inline">Производительность критична</span><span class="lang-en-inline">Performance is critical</span></h4>
+      <p><span class="lang-ru-inline">Платформа высокочастотного трейдинга (HFT), где сделки исполняются за микросекунды. <b>C++, Rust или Go</b> компилируются в нативный машинный код, который CPU исполняет напрямую. Игры и VR-приложения — та же логика: каждый кадр должен укладываться в 16 миллисекунд.</span><span class="lang-en-inline">A high-frequency trading (HFT) platform, where trades are executed in microseconds. <b>C++, Rust or Go</b> are compiled to native machine code, which the CPU executes directly. Games and VR applications follow the same logic: each frame must fit within 16 milliseconds.</span></p>
     </div>
     <div class="usecase-card">
-      <span class="uc-tag jit">JIT + байткод</span>
-      <h4>Кроссплатформенный enterprise-софт</h4>
-      <p>Компания пишет CRM-систему, которая должна работать на Windows, macOS и Linux. <b>Java</b> компилируется в байткод, который JVM исполняет на любой ОС. Производительность достаточно высокая благодаря JIT-компиляции в JVM. То же относится к <b>C#</b> и <b>.NET</b>.</p>
+      <span class="uc-tag jit"><span class="lang-ru-inline">JIT + байткод</span><span class="lang-en-inline">JIT + bytecode</span></span>
+      <h4><span class="lang-ru-inline">Кроссплатформенный enterprise-софт</span><span class="lang-en-inline">Cross-platform enterprise software</span></h4>
+      <p><span class="lang-ru-inline">Компания пишет CRM-систему, которая должна работать на Windows, macOS и Linux. <b>Java</b> компилируется в байткод, который JVM исполняет на любой ОС. Производительность достаточно высокая благодаря JIT-компиляции в JVM. То же относится к <b>C#</b> и <b>.NET</b>.</span><span class="lang-en-inline">A company is writing a CRM system that must run on Windows, macOS and Linux. <b>Java</b> is compiled to bytecode, which the JVM executes on any OS. Performance is high enough thanks to JIT compilation in the JVM. The same applies to <b>C#</b> and <b>.NET</b>.</span></p>
     </div>
     <div class="usecase-card">
-      <span class="uc-tag interpreted">Интерпретатор</span>
-      <h4>Скрипты и автоматизация</h4>
-      <p>Системному администратору нужно автоматизировать ежедневные задачи: парсинг логов, копирование файлов, отправка отчётов. <b>Python</b> или <b>Bash</b> — идеальный выбор: маленькие скрипты, без сложной сборки, легко править.</p>
+      <span class="uc-tag interpreted"><span class="lang-ru-inline">Интерпретатор</span><span class="lang-en-inline">Interpreter</span></span>
+      <h4><span class="lang-ru-inline">Скрипты и автоматизация</span><span class="lang-en-inline">Scripts and automation</span></h4>
+      <p><span class="lang-ru-inline">Системному администратору нужно автоматизировать ежедневные задачи: парсинг логов, копирование файлов, отправка отчётов. <b>Python</b> или <b>Bash</b> — идеальный выбор: маленькие скрипты, без сложной сборки, легко править.</span><span class="lang-en-inline">A system administrator needs to automate daily tasks: parsing logs, copying files, sending reports. <b>Python</b> or <b>Bash</b> is an ideal choice: small scripts, no complicated build step, easy to edit.</span></p>
     </div>
     <div class="usecase-card">
-      <span class="uc-tag compiled">Компилятор</span>
-      <h4>Системное программирование</h4>
-      <p>Операционные системы, драйверы устройств, встраиваемые системы. Нужен прямой доступ к памяти, предсказуемое поведение, минимальные накладные расходы. <b>C</b> и <b>Rust</b> — стандарт индустрии (ядро Linux на C, всё больше частей на Rust).</p>
+      <span class="uc-tag compiled"><span class="lang-ru-inline">Компилятор</span><span class="lang-en-inline">Compiler</span></span>
+      <h4><span class="lang-ru-inline">Системное программирование</span><span class="lang-en-inline">Systems programming</span></h4>
+      <p><span class="lang-ru-inline">Операционные системы, драйверы устройств, встраиваемые системы. Нужен прямой доступ к памяти, предсказуемое поведение, минимальные накладные расходы. <b>C</b> и <b>Rust</b> — стандарт индустрии (ядро Linux на C, всё больше частей на Rust).</span><span class="lang-en-inline">Operating systems, device drivers, embedded systems. They need direct memory access, predictable behaviour and minimal overheads. <b>C</b> and <b>Rust</b> are the industry standard (the Linux kernel is in C, with more and more parts in Rust).</span></p>
     </div>
     <div class="usecase-card">
       <span class="uc-tag jit">JIT</span>
-      <h4>Веб-фронтенд</h4>
-      <p>JavaScript в браузере. Когда-то был чисто интерпретируемым, сейчас все движки (V8, SpiderMonkey, JavaScriptCore) используют JIT — это позволило построить сложные веб-приложения вроде Google Docs или Figma со скоростью, близкой к нативным.</p>
+      <h4><span class="lang-ru-inline">Веб-фронтенд</span><span class="lang-en-inline">Web front end</span></h4>
+      <p><span class="lang-ru-inline">JavaScript в браузере. Когда-то был чисто интерпретируемым, сейчас все движки (V8, SpiderMonkey, JavaScriptCore) используют JIT — это позволило построить сложные веб-приложения вроде Google Docs или Figma со скоростью, близкой к нативным.</span><span class="lang-en-inline">JavaScript in the browser. It was once purely interpreted; now all the engines (V8, SpiderMonkey, JavaScriptCore) use JIT — this made it possible to build complex web applications such as Google Docs or Figma at speeds close to native ones.</span></p>
     </div>
   </div>
 
@@ -912,31 +930,31 @@
     </div>
   </details>
 
-  <h2>9. Связанные понятия</h2>
+  <h2><span class="lang-ru-inline">9. Связанные понятия</span><span class="lang-en-inline">9. Related concepts</span></h2>
 
-  <h3>Стандартная библиотека (Standard library)</h3>
-  <p>
+  <h3><span class="lang-ru-inline">Стандартная библиотека (Standard library)</span><span class="lang-en-inline">Standard library</span></h3>
+  <p><span class="lang-ru-inline">
     Готовый набор модулей, классов и функций, который поставляется вместе с языком. У Python это <code>os</code>, <code>json</code>, <code>math</code> и сотни других. У Java это <code>java.util</code>, <code>java.io</code>. Стандартная библиотека сильно облегчает разработку: не нужно реализовывать всё с нуля.
-  </p>
+  </span><span class="lang-en-inline">A ready-made set of modules, classes and functions that comes with the language. In Python these are <code>os</code>, <code>json</code>, <code>math</code> and hundreds of others. In Java they are <code>java.util</code> and <code>java.io</code>. A standard library greatly simplifies development: you do not need to implement everything from scratch.</span></p>
 
-  <h3>Парсер (Parser)</h3>
-  <p>
+  <h3><span class="lang-ru-inline">Парсер (Parser)</span><span class="lang-en-inline">Parser</span></h3>
+  <p><span class="lang-ru-inline">
     Программный компонент, который анализирует поток входных токенов по правилам грамматики и строит из них <b>иерархическое представление</b> — дерево разбора или AST. Парсеры используются не только в компиляторах: HTML-парсер в браузере, JSON-парсер в API, SQL-парсер в БД — все они работают по той же логике.
-  </p>
+  </span><span class="lang-en-inline">A software component that analyzes a stream of input tokens according to the rules of a grammar and builds a <b>hierarchical representation</b> from them — a parse tree or an AST. Parsers are used not only in compilers: an HTML parser in a browser, a JSON parser in an API, an SQL parser in a database — they all work on the same principle.</span></p>
 
-  <h3>Семантика (Semantics)</h3>
-  <p>
+  <h3><span class="lang-ru-inline">Семантика (Semantics)</span><span class="lang-en-inline">Semantics</span></h3>
+  <p><span class="lang-ru-inline">
     Точный смысл, связанный с конкретной программной конструкцией: «что делает эта инструкция?». В отличие от синтаксиса (как должно быть написано), семантика отвечает за <b>что произойдёт</b> при исполнении. Например, синтаксически правильный код <code>x = y + z</code> семантически ошибочен, если <code>y</code> — это строка, а <code>z</code> — число (в строгом языке).
-  </p>
+  </span><span class="lang-en-inline">The exact meaning of a particular programming construct: “what does this instruction do?”. Unlike syntax (how something must be written), semantics determines <b>what will happen</b> when it is executed. For example, the syntactically correct code <code>x = y + z</code> is semantically wrong if <code>y</code> is a string and <code>z</code> is a number (in a strictly typed language).</span></p>
 
-  <h3>Бинарный исполняемый файл (Binary executable)</h3>
-  <p>
+  <h3><span class="lang-ru-inline">Бинарный исполняемый файл (Binary executable)</span><span class="lang-en-inline">Binary executable</span></h3>
+  <p><span class="lang-ru-inline">
     Файл, который содержит готовые машинные инструкции в формате, понятном конкретной ОС (PE для Windows, ELF для Linux, Mach-O для macOS). ОС умеет загружать такой файл в память и сразу передавать управление CPU.
-  </p>
+  </span><span class="lang-en-inline">A file that contains ready-made machine instructions in a format understood by a particular OS (PE for Windows, ELF for Linux, Mach-O for macOS). The OS can load such a file into memory and pass control to the CPU immediately.</span></p>
 
-  <p style="margin-top: 20px">
+  <p style="margin-top: 20px"><span class="lang-ru-inline">
     <a href="fundamentals.html#ci-sim" class="back-link" style="font-size:1rem">→ Открыть симуляцию «Компилятор vs Интерпретатор» в A1 Основы</a>
-  </p>
+  </span><span class="lang-en-inline"><a href="fundamentals.html#ci-sim" class="back-link" style="font-size:1rem">→ Open the “Compiler vs Interpreter” simulation in A1 Fundamentals</a></span></p>
 
   <details class="en-summary" style="margin:12px 0; padding:12px 16px; background:var(--surface-2); border-radius:var(--radius); border-left:3px solid var(--text-faint)">
     <summary style="cursor:pointer; font-weight:600; color:var(--text-muted); font-size:0.92rem">🇬🇧 English summary (click to expand)</summary>
@@ -946,24 +964,24 @@
   </details>
 
   <!-- ============ SECTION 10: PRACTICE QUESTIONS ============ -->
-  <h2>11. Практическое задание</h2>
+  <h2><span class="lang-ru-inline">11. Практическое задание</span><span class="lang-en-inline">11. Practical task</span></h2>
 
   <div class="task-card">
-    <h3>🔬 Сравни три подхода на одной задаче</h3>
-    <p><b>Цель:</b> прочувствовать разницу между компилятором, интерпретатором и JIT на одной и той же программе.</p>
+    <h3><span class="lang-ru-inline">🔬 Сравни три подхода на одной задаче</span><span class="lang-en-inline">🔬 Compare three approaches on one task</span></h3>
+    <p><span class="lang-ru-inline"><b>Цель:</b> прочувствовать разницу между компилятором, интерпретатором и JIT на одной и той же программе.</span><span class="lang-en-inline"><b>Aim:</b> to get a feel for the difference between a compiler, an interpreter and JIT on the same program.</span></p>
 
-    <div class="scenario">
+    <div class="scenario"><span class="lang-ru-inline">
       <b>Сценарий:</b> возьми классическую программу «вычисли N-е число Фибоначчи рекурсивно» (намеренно медленный алгоритм). Запусти три версии: на C++, Python и Java. Замерь время для <code>N = 35</code>.
-    </div>
+    </span><span class="lang-en-inline"><b>Scenario:</b> take the classic program “compute the N-th Fibonacci number recursively” (a deliberately slow algorithm). Run three versions: in C++, Python and Java. Measure the time for <code>N = 35</code>.</span></div>
 
-    <p><b>Инструкции:</b></p>
+    <p><span class="lang-ru-inline"><b>Инструкции:</b></span><span class="lang-en-inline"><b>Instructions:</b></span></p>
     <ol>
-      <li>Напиши одну и ту же рекурсивную функцию Фибоначчи на трёх языках: <b>C++</b>, <b>Python</b>, <b>Java</b>.</li>
-      <li><b>C++.</b> Скомпилируй командой <code>g++ -O2 fib.cpp -o fib</code>, запусти <code>time ./fib</code>. Запиши время.</li>
-      <li><b>Python.</b> Просто запусти <code>time python fib.py</code>. Запиши время.</li>
-      <li><b>Java.</b> Скомпилируй <code>javac Fib.java</code> (получишь <code>Fib.class</code> — байткод). Запусти <code>time java Fib</code>. Запиши время.</li>
-      <li>Сравни три числа. Обычно: C++ — десятые доли секунды, Java — секунды (но быстрее Python после прогрева JIT), Python — десятки секунд.</li>
-      <li>Объясни в одном абзаце, <b>почему</b> такая разница. Используй термины: <i>нативный машинный код</i>, <i>JIT</i>, <i>интерпретация байткода</i>, <i>динамическая типизация</i>.</li>
+      <li><span class="lang-ru-inline">Напиши одну и ту же рекурсивную функцию Фибоначчи на трёх языках: <b>C++</b>, <b>Python</b>, <b>Java</b>.</span><span class="lang-en-inline">Write the same recursive Fibonacci function in three languages: <b>C++</b>, <b>Python</b>, <b>Java</b>.</span></li>
+      <li><span class="lang-ru-inline"><b>C++.</b> Скомпилируй командой <code>g++ -O2 fib.cpp -o fib</code>, запусти <code>time ./fib</code>. Запиши время.</span><span class="lang-en-inline"><b>C++.</b> Compile with the command <code>g++ -O2 fib.cpp -o fib</code>, then run <code>time ./fib</code>. Record the time.</span></li>
+      <li><span class="lang-ru-inline"><b>Python.</b> Просто запусти <code>time python fib.py</code>. Запиши время.</span><span class="lang-en-inline"><b>Python.</b> Simply run <code>time python fib.py</code>. Record the time.</span></li>
+      <li><span class="lang-ru-inline"><b>Java.</b> Скомпилируй <code>javac Fib.java</code> (получишь <code>Fib.class</code> — байткод). Запусти <code>time java Fib</code>. Запиши время.</span><span class="lang-en-inline"><b>Java.</b> Compile with <code>javac Fib.java</code> (you will get <code>Fib.class</code> — the bytecode). Run <code>time java Fib</code>. Record the time.</span></li>
+      <li><span class="lang-ru-inline">Сравни три числа. Обычно: C++ — десятые доли секунды, Java — секунды (но быстрее Python после прогрева JIT), Python — десятки секунд.</span><span class="lang-en-inline">Compare the three times. Typically: C++ takes fractions of a second, Java takes seconds (but is faster than Python after JIT warm-up), Python takes tens of seconds.</span></li>
+      <li><span class="lang-ru-inline">Объясни в одном абзаце, <b>почему</b> такая разница. Используй термины: <i>нативный машинный код</i>, <i>JIT</i>, <i>интерпретация байткода</i>, <i>динамическая типизация</i>.</span><span class="lang-en-inline">Explain in one paragraph <b>why</b> the difference is so large. Use the terms: <i>native machine code</i>, <i>JIT</i>, <i>bytecode interpretation</i>, <i>dynamic typing</i>.</span></li>
     </ol>
   </div>
 
@@ -975,18 +993,18 @@
   </details>
 
   <!-- ============ CLOSING ============ -->
-  <h2>Что важно запомнить</h2>
+  <h2><span class="lang-ru-inline">Что важно запомнить</span><span class="lang-en-inline">Key points to remember</span></h2>
   <ul style="line-height: 1.8; font-size: 1.02rem;">
-    <li><b>Трансляция</b> = превращение человеко-понятного кода в команды для CPU. Три основных подхода: <b>компилятор, интерпретатор, JIT</b>.</li>
-    <li><b>Компилятор</b> переводит весь код один раз → быстрое исполнение, ранние ошибки, низкая портируемость. Языки: <b>C, C++, Rust, Go</b>.</li>
-    <li><b>Интерпретатор</b> переводит строка за строкой во время выполнения → медленное исполнение, поздние ошибки, высокая портируемость. Языки: <b>Python, JavaScript, Ruby, PHP</b>.</li>
-    <li><b>JIT</b> = байткод + компиляция «на лету» горячих участков → гибрид. Языки: <b>Java, C#, JavaScript (V8), PyPy</b>.</li>
-    <li><b>Байткод</b> — платформо-независимое промежуточное представление, исполняется виртуальной машиной (JVM, CLR, Python VM, BEAM).</li>
-    <li><b>Пять этапов компиляции:</b> Лексика → Синтаксис → Семантика → Оптимизация → Генерация кода.</li>
-    <li><b>Парсер</b> строит AST из токенов и проверяет соответствие грамматике; <b>семантика</b> отвечает за смысл (типы, существование функций).</li>
-    <li><b>Линкер</b> склеивает объектные файлы и библиотеки в один .exe; <b>загрузчик</b> (часть ОС) запускает .exe в памяти.</li>
-    <li>На экзамене вопрос «<i>evaluate</i>» — это всегда <b>сильные и слабые стороны</b>. «<i>Distinguish</i>» — контраст по чётким критериям (время, ошибки, портируемость, применимость).</li>
-    <li><b>Машинный код</b> — это бинарные команды, привязанные к архитектуре CPU (x86, ARM, MIPS). <b>Ассемблер</b> — почти один-к-один с машинным кодом, но с читаемыми мнемониками (MOV, ADD, JMP).</li>
+    <li><span class="lang-ru-inline"><b>Трансляция</b> = превращение человеко-понятного кода в команды для CPU. Три основных подхода: <b>компилятор, интерпретатор, JIT</b>.</span><span class="lang-en-inline"><b>Translation</b> = turning human-readable code into instructions for the CPU. The three main approaches: <b>compiler, interpreter, JIT</b>.</span></li>
+    <li><span class="lang-ru-inline"><b>Компилятор</b> переводит весь код один раз → быстрое исполнение, ранние ошибки, низкая портируемость. Языки: <b>C, C++, Rust, Go</b>.</span><span class="lang-en-inline">A <b>compiler</b> translates all the code once → fast execution, early errors, low portability. Languages: <b>C, C++, Rust, Go</b>.</span></li>
+    <li><span class="lang-ru-inline"><b>Интерпретатор</b> переводит строка за строкой во время выполнения → медленное исполнение, поздние ошибки, высокая портируемость. Языки: <b>Python, JavaScript, Ruby, PHP</b>.</span><span class="lang-en-inline">An <b>interpreter</b> translates line by line during execution → slow execution, late errors, high portability. Languages: <b>Python, JavaScript, Ruby, PHP</b>.</span></li>
+    <li><span class="lang-ru-inline"><b>JIT</b> = байткод + компиляция «на лету» горячих участков → гибрид. Языки: <b>Java, C#, JavaScript (V8), PyPy</b>.</span><span class="lang-en-inline"><b>JIT</b> = bytecode + on-the-fly compilation of hot parts → a hybrid. Languages: <b>Java, C#, JavaScript (V8), PyPy</b>.</span></li>
+    <li><span class="lang-ru-inline"><b>Байткод</b> — платформо-независимое промежуточное представление, исполняется виртуальной машиной (JVM, CLR, Python VM, BEAM).</span><span class="lang-en-inline"><b>Bytecode</b> — a platform-independent intermediate representation, executed by a virtual machine (JVM, CLR, Python VM, BEAM).</span></li>
+    <li><span class="lang-ru-inline"><b>Пять этапов компиляции:</b> Лексика → Синтаксис → Семантика → Оптимизация → Генерация кода.</span><span class="lang-en-inline"><b>Five stages of compilation:</b> Lexical → Syntax → Semantics → Optimization → Code generation.</span></li>
+    <li><span class="lang-ru-inline"><b>Парсер</b> строит AST из токенов и проверяет соответствие грамматике; <b>семантика</b> отвечает за смысл (типы, существование функций).</span><span class="lang-en-inline">The <b>parser</b> builds an AST from the tokens and checks that they match the grammar; <b>semantics</b> is responsible for meaning (types, whether functions exist).</span></li>
+    <li><span class="lang-ru-inline"><b>Линкер</b> склеивает объектные файлы и библиотеки в один .exe; <b>загрузчик</b> (часть ОС) запускает .exe в памяти.</span><span class="lang-en-inline">The <b>linker</b> combines object files and libraries into a single .exe; the <b>loader</b> (part of the OS) runs the .exe in memory.</span></li>
+    <li><span class="lang-ru-inline">На экзамене вопрос «<i>evaluate</i>» — это всегда <b>сильные и слабые стороны</b>. «<i>Distinguish</i>» — контраст по чётким критериям (время, ошибки, портируемость, применимость).</span><span class="lang-en-inline">In an exam, a question with the command term “<i>evaluate</i>” always means <b>strengths and weaknesses</b>. “<i>Distinguish</i>” means contrast by clear criteria (time, errors, portability, applicability).</span></li>
+    <li><span class="lang-ru-inline"><b>Машинный код</b> — это бинарные команды, привязанные к архитектуре CPU (x86, ARM, MIPS). <b>Ассемблер</b> — почти один-к-один с машинным кодом, но с читаемыми мнемониками (MOV, ADD, JMP).</span><span class="lang-en-inline"><b>Machine code</b> is binary commands tied to the CPU architecture (x86, ARM, MIPS). <b>Assembly language</b> is almost one-to-one with machine code, but uses readable mnemonics (MOV, ADD, JMP).</span></li>
   </ul>
 
   <details class="en-summary" style="margin:12px 0; padding:12px 16px; background:var(--surface-2); border-radius:var(--radius); border-left:3px solid var(--text-faint)">
@@ -996,20 +1014,24 @@
     </div>
   </details>
 
-  <p style="margin-top:32px">
+  <p style="margin-top:32px"><span class="lang-ru-inline">
     <a href="fundamentals.html" class="back-link">← Назад к A1 Основы</a>
     &nbsp; · &nbsp;
     <a href="fundamentals.html#ci-sim" class="back-link">→ Симуляция Compiler vs Interpreter</a>
     &nbsp; · &nbsp;
     <a href="quiz.html?topic=A1.4" class="back-link">К квизу A1.4 →</a>
-  </p>
+  </span><span class="lang-en-inline"><a href="fundamentals.html" class="back-link">← Back to A1 Fundamentals</a>
+    &nbsp; · &nbsp;
+    <a href="fundamentals.html#ci-sim" class="back-link">→ Compiler vs Interpreter simulation</a>
+    &nbsp; · &nbsp;
+    <a href="quiz.html?topic=A1.4" class="back-link">Go to the A1.4 quiz →</a></span></p>
 
 </main>
 
 <footer class="footer">
-  <p>
+  <p><span class="lang-ru-inline">
     IB CS Тема A · A1.4 Трансляция (HL) · Источник: Oxford IB DP Computer Science 2025 · <a href="index.html">На главную</a>
-  </p>
+  </span><span class="lang-en-inline">IB CS Theme A · A1.4 Translation (HL) · Source: Oxford IB DP Computer Science 2025 · <a href="index.html">Home</a></span></p>
 </footer>
 
 <script src="js/app.js?v=11"></script>

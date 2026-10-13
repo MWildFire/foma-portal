@@ -277,11 +277,12 @@
 
 <header class="site-header">
   <nav class="nav">
-    <a href="index.html" class="brand">
+    <a href="index.html" class="brand"><span class="lang-ru-inline">
       <span class="brand-mark">A</span>
       IB CS · Тема A
-    </a>
-    <div class="nav-links">
+    </span><span class="lang-en-inline"><span class="brand-mark">A</span>
+      IB CS · Theme A</span></a>
+    <div class="nav-links"><span class="lang-ru-inline">
       <a href="index.html">Обзор</a>
       <a href="fundamentals.html">A1 Основы</a>
       <a href="networks.html">A2 Сети</a>
@@ -289,7 +290,13 @@
       <a href="databases.html">A3 Базы данных</a>
       <a href="ml.html">A4 ML</a>
       <a href="quiz.html">Квиз</a>
-    </div>
+    </span><span class="lang-en-inline"><a href="index.html">Overview</a>
+      <a href="fundamentals.html">A1 Fundamentals</a>
+      <a href="networks.html">A2 Networks</a>
+      <a href="setevye-ustroistva.html">A2.1.3 Network devices</a>
+      <a href="databases.html">A3 Databases</a>
+      <a href="ml.html">A4 ML</a>
+      <a href="quiz.html">Quiz</a></span></div>
     <div class="nav-actions">
       <button class="theme-toggle" data-theme-toggle>☽</button>
       <button class="lang-toggle" data-lang-toggle>EN</button>
@@ -299,58 +306,59 @@
 
 <main class="device-page">
 
-  <a href="ml.html" class="back-link">← Назад к A4 ML</a>
+  <a href="ml.html" class="back-link"><span class="lang-ru-inline">← Назад к A4 ML</span><span class="lang-en-inline">← Back to A4 ML</span></a>
 
   <span class="hero-eyebrow" style="background:rgba(239,68,68,0.12); color:#b91c1c">
     A4.2 · Data preprocessing
   </span>
   <span class="hl-badge" style="margin-left:8px">HL only</span>
 
-  <h1>Предобработка данных <span class="hl-badge" style="vertical-align:middle">HL</span></h1>
+  <h1><span class="lang-ru-inline">Предобработка данных <span class="hl-badge" style="vertical-align:middle">HL</span></span><span class="lang-en-inline">Data preprocessing <span class="hl-badge" style="vertical-align:middle">HL</span></span></h1>
 
-  <p class="lede">
+  <p class="lede"><span class="lang-ru-inline">
     Эта тема (<b>A4.2</b>) — про то, что нужно сделать с данными <b>до того, как ты отдашь их модели машинного обучения</b>. Сырые данные почти всегда грязные: пропуски, дубликаты, выбросы, разные масштабы, текстовые категории, лишние столбцы. Главный принцип всего раздела: <b>«garbage in, garbage out»</b> — мусор на входе даёт мусор на выходе. Хорошие данные = хорошие предсказания.
-  </p>
+  </span><span class="lang-en-inline">This topic (<b>A4.2</b>) is about what you must do with data <b>before you give it to a machine learning model</b>. Raw data is almost always messy: missing values, duplicates, outliers, different scales, text categories, extra columns. The main principle of the whole section is <b>“garbage in, garbage out”</b>: bad input gives bad output. Good data = good predictions.</span></p>
 
   
 
   
 
-  <div class="ru-tip">
+  <div class="ru-tip"><span class="lang-ru-inline">
     💡 <b>Покрытие по программе IB:</b> A4.2.1 — значимость очистки данных; A4.2.2 — роль отбора признаков (feature selection); A4.2.3 — важность понижения размерности. Все три подпункта — <b>HL only</b>. Эта страница покрывает их и связанные темы (нормализация, кодирование категорий, разделение выборок, кросс-валидация, утечки данных).
-  </div>
+  </span><span class="lang-en-inline">💡 <b>Coverage in the IB syllabus:</b> A4.2.1 — the importance of data cleaning; A4.2.2 — the role of feature selection; A4.2.3 — the importance of dimensionality reduction. All three subsections are <b>HL only</b>. This page covers them and related topics (normalization, encoding categories, splitting data into sets, cross-validation, data leakage).</span></div>
 
-  <p>
+  <p><span class="lang-ru-inline">
     <a class="sim-link" href="ml.html#regression-sim"><span class="icon">📈</span>Симуляция: линейная регрессия (что модель учит из подготовленных данных)</a>
     <a class="sim-link" href="ml.html#bias-sim"><span class="icon">⚖️</span>Симуляция: смещение в обучении (что бывает с плохими/смещёнными данными)</a>
-  </p>
+  </span><span class="lang-en-inline"><a class="sim-link" href="ml.html#regression-sim"><span class="icon">📈</span>Simulation: linear regression (what a model learns from prepared data)</a>
+    <a class="sim-link" href="ml.html#bias-sim"><span class="icon">⚖️</span>Simulation: bias in training (what happens with poor or biased data)</a></span></p>
 
   <!-- ============ SECTION 0: WORKFLOW ============ -->
-  <h2>0. Где предобработка живёт в пайплайне ML <span class="hl-badge">HL</span></h2>
+  <h2><span class="lang-ru-inline">0. Где предобработка живёт в пайплайне ML <span class="hl-badge">HL</span></span><span class="lang-en-inline">0. Where preprocessing sits in the ML pipeline <span class="hl-badge">HL</span></span></h2>
 
-  <p>
+  <p><span class="lang-ru-inline">
     Полный рабочий процесс машинного обучения (ML workflow) — это цикл из 10 шагов. Предобработка стоит в начале, сразу после сбора данных, и без неё всё остальное не имеет смысла.
-  </p>
+  </span><span class="lang-en-inline">The full machine learning workflow is a cycle of 10 steps. Preprocessing comes at the start, straight after data collection, and without it nothing else makes sense.</span></p>
 
   <div class="table-scroll"><table class="summary-table">
     <thead>
       <tr>
         <th>#</th>
-        <th>Шаг (англ.)</th>
-        <th>Что происходит</th>
+        <th><span class="lang-ru-inline">Шаг (англ.)</span><span class="lang-en-inline">Step</span></th>
+        <th><span class="lang-ru-inline">Что происходит</span><span class="lang-en-inline">What happens</span></th>
       </tr>
     </thead>
     <tbody>
-      <tr><td>1</td><td>Define the problem</td><td>Сформулировать задачу: что предсказываем, какая метрика успеха.</td></tr>
-      <tr><td>2</td><td>Gather data</td><td>Собрать сырые данные из баз, API, датчиков, логов.</td></tr>
-      <tr><td>3</td><td><b>Data preprocessing</b></td><td><b>Очистка, нормализация, кодирование — фокус этой темы.</b></td></tr>
-      <tr><td>4</td><td>Exploratory data analysis (EDA)</td><td>Графики, статистика, поиск аномалий.</td></tr>
-      <tr><td>5</td><td>Feature engineering and selection</td><td>Создать новые признаки и отобрать самые информативные.</td></tr>
-      <tr><td>6</td><td>Choose a model</td><td>Регрессия, дерево, нейросеть и т.д.</td></tr>
-      <tr><td>7</td><td>Split the data</td><td>Разделить на train / validation / test.</td></tr>
-      <tr><td>8</td><td>Train the model</td><td>Обучение на train-выборке.</td></tr>
-      <tr><td>9</td><td>Model evaluation + Parameter tuning</td><td>Замер качества на validation, настройка гиперпараметров.</td></tr>
-      <tr><td>10</td><td>Deployment + Monitor and maintain</td><td>Запуск в продакшен, мониторинг качества во времени.</td></tr>
+      <tr><td>1</td><td>Define the problem</td><td><span class="lang-ru-inline">Сформулировать задачу: что предсказываем, какая метрика успеха.</span><span class="lang-en-inline">Define the problem: what you are predicting and which metric shows success.</span></td></tr>
+      <tr><td>2</td><td>Gather data</td><td><span class="lang-ru-inline">Собрать сырые данные из баз, API, датчиков, логов.</span><span class="lang-en-inline">Collect raw data from databases, APIs, sensors and logs.</span></td></tr>
+      <tr><td>3</td><td><b>Data preprocessing</b></td><td><span class="lang-ru-inline"><b>Очистка, нормализация, кодирование — фокус этой темы.</b></span><span class="lang-en-inline"><b>Cleaning, normalization and encoding — the focus of this topic.</b></span></td></tr>
+      <tr><td>4</td><td>Exploratory data analysis (EDA)</td><td><span class="lang-ru-inline">Графики, статистика, поиск аномалий.</span><span class="lang-en-inline">Charts, statistics, finding anomalies.</span></td></tr>
+      <tr><td>5</td><td>Feature engineering and selection</td><td><span class="lang-ru-inline">Создать новые признаки и отобрать самые информативные.</span><span class="lang-en-inline">Create new features and select the most informative ones.</span></td></tr>
+      <tr><td>6</td><td>Choose a model</td><td><span class="lang-ru-inline">Регрессия, дерево, нейросеть и т.д.</span><span class="lang-en-inline">Regression, tree, neural network, etc.</span></td></tr>
+      <tr><td>7</td><td>Split the data</td><td><span class="lang-ru-inline">Разделить на train / validation / test.</span><span class="lang-en-inline">Split into train / validation / test.</span></td></tr>
+      <tr><td>8</td><td>Train the model</td><td><span class="lang-ru-inline">Обучение на train-выборке.</span><span class="lang-en-inline">Training on the train set.</span></td></tr>
+      <tr><td>9</td><td>Model evaluation + Parameter tuning</td><td><span class="lang-ru-inline">Замер качества на validation, настройка гиперпараметров.</span><span class="lang-en-inline">Measure quality on validation, tune hyperparameters.</span></td></tr>
+      <tr><td>10</td><td>Deployment + Monitor and maintain</td><td><span class="lang-ru-inline">Запуск в продакшен, мониторинг качества во времени.</span><span class="lang-en-inline">Deploy to production, monitor quality over time.</span></td></tr>
     </tbody>
   </table></div>
 
@@ -362,47 +370,49 @@
   </details>
 
   <!-- ============ SECTION 1: WHY IT MATTERS ============ -->
-  <h2>1. 🗑️ Почему предобработка критична: garbage in, garbage out <span class="hl-badge">HL</span></h2>
+  <h2><span class="lang-ru-inline">1. 🗑️ Почему предобработка критична: garbage in, garbage out <span class="hl-badge">HL</span></span><span class="lang-en-inline">1. 🗑️ Why preprocessing is critical: garbage in, garbage out <span class="hl-badge">HL</span></span></h2>
 
   <div class="device-card">
-    <h3><span class="device-emoji">⚠️</span> A4.2.1 — Значимость очистки данных</h3>
-    <p>
+    <h3><span class="lang-ru-inline"><span class="device-emoji">⚠️</span> A4.2.1 — Значимость очистки данных</span><span class="lang-en-inline"><span class="device-emoji">⚠️</span> A4.2.1 — Why data cleaning matters</span></h3>
+    <p><span class="lang-ru-inline">
       <b>Очистка данных (data cleaning)</b> стандартизирует данные так, чтобы они были согласованными, без ошибок, точными и соответствующими нормативным и юридическим требованиям. Когда данные впервые попадают в ML-пайплайн, они обычно <b>неупорядоченные и полны ошибок</b>. Термин <b>«шум» (noise / noisy data)</b> означает данные с лишней или неточной информацией.
-    </p>
-    <p>
+    </span><span class="lang-en-inline"><b>Data cleaning</b> makes data consistent, error-free and accurate, and makes it meet the legal and regulatory requirements that apply to it. When data first enters an ML pipeline, it is usually <b>disordered and full of errors</b>. The term <b>noise</b> (noisy data) means data that contains extra or inaccurate information.</span></p>
+    <p><span class="lang-ru-inline">
       Качество данных напрямую влияет на <b>точность, надёжность и устойчивость</b> предсказательных моделей. Главный принцип:
-    </p>
+    </span><span class="lang-en-inline">Data quality directly affects the <b>accuracy, reliability and robustness</b> of predictive models. The main principle:</span></p>
     <div class="formula-box" style="text-align:center; font-size:1.2rem">
       good data = good predictions
     </div>
-    <p>
+    <p><span class="lang-ru-inline">
       Модель, обученная на качественных данных, лучше <b>обобщается (generalizes)</b> на новые, невиданные ранее наблюдения. А вот шумные, неполные или нерепрезентативные данные приводят к <b>переобучению (overfitting)</b>: модель запоминает шум и аномалии тренировочного набора и плохо работает на новых данных. И последнее, но важное: репрезентативные и непредвзятые данные не дают моделям <b>усиливать существующие смещения</b>.
-    </p>
+    </span><span class="lang-en-inline">A model trained on good-quality data <b>generalizes</b> better to new, previously unseen observations. Noisy, incomplete or unrepresentative data, by contrast, leads to <b>overfitting</b>: the model memorizes the noise and anomalies in the training set and performs poorly on new data. One last, but important, point: representative and unbiased data stops models from <b>amplifying existing biases</b>.</span></p>
   </div>
 
   <div class="real-world">
-    <h4>🏠 Реальный пример: предсказание цен на жильё</h4>
-    <p>
+    <h4><span class="lang-ru-inline">🏠 Реальный пример: предсказание цен на жильё</span><span class="lang-en-inline">🏠 Real example: predicting house prices</span></h4>
+    <p><span class="lang-ru-inline">
       Допустим, ты обучаешь модель предсказывать цену дома. В сырых данных у тебя: 5% домов без указанной площади, 12 дубликатов одного объекта, цена одного дома записана как «−500 000» (опечатка), даты постройки в трёх разных форматах. Если отдать это «как есть» — модель выучит ерунду: например, что «дома без площади стоят 0», или что «отрицательная цена — это нормально».
-    </p>
+    </span><span class="lang-en-inline">Suppose you are training a model to predict house prices. Your raw data has: 5% of houses with no floor area given, 12 duplicates of the same property, one house price recorded as “−500 000” (a typo), and construction dates in three different formats. If you feed this in as it is, the model learns nonsense: for example, that “houses without a floor area cost 0”, or that “a negative price is normal”.</span></p>
   </div>
 
   <div class="real-world">
-    <h4>📧 Реальный пример: классификация спама</h4>
-    <p>
+    <h4><span class="lang-ru-inline">📧 Реальный пример: классификация спама</span><span class="lang-en-inline">📧 Real example: spam classification</span></h4>
+    <p><span class="lang-ru-inline">
       Спам-фильтру скармливают письма. Если 30% писем в тренировочном наборе — дубликаты одного и того же спам-рассылочного письма, модель «привыкнет» считать спамом только этот шаблон и пропустит другие виды спама. Очистка от дубликатов — обязательна.
-    </p>
+    </span><span class="lang-en-inline">A spam filter is fed emails. If 30% of the emails in the training set are copies of the same spam mailing, the model learns to flag only that template as spam and misses other kinds of spam. Removing duplicates is essential.</span></p>
   </div>
 
-  <h3>Worked Example 1 (из учебника, AHL)</h3>
+  <h3><span class="lang-ru-inline">Worked Example 1 (из учебника, AHL)</span><span class="lang-en-inline">Worked Example 1 (from the textbook, AHL)</span></h3>
   <div class="device-card">
-    <p>
+    <p><span class="lang-ru-inline">
       <b>Сценарий:</b> Компания разрабатывает ML-модель для отбора резюме на работу. Тренировочный набор — резюме за последние 10 лет, в основном от мужчин (исторический гендерный дисбаланс компании).
-    </p>
-    <p><b>1. Как поведёт себя модель?</b><br>
-      Модель будет <b>смещена в пользу мужчин-кандидатов</b>, даже когда женщина-кандидат подходит намного лучше.</p>
-    <p><b>2. Как улучшить?</b><br>
-      Расширить набор, добавив больше резюме от женщин (балансировка классов), или изменить веса разных критериев. Это часть предобработки — обеспечение <b>разнообразия и репрезентативности</b> данных.</p>
+    </span><span class="lang-en-inline"><b>Scenario:</b> A company is developing an ML model to screen the CVs of job applicants. The training set is the CVs from the last 10 years, mostly from men (the company’s historical gender imbalance).</span></p>
+    <p><span class="lang-ru-inline"><b>1. Как поведёт себя модель?</b><br>
+      Модель будет <b>смещена в пользу мужчин-кандидатов</b>, даже когда женщина-кандидат подходит намного лучше.</span><span class="lang-en-inline"><b>1. How will the model behave?</b><br>
+      The model will be <b>biased in favour of male candidates</b>, even when a female candidate is a much better fit.</span></p>
+    <p><span class="lang-ru-inline"><b>2. Как улучшить?</b><br>
+      Расширить набор, добавив больше резюме от женщин (балансировка классов), или изменить веса разных критериев. Это часть предобработки — обеспечение <b>разнообразия и репрезентативности</b> данных.</span><span class="lang-en-inline"><b>2. How can it be improved?</b><br>
+      Expand the data set by adding more CVs from women (class balancing), or change the weights given to the different criteria. This is part of preprocessing: ensuring <b>diversity and representativeness</b> of the data.</span></p>
   </div>
 
   <details class="en-summary" style="margin:12px 0; padding:12px 16px; background:var(--surface-2); border-radius:var(--radius); border-left:3px solid var(--text-faint)">
@@ -413,32 +423,32 @@
   </details>
 
   <!-- ============ SECTION 2: CLEANING ============ -->
-  <h2>2. 🧹 Очистка данных: пропуски, дубликаты, форматы <span class="hl-badge">HL</span></h2>
+  <h2><span class="lang-ru-inline">2. 🧹 Очистка данных: пропуски, дубликаты, форматы <span class="hl-badge">HL</span></span><span class="lang-en-inline">2. 🧹 Data cleaning: missing values, duplicates, formats <span class="hl-badge">HL</span></span></h2>
 
-  <h3>2.1 Пример очистки (прямо из учебника)</h3>
+  <h3><span class="lang-ru-inline">2.1 Пример очистки (прямо из учебника)</span><span class="lang-en-inline">2.1 Cleaning example (straight from the textbook)</span></h3>
 
-  <p><b>До очистки</b> (Figure 9 из источника):</p>
+  <p><span class="lang-ru-inline"><b>До очистки</b> (Figure 9 из источника):</span><span class="lang-en-inline"><b>Before cleaning</b> (Figure 9 from the source):</span></p>
   <div class="table-scroll"><table class="data-mini">
     <thead><tr><th>Customer ID</th><th>Age</th><th>Email</th><th>Income</th><th>Last Purchase Date</th></tr></thead>
     <tbody>
       <tr><td>001</td><td>35</td><td>john.doe@domain.com</td><td>54000</td><td>01-02-2020</td></tr>
-      <tr><td>002</td><td class="bad">−25</td><td>jane_smith@domain.com</td><td>58000</td><td class="bad">(пусто)</td></tr>
+      <tr><td>002</td><td class="bad">−25</td><td>jane_smith@domain.com</td><td>58000</td><td class="bad"><span class="lang-ru-inline">(пусто)</span><span class="lang-en-inline">(empty)</span></td></tr>
       <tr><td>003</td><td>45</td><td class="bad">n/a</td><td>62000</td><td>12/15/2019</td></tr>
       <tr><td>004</td><td class="bad">thirty</td><td class="bad">annetom@domaincom</td><td class="bad">−5000</td><td>20-10-2019</td></tr>
     </tbody>
   </table></div>
 
-  <p><b>Что не так:</b></p>
+  <p><span class="lang-ru-inline"><b>Что не так:</b></span><span class="lang-en-inline"><b>What is wrong:</b></span></p>
   <ul>
-    <li>Недопустимый возраст (отрицательное число).</li>
-    <li>Пропущенная информация о e-mail («n/a») и недопустимый формат e-mail.</li>
-    <li>Несогласованные форматы даты в столбце Last Purchase Date.</li>
-    <li>Пропущенная дата у клиента 002.</li>
-    <li>Отрицательный доход — неправдоподобно.</li>
-    <li>Несогласованная запись возраста («thirty» — текст вместо числа).</li>
+    <li><span class="lang-ru-inline">Недопустимый возраст (отрицательное число).</span><span class="lang-en-inline">Invalid age (a negative number).</span></li>
+    <li><span class="lang-ru-inline">Пропущенная информация о e-mail («n/a») и недопустимый формат e-mail.</span><span class="lang-en-inline">Missing e-mail information (“n/a”) and an invalid e-mail format.</span></li>
+    <li><span class="lang-ru-inline">Несогласованные форматы даты в столбце Last Purchase Date.</span><span class="lang-en-inline">Inconsistent date formats in the Last Purchase Date column.</span></li>
+    <li><span class="lang-ru-inline">Пропущенная дата у клиента 002.</span><span class="lang-en-inline">Missing date for customer 002.</span></li>
+    <li><span class="lang-ru-inline">Отрицательный доход — неправдоподобно.</span><span class="lang-en-inline">Negative income — implausible.</span></li>
+    <li><span class="lang-ru-inline">Несогласованная запись возраста («thirty» — текст вместо числа).</span><span class="lang-en-inline">Inconsistent age entry (“thirty” — text instead of a number).</span></li>
   </ul>
 
-  <p><b>После очистки</b> (Figure 10 из источника):</p>
+  <p><span class="lang-ru-inline"><b>После очистки</b> (Figure 10 из источника):</span><span class="lang-en-inline"><b>After cleaning</b> (Figure 10 from the source):</span></p>
   <div class="table-scroll"><table class="data-mini">
     <thead><tr><th>Customer ID</th><th>Age</th><th>Email</th><th>Income</th><th>Last Purchase Date</th></tr></thead>
     <tbody>
@@ -449,62 +459,62 @@
     </tbody>
   </table></div>
 
-  <p><b>Какие действия по очистке выполнены:</b></p>
+  <p><span class="lang-ru-inline"><b>Какие действия по очистке выполнены:</b></span><span class="lang-en-inline"><b>Cleaning actions taken:</b></span></p>
   <ul>
-    <li>Отрицательный возраст исправлен с −25 на 25 (предполагается опечатка).</li>
-    <li>«n/a» заменено на «Data Not Available» для более ясной индикации отсутствия данных.</li>
-    <li>Формат даты стандартизирован к YYYY-MM-DD.</li>
-    <li>Пропущенная дата заменена текстовой заглушкой.</li>
-    <li>Синтаксис e-mail исправлен, удалены недопустимые символы.</li>
-    <li>Отрицательный доход нормализован — переведён в положительное значение.</li>
-    <li>Текстовое числовое значение («thirty») переведено в число (30).</li>
+    <li><span class="lang-ru-inline">Отрицательный возраст исправлен с −25 на 25 (предполагается опечатка).</span><span class="lang-en-inline">Negative age corrected from −25 to 25 (a typo is assumed).</span></li>
+    <li><span class="lang-ru-inline">«n/a» заменено на «Data Not Available» для более ясной индикации отсутствия данных.</span><span class="lang-en-inline">“n/a” replaced with “Data Not Available” to show more clearly that data is missing.</span></li>
+    <li><span class="lang-ru-inline">Формат даты стандартизирован к YYYY-MM-DD.</span><span class="lang-en-inline">Date format standardized to YYYY-MM-DD.</span></li>
+    <li><span class="lang-ru-inline">Пропущенная дата заменена текстовой заглушкой.</span><span class="lang-en-inline">Missing date replaced with a text placeholder.</span></li>
+    <li><span class="lang-ru-inline">Синтаксис e-mail исправлен, удалены недопустимые символы.</span><span class="lang-en-inline">E-mail syntax corrected and invalid characters removed.</span></li>
+    <li><span class="lang-ru-inline">Отрицательный доход нормализован — переведён в положительное значение.</span><span class="lang-en-inline">Negative income corrected: converted to a positive value.</span></li>
+    <li><span class="lang-ru-inline">Текстовое числовое значение («thirty») переведено в число (30).</span><span class="lang-en-inline">Text value (“thirty”) converted to the number (30).</span></li>
   </ul>
 
-  <h3>2.2 Обработка пропущенных значений (missing data)</h3>
+  <h3><span class="lang-ru-inline">2.2 Обработка пропущенных значений (missing data)</span><span class="lang-en-inline">2.2 Handling missing data</span></h3>
 
   <div class="device-card">
-    <h3><span class="device-emoji">❓</span> Три стратегии (из учебника)</h3>
+    <h3><span class="lang-ru-inline"><span class="device-emoji">❓</span> Три стратегии (из учебника)</span><span class="lang-en-inline"><span class="device-emoji">❓</span> Three strategies (from the textbook)</span></h3>
     <ol>
-      <li><b>Imputation (заполнение):</b>
+      <li><b><span class="lang-ru-inline">Imputation (заполнение):</span><span class="lang-en-inline">Imputation:</span></b>
         <ul>
-          <li>Заменить пропуск на <b>mean (среднее), median (медиана) или mode (мода)</b> столбца.</li>
-          <li>Использовать алгоритм <b>K-NN (K-Nearest Neighbours)</b>, чтобы заполнить пропуски на основе схожести с другими записями в пространстве признаков (parameter / feature space).</li>
+          <li><span class="lang-ru-inline">Заменить пропуск на <b>mean (среднее), median (медиана) или mode (мода)</b> столбца.</span><span class="lang-en-inline">Replace the missing value with the column’s <b>mean, median or mode</b>.</span></li>
+          <li><span class="lang-ru-inline">Использовать алгоритм <b>K-NN (K-Nearest Neighbours)</b>, чтобы заполнить пропуски на основе схожести с другими записями в пространстве признаков (parameter / feature space).</span><span class="lang-en-inline">Use the <b>K-NN (K-Nearest Neighbours)</b> algorithm to fill the gaps based on similarity to other records in the feature space.</span></li>
         </ul>
       </li>
-      <li><b>Deletion (удаление):</b>
+      <li><b><span class="lang-ru-inline">Deletion (удаление):</span><span class="lang-en-inline">Deletion:</span></b>
         <ul>
-          <li><b>Listwise deletion</b> — удалить всю строку, если в ней есть хоть один пропуск.</li>
-          <li><b>Pairwise deletion</b> — использовать доступные данные, игнорируя только конкретные пропуски, а не строку целиком.</li>
+          <li><span class="lang-ru-inline"><b>Listwise deletion</b> — удалить всю строку, если в ней есть хоть один пропуск.</span><span class="lang-en-inline"><b>Listwise deletion</b> — delete the whole row if it contains even one missing value.</span></li>
+          <li><span class="lang-ru-inline"><b>Pairwise deletion</b> — использовать доступные данные, игнорируя только конкретные пропуски, а не строку целиком.</span><span class="lang-en-inline"><b>Pairwise deletion</b> — use the available data, ignoring only the specific missing values rather than the whole row.</span></li>
         </ul>
       </li>
-      <li><b>Predictive modelling (предсказание):</b>
+      <li><b><span class="lang-ru-inline">Predictive modelling (предсказание):</span><span class="lang-en-inline">Predictive modelling:</span></b>
         <ul>
-          <li>Использовать <b>регрессию</b> для предсказания пропущенных значений на основе других данных в наборе.</li>
-          <li>Использовать <b>деревья решений</b> или <b>нейросети</b> для предсказания пропущенных значений.</li>
+          <li><span class="lang-ru-inline">Использовать <b>регрессию</b> для предсказания пропущенных значений на основе других данных в наборе.</span><span class="lang-en-inline">Use <b>regression</b> to predict the missing values from the other data in the set.</span></li>
+          <li><span class="lang-ru-inline">Использовать <b>деревья решений</b> или <b>нейросети</b> для предсказания пропущенных значений.</span><span class="lang-en-inline">Use <b>decision trees</b> or <b>neural networks</b> to predict the missing values.</span></li>
         </ul>
       </li>
     </ol>
   </div>
 
   <div class="table-scroll"><table class="summary-table compare">
-    <thead><tr><th>Тип данных</th><th>Чем заполнять</th><th>Почему</th></tr></thead>
+    <thead><tr><th><span class="lang-ru-inline">Тип данных</span><span class="lang-en-inline">Data type</span></th><th><span class="lang-ru-inline">Чем заполнять</span><span class="lang-en-inline">What to fill with</span></th><th><span class="lang-ru-inline">Почему</span><span class="lang-en-inline">Why</span></th></tr></thead>
     <tbody>
-      <tr><td>Числовое, симметричное</td><td>Mean (среднее)</td><td>Хорошее «среднее представление».</td></tr>
-      <tr><td>Числовое, со скосом / выбросами</td><td>Median (медиана)</td><td>Медиана устойчива к выбросам.</td></tr>
-      <tr><td>Категориальное</td><td>Mode (наиболее частая категория)</td><td>Среднего у категорий нет.</td></tr>
-      <tr><td>Когда много пропусков (>50%)</td><td>Удалить весь столбец</td><td>Признак вряд ли информативен.</td></tr>
+      <tr><td><span class="lang-ru-inline">Числовое, симметричное</span><span class="lang-en-inline">Numerical, symmetric</span></td><td><span class="lang-ru-inline">Mean (среднее)</span><span class="lang-en-inline">Mean</span></td><td><span class="lang-ru-inline">Хорошее «среднее представление».</span><span class="lang-en-inline">A good “typical value”.</span></td></tr>
+      <tr><td><span class="lang-ru-inline">Числовое, со скосом / выбросами</span><span class="lang-en-inline">Numerical, skewed / with outliers</span></td><td><span class="lang-ru-inline">Median (медиана)</span><span class="lang-en-inline">Median</span></td><td><span class="lang-ru-inline">Медиана устойчива к выбросам.</span><span class="lang-en-inline">The median is resistant to outliers.</span></td></tr>
+      <tr><td><span class="lang-ru-inline">Категориальное</span><span class="lang-en-inline">Categorical</span></td><td><span class="lang-ru-inline">Mode (наиболее частая категория)</span><span class="lang-en-inline">Mode (most frequent category)</span></td><td><span class="lang-ru-inline">Среднего у категорий нет.</span><span class="lang-en-inline">Categories have no mean.</span></td></tr>
+      <tr><td><span class="lang-ru-inline">Когда много пропусков (>50%)</span><span class="lang-en-inline">When many values are missing (>50%)</span></td><td><span class="lang-ru-inline">Удалить весь столбец</span><span class="lang-en-inline">Delete the whole column</span></td><td><span class="lang-ru-inline">Признак вряд ли информативен.</span><span class="lang-en-inline">The feature is unlikely to be informative.</span></td></tr>
     </tbody>
   </table></div>
 
-  <h3>2.3 Дубликаты, ошибки, форматы, нерелевантные данные</h3>
+  <h3><span class="lang-ru-inline">2.3 Дубликаты, ошибки, форматы, нерелевантные данные</span><span class="lang-en-inline">2.3 Duplicates, errors, formats, irrelevant data</span></h3>
 
   <div class="table-scroll"><table class="summary-table compare">
-    <thead><tr><th>Проблема</th><th>Что делать (из учебника)</th></tr></thead>
+    <thead><tr><th><span class="lang-ru-inline">Проблема</span><span class="lang-en-inline">Problem</span></th><th><span class="lang-ru-inline">Что делать (из учебника)</span><span class="lang-en-inline">What to do (from the textbook)</span></th></tr></thead>
     <tbody>
-      <tr><td>Duplicates</td><td>SQL/скриптом найти и удалить по ключу или комбинации полей. Если дубликаты «почти», но не точные — объединить (consolidate) усреднением чисел или взятием самой частой категории. Маленькие наборы — ручной просмотр.</td></tr>
-      <tr><td>Incorrect data</td><td>Правила валидации (диапазоны, форматы), кросс-проверка с внешними источниками, ML-методы для обнаружения аномалий.</td></tr>
-      <tr><td>Improperly formatted</td><td>Парсинг (даты к YYYY-MM-DD, имя на first/last), регулярные выражения, единый формат валюты.</td></tr>
-      <tr><td>Irrelevant data</td><td>Feature selection (корреляции, backward elimination, важность из random forest), консультации с экспертами предметной области.</td></tr>
+      <tr><td>Duplicates</td><td><span class="lang-ru-inline">SQL/скриптом найти и удалить по ключу или комбинации полей. Если дубликаты «почти», но не точные — объединить (consolidate) усреднением чисел или взятием самой частой категории. Маленькие наборы — ручной просмотр.</span><span class="lang-en-inline">Use SQL or a script to find and delete duplicates by key or by a combination of fields. If the duplicates are “almost” but not exact, consolidate them by averaging the numbers or taking the most frequent category. For small data sets, review them by hand.</span></td></tr>
+      <tr><td>Incorrect data</td><td><span class="lang-ru-inline">Правила валидации (диапазоны, форматы), кросс-проверка с внешними источниками, ML-методы для обнаружения аномалий.</span><span class="lang-en-inline">Validation rules (ranges, formats), cross-checking with external sources, ML methods for detecting anomalies.</span></td></tr>
+      <tr><td>Improperly formatted</td><td><span class="lang-ru-inline">Парсинг (даты к YYYY-MM-DD, имя на first/last), регулярные выражения, единый формат валюты.</span><span class="lang-en-inline">Parsing (dates to YYYY-MM-DD, names split into first/last), regular expressions, one standard currency format.</span></td></tr>
+      <tr><td>Irrelevant data</td><td><span class="lang-ru-inline">Feature selection (корреляции, backward elimination, важность из random forest), консультации с экспертами предметной области.</span><span class="lang-en-inline">Feature selection (correlations, backward elimination, feature importance from a random forest), consulting domain experts.</span></td></tr>
     </tbody>
   </table></div>
 
@@ -516,65 +526,72 @@
   </details>
 
   <!-- ============ SECTION 3: OUTLIERS ============ -->
-  <h2>3. 📊 Выбросы (outliers): обнаружение и обработка <span class="hl-badge">HL</span></h2>
+  <h2><span class="lang-ru-inline">3. 📊 Выбросы (outliers): обнаружение и обработка <span class="hl-badge">HL</span></span><span class="lang-en-inline">3. 📊 Outliers: detection and handling <span class="hl-badge">HL</span></span></h2>
 
   <div class="device-card">
-    <h3><span class="device-emoji">🎯</span> Что такое выброс</h3>
-    <p>
+    <h3><span class="lang-ru-inline"><span class="device-emoji">🎯</span> Что такое выброс</span><span class="lang-en-inline"><span class="device-emoji">🎯</span> What an outlier is</span></h3>
+    <p><span class="lang-ru-inline">
       <b>Выброс (outlier)</b> — это наблюдение в наборе данных, которое <b>сильно удалено от остальных</b>. Статистически выбросы выявляют через:
-    </p>
+    </span><span class="lang-en-inline"><b>An outlier</b> is an observation in a data set that is <b>far away from the others</b>. Statistically, outliers are identified using:</span></p>
     <ul>
-      <li><b>IQR (interquartile range) — межквартильный размах.</b> IQR = Q3 − Q1. Точка считается выбросом, если она ниже Q1 − 1.5·IQR или выше Q3 + 1.5·IQR.</li>
-      <li><b>Z-score.</b> z = (x − μ) / σ. Обычно |z| > 3 — выброс.</li>
-      <li><b>Визуальные инструменты:</b> box plots (диаграммы размаха), scatter plots.</li>
+      <li><span class="lang-ru-inline"><b>IQR (interquartile range) — межквартильный размах.</b> IQR = Q3 − Q1. Точка считается выбросом, если она ниже Q1 − 1.5·IQR или выше Q3 + 1.5·IQR.</span><span class="lang-en-inline"><b>IQR (interquartile range).</b> IQR = Q3 − Q1. A point counts as an outlier if it is below Q1 − 1.5·IQR or above Q3 + 1.5·IQR.</span></li>
+      <li><span class="lang-ru-inline"><b>Z-score.</b> z = (x − μ) / σ. Обычно |z| > 3 — выброс.</span><span class="lang-en-inline"><b>Z-score.</b> z = (x − μ) / σ. Usually |z| > 3 means an outlier.</span></li>
+      <li><span class="lang-ru-inline"><b>Визуальные инструменты:</b> box plots (диаграммы размаха), scatter plots.</span><span class="lang-en-inline"><b>Visual tools:</b> box plots and scatter plots.</span></li>
     </ul>
   </div>
 
-  <h3>3.1 Формулы</h3>
+  <h3><span class="lang-ru-inline">3.1 Формулы</span><span class="lang-en-inline">3.1 Formulas</span></h3>
 
-  <div class="formula-box">
+  <div class="formula-box"><span class="lang-ru-inline">
     <span class="label">IQR-метод</span>
     IQR = Q3 − Q1<br>
     Нижняя граница = Q1 − 1.5 × IQR<br>
     Верхняя граница = Q3 + 1.5 × IQR<br>
     Если x &lt; нижней или x &gt; верхней → выброс
-  </div>
+  </span><span class="lang-en-inline"><span class="label">IQR method</span>
+    IQR = Q3 − Q1<br>
+    Lower bound = Q1 − 1.5 × IQR<br>
+    Upper bound = Q3 + 1.5 × IQR<br>
+    If x &lt; lower bound or x &gt; upper bound → outlier</span></div>
 
-  <div class="formula-box">
+  <div class="formula-box"><span class="lang-ru-inline">
     <span class="label">Z-score</span>
     z = (x − μ) / σ<br>
     где μ — среднее, σ — стандартное отклонение.<br>
     Если |z| &gt; 3 → выброс
-  </div>
+  </span><span class="lang-en-inline"><span class="label">Z-score</span>
+    z = (x − μ) / σ<br>
+    where μ is the mean and σ is the standard deviation.<br>
+    If |z| &gt; 3 → outlier</span></div>
 
-  <h3>3.2 Что делать с выбросом (из учебника)</h3>
+  <h3><span class="lang-ru-inline">3.2 Что делать с выбросом (из учебника)</span><span class="lang-en-inline">3.2 What to do with an outlier (from the textbook)</span></h3>
 
   <div class="table-scroll"><table class="summary-table compare">
-    <thead><tr><th>Стратегия</th><th>Что делать</th></tr></thead>
+    <thead><tr><th><span class="lang-ru-inline">Стратегия</span><span class="lang-en-inline">Strategy</span></th><th><span class="lang-ru-inline">Что делать</span><span class="lang-en-inline">What to do</span></th></tr></thead>
     <tbody>
-      <tr><td><b>Trim</b> (отсечение)</td><td>Удалить выбросы полностью из набора данных.</td></tr>
-      <tr><td><b>Cap</b> (ограничение)</td><td>Заменить выброс на ближайшее значение в допустимом диапазоне (winsorization).</td></tr>
-      <tr><td><b>Transform</b> (преобразование)</td><td>Применить log или √ — снижает влияние экстремальных значений.</td></tr>
+      <tr><td><span class="lang-ru-inline"><b>Trim</b> (отсечение)</span><span class="lang-en-inline"><b>Trim</b></span></td><td><span class="lang-ru-inline">Удалить выбросы полностью из набора данных.</span><span class="lang-en-inline">Remove the outliers completely from the data set.</span></td></tr>
+      <tr><td><span class="lang-ru-inline"><b>Cap</b> (ограничение)</span><span class="lang-en-inline"><b>Cap</b></span></td><td><span class="lang-ru-inline">Заменить выброс на ближайшее значение в допустимом диапазоне (winsorization).</span><span class="lang-en-inline">Replace the outlier with the nearest value within the acceptable range (winsorization).</span></td></tr>
+      <tr><td><span class="lang-ru-inline"><b>Transform</b> (преобразование)</span><span class="lang-en-inline"><b>Transform</b></span></td><td><span class="lang-ru-inline">Применить log или √ — снижает влияние экстремальных значений.</span><span class="lang-en-inline">Apply log or √ — this reduces the effect of extreme values.</span></td></tr>
     </tbody>
   </table></div>
 
-  <h3>3.3 Worked example: выбросы в зарплатах</h3>
+  <h3><span class="lang-ru-inline">3.3 Worked example: выбросы в зарплатах</span><span class="lang-en-inline">3.3 Worked example: outliers in salaries</span></h3>
 
   <div class="device-card">
-    <p>Зарплаты сотрудников (USD/год): <code>30 000, 32 000, 31 000, 35 000, 33 000, 34 000, 500 000</code>.</p>
-    <p>Без обработки среднее = <b>$99 286</b> — но 6 из 7 людей зарабатывают меньше. Это «среднее» совершенно не отражает реальность.</p>
-    <p><b>Что делать:</b></p>
+    <p><span class="lang-ru-inline">Зарплаты сотрудников (USD/год): <code>30 000, 32 000, 31 000, 35 000, 33 000, 34 000, 500 000</code>.</span><span class="lang-en-inline">Employee salaries (USD per year): <code>30 000, 32 000, 31 000, 35 000, 33 000, 34 000, 500 000</code>.</span></p>
+    <p><span class="lang-ru-inline">Без обработки среднее = <b>$99 286</b> — но 6 из 7 людей зарабатывают меньше. Это «среднее» совершенно не отражает реальность.</span><span class="lang-en-inline">Without treatment, the mean is <b>$99 286</b> — yet 6 of the 7 people earn less than that. This “average” does not reflect reality at all.</span></p>
+    <p><span class="lang-ru-inline"><b>Что делать:</b></span><span class="lang-en-inline"><b>What to do:</b></span></p>
     <ul>
-      <li><b>Trim</b> 500 000 → среднее = $32 500 (адекватно).</li>
-      <li><b>Cap</b> 500 000 до 95-го перцентиля (например, $40 000).</li>
-      <li><b>Log-transform</b> весь столбец → log-зарплата подчиняется более «нормальному» распределению, гигант становится не таким экстремальным.</li>
-      <li>Использовать <b>медиану</b> ($33 000) вместо среднего как меру центра.</li>
+      <li><span class="lang-ru-inline"><b>Trim</b> 500 000 → среднее = $32 500 (адекватно).</span><span class="lang-en-inline"><b>Trim</b> 500 000 → mean = $32 500 (reasonable).</span></li>
+      <li><span class="lang-ru-inline"><b>Cap</b> 500 000 до 95-го перцентиля (например, $40 000).</span><span class="lang-en-inline"><b>Cap</b> 500 000 down to the 95th percentile (for example, $40 000).</span></li>
+      <li><span class="lang-ru-inline"><b>Log-transform</b> весь столбец → log-зарплата подчиняется более «нормальному» распределению, гигант становится не таким экстремальным.</span><span class="lang-en-inline"><b>Log-transform</b> the whole column → the log of salary follows a more “normal” distribution, and the huge value becomes less extreme.</span></li>
+      <li><span class="lang-ru-inline">Использовать <b>медиану</b> ($33 000) вместо среднего как меру центра.</span><span class="lang-en-inline">Use the <b>median</b> ($33 000) instead of the mean as the measure of centre.</span></li>
     </ul>
   </div>
 
-  <div class="ru-tip">
+  <div class="ru-tip"><span class="lang-ru-inline">
     💡 <b>Важно:</b> не всегда нужно «убивать» выбросы. Иногда выброс — это самая важная информация (мошенничество, поломка датчика, болезнь). Решение «удалять или оставить» — всегда зависит от контекста задачи.
-  </div>
+  </span><span class="lang-en-inline">💡 <b>Important:</b> you do not always need to remove outliers. Sometimes an outlier is the most important information (fraud, a faulty sensor, an illness). Whether to remove or keep an outlier always depends on the context of the task.</span></div>
 
   <details class="en-summary" style="margin:12px 0; padding:12px 16px; background:var(--surface-2); border-radius:var(--radius); border-left:3px solid var(--text-faint)">
     <summary style="cursor:pointer; font-weight:600; color:var(--text-muted); font-size:0.92rem">🇬🇧 English summary (click to expand)</summary>
@@ -584,66 +601,69 @@
   </details>
 
   <!-- ============ SECTION 4: NORMALIZATION vs STANDARDIZATION ============ -->
-  <h2>4. 📏 Нормализация vs Стандартизация <span class="hl-badge">HL</span></h2>
+  <h2><span class="lang-ru-inline">4. 📏 Нормализация vs Стандартизация <span class="hl-badge">HL</span></span><span class="lang-en-inline">4. 📏 Normalization vs standardization <span class="hl-badge">HL</span></span></h2>
 
-  <p>
+  <p><span class="lang-ru-inline">
     <b>Нормализация (normalization)</b> и <b>стандартизация (standardization)</b> — две техники предобработки, которые подгоняют <b>масштаб и распределение</b> переменных в наборе данных, прежде чем применить ML-алгоритмы. Обе делают данные более подходящими для моделирования, но <b>по-разному</b>.
-  </p>
+  </span><span class="lang-en-inline"><b>Normalization</b> and <b>standardization</b> are two preprocessing techniques that adjust the <b>scale and distribution</b> of the variables in a data set before an ML algorithm is applied. Both make the data more suitable for modelling, but <b>in different ways</b>.</span></p>
 
   <div class="device-card">
-    <h3><span class="device-emoji">📐</span> Нормализация (Normalization, Min-Max Scaling)</h3>
-    <p>
+    <h3><span class="lang-ru-inline"><span class="device-emoji">📐</span> Нормализация (Normalization, Min-Max Scaling)</span><span class="lang-en-inline"><span class="device-emoji">📐</span> Normalization (min–max scaling)</span></h3>
+    <p><span class="lang-ru-inline">
       Также называется <b>min-max scaling</b>. Перешкалирует признаки в фиксированный диапазон, обычно <b>[0, 1]</b> или <b>[−1, 1]</b>.
-    </p>
-    <div class="formula-box">
+    </span><span class="lang-en-inline">Also called <b>min–max scaling</b>. It rescales the features into a fixed range, usually <b>[0, 1]</b> or <b>[−1, 1]</b>.</span></p>
+    <div class="formula-box"><span class="lang-ru-inline">
       <span class="label">Формула min-max</span>
       x' = (x − min(X)) / (max(X) − min(X))
-    </div>
-    <p>
+    </span><span class="lang-en-inline"><span class="label">Min–max formula</span>
+      x' = (x − min(X)) / (max(X) − min(X))</span></div>
+    <p><span class="lang-ru-inline">
       <b>Когда полезна:</b> для алгоритмов, чувствительных к масштабу входных данных, например <b>градиентного спуска</b>. Помогает ускорить сходимость. Гарантирует, что все признаки одинаково влияют на результат и модель не «переоценивает» признак с большим масштабом просто потому, что числа крупнее.
-    </p>
-    <p>
+    </span><span class="lang-en-inline"><b>When it is useful:</b> for algorithms that are sensitive to the scale of the input data, for example <b>gradient descent</b>. It helps speed up convergence. It ensures that all features influence the result equally, and that the model does not “overrate” a feature just because its numbers are larger.</span></p>
+    <p><span class="lang-ru-inline">
       <b>Минус:</b> сильно чувствительна к выбросам — один экстремум сжимает все остальные данные в крошечный интервал.
-    </p>
+    </span><span class="lang-en-inline"><b>Drawback:</b> it is very sensitive to outliers — a single extreme value squeezes all the other data into a tiny interval.</span></p>
   </div>
 
   <div class="device-card">
-    <h3><span class="device-emoji">📊</span> Стандартизация (Standardization, Z-score)</h3>
-    <p>
+    <h3><span class="lang-ru-inline"><span class="device-emoji">📊</span> Стандартизация (Standardization, Z-score)</span><span class="lang-en-inline"><span class="device-emoji">📊</span> Standardization (Z-score normalization)</span></h3>
+    <p><span class="lang-ru-inline">
       Также называется <b>Z-score normalization</b>. Перешкалирует признаки так, чтобы у них были свойства <b>стандартного нормального распределения</b>: среднее = 0, стандартное отклонение = 1.
-    </p>
-    <div class="formula-box">
+    </span><span class="lang-en-inline">Also called <b>Z-score normalization</b>. It rescales the features so that they have the properties of a <b>standard normal distribution</b>: mean = 0, standard deviation = 1.</span></p>
+    <div class="formula-box"><span class="lang-ru-inline">
       <span class="label">Формула Z-score</span>
       x' = (x − μ) / σ<br>
       где μ — среднее по столбцу, σ — стандартное отклонение
-    </div>
-    <p>
+    </span><span class="lang-en-inline"><span class="label">Z-score formula</span>
+      x' = (x − μ) / σ<br>
+      where μ is the column mean and σ is the standard deviation</span></div>
+    <p><span class="lang-ru-inline">
       <b>Когда полезна:</b> для данных с неизвестными min/max, для данных с выбросами (стандартизация искажает данные меньше, чем min-max), для техник, которые предполагают нормально распределённые данные (например, <b>логистическая регрессия</b>).
-    </p>
-    <p>
+    </span><span class="lang-en-inline"><b>When it is useful:</b> for data with unknown min/max, for data with outliers (standardization distorts the data less than min–max), and for techniques that assume normally distributed data (for example, <b>logistic regression</b>).</span></p>
+    <p><span class="lang-ru-inline">
       <b>Плюс:</b> сохраняет полезную информацию о выбросах и делает алгоритм менее к ним чувствительным.
-    </p>
+    </span><span class="lang-en-inline"><b>Advantage:</b> it keeps useful information about outliers and makes the algorithm less sensitive to them.</span></p>
   </div>
 
-  <h3>4.1 Ключевые различия (из учебника)</h3>
+  <h3><span class="lang-ru-inline">4.1 Ключевые различия (из учебника)</span><span class="lang-en-inline">4.1 Key differences (from the textbook)</span></h3>
 
   <div class="table-scroll"><table class="summary-table compare">
-    <thead><tr><th>Свойство</th><th>Нормализация (min-max)</th><th>Стандартизация (Z-score)</th></tr></thead>
+    <thead><tr><th><span class="lang-ru-inline">Свойство</span><span class="lang-en-inline">Property</span></th><th><span class="lang-ru-inline">Нормализация (min-max)</span><span class="lang-en-inline">Normalization (min–max)</span></th><th><span class="lang-ru-inline">Стандартизация (Z-score)</span><span class="lang-en-inline">Standardization (Z-score)</span></th></tr></thead>
     <tbody>
-      <tr><td>Диапазон</td><td>[0, 1] или [−1, 1] — жёстко ограничен</td><td>Без ограничения, но mean = 0, std = 1</td></tr>
-      <tr><td>Формула</td><td>(x − min) / (max − min)</td><td>(x − μ) / σ</td></tr>
-      <tr><td>Чувствительность к выбросам</td><td><b>Высокая</b> — выброс сжимает остальные данные в крошечный интервал</td><td><b>Низкая</b> — основана на mean/std, выбросы влияют меньше</td></tr>
-      <tr><td>Когда выбрать</td><td>Известны min/max, нет сильных выбросов, нужен фиксированный диапазон (например, изображения 0-255)</td><td>Неизвестны min/max, есть выбросы, или модель предполагает нормальное распределение</td></tr>
-      <tr><td>Типичные модели</td><td>Нейросети с sigmoid/tanh, K-NN, K-Means</td><td>Логистическая регрессия, SVM с линейным ядром, PCA</td></tr>
+      <tr><td><span class="lang-ru-inline">Диапазон</span><span class="lang-en-inline">Range</span></td><td><span class="lang-ru-inline">[0, 1] или [−1, 1] — жёстко ограничен</span><span class="lang-en-inline">[0, 1] or [−1, 1] — strictly bounded</span></td><td><span class="lang-ru-inline">Без ограничения, но mean = 0, std = 1</span><span class="lang-en-inline">Unbounded, but mean = 0, std = 1</span></td></tr>
+      <tr><td><span class="lang-ru-inline">Формула</span><span class="lang-en-inline">Formula</span></td><td>(x − min) / (max − min)</td><td>(x − μ) / σ</td></tr>
+      <tr><td><span class="lang-ru-inline">Чувствительность к выбросам</span><span class="lang-en-inline">Sensitivity to outliers</span></td><td><span class="lang-ru-inline"><b>Высокая</b> — выброс сжимает остальные данные в крошечный интервал</span><span class="lang-en-inline"><b>High</b> — an outlier squeezes the other data into a tiny interval</span></td><td><span class="lang-ru-inline"><b>Низкая</b> — основана на mean/std, выбросы влияют меньше</span><span class="lang-en-inline"><b>Low</b> — based on the mean and std, so outliers have less effect</span></td></tr>
+      <tr><td><span class="lang-ru-inline">Когда выбрать</span><span class="lang-en-inline">When to use it</span></td><td><span class="lang-ru-inline">Известны min/max, нет сильных выбросов, нужен фиксированный диапазон (например, изображения 0-255)</span><span class="lang-en-inline">The min and max are known, there are no strong outliers, and a fixed range is needed (for example, images with values 0-255)</span></td><td><span class="lang-ru-inline">Неизвестны min/max, есть выбросы, или модель предполагает нормальное распределение</span><span class="lang-en-inline">The min and max are unknown, there are outliers, or the model assumes a normal distribution</span></td></tr>
+      <tr><td><span class="lang-ru-inline">Типичные модели</span><span class="lang-en-inline">Typical models</span></td><td><span class="lang-ru-inline">Нейросети с sigmoid/tanh, K-NN, K-Means</span><span class="lang-en-inline">Neural networks with sigmoid/tanh, K-NN, K-Means</span></td><td><span class="lang-ru-inline">Логистическая регрессия, SVM с линейным ядром, PCA</span><span class="lang-en-inline">Logistic regression, SVM with a linear kernel, PCA</span></td></tr>
     </tbody>
   </table></div>
 
-  <h3>4.2 Числовой пример</h3>
+  <h3><span class="lang-ru-inline">4.2 Числовой пример</span><span class="lang-en-inline">4.2 Numerical example</span></h3>
 
   <div class="device-card">
-    <p>Возраст клиентов: <code>20, 25, 30, 35, 80</code> (80 — пожилой клиент, потенциальный выброс).</p>
+    <p><span class="lang-ru-inline">Возраст клиентов: <code>20, 25, 30, 35, 80</code> (80 — пожилой клиент, потенциальный выброс).</span><span class="lang-en-inline">Customer ages: <code>20, 25, 30, 35, 80</code> (80 is an elderly customer, a potential outlier).</span></p>
 
-    <p><b>Min-Max → [0, 1]:</b><br>
+    <p><span class="lang-ru-inline"><b>Min-Max → [0, 1]:</b><br>
       min = 20, max = 80, диапазон = 60<br>
       20 → (20−20)/60 = <b>0.00</b><br>
       25 → 5/60 = <b>0.083</b><br>
@@ -651,25 +671,40 @@
       35 → 15/60 = <b>0.250</b><br>
       80 → 60/60 = <b>1.000</b><br>
       Замечаешь? Все «обычные» значения зажаты в первой четверти, а 80 один на верхней границе.
-    </p>
+    </span><span class="lang-en-inline"><b>Min–max → [0, 1]:</b><br>
+      min = 20, max = 80, range = 60<br>
+      20 → (20−20)/60 = <b>0.00</b><br>
+      25 → 5/60 = <b>0.083</b><br>
+      30 → 10/60 = <b>0.167</b><br>
+      35 → 15/60 = <b>0.250</b><br>
+      80 → 60/60 = <b>1.000</b><br>
+      Notice that all the “ordinary” values are squeezed into the bottom quarter of the range, while 80 sits alone at the top.</span></p>
 
-    <p><b>Z-score:</b><br>
+    <p><span class="lang-ru-inline"><b>Z-score:</b><br>
       μ = (20+25+30+35+80)/5 = 38<br>
-      σ = √466 ≈ 21.59<br>
+      σ ≈ 21.59<br>
       20 → (20−38)/21.59 ≈ <b>−0.83</b><br>
       25 → <b>−0.60</b><br>
       30 → <b>−0.37</b><br>
       35 → <b>−0.14</b><br>
       80 → <b>+1.95</b><br>
       Распределение более равномерное, выброс выделяется, но не «душит» остальные данные.
-    </p>
+    </span><span class="lang-en-inline"><b>Z-score:</b><br>
+      μ = (20+25+30+35+80)/5 = 38<br>
+      σ ≈ 21.59<br>
+      20 → (20−38)/21.59 ≈ <b>−0.83</b><br>
+      25 → <b>−0.60</b><br>
+      30 → <b>−0.37</b><br>
+      35 → <b>−0.14</b><br>
+      80 → <b>+1.95</b><br>
+      The spread is more even: the outlier stands out, but it does not squash the rest of the data.</span></p>
   </div>
 
   <div class="real-world">
-    <h4>🔊 Реальный пример: нормализация громкости звука</h4>
-    <p>
+    <h4><span class="lang-ru-inline">🔊 Реальный пример: нормализация громкости звука</span><span class="lang-en-inline">🔊 Real example: normalizing audio volume</span></h4>
+    <p><span class="lang-ru-inline">
       Из учебника (Figure 12): громкость аудио нормализуют так, чтобы пиковый звук не был «слишком громким», а тихий — «не слишком тихим». Сигнал перешкалируется в фиксированный диапазон, и алгоритмы распознавания речи работают стабильнее.
-    </p>
+    </span><span class="lang-en-inline">From the textbook (Figure 12): audio volume is normalized so that the loudest sound is not “too loud” and the quietest is not “too quiet”. The signal is rescaled to a fixed range, and speech recognition algorithms work more consistently.</span></p>
   </div>
 
   <details class="en-summary" style="margin:12px 0; padding:12px 16px; background:var(--surface-2); border-radius:var(--radius); border-left:3px solid var(--text-faint)">
@@ -680,32 +715,32 @@
   </details>
 
   <!-- ============ SECTION 5: CATEGORICAL ENCODING ============ -->
-  <h2>5. 🔤 Кодирование категориальных признаков <span class="hl-badge">HL</span></h2>
+  <h2><span class="lang-ru-inline">5. 🔤 Кодирование категориальных признаков <span class="hl-badge">HL</span></span><span class="lang-en-inline">5. 🔤 Encoding categorical features <span class="hl-badge">HL</span></span></h2>
 
-  <p>
+  <p><span class="lang-ru-inline">
     Большинство ML-алгоритмов работают только с числами. Если у тебя есть столбец <code>цвет = {"красный", "зелёный", "синий"}</code> — его нужно <b>перекодировать в числа</b>. Есть три основных подхода.
-  </p>
+  </span><span class="lang-en-inline">Most ML algorithms work only with numbers. If you have a column <code>colour = {"red", "green", "blue"}</code>, it must be <b>converted into numbers</b>. There are three main approaches.</span></p>
 
-  <h3>5.1 One-hot encoding (унитарное кодирование)</h3>
+  <h3><span class="lang-ru-inline">5.1 One-hot encoding (унитарное кодирование)</span><span class="lang-en-inline">5.1 One-hot encoding</span></h3>
 
   <div class="device-card">
-    <p>
+    <p><span class="lang-ru-inline">
       Создаёт <b>отдельный двоичный столбец</b> для каждой возможной категории. В строке стоит 1 в столбце соответствующей категории и 0 во всех остальных.
-    </p>
-    <p><b>Когда использовать:</b> для номинальных категорий <b>без порядка</b> (цвет, страна, тип товара).</p>
+    </span><span class="lang-en-inline">It creates a <b>separate binary column</b> for each possible category. A row has a 1 in the column of its category and 0 in all the others.</span></p>
+    <p><span class="lang-ru-inline"><b>Когда использовать:</b> для номинальных категорий <b>без порядка</b> (цвет, страна, тип товара).</span><span class="lang-en-inline"><b>When to use it:</b> for nominal categories <b>with no order</b> (colour, country, type of product).</span></p>
 
-    <p><b>До:</b></p>
+    <p><span class="lang-ru-inline"><b>До:</b></span><span class="lang-en-inline"><b>Before:</b></span></p>
     <div class="table-scroll"><table class="data-mini">
-      <thead><tr><th>ID</th><th>Цвет</th></tr></thead>
+      <thead><tr><th>ID</th><th><span class="lang-ru-inline">Цвет</span><span class="lang-en-inline">Colour</span></th></tr></thead>
       <tbody>
-        <tr><td>1</td><td>красный</td></tr>
-        <tr><td>2</td><td>зелёный</td></tr>
-        <tr><td>3</td><td>синий</td></tr>
-        <tr><td>4</td><td>красный</td></tr>
+        <tr><td>1</td><td><span class="lang-ru-inline">красный</span><span class="lang-en-inline">red</span></td></tr>
+        <tr><td>2</td><td><span class="lang-ru-inline">зелёный</span><span class="lang-en-inline">green</span></td></tr>
+        <tr><td>3</td><td><span class="lang-ru-inline">синий</span><span class="lang-en-inline">blue</span></td></tr>
+        <tr><td>4</td><td><span class="lang-ru-inline">красный</span><span class="lang-en-inline">red</span></td></tr>
       </tbody>
     </table></div>
 
-    <p><b>После one-hot:</b></p>
+    <p><span class="lang-ru-inline"><b>После one-hot:</b></span><span class="lang-en-inline"><b>After one-hot encoding:</b></span></p>
     <div class="table-scroll"><table class="data-mini">
       <thead><tr><th>ID</th><th>red</th><th>green</th><th>blue</th></tr></thead>
       <tbody>
@@ -716,41 +751,42 @@
       </tbody>
     </table></div>
 
-    <p><b>Плюсы:</b> модель не «изобретает» ложный порядок между категориями. <br>
-    <b>Минусы:</b> если категорий тысячи (например, почтовые индексы), таблица взрывается — <b>проклятие размерности</b>.</p>
+    <p><span class="lang-ru-inline"><b>Плюсы:</b> модель не «изобретает» ложный порядок между категориями. <br>
+    <b>Минусы:</b> если категорий тысячи (например, почтовые индексы), таблица взрывается — <b>проклятие размерности</b>.</span><span class="lang-en-inline"><b>Advantages:</b> the model does not “invent” a false order between categories. <br>
+    <b>Drawbacks:</b> if there are thousands of categories (for example, postcodes), the table explodes in size — <b>the curse of dimensionality</b>.</span></p>
   </div>
 
-  <h3>5.2 Label encoding (метки числами)</h3>
+  <h3><span class="lang-ru-inline">5.2 Label encoding (метки числами)</span><span class="lang-en-inline">5.2 Label encoding</span></h3>
 
   <div class="device-card">
-    <p>
+    <p><span class="lang-ru-inline">
       Каждой категории присваивается уникальное число: красный = 0, зелёный = 1, синий = 2.
-    </p>
+    </span><span class="lang-en-inline">Each category is given a unique number: red = 0, green = 1, blue = 2.</span></p>
     <div class="table-scroll"><table class="data-mini">
-      <thead><tr><th>ID</th><th>Цвет</th><th>Label</th></tr></thead>
+      <thead><tr><th>ID</th><th><span class="lang-ru-inline">Цвет</span><span class="lang-en-inline">Colour</span></th><th>Label</th></tr></thead>
       <tbody>
-        <tr><td>1</td><td>красный</td><td>0</td></tr>
-        <tr><td>2</td><td>зелёный</td><td>1</td></tr>
-        <tr><td>3</td><td>синий</td><td>2</td></tr>
+        <tr><td>1</td><td><span class="lang-ru-inline">красный</span><span class="lang-en-inline">red</span></td><td>0</td></tr>
+        <tr><td>2</td><td><span class="lang-ru-inline">зелёный</span><span class="lang-en-inline">green</span></td><td>1</td></tr>
+        <tr><td>3</td><td><span class="lang-ru-inline">синий</span><span class="lang-en-inline">blue</span></td><td>2</td></tr>
       </tbody>
     </table></div>
-    <p>
+    <p><span class="lang-ru-inline">
       <b>Когда использовать:</b> для tree-based моделей (Random Forest, XGBoost), которым порядок безразличен. Для целевой переменной в задачах классификации.
-    </p>
-    <p>
+    </span><span class="lang-en-inline"><b>When to use it:</b> for tree-based models (Random Forest, XGBoost), for which the order does not matter. For the target variable in classification tasks.</span></p>
+    <p><span class="lang-ru-inline">
       <b>Опасность:</b> для линейной регрессии или K-NN модель «подумает», что синий (2) в два раза «больше» зелёного (1) — а это бессмыслица.
-    </p>
+    </span><span class="lang-en-inline"><b>Pitfall:</b> for linear regression or K-NN, the model will “think” that blue (2) is twice “bigger” than green (1) — which makes no sense.</span></p>
   </div>
 
-  <h3>5.3 Ordinal encoding (порядковое кодирование)</h3>
+  <h3><span class="lang-ru-inline">5.3 Ordinal encoding (порядковое кодирование)</span><span class="lang-en-inline">5.3 Ordinal encoding</span></h3>
 
   <div class="device-card">
-    <p>
+    <p><span class="lang-ru-inline">
       Числа присваиваются с учётом <b>естественного порядка</b> категорий.
-    </p>
-    <p><b>Пример:</b> размер одежды.</p>
+    </span><span class="lang-en-inline">Numbers are assigned according to the <b>natural order</b> of the categories.</span></p>
+    <p><span class="lang-ru-inline"><b>Пример:</b> размер одежды.</span><span class="lang-en-inline"><b>Example:</b> clothing size.</span></p>
     <div class="table-scroll"><table class="data-mini">
-      <thead><tr><th>Размер</th><th>Ordinal</th></tr></thead>
+      <thead><tr><th><span class="lang-ru-inline">Размер</span><span class="lang-en-inline">Size</span></th><th>Ordinal</th></tr></thead>
       <tbody>
         <tr><td>XS</td><td>1</td></tr>
         <tr><td>S</td><td>2</td></tr>
@@ -759,19 +795,19 @@
         <tr><td>XL</td><td>5</td></tr>
       </tbody>
     </table></div>
-    <p>
+    <p><span class="lang-ru-inline">
       <b>Когда использовать:</b> когда категории действительно упорядочены (оценки A/B/C/D/F, уровни образования, степени серьёзности).
-    </p>
+    </span><span class="lang-en-inline"><b>When to use it:</b> when the categories really are ordered (grades A/B/C/D/F, education levels, levels of severity).</span></p>
   </div>
 
-  <h3>5.4 Сводка: что выбрать</h3>
+  <h3><span class="lang-ru-inline">5.4 Сводка: что выбрать</span><span class="lang-en-inline">5.4 Summary: what to choose</span></h3>
 
   <div class="table-scroll"><table class="summary-table compare">
-    <thead><tr><th>Метод</th><th>Когда</th><th>Пример</th></tr></thead>
+    <thead><tr><th><span class="lang-ru-inline">Метод</span><span class="lang-en-inline">Method</span></th><th><span class="lang-ru-inline">Когда</span><span class="lang-en-inline">When</span></th><th><span class="lang-ru-inline">Пример</span><span class="lang-en-inline">Example</span></th></tr></thead>
     <tbody>
-      <tr><td>One-hot</td><td>Номинальные, без порядка, мало категорий (<50)</td><td>Цвет, страна, тип товара</td></tr>
-      <tr><td>Label</td><td>Tree-based модели или целевая переменная</td><td>Класс ириса (Setosa/Versicolor/Virginica) для Random Forest</td></tr>
-      <tr><td>Ordinal</td><td>Есть естественный порядок</td><td>Размер одежды, уровень образования, оценка</td></tr>
+      <tr><td>One-hot</td><td><span class="lang-ru-inline">Номинальные, без порядка, мало категорий (<50)</span><span class="lang-en-inline">Nominal, no order, few categories (<50)</span></td><td><span class="lang-ru-inline">Цвет, страна, тип товара</span><span class="lang-en-inline">Colour, country, type of product</span></td></tr>
+      <tr><td>Label</td><td><span class="lang-ru-inline">Tree-based модели или целевая переменная</span><span class="lang-en-inline">Tree-based models or the target variable</span></td><td><span class="lang-ru-inline">Класс ириса (Setosa/Versicolor/Virginica) для Random Forest</span><span class="lang-en-inline">Iris class (Setosa/Versicolor/Virginica) for a Random Forest</span></td></tr>
+      <tr><td>Ordinal</td><td><span class="lang-ru-inline">Есть естественный порядок</span><span class="lang-en-inline">There is a natural order</span></td><td><span class="lang-ru-inline">Размер одежды, уровень образования, оценка</span><span class="lang-en-inline">Clothing size, education level, grade</span></td></tr>
     </tbody>
   </table></div>
 
@@ -783,27 +819,27 @@
   </details>
 
   <!-- ============ SECTION 6: FEATURE ENGINEERING ============ -->
-  <h2>6. 🛠️ Инженерия признаков (feature engineering) <span class="hl-badge">HL</span></h2>
+  <h2><span class="lang-ru-inline">6. 🛠️ Инженерия признаков (feature engineering) <span class="hl-badge">HL</span></span><span class="lang-en-inline">6. 🛠️ Feature engineering <span class="hl-badge">HL</span></span></h2>
 
   <div class="device-card">
-    <p>
+    <p><span class="lang-ru-inline">
       <b>Feature engineering</b> — создание новых признаков из существующих, чтобы помочь модели лучше учить закономерности. Часто это самый важный «человеческий» шаг во всём пайплайне: хороший признак может сделать слабую модель сильной.
-    </p>
-    <p><b>Типичные приёмы:</b></p>
+    </span><span class="lang-en-inline"><b>Feature engineering</b> — creating new features from existing ones so that the model learns patterns better. It is often the most important “human” step in the whole pipeline: a good feature can make a weak model strong.</span></p>
+    <p><span class="lang-ru-inline"><b>Типичные приёмы:</b></span><span class="lang-en-inline"><b>Common techniques:</b></span></p>
     <ul>
-      <li><b>Извлечение из даты:</b> из <code>2024-03-15</code> получить <code>day_of_week=Friday</code>, <code>month=March</code>, <code>is_weekend=0</code>, <code>quarter=Q1</code>. Помогает моделям ловить недельные/сезонные паттерны.</li>
-      <li><b>Полиномиальные признаки:</b> для нелинейных эффектов — добавить x², x³, x·y.</li>
-      <li><b>Логарифмы и корни:</b> log(income) часто работает лучше, чем сам income — сжимает большие значения.</li>
-      <li><b>Биннинг (binning):</b> возраст превратить в группы — child / teen / adult / senior.</li>
-      <li><b>Комбинирование столбцов:</b> price + bedrooms → price_per_bedroom; height + weight → BMI.</li>
-      <li><b>Текст → числа:</b> bag-of-words, TF-IDF, word embeddings.</li>
+      <li><span class="lang-ru-inline"><b>Извлечение из даты:</b> из <code>2024-03-15</code> получить <code>day_of_week=Friday</code>, <code>month=March</code>, <code>is_weekend=0</code>, <code>quarter=Q1</code>. Помогает моделям ловить недельные/сезонные паттерны.</span><span class="lang-en-inline"><b>Extracting from a date:</b> from <code>2024-03-15</code> get <code>day_of_week=Friday</code>, <code>month=March</code>, <code>is_weekend=0</code>, <code>quarter=Q1</code>. It helps models catch weekly and seasonal patterns.</span></li>
+      <li><span class="lang-ru-inline"><b>Полиномиальные признаки:</b> для нелинейных эффектов — добавить x², x³, x·y.</span><span class="lang-en-inline"><b>Polynomial features:</b> for non-linear effects — add x², x³, x·y.</span></li>
+      <li><span class="lang-ru-inline"><b>Логарифмы и корни:</b> log(income) часто работает лучше, чем сам income — сжимает большие значения.</span><span class="lang-en-inline"><b>Logarithms and roots:</b> log(income) often works better than income itself — it compresses large values.</span></li>
+      <li><span class="lang-ru-inline"><b>Биннинг (binning):</b> возраст превратить в группы — child / teen / adult / senior.</span><span class="lang-en-inline"><b>Binning:</b> turn age into groups — child / teen / adult / senior.</span></li>
+      <li><span class="lang-ru-inline"><b>Комбинирование столбцов:</b> price ÷ bedrooms → price_per_bedroom; weight ÷ height² → BMI.</span><span class="lang-en-inline"><b>Combining columns:</b> price ÷ bedrooms → price_per_bedroom; weight ÷ height² → BMI.</span></li>
+      <li><span class="lang-ru-inline"><b>Текст → числа:</b> bag-of-words, TF-IDF, word embeddings.</span><span class="lang-en-inline"><b>Text → numbers:</b> bag-of-words, TF-IDF, word embeddings.</span></li>
     </ul>
   </div>
 
-  <h3>Worked example: дата → полезные признаки</h3>
+  <h3><span class="lang-ru-inline">Worked example: дата → полезные признаки</span><span class="lang-en-inline">Worked example: date → useful features</span></h3>
 
   <div class="device-card">
-    <p><b>До:</b></p>
+    <p><span class="lang-ru-inline"><b>До:</b></span><span class="lang-en-inline"><b>Before:</b></span></p>
     <div class="table-scroll"><table class="data-mini">
       <thead><tr><th>Order ID</th><th>Date</th><th>Amount</th></tr></thead>
       <tbody>
@@ -812,7 +848,7 @@
         <tr><td>3</td><td>2024-07-04</td><td>89</td></tr>
       </tbody>
     </table></div>
-    <p><b>После инженерии:</b></p>
+    <p><span class="lang-ru-inline"><b>После инженерии:</b></span><span class="lang-en-inline"><b>After feature engineering:</b></span></p>
     <div class="table-scroll"><table class="data-mini">
       <thead><tr><th>ID</th><th>Year</th><th>Month</th><th>DayOfWeek</th><th>IsWeekend</th><th>IsHoliday</th><th>Amount</th></tr></thead>
       <tbody>
@@ -821,7 +857,7 @@
         <tr><td>3</td><td>2024</td><td>7</td><td>4 (Thu)</td><td>0</td><td class="good">1</td><td>89</td></tr>
       </tbody>
     </table></div>
-    <p>Теперь модель видит, что 25 декабря — праздник, и может выучить «в праздники чек выше».</p>
+    <p><span class="lang-ru-inline">Теперь модель видит, что 25 декабря — праздник, и может выучить «в праздники чек выше».</span><span class="lang-en-inline">Now the model sees that 25 December is a holiday, and it can learn that “the bill is higher on holidays”.</span></p>
   </div>
 
   <details class="en-summary" style="margin:12px 0; padding:12px 16px; background:var(--surface-2); border-radius:var(--radius); border-left:3px solid var(--text-faint)">
@@ -832,72 +868,72 @@
   </details>
 
   <!-- ============ SECTION 7: FEATURE SELECTION ============ -->
-  <h2>7. 🎯 Отбор признаков (feature selection) <span class="hl-badge">HL</span></h2>
+  <h2><span class="lang-ru-inline">7. 🎯 Отбор признаков (feature selection) <span class="hl-badge">HL</span></span><span class="lang-en-inline">7. 🎯 Feature selection <span class="hl-badge">HL</span></span></h2>
 
   <div class="device-card">
-    <h3><span class="device-emoji">🔍</span> A4.2.2 — Роль отбора признаков</h3>
-    <p>
+    <h3><span class="lang-ru-inline"><span class="device-emoji">🔍</span> A4.2.2 — Роль отбора признаков</span><span class="lang-en-inline"><span class="device-emoji">🔍</span> A4.2.2 — The role of feature selection</span></h3>
+    <p><span class="lang-ru-inline">
       <b>Feature selection</b> — процесс в ML, используемый для идентификации и сохранения <b>самых информативных атрибутов</b> набора данных, удаляя те, которые избыточны или нерелевантны. <b>Польза:</b> повышенная точность модели, меньше переобучения, быстрее обучение, лучше интерпретируемость.
-    </p>
-    <p>
+    </span><span class="lang-en-inline"><b>Feature selection</b> is the ML process of identifying and keeping the <b>most informative attributes</b> of a data set, removing those that are redundant or irrelevant. <b>Benefits:</b> higher model accuracy, less overfitting, faster training and better interpretability.</span></p>
+    <p><span class="lang-ru-inline">
       Цель — не просто удалить данные, а <b>сохранить самые информативные атрибуты</b>. Это те, которые дают наибольшую пользу для предсказания целевой переменной. Удалённые признаки — те, которые ухудшают или не улучшают качество модели по выбранной метрике (accuracy, precision, recall).
-    </p>
+    </span><span class="lang-en-inline">The aim is not simply to delete data, but to <b>keep the most informative attributes</b>. These are the ones that contribute most to predicting the target variable. Removed features are those that worsen or do not improve the quality of the model on the chosen metric (accuracy, precision, recall).</span></p>
   </div>
 
-  <h3>7.1 Пример из учебника: цены на недвижимость</h3>
+  <h3><span class="lang-ru-inline">7.1 Пример из учебника: цены на недвижимость</span><span class="lang-en-inline">7.1 Textbook example: property prices</span></h3>
 
-  <p>
+  <p><span class="lang-ru-inline">
     Тренируется модель для предсказания цены дома. В исходных данных:
-  </p>
+  </span><span class="lang-en-inline">A model is trained to predict the price of a house. The original data includes:</span></p>
   <div class="table-scroll"><table class="summary-table data-table">
-    <thead><tr><th>Признак (англ.)</th><th>Что значит</th></tr></thead>
+    <thead><tr><th><span class="lang-ru-inline">Признак (англ.)</span><span class="lang-en-inline">Feature</span></th><th><span class="lang-ru-inline">Что значит</span><span class="lang-en-inline">What it means</span></th></tr></thead>
     <tbody>
-      <tr><td>Location</td><td>Город или район</td></tr>
-      <tr><td>Size (m²)</td><td>Площадь</td></tr>
-      <tr><td>Price</td><td>Цена продажи (целевая)</td></tr>
-      <tr><td>Bedrooms</td><td>Кол-во спален</td></tr>
-      <tr><td>Bathrooms</td><td>Кол-во ванных</td></tr>
-      <tr><td>Age of property</td><td>Лет от постройки</td></tr>
-      <tr><td>Proximity to schools</td><td>Расстояние до школы</td></tr>
-      <tr><td>Proximity to highways</td><td>Расстояние до шоссе</td></tr>
-      <tr><td>Crime rate</td><td>Уровень преступности</td></tr>
-      <tr><td>Property tax rate</td><td>Налог на недвижимость</td></tr>
+      <tr><td>Location</td><td><span class="lang-ru-inline">Город или район</span><span class="lang-en-inline">City or district</span></td></tr>
+      <tr><td>Size (m²)</td><td><span class="lang-ru-inline">Площадь</span><span class="lang-en-inline">Floor area</span></td></tr>
+      <tr><td>Price</td><td><span class="lang-ru-inline">Цена продажи (целевая)</span><span class="lang-en-inline">Sale price (target)</span></td></tr>
+      <tr><td>Bedrooms</td><td><span class="lang-ru-inline">Кол-во спален</span><span class="lang-en-inline">Number of bedrooms</span></td></tr>
+      <tr><td>Bathrooms</td><td><span class="lang-ru-inline">Кол-во ванных</span><span class="lang-en-inline">Number of bathrooms</span></td></tr>
+      <tr><td>Age of property</td><td><span class="lang-ru-inline">Лет от постройки</span><span class="lang-en-inline">Years since construction</span></td></tr>
+      <tr><td>Proximity to schools</td><td><span class="lang-ru-inline">Расстояние до школы</span><span class="lang-en-inline">Distance to school</span></td></tr>
+      <tr><td>Proximity to highways</td><td><span class="lang-ru-inline">Расстояние до шоссе</span><span class="lang-en-inline">Distance to the highway</span></td></tr>
+      <tr><td>Crime rate</td><td><span class="lang-ru-inline">Уровень преступности</span><span class="lang-en-inline">Crime rate</span></td></tr>
+      <tr><td>Property tax rate</td><td><span class="lang-ru-inline">Налог на недвижимость</span><span class="lang-en-inline">Property tax</span></td></tr>
     </tbody>
   </table></div>
 
-  <h3>7.2 Три стратегии feature selection (из учебника)</h3>
+  <h3><span class="lang-ru-inline">7.2 Три стратегии feature selection (из учебника)</span><span class="lang-en-inline">7.2 Three feature selection strategies (from the textbook)</span></h3>
 
   <div class="device-card">
-    <h3><span class="device-emoji">🔬</span> A. Filter methods (методы-фильтры)</h3>
-    <p>
+    <h3><span class="lang-ru-inline"><span class="device-emoji">🔬</span> A. Filter methods (методы-фильтры)</span><span class="lang-en-inline"><span class="device-emoji">🔬</span> A. Filter methods</span></h3>
+    <p><span class="lang-ru-inline">
       Оценивают релевантность признаков по их <b>внутренним свойствам</b> через статистику: коэффициенты корреляции, Chi-square (хи-квадрат), ANOVA, mutual information scores. Обычно <b>быстрые и эффективные</b> для сокращения признакового пространства <b>до</b> применения ML.
-    </p>
-    <p><b>Пример (из учебника):</b> для цен на жильё через коэффициенты корреляции быстро выясняем, что <i>floor area</i> и <i>number of bedrooms</i> имеют сильную положительную корреляцию с ценой — оставляем. <i>Postal code</i> прямой корреляции с ценой не показывает — можно удалить, если это не влияет на качество модели.</p>
+    </span><span class="lang-en-inline">They assess how relevant the features are from their <b>intrinsic properties</b>, using statistics: correlation coefficients, Chi-square, ANOVA, mutual information scores. They are usually <b>fast and efficient</b> for reducing the feature space <b>before</b> ML is applied.</span></p>
+    <p><span class="lang-ru-inline"><b>Пример (из учебника):</b> для цен на жильё через коэффициенты корреляции быстро выясняем, что <i>floor area</i> и <i>number of bedrooms</i> имеют сильную положительную корреляцию с ценой — оставляем. <i>Postal code</i> прямой корреляции с ценой не показывает — можно удалить, если это не влияет на качество модели.</span><span class="lang-en-inline"><b>Example (from the textbook):</b> for house prices, using correlation coefficients we quickly find that <i>floor area</i> and <i>number of bedrooms</i> have a strong positive correlation with price, so we keep them. <i>Postal code</i> shows no direct correlation with price, so it can be removed if it does not affect the quality of the model.</span></p>
   </div>
 
   <div class="device-card">
-    <h3><span class="device-emoji">🧪</span> B. Wrapper methods (методы-обёртки)</h3>
-    <p>
+    <h3><span class="lang-ru-inline"><span class="device-emoji">🧪</span> B. Wrapper methods (методы-обёртки)</span><span class="lang-en-inline"><span class="device-emoji">🧪</span> B. Wrapper methods</span></h3>
+    <p><span class="lang-ru-inline">
       Используют подмножество признаков, тренируют модель и по её качеству решают, добавить или удалить признаки. Делается <b>итеративно</b>: forward selection, backward elimination, recursive feature elimination (RFE). <b>Вычислительно дороже</b>, но часто дают лучшее качество, потому что оценивают признаки <b>в контексте конкретной модели</b>.
-    </p>
-    <p><b>Пример (из учебника):</b> RFE для предсказания цены дома. Начинаем со всех признаков, итеративно удаляем наименее важные. После нескольких итераций обучения модель определяет, что <i>age</i> и <i>postal code</i> вносят меньше всего — их удаляем, оставляя <i>floor area</i>, <i>number of bedrooms</i>, <i>proximity to schools</i> как ядро.</p>
+    </span><span class="lang-en-inline">They use a subset of features, train a model and, based on its performance, decide whether to add or remove features. This is done <b>iteratively</b>: forward selection, backward elimination, recursive feature elimination (RFE). They are <b>computationally more expensive</b>, but often give better results, because they evaluate features <b>in the context of a specific model</b>.</span></p>
+    <p><span class="lang-ru-inline"><b>Пример (из учебника):</b> RFE для предсказания цены дома. Начинаем со всех признаков, итеративно удаляем наименее важные. После нескольких итераций обучения модель определяет, что <i>age</i> и <i>postal code</i> вносят меньше всего — их удаляем, оставляя <i>floor area</i>, <i>number of bedrooms</i>, <i>proximity to schools</i> как ядро.</span><span class="lang-en-inline"><b>Example (from the textbook):</b> RFE for predicting house prices. We start with all the features and iteratively remove the least important ones. After several rounds of training, the model finds that <i>age</i> and <i>postal code</i> contribute the least, so we remove them, keeping <i>floor area</i>, <i>number of bedrooms</i> and <i>proximity to schools</i> as the core.</span></p>
   </div>
 
   <div class="device-card">
-    <h3><span class="device-emoji">⚙️</span> C. Embedded methods (встроенные методы)</h3>
-    <p>
+    <h3><span class="lang-ru-inline"><span class="device-emoji">⚙️</span> C. Embedded methods (встроенные методы)</span><span class="lang-en-inline"><span class="device-emoji">⚙️</span> C. Embedded methods</span></h3>
+    <p><span class="lang-ru-inline">
       Выполняют feature selection <b>как часть процесса обучения модели</b>. Специфичны для определённых алгоритмов со встроенным отбором признаков. Например, <b>Lasso</b> и <b>Elastic Net</b> добавляют штраф к функции потерь во время обучения, который может «сжать» коэффициенты некоторых признаков до нуля — фактически выполняя feature selection, оставляя только значимые признаки.
-    </p>
-    <p><b>Пример (из учебника):</b> при использовании Lasso regression для предсказания цены дома, параметр регуляризации штрафует коэффициенты менее важных признаков, эффективно обнуляя их. Lasso может определить, что <i>proximity to schools</i> и <i>number of bedrooms</i> имеют ненулевые коэффициенты — то есть существенно влияют на цену, тогда как <i>age of the home</i> и менее значимые признаки получат коэффициенты, равные нулю.</p>
+    </span><span class="lang-en-inline">They perform feature selection <b>as part of the model training process</b>. They are specific to certain algorithms that have feature selection built in. For example, <b>Lasso</b> and <b>Elastic Net</b> add a penalty to the loss function during training, which can “shrink” the coefficients of some features to zero — effectively doing feature selection by keeping only the significant features.</span></p>
+    <p><span class="lang-ru-inline"><b>Пример (из учебника):</b> при использовании Lasso regression для предсказания цены дома, параметр регуляризации штрафует коэффициенты менее важных признаков, эффективно обнуляя их. Lasso может определить, что <i>proximity to schools</i> и <i>number of bedrooms</i> имеют ненулевые коэффициенты — то есть существенно влияют на цену, тогда как <i>age of the home</i> и менее значимые признаки получат коэффициенты, равные нулю.</span><span class="lang-en-inline"><b>Example (from the textbook):</b> when Lasso regression is used to predict house prices, the regularization parameter penalizes the coefficients of the less important features, effectively setting them to zero. Lasso may find that <i>proximity to schools</i> and <i>number of bedrooms</i> have non-zero coefficients — that is, they significantly affect the price — whereas <i>age of the home</i> and the less significant features get coefficients equal to zero.</span></p>
   </div>
 
-  <h3>7.3 Избыточные vs нерелевантные признаки</h3>
+  <h3><span class="lang-ru-inline">7.3 Избыточные vs нерелевантные признаки</span><span class="lang-en-inline">7.3 Redundant vs irrelevant features</span></h3>
 
   <div class="table-scroll"><table class="summary-table compare">
-    <thead><tr><th>Тип</th><th>Что это</th><th>Зачем убрать</th></tr></thead>
+    <thead><tr><th><span class="lang-ru-inline">Тип</span><span class="lang-en-inline">Type</span></th><th><span class="lang-ru-inline">Что это</span><span class="lang-en-inline">What it is</span></th><th><span class="lang-ru-inline">Зачем убрать</span><span class="lang-en-inline">Why remove it</span></th></tr></thead>
     <tbody>
-      <tr><td>Redundant (избыточные)</td><td>Дублируют или сильно коррелируют с другими признаками. Например, «вес в кг» и «вес в фунтах» — два столбца про одно.</td><td>Не дают новой информации; можно убрать без существенной потери, фокусируя модель на уникальных атрибутах.</td></tr>
-      <tr><td>Irrelevant (нерелевантные)</td><td>Не имеют связи с целевой переменной — модель видит в них шум.</td><td>Их удаление улучшает точность и снижает риск переобучения.</td></tr>
+      <tr><td><span class="lang-ru-inline">Redundant (избыточные)</span><span class="lang-en-inline">Redundant</span></td><td><span class="lang-ru-inline">Дублируют или сильно коррелируют с другими признаками. Например, «вес в кг» и «вес в фунтах» — два столбца про одно.</span><span class="lang-en-inline">They duplicate or are strongly correlated with other features. For example, “weight in kg” and “weight in pounds” are two columns about the same thing.</span></td><td><span class="lang-ru-inline">Не дают новой информации; можно убрать без существенной потери, фокусируя модель на уникальных атрибутах.</span><span class="lang-en-inline">They add no new information; they can be removed without a major loss, focusing the model on the unique attributes.</span></td></tr>
+      <tr><td><span class="lang-ru-inline">Irrelevant (нерелевантные)</span><span class="lang-en-inline">Irrelevant</span></td><td><span class="lang-ru-inline">Не имеют связи с целевой переменной — модель видит в них шум.</span><span class="lang-en-inline">They have no link to the target variable — the model sees them as noise.</span></td><td><span class="lang-ru-inline">Их удаление улучшает точность и снижает риск переобучения.</span><span class="lang-en-inline">Removing them improves accuracy and reduces the risk of overfitting.</span></td></tr>
     </tbody>
   </table></div>
 
@@ -909,101 +945,101 @@
   </details>
 
   <!-- ============ SECTION 8: DIMENSIONALITY REDUCTION ============ -->
-  <h2>8. 📉 Понижение размерности (dimensionality reduction) <span class="hl-badge">HL</span></h2>
+  <h2><span class="lang-ru-inline">8. 📉 Понижение размерности (dimensionality reduction) <span class="hl-badge">HL</span></span><span class="lang-en-inline">8. 📉 Dimensionality reduction <span class="hl-badge">HL</span></span></h2>
 
   <div class="device-card">
-    <h3><span class="device-emoji">🔭</span> A4.2.3 — Важность понижения размерности</h3>
-    <p>
+    <h3><span class="lang-ru-inline"><span class="device-emoji">🔭</span> A4.2.3 — Важность понижения размерности</span><span class="lang-en-inline"><span class="device-emoji">🔭</span> A4.2.3 — The importance of dimensionality reduction</span></h3>
+    <p><span class="lang-ru-inline">
       <b>Dimension (размерность)</b> в данных — это просто признак, атрибут или переменная. Примеры:
-    </p>
+    </span><span class="lang-en-inline"><b>Dimension</b> in data is simply a feature, an attribute or a variable. Examples:</span></p>
     <ul>
-      <li>В данных о клиентах размерности — это возраст, доход, локация, история покупок и т.д.</li>
-      <li>В медицинском изображении каждый пиксель может считаться размерностью.</li>
-      <li>В текстовых данных — частоты слов в документе образуют размерности.</li>
+      <li><span class="lang-ru-inline">В данных о клиентах размерности — это возраст, доход, локация, история покупок и т.д.</span><span class="lang-en-inline">In customer data, the dimensions are age, income, location, purchase history, etc.</span></li>
+      <li><span class="lang-ru-inline">В медицинском изображении каждый пиксель может считаться размерностью.</span><span class="lang-en-inline">In a medical image, each pixel can be counted as a dimension.</span></li>
+      <li><span class="lang-ru-inline">В текстовых данных — частоты слов в документе образуют размерности.</span><span class="lang-en-inline">In text data, the frequencies of words in a document form the dimensions.</span></li>
     </ul>
-    <p>
+    <p><span class="lang-ru-inline">
       <b>Понижение размерности</b> стратегически уменьшает количество признаков в наборе данных. В процессе ты идентифицируешь и сохраняешь набор <b>значимых признаков, полученных трансформацией</b> исходных. Эти значимые признаки захватывают самую важную информацию из оригинального набора. Цель — снизить общую размерность, упрощая модели, ускоряя вычисления, снижая шум и минимизируя риск переобучения, при этом сохраняя как можно больше релевантной дисперсии (variance) данных.
-    </p>
+    </span><span class="lang-en-inline"><b>Dimensionality reduction</b> strategically reduces the number of features in a data set. In the process you identify and keep a set of <b>meaningful features obtained by transforming</b> the original ones. These meaningful features capture the most important information from the original set. The aim is to reduce the overall dimensionality, simplifying models, speeding up computation, reducing noise and minimizing the risk of overfitting, while keeping as much of the relevant variance in the data as possible.</span></p>
   </div>
 
-  <h3>8.1 «Проклятие размерности» (curse of dimensionality)</h3>
+  <h3><span class="lang-ru-inline">8.1 «Проклятие размерности» (curse of dimensionality)</span><span class="lang-en-inline">8.1 The curse of dimensionality</span></h3>
 
-  <p>
+  <p><span class="lang-ru-inline">
     Термин, придуманный <b>Ричардом Беллманом</b>, описывает явления, возникающие при работе с данными высокой размерности (часто сотни или тысячи измерений), которых нет в низкоразмерных пространствах. Список проблем (из учебника):
-  </p>
+  </span><span class="lang-en-inline">The term, coined by <b>Richard Bellman</b>, describes phenomena that arise when working with high-dimensional data (often hundreds or thousands of dimensions) and that do not occur in low-dimensional spaces. The list of problems (from the textbook):</span></p>
 
   <div class="table-scroll"><table class="summary-table compare">
-    <thead><tr><th>Проблема</th><th>В чём суть</th></tr></thead>
+    <thead><tr><th><span class="lang-ru-inline">Проблема</span><span class="lang-en-inline">Problem</span></th><th><span class="lang-ru-inline">В чём суть</span><span class="lang-en-inline">The essence</span></th></tr></thead>
     <tbody>
-      <tr><td>Overfitting</td><td>Слишком много параметров относительно количества наблюдений. Модель запоминает шум, плохо обобщается. Способность обобщать падает с ростом размерности, если данных не становится сильно больше.</td></tr>
-      <tr><td>Computational complexity</td><td>Многие алгоритмы становятся экспоненциально медленнее с ростом числа измерений. Требуется больше вычислительных ресурсов.</td></tr>
-      <tr><td>Data sparsity</td><td>Объём пространства растёт так быстро, что данные становятся «разреженными». Точки оказываются далеко друг от друга — модели теряют способность находить похожие примеры.</td></tr>
-      <tr><td>Distance metrics effectiveness</td><td>В высоких измерениях все точки кажутся одинаково удалёнными. Евклидово расстояние теряет смысл — страдают K-NN, кластеризация.</td></tr>
-      <tr><td>Data visualization</td><td>Человек видит максимум 3 измерения. Без техник вроде PCA или t-SNE визуально найти паттерны, выбросы или кластеры — невозможно.</td></tr>
-      <tr><td>Sample size increases</td><td>Чтобы адекватно покрыть высокоразмерное пространство, объём выборки должен расти экспоненциально с числом измерений. На практике это часто недостижимо.</td></tr>
-      <tr><td>Memory usage</td><td>Хранение и обработка высокоразмерных данных требуют значительно больше памяти, что ограничивает масштабируемость приложений.</td></tr>
+      <tr><td>Overfitting</td><td><span class="lang-ru-inline">Слишком много параметров относительно количества наблюдений. Модель запоминает шум, плохо обобщается. Способность обобщать падает с ростом размерности, если данных не становится сильно больше.</span><span class="lang-en-inline">Too many parameters relative to the number of observations. The model memorizes noise and generalizes poorly. The ability to generalize falls as dimensionality grows, unless the amount of data increases substantially too.</span></td></tr>
+      <tr><td>Computational complexity</td><td><span class="lang-ru-inline">Многие алгоритмы становятся экспоненциально медленнее с ростом числа измерений. Требуется больше вычислительных ресурсов.</span><span class="lang-en-inline">Many algorithms become exponentially slower as the number of dimensions grows. More computing resources are needed.</span></td></tr>
+      <tr><td>Data sparsity</td><td><span class="lang-ru-inline">Объём пространства растёт так быстро, что данные становятся «разреженными». Точки оказываются далеко друг от друга — модели теряют способность находить похожие примеры.</span><span class="lang-en-inline">The volume of the space grows so fast that the data becomes “sparse”. The points end up far apart — models lose the ability to find similar examples.</span></td></tr>
+      <tr><td>Distance metrics effectiveness</td><td><span class="lang-ru-inline">В высоких измерениях все точки кажутся одинаково удалёнными. Евклидово расстояние теряет смысл — страдают K-NN, кластеризация.</span><span class="lang-en-inline">In high dimensions, all points seem equally far apart. Euclidean distance loses its meaning — K-NN and clustering suffer.</span></td></tr>
+      <tr><td>Data visualization</td><td><span class="lang-ru-inline">Человек видит максимум 3 измерения. Без техник вроде PCA или t-SNE визуально найти паттерны, выбросы или кластеры — невозможно.</span><span class="lang-en-inline">A person can see at most 3 dimensions. Without techniques such as PCA or t-SNE, it is impossible to find patterns, outliers or clusters visually.</span></td></tr>
+      <tr><td>Sample size increases</td><td><span class="lang-ru-inline">Чтобы адекватно покрыть высокоразмерное пространство, объём выборки должен расти экспоненциально с числом измерений. На практике это часто недостижимо.</span><span class="lang-en-inline">To cover a high-dimensional space adequately, the sample size must grow exponentially with the number of dimensions. In practice this is often impossible to achieve.</span></td></tr>
+      <tr><td>Memory usage</td><td><span class="lang-ru-inline">Хранение и обработка высокоразмерных данных требуют значительно больше памяти, что ограничивает масштабируемость приложений.</span><span class="lang-en-inline">Storing and processing high-dimensional data needs much more memory, which limits how far applications can scale.</span></td></tr>
     </tbody>
   </table></div>
 
-  <h3>8.2 Пример из учебника: цена дома в высокоразмерном пространстве</h3>
+  <h3><span class="lang-ru-inline">8.2 Пример из учебника: цена дома в высокоразмерном пространстве</span><span class="lang-en-inline">8.2 Textbook example: the price of a house in high-dimensional space</span></h3>
 
   <div class="device-card">
-    <p>
+    <p><span class="lang-ru-inline">
       <b>Без проклятия размерности:</b> используем только важные признаки — <i>bedrooms, floor area, location</i>. Модель легко находит паттерны, влияющие на цену. Меньше измерений = проще обучать, быстрее считать, меньше данных нужно, чтобы избежать переобучения.
-    </p>
-    <p>
+    </span><span class="lang-en-inline"><b>Without the curse of dimensionality:</b> we use only the important features — <i>bedrooms, floor area, location</i>. The model easily finds the patterns that affect the price. Fewer dimensions = easier to train, faster to compute, and less data needed to avoid overfitting.</span></p>
+    <p><span class="lang-ru-inline">
       <b>С проклятием размерности:</b> добавили сотни признаков — <i>type of door knobs, brand of kitchen appliances, wallpaper patterns, type of window treatments, detailed landscaping specifics, decorative colour schemes in each room, type of wood in the built-in cabinetry, history of all maintenance activities</i>. В этом высокоразмерном пространстве объём растёт экспоненциально с добавлением измерений — каждый дом становится <b>изолированной точкой</b>, далёкой от других. Каждый дом «уникален», у него почти нет «соседей». Модели сложно найти похожие дома — её предсказания становятся менее надёжными. Чтобы преодолеть разреженность, нужно экспоненциально больше точек данных — что часто непрактично и дорого.
-    </p>
+    </span><span class="lang-en-inline"><b>With the curse of dimensionality:</b> hundreds of features have been added — <i>type of door knobs, brand of kitchen appliances, wallpaper patterns, type of window treatments, detailed landscaping specifics, decorative colour schemes in each room, type of wood in the built-in cabinetry, history of all maintenance activities</i>. In this high-dimensional space, the volume grows exponentially as dimensions are added, so each house becomes an <b>isolated point</b>, far from the others. Each house is “unique” and has almost no “neighbours”. The model finds it hard to find similar houses, so its predictions become less reliable. To overcome the sparsity, exponentially more data points are needed — which is often impractical and expensive.</span></p>
   </div>
 
-  <h3>8.3 PCA (Principal Component Analysis) — высокоуровневая интуиция</h3>
+  <h3><span class="lang-ru-inline">8.3 PCA (Principal Component Analysis) — высокоуровневая интуиция</span><span class="lang-en-inline">8.3 PCA (Principal Component Analysis) — high-level intuition</span></h3>
 
-  <div class="ru-tip">
+  <div class="ru-tip"><span class="lang-ru-inline">
     💡 <b>Из учебника:</b> «Статистические техники, такие как principal component analysis (PCA) и linear discriminant analysis (LDA), <b>за пределами курса</b>». То есть для экзамена IB глубоко знать математику PCA <b>не требуется</b> — нужна только общая идея.
-  </div>
+  </span><span class="lang-en-inline">💡 <b>From the textbook:</b> “Statistical techniques such as principal component analysis (PCA) and linear discriminant analysis (LDA) are <b>beyond the scope of the course</b>”. So for the IB exam, knowing the mathematics of PCA in depth is <b>not required</b> — only the general idea is needed.</span></div>
 
   <div class="device-card">
-    <p>
+    <p><span class="lang-ru-inline">
       <b>PCA — анализ главных компонент.</b> Идея: спроецировать высокоразмерные данные в пространство меньшей размерности так, чтобы <b>сохранить как можно больше дисперсии</b> (variability) исходных данных.
-    </p>
-    <p><b>Простая аналогия:</b> представь облако точек в 3D, которое имеет форму вытянутого блина. PCA находит две главные оси этого блина и «расплющивает» его в 2D, сохраняя суть формы. Третья ось (тонкая) выбрасывается — и потеря информации минимальна.</p>
-    <p><b>Что важно знать на экзамене:</b></p>
+    </span><span class="lang-en-inline"><b>PCA (principal component analysis).</b> The idea is to project high-dimensional data into a space of lower dimension so as to <b>keep as much of the variance as possible</b> in the original data.</span></p>
+    <p><span class="lang-ru-inline"><b>Простая аналогия:</b> представь облако точек в 3D, которое имеет форму вытянутого блина. PCA находит две главные оси этого блина и «расплющивает» его в 2D, сохраняя суть формы. Третья ось (тонкая) выбрасывается — и потеря информации минимальна.</span><span class="lang-en-inline"><b>Simple analogy:</b> imagine a cloud of points in 3D shaped like an elongated pancake. PCA finds the two main axes of the pancake and “flattens” it into 2D, keeping the essence of its shape. The third (thin) axis is discarded — and the loss of information is minimal.</span></p>
+    <p><span class="lang-ru-inline"><b>Что важно знать на экзамене:</b></span><span class="lang-en-inline"><b>What is important to know for the exam:</b></span></p>
     <ul>
-      <li>PCA <b>не выбирает</b> существующие признаки — он <b>создаёт новые</b> признаки (главные компоненты) как комбинации старых.</li>
-      <li>Цель — <b>сохранить максимум дисперсии</b> при сокращении количества измерений.</li>
-      <li>Полезен для визуализации (свести 100 признаков к 2, чтобы построить scatter plot), снижения переобучения и ускорения вычислений.</li>
-      <li>Минус: новые компоненты сложно интерпретировать (это уже не «возраст» или «доход», а смесь всего).</li>
+      <li><span class="lang-ru-inline">PCA <b>не выбирает</b> существующие признаки — он <b>создаёт новые</b> признаки (главные компоненты) как комбинации старых.</span><span class="lang-en-inline">PCA <b>does not choose</b> existing features — it <b>creates new</b> features (principal components) as combinations of the old ones.</span></li>
+      <li><span class="lang-ru-inline">Цель — <b>сохранить максимум дисперсии</b> при сокращении количества измерений.</span><span class="lang-en-inline">The aim is to <b>keep as much variance as possible</b> while reducing the number of dimensions.</span></li>
+      <li><span class="lang-ru-inline">Полезен для визуализации (свести 100 признаков к 2, чтобы построить scatter plot), снижения переобучения и ускорения вычислений.</span><span class="lang-en-inline">It is useful for visualization (reducing 100 features to 2 so that you can draw a scatter plot), for reducing overfitting and for speeding up computation.</span></li>
+      <li><span class="lang-ru-inline">Минус: новые компоненты сложно интерпретировать (это уже не «возраст» или «доход», а смесь всего).</span><span class="lang-en-inline">Drawback: the new components are hard to interpret (they are no longer “age” or “income”, but a mixture of everything).</span></li>
     </ul>
   </div>
 
-  <h3>8.4 Как уменьшать размерность (из учебника)</h3>
+  <h3><span class="lang-ru-inline">8.4 Как уменьшать размерность (из учебника)</span><span class="lang-en-inline">8.4 How to reduce dimensionality (from the textbook)</span></h3>
 
   <div class="device-card">
-    <p>Пример: предсказание самого популярного обеда в школьной столовой. Можно собрать данные: цвет еды, температура снаружи, цена, длина очереди, день недели.</p>
+    <p><span class="lang-ru-inline">Пример: предсказание самого популярного обеда в школьной столовой. Можно собрать данные: цвет еды, температура снаружи, цена, длина очереди, день недели.</span><span class="lang-en-inline">Example: predicting the most popular lunch in a school canteen. You could collect data on: the colour of the food, the outside temperature, the price, the length of the queue, the day of the week.</span></p>
     <ul>
-      <li><b>Подумай о важности.</b> Какие признаки скорее всего влияют? Тип еды и цена — да. Цвет — вряд ли.</li>
-      <li><b>Группируй похожие признаки.</b> Если длина очереди и время ожидания говорят про одно — оставь один.</li>
-      <li><b>Пробуй разные комбинации.</b> Сравнивай качество модели с разными наборами признаков — выбирай тот, что даёт лучший результат без избыточной сложности.</li>
+      <li><span class="lang-ru-inline"><b>Подумай о важности.</b> Какие признаки скорее всего влияют? Тип еды и цена — да. Цвет — вряд ли.</span><span class="lang-en-inline"><b>Think about importance.</b> Which features are most likely to matter? The type of food and the price — yes. The colour — unlikely.</span></li>
+      <li><span class="lang-ru-inline"><b>Группируй похожие признаки.</b> Если длина очереди и время ожидания говорят про одно — оставь один.</span><span class="lang-en-inline"><b>Group similar features.</b> If the queue length and the waiting time tell the same story, keep only one.</span></li>
+      <li><span class="lang-ru-inline"><b>Пробуй разные комбинации.</b> Сравнивай качество модели с разными наборами признаков — выбирай тот, что даёт лучший результат без избыточной сложности.</span><span class="lang-en-inline"><b>Try different combinations.</b> Compare the quality of the model with different sets of features — choose the one that gives the best result without unnecessary complexity.</span></li>
     </ul>
   </div>
 
-  <h3>8.5 Цель понижения размерности (из учебника)</h3>
+  <h3><span class="lang-ru-inline">8.5 Цель понижения размерности (из учебника)</span><span class="lang-en-inline">8.5 Purpose of dimensionality reduction (from the textbook)</span></h3>
 
   <div class="table-scroll"><table class="summary-table compare">
-    <thead><tr><th>Польза</th><th>Что даёт</th></tr></thead>
+    <thead><tr><th><span class="lang-ru-inline">Польза</span><span class="lang-en-inline">Benefit</span></th><th><span class="lang-ru-inline">Что даёт</span><span class="lang-en-inline">What it does</span></th></tr></thead>
     <tbody>
-      <tr><td>Enhancing data visualization</td><td>Возможность построить высокоразмерные данные в 2D или 3D.</td></tr>
-      <tr><td>Improving model performance</td><td>Снижает риск переобучения, убирая шум и менее информативные детали → лучше обобщение на новые данные.</td></tr>
-      <tr><td>Reducing computational resources</td><td>Меньше времени и памяти для хранения и обработки.</td></tr>
-      <tr><td>Facilitating data analysis</td><td>Распознавание паттернов и обнаружение корреляций между признаками становится проще.</td></tr>
+      <tr><td>Enhancing data visualization</td><td><span class="lang-ru-inline">Возможность построить высокоразмерные данные в 2D или 3D.</span><span class="lang-en-inline">Makes it possible to plot high-dimensional data in 2D or 3D.</span></td></tr>
+      <tr><td>Improving model performance</td><td><span class="lang-ru-inline">Снижает риск переобучения, убирая шум и менее информативные детали → лучше обобщение на новые данные.</span><span class="lang-en-inline">Reduces the risk of overfitting by removing noise and less informative detail → better generalization to new data.</span></td></tr>
+      <tr><td>Reducing computational resources</td><td><span class="lang-ru-inline">Меньше времени и памяти для хранения и обработки.</span><span class="lang-en-inline">Less time and memory needed for storage and processing.</span></td></tr>
+      <tr><td>Facilitating data analysis</td><td><span class="lang-ru-inline">Распознавание паттернов и обнаружение корреляций между признаками становится проще.</span><span class="lang-en-inline">Recognizing patterns and detecting correlations between features becomes easier.</span></td></tr>
     </tbody>
   </table></div>
 
   <div class="real-world">
-    <h4>🖼️ Реальный пример: классификация изображений</h4>
-    <p>
+    <h4><span class="lang-ru-inline">🖼️ Реальный пример: классификация изображений</span><span class="lang-en-inline">🖼️ Real example: image classification</span></h4>
+    <p><span class="lang-ru-inline">
       Картинка 1000×1000 пикселей = 1 000 000 «признаков» (3 миллиона с учётом RGB). Это огромная размерность. CNN и предобработка через PCA или autoencoders «сжимают» это в сотни «латентных» признаков, на которых классификатор работает быстро и точно.
-    </p>
+    </span><span class="lang-en-inline">An image of 1000×1000 pixels = 1 000 000 “features” (3 million if the RGB channels are counted). This is an enormous number of dimensions. CNNs and preprocessing with PCA or autoencoders “compress” this into hundreds of “latent” features, on which the classifier works quickly and accurately.</span></p>
   </div>
 
   <details class="en-summary" style="margin:12px 0; padding:12px 16px; background:var(--surface-2); border-radius:var(--radius); border-left:3px solid var(--text-faint)">
@@ -1014,62 +1050,62 @@
   </details>
 
   <!-- ============ SECTION 9: TRAIN/VAL/TEST SPLIT ============ -->
-  <h2>9. ✂️ Разделение на train / validation / test <span class="hl-badge">HL</span></h2>
+  <h2><span class="lang-ru-inline">9. ✂️ Разделение на train / validation / test <span class="hl-badge">HL</span></span><span class="lang-en-inline">9. ✂️ Splitting into train / validation / test <span class="hl-badge">HL</span></span></h2>
 
   <div class="device-card">
-    <p>
+    <p><span class="lang-ru-inline">
       Если бы ты обучил модель на всех данных и проверил её на тех же данных — она бы выглядела отлично, но в реальности на новых данных могла бы провалиться. Поэтому данные <b>обязательно делят на три части</b>.
-    </p>
+    </span><span class="lang-en-inline">If you trained a model on all the data and then tested it on the same data, it would look excellent, but in practice it could fail on new data. That is why the data must <b>always be split into three parts</b>.</span></p>
   </div>
 
-  <h3>9.1 Стандартные пропорции</h3>
+  <h3><span class="lang-ru-inline">9.1 Стандартные пропорции</span><span class="lang-en-inline">9.1 Standard proportions</span></h3>
 
-  <p><b>Большой датасет (>100 000 примеров):</b></p>
+  <p><span class="lang-ru-inline"><b>Большой датасет (>100 000 примеров):</b></span><span class="lang-en-inline"><b>Large data set (>100 000 examples):</b></span></p>
   <div class="split-vis">
     <div class="split-train" style="flex:80">Train (80%)</div>
     <div class="split-val" style="flex:10">Val (10%)</div>
     <div class="split-test" style="flex:10">Test (10%)</div>
   </div>
 
-  <p><b>Средний датасет:</b></p>
+  <p><span class="lang-ru-inline"><b>Средний датасет:</b></span><span class="lang-en-inline"><b>Medium data set:</b></span></p>
   <div class="split-vis">
     <div class="split-train" style="flex:70">Train (70%)</div>
     <div class="split-val" style="flex:15">Val (15%)</div>
     <div class="split-test" style="flex:15">Test (15%)</div>
   </div>
 
-  <p><b>Маленький датасет:</b> часто используют кросс-валидацию (см. ниже) вместо фиксированного val.</p>
+  <p><span class="lang-ru-inline"><b>Маленький датасет:</b> часто используют кросс-валидацию (см. ниже) вместо фиксированного val.</span><span class="lang-en-inline"><b>Small data set:</b> cross-validation (see below) is often used instead of a fixed validation set.</span></p>
 
-  <h3>9.2 Что делает каждая часть</h3>
+  <h3><span class="lang-ru-inline">9.2 Что делает каждая часть</span><span class="lang-en-inline">9.2 What each part does</span></h3>
 
   <div class="table-scroll"><table class="summary-table compare">
-    <thead><tr><th>Выборка</th><th>Назначение</th></tr></thead>
+    <thead><tr><th><span class="lang-ru-inline">Выборка</span><span class="lang-en-inline">Set</span></th><th><span class="lang-ru-inline">Назначение</span><span class="lang-en-inline">Purpose</span></th></tr></thead>
     <tbody>
-      <tr><td>Train (тренировочная)</td><td>На ней модель <b>учится</b> — подгоняет свои параметры.</td></tr>
-      <tr><td>Validation (валидационная)</td><td>На ней подбирают <b>гиперпараметры</b> (количество слоёв, learning rate, глубину дерева). Несколько вариантов модели сравнивают именно здесь.</td></tr>
-      <tr><td>Test (тестовая)</td><td><b>Священна.</b> Трогается <b>ровно один раз</b> в самом конце, чтобы оценить, как модель работает на полностью новых данных. Если использовать её для подбора параметров — она «загрязнится».</td></tr>
+      <tr><td><span class="lang-ru-inline">Train (тренировочная)</span><span class="lang-en-inline">Training set</span></td><td><span class="lang-ru-inline">На ней модель <b>учится</b> — подгоняет свои параметры.</span><span class="lang-en-inline">The model <b>learns</b> on it — it fits its parameters.</span></td></tr>
+      <tr><td><span class="lang-ru-inline">Validation (валидационная)</span><span class="lang-en-inline">Validation set</span></td><td><span class="lang-ru-inline">На ней подбирают <b>гиперпараметры</b> (количество слоёв, learning rate, глубину дерева). Несколько вариантов модели сравнивают именно здесь.</span><span class="lang-en-inline">It is used to tune the <b>hyperparameters</b> (number of layers, learning rate, tree depth). Several versions of the model are compared here.</span></td></tr>
+      <tr><td><span class="lang-ru-inline">Test (тестовая)</span><span class="lang-en-inline">Test set</span></td><td><span class="lang-ru-inline"><b>Священна.</b> Трогается <b>ровно один раз</b> в самом конце, чтобы оценить, как модель работает на полностью новых данных. Если использовать её для подбора параметров — она «загрязнится».</span><span class="lang-en-inline"><b>Sacred.</b> It is used <b>exactly once</b>, at the very end, to assess how the model performs on completely new data. If it is used to tune parameters, it becomes “contaminated”.</span></td></tr>
     </tbody>
   </table></div>
 
-  <h3>9.3 Зачем нужен held-out set</h3>
+  <h3><span class="lang-ru-inline">9.3 Зачем нужен held-out set</span><span class="lang-en-inline">9.3 Why a held-out set is needed</span></h3>
 
   <div class="device-card">
-    <p>
+    <p><span class="lang-ru-inline">
       Без отложенного набора (held-out set) ты не сможешь объективно оценить, насколько модель <b>обобщается</b> на невиданные данные. Это главная цель ML — работать на новых случаях, а не запомнить тренировочные.
-    </p>
+    </span><span class="lang-en-inline">Without a held-out set, you cannot objectively assess how well the model <b>generalizes</b> to unseen data. The main goal of ML is to work on new cases, not to memorize the training ones.</span></p>
     <ul>
-      <li>Если accuracy на train высокая, а на test низкая → <b>переобучение (overfitting)</b>.</li>
-      <li>Если и на train, и на test низкая → <b>недообучение (underfitting)</b>: модель слишком простая или данных мало.</li>
-      <li>Если обе высокие → модель хорошо обобщается.</li>
+      <li><span class="lang-ru-inline">Если accuracy на train высокая, а на test низкая → <b>переобучение (overfitting)</b>.</span><span class="lang-en-inline">If accuracy on the training set is high but on the test set is low → <b>overfitting</b>.</span></li>
+      <li><span class="lang-ru-inline">Если и на train, и на test низкая → <b>недообучение (underfitting)</b>: модель слишком простая или данных мало.</span><span class="lang-en-inline">If accuracy is low on both the training and test sets → <b>underfitting</b>: the model is too simple or there is too little data.</span></li>
+      <li><span class="lang-ru-inline">Если обе высокие → модель хорошо обобщается.</span><span class="lang-en-inline">If both are high → the model generalizes well.</span></li>
     </ul>
   </div>
 
-  <h3>9.4 Стратифицированное разделение (stratified split)</h3>
+  <h3><span class="lang-ru-inline">9.4 Стратифицированное разделение (stratified split)</span><span class="lang-en-inline">9.4 Stratified split</span></h3>
 
   <div class="device-card">
-    <p>
+    <p><span class="lang-ru-inline">
       Если задача классификации и классы несбалансированы (например, 95% «не спам», 5% «спам»), нужно <b>сохранить пропорцию классов</b> в каждой выборке. Это и есть стратификация. Иначе test может случайно оказаться целиком из одного класса, и метрика будет бессмысленной.
-    </p>
+    </span><span class="lang-en-inline">If the task is classification and the classes are imbalanced (for example, 95% “not spam”, 5% “spam”), you need to <b>keep the proportion of classes</b> the same in every set. This is stratification. Otherwise, the test set could by chance consist entirely of one class, and the metric would be meaningless.</span></p>
   </div>
 
   <details class="en-summary" style="margin:12px 0; padding:12px 16px; background:var(--surface-2); border-radius:var(--radius); border-left:3px solid var(--text-faint)">
@@ -1080,24 +1116,24 @@
   </details>
 
   <!-- ============ SECTION 10: CROSS-VALIDATION ============ -->
-  <h2>10. 🔁 Кросс-валидация (cross-validation) <span class="hl-badge">HL</span></h2>
+  <h2><span class="lang-ru-inline">10. 🔁 Кросс-валидация (cross-validation) <span class="hl-badge">HL</span></span><span class="lang-en-inline">10. 🔁 Cross-validation <span class="hl-badge">HL</span></span></h2>
 
   <div class="device-card">
-    <h3><span class="device-emoji">🎲</span> Зачем</h3>
-    <p>
+    <h3><span class="lang-ru-inline"><span class="device-emoji">🎲</span> Зачем</span><span class="lang-en-inline"><span class="device-emoji">🎲</span> Why use it</span></h3>
+    <p><span class="lang-ru-inline">
       Если просто разделить train/val один раз, оценка качества зависит от <b>случайности разбиения</b> — особенно на маленьких датасетах. Кросс-валидация даёт более надёжную оценку.
-    </p>
+    </span><span class="lang-en-inline">If you split the data into train and validation just once, the quality estimate depends on <b>the randomness of the split</b> — especially on small data sets. Cross-validation gives a more reliable estimate.</span></p>
   </div>
 
   <h3>10.1 K-fold cross-validation</h3>
 
   <div class="device-card">
-    <p>
+    <p><span class="lang-ru-inline">
       Данные делят на <b>K равных частей</b> (обычно K = 5 или 10). Модель обучают и оценивают <b>K раз</b>: каждый раз одна часть — валидация, остальные K-1 — обучение. Итоговая метрика — <b>среднее</b> по K запускам.
-    </p>
-    <p><b>Пример с K=5:</b></p>
+    </span><span class="lang-en-inline">The data is divided into <b>K equal parts</b> (usually K = 5 or 10). The model is trained and evaluated <b>K times</b>: each time one part is used for validation and the other K-1 parts for training. The final metric is the <b>average</b> over the K runs.</span></p>
+    <p><span class="lang-ru-inline"><b>Пример с K=5:</b></span><span class="lang-en-inline"><b>Example with K=5:</b></span></p>
     <div class="table-scroll"><table class="data-mini">
-      <thead><tr><th>Итерация</th><th>Fold 1</th><th>Fold 2</th><th>Fold 3</th><th>Fold 4</th><th>Fold 5</th></tr></thead>
+      <thead><tr><th><span class="lang-ru-inline">Итерация</span><span class="lang-en-inline">Iteration</span></th><th>Fold 1</th><th>Fold 2</th><th>Fold 3</th><th>Fold 4</th><th>Fold 5</th></tr></thead>
       <tbody>
         <tr><td>1</td><td class="bad">Val</td><td>Train</td><td>Train</td><td>Train</td><td>Train</td></tr>
         <tr><td>2</td><td>Train</td><td class="bad">Val</td><td>Train</td><td>Train</td><td>Train</td></tr>
@@ -1106,26 +1142,26 @@
         <tr><td>5</td><td>Train</td><td>Train</td><td>Train</td><td>Train</td><td class="bad">Val</td></tr>
       </tbody>
     </table></div>
-    <p>Каждая точка данных оказывается в валидации ровно один раз. Усреднение результатов по 5 запускам — более надёжная оценка.</p>
+    <p><span class="lang-ru-inline">Каждая точка данных оказывается в валидации ровно один раз. Усреднение результатов по 5 запускам — более надёжная оценка.</span><span class="lang-en-inline">Each data point is in the validation set exactly once. Averaging the results over the 5 runs gives a more reliable estimate.</span></p>
   </div>
 
   <h3>10.2 Stratified K-fold</h3>
 
   <div class="device-card">
-    <p>
+    <p><span class="lang-ru-inline">
       Та же идея, но при разделении на K частей сохраняется пропорция классов в каждой части. Обязательна при <b>несбалансированных классификациях</b>: иначе один fold может случайно оказаться без редкого класса.
-    </p>
+    </span><span class="lang-en-inline">The same idea, but when the data is split into K parts, the proportion of classes is kept in each part. It is essential for <b>imbalanced classification</b>: otherwise one fold might by chance contain none of a rare class.</span></p>
   </div>
 
-  <h3>10.3 Когда что использовать</h3>
+  <h3><span class="lang-ru-inline">10.3 Когда что использовать</span><span class="lang-en-inline">10.3 When to use what</span></h3>
 
   <div class="table-scroll"><table class="summary-table compare">
-    <thead><tr><th>Когда</th><th>Что выбрать</th></tr></thead>
+    <thead><tr><th><span class="lang-ru-inline">Когда</span><span class="lang-en-inline">When</span></th><th><span class="lang-ru-inline">Что выбрать</span><span class="lang-en-inline">What to choose</span></th></tr></thead>
     <tbody>
-      <tr><td>Большой датасет, классификация или регрессия</td><td>Простое train/val/test разделение — быстрее и достаточно точно.</td></tr>
-      <tr><td>Маленький / средний датасет</td><td>K-fold (K=5 или 10) — более надёжная оценка.</td></tr>
-      <tr><td>Несбалансированная классификация</td><td>Stratified K-fold — обязательно.</td></tr>
-      <tr><td>Временные ряды</td><td>Time-series CV (нельзя использовать «будущее» для предсказания «прошлого»).</td></tr>
+      <tr><td><span class="lang-ru-inline">Большой датасет, классификация или регрессия</span><span class="lang-en-inline">Large data set, classification or regression</span></td><td><span class="lang-ru-inline">Простое train/val/test разделение — быстрее и достаточно точно.</span><span class="lang-en-inline">A simple train/validation/test split — faster and accurate enough.</span></td></tr>
+      <tr><td><span class="lang-ru-inline">Маленький / средний датасет</span><span class="lang-en-inline">Small / medium data set</span></td><td><span class="lang-ru-inline">K-fold (K=5 или 10) — более надёжная оценка.</span><span class="lang-en-inline">K-fold (K=5 or 10) — a more reliable estimate.</span></td></tr>
+      <tr><td><span class="lang-ru-inline">Несбалансированная классификация</span><span class="lang-en-inline">Imbalanced classification</span></td><td><span class="lang-ru-inline">Stratified K-fold — обязательно.</span><span class="lang-en-inline">Stratified K-fold — essential.</span></td></tr>
+      <tr><td><span class="lang-ru-inline">Временные ряды</span><span class="lang-en-inline">Time series</span></td><td><span class="lang-ru-inline">Time-series CV (нельзя использовать «будущее» для предсказания «прошлого»).</span><span class="lang-en-inline">Time-series CV (you cannot use the “future” to predict the “past”).</span></td></tr>
     </tbody>
   </table></div>
 
@@ -1137,51 +1173,51 @@
   </details>
 
   <!-- ============ SECTION 11: DATA LEAKAGE ============ -->
-  <h2>11. 🚨 Утечка данных (data leakage) <span class="hl-badge">HL</span></h2>
+  <h2><span class="lang-ru-inline">11. 🚨 Утечка данных (data leakage) <span class="hl-badge">HL</span></span><span class="lang-en-inline">11. 🚨 Data leakage <span class="hl-badge">HL</span></span></h2>
 
   <div class="device-card">
-    <h3><span class="device-emoji">💧</span> Что это и почему опасно</h3>
-    <p>
+    <h3><span class="lang-ru-inline"><span class="device-emoji">💧</span> Что это и почему опасно</span><span class="lang-en-inline"><span class="device-emoji">💧</span> What it is and why it is dangerous</span></h3>
+    <p><span class="lang-ru-inline">
       <b>Data leakage</b> — когда информация, которой <b>не должно быть</b> во время обучения, попадает в train-выборку. Модель «подсматривает» в данные, которые в реальной жизни были бы недоступны. На train/val она показывает фантастические результаты, а в продакшене с треском проваливается.
-    </p>
+    </span><span class="lang-en-inline"><b>Data leakage</b> happens when information that <b>should not be available</b> during training gets into the training set. The model “peeks” at data that would be unavailable in real life. On the training and validation sets it shows fantastic results, but in production it fails spectacularly.</span></p>
   </div>
 
-  <h3>11.1 Типичные сценарии утечки</h3>
+  <h3><span class="lang-ru-inline">11.1 Типичные сценарии утечки</span><span class="lang-en-inline">11.1 Typical leakage scenarios</span></h3>
 
   <div class="table-scroll"><table class="summary-table compare">
-    <thead><tr><th>Сценарий</th><th>Что не так</th><th>Как избежать</th></tr></thead>
+    <thead><tr><th><span class="lang-ru-inline">Сценарий</span><span class="lang-en-inline">Scenario</span></th><th><span class="lang-ru-inline">Что не так</span><span class="lang-en-inline">What goes wrong</span></th><th><span class="lang-ru-inline">Как избежать</span><span class="lang-en-inline">How to avoid it</span></th></tr></thead>
     <tbody>
-      <tr><td>Предобработка <b>до</b> сплита</td><td>StandardScaler посчитал mean/std по всем данным, включая test → инфо «утекла» из test в train.</td><td><b>Сначала split, потом fit предобработки только на train</b>, а transform — на train и test отдельно.</td></tr>
-      <tr><td>Imputation по всему датасету</td><td>Среднее, которым заполняли пропуски, посчитано в том числе по test.</td><td>Imputation fit — только на train, потом apply на train и test.</td></tr>
-      <tr><td>Признак, который содержит ответ</td><td>В данных о выдаче кредита есть колонка «дата дефолта» — модель «учится» предсказывать дефолт по тому, что у клиента уже стоит дата дефолта.</td><td>Внимательно проверять, что каждый признак был бы доступен <b>в момент предсказания</b>.</td></tr>
-      <tr><td>Дубликаты между train и test</td><td>Одинаковая запись попала и туда, и туда — модель «вспомнила» ответ.</td><td>Дедупликация <b>до</b> сплита.</td></tr>
-      <tr><td>Временные данные не учитывают порядок</td><td>В тренировку попали данные «из будущего» относительно тестовых.</td><td>Time-based split: train = до даты X, test = после.</td></tr>
+      <tr><td><span class="lang-ru-inline">Предобработка <b>до</b> сплита</span><span class="lang-en-inline">Preprocessing <b>before</b> the split</span></td><td><span class="lang-ru-inline">StandardScaler посчитал mean/std по всем данным, включая test → инфо «утекла» из test в train.</span><span class="lang-en-inline">StandardScaler calculated the mean and std over all the data, including the test set → information “leaks” from test into train.</span></td><td><span class="lang-ru-inline"><b>Сначала split, потом fit предобработки только на train</b>, а transform — на train и test отдельно.</span><span class="lang-en-inline"><b>First split, then fit the preprocessing on the train set only</b>, and transform train and test separately.</span></td></tr>
+      <tr><td><span class="lang-ru-inline">Imputation по всему датасету</span><span class="lang-en-inline">Imputation over the whole data set</span></td><td><span class="lang-ru-inline">Среднее, которым заполняли пропуски, посчитано в том числе по test.</span><span class="lang-en-inline">The mean used to fill in the gaps was calculated using the test data too.</span></td><td><span class="lang-ru-inline">Imputation fit — только на train, потом apply на train и test.</span><span class="lang-en-inline">Fit the imputation on the train set only, then apply it to train and test.</span></td></tr>
+      <tr><td><span class="lang-ru-inline">Признак, который содержит ответ</span><span class="lang-en-inline">A feature that contains the answer</span></td><td><span class="lang-ru-inline">В данных о выдаче кредита есть колонка «дата дефолта» — модель «учится» предсказывать дефолт по тому, что у клиента уже стоит дата дефолта.</span><span class="lang-en-inline">The loan data has a “default date” column — the model “learns” to predict default from the fact that the customer already has a default date recorded.</span></td><td><span class="lang-ru-inline">Внимательно проверять, что каждый признак был бы доступен <b>в момент предсказания</b>.</span><span class="lang-en-inline">Check carefully that every feature would be available <b>at the time of prediction</b>.</span></td></tr>
+      <tr><td><span class="lang-ru-inline">Дубликаты между train и test</span><span class="lang-en-inline">Duplicates between train and test</span></td><td><span class="lang-ru-inline">Одинаковая запись попала и туда, и туда — модель «вспомнила» ответ.</span><span class="lang-en-inline">The same record ends up in both sets — the model “remembers” the answer.</span></td><td><span class="lang-ru-inline">Дедупликация <b>до</b> сплита.</span><span class="lang-en-inline">Deduplicate <b>before</b> the split.</span></td></tr>
+      <tr><td><span class="lang-ru-inline">Временные данные не учитывают порядок</span><span class="lang-en-inline">Time-ordered data is split without regard to time</span></td><td><span class="lang-ru-inline">В тренировку попали данные «из будущего» относительно тестовых.</span><span class="lang-en-inline">The training set includes data from the “future” relative to the test data.</span></td><td><span class="lang-ru-inline">Time-based split: train = до даты X, test = после.</span><span class="lang-en-inline">Time-based split: train = before date X, test = after it.</span></td></tr>
     </tbody>
   </table></div>
 
-  <h3>11.2 Главное правило</h3>
+  <h3><span class="lang-ru-inline">11.2 Главное правило</span><span class="lang-en-inline">11.2 The golden rule</span></h3>
 
-  <div class="danger-tip">
+  <div class="danger-tip"><span class="lang-ru-inline">
     🚨 <b>Золотое правило:</b> предобработку (нормализацию, стандартизацию, imputation, one-hot encoding) <b>применяй после разделения</b> на train/test. <b>Fit (вычисление параметров) — только на train</b>. <b>Transform (применение) — на train и test отдельно</b>, используя одни и те же параметры, полученные с train.
-  </div>
+  </span><span class="lang-en-inline">🚨 <b>Golden rule:</b> apply preprocessing (normalization, standardization, imputation, one-hot encoding) <b>after splitting</b> into train and test. <b>Fit (calculating the parameters) — on the train set only</b>. <b>Transform (applying them) — on train and test separately</b>, using the same parameters obtained from the train set.</span></div>
 
-  <h3>11.3 Worked example: утечка через StandardScaler</h3>
+  <h3><span class="lang-ru-inline">11.3 Worked example: утечка через StandardScaler</span><span class="lang-en-inline">11.3 Worked example: leakage through StandardScaler</span></h3>
 
   <div class="device-card">
-    <p><b>Плохо (утечка):</b></p>
+    <p><span class="lang-ru-inline"><b>Плохо (утечка):</b></span><span class="lang-en-inline"><b>Bad (leakage):</b></span></p>
     <ol>
-      <li>Стандартизируем весь датасет (1000 точек): scaler.fit_transform(X) → mean и std посчитаны по всем 1000.</li>
-      <li>Делим на train (800) / test (200).</li>
-      <li>Обучаем модель, измеряем на test — отлично!</li>
-      <li>В продакшене падает: потому что параметры стандартизации в реальности нужно считать только по train.</li>
+      <li><span class="lang-ru-inline">Стандартизируем весь датасет (1000 точек): scaler.fit_transform(X) → mean и std посчитаны по всем 1000.</span><span class="lang-en-inline">Standardize the whole data set (1000 points): scaler.fit_transform(X) → the mean and std are calculated over all 1000.</span></li>
+      <li><span class="lang-ru-inline">Делим на train (800) / test (200).</span><span class="lang-en-inline">Split into train (800) / test (200).</span></li>
+      <li><span class="lang-ru-inline">Обучаем модель, измеряем на test — отлично!</span><span class="lang-en-inline">Train the model and measure on the test set — excellent!</span></li>
+      <li><span class="lang-ru-inline">В продакшене падает: потому что параметры стандартизации в реальности нужно считать только по train.</span><span class="lang-en-inline">In production it fails, because in reality the standardization parameters should be calculated from the train set only.</span></li>
     </ol>
-    <p><b>Правильно (без утечки):</b></p>
+    <p><span class="lang-ru-inline"><b>Правильно (без утечки):</b></span><span class="lang-en-inline"><b>Correct (no leakage):</b></span></p>
     <ol>
-      <li>Делим на train (800) / test (200).</li>
-      <li><code>scaler.fit(X_train)</code> — параметры стандартизации только по train.</li>
+      <li><span class="lang-ru-inline">Делим на train (800) / test (200).</span><span class="lang-en-inline">Split into train (800) / test (200).</span></li>
+      <li><span class="lang-ru-inline"><code>scaler.fit(X_train)</code> — параметры стандартизации только по train.</span><span class="lang-en-inline"><code>scaler.fit(X_train)</code> — the standardization parameters come from the train set only.</span></li>
       <li><code>X_train = scaler.transform(X_train)</code>.</li>
-      <li><code>X_test = scaler.transform(X_test)</code> — с теми же mean/std.</li>
-      <li>Обучаем, измеряем — оценка теперь честная.</li>
+      <li><span class="lang-ru-inline"><code>X_test = scaler.transform(X_test)</code> — с теми же mean/std.</span><span class="lang-en-inline"><code>X_test = scaler.transform(X_test)</code> — with the same mean and std.</span></li>
+      <li><span class="lang-ru-inline">Обучаем, измеряем — оценка теперь честная.</span><span class="lang-en-inline">Train and measure — the evaluation is now fair.</span></li>
     </ol>
   </div>
 
@@ -1193,44 +1229,47 @@
   </details>
 
   <!-- ============ OFFICIAL TEACHER EXAM QUESTIONS ============ -->
-  <h2>12. 🎓 Что важно запомнить (exam tips) <span class="hl-badge">HL</span></h2>
+  <h2><span class="lang-ru-inline">12. 🎓 Что важно запомнить (exam tips) <span class="hl-badge">HL</span></span><span class="lang-en-inline">12. 🎓 What to remember (exam tips) <span class="hl-badge">HL</span></span></h2>
 
   <ul style="line-height: 1.85; font-size: 1.02rem;">
-    <li><b>Главный принцип:</b> «garbage in, garbage out» — без хорошей предобработки даже самая мощная модель будет ошибаться.</li>
-    <li><b>Очистка данных (A4.2.1)</b> = обработка пропусков (imputation: mean/median/mode/K-NN, или deletion: listwise/pairwise, или predictive modelling), удаление дубликатов, исправление ошибок, унификация форматов, фильтрация нерелевантного.</li>
-    <li><b>Выбросы:</b> обнаружение через IQR (1.5×IQR от Q1/Q3) или Z-score (|z|>3) или визуально (boxplot). Стратегии — <b>trim, cap, transform</b> (log/sqrt).</li>
-    <li><b>Нормализация vs стандартизация:</b> min-max в [0,1] = чувствительна к выбросам, фиксирует диапазон; Z-score (mean=0, std=1) = устойчива к выбросам, без жёстких границ.</li>
-    <li><b>Кодирование категорий:</b> one-hot (без порядка), label (для tree-моделей или целевой переменной), ordinal (с естественным порядком).</li>
-    <li><b>Feature engineering</b> — создание новых признаков из существующих (день недели из даты, BMI из роста/веса) — часто даёт больший эффект, чем смена модели.</li>
-    <li><b>Feature selection (A4.2.2)</b> — три семейства: <b>filter</b> (статистика: корреляция, Chi-square, ANOVA, mutual information — быстро, до обучения), <b>wrapper</b> (forward/backward/RFE — итеративно, дорого, точно), <b>embedded</b> (Lasso, Elastic Net — встроено в обучение через регуляризацию).</li>
-    <li><b>Понижение размерности (A4.2.3)</b> снижает «проклятие размерности»: переобучение, computational complexity, data sparsity, distance metrics, visualization, sample size, memory. <b>PCA / LDA — упомянуты, но за пределами курса IB.</b></li>
-    <li><b>Train / validation / test:</b> 70/15/15 или 80/10/10. Test = отложенный, трогается один раз.</li>
-    <li><b>Cross-validation:</b> K-fold (обычно K=5 или 10) даёт более надёжную оценку на маленьких данных. Stratified — для несбалансированных классов.</li>
-    <li><b>Data leakage:</b> предобработку <b>после</b> сплита; fit только на train; следить, чтобы признаки были доступны на момент предсказания.</li>
-    <li><b>Помни ATL Communication skills (из учебника):</b> отвечая на экзаменационные вопросы по A4.2, демонстрируй понимание шагов предобработки и их важности в ML-процессе. Приводи детальные примеры и объяснения. Где уместно, обсуждай этические и практические следствия решений о качестве данных.</li>
+    <li><span class="lang-ru-inline"><b>Главный принцип:</b> «garbage in, garbage out» — без хорошей предобработки даже самая мощная модель будет ошибаться.</span><span class="lang-en-inline"><b>Main principle:</b> “garbage in, garbage out” — without good preprocessing, even the most powerful model will make mistakes.</span></li>
+    <li><span class="lang-ru-inline"><b>Очистка данных (A4.2.1)</b> = обработка пропусков (imputation: mean/median/mode/K-NN, или deletion: listwise/pairwise, или predictive modelling), удаление дубликатов, исправление ошибок, унификация форматов, фильтрация нерелевантного.</span><span class="lang-en-inline"><b>Data cleaning (A4.2.1)</b> = handling missing data (imputation: mean/median/mode/K-NN, or deletion: listwise/pairwise, or predictive modelling), removing duplicates, correcting errors, unifying formats, filtering out irrelevant data.</span></li>
+    <li><span class="lang-ru-inline"><b>Выбросы:</b> обнаружение через IQR (1.5×IQR от Q1/Q3) или Z-score (|z|>3) или визуально (boxplot). Стратегии — <b>trim, cap, transform</b> (log/sqrt).</span><span class="lang-en-inline"><b>Outliers:</b> detect them with the IQR (1.5×IQR from Q1/Q3), the Z-score (|z|>3) or visually (box plot). Strategies: <b>trim, cap, transform</b> (log/sqrt).</span></li>
+    <li><span class="lang-ru-inline"><b>Нормализация vs стандартизация:</b> min-max в [0,1] = чувствительна к выбросам, фиксирует диапазон; Z-score (mean=0, std=1) = устойчива к выбросам, без жёстких границ.</span><span class="lang-en-inline"><b>Normalization vs standardization:</b> min–max in [0,1] is sensitive to outliers and fixes the range; Z-score (mean=0, std=1) is robust to outliers and has no fixed bounds.</span></li>
+    <li><span class="lang-ru-inline"><b>Кодирование категорий:</b> one-hot (без порядка), label (для tree-моделей или целевой переменной), ordinal (с естественным порядком).</span><span class="lang-en-inline"><b>Encoding categories:</b> one-hot (no order), label (for tree-based models or the target variable), ordinal (with a natural order).</span></li>
+    <li><span class="lang-ru-inline"><b>Feature engineering</b> — создание новых признаков из существующих (день недели из даты, BMI из роста/веса) — часто даёт больший эффект, чем смена модели.</span><span class="lang-en-inline"><b>Feature engineering</b> — creating new features from existing ones (day of the week from a date, BMI from height and weight) — often has a bigger effect than changing the model.</span></li>
+    <li><span class="lang-ru-inline"><b>Feature selection (A4.2.2)</b> — три семейства: <b>filter</b> (статистика: корреляция, Chi-square, ANOVA, mutual information — быстро, до обучения), <b>wrapper</b> (forward/backward/RFE — итеративно, дорого, точно), <b>embedded</b> (Lasso, Elastic Net — встроено в обучение через регуляризацию).</span><span class="lang-en-inline"><b>Feature selection (A4.2.2)</b> — three families: <b>filter</b> (statistics: correlation, Chi-square, ANOVA, mutual information — fast, done before training), <b>wrapper</b> (forward/backward/RFE — iterative, expensive, accurate), <b>embedded</b> (Lasso, Elastic Net — built into training through regularization).</span></li>
+    <li><span class="lang-ru-inline"><b>Понижение размерности (A4.2.3)</b> снижает «проклятие размерности»: переобучение, computational complexity, data sparsity, distance metrics, visualization, sample size, memory. <b>PCA / LDA — упомянуты, но за пределами курса IB.</b></span><span class="lang-en-inline"><b>Dimensionality reduction (A4.2.3)</b> reduces the “curse of dimensionality”: overfitting, computational complexity, data sparsity, distance metrics, visualization, sample size, memory. <b>PCA / LDA — mentioned, but beyond the IB course.</b></span></li>
+    <li><span class="lang-ru-inline"><b>Train / validation / test:</b> 70/15/15 или 80/10/10. Test = отложенный, трогается один раз.</span><span class="lang-en-inline"><b>Train / validation / test:</b> 70/15/15 or 80/10/10. The test set is held out and used only once.</span></li>
+    <li><span class="lang-ru-inline"><b>Cross-validation:</b> K-fold (обычно K=5 или 10) даёт более надёжную оценку на маленьких данных. Stratified — для несбалансированных классов.</span><span class="lang-en-inline"><b>Cross-validation:</b> K-fold (usually K=5 or 10) gives a more reliable estimate on small data sets. Stratified — for imbalanced classes.</span></li>
+    <li><span class="lang-ru-inline"><b>Data leakage:</b> предобработку <b>после</b> сплита; fit только на train; следить, чтобы признаки были доступны на момент предсказания.</span><span class="lang-en-inline"><b>Data leakage:</b> preprocess <b>after</b> the split; fit on the train set only; check that features are available at the moment of prediction.</span></li>
+    <li><span class="lang-ru-inline"><b>Помни ATL Communication skills (из учебника):</b> отвечая на экзаменационные вопросы по A4.2, демонстрируй понимание шагов предобработки и их важности в ML-процессе. Приводи детальные примеры и объяснения. Где уместно, обсуждай этические и практические следствия решений о качестве данных.</span><span class="lang-en-inline"><b>Remember ATL communication skills (from the textbook):</b> when answering exam questions on A4.2, show your understanding of the preprocessing steps and their importance in the ML process. Give detailed examples and explanations. Where appropriate, discuss the ethical and practical consequences of decisions about data quality.</span></li>
   </ul>
 
-  <h3>Связанные симуляции</h3>
-  <p>
+  <h3><span class="lang-ru-inline">Связанные симуляции</span><span class="lang-en-inline">Related simulations</span></h3>
+  <p><span class="lang-ru-inline">
     Теория хорошо ложится, когда видишь, как модель учится на подготовленных данных.
-  </p>
-  <p>
+  </span><span class="lang-en-inline">Theory makes more sense when you see how a model learns from prepared data.</span></p>
+  <p><span class="lang-ru-inline">
     <a class="sim-link" href="ml.html#regression-sim"><span class="icon">📈</span>Линейная регрессия — что модель учит из чистых данных</a>
     <a class="sim-link" href="ml.html#bias-sim"><span class="icon">⚖️</span>Смещение в обучении — что бывает с плохими/смещёнными данными</a>
-  </p>
+  </span><span class="lang-en-inline"><a class="sim-link" href="ml.html#regression-sim"><span class="icon">📈</span>Linear regression — what a model learns from clean data</a>
+    <a class="sim-link" href="ml.html#bias-sim"><span class="icon">⚖️</span>Bias in training — what happens with poor or biased data</a></span></p>
 
-  <p style="margin-top:32px">
+  <p style="margin-top:32px"><span class="lang-ru-inline">
     <a href="ml.html" class="back-link">← Назад к A4 ML</a>
     &nbsp; · &nbsp;
     <a href="quiz.html?topic=A4.2" class="back-link">К квизу A4.2 →</a>
-  </p>
+  </span><span class="lang-en-inline"><a href="ml.html" class="back-link">← Back to A4 ML</a>
+    &nbsp; · &nbsp;
+    <a href="quiz.html?topic=A4.2" class="back-link">To the A4.2 quiz →</a></span></p>
 
 </main>
 
 <footer class="footer">
-  <p>
+  <p><span class="lang-ru-inline">
     IB CS Тема A · A4.2 Предобработка данных (HL) · По материалам IB DP Computer Science 2025 (Oxford) · <a href="index.html">На главную</a>
-  </p>
+  </span><span class="lang-en-inline">IB CS Theme A · A4.2 Data preprocessing (HL) · Based on the materials of IB DP Computer Science 2025 (Oxford) · <a href="index.html">Home</a></span></p>
 </footer>
 
 <script src="js/app.js?v=11"></script>
