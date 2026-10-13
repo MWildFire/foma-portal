@@ -10,7 +10,7 @@ When the pattern is curved, choose a model whose shape suits the data. The logar
 
 The <Term id="coefficient-of-determination"/> shows how much of the variation in $y$ the model explains, as <Formula id="coefficient-of-determination-formula"/> defines. $R^2 = 1$ means every point lies on the curve; $R^2 = 0$ means the model does no better than the mean of $y$.
 
-<Callout kind="gdc">Enter $x$ in one list and $y$ in the other, then choose the logarithmic regression option. It gives $a$ and $b$ for $y = a + b\ln x$, using the natural logarithm, and it shows $R^2$ when the diagnostics are switched on. Some GDCs fit exponential or power models by a straight line through the logarithms of the data; the $R^2$ they show then describes that line, so check what is being reported.</Callout>
+<Callout kind="gdc">Enter $x$ and $y$ in two named columns of a Lists & Spreadsheet page, then on a Calculator page choose `Menu → Statistics → Stat Calculations → Logarithmic Regression` (typed `LnReg`) and set X List and Y List. The results give $a$ and $b$ for $y = a + b\ln x$ (natural logarithm) and `r²`, which for this model is the $R^2$. For `ExpReg` and `PowerReg`, `r²` is calculated from the logarithms of the data, so it describes the transformed straight line, not the curve.</Callout>
 
 <Callout kind="define">Coefficient of determination $R^2$: the proportion of the variation in $y$ that the model explains, $R^2 = 1 - \dfrac{\sum (y_i - \hat{y}_i)^2}{\sum (y_i - \bar{y})^2}$.</Callout>
 

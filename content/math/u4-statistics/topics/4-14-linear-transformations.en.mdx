@@ -32,7 +32,7 @@ Dividing the sum of squared deviations by $n$ gives a variance estimate that is 
 
 <Callout kind="define">Linear transformation: a new random variable $Y = aX + b$, where $a$ and $b$ are constants. Its mean is $aE(X) + b$ and its variance is $a^{2}\operatorname{Var}(X)$.</Callout>
 
-<Callout kind="gdc">Many GDCs show two standard deviations: one with divisor $n$ and one with divisor $n-1$. When you estimate $\sigma$ from data, use the value with $n-1$ (the sample value). Check the label before you square it.</Callout>
+<Callout kind="gdc">On a Calculator page, One-Variable Statistics (`Menu → Statistics → Stat Calculations → One-Variable Statistics`) shows two standard deviations: `sx` with divisor $n-1$ (the sample value) and `σx` with divisor $n$. When you estimate $\sigma$ from data, use `sx`, and check the label before you square it.</Callout>
 
 <Reveal title="Why does the divisor become n − 1?">The deviations are measured from $\bar{x}$, which is calculated from the same data, so they are smaller on average than deviations from $\mu$. Using up one degree of freedom for $\bar{x}$ corrects this.</Reveal>
 

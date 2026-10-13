@@ -24,7 +24,7 @@ For a regular chain, the long-run state matrix $S$ is the <Term id="markov-stead
 
 <Formula id="markov-steady-state-equation"/>
 
-<Callout kind="gdc">Enter $T$ in the matrix editor of the GDC and store the initial state matrix $S_0$ as a second matrix. To get $S_n$, multiply by $T$ repeatedly, $n$ times, or use the matrix power function to compute $T^{n}$ and multiply it by $S_0$. For the steady state, repeat the multiplication until successive state matrices agree to the required decimal places, or solve $TS = S$ with the equation solver.</Callout>
+<Callout kind="gdc">On a Calculator page, create $T$ and $S_0$ as matrices (`Menu → Matrix & Vector → Create`) and store them with `ctrl+var`, for example as `tmat` and `s0`. Then `tmat^5*s0` gives $S_5$; change 5 for another $n$. For the steady state, use a high power such as `tmat^50*s0`, or solve $TS = S$ together with $a + b = 1$ as a linear system (`Menu → Algebra → Solve System of Linear Equations`).</Callout>
 
 ## Worked example
 

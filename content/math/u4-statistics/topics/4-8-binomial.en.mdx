@@ -20,7 +20,7 @@ The factor $\binom{n}{r}$ counts the ways to place the $r$ successes among the $
 
 The mean is $np$ and the variance is $np(1-p)$. <Formula id="binomial-mean-variance"/>
 
-<Callout kind="gdc">Use the binomial pdf and binomial cdf entries in the distributions menu of the GDC. Enter $n$ and $p$, then the value $r$: the pdf gives $P(X = r)$, and the cdf gives $P(X \le x)$ for all values up to $x$.</Callout>
+<Callout kind="gdc">On a Calculator page choose `Menu → Probability → Distributions → Binomial Pdf` or `Binomial Cdf`, or type `binomPdf(n,p,r)` and `binomCdf(n,p,a,b)`. The pdf gives $P(X = r)$, the cdf gives $P(a \le X \le b)$, and `binomCdf(n,p,x)` with one bound gives $P(X \le x)$. For $P(X \ge k)$, use `binomCdf(n,p,k,n)`.</Callout>
 
 A <Term id="binomial-cumulative-probability"/> such as $P(X \ge k)$ comes from the cdf: $P(X \ge k) = 1 - P(X \le k - 1)$. <Formula id="binomial-tail-complement"/>
 

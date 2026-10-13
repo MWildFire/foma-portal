@@ -20,7 +20,7 @@ About 68% of values lie within one standard deviation of the mean, about 95% wit
 
 The number of standard deviations that a value lies away from the mean is its <Term id="normal-standardised-score"/>: $z = \dfrac{x - \mu}{\sigma}$. Standardising turns any normal variable into $Z \sim N(0, 1)$, so one table serves every normal distribution. <Formula id="normal-standardisation-formula"/>
 
-<Callout kind="gdc">Use the normal cdf and inverse normal entries in the distributions menu of the GDC. Enter the mean $\mu$ and the standard deviation $\sigma$, not the variance $\sigma^2$. The normal cdf gives the area to the left of a value, or between two values. The inverse normal takes an area to the left and returns $x$. For an area to the right, use $1 - p$ as the area to the left.</Callout>
+<Callout kind="gdc">On a Calculator page choose `Menu → Probability → Distributions → Normal Cdf` (typed `normCdf(lowBound,upBound,μ,σ)`) and enter the standard deviation $\sigma$, not the variance. For $P(X \le b)$ use `-9E999` as the lower bound; for a right tail, subtract the left tail from 1. `Inverse Normal` in the same menu (typed `invNorm(area,μ,σ)`) takes the area to the left and returns $x$, so for an area $p$ to the right use $1 - p$.</Callout>
 
 The <Term id="normal-inverse-calculation"/> works backwards from an area: $x = \mu + z\sigma$, where $z$ is the inverse normal of that area. <Formula id="normal-inverse-formula"/>
 

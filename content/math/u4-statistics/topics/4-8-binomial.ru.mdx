@@ -20,7 +20,7 @@ $$
 
 Среднее равно $np$, дисперсия равна $np(1-p)$. <Formula id="binomial-mean-variance"/>
 
-<Callout kind="gdc">Используйте пункты binomial pdf и binomial cdf в меню распределений калькулятора. Введите $n$ и $p$, затем значение $r$: pdf даёт $P(X = r)$, а cdf даёт $P(X \le x)$ для всех значений до $x$.</Callout>
+<Callout kind="gdc">На странице Калькулятор (Calculator) выберите биномиальную плотность или функцию распределения (`Menu → Probability → Distributions → Binomial Pdf`, `Binomial Cdf`) либо наберите `binomPdf(n,p,r)` и `binomCdf(n,p,a,b)`. Плотность (pdf) даёт $P(X = r)$, функция распределения (cdf) даёт $P(a \le X \le b)$, а `binomCdf(n,p,x)` с одной границей даёт $P(X \le x)$. Для $P(X \ge k)$ используйте `binomCdf(n,p,k,n)`.</Callout>
 
 <Term id="binomial-cumulative-probability"/> вида $P(X \ge k)$ находится через cdf: $P(X \ge k) = 1 - P(X \le k - 1)$. <Formula id="binomial-tail-complement"/>
 

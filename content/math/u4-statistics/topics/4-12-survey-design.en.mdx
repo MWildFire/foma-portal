@@ -18,7 +18,7 @@ Each parameter estimated from the data removes one more degree of freedom, so th
 
 <Callout kind="define">Degrees of freedom for a goodness-of-fit test: $\nu = k - 1 - p$, where $k$ is the number of classes after grouping and $p$ is the number of parameters estimated from the sample.</Callout>
 
-<Callout kind="gdc">Enter the observed and expected counts as two lists and run the chi-squared goodness-of-fit test. It returns the statistic and a p-value, but it uses $k - 1$ degrees of freedom. When parameters were estimated, find the p-value again with the chi-squared cdf and the correct number of degrees of freedom.</Callout>
+<Callout kind="gdc">Enter the observed and expected counts in two named columns of a Lists & Spreadsheet page, then on a Calculator page type `chi2GOF obsList,expList,df` with the names of your columns. You supply the degrees of freedom yourself, so enter $k - 1 - p$, where $p$ is the number of parameters estimated from the data. Read `stat.χ²` and `stat.PVal`; the observed counts must be whole numbers.</Callout>
 
 ## Worked example
 

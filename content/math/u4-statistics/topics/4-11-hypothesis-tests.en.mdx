@@ -18,9 +18,9 @@ For a goodness-of-fit test, the expected count in category $i$ is $E_i = np_i$ f
 
 For a claim about a population mean $\mu$ when the population standard deviation is unknown, use a t-test with the statistic <Formula id="t-statistic-one-sample"/>, compared with the t-distribution with $n - 1$ degrees of freedom. In a two-tailed test the p-value counts both tails. Comparing two means follows the same rule: a small p-value means the difference would be unlikely if the means were equal.
 
-<Callout kind="gdc">Chi-squared test: enter the observed counts as a matrix, then choose the chi-squared test in the statistics tests menu. The GDC returns the p-value, the statistic, the degrees of freedom and the expected values. Check one expected value by hand before you rely on the output.</Callout>
+<Callout kind="gdc">Chi-squared test of independence: on a Calculator page, create the observed counts as a matrix (`Menu → Matrix & Vector → Create`) and store it with `ctrl+var`, for example as `obs`. Type `chi22way obs`; the results include `stat.χ²`, `stat.PVal`, `stat.df` and the expected counts `stat.ExpMat`. Check one expected count by hand before you rely on the output.</Callout>
 
-<Callout kind="gdc">One-sample t-test: choose T-Test, enter $\mu_0$, the sample mean, the standard deviation and $n$ (or the list of data), and choose the alternative hypothesis that matches $H_1$: not equal to, greater than or less than. The GDC returns $t$ and the p-value.</Callout>
+<Callout kind="gdc">One-sample t-test: on a Calculator page type `tTest μ0,x̄,sx,n,Hypoth` with your numbers; for raw data, first read `x̄` and `sx` from One-Variable Statistics. The last number (`Hypoth`) sets $H_1$: 0 for not equal to (the default), a positive number for greater than, a negative number for less than. The statistic $t$ is in `stat.t` and the p-value is in `stat.PVal`.</Callout>
 
 ## Worked example
 

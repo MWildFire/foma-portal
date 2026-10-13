@@ -12,13 +12,13 @@ When the population variance is unknown, use the <Term id="population-mean-t-tes
 
 <Formula id="population-mean-t-statistic"/>
 
-<Callout kind="gdc">Use the t-test entry in the statistics tests menu of the GDC. With summary values, choose the input that asks for the mean, the standard deviation and the sample size, then choose the tail that matches $H_1$. Read the test statistic and the p-value. Many outputs give a two-tailed p-value: for a one-tailed test, halve it only when the sign of the statistic matches the direction of $H_1$.</Callout>
+<Callout kind="gdc">On a Calculator page type `tTest μ0,x̄,sx,n,Hypoth` with your numbers; for raw data, first read `x̄` and `sx` from One-Variable Statistics. The last number (`Hypoth`) sets $H_1$: 0 for not equal to (the default), a positive number for greater than, a negative number for less than. `stat.t` gives the statistic and `stat.PVal` gives the p-value for the tail you chose, so compare `stat.PVal` with $\alpha$ directly and do not halve it.</Callout>
 
 For a Poisson mean, suppose $X \sim \text{Po}(m)$ and you test $H_0: m = m_0$ from one count; the critical region then comes straight from the Poisson cumulative probabilities. For $n$ independent counts over equal intervals, test the total $T$, which has the distribution given below under $H_0$ (the sum rule from topic 4.17). Because the Poisson distribution is discrete, the actual significance level is at most $\alpha$, and often well below it.
 
 <Formula id="poisson-total-count-test"/>
 
-<Callout kind="gdc">Use the Poisson cdf entry in the distributions menu of the GDC. Enter the mean for the whole period, $n m_0$, not the mean for one interval. Take the largest critical value whose cumulative probability is at most $\alpha$.</Callout>
+<Callout kind="gdc">On a Calculator page choose `Menu → Probability → Distributions → Poisson Cdf` (typed `poissCdf(m,c)`) and enter the mean for the whole period, $n m_0$, not the mean for one interval. Try successive values of $c$ and take the largest one whose cumulative probability $P(T \le c)$ is at most $\alpha$.</Callout>
 
 <Reveal title="Why is the actual significance level rarely exactly 5%?">Counts take whole-number values, so the cumulative probability $P(T \le c)$ jumps from one value to the next. A critical region rarely has probability exactly $0.05$, so the test uses the largest region with probability at most $\alpha$.</Reveal>
 
@@ -26,7 +26,7 @@ For bivariate normal data with sample correlation $r$ from $n$ pairs, test $H_0:
 
 <Formula id="correlation-t-statistic"/>
 
-<Callout kind="gdc">Enter the pairs of data, then use the correlation or linear regression t-test entry in the statistics tests menu. The output gives the test statistic and the p-value for $H_0: \rho = 0$. Check the tail before you compare the p-value with $\alpha$.</Callout>
+<Callout kind="gdc">Enter the pairs of data in two named columns of a Lists & Spreadsheet page; `Menu → Statistics → Stat Calculations → Linear Regression (mx+b)` on a Calculator page gives `r`. For the test, use the Linear Reg t Test from the list of statistics tests: it tests the slope and gives the same $t$ and p-value as $H_0: \rho = 0$. Check the tail of $H_1$ before you compare the p-value with $\alpha$.</Callout>
 
 Two kinds of error are possible. A <Term id="type-i-error-probability"/> happens when $H_0$ is true but the test rejects it; its probability is $\alpha$ for a continuous test, and at most $\alpha$ for a discrete one. A <Term id="type-ii-error-probability"/> happens when $H_1$ is true but the test does not reject $H_0$; its probability is $\beta$, and the power of the test is $1 - \beta$.
 
