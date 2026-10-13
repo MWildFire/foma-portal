@@ -4,15 +4,23 @@ import type { Weekday } from '../lib/storage.ts';
 // @ts-ignore TS5097
 import { WEEKDAY_KEYS, addDays, formatClock, isDate, parseClock } from './dates.ts';
 
-export type DateStyle = 'long' | 'short' | 'weekday';
+// long: "Monday 26 October"; short: "Mon 26 Oct"; day: "26 October" (reads well inside a sentence in both languages);
+// weekday: "Monday".
+export type DateStyle = 'long' | 'short' | 'day' | 'weekday';
 
 const localeOf = (lang: string): string => (lang.startsWith('ru') ? 'ru-RU' : 'en-GB');
 
 const OPTIONS: Record<DateStyle, Intl.DateTimeFormatOptions> = {
   long: { weekday: 'long', day: 'numeric', month: 'long' },
   short: { weekday: 'short', day: 'numeric', month: 'short' },
+  day: { day: 'numeric', month: 'long' },
   weekday: { weekday: 'long' },
 };
+
+// Russian weekday and month names are lower case; a date that starts a heading or a line needs a capital.
+export function capitalize(text: string): string {
+  return text.charAt(0).toUpperCase() + text.slice(1);
+}
 
 export function formatDate(date: string, lang: string, style: DateStyle): string {
   if (!isDate(date)) return date;
@@ -34,4 +42,13 @@ export function formatTimeRange(start: string, minutes: number): string {
 
 export function formatDuration(minutes: number): { hours: number; minutes: number } {
   return { hours: Math.floor(minutes / 60), minutes: minutes % 60 };
+}
+
+// An ISO timestamp (e.g. when a progress code was made) as date and time in Dubai. Unreadable input comes back as is.
+export function formatInstant(iso: string, lang: string): string {
+  const instant = new Date(iso);
+  if (!iso || Number.isNaN(instant.getTime())) return iso;
+  return new Intl.DateTimeFormat(localeOf(lang), {
+    timeZone: 'Asia/Dubai', day: 'numeric', month: 'long', year: 'numeric', hour: '2-digit', minute: '2-digit', hourCycle: 'h23',
+  }).format(instant);
 }
