@@ -68,7 +68,7 @@ export function RecallSection({ block, recall, infos, activeSubjects, timerRunni
 
       {recall && recall.subjects.length > 0 ? (
         <>
-          <p className="mt-3 text-sm font-medium">{t('recall.total', { n: recall.dueTotal })}</p>
+          <p className="mt-3 text-sm font-medium">{t('recall.total', { n: total })}</p>
           <ul className="mt-2 list-none space-y-2 p-0">
             {recall.subjects.map(row => {
               const info = subjectInfo(infos, row.subject);

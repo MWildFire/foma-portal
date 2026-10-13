@@ -46,7 +46,7 @@
   },
   "recall": {
     "intro": "{{n}} min at the start of the day: the flashcards that are due, then the key terms of your red topics.",
-    "total": "Cards due today: {{n}}",
+    "total": "Cards for today: {{n}}",
     "due": "Due: {{n}}",
     "red": "Red-topic terms: {{n}}",
     "suggested": "For today: {{n}}",
