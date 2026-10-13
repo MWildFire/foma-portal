@@ -4,7 +4,7 @@ import { BookMarked, CircleCheck, CircleHelp, CircleX, type LucideIcon } from 'l
 import type { Lang, Term } from '../../contract/types';
 import { ANSWERS, NEW_PER_SESSION, deckKeyAction, dueQueue, sessionView, type Answer } from '../../lib/leitner';
 import type { GlobalState } from '../../lib/storage';
-import { pickText } from '../../lib/text';
+import { frenchOf, pickText } from '../../lib/text';
 import { InlineText } from '../content/RichText';
 import { SourceItem } from '../content/SourceList';
 import '../content/ui.css';
@@ -37,10 +37,44 @@ function matches(target: EventTarget | null, selector: string): boolean {
   return target instanceof Element && target.closest(selector) !== null;
 }
 
-// Flashcards: one card at a time. The term is shown first; Space (or a tap) shows the definition; then 1, 2 or 3
-// (or a button) says how well the student knew it. A session is the cards that are due today or earlier plus a few
-// new ones (NEW_PER_SESSION); it is fixed when the deck opens, and a card answered now leaves it. When the session
-// is done the student can ask for another batch of new cards.
+// The back of a card: the definition in English and in Russian, then example, pitfall and source. The front of a
+// French card shows only the French term, so on its back the English line names the English term too, the way the
+// Russian line always names the Russian term.
+export function CardBack({ term, lang }: { term: Term; lang: Lang }) {
+  const { t } = useTranslation('glossary');
+  // Any other card has the English term on its front, so the back does not repeat it.
+  const english = frenchOf(term.term) ? term.term.en.trim() : '';
+  const russian = term.term.ru.trim();
+  return (
+    <div className="gl-card__back">
+      <p className="gl-entry__def" lang="en">
+        <span className="foma-tag">EN</span>{' '}
+        {english ? <><strong>{english}</strong>{' — '}</> : null}
+        <InlineText text={term.def.en} />
+      </p>
+      <p className="gl-entry__def" lang="ru">
+        <span className="foma-tag">RU</span>{' '}
+        {russian ? <><strong>{russian}</strong>{' — '}</> : null}
+        <InlineText text={term.def.ru} />
+      </p>
+      {term.example ? (
+        <p className="gl-entry__extra" lang={lang}><strong>{t('entry.example')}:</strong> <InlineText text={pickText(term.example, lang)} /></p>
+      ) : null}
+      {term.pitfall ? (
+        <p className="gl-entry__extra" lang={lang}><strong>{t('entry.pitfall')}:</strong> <InlineText text={pickText(term.pitfall, lang)} /></p>
+      ) : null}
+      <p className="gl-entry__extra">
+        <strong>{t('entry.source')}:</strong> <SourceItem source={term.src} lang={lang} />
+      </p>
+    </div>
+  );
+}
+
+// Flashcards: one card at a time. The term is shown first (the French term, for a term that has one; otherwise the
+// English term); Space (or a tap) shows the definition; then 1, 2 or 3 (or a button) says how well the student knew
+// it. A session is the cards that are due today or earlier plus a few new ones (NEW_PER_SESSION); it is fixed when
+// the deck opens, and a card answered now leaves it. When the session is done the student can ask for another batch
+// of new cards.
 export function FlashcardDeck({ subject, terms, progress, today, lang, nextDue, fresh, onAnswer, onShowGlossary }: Props) {
   const { t } = useTranslation('glossary');
   const [session, setSession] = useState<string[]>(() => dueQueue(subject, terms, progress, today).map(term => term.id));
@@ -73,7 +107,7 @@ export function FlashcardDeck({ subject, terms, progress, today, lang, nextDue, 
     if (!current || answeredIds.current.has(current.id)) return;
     answeredIds.current.add(current.id);
     const saved = onAnswer(current, value);
-    setLast({ term: current.term.en, box: saved.box, due: saved.due });
+    setLast({ term: frenchOf(current.term) ?? current.term.en, box: saved.box, due: saved.due });
     setAnswered(list => [...list, current.id]);
     setRevealed(false);
   }, [current, onAnswer]);
@@ -148,6 +182,9 @@ export function FlashcardDeck({ subject, terms, progress, today, lang, nextDue, 
     );
   }
 
+  // A term with a French text is asked in French: the French term is the front, the English and Russian terms are on the back.
+  const french = frenchOf(current.term);
+
   return (
     <section className="gl-deck" aria-label={t('cards.heading')}>
       <div className="gl-deck__progress">
@@ -162,7 +199,11 @@ export function FlashcardDeck({ subject, terms, progress, today, lang, nextDue, 
         <p className="foma-kind"><BookMarked size={14} aria-hidden="true" />{t('cards.front')}</p>
         {/* Tapping the card shows the definition; the button below does the same for the keyboard. */}
         <div className={revealed ? undefined : 'gl-card__front'} onClick={revealed ? undefined : reveal}>
-          <p className="gl-card__term" lang="en">{current.term.en}</p>
+          {french ? (
+            <p className="gl-card__term" lang="fr">{french}</p>
+          ) : (
+            <p className="gl-card__term" lang="en">{current.term.en}</p>
+          )}
           {revealed ? null : (
             <button ref={revealButton} type="button" className="foma-btn foma-btn--primary gl-card__reveal" onClick={reveal}>
               {t('cards.reveal')}
@@ -172,25 +213,7 @@ export function FlashcardDeck({ subject, terms, progress, today, lang, nextDue, 
         {revealed ? null : <p className="study-muted gl-card__hint">{t('cards.revealHint')}</p>}
 
         <div aria-live="polite">
-          {revealed ? (
-            <div className="gl-card__back">
-              <p className="gl-entry__def" lang="en"><span className="foma-tag">EN</span> <InlineText text={current.def.en} /></p>
-              <p className="gl-entry__def" lang="ru">
-                <span className="foma-tag">RU</span>{' '}
-                {current.term.ru.trim() ? <><strong>{current.term.ru.trim()}</strong>{' — '}</> : null}
-                <InlineText text={current.def.ru} />
-              </p>
-              {current.example ? (
-                <p className="gl-entry__extra" lang={lang}><strong>{t('entry.example')}:</strong> <InlineText text={pickText(current.example, lang)} /></p>
-              ) : null}
-              {current.pitfall ? (
-                <p className="gl-entry__extra" lang={lang}><strong>{t('entry.pitfall')}:</strong> <InlineText text={pickText(current.pitfall, lang)} /></p>
-              ) : null}
-              <p className="gl-entry__extra">
-                <strong>{t('entry.source')}:</strong> <SourceItem source={current.src} lang={lang} />
-              </p>
-            </div>
-          ) : null}
+          {revealed ? <CardBack term={current} lang={lang} /> : null}
         </div>
 
         {revealed ? (

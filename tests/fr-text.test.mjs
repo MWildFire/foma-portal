@@ -41,6 +41,7 @@ before(async () => {
     Question: '/src/components/mdx/Question.tsx',
     PracticeView: '/src/components/practice/PracticeView.tsx',
     GlossaryView: '/src/components/glossary/GlossaryView.tsx',
+    CardBack: '/src/components/glossary/FlashcardDeck.tsx',
     TopicList: '/src/components/subject/TopicList.tsx',
     TopicPage: '/src/pages/TopicPage.tsx',
   };
@@ -89,7 +90,7 @@ const view = (name, props, url, options) => draw(createElement(loaded[name], pro
 const L = (en, ru, fr) => ({ en, ru: ru ?? `${en} (по-русски)`, ...(fr === undefined ? {} : { fr }) });
 const stripTags = html => html.replace(/<[^>]*>/g, '');
 // The texts of the elements that carry lang="fr", in page order, with their tags removed.
-const frenchParts = html => [...html.matchAll(/<(span|div) [^>]*\blang="fr"[^>]*>(.*?)<\/\1>/g)].map(match => stripTags(match[2]));
+const frenchParts = html => [...html.matchAll(/<(span|div|p) [^>]*\blang="fr"[^>]*>(.*?)<\/\1>/g)].map(match => stripTags(match[2]));
 const inOrder = (html, first, second) => html.indexOf(first) !== -1 && html.indexOf(first) < html.indexOf(second);
 
 // ---- a small French subject to draw
@@ -303,4 +304,60 @@ test('topic page: the heading shows the French title first; the breadcrumb and t
   } finally {
     meta.title = original;
   }
+});
+
+// ---- flashcards
+
+const frenchTerm = (id = 'stroll') => term(id, { term: L('to stroll', 'прогуливаться', 'flâner') });
+// React puts <!-- --> between two pieces of text that sit next to each other; the tests do not care about it.
+const noComments = html => html.replace(/<!-- -->/g, '');
+
+test('flashcards: the front of a French card shows the French term only, and the definition waits', async () => {
+  const html = await view('GlossaryView', { pack: pack({ terms: [frenchTerm()] }) }, '/s/fr/terms?mode=cards');
+  assert.match(html, /Card 1 of 1/);
+  assert.deepEqual(frenchParts(html), ['flâner']);
+  assert.ok(html.includes('<p class="gl-card__term" lang="fr">flâner</p>'));
+  assert.ok(!html.includes('to stroll') && !html.includes('прогуливаться'), 'the English and Russian terms are on the back');
+  assert.ok(!html.includes('English definition of stroll'), 'the definition is hidden');
+  assert.match(html, /Show the definition/);
+});
+
+test('flashcards: the front of a card without a French term is as before', async () => {
+  const html = await view('GlossaryView', { pack: pack({ terms: [term('b')] }) }, '/s/fr/terms?mode=cards');
+  assert.ok(html.includes('<p class="gl-card__term" lang="en">term b</p>'));
+  assert.ok(!html.includes('lang="fr"'));
+});
+
+test('flashcards: in one deck each card has its own front', async () => {
+  const terms = [frenchTerm('a'), term('b')];
+  const due = id => ({ terms: { [`fr/${id}`]: { box: 1, due: '2026-01-01' } } });
+  const french = await view('GlossaryView', { pack: pack({ terms }) }, '/s/fr/terms?mode=cards', { state: due('a') });
+  assert.match(french, /Card 1 of 2/);
+  assert.ok(french.includes('<p class="gl-card__term" lang="fr">flâner</p>'), 'the due French card comes first');
+  const plain = await view('GlossaryView', { pack: pack({ terms }) }, '/s/fr/terms?mode=cards', { state: due('b') });
+  assert.match(plain, /Card 1 of 2/);
+  assert.ok(plain.includes('<p class="gl-card__term" lang="en">term b</p>'), 'the due English card comes first');
+  assert.ok(!plain.includes('lang="fr"'));
+});
+
+test('flashcards: the back of a French card gives the English and the Russian term with their definitions', async () => {
+  const html = noComments(await view('CardBack', { term: frenchTerm(), lang: 'en' }));
+  assert.match(html, /<p class="gl-entry__def" lang="en"><span class="foma-tag">EN<\/span> <strong>to stroll<\/strong> — English definition of stroll<\/p>/);
+  assert.match(html, /<p class="gl-entry__def" lang="ru"><span class="foma-tag">RU<\/span> <strong>прогуливаться<\/strong> — Русское определение stroll<\/p>/);
+  assert.ok(!html.includes('lang="fr"'), 'the French term stays on the front');
+});
+
+test('flashcards: the back of a card without a French term is as before', async () => {
+  const html = noComments(await view('CardBack', { term: term('b'), lang: 'en' }));
+  assert.match(html, /<p class="gl-entry__def" lang="en"><span class="foma-tag">EN<\/span> English definition of b<\/p>/);
+  assert.match(html, /<p class="gl-entry__def" lang="ru"><span class="foma-tag">RU<\/span> <strong>термин b<\/strong> — Русское определение b<\/p>/);
+  assert.ok(!html.includes('<strong>term b</strong>'), 'the English term is on the front, not repeated on the back');
+});
+
+test('flashcards: the back keeps the example, the pitfall and the source for a French card', async () => {
+  const extra = { example: L('He strolls.', 'Он гуляет.'), pitfall: L('Not "se promener".', 'Не "se promener".') };
+  const html = noComments(await view('CardBack', { term: { ...frenchTerm('x'), ...extra }, lang: 'en' }));
+  assert.match(html, /Example:<\/strong> He strolls\./);
+  assert.match(html, /Common pitfall:<\/strong> Not &quot;se promener&quot;\./);
+  assert.match(html, /Source:<\/strong>/);
 });
