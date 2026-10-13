@@ -16,7 +16,7 @@ import {
 } from './reading-logic';
 
 // The reading passages (content/fr/reading/) and their items (content/fr/questions/reading-1.ts and reading-2.ts), read at
-// build time. The logic is in reading-logic.ts. Practice works on one text; a timed run is one set of three texts in 45 minutes.
+// build time. The logic is in reading-logic.ts. Practice works on one text; a timed run is one set of three texts in 56 minutes (45 plus 25% extra time).
 const PASSAGES = collectPassages(import.meta.glob<{ passage?: unknown }>('../../../content/fr/reading/*.ts', { eager: true }));
 const ITEMS = collectItems(import.meta.glob<{ questions?: unknown }>('../../../content/fr/questions/reading-[0-9]*.ts', { eager: true }));
 const ITEM_BY_ID = new Map(ITEMS.map((item): [string, ItemLike] => [item.id, item]));
@@ -43,7 +43,7 @@ const COPY = {
     title: 'Reading practice (Paper 2)',
     intro: 'Read the text, then answer its ten items. The paragraphs are lettered A to E. In the French answers accents and capitals are not checked. Check when you are ready; the markscheme follows.',
     practice: 'Practice: one text',
-    timed: 'Timed run: three texts, 45 minutes',
+    timed: 'Timed run: three texts, 56 minutes (45 + 25%)',
     set: 'Set',
     text: 'Text',
     start: 'Start the timer',
@@ -62,7 +62,7 @@ const COPY = {
     title: 'Тренировка чтения (Paper 2)',
     intro: 'Прочитайте текст, затем ответьте на его десять заданий. Абзацы обозначены буквами от A до E. Во французских ответах акценты и заглавные буквы не проверяются. Проверяйте, когда будете готовы: потом появятся критерии (markscheme).',
     practice: 'Тренировка: один текст',
-    timed: 'На время: три текста, 45 минут',
+    timed: 'На время: три текста, 56 минут (45 + 25%)',
     set: 'Набор',
     text: 'Текст',
     start: 'Запустить таймер',

@@ -29,7 +29,8 @@ export type AnswerKind = 'truefalse' | 'letter' | 'english' | 'french' | 'none';
 export interface PromptOption { letter: string; label: string }
 export interface SplitPrompt { stem: string; options: PromptOption[] }
 
-export const TIMED_MINUTES = 45;
+// The 45-minute mock plus [redacted]'s 25% extra time (data/exams.json, accessMinutes: 45 → 56).
+export const TIMED_MINUTES = 56;
 export const TIMED_LIMIT_MS = TIMED_MINUTES * 60 * 1000;
 export const TRUE_FALSE = ['vrai', 'faux', 'non mentionné'];
 

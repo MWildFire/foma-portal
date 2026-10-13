@@ -114,12 +114,12 @@ test('every passage lists ten items, and every item has an answer key that accep
   }
 });
 
-test('the timed sets are R1 to R3 and R4 to R6, and a timed run lasts 45 minutes', () => {
+test('the timed sets are R1 to R3 and R4 to R6, and a timed run lasts 56 minutes (45 plus 25%)', () => {
   assert.deepEqual(
     timedSets(passages).map(set => set.map(passage => passage.id.slice(0, 2))),
     [['r1', 'r2', 'r3'], ['r4', 'r5', 'r6']],
   );
-  assert.equal(TIMED_LIMIT_MS, 45 * 60 * 1000);
+  assert.equal(TIMED_LIMIT_MS, 56 * 60 * 1000);
 });
 
 test('splitPrompt separates the question from its A) B) C) options', () => {
@@ -133,7 +133,7 @@ test('splitPrompt separates the question from its A) B) C) options', () => {
 });
 
 test('formatTime counts down as mm:ss and stops at 00:00', () => {
-  assert.equal(formatTime(TIMED_LIMIT_MS), '45:00');
+  assert.equal(formatTime(TIMED_LIMIT_MS), '56:00');
   assert.equal(formatTime(61_000), '01:01');
   assert.equal(formatTime(999), '00:01');
   assert.equal(formatTime(0), '00:00');
