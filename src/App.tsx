@@ -10,6 +10,7 @@ import { GlossaryPage } from './pages/GlossaryPage';
 import { FormulasPage } from './pages/FormulasPage';
 import { PracticePage } from './pages/PracticePage';
 import { PaperPage } from './pages/PaperPage';
+import { PastPapersPage } from './pages/PastPapersPage';
 import { SimsPage } from './pages/SimsPage';
 import { ReportPage } from './pages/ReportPage';
 import { SettingsPage } from './pages/SettingsPage';
@@ -30,6 +31,7 @@ export default function App() {
           <Route path="/s/:subject/formulas" element={<FormulasPage />} />
           <Route path="/s/:subject/practice" element={<PracticePage />} />
           <Route path="/s/:subject/paper/:paper" element={<PaperPage />} />
+          <Route path="/s/:subject/past-papers" element={<PastPapersPage />} />
           <Route path="/sims" element={<SimsPage />} />
           <Route path="/report" element={<ReportPage />} />
           <Route path="/settings" element={<SettingsPage />} />

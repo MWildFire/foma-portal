@@ -15,6 +15,7 @@ const EXAMS = readExamPapers({
     { id: 'geo-p1', subject: 'geo', paper: 'P1', minutes: 90 },
     { id: 'fr-p2r', subject: 'fr', paper: 'P2', part: 'reading', minutes: 45 },
     { id: 'fr-p2l', subject: 'fr', paper: 'P2', part: 'listening', minutes: 60 },
+    { id: 'econ-p3', subject: 'econ', paper: 'P3', minutes: 60 },
   ],
 }).papers;
 
@@ -69,6 +70,12 @@ test('a paper sat in parts needs a part, and each part has its own time', () => 
   assert.ok(errorsOf(run([ambiguous], 'fr')).some(message => message.includes('sat in parts')));
   assert.deepEqual(errorsOf(run([{ ...ambiguous, id: 'fr-p2-m24-r', part: 'reading' }], 'fr')), []);
   assert.ok(errorsOf(run([{ ...ambiguous, id: 'fr-p2-m24-l', part: 'listening', minutes: 45 }], 'fr')).some(message => message.includes('says 60')));
+});
+
+test('questions split from a paper keep the mock time of the whole paper', () => {
+  const split = { ...VALID, id: 'econ-p3-m22-q1', subject: 'econ', paper: 'P3', part: 'question-1', minutes: 60, marks: 30, items: [{ q: '1a', marks: 4, topicIds: ['core-1-1'] }] };
+  assert.deepEqual(errorsOf(run([split], 'econ')), []);
+  assert.ok(errorsOf(run([{ ...split, minutes: 105 }], 'econ')).some(message => message.includes('says 60')));
 });
 
 test('a part without a row of its own is timed like the whole paper', () => {

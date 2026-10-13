@@ -81,5 +81,28 @@
     "today": "Due today",
     "open": "Open the task",
     "topics": "Topics"
+  },
+  "pastPapers": {
+    "heading": "Past papers",
+    "intro": "Real IB papers, linked and not copied. Open a paper on the IB site and solve it on time, then mark your answers with the markscheme and write down the marks you got.",
+    "empty": "Past papers for this subject are being prepared. Until then, use the paper guides and the topic pages.",
+    "minutes": "Paper time: {{minutes}} min",
+    "files": {
+      "questions": "Questions",
+      "resources": "Resource booklet",
+      "markscheme": "Markscheme",
+      "audio": "Audio"
+    },
+    "guide": "Our guide to this paper",
+    "noGuide": "Our guide to this paper is not written yet.",
+    "items": "Questions",
+    "marksFor": "Marks for {{q}}",
+    "marksOf": "out of {{marks}}",
+    "command": "Command term: {{command}}",
+    "selfScore": "Self-score: {{earned}} of {{total}}",
+    "solve": "Mark as solved",
+    "unsolve": "Remove the mark",
+    "solvedOn": "Solved on {{date}}",
+    "asked": "What the exam asks"
   }
 }

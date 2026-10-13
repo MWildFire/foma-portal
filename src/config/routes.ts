@@ -10,6 +10,7 @@ export const ROUTES = {
   formulas: (subject: string) => `/s/${subject}/formulas`,
   practice: (subject: string) => `/s/${subject}/practice`,
   paper: (subject: string, paper: string) => `/s/${subject}/paper/${paper}`,
+  pastPapers: (subject: string) => `/s/${subject}/past-papers`,
   sims: () => '/sims',
   report: () => '/report',
   settings: () => '/settings',

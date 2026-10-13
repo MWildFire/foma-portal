@@ -28,6 +28,7 @@ export function SubjectLinks({ pack }: { pack: SubjectPack }) {
       <li><Link to={ROUTES.flashcards(subject)} className="foma-btn">{t('tools.flashcards')}</Link></li>
       <li><Link to={ROUTES.formulas(subject)} className="foma-btn">{t('nav.formulas', { ns: 'common' })}</Link></li>
       <li><Link to={ROUTES.practice(subject)} className="foma-btn">{t('nav.practice', { ns: 'common' })}</Link></li>
+      <li><Link to={ROUTES.pastPapers(subject)} className="foma-btn">{t('tools.pastPapers')}</Link></li>
     </ul>
   );
 }

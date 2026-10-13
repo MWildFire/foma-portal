@@ -46,6 +46,7 @@ export interface CaseStudy { id: string; subject: 'geo' | 'econ'; title: L; plac
 export interface PaperGuide {
   subject: SubjectId; paper: PaperId; part?: string; title: L; minutes: number; marks: number;
   structure: L; strategy: L; criteria?: L; commandTerms?: string[];
+  asked?: L;                     // what the exam asks: frequent topics, typical calculations, diagrams (shown on past papers)
   timedSets: { id: string; title: L; questionIds: string[]; minutes: number }[];
 }
 // A past IB paper the portal links to (content/<s>/**/pastpapers.ts, export const pastPapers). Links and our own guide

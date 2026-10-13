@@ -23,11 +23,17 @@ export interface QuestionProgress {
   at: string;        // ISO date
 }
 
+export interface PastPaperProgress {
+  solved?: string;                  // ISO date when the paper was marked solved
+  scores?: Record<string, number>;  // marks the student gave each item, by its index in the paper: '0', '1', …
+}
+
 export interface GlobalState {
   version: typeof STORAGE_SCHEMA_VERSION;
   topics: Record<string, TopicProgress>;       // key: `${subject}/${topicId}`
   terms: Record<string, TermProgress>;         // key: `${subject}/${termId}`
   questions: Record<string, QuestionProgress>; // key: `${subject}/${questionId}`
+  pastPapers: Record<string, PastPaperProgress>; // key: `${subject}/${pastPaperId}`
   blocks: Record<string, string>;              // plan block id -> ISO date when done
   settings: {
     accessArrangements: { extraTime: boolean; separateRoom: boolean };
@@ -41,6 +47,7 @@ export function emptyState(): GlobalState {
     topics: {},
     terms: {},
     questions: {},
+    pastPapers: {},
     blocks: {},
     settings: {
       accessArrangements: { extraTime: false, separateRoom: false },
@@ -84,6 +91,20 @@ function questionOf(value: unknown): QuestionProgress | null {
   return { rating: value.rating, at: value.at };
 }
 
+function pastPaperOf(value: unknown): PastPaperProgress | null {
+  if (!isRecord(value)) return null;
+  const out: PastPaperProgress = {};
+  if (typeof value.solved === 'string') out.solved = value.solved;
+  if (isRecord(value.scores)) {
+    const scores: Record<string, number> = {};
+    for (const [item, score] of Object.entries(value.scores)) {
+      if (typeof score === 'number' && Number.isFinite(score) && score >= 0) scores[item] = Math.round(score);
+    }
+    out.scores = scores;
+  }
+  return out;
+}
+
 function loadOf(raw: unknown): Partial<Record<Weekday, number>> {
   const out: Partial<Record<Weekday, number>> = {};
   if (!isRecord(raw)) return out;
@@ -101,6 +122,7 @@ export function normalizeState(raw: unknown): GlobalState {
   state.topics = mapRecord(raw.topics, topicOf);
   state.terms = mapRecord(raw.terms, termOf);
   state.questions = mapRecord(raw.questions, questionOf);
+  state.pastPapers = mapRecord(raw.pastPapers, pastPaperOf);
   state.blocks = mapRecord(raw.blocks, value => (typeof value === 'string' ? value : null));
   const settings = isRecord(raw.settings) ? raw.settings : {};
   const access = isRecord(settings.accessArrangements) ? settings.accessArrangements : {};

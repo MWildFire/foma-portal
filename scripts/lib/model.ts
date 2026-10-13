@@ -51,6 +51,7 @@ export interface PaperGuide {
   part?: string;
   minutes?: number;
   timedSets?: TimedSet[];
+  asked?: LText;
 }
 
 // A task the teacher set (Assignment in src/contract/types.ts). Read defensively, like the rest.
