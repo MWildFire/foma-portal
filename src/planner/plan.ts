@@ -451,7 +451,10 @@ export function buildPlan(input: PlannerInput): Plan {
       const len = (shares.get(exam.id) ?? 0) * STEP;
       if (len <= 0) continue;
       const id = paperBlockId(date, exam.id);
-      out.push({ id, kind: 'paper', subject, date, minutes: len, ...doneStatus(id), route: ROUTES.paper(subject, exam.paper), paper: exam.paper, examId: exam.id });
+      out.push({
+        id, kind: 'paper', subject, date, minutes: len, ...doneStatus(id), route: ROUTES.paper(subject, exam.paper),
+        paper: exam.paper, examId: exam.id, ...(exam.part ? { part: exam.part } : {}),
+      });
     }
     return out;
   }

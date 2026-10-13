@@ -111,6 +111,7 @@ export interface PlanBlock {
   last?: boolean;                 // first-pass slice that finishes the topic
   totalMinutes?: number;          // first-pass: planned minutes of the whole topic
   paper?: PaperId;
+  part?: string;                  // 'reading' | 'listening' for French P2
   examId?: string;
   note?: string;                  // text from plan-quotas.json (English)
   rag?: Rag;                      // current confidence of the topic
