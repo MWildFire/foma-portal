@@ -1,7 +1,4 @@
 import type { L, Lang } from '../../contract/types';
-// Node runs this file unbundled in the tests, so the import names the .ts file. tsconfig.json has
-// allowImportingTsExtensions off; the directive below silences its TS5097 error.
-// @ts-expect-error TS5097
 import { shuffle } from './shuffle.ts';
 
 export { shuffle };
