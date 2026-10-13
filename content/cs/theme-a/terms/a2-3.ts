@@ -1,0 +1,128 @@
+import type { Term } from '../../../../src/contract/types';
+
+export const terms: Term[] = [
+  {
+    id: 'a2-3-ip-address',
+    term: { en: 'IP address', ru: 'IP-адрес (IP address)' },
+    def: {
+      en: 'A unique numerical label given to each device on a network that runs the Internet Protocol. IPv4 addresses are 32 bits long and IPv6 addresses are 128 bits long.',
+      ru: 'Уникальная числовая метка, которая присваивается каждому устройству в сети, работающей по протоколу IP. Адрес IPv4 имеет длину 32 бита, адрес IPv6 — 128 бит.',
+    },
+    syllabus: 'A2.3',
+    papers: ['P1'],
+    src: { kind: 'textbook', title: 'Oxford IB DP Computer Science Course Companion (2025)', locator: 'ch. A2.3, p. 144' },
+    example: { en: 'IPv4: 192.168.1.1. IPv6: 2001:0db8:85a3:0000:0000:8a2e:0370:7334.', ru: 'Пример IPv4: 192.168.1.1. Пример IPv6: 2001:0db8:85a3:0000:0000:8a2e:0370:7334.' },
+    pitfall: { en: 'An IPv4 address has four segments from 0 to 255, so it cannot be written with a letter or a value above 255.', ru: 'Адрес IPv4 состоит из четырёх частей от 0 до 255, поэтому в нём не бывает букв и чисел больше 255.' },
+  },
+  {
+    id: 'a2-3-public-ip',
+    term: { en: 'Public IP address', ru: 'публичный IP-адрес (public IP address)' },
+    def: {
+      en: 'An address that is unique across the whole internet and is given to devices that connect to it directly, such as web and email servers.',
+      ru: 'Адрес, уникальный во всём интернете, который выдаётся устройствам, подключённым к нему напрямую, например веб- и почтовым серверам.',
+    },
+    syllabus: 'A2.3',
+    papers: ['P1'],
+    src: { kind: 'textbook', title: 'Oxford IB DP Computer Science Course Companion (2025)', locator: 'ch. A2.3, p. 145' },
+    pitfall: { en: 'Two devices on different private networks can share the same private address, but no two devices can share a public one at the same time.', ru: 'Два устройства в разных частных сетях могут иметь один и тот же частный адрес, но одновременно один публичный адрес не могут иметь два устройства.' },
+  },
+  {
+    id: 'a2-3-private-ip',
+    term: { en: 'Private IP address', ru: 'частный IP-адрес (private IP address)' },
+    def: {
+      en: 'An address used inside a local network that is not routed on the internet, so the same private ranges can be reused in many separate networks.',
+      ru: 'Адрес, который используется внутри локальной сети и не маршрутизируется в интернете, поэтому одни и те же частные диапазоны можно повторно использовать во многих отдельных сетях.',
+    },
+    syllabus: 'A2.3',
+    papers: ['P1'],
+    src: { kind: 'textbook', title: 'Oxford IB DP Computer Science Course Companion (2025)', locator: 'ch. A2.3, p. 145' },
+    example: { en: '192.168.1.1 is a common private address for a home router.', ru: '192.168.1.1 — распространённый частный адрес домашнего роутера.' },
+  },
+  {
+    id: 'a2-3-nat',
+    term: { en: 'Network address translation (NAT)', ru: 'трансляция сетевых адресов (network address translation, NAT)' },
+    def: {
+      en: 'A method, usually run by a router, that maps many private IP addresses to one or a few public addresses and keeps a table so that replies reach the right device.',
+      ru: 'Метод, который обычно выполняет роутер: он сопоставляет множество частных IP-адресов одному или нескольким публичным и ведёт таблицу, чтобы ответы попадали на нужное устройство.',
+    },
+    syllabus: 'A2.3',
+    papers: ['P1'],
+    src: { kind: 'textbook', title: 'Oxford IB DP Computer Science Course Companion (2025)', locator: 'ch. A2.3, p. 146' },
+    pitfall: { en: 'NAT does not give each device its own public address. It shares one address among many devices.', ru: 'NAT не выдаёт каждому устройству собственный публичный адрес. Он делит один адрес между многими устройствами.' },
+  },
+  {
+    id: 'a2-3-static-ip',
+    term: { en: 'Static IP address', ru: 'статический IP-адрес (static IP address)' },
+    def: {
+      en: 'An IP address that is assigned permanently to a device, is configured by hand and does not change.',
+      ru: 'IP-адрес, который навсегда закреплён за устройством, настраивается вручную и не меняется.',
+    },
+    syllabus: 'A2.3',
+    papers: ['P1'],
+    src: { kind: 'textbook', title: 'Oxford IB DP Computer Science Course Companion (2025)', locator: 'ch. A2.3, p. 146' },
+    example: { en: 'The address of a school web server that must always be found at the same place.', ru: 'Адрес школьного веб-сервера, который всегда должен находиться по одному и тому же адресу.' },
+  },
+  {
+    id: 'a2-3-dynamic-ip',
+    term: { en: 'Dynamic IP address', ru: 'динамический IP-адрес (dynamic IP address)' },
+    def: {
+      en: 'An IP address that is leased to a device for a limited time, usually when it connects, typically from a pool managed by a DHCP server.',
+      ru: 'IP-адрес, который выдаётся устройству на ограниченное время, обычно при подключении, как правило из пула, которым управляет DHCP-сервер.',
+    },
+    syllabus: 'A2.3',
+    papers: ['P1'],
+    src: { kind: 'textbook', title: 'Oxford IB DP Computer Science Course Companion (2025)', locator: 'ch. A2.3, p. 146' },
+    pitfall: { en: 'A dynamic address can change between sessions, so it is a poor choice for a server that others must find.', ru: 'Динамический адрес может меняться между сессиями, поэтому он плохо подходит для сервера, который другие должны находить.' },
+  },
+  {
+    id: 'a2-3-attenuation',
+    term: { en: 'Attenuation', ru: 'затухание (attenuation)' },
+    def: {
+      en: 'The loss of signal strength as a signal travels along a transmission medium, which limits how far a cable or wireless link can carry data.',
+      ru: 'Потеря силы сигнала по мере его движения по среде передачи, которая ограничивает расстояние, на котором кабель или беспроводная связь могут передавать данные.',
+    },
+    syllabus: 'A2.3',
+    papers: ['P1'],
+    src: { kind: 'textbook', title: 'Oxford IB DP Computer Science Course Companion (2025)', locator: 'ch. A2.3, p. 148' },
+    example: { en: 'Copper cables need repeaters over long distances, while fibre-optic cables lose far less signal over the same distance.', ru: 'Медным кабелям на больших расстояниях нужны репитеры, а оптоволокно на том же расстоянии теряет гораздо меньше сигнала.' },
+  },
+  {
+    id: 'a2-3-packet-switching',
+    term: { en: 'Packet switching', ru: 'коммутация пакетов (packet switching)' },
+    def: {
+      en: 'A way of sending data in which the data is split into packets that are routed independently across the network and reassembled at the destination.',
+      ru: 'Способ передачи данных, при котором данные делятся на пакеты, которые независимо маршрутизируются по сети и собираются в пункте назначения.',
+    },
+    syllabus: 'A2.3',
+    papers: ['P1'],
+    src: { kind: 'textbook', title: 'Oxford IB DP Computer Science Course Companion (2025)', locator: 'ch. A2.3, p. 149' },
+    example: { en: 'A file sent over the internet arrives as many packets that may take different routes.', ru: 'Файл, отправленный через интернет, приходит множеством пакетов, которые могут идти разными путями.' },
+    pitfall: { en: 'Packets can arrive out of order. The sequence numbers in their headers put them back in order.', ru: 'Пакеты могут прийти не по порядку. Порядковые номера в их заголовках возвращают их в правильную последовательность.' },
+  },
+  {
+    id: 'a2-3-static-routing',
+    term: { en: 'Static routing', ru: 'статическая маршрутизация (static routing)' },
+    def: {
+      en: 'Routes are entered into each router by an administrator. They stay the same until someone edits them, so the network does not react to failures by itself.',
+      ru: 'Маршруты вводит в каждый роутер администратор. Они остаются прежними, пока их не изменят вручную, поэтому сеть сама не реагирует на отказы.',
+    },
+    syllabus: 'A2.3',
+    papers: ['P1'],
+    src: { kind: 'textbook', title: 'Oxford IB DP Computer Science Course Companion (2025)', locator: 'ch. A2.3, p. 152' },
+    example: { en: 'A small office router with one hard-coded route to the internet.', ru: 'Роутер маленького офиса с одним жёстко заданным маршрутом в интернет.' },
+    pitfall: { en: 'A failed link stays in a static table until someone edits it by hand.', ru: 'Отказавший канал остаётся в статической таблице, пока кто-то не исправит её вручную.' },
+  },
+  {
+    id: 'a2-3-dynamic-routing',
+    term: { en: 'Dynamic routing', ru: 'динамическая маршрутизация (dynamic routing)' },
+    def: {
+      en: 'Routers learn and update their routes automatically by exchanging information through routing protocols, such as RIP, OSPF or BGP.',
+      ru: 'Роутеры сами узнают маршруты и обновляют их, обмениваясь информацией по протоколам маршрутизации, например RIP, OSPF или BGP.',
+    },
+    syllabus: 'A2.3',
+    papers: ['P1'],
+    src: { kind: 'textbook', title: 'Oxford IB DP Computer Science Course Companion (2025)', locator: 'ch. A2.3, p. 152' },
+    example: { en: 'Routers running OSPF recalculate their paths when a link fails.', ru: 'Роутеры, работающие по OSPF, пересчитывают пути при отказе канала.' },
+    pitfall: { en: 'Routers need time (convergence) to agree on new routes after a change, so performance can dip during that period.', ru: 'Роутерам нужно время (сходимость, convergence), чтобы согласовать новые маршруты после изменения, поэтому в этот период производительность может падать.' },
+  },
+];

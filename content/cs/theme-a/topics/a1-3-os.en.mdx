@@ -1,0 +1,71 @@
+## Big idea
+
+<Term id="a1-3-os"/> stands between people, programs and hardware. It hides device detail, shares the CPU and memory among many running programs, and stops them from interfering with each other. Control systems use similar ideas outside the computer: a sensor measures, a controller decides, an actuator acts, and feedback corrects the result.
+
+## Explanation
+
+**The OS as an intermediary (A1.3.1).** Programs do not control the disk, the network card or the screen directly. They ask the OS, which talks to the hardware through device drivers. This is abstraction: intricate details are hidden behind a simpler interface, so a programmer can save a file without knowing where its blocks sit on the disk. The OS manages the CPU, memory, storage, input and output, the network stack and power, and it provides the user interface.
+**Functions (A1.3.2).** A <Term id="a1-3-process"/> is one running program with its own memory, CPU time and open files. The OS tracks each process's state (new, ready, running, blocked or terminated), its priority and its resources. It also allocates memory and keeps processes isolated, organises files in a file system, handles devices through drivers and their interrupts, and enforces security with access control, encryption, firewalls and sandboxing. Accounting logs resource use, and a hypervisor can run several virtual machines on one computer.
+
+**Scheduling (A1.3.3).** <Term id="a1-3-scheduling"/> decides which ready process runs next and for how long. The syllabus names four approaches:
+
+- First-come, first-served (FCFS) runs processes in arrival order. It is simple, but a long job can delay short ones (the convoy effect).
+- Round robin gives each process a fixed time slice, called the quantum, in turn. A quantum that is too short causes many context switches; one that is too long behaves like FCFS.
+- Multilevel queue keeps separate queues, for example for system and user processes, each with its own algorithm.
+- Priority scheduling always runs the highest-priority process. With <Term id="a1-3-preemption"/>, a higher-priority arrival interrupts the running process. Low-priority work can suffer <Term id="a1-3-starvation"/>; ageing, which gradually raises the priority of a waiting process, prevents it.
+
+Efficiency is judged by throughput, turnaround time, waiting time, response time and CPU utilization. Fairness means every process gets a fair share of the CPU.
+
+**Polling and interrupts (A1.3.4).** With an <Term id="a1-3-interrupt"/>, a device signals the CPU, which saves its state, runs an interrupt service routine and then resumes. With <Term id="a1-3-polling"/>, the CPU checks each device in a loop. Polling is simple and can be acceptable for rare, predictable events, but it wastes cycles and drains batteries. Interrupts give fast, controlled response and let battery devices sleep, yet they add context-switching overhead and can be flooded to overload the CPU. Interrupts suit keyboards, mice, network cards, disk I/O, embedded sensors and real-time systems.
+
+**Multitasking and resource allocation (A1.3.5).** <Term id="a1-3-multitasking"/> lets one CPU serve many processes by giving each a turn. Context switching saves the registers and memory pointers of the running process and loads those of the next one, in microseconds, which creates the illusion of simultaneous execution. Resource allocation shares memory, devices and files. Problems include resource contention (several processes want the same resource at once), deadlock (a circular wait in which none can continue), livelock (processes keep requesting and releasing resources without progress) and thrashing (pages constantly swapped in and out). The OS can detect deadlock and recover by ending a process or taking a resource back, or avoid it by refusing requests that could form a cycle.
+
+**Control systems (A1.3.6).** A <Term id="a1-3-control-system"/> regulates another system through a control loop. The IPO model describes it: the input is a set value and sensor data; the process is the controller comparing the desired and measured values and running a control algorithm; the output is the actual behaviour, produced by actuators; and <Term id="a1-3-feedback"/> measures the output and returns it to the input. An open-loop system runs a fixed sequence without measuring the result. A closed-loop system keeps correcting itself. The main components are the <Term id="a1-3-sensor"/>, which measures a physical quantity and converts it into a signal; the controller, often a PLC or microcontroller; actuators such as motors, valves and heaters; transducers, which change energy or a signal from one form to another; and the control algorithm, such as PID, which uses the error, its accumulated sum and its rate of change.
+
+<Callout kind="tip">Describe a control system in the order input, process, output, feedback. Then say whether the loop is closed.</Callout>
+
+**Real-world uses (A1.3.7).** Autonomous vehicles fuse lidar, radar, camera and ultrasonic data and act through steering, throttle and brakes. Thermostats use temperature sensors and relays; elevators use position sensors, call buttons and motors; washing machines use water-level and weight sensors; traffic signals use road loops and cameras; irrigation uses soil-moisture sensors and solenoid valves; home security uses motion and door sensors with a control panel; automatic doors use motion sensors and motors, with light curtains for safety.
+
+## Worked example
+
+A single CPU receives three processes at time 0, in the order P1 (5 ms), P2 (3 ms) and P3 (8 ms). The scheduler is first-come, first-served and non-pre-emptive. Calculate the average waiting time.
+
+<Steps>
+<Step>P1 starts at 0 ms, so its waiting time is 0 ms.</Step>
+<Step>P2 starts when P1 finishes at 5 ms, so its waiting time is 5 ms.</Step>
+<Step>P3 starts when P2 finishes at 8 ms, so its waiting time is 8 ms.</Step>
+<Step>The total waiting time is $0 + 5 + 8 = 13$ ms, so the average is $\frac{13}{3} \approx 4.33$ ms.</Step>
+</Steps>
+
+## Visual
+
+Open the [Operating systems lab](/cs-lab/a1-3-os.html) and follow the scheduling and multitasking diagrams while you read this topic.
+
+## How it is examined
+
+<Callout kind="exam">The book's command-term table (p. 602–603) links each term to an assessment objective (AO). Define, Label, List and State are AO1. Calculate, Describe, Distinguish, Estimate, Identify and Outline are AO2. Compare, Discuss, Evaluate, Explain, Justify and Suggest are AO3. The marks belong to each question, not to the command term: read the mark total in brackets and give one distinct, correct point for each mark. Calculate needs every stage of the working. Compare asks for an account of the similarities, referring to both items throughout.</Callout>
+
+## Common mistakes
+
+<Callout kind="mistake">Starvation is not deadlock. Starvation means a process keeps losing out because others keep winning. Deadlock is a circular wait in which nothing can move.</Callout>
+
+<Callout kind="mistake">Interrupts are not always better. Polling can be simpler for rare, predictable events, and a flood of interrupts can overload the CPU.</Callout>
+
+## Check yourself
+
+Try these before you check your answers.
+
+<Question id="a1-3-q04"/>
+
+<Question id="a1-3-q06"/>
+
+<Question id="a1-3-q08"/>
+
+<Reveal title="Hint for the calculation">Each process starts when the previous one finishes, so the waiting time of a process is the sum of the bursts before it.</Reveal>
+
+## Summary
+
+- The OS hides hardware detail, manages resources and keeps processes apart.
+- FCFS is simple but can delay short jobs. Round robin shares time in slices. Priority scheduling can cause starvation unless ageing is used.
+- Interrupts react to events as they happen. Polling checks on a schedule and wastes CPU time when events are rare.
+- A control system uses the IPO model and feedback. A closed loop corrects itself; an open loop does not.

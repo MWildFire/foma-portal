@@ -1,0 +1,97 @@
+## Big idea
+
+A database is only as reliable as its design. The schema shows which tables exist and how they link, and normalization keeps each fact in one place. A well-designed database can be added to, updated and cleaned without contradictions. In exam answers, name the structure, dependency or anomaly, then show the result.
+
+## Explanation
+
+### Schema levels
+
+A database schema <Term id="a3-2-schema"/> is a blueprint. It names the entities, attributes and relationships and states the rules for the data, but it holds no records. The schema is described at three levels, from the least to the most detailed. The conceptual schema <Term id="a3-2-conceptual-schema"/> shows only the entities and the relationships between them. The logical schema <Term id="a3-2-logical-schema"/> adds the attributes of each entity and the primary and foreign keys that connect them. The physical schema <Term id="a3-2-physical-schema"/> adds data types and describes how the data is stored, for example in files and indexes.
+
+### Entity relationship diagrams
+
+An entity relationship diagram (ERD) <Term id="a3-2-erd"/> is the standard way to plan a schema. To construct one:
+
+1. Decide which level you need: conceptual, logical or physical.
+2. Identify the entities (nouns, drawn as rectangles) and their attributes.
+3. Identify the relationships, labelled with verbs such as "leads" or "uses".
+4. Identify the cardinality: one-to-many, one-to-one or many-to-many.
+5. Identify the modality: must each side exist (mandatory), or may it be absent (optional)?
+
+Cardinality <Term id="a3-2-cardinality"/> is shown on the link. Modality is shown too: a school trip must have one teacher in charge, but a teacher may be in charge of no trips, so the trip side is mandatory and the teacher side optional. Relationships are read in one direction only. The Chen, crow's foot and Barker notations show the same structure with different symbols. A many-to-many link cannot be stored directly in a relational database. It is split into two one-to-many links through a junction table that holds both foreign keys.
+
+### Data types
+
+Every field has a data type <Term id="a3-2-data-type"/>, which decides what values the field can hold and which operations are valid on it. The book uses MySQL types in three groups. String types include CHAR(n) for fixed length, VARCHAR(n) for variable length, TEXT for long text, and ENUM or SET for values taken from a list. Numeric types include BIT, BOOL, INT and FLOAT. Date and time types include DATE, DATETIME, TIMESTAMP, TIME and YEAR. Use CHAR when the length never changes, such as a six-character code, and VARCHAR for names and addresses.
+
+### Anomalies and normalization
+
+A poorly designed table suffers from anomalies <Term id="a3-2-anomaly"/>. An insert anomaly stops you adding one fact without another, unrelated, fact. An update anomaly means a change must be repeated in every copy. A deletion anomaly means that removing one row also removes facts that were stored only there. Normalization <Term id="a3-2-normalization"/> removes these problems by moving each fact into the table it belongs to, so that every non-key attribute depends on the whole key.
+
+Normalization runs in three steps:
+
+- First normal form (1NF): every cell holds one atomic value, and repeating groups move to a new table with its own key.
+- Second normal form (2NF): a partial dependency <Term id="a3-2-partial-dependency"/>, where an attribute depends on only part of a composite key, moves to its own table.
+- Third normal form (3NF): a transitive dependency <Term id="a3-2-transitive-dependency"/>, where an attribute depends on another non-key attribute, moves to its own table.
+
+The syllabus requires 3NF, so always work through every step.
+
+### Keys and cascades
+
+A primary key identifies each row, a foreign key points to another table's primary key, and a composite key uses several fields together. Delete cascade removes related rows along with their parent, and update cascade changes foreign keys when a primary key changes. Both protect integrity, but delete cascade can remove more data than intended.
+
+### Denormalization
+
+Denormalization <Term id="a3-2-denormalization"/> stores related data together again on purpose. It suits systems that read far more than they write, such as a social media feed, because queries need fewer joins. The price is repeated values, harder updates and more storage. It is a trade-off made after normalization, not a shortcut.
+
+## Worked example
+
+Normalize a playlist table with the key (PlaylistID, SongID) and the fields PlaylistName, SongTitle, ArtistID, ArtistName and ArtistCountry.
+
+<Steps>
+<Step>Check 1NF. Every cell holds one value and nothing repeats, so the table is already in 1NF.</Step>
+<Step>Remove partial dependencies. PlaylistName depends only on PlaylistID, so it moves to PLAYLIST. SongTitle and ArtistID depend only on SongID, so they move to SONG. The link table PLAYLIST_SONG keeps PlaylistID and SongID as a composite key.</Step>
+<Step>Remove transitive dependencies. ArtistName and ArtistCountry depend on ArtistID, which is not the key, so they move to ARTIST. SONG keeps ArtistID as a foreign key.</Step>
+</Steps>
+
+<Reveal title="Final 3NF tables">PLAYLIST(PlaylistID, PlaylistName); SONG(SongID, SongTitle, ArtistID (FK)); ARTIST(ArtistID, ArtistName, ArtistCountry); PLAYLIST_SONG(PlaylistID (FK), SongID (FK)). Show the primary key of each table and mark every foreign key.</Reveal>
+
+## Visual
+
+Use the [Database design lab](/cs-lab/a3-2-design.html) to step a flat table through 1NF, 2NF and 3NF and to see how a many-to-many link is split by a junction table.
+
+## How it is examined
+
+These command terms recur in exam questions on this topic. A full answer needs the following.
+
+- Describe: an account of a schema level or feature, with several linked points.
+- Construct: an ERD or a set of normalized tables, with keys shown and every step correct.
+- Explain: the mechanism and the reason, linked with "because" or "so that".
+- Distinguish: a clear difference between two items, point by point.
+- Outline: the main points briefly, such as the three groups of data types.
+- Suggest: a sensible option, such as a data type for a postcode, with a reason.
+- Evaluate: the advantages and disadvantages of denormalization, then a supported judgement.
+
+<Callout kind="exam">A full answer to a normalization question names each step (1NF, 2NF, 3NF), the dependency that triggers it, and the final tables with their keys.</Callout>
+
+## Common mistakes
+
+<Callout kind="mistake">Stopping at 1NF or 2NF. The syllabus requires 3NF, and transitive dependencies are the step most often missed.</Callout>
+
+<Callout kind="mistake">Calling every dependency partial. A partial dependency needs a composite key. If the key has one field, the problem is a transitive dependency.</Callout>
+
+<Callout kind="mistake">Storing a postcode or a code as INT. Leading zeros are lost, so codes that are never calculated belong in CHAR or VARCHAR.</Callout>
+
+## Check yourself
+
+Try these before you open the mark schemes.
+
+<Question id="a3-2-q01"/>
+<Question id="a3-2-q02"/>
+<Question id="port-a3-2-q1b"/>
+
+## Summary
+
+A schema has three levels, and an ERD shows entities, relationships, cardinality and modality. Normalization removes anomalies in three steps: 1NF removes repeating groups, 2NF removes partial dependencies and 3NF removes transitive dependencies. Denormalization trades some of that protection for faster reads.
+
+<Callout kind="tip">Write each table with its key before you move to the next normalization step. This makes errors easy to spot.</Callout>

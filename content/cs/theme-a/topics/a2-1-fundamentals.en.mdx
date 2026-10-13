@@ -1,0 +1,91 @@
+## Big idea
+
+Networks let devices share data and resources. In the exam you must classify a network by its scope, know what each device and protocol does, and follow a message through the four TCP/IP layers. Precise definitions earn the marks.
+
+## Explanation
+
+### Types of network
+
+A local area network (LAN) <Term id="a2-1-lan"/> links devices across a small area, such as one school, office or hospital, and usually covers about a kilometre at most. It has high data transfer rates and low latency, and it is mainly used to share files, printers and applications among local users.
+
+A wide area network (WAN) <Term id="a2-1-wan"/> joins smaller networks across cities, countries or continents. It has lower transfer rates and higher latency than a LAN, but it keeps data moving over very long distances, often through leased lines or VPN tunnels.
+
+A personal area network (PAN) covers about ten metres around one person, linking phones, watches and earbuds through Bluetooth or Wi-Fi Direct. A virtual private network (VPN) <Term id="a2-1-vpn"/> stretches a private network over the public internet inside an encrypted tunnel, so a remote worker can use office files as if on site.
+
+### Modern infrastructure
+
+Infrastructure is the basic physical and virtual base that carries digital data. The internet is a worldwide network of devices that exchange data through standard protocols; its limitations include bandwidth that falls with distance and congestion, and security risks.
+
+Cloud computing <Term id="a2-1-cloud-computing"/> gives scalable, on-demand access to remote servers over the internet, so schools need not buy servers they use only part of the time. Its limitations are the need for a reliable connection, the risk to sensitive data stored off-site and the cost of large data transfers.
+
+Distributed systems are networks of independent computers, called nodes, that appear to users as one system. They keep working when one node fails, but they are harder to coordinate and more exposed to attack. Edge computing processes data near its source to cut latency. Mobile networks give wireless coverage and hand connections over between cells, but they can have dead zones and congestion.
+
+### Network devices
+
+A router <Term id="a2-1-router"/> moves packets between networks: it reads the destination IP address, checks its routing table and forwards the packet to the next hop. A switch <Term id="a2-1-switch"/> works inside one LAN: it reads the destination MAC address and sends each frame only to the port where that device is connected.
+
+Other devices matter too. A gateway joins networks that use different protocols, a modem converts digital data into analogue signals, a network interface card (NIC) carries the device’s MAC address, a wireless access point (WAP) turns Ethernet data into radio signals, and a hardware firewall filters packets.
+
+### Protocols
+
+A network protocol <Term id="a2-1-protocol"/> is an agreed set of rules that controls how data is packaged, sent, received and checked. TCP is connection-oriented and reliable: it uses a three-way handshake, acknowledgements and retransmission. UDP has no connection setup, so it is faster and suits video streaming, online games and voice calls, where small losses are acceptable.
+
+HTTP is a stateless request/response protocol for web pages, so sessions need cookies or similar mechanisms; HTTPS adds encryption through TLS. Dynamic host configuration protocol (DHCP) <Term id="a2-1-dhcp"/> gives a device an IP address and the other settings it needs when it joins a network.
+
+### Addresses and the TCP/IP model
+
+An IP address <Term id="a2-1-ip-address"/> is a 32-bit number written as four 8-bit octets in dotted decimal form, such as 192.168.1.1. A subnet mask <Term id="a2-1-subnet-mask"/> divides the address into a network part and a host part: binary 1s mark the network bits. A MAC address <Term id="a2-1-mac-address"/> is a 48-bit hexadecimal number fixed to a network card and used only on its local network. The broadcast address, with all host bits set to 1, reaches every device on its network.
+
+The TCP/IP model <Term id="a2-1-tcp-ip-model"/> has four layers. The application layer offers protocols such as HTTP, SMTP, DNS and DHCP. The transport layer uses TCP or UDP and port numbers to deliver data between applications. The internet layer packages segments into IP packets and routes them. The network interface layer deals with cables, signals, frames and MAC addresses. Data moves down the layers when it is sent and up when it is received.
+
+## Worked example
+
+Two computers on a school network have the IP addresses 192.168.1.37 (computer X) and 192.168.2.19 (computer Y). Both use the subnet mask 255.255.255.0. Decide whether X can send a frame straight to Y on its local network.
+
+<Steps>
+<Step>Read the mask. The value $255$ in an octet is eight 1s, so the first three octets are network bits and the last octet holds the host bits.</Step>
+<Step>Compare the network parts. The network of X is 192.168.1.0 and the network of Y is 192.168.2.0. They are different.</Step>
+<Step>Conclude. The computers are on different networks, so X sends the packet to its default gateway, a router, which forwards it towards 192.168.2.0. The frame carries the router’s MAC address, not the MAC address of Y.</Step>
+</Steps>
+
+## Visual
+
+Open the [Network fundamentals lab](/cs-lab/a2-1-fundamentals.html) and follow one web request step by step down the four TCP/IP layers and back up again.
+
+## How it is examined
+
+The textbook’s command-term table places State at AO1 (knowledge), Describe, Outline, Distinguish, Identify and Calculate at AO2 (application), and Compare, Discuss, Explain and Evaluate at AO3 (analysis and judgement). The AO describes the thinking the term needs, not a mark value. What a full answer needs:
+
+- Define: one precise sentence with the key elements of the term.
+- State: one fact, name or value, with no explanation.
+- Outline: a brief summary without reasons.
+- Describe: a detailed account with several linked points.
+- Distinguish: a clear contrast on each point for both items, not two separate lists.
+- Explain: a reason or consequence, linked with "because" or "so that".
+- Discuss: both sides and a supported conclusion.
+- Calculate: each step shown, because a bare number can lose marks.
+
+<Callout kind="exam">Discuss and Evaluate reward a judgement. Mark schemes credit a balanced answer, not a one-sided list.</Callout>
+
+## Common mistakes
+
+<Callout kind="mistake">Calling a WAN a “big LAN”. A WAN joins several smaller networks across a large area and is usually slower, with higher latency.</Callout>
+
+<Callout kind="mistake">Saying that a switch forwards data by IP address inside a LAN. A switch uses MAC addresses; a router uses IP addresses between networks.</Callout>
+
+<Callout kind="mistake">Assuming the MAC address stays the same across the journey. Each hop uses the next device’s MAC address, while the IP addresses stay the same unless NAT rewrites them.</Callout>
+
+## Check yourself
+
+Try these questions before you open the mark schemes.
+
+<Question id="port-a2-1-q3a"/>
+<Question id="port-a2-1-4-q4"/>
+<Question id="a2-1-q01"/>
+<Question id="a2-1-q02"/>
+
+## Summary
+
+LAN and WAN differ in scope, speed and latency; a VPN extends a private network securely. Routers move packets by IP address, and switches move frames by MAC address. TCP is reliable, UDP is fast, HTTPS adds encryption and DHCP assigns addresses. The subnet mask defines the network part of an address, and the TCP/IP model has four layers.
+
+<Callout kind="tip">Name the layer or device first, then say what it does with the data. This structure fits most Describe and Explain questions.</Callout>

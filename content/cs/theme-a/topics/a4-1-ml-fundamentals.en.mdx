@@ -1,0 +1,75 @@
+## Big idea
+
+Machine learning lets a computer improve at a task by learning patterns from data instead of following written rules. The type of learning depends on whether the data has labels and on what the output looks like, while the hardware depends on the scenario: development, training, large-scale deployment or edge use. A strong answer names the type, justifies it from the data and the task, and matches the hardware to the scenario.
+
+## Explanation
+
+### Machine learning and deep learning
+
+Machine learning <Term id="a4-1-machine-learning"/> is a subfield of artificial intelligence (AI). Its algorithms learn from examples, so performance improves with more data and practice. Deep learning <Term id="a4-1-deep-learning"/> is a subset of machine learning that uses neural networks with many layers. Each layer builds higher-level features from lower-level ones. The hierarchy is therefore AI, containing machine learning, containing deep learning.
+
+### Five types of machine learning
+
+The textbook presents five types. In supervised learning <Term id="a4-1-supervised"/>, the training data has labels, meaning a correct answer for each input. Its two main tasks are classification <Term id="a4-1-classification"/>, which predicts a category, and regression <Term id="a4-1-regression"/>, which predicts a continuous value. In unsupervised learning <Term id="a4-1-unsupervised"/>, the data has no labels; the most common method is cluster analysis, and market basket analysis finds items that are often bought together. In reinforcement learning <Term id="a4-1-reinforcement"/>, an agent acts in an environment and learns from rewards and penalties to maximise cumulative reward. It balances exploitation (using what works) with exploration (trying new actions). In transfer learning <Term id="a4-1-transfer"/>, a model trained on one task becomes the starting point for a related task, which saves data and time. Deep learning is often combined with the other types.
+
+### Choosing a paradigm
+
+Match the paradigm to the problem. Market basket analysis is unsupervised because no outcome is given. Medical imaging uses labelled scans with supervised, deep and transfer learning, and object detection uses labelled images with supervised and deep learning. Sentiment analysis and natural language processing use labelled text with deep learning and transfer learning. Robot navigation uses reinforcement learning for decisions and supervised learning to recognise obstacles. Ask three questions: are there labels, is the output a category or a number, and does the system learn from rewards?
+
+### Hardware for each scenario
+
+The textbook describes five scenarios. Development and testing need a standard laptop or desktop with a multi-core CPU; the book's configuration table gives 8 to 16 GB of RAM for such machines. Data processing and feature engineering need a high-performance workstation. Training deep models needs dedicated GPU servers <Term id="a4-1-gpu"/>, because GPUs perform many calculations at once. Large-scale deployment uses high-end servers or cloud platforms that scale on demand. Edge computing <Term id="a4-1-edge-computing"/> moves computation close to the data source, such as a phone or a car, on devices with limited memory and power.
+
+Specialised chips matter as well. An ASIC is a custom circuit built for one fixed task, so it is fast and efficient but inflexible. An FPGA can be reconfigured after manufacturing, which gives flexibility when requirements may change. TPUs are Google's custom ASICs for tensor calculations, and high-performance computing centres use thousands of processors in parallel for the largest tasks.
+
+## Worked example
+
+A hospital wants software that flags possible fractures in X-ray images. It has 2,000 labelled images and a model pre-trained on general images. Plan the choices.
+
+<Steps>
+<Step>Labels: each image is tagged as fracture or no fracture, so the task is supervised classification.</Step>
+<Step>Model: image data suggests a convolutional neural network, which is deep learning. Because a pre-trained model exists, use transfer learning and fine-tune it on the hospital's images.</Step>
+<Step>Training hardware: this is the model training scenario, so use a dedicated GPU server with one or more high-end GPUs.</Step>
+<Step>Deployment: if the scanner must give an answer on the spot without a network, use edge computing on a compact device. If images from many sites go to one service, use a high-end server or a cloud platform.</Step>
+</Steps>
+
+## Visual
+
+Study Figure 1 on printed page 237 and check that you can name all five types of machine learning, then match each type with one of the real-world examples on pages 239 to 245.
+
+## How it is examined
+
+The textbook's table of command terms (pp. 602–603) links each term to an assessment objective (AO1 to AO3). That describes the skill being tested; it is not a mark value. For this topic:
+
+- Define: state the precise meaning, for example of machine learning, with no explanation needed.
+- Identify: name the type, paradigm or device, without further explanation.
+- Distinguish: give a clear difference on the same point for both items, such as regression against classification.
+- Describe: explain how a type or device works, in several linked points.
+- Suggest: propose a paradigm or hardware for a scenario, with a reason for the choice.
+- Discuss: weigh the arguments, such as the privacy risks of unsupervised analysis, then give a supported judgement.
+
+<Callout kind="exam">A Distinguish answer must contrast both items on the same point. Two separate descriptions do not make a contrast.</Callout>
+
+## Common mistakes
+
+<Callout kind="mistake">Treating deep learning as a separate field. It is a subset of machine learning, which is a subfield of AI.</Callout>
+
+<Callout kind="mistake">Calling a task supervised when there are no labels. Without labels the paradigm is unsupervised, or reinforcement if an agent learns from rewards.</Callout>
+
+<Callout kind="mistake">Confusing regression with classification because the numbers look like labels. Regression predicts continuous values; classification predicts categories.</Callout>
+
+<Callout kind="mistake">Recommending a GPU server for an edge device, or an edge device for training a deep model. Match the hardware to the scenario.</Callout>
+
+## Check yourself
+
+Try these before you open the mark schemes.
+
+<Question id="a4-1-q01"/>
+<Question id="a4-1-q02"/>
+<Question id="port-a4-1-q4"/>
+
+## Summary
+
+Machine learning finds patterns in data. Supervised learning uses labels to predict categories or numbers, unsupervised learning finds structure without labels, reinforcement learning learns from rewards and penalties, and transfer learning reuses a trained model. Hardware follows the scenario: a laptop for development, GPUs for training, servers or cloud for large-scale use, and compact low-power devices for edge computing.
+
+<Callout kind="tip">Start every answer about a learning type with the labels and the type of output; they decide most of the answer.</Callout>

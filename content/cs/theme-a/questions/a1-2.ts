@@ -1,0 +1,152 @@
+import type { Question } from '../../../../src/contract/types';
+
+// A1.2 questions: original scenario questions (Paper 1, section A). Numeric answers were checked with python3.
+export const questions: Question[] = [
+  {
+    id: 'a1-2-q01',
+    subject: 'cs',
+    topicIds: ['a1-2-data-logic'],
+    paper: 'P1',
+    section: 'A',
+    marks: 2,
+    command: 'Define',
+    prompt: {
+      en: 'A laptop records a voice memo with a sampling rate of 44.1 kHz. Define the term sampling rate.',
+      ru: 'Ноутбук записывает голосовую заметку с частотой дискретизации 44,1 кГц. Дайте определение термина «частота дискретизации» (sampling rate).',
+    },
+    markscheme: {
+      en: '[1] the number of samples (amplitude measurements) taken per second. [1] measured in hertz (Hz).',
+      ru: '[1] число отсчётов (замеров амплитуды), которые берутся за одну секунду. [1] измеряется в герцах (Гц).',
+    },
+    origin: 'original',
+  },
+  {
+    id: 'a1-2-q02',
+    subject: 'cs',
+    topicIds: ['a1-2-data-logic'],
+    paper: 'P1',
+    section: 'A',
+    marks: 3,
+    command: 'Calculate',
+    prompt: {
+      en: 'A school archive stores uncompressed bitmap photographs. Each image is 800 × 600 pixels with 24-bit colour and has no file header. Calculate the size of one image in bytes. Show all stages of your working.',
+      ru: 'Школьный архив хранит несжатые растровые фотографии. Каждое изображение имеет размер 800 × 600 пикселей, глубина цвета 24 бита, заголовок файла не учитывается. Вычислите размер одного изображения в байтах. Покажите все этапы решения.',
+    },
+    markscheme: {
+      en: '[1] 800 × 600 = 480 000 pixels. [1] 480 000 × 24 = 11 520 000 bits. [1] 11 520 000 ÷ 8 = 1 440 000 bytes.',
+      ru: '[1] 800 × 600 = 480 000 пикселей. [1] 480 000 × 24 = 11 520 000 бит. [1] 11 520 000 ÷ 8 = 1 440 000 байт.',
+    },
+    answer: '1440000',
+    origin: 'original',
+  },
+  {
+    id: 'a1-2-q03',
+    subject: 'cs',
+    topicIds: ['a1-2-data-logic'],
+    paper: 'P1',
+    section: 'A',
+    marks: 3,
+    command: 'Calculate',
+    prompt: {
+      en: 'A 30-second mono voice memo is recorded at a sampling rate of 44.1 kHz with a bit depth of 16 bits. Calculate the uncompressed file size in bytes. Ignore any file header and show your working.',
+      ru: 'Моно-голосовая заметка длительностью 30 секунд записана с частотой дискретизации 44,1 кГц и битовой глубиной 16 бит. Вычислите размер несжатого файла в байтах. Заголовок файла не учитывайте, покажите ход решения.',
+    },
+    markscheme: {
+      en: '[1] number of samples = 44 100 × 30 = 1 323 000. [1] number of bits = 1 323 000 × 16 × 1 channel = 21 168 000 bits. [1] 21 168 000 ÷ 8 = 2 646 000 bytes.',
+      ru: '[1] число отсчётов = 44 100 × 30 = 1 323 000. [1] число бит = 1 323 000 × 16 × 1 канал = 21 168 000 бит. [1] 21 168 000 ÷ 8 = 2 646 000 байт.',
+    },
+    answer: '2646000',
+    origin: 'original',
+  },
+  {
+    id: 'a1-2-q04',
+    subject: 'cs',
+    topicIds: ['a1-2-data-logic'],
+    paper: 'P1',
+    section: 'A',
+    marks: 2,
+    command: 'Calculate',
+    prompt: {
+      en: 'A programmer finds the 8-bit pattern 11010110 in a memory dump. Convert it to hexadecimal, and then to denary. Show your working.',
+      ru: 'Программист находит в дампе памяти 8-битный шаблон 11010110. Переведите его в шестнадцатеричную систему, а затем в десятичную. Покажите ход решения.',
+    },
+    markscheme: {
+      en: '[1] split into nibbles 1101 and 0110, giving D and 6, so the hexadecimal value is D6. [1] D6 = 13 × 16 + 6 = 214 in denary.',
+      ru: '[1] разбиение на тетрады 1101 и 0110 даёт D и 6, то есть шестнадцатеричное значение D6. [1] D6 = 13 × 16 + 6 = 214 в десятичной системе.',
+    },
+    answer: 'D6 = 214',
+    origin: 'original',
+  },
+  {
+    id: 'a1-2-q05',
+    subject: 'cs',
+    topicIds: ['a1-2-data-logic'],
+    paper: 'P1',
+    section: 'A',
+    marks: 3,
+    command: 'Explain',
+    prompt: {
+      en: 'A thermostat stores each temperature as an 8-bit two’s complement integer. Explain why the value −5 can be stored in this format but the value 200 cannot.',
+      ru: 'Термостат хранит каждую температуру как 8-битное целое число в дополнительном коде (two’s complement). Объясните, почему значение −5 можно сохранить в этом формате, а значение 200 — нельзя.',
+    },
+    markscheme: {
+      en: '[1] an 8-bit two’s complement integer covers the range −128 to 127. [1] −5 lies inside this range, so it can be stored (as 11111011). [1] 200 is greater than 127, so it lies outside the range and cannot be stored in 8 bits.',
+      ru: '[1] 8-битное целое в дополнительном коде покрывает диапазон от −128 до 127. [1] −5 попадает в этот диапазон, поэтому его можно сохранить (как 11111011). [1] 200 больше 127, значит, оно вне диапазона и в 8 битах не помещается.',
+    },
+    origin: 'original',
+  },
+  {
+    id: 'a1-2-q06',
+    subject: 'cs',
+    topicIds: ['a1-2-data-logic'],
+    paper: 'P1',
+    section: 'A',
+    marks: 4,
+    command: 'Construct',
+    prompt: {
+      en: 'An alarm has three inputs: A (door sensor), B (window sensor) and C (manual reset). A value of 1 means the sensor is triggered or the reset is on. The output is Q = NOT (A AND B) OR C. Construct a truth table with eight rows in binary counting order from 000 to 111, including a column for NOT (A AND B) and a column for Q.',
+      ru: 'У сигнализации три входа: A (датчик двери), B (датчик окна) и C (ручной сброс). Значение 1 означает, что датчик сработал или сброс включён. Выход: Q = NOT (A AND B) OR C. Постройте таблицу истинности с восемью строками в порядке двоичного счёта от 000 до 111, с отдельными столбцами для NOT (A AND B) и для Q.',
+    },
+    markscheme: {
+      en: '[1] three input columns A, B and C with eight rows, counted in binary from 000 to 111. [1] correct NOT (A AND B) column: 1 for rows 000 to 101, and 0 for rows 110 and 111. [1] Q = 1 for each of the rows 000 to 101. [1] Q = 0 for row 110 and Q = 1 for row 111.',
+      ru: '[1] три столбца входов A, B и C и восемь строк в двоичном счёте от 000 до 111. [1] верный столбец NOT (A AND B): 1 в строках с 000 по 101 и 0 в строках 110 и 111. [1] Q = 1 в каждой строке с 000 по 101. [1] Q = 0 в строке 110 и Q = 1 в строке 111.',
+    },
+    origin: 'original',
+  },
+  {
+    id: 'a1-2-q07',
+    subject: 'cs',
+    topicIds: ['a1-2-data-logic'],
+    paper: 'P1',
+    section: 'A',
+    marks: 3,
+    command: 'Construct',
+    prompt: {
+      en: 'A greenhouse fan runs when it is daytime (D) and the temperature is high (T), or when the manual switch (M) is on. Construct a logic diagram for this system with inputs D, T and M and output Q. Use standard gate symbols and label all inputs and the output.',
+      ru: 'Вентилятор теплицы работает, когда день (D) и температура высокая (T), либо когда включён ручной переключатель (M). Постройте логическую диаграмму этой системы с входами D, T, M и выходом Q. Используйте стандартные обозначения элементов и подпишите все входы и выход.',
+    },
+    markscheme: {
+      en: '[1] an AND gate with inputs D and T. [1] an OR gate that takes the output of the AND gate and the input M. [1] Q is the output of the OR gate, with standard symbols and all inputs and the output labelled.',
+      ru: '[1] элемент AND с входами D и T. [1] элемент OR, на входы которого подаются выход AND и вход M. [1] выход OR является Q; используются стандартные обозначения, все входы и выход подписаны.',
+    },
+    origin: 'original',
+  },
+  {
+    id: 'a1-2-q08',
+    subject: 'cs',
+    topicIds: ['a1-2-data-logic'],
+    paper: 'P1',
+    section: 'A',
+    marks: 3,
+    command: 'Deduce',
+    prompt: {
+      en: 'Consider the Boolean expression NOT (NOT A) AND (A OR A). Deduce the simplest equivalent expression and name the Boolean law used at each step.',
+      ru: 'Рассмотрите булево выражение NOT (NOT A) AND (A OR A). Выведите самое простое эквивалентное выражение и назовите булев закон, применённый на каждом шаге.',
+    },
+    markscheme: {
+      en: '[1] NOT (NOT A) = A by the involution law (double negation). [1] A OR A = A by the idempotent law. [1] A AND A = A by the idempotent law, so the whole expression simplifies to A.',
+      ru: '[1] NOT (NOT A) = A по закону двойного отрицания (involution law). [1] A OR A = A по закону идемпотентности (idempotent law). [1] A AND A = A по закону идемпотентности, поэтому всё выражение упрощается до A.',
+    },
+    origin: 'original',
+  },
+];

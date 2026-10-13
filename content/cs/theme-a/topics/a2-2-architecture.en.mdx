@@ -1,0 +1,94 @@
+## Big idea
+
+Network architecture is the overall design of a network: its shape, its servers, its networking model and its segmentation. In the exam you explain or choose one design feature and justify it with reliability, speed, scalability, security or cost.
+
+## Explanation
+
+### Topologies
+
+A <Term id="a2-2-topology"/> describes how the nodes (devices) and links (connections) of a network are arranged. A physical layout is the real cabling and hardware; a logical layout is the way data actually flows, and the two can differ.
+
+A <Term id="a2-2-star"/> connects every device directly to a central switch. A broken cable affects one device only. The weaknesses are the limited number of ports and the centre, which is a single point of failure.
+
+A <Term id="a2-2-mesh"/> connects nodes to many other nodes. When a link fails, data takes another route, so reliability is very high. Cost depends on the nodes: simple mesh systems are affordable, while a full mesh needs many links and enterprise-grade nodes are expensive. Speed can also fall when data passes through many hops.
+
+A <Term id="a2-2-hybrid"/> mixes designs, for example a star core for the main servers and routers with a mesh at the edge. It keeps the resilience of the mesh and the control of the star, but it is harder to design and maintain.
+
+When you compare topologies, use five criteria: reliability, speed, scalability, behaviour on failure and cost.
+
+### Servers
+
+A <Term id="a2-2-server"/> supplies data, resources or services to client computers, and it is built for high reliability and fault tolerance. The server roles in section A2.2.2 are HL-only in the syllabus, but they are part of this topic.
+
+A <Term id="a2-2-dns"/> turns a domain name into an IP address. If it has no record, it asks a root server, then a top-level domain server, then the authoritative server for the domain. The answer is cached until its time to live expires, which reduces the load on the wider system.
+
+A <Term id="a2-2-dhcp"/> assigns addresses automatically through the DORA steps: Discover, Offer, Request and Acknowledge. Dynamic addresses come from a pool on a lease; static addresses are tied to a device's MAC address, which suits printers and servers.
+
+A <Term id="a2-2-proxy"/> sits between users and the internet. It filters requests, caches popular content, logs activity and can hide the user's IP address. File, mail and web servers complete the list: they store shared files, handle email with SMTP, POP3 and IMAP, and answer HTTP and HTTPS requests.
+
+### Networking models
+
+In the <Term id="a2-2-client-server"/> model, a central server holds most resources and services, and clients send requests that it answers. Control, security policies and backups are easy to manage, but scaling up is costly, heavy demand can create a bottleneck, and the server is a single point of failure.
+
+In the <Term id="a2-2-p2p"/> model there is no dedicated server: each peer is both client and server and shares resources directly. Each new peer adds capacity, and the network keeps working when some peers leave. However, monitoring and security are harder, and availability depends on which peers are online.
+
+### Segmentation
+
+<Term id="a2-2-segmentation"/> divides one network into smaller parts. Congestion stays inside each segment, and access between segments can be controlled, which improves performance and security. Two methods are common.
+
+Subnetting divides an IP address range with the subnet mask. A prefix such as /26 leaves $32 - 26 = 6$ host bits, so each subnet holds $2^{6} = 64$ addresses, and a router must move traffic between subnets.
+
+A VLAN groups switch ports into a logical network. Devices in one VLAN form one broadcast domain even when they are plugged into different switches, and traffic between VLANs needs an inter-VLAN routing rule. Subnetting and VLANs often work together: the VLAN separates traffic at the switch, and the subnets add control at the IP level.
+
+## Worked example
+
+A school network uses 192.168.20.0/24, split into four /26 subnets. Device X has the IP address 192.168.20.70. Find the subnet that X belongs to, its network address, its broadcast address and its usable host range.
+
+<Steps>
+<Step>Find the host bits. The prefix is /26, so there are $32 - 26 = 6$ host bits and each subnet has $2^{6} = 64$ addresses.</Step>
+<Step>List the subnet boundaries. In the last octet, subnets of 64 addresses start at 0, 64, 128 and 192.</Step>
+<Step>Place the device. The last octet of X is 70, which lies between 64 and 127, so X is in 192.168.20.64/26.</Step>
+<Step>Find the addresses. The network address is 192.168.20.64, the broadcast address is 192.168.20.127, and the usable hosts run from 192.168.20.65 to 192.168.20.126. That gives $2^{6} - 2 = 62$ usable hosts.</Step>
+<Step>Conclude. A device at 192.168.20.10 is in the subnet 192.168.20.0/26, so it is on a different subnet from X and must reach X through a router.</Step>
+</Steps>
+
+## Visual
+
+Open the [Network architecture lab](/cs-lab/a2-2-architecture.html) and work through the topology, server, model and segmentation sections in order.
+
+## How it is examined
+
+The textbook's command-term table gives Define and State as AO1 (knowledge), Describe, Outline, Distinguish, Identify and Calculate as AO2 (application), and Explain, Discuss and Evaluate as AO3 (analysis). Typical mark patterns for this topic are:
+
+- State: one fact or name with no explanation.
+- Outline: a brief summary without reasons.
+- Describe: a detailed account in complete points, for example the features of a topology.
+- Distinguish: a clear difference on each point, for both items.
+- Explain: a reason or consequence for each point, linked with "because" or "so that".
+- Discuss and Evaluate: both sides of the argument, then a supported conclusion.
+- Calculate: every step of the subnet working, because a bare answer can lose the method marks.
+
+<Callout kind="exam">Discuss and Evaluate reward a balanced argument. Mark schemes credit the advantages and the disadvantages of each option and a conclusion that follows from them.</Callout>
+
+## Common mistakes
+
+<Callout kind="mistake">Saying that a star network has no weak point. The central switch is a single point of failure, so if it fails the whole network stops.</Callout>
+
+<Callout kind="mistake">Mixing up DNS and DHCP. DHCP gives a device its IP address; DNS turns a domain name into an IP address.</Callout>
+
+<Callout kind="mistake">Treating subnetting and VLANs as the same thing. Subnetting divides the IP address range, while a VLAN groups switch ports regardless of where the devices sit.</Callout>
+
+## Check yourself
+
+Try these questions before you open the mark schemes.
+
+<Question id="port-a2-2-q2"/>
+<Question id="a2-2-q01"/>
+<Question id="a2-2-q02"/>
+<Question id="a2-2-q03"/>
+
+## Summary
+
+Network architecture combines the topology, the servers, the networking model and the segmentation. A star is easy to grow but depends on its centre, a mesh is resilient but needs many links, and a hybrid combines the two. DNS turns names into addresses, DHCP hands out addresses, and a proxy filters and caches requests. Client-server is centralised and easy to control; P2P is decentralised and resilient but harder to govern. Subnets and VLANs segment the network to improve security and performance.
+
+<Callout kind="tip">Name the criterion first (reliability, speed, scalability, behaviour on failure or cost), then give the reason. This structure fits most comparison answers.</Callout>

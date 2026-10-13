@@ -1,0 +1,74 @@
+## Big idea
+
+A program is written for people, but a processor only executes machine instructions. The translator that bridges the two decides when errors appear, how long translation takes, how easily the program moves between computers, and which kind of software it suits. Those four criteria (error detection, translation time, portability and applicability) are what you weigh up in any evaluation question on this topic.
+
+## Explanation
+
+**From source code to machine code.** A processor understands only machine code: binary patterns specific to its architecture, such as x86, ARM or MIPS. Assembly language is a more readable form of machine code that uses short mnemonics such as MOV and ADD. Programmers write in high-level languages, and a translator turns that source code into machine instructions. The steps are lexical analysis (the code is broken into tokens), syntax analysis (the tokens are checked against the grammar), semantic analysis (meaning is checked, for example type mismatches), code generation, and finally execution.
+
+<Term id="a1-4-translation"/>
+
+<Term id="a1-4-machine-code"/>
+
+<Term id="a1-4-parser"/>
+
+**Compilers.** A compiler translates the whole program before it runs and produces a binary executable. Syntax errors, type errors and some semantic errors are reported during compilation, and no executable is produced until they are fixed. The executable is fast because the processor runs native machine code, but it is specific to one operating system and one processor. C, C++, Rust and Go are compiled languages.
+
+<Term id="a1-4-compiler"/>
+
+**Interpreters.** An interpreter reads a program line by line, translating and executing each instruction while the program runs, and it creates no separate executable file. Feedback is immediate, which suits rapid development and testing, and the same source runs on any system that has the interpreter. The cost is speed: each line is translated again on every run, and an error is reported only when execution reaches it. The textbook lists Python, PHP, Ruby and JavaScript as interpreted languages.
+
+<Term id="a1-4-interpreter"/>
+
+**Bytecode and JIT.** Bytecode is an intermediate form of the program, lower-level than the source code and independent of any platform. A bytecode interpreter, often called a virtual machine, runs it, which gives portability with better speed than plain interpretation. Just-in-time (JIT) compilation goes further: frequently executed bytecode is compiled into machine code while the program runs, and the result is cached, so later calls are much faster. The price is an initial warm-up overhead and extra memory use. Java and C# are commonly JIT-compiled. The textbook lists Python as an interpreted language on p. 91 and as a bytecode interpreter in its CPython implementation on p. 95, so the approach depends on the implementation, not only on the language name.
+
+<Term id="a1-4-bytecode"/>
+
+<Term id="a1-4-jit"/>
+
+**Criteria for comparison.** The textbook compares translation approaches on four criteria: error detection (when mistakes are found), translation time (the period needed to turn source code into an executable form), portability (how easily software moves between environments) and applicability (how suitable an approach is for a type of problem).
+
+<Term id="a1-4-portability"/>
+
+<Callout kind="define">Applicability is how well a translation approach suits a particular type of problem, such as rapid prototyping, performance-critical software or cross-platform software.</Callout>
+
+## Worked example
+
+<Steps>
+<Step>State the priority. A data-logging device runs on one fixed type of hardware and must react within milliseconds, so execution speed matters more than portability.</Step>
+<Step>Test each approach. A compiler produces native code that runs fastest, and many errors are found before deployment; its weakness is that the executable is tied to one platform, which matters little here. An interpreter gives quick feedback, but it runs slower and finds some errors only when the faulty line runs.</Step>
+<Step>Conclude with a reason. Choose a compiled language because the timing requirement is the priority, and note that the portability weakness does not matter on a single fixed platform.</Step>
+</Steps>
+
+## Visual
+
+Use the [translation lab](/cs-lab/a1-4-translation.html) to compare how compilers and interpreters handle the same program.
+
+## How it is examined
+
+Section A of Paper 1 gives scenario questions, and each usually focuses on one unit. The textbook states that the higher-level Paper 1 lasts 2 hours and carries 80 marks, and the standard-level paper is shorter. The command-term table gives the assessment objective (AO) levels used in the questions. Evaluate, Justify, Compare, Explain and Discuss are AO3, so they need reasons and a judgement. Describe and Outline are AO2, and Define and List are AO1. Marks appear in brackets, and the markscheme gives one mark per distinct correct point.
+
+<Callout kind="exam">An Evaluate answer needs both sides: at least one strength and one limitation of each option, followed by a conclusion for the scenario.</Callout>
+
+## Common mistakes
+
+- Calling bytecode machine code. The processor cannot run bytecode directly.
+- Saying an interpreter produces an executable file, or that a compiler reports errors one line at a time while the program runs.
+- Treating JIT compilation as plain interpretation, when the compiled machine code is cached and reused.
+- Assuming a compiled program runs on any system. The executable is tied to one operating system and processor.
+
+<Callout kind="mistake">Do not say that compilation makes development faster. The compile step after every change slows development, even though the finished program runs faster.</Callout>
+
+## Check yourself
+
+<Question id="a1-4-q03"/>
+
+<Question id="a1-4-q05"/>
+
+<Question id="a1-4-q07"/>
+
+## Summary
+
+- Translation turns source code into machine instructions: a compiler does this before the program runs, and an interpreter does it line by line while the program runs.
+- Bytecode is platform-independent; JIT compilation turns frequently used bytecode into cached machine code.
+- Compare approaches by error detection, translation time, portability and applicability, then evaluate them and reach a conclusion for the scenario.

@@ -1,0 +1,107 @@
+## Big idea
+
+A relational database keeps each fact in one place, split across linked tables, so the data stays consistent and easy to query. In the exam you must define key terms precisely, explain how keys join tables and weigh the benefits of the model against its limitations.
+
+## Explanation
+
+### What a database is
+
+A database is a systematically organized store of data, usually held in several interconnected tables. This lets software search, update and protect the data quickly.
+
+### Flat files and anomalies
+
+A flat file keeps all the data in one table, a single entity <Term id="a3-1-entity"/>: a table holding data about one type of object. Repeated facts in a flat file cause three anomalies <Term id="a3-1-anomaly"/>, which are problems caused by handling data incorrectly. Consider a bike-hire shop whose HIRE table stores the customer's name and phone number, the bike model and the daily price on every row:
+
+- Insert anomaly: a new bike cannot be recorded until somebody hires it, because its details exist only in hire rows.
+- Deletion anomaly: deleting the only hire of a bike also deletes that bike's model and price.
+- Update anomaly: changing a phone number in only some rows leaves two numbers for one customer, and nobody knows which is correct.
+
+### Normalization and attributes
+
+Normalization <Term id="a3-1-normalization"/> reorganizes data into linked entities so that each fact is stored once and anomalies become less likely. The bike-hire data would become CUSTOMER, BIKE and HIRE tables, where each HIRE row holds only the IDs of one customer and one bike. Linked tables like these form a relational database. The columns of a table are its attributes <Term id="a3-1-attribute"/>, each holding one characteristic of the data.
+
+### Keys
+
+A primary key <Term id="a3-1-primary-key"/> is a field whose value is different for every row of its table, so each row can be identified.
+A foreign key <Term id="a3-1-foreign-key"/> is a field in one table that stores the primary key value of a row in another table. Customer_ID in HIRE links each hire to exactly one customer; it repeats, because one customer has many hires.
+
+A composite key uses two or more fields together: in a MEMBERSHIP table neither Member_ID nor Club_ID is unique, but the pair is. A concatenated key joins parts of several attributes, such as the first letters of a name and a date of birth, to build a key that is likely to be unique.
+
+### Relationships and cardinality
+
+Related entities are joined by a relationship <Term id="a3-1-relationship"/>. Its cardinality <Term id="a3-1-cardinality"/> shows how many rows link on each side:
+
+- One-to-one: one row in A links to one row in B, such as one person and one passport.
+- One-to-many: one row in A links to many rows in B, but each row in B links to only one row in A, such as one coach and many clubs.
+- Many-to-many: many rows on each side link together, such as students and courses. A third, linking table usually resolves it.
+
+Modality describes whether a link must exist. An optional link may exist, as when a bike stays unhired for years. A mandatory link must exist: every hire refers to one bike.
+
+### Benefits and limitations
+
+A relational database offers consistency and integrity, less duplication and redundancy, easy retrieval with SQL, concurrency control, reliable transactions, better scalability than a flat file and built-in security. Its limitations matter just as much:
+
+- big data: a poor fit for data mined to make complex decisions;
+- design complexity: many entities and relationships are hard to plan;
+- hierarchical data: deep trees are traversed inefficiently;
+- a rigid schema: data types and relationships must follow strict rules;
+- object-relational impedance mismatch: objects in object-oriented code do not map neatly onto tables;
+- unstructured data, such as images or free text, is hard to fit into the model.
+
+## Worked example
+
+A school sports club keeps one flat file. Each row holds Member_ID, Member_Name, Club_Name, Coach_Name and Coach_Room. Convert it into a relational database.
+
+<Steps>
+<Step>Find the repeated data: Coach_Name and Coach_Room repeat for every member of the same club.</Step>
+<Step>Split the data into MEMBER (Member_ID, Member_Name), COACH (Coach_ID, Coach_Name, Coach_Room), CLUB (Club_ID, Club_Name, Coach_ID) and MEMBERSHIP (Member_ID, Club_ID).</Step>
+<Step>Choose the primary keys Member_ID, Coach_ID and Club_ID. MEMBERSHIP needs a composite key made from Member_ID and Club_ID.</Step>
+<Step>Add foreign keys: Coach_ID in CLUB refers to COACH, and Member_ID and Club_ID in MEMBERSHIP refer to MEMBER and CLUB.</Step>
+<Step>Decide cardinality and modality. One coach runs many clubs, so COACH to CLUB is one-to-many. Members and clubs are many-to-many, resolved by MEMBERSHIP. Every club must have a coach (mandatory), but a coach need not run a club (optional).</Step>
+<Step>Check the anomalies: a new room for a coach now changes one row in COACH, so the update anomaly cannot occur.</Step>
+</Steps>
+
+## Visual
+
+Open the [Database fundamentals lab](/cs-lab/a3-1-fundamentals.html) and find the field that links the OWNER and PATIENT tables.
+
+## How it is examined
+
+The textbook's table of command terms gives each term an assessment objective (AO). Define and State are AO1; Describe, Outline, Distinguish and Identify are AO2; Explain, Discuss and Justify are AO3. What a full answer needs:
+
+- Define (AO1): one precise sentence with the meaning and key elements, such as "a table that holds data about one type of object" for entity.
+- State (AO1): one fact, name or value, with no explanation.
+- Outline (AO2): a brief account of the main points, without reasons.
+- Describe (AO2): several linked points, such as each anomaly and its effect on the data.
+- Distinguish (AO2): a clear difference on each point, naming both items.
+- Explain (AO3): a reason or consequence, linked with "because" or "so that".
+- Discuss (AO3): points on both sides and a supported conclusion.
+
+<Callout kind="exam">A 4-mark Describe question usually wants two complete points: a named idea, then what happens.</Callout>
+
+## Common mistakes
+
+<Callout kind="mistake">Saying a foreign key is unique in its own table. Only the primary key is unique; a foreign key repeats whenever one row links to many.</Callout>
+
+<Callout kind="mistake">Saying normalization deletes data. It moves the same facts into linked tables, so each fact is stored once.</Callout>
+
+<Callout kind="mistake">Mixing up cardinality ("how many rows") with modality ("must the link exist").</Callout>
+
+<Callout kind="mistake">Choosing a name as the primary key. Names repeat, so an ID number is safer.</Callout>
+
+<Callout kind="mistake">Describing an anomaly without naming the operation (insert, update or deletion) that goes wrong.</Callout>
+
+## Check yourself
+
+Try these questions before you open the mark schemes.
+
+<Question id="port-a3-1-q2a"/>
+<Question id="port-a3-1-q3"/>
+<Question id="a3-1-q01"/>
+<Question id="a3-1-q02"/>
+
+## Summary
+
+A flat file repeats data and suffers from insert, deletion and update anomalies. Normalization splits data into entities linked by primary and foreign keys. Cardinality shows how many rows link, and modality shows whether a link must exist. A relational database offers consistency, integrity and SQL retrieval, but it struggles with big data, rigid schemas and unstructured content.
+
+<Callout kind="tip">Answer Explain and Discuss questions with a reason and then a consequence: "because ... so ...".</Callout>

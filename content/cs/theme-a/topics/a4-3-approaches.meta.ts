@@ -1,0 +1,55 @@
+import type { TopicMeta } from '../../../../src/contract/types';
+
+const topic: TopicMeta = {
+  id: 'a4-3-approaches',
+  subject: 'cs',
+  code: 'A4.3',
+  title: { en: 'Machine learning approaches', ru: 'Подходы машинного обучения' },
+  papers: ['P1'],
+  hl: true,
+  order: 15,
+  minutes: 50,
+  priority: 1,
+  inMockScope: 'yes',
+  outcomes: [
+    { en: 'I can explain how linear regression predicts a continuous outcome from the intercept and slope of a fitted line', ru: 'Умею объяснять, как линейная регрессия предсказывает непрерывный результат по свободному члену и наклону прямой' },
+    { en: 'I can explain how classification techniques such as K-NN and decision trees assign a new item to a discrete category', ru: 'Умею объяснять, как методы классификации, например K-NN и деревья решений, относят новый объект к дискретной категории' },
+    { en: 'I can explain why hyperparameters are tuned and how overfitting and underfitting affect the choice and comparison of models', ru: 'Умею объяснять, зачем подбирают гиперпараметры и как переобучение и недообучение влияют на выбор и сравнение моделей' },
+    { en: 'I can calculate precision, recall and the F1 score from true and false results, and choose the measure that suits a scenario', ru: 'Умею вычислять точность, полноту и F1-меру по верным и ложным результатам и выбирать меру, подходящую сценарию' },
+    { en: 'I can describe how clustering groups unlabelled data, and how K-means differs from DBSCAN', ru: 'Умею описывать, как кластеризация группирует немаркированные данные, и чем K-means отличается от DBSCAN' },
+    { en: 'I can describe association rules using support, confidence and lift', ru: 'Умею описывать ассоциативные правила с помощью поддержки, достоверности и лифта' },
+    { en: 'I can describe how an agent learns from rewards in reinforcement learning, and how a genetic algorithm uses fitness, selection, crossover and mutation', ru: 'Умею описывать, как агент учится на наградах в обучении с подкреплением, и как генетический алгоритм использует приспособленность, отбор, скрещивание и мутацию' },
+    { en: 'I can outline how an artificial neural network passes inputs through weighted nodes, and how a CNN uses filters and pooling on images', ru: 'Умею описывать, как искусственная нейронная сеть пропускает входы через взвешенные узлы, и как CNN использует фильтры и пулинг для изображений' },
+  ],
+  termIds: [
+    'a4-3-linear-regression',
+    'a4-3-classification-techniques',
+    'a4-3-hyperparameter',
+    'a4-3-overfitting',
+    'a4-3-precision',
+    'a4-3-recall',
+    'a4-3-clustering',
+    'a4-3-association-rule-learning',
+    'a4-3-reinforcement-learning',
+    'a4-3-genetic-algorithm',
+    'a4-3-ann',
+    'a4-3-cnn',
+  ],
+  formulaIds: ['cs-linear-regression', 'cs-precision', 'cs-recall', 'cs-f1-score'],
+  questionIds: [
+    'port-a4-3-q1a',
+    'port-a4-3-q2a',
+    'port-a4-3-q3a',
+    'port-a4-3-q4b',
+    'port-a4-3-q5a',
+    'port-a4-3-q5b',
+    'a4-3-q01',
+    'a4-3-q02',
+  ],
+  sources: [
+    { kind: 'textbook', title: 'Oxford IB DP Computer Science Course Companion (2025)', locator: 'ch. A4.3, pp. 264–306' },
+    { kind: 'own', title: 'FomaCS lesson: A4.3 Machine learning approaches (question page and bilingual notes)' },
+  ],
+};
+
+export default topic;

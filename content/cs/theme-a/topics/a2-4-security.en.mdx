@@ -1,0 +1,78 @@
+## Big idea
+
+Network security keeps data and services available, private and trustworthy on networks that attackers can reach. Firewalls and NAT limit what can get in, attackers rely on a small set of common vulnerabilities, countermeasures reduce those risks, and encryption with digital certificates protects data in transit. Strong answers name the threat, the mechanism and the outcome.
+
+## Explanation
+
+### Firewalls and access control
+
+A firewall <Term id="a2-4-firewall"/> inspects each packet against an ordered list of rules based on IP addresses, ports and protocols, then allows or blocks it. It controls access, logs traffic and can raise alerts, so it is effective at the edge of a network. A whitelist <Term id="a2-4-whitelist"/> allows only approved sources, which makes it stricter than a blacklist: anything not on the list is refused.
+
+Firewalls have clear limits. They are weak against insider threats, can be bypassed by sophisticated or encrypted attacks, are complex to configure, and deep inspection adds latency. Network address translation (NAT) <Term id="a2-4-nat"/> rewrites addresses at the router so that many private devices share one public IP address. This hides internal addresses from outside networks and acts as a basic form of access control.
+
+### Common vulnerabilities
+
+A vulnerability is a weakness that an attacker can exploit. A distributed denial-of-service (DDoS) <Term id="a2-4-ddos"/> attack floods a service with traffic from many sources until genuine users cannot reach it. In a man-in-the-middle (MitM) <Term id="a2-4-mitm"/> attack, the attacker sits between two parties and reads or alters what they send. Phishing <Term id="a2-4-phishing"/> uses fake messages to trick people into giving up passwords or card details. The textbook also lists insecure protocols such as Telnet and FTP, malware, SQL injection, cross-site scripting (XSS), unpatched software, weak authentication and zero-day exploits. Learn one example of each.
+
+### Countermeasures
+
+Countermeasures reduce risk. A content security policy (CSP) limits which sources a browser may load scripts from, which blocks many XSS attacks. Strong password rules make guessing harder, and multi-factor authentication (MFA) <Term id="a2-4-mfa"/> means that a stolen password is not enough on its own. HTTPS protects data in transit, regular updates close known flaws, and input validation rejects malicious input. Intrusion detection systems (IDS) raise alerts, while intrusion prevention systems (IPS) also block the traffic. Security testing and employee training address the human side, because phishing often succeeds through a person.
+
+### Encryption and certificates
+
+Encryption <Term id="a2-4-encryption"/> converts plaintext into ciphertext using an algorithm and a key. In symmetric cryptography <Term id="a2-4-symmetric"/> the same secret key encrypts and decrypts, which is fast but needs the key to be shared securely. In asymmetric cryptography <Term id="a2-4-asymmetric"/> each user has a public key, which anybody may use to lock data meant for that user, and a private key, which only the owner uses to unlock it. HTTPS combines both approaches: asymmetric methods help set up the connection and a shared session key, and symmetric encryption then protects the bulk of the data.
+
+A digital certificate <Term id="a2-4-digital-certificate"/> links a public key to a verified identity. A certificate authority (CA) checks the owner before signing the certificate, so the browser can trust the site. A digital signature <Term id="a2-4-digital-signature"/> is made with the signer’s private key over a hash of the document; anyone with the public key can confirm that the document is unchanged and came from the key holder.
+
+## Worked example
+
+A school portal sits behind a firewall with these rules, which are checked in order:
+
+1. Allow HTTPS traffic (port 443) from any source.
+2. Block all traffic from the source address 203.0.113.8.
+3. Block all other traffic.
+
+<Steps>
+<Step>Packet A: HTTPS (port 443) from 198.51.100.4. Rule 1 matches first, so the packet is allowed.</Step>
+<Step>Packet B: plain HTTP (port 80) from 203.0.113.8. Rule 1 does not match because the port is 80, but rule 2 matches, so the packet is blocked.</Step>
+<Step>Packet C: HTTPS (port 443) from 203.0.113.8. Rule 1 matches before rule 2 is reached, so the packet is allowed. The order of the rules decides the outcome.</Step>
+</Steps>
+
+## Visual
+
+Open the [Network security lab](/cs-lab/a2-4-security.html) and use it to revise the attacks and countermeasures in this topic.
+
+## How it is examined
+
+The textbook’s table of command terms places Describe, Identify and Distinguish at assessment objective AO2 (applying knowledge), and Discuss, Explain and Evaluate at AO3 (analysing and judging). What a full answer needs in this topic:
+
+- Identify: name the attack, vulnerability or countermeasure, with no explanation (for example "phishing").
+- Describe: explain how an attack or countermeasure works, step by step, in several linked points.
+- Explain: give the mechanism and the reason why it protects or harms, linked with "because" or "so that".
+- Distinguish: a clear difference on each point for both items. In this topic’s questions, symmetric against asymmetric cryptography is worth 4 marks.
+- Discuss: strengths and limitations, then a supported judgement.
+
+<Callout kind="exam">Discuss questions reward both strengths and limitations plus a judgement. A one-sided answer loses marks even when every point is correct.</Callout>
+
+## Common mistakes
+
+<Callout kind="mistake">Saying that a firewall stops insiders or encrypted attacks. The textbook lists both as limitations of firewalls.</Callout>
+
+<Callout kind="mistake">Reversing the keys. In asymmetric encryption the public key encrypts and the private key decrypts; in a digital signature the private key signs and the public key verifies.</Callout>
+
+<Callout kind="mistake">Treating a padlock as proof that a site is safe. The certificate proves the server’s identity and protects data in transit; it does not protect the server from attacks.</Callout>
+
+## Check yourself
+
+Try these before you open the mark schemes.
+
+<Question id="a2-4-q01"/>
+<Question id="a2-4-q04"/>
+<Question id="a2-4-q07"/>
+<Question id="a2-4-q08"/>
+
+## Summary
+
+A firewall filters packets by rules, and the order of the rules matters. Common attacks include DDoS, MitM and phishing; countermeasures include MFA, HTTPS, updates and training. Symmetric keys are fast, while asymmetric keys solve key exchange and enable signatures. A digital certificate proves who owns a public key, and a digital signature shows that a document has not changed.
+
+<Callout kind="tip">For Describe questions, state the mechanism first and then the outcome, for example "the attacker does X, so that Y happens".</Callout>

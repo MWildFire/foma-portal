@@ -1,0 +1,87 @@
+## Big idea
+
+Every kind of data in a computer, from one number to a whole video, is stored as bits. Hardware then uses logic gates to make decisions about those bits. In the exam you need to move between number systems, work out how much space data needs, and predict a circuit's output with a truth table or a logic diagram.
+
+## Explanation
+
+**Number systems.** Denary (base 10) uses the digits 0 to 9. Binary (base 2) uses only 0 and 1, and each position is a power of two, starting with $2^0$ on the right. Hexadecimal (base 16) uses the digits 0 to 9 and the letters A to F, and each hex digit stands for exactly four bits, so $11010110_2 = D6_{16}$. To convert binary to denary, multiply each bit by its place value and add the results. To convert denary to binary, divide by 2 repeatedly, read the remainders from the bottom up, and pad the result to eight bits with leading zeros. To convert binary to hex, group the bits into nibbles from the right.
+
+<Term id="a1-2-binary"/>
+
+<Term id="a1-2-hexadecimal"/>
+
+**Bits, bytes and storage.** Eight bits form a byte and four bits form a nibble. An n-bit pattern can represent $2^n$ different values.
+
+**Integers.** Unsigned integers use all n bits for the size of the number, so they range from 0 to $2^n - 1$. For signed numbers, two’s complement uses the leftmost bit as the sign bit, and the range is given by the formula below. To store −19 in 8 bits, write 19 as 00010011, invert every bit to get 11101100, and add 1 to get 11101101.
+
+<Formula id="cs-twos-complement-range"/>
+
+<Term id="a1-2-twos-complement"/>
+
+**Text.** ASCII gives each of 128 characters a 7-bit code: the capital letter A is 65, or 01000001. Unicode covers every writing system, and UTF-8 stores each character in one to four bytes while staying compatible with ASCII.
+
+<Term id="a1-2-ascii"/>
+
+**Images.** An image is a grid of pixels. In the RGB model each colour channel uses 8 bits, so one true-colour pixel needs 24 bits. The size of an uncompressed image is given by the formula below.
+
+<Formula id="cs-image-file-size"/>
+
+<Term id="a1-2-pixel"/>
+
+**Sound.** Sound is recorded at a fixed sampling rate, and each measurement is rounded to one of $2^{\text{bit depth}}$ levels set by the bit depth. The file size in bits is the sampling rate times the duration times the bit depth times the number of channels, so stereo doubles the data compared with mono.
+
+<Term id="a1-2-sampling-rate"/>
+
+<Term id="a1-2-bit-depth"/>
+
+**Logic.** A logic gate takes one or more binary inputs and produces one binary output. AND gives 1 only when all its inputs are 1; OR gives 1 when at least one input is 1; NOT inverts its input; NAND and NOR invert the outputs of AND and OR; XOR gives 1 when its inputs differ, and XNOR gives 1 when they match. A truth table lists every input combination, so n inputs need $2^n$ rows. A logic diagram is read from left to right and uses standard symbols. Boolean expressions can be simplified with the commutative law (for AND and OR the order of the variables does not matter), the idempotent law ($A \land A = A$ and $A \lor A = A$) and the involution law (NOT NOT A = A). The textbook also introduces Karnaugh maps (K-maps), a grid method for the same kind of simplification.
+
+<Term id="a1-2-logic-gate"/>
+
+<Term id="a1-2-truth-table"/>
+
+<Term id="a1-2-logic-diagram"/>
+
+<Callout kind="define">A Boolean expression combines variables such as A and B with operators such as AND, OR and NOT, and it evaluates to true or false.</Callout>
+
+## Worked example
+
+<Steps>
+<Step>Convert $11010110_2$ to hexadecimal. Split the bits into nibbles from the right: 1101 and 0110. 1101 is D and 0110 is 6, so the answer is $D6_{16}$.</Step>
+<Step>Store −19 in 8-bit two’s complement. Write 19 as 00010011, invert every bit to get 11101100, and add 1 to get 11101101. The leading 1 confirms that the number is negative.</Step>
+<Step>Find the uncompressed size of a 1920 × 1080 image at 24 bits per pixel. The total is $1920 \times 1080 \times 24 = 49\,766\,400$ bits. Dividing by 8 gives 6 220 800 bytes, about 6.2 million bytes.</Step>
+</Steps>
+
+## Visual
+
+Use the [data representation and logic lab](/cs-lab/a1-2-data-logic.html) to check your conversions and to compare truth tables with the gates that produce them.
+
+## How it is examined
+
+Section A of Paper 1 gives short scenario questions, and each one usually focuses on a single unit; this topic is unit A1. The textbook’s command-term table gives each term an assessment objective (AO) level: Define is AO1, Calculate and Describe are AO2, and Construct, Deduce and Explain are AO3. Marks appear in brackets, and the markscheme gives one mark per distinct correct point, so a [3 marks] answer needs three separate points. For Calculate questions, show every stage of the working on its own line.
+
+<Callout kind="exam">Count the rows before you fill in any outputs. A truth table for n inputs must have $2^n$ rows that cover every input combination, and every output depends on those rows.</Callout>
+
+## Common mistakes
+
+- Reading place values from the left, or forgetting that the rightmost bit is $2^0$.
+- Writing a short binary value without padding it to the register size, for example 101 instead of 00000101 in an 8-bit register.
+- Leaving a file size in bits: divide by 8 to get bytes.
+- Confusing the gates: NAND is the inverse of AND, not an OR gate.
+
+<Callout kind="mistake">Skipping the final “add one” in two’s complement gives the wrong value: −5 is 11111011, while 11111010 is −6.</Callout>
+
+## Check yourself
+
+<Question id="a1-2-q02"/>
+
+<Question id="a1-2-q05"/>
+
+<Question id="a1-2-q06"/>
+
+## Summary
+
+- Binary, denary and hexadecimal are three bases; one hex digit equals four bits.
+- An n-bit pattern gives $2^n$ values, and a two’s complement integer ranges from $-2^{n-1}$ to $2^{n-1} - 1$.
+- Uncompressed image size is width × height × colour depth; sound size is sampling rate × duration × bit depth × channels; divide by 8 for bytes.
+- A truth table has $2^n$ rows, a logic diagram is read from left to right, and each standard gate has one standard symbol.

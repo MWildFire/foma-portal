@@ -1,0 +1,94 @@
+## Big idea
+
+Regression predicts a number, classification predicts a category, clustering finds groups in unlabelled data, association rules find items that occur together, reinforcement learning learns from rewards, and neural networks learn through weighted connections.
+
+## Explanation
+
+### Predicting a number: linear regression
+
+Linear regression <Term id="a4-3-linear-regression"/> fits a straight line through the data. The intercept is the predicted value when the input is zero, and the slope is the change in the output for each one-unit increase in the input:
+
+<Formula id="cs-linear-regression"/>
+
+The fit is judged with r squared (the coefficient of determination): 1 means all the variation in the outcome is explained, and 0 means none is.
+
+### Predicting a category: classification
+
+Classification techniques <Term id="a4-3-classification-techniques"/> are supervised: they learn from labelled examples and output a discrete category. K-nearest neighbours (K-NN) makes no fixed assumption about the form of the data. It measures the distance from a new point to each training point, takes the K nearest and assigns the most common class among them. It stores the training data rather than building a rule, so it is called lazy learning and is slow on large data sets. A decision tree splits the data on features, like a flowchart, until each leaf gives a class. Trees are easy to interpret but can overfit.
+
+### Tuning and comparing models
+
+A hyperparameter <Term id="a4-3-hyperparameter"/> is fixed before training. Tuning means trying several values, such as different K values, and keeping the setting that performs best on data the model has not seen. Two failures must be avoided. A model fitted too closely to its training data suffers from <Term id="a4-3-overfitting"/>: it captures noise and performs poorly on new data. A model that is too simple underfits and performs poorly on both training and new data.
+
+Models are compared with measures based on true and false results. Accuracy is the share of all predictions that are correct, and it is most useful when the classes are balanced. <Term id="a4-3-precision"/> is the share of predicted positives that are correct: <Formula id="cs-precision"/>. <Term id="a4-3-recall"/> is the share of actual positives that the model finds: <Formula id="cs-recall"/>. The F1 score <Formula id="cs-f1-score"/> balances the two.
+
+### Grouping unlabelled data: clustering
+
+<Term id="a4-3-clustering"/> is unsupervised. K-means divides the data into k clusters by assigning each point to the nearest centroid (the mean position of a cluster), recalculating the centroids and repeating until they stop changing. The number k must be set in advance. DBSCAN groups closely packed points and labels isolated points as outliers, so it does not need k.
+
+### Finding associations: association rules
+
+<Term id="a4-3-association-rule-learning"/> works on transactions. Support is the proportion of transactions that contain an itemset. Confidence is the support of the whole rule divided by the support of the items on its left-hand side. Lift compares the observed support with the support expected if the items were independent; a lift above 1 means the items appear together more often than chance would suggest.
+
+### Learning from rewards: reinforcement learning
+
+In <Term id="a4-3-reinforcement-learning"/>, an agent observes a state, takes an action and receives a reward or penalty, and the environment moves to a new state. A policy maps states to actions. The agent must balance exploration, trying actions with uncertain outcomes, against exploitation, repeating the action known to pay best. Too much exploration wastes time; too much exploitation can miss better options.
+
+### Evolving solutions: genetic algorithms
+
+A <Term id="a4-3-genetic-algorithm"/> keeps a population of candidate solutions, and a fitness function scores each one. Selection chooses fitter solutions as parents. Crossover combines parts of two parents into offspring, and mutation makes small random changes that keep the population diverse. The cycle repeats until a termination condition is met, such as a fixed number of generations.
+
+### Neural networks and CNNs
+
+An <Term id="a4-3-ann"/> has an input layer, one or more hidden layers and an output layer. Each node computes a weighted sum of its inputs, adds a bias and applies an activation function such as sigmoid, ReLU or tanh. During training, backpropagation calculates the error at the output and adjusts the weights by gradient descent.
+
+A <Term id="a4-3-cnn"/> applies convolutional layers of learnable filters (kernels) that slide over an image to produce feature maps. Pooling layers shrink these maps, early layers detect simple features such as edges, and fully connected layers at the end make the decision.
+
+## Worked example
+
+A K-NN classifier labels students as pass or fail. Five labelled students are described by hours of revision (x) and a practice score (y): P1 (4, 6) pass, P2 (5, 4) pass, P3 (1, 1) fail, P4 (6, 7) fail and P5 (2, 2) fail. A new student N has the features (4, 4). Classify N with K = 3, then with K = 5.
+
+<Steps>
+<Step>Distances: the Euclidean distance adds the squared differences in x and in y, then takes the square root. From N, P2 is 1.00 away, P1 is 2.00, P5 is 2.83, P4 is 3.61 and P3 is 4.24.</Step>
+<Step>K = 3: the three nearest are P2 (pass), P1 (pass) and P5 (fail). Two votes go to pass, so N is classified as pass.</Step>
+<Step>K = 5: P4 (fail) and P3 (fail) join the group. Two votes go to pass and three to fail, so N is classified as fail.</Step>
+<Step>Interpretation: K is a hyperparameter, so the same data can give different answers. Compare several values of K on data the model has not seen and keep the best.</Step>
+</Steps>
+
+## Visual
+
+Study Figure 17 on printed page 267 (the scatter graph with its regression line) and check how the slope and the intercept are read from that line.
+
+## How it is examined
+
+<Callout kind="exam">Describe: a detailed account of how an approach works, in linked points. Outline: a brief account, with no reasons needed. Explain: the mechanism plus a reason, linked to the scenario. Calculate: a numerical answer with the working shown. State: one precise name or value. Distinguish, Justify and Evaluate: weigh options against the details of a scenario.</Callout>
+
+<Callout kind="tip">In a scenario question, quote a detail from the scenario, such as the cost of a missed fraud, and use it in your reason.</Callout>
+
+## Common mistakes
+
+<Callout kind="mistake">Dividing precision by all actual positives. Precision divides by predicted positives; recall divides by actual positives.</Callout>
+
+<Callout kind="mistake">Taking a near-perfect training score as proof of a good model. The model may be overfitted, so test it on data it has not seen.</Callout>
+
+<Callout kind="mistake">Saying that an association rule proves cause. Items in the same baskets only show that they occur together.</Callout>
+
+<Callout kind="mistake">Saying that K-means does not need k, or that DBSCAN needs k. K-means needs the number of clusters set in advance; DBSCAN does not.</Callout>
+
+## Check yourself
+
+Try these three questions first.
+
+<Question id="a4-3-q01"/>
+
+<Question id="a4-3-q02"/>
+
+<Question id="port-a4-3-q1a"/>
+
+## Summary
+
+- Regression predicts a continuous value; classification predicts a discrete category.
+- Hyperparameters are set before training; overfitting and underfitting describe poor generalisation.
+- Precision uses predicted positives, recall uses actual positives, and the F1 score balances the two.
+- Clustering groups unlabelled data; association rules are judged by support, confidence and lift.
+- Reinforcement learning learns from rewards; genetic algorithms evolve solutions; CNNs use filters and pooling on images.

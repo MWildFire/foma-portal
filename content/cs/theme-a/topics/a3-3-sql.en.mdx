@@ -1,0 +1,178 @@
+## Big idea
+
+Databases hold the records of a school, a shop or a hospital, and SQL tells the database what to do with them. This topic covers the four sub-languages of SQL, joins between two tables, totals, safe changes to records, and the higher level ideas of views and transactions.
+
+## Explanation
+
+### Four sub-languages of SQL
+
+SQL <Term id="a3-3-sql"/> is grouped by purpose. The data definition language <Term id="a3-3-ddl"/> (DDL) builds structure with CREATE, ALTER and DROP. The data manipulation language <Term id="a3-3-dml"/> (DML) works on rows: SELECT reads them, INSERT adds them, UPDATE changes them and DELETE removes them. The data control language <Term id="a3-3-dcl"/> (DCL) manages permissions with GRANT and REVOKE, and the transaction control language <Term id="a3-3-tcl"/> (TCL) manages saving with COMMIT, ROLLBACK and SAVEPOINT.
+
+### Filtering and sorting
+
+A query <Term id="a3-3-query"/> retrieves information from one or more tables. WHERE keeps only the rows whose condition is true. BETWEEN includes both end values. LIKE performs pattern matching, where % stands for any number of characters and _ for exactly one. AND, OR and NOT combine or negate conditions. ORDER BY sorts the result, ascending by default, and DISTINCT removes duplicate values.
+
+### Combining two tables
+
+Data is split across tables, so queries often link them. An inner join <Term id="a3-3-join"/> returns the rows where the join condition matches in both tables. The condition usually matches a foreign key with a primary key and follows ON. Without it, every row of one table is paired with every row of the other, giving a large and meaningless result.
+
+### Changing data
+
+INSERT INTO adds a row. UPDATE ... SET and DELETE FROM change or remove rows, and both should almost always have a WHERE clause; without one, every row is affected. A database also keeps an index <Term id="a3-3-index"/> that finds rows by a column quickly. Every insert, update or delete must update the index too, so an index speeds up searching but slows down writing.
+
+### Totals and groups
+
+An aggregate function <Term id="a3-3-aggregate"/> turns many rows into one value: COUNT, SUM, AVG, MIN or MAX. GROUP BY calculates them for each group of equal values. WHERE filters single rows before grouping, while HAVING filters the groups after the aggregate is calculated. Aggregates cannot appear in WHERE, so conditions on totals use HAVING.
+
+### Views (HL)
+
+A view <Term id="a3-3-view"/> is a virtual table defined by a stored SELECT query. The query runs each time the view is used, so the view holds no data of its own. Views hide joins and calculations, show only the columns a group needs, and let the schema change without breaking what users see. They are usually read-only. The textbook also uses the term materialised view for a view whose results have been stored.
+
+### Transactions and ACID (HL)
+
+A transaction <Term id="a3-3-transaction"/> is one unit of work made of several reads, writes or modifications, such as moving money between two accounts:
+
+```sql
+BEGIN TRANSACTION;
+UPDATE ACCOUNT SET Balance = Balance - 100 WHERE AccountID = 1;
+UPDATE ACCOUNT SET Balance = Balance + 100 WHERE AccountID = 2;
+COMMIT;
+```
+
+The ACID properties <Term id="a3-3-acid"/> are guarantees from the DBMS. Atomicity means all or nothing. Consistency means the data obeys every rule before and after. Isolation means concurrent transactions do not see unfinished changes. Durability means committed changes survive a crash. If the second UPDATE fails, ROLLBACK undoes the first.
+
+<Callout kind="tip">Write the clauses of a SELECT in this order: SELECT, FROM (with any JOIN), WHERE, GROUP BY, HAVING, ORDER BY. A clause out of order is a syntax error.</Callout>
+
+## Worked example
+
+A school tuck shop keeps its items in MENU_ITEM and its sales in SALE. The manager needs four statements. The tables are created first, and their rows are shown below.
+
+```sql
+CREATE TABLE MENU_ITEM (
+    ItemID INT NOT NULL PRIMARY KEY,
+    ItemName VARCHAR(40) NOT NULL,
+    Category VARCHAR(20),
+    Price DECIMAL(6,2)
+);
+
+CREATE TABLE SALE (
+    SaleID INT NOT NULL PRIMARY KEY,
+    ItemID INT NOT NULL,
+    Quantity INT,
+    SaleDate DATE,
+    FOREIGN KEY (ItemID) REFERENCES MENU_ITEM(ItemID)
+);
+```
+
+| ItemID | ItemName | Category | Price |
+|---|---|---|---|
+| 1 | Orange juice | Drink | 6.00 |
+| 2 | Mint lemonade | Drink | 7.50 |
+| 3 | Chicken wrap | Food | 18.00 |
+| 4 | Chocolate muffin | Snack | 8.50 |
+| 5 | Mango smoothie | Drink | 12.00 |
+
+| SaleID | ItemID | Quantity | SaleDate |
+|---|---|---|---|
+| 1 | 1 | 2 | 2026-10-12 |
+| 2 | 2 | 3 | 2026-10-12 |
+| 3 | 3 | 1 | 2026-10-12 |
+| 4 | 1 | 4 | 2026-10-13 |
+| 5 | 5 | 1 | 2026-10-12 |
+| 6 | 4 | 2 | 2026-10-12 |
+| 7 | 2 | 5 | 2026-10-13 |
+
+<Steps>
+<Step>Drinks sold on 12 October 2026 with quantities: join on ItemID, then filter on Category and SaleDate.</Step>
+<Step>Total drinks sold that day: the same join, with SUM applied to Quantity.</Step>
+<Step>Items with more than 6 units sold over all dates: group the joined rows by item and filter the groups with HAVING.</Step>
+<Step>Mint lemonade (ItemID 2) priced at 8.00: an UPDATE whose WHERE clause selects one row.</Step>
+</Steps>
+
+```sql
+SELECT MENU_ITEM.ItemName, SALE.Quantity
+FROM MENU_ITEM
+INNER JOIN SALE ON MENU_ITEM.ItemID = SALE.ItemID
+WHERE MENU_ITEM.Category = 'Drink' AND SALE.SaleDate = '2026-10-12'
+ORDER BY SALE.Quantity DESC;
+```
+
+The result is Mint lemonade 3, Orange juice 2 and Mango smoothie 1.
+
+```sql
+SELECT SUM(SALE.Quantity) AS DrinksSold
+FROM SALE
+INNER JOIN MENU_ITEM ON SALE.ItemID = MENU_ITEM.ItemID
+WHERE MENU_ITEM.Category = 'Drink' AND SALE.SaleDate = '2026-10-12';
+```
+
+The result is 6, which is 2 + 3 + 1.
+
+```sql
+SELECT MENU_ITEM.ItemName, SUM(SALE.Quantity) AS TotalSold
+FROM MENU_ITEM
+INNER JOIN SALE ON MENU_ITEM.ItemID = SALE.ItemID
+GROUP BY MENU_ITEM.ItemName
+HAVING SUM(SALE.Quantity) > 6;
+```
+
+The result is Mint lemonade with 8 units. Orange juice totals exactly 6, so the condition excludes it.
+
+```sql
+UPDATE MENU_ITEM
+SET Price = 8.00
+WHERE ItemID = 2;
+```
+
+Without the WHERE clause, every item would be priced at 8.00.
+
+## Visual
+
+Practise these patterns in the [SQL lab](/cs-lab/a3-3-sql.html) and check each result against the tables above.
+
+## How it is examined
+
+These command terms are the most likely for this topic:
+
+- Outline: a brief account of the four sub-languages with one command in each. No reasons are needed.
+- Construct: a working statement that uses the exact table and column names. A two-table query needs a join condition, and an update or delete should have a WHERE clause.
+- Explain: the mechanism and the reason, linked with "because" or "so that", for example why a missing WHERE clause changes every row.
+- Describe: what a view or a transaction is and what it does for the data, in several linked points.
+- Discuss: a balanced review of a claim about databases, ending with a judgement that is supported by reasons.
+- Define: the exact meaning of a term, in one or two sentences.
+
+<Callout kind="exam">Copy table and column names exactly as the question gives them. Marks are often lost through a changed name, a missing join condition or a condition in the wrong clause.</Callout>
+
+## Common mistakes
+
+<Callout kind="mistake">Writing UPDATE or DELETE without WHERE. Every row is then changed or removed, which is a serious integrity error and not a small slip.</Callout>
+
+<Callout kind="mistake">Putting an aggregate such as SUM in a WHERE clause. Conditions on totals belong in HAVING.</Callout>
+
+<Callout kind="mistake">Leaving out the join condition, so each row of one table is paired with every row of the other.</Callout>
+
+<Callout kind="mistake">Saying that a view stores its own copy of the data. A standard view runs its query each time it is used.</Callout>
+
+<Callout kind="mistake">Mixing up DELETE and DROP. DELETE removes rows and keeps the table; DROP removes the table and its structure.</Callout>
+
+<Callout kind="mistake">Believing that ROLLBACK undoes only the last statement. It returns the database to the last COMMIT, or to a named SAVEPOINT.</Callout>
+
+## Check yourself
+
+Write the SQL on paper before you open the markscheme.
+
+<Question id="a3-3-q01"/>
+
+<Question id="a3-3-q02"/>
+
+<Question id="port-a3-3-q5"/>
+
+<Reveal title="Quick check">GRANT belongs to DCL, COMMIT to TCL and SELECT to DML. If you placed any of them elsewhere, reread the first part of the Explanation.</Reveal>
+
+## Summary
+
+- Four sub-languages: DDL for structure, DML for rows, DCL for permissions and TCL for transactions.
+- An inner join links two tables with ON; UPDATE and DELETE should have a WHERE clause.
+- Aggregate functions give totals; GROUP BY forms groups and HAVING filters them.
+- An index speeds up searching but adds work to every write.
+- Views (HL) are virtual tables over stored queries; transactions (HL) follow the ACID properties.

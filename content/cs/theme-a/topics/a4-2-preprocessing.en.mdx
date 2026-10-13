@@ -1,0 +1,89 @@
+## Big idea
+
+Real data is rarely ready for a model. Values are missing or wrong, records repeat, features sit on very different scales, and some columns do not help the prediction. Preprocessing repairs and prepares the data before training, because a model learns whatever the data contains: garbage in, garbage out. This topic covers three syllabus ideas: data cleaning, feature selection and dimensionality reduction.
+
+## Explanation
+
+### Why data cleaning matters (A4.2.1)
+
+Data cleaning <Term id="a4-2-data-cleaning"/> makes data consistent, accurate and free of errors, and makes it meet the legal and regulatory rules that apply to it. Unwanted or inaccurate content is called noise. A model trained on flawed data learns the flaws, so its predictions are unreliable, while clean, representative data helps it generalize. Biased data is also a cleaning problem: if one group is over-represented, the model repeats that bias.
+
+The main tasks are:
+
+- Outliers, which are values far from most of the others. Detect them with the interquartile range (IQR), a Z-score or a box plot, then trim, cap or transform them.
+- Duplicates. Remove exact copies with a query, and merge near-duplicates, for example by averaging numbers.
+- Incorrect or badly formatted data. Apply validation rules, cross-check other sources and convert values to one standard format, such as YYYY-MM-DD dates.
+- Irrelevant data. Remove columns that do not help the task.
+- Missing data <Term id="a4-2-missing-data"/>. Fill the gaps with the mean, median, mode or a K-NN estimate, delete the affected records, or predict the values with a model.
+
+### Scaling: normalization and standardization
+
+Normalization <Term id="a4-2-normalization"/>, also called min–max scaling, rescales a feature into a fixed range, usually 0 to 1: <Formula id="cs-min-max-normalization"/>. It suits algorithms that are sensitive to input scale. Standardization <Term id="a4-2-standardization"/>, also called Z-score normalization, gives a feature a mean of 0 and a standard deviation of 1: <Formula id="cs-z-score-standardization"/>. It suits data with unknown limits or outliers, and methods that assume a normal distribution, such as logistic regression.
+
+The key difference is outliers. Normalization depends on the minimum and maximum, so one extreme value squeezes everything else into a small interval. Standardization depends on the mean and standard deviation, which an extreme value shifts much less.
+
+### Feature selection (A4.2.2)
+
+Feature selection <Term id="a4-2-feature-selection"/> keeps the most useful attributes. It removes redundant features, which duplicate or closely track others, and irrelevant features, which have no link to the output. The gains are higher accuracy, less overfitting, faster training and easier interpretation. There are three families of method:
+
+- Filter method <Term id="a4-2-filter-method"/> scores each feature with a statistic, such as correlation or mutual information, without training a model. It is fast and often used first.
+- Wrapper method <Term id="a4-2-wrapper-method"/> trains models on subsets of features and adds or removes features based on performance, for example with recursive feature elimination (RFE). It is accurate but expensive.
+- Embedded method <Term id="a4-2-embedded-method"/> selects features during training. Lasso and Elastic Net penalize large coefficients, which can push some of them to exactly zero.
+
+### Dimensionality reduction (A4.2.3)
+
+A dimension is one feature, attribute or variable. Dimensionality reduction <Term id="a4-2-dimensionality-reduction"/> reduces the number of features while keeping as much relevant information as possible, often by building new features from the original ones. The book names two methods, PCA and LDA, but their mathematics lies outside this course, so learn the idea rather than the derivation. The benefits include visualization in two or three dimensions, less noise and overfitting, and lower time and memory costs.
+
+The curse of dimensionality <Term id="a4-2-curse-of-dimensionality"/>, a term coined by Richard Bellman, describes problems that appear with hundreds or thousands of dimensions. Models get too many parameters for the data and overfit. Computation slows, data becomes sparse so similar examples are hard to find, distances stop being informative, and the sample size needed grows very fast. A film recommender with five strong features can find similar films. Add 500 minor features, such as the font on the poster, and each film sits alone with no close neighbours.
+
+## Worked example
+
+A school uses five students' weekly revision hours, 2, 4, 6, 8 and 20, to predict exam scores. The value 20 looks like an outlier, so the team compares the two scaling methods.
+
+<Steps>
+<Step>Normalize. The minimum is 2 and the maximum is 20, so the range is 18. The values become 0, 0.11, 0.22, 0.33 and 1. The outlier stretches the range, so the four ordinary values are squeezed into the bottom third.</Step>
+<Step>Standardize. The mean is 8 and the population standard deviation is about 6.32. The values become -0.95, -0.63, -0.32, 0 and 1.90. The outlier stands out, and the ordinary values keep their spread.</Step>
+<Step>Check another feature. Suppose shoe size has a correlation of about 0.02 with exam score. A filter method flags it as irrelevant, so it is removed.</Step>
+</Steps>
+
+<Reveal title="Judgement">If 20 hours is a real value, standardization keeps it visible without flattening the rest. If it is a typing error, correct or remove the record first.</Reveal>
+
+## Visual
+
+Open the [Data preprocessing lab](/cs-lab/a4-2-preprocessing.html) and try its two simulations: one shows what a linear regression learns from prepared data, and the other shows what happens when the training data is biased.
+
+## How it is examined
+
+The textbook's practice questions on p. 263 use Describe, Define and Outline. Expect these command terms in this topic:
+
+- Calculate: a number with every stage of the working shown.
+- Define: a precise, glossary-style meaning. No example is needed.
+- Describe: a detailed account of what the technique does, with an example if it helps.
+- Outline: a brief summary of the main points, without reasons.
+- Explain: a detailed account with reasons, linked by "because" or "so that".
+- Distinguish: a clear, point-by-point difference between two items.
+- Suggest: a sensible option for the scenario, with the reason it fits.
+
+<Callout kind="exam">Define needs only a precise meaning, but Calculate needs every step, because a bare final answer can lose marks.</Callout>
+
+## Common mistakes
+
+<Callout kind="mistake">Min–max normalizing data with an extreme outlier and expecting the other values to keep their spread. They are squeezed into a tiny range.</Callout>
+
+<Callout kind="mistake">Treating feature selection and dimensionality reduction as the same thing. Feature selection keeps original features; dimensionality reduction usually builds new ones.</Callout>
+
+<Callout kind="mistake">Filling every gap with 0. Zero is a real value, so it changes the mean, the spread and any model that uses the column.</Callout>
+
+## Check yourself
+
+Try these before you open the mark schemes.
+
+<Question id="a4-2-q01"/>
+<Question id="a4-2-q02"/>
+<Question id="port-a4-2-q2b"/>
+
+## Summary
+
+Preprocessing makes data fit for a model: clean it, scale it, select the useful features and reduce dimensions when there are too many. Normalization is sensitive to outliers, while standardization gives a mean of 0 and a standard deviation of 1. Filter, wrapper and embedded methods select features in different ways, and the curse of dimensionality explains why too many features harm a model.
+
+<Callout kind="tip">In Describe and Explain answers, link each point to its effect on the model: accuracy, overfitting, speed or interpretability.</Callout>

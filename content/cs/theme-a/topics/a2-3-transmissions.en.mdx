@@ -1,0 +1,65 @@
+## Big idea
+
+Every device on an IP network needs an address, and data crossing the network is split into packets that routers forward one hop at a time. Addresses are scarce, so private addresses and NAT share a few public ones. The medium that carries the signal (fibre, copper or radio) decides how fast and how far the data can travel.
+
+## Explanation
+
+**IP addressing (A2.3.1).** An <Term id="a2-3-ip-address"/> is a unique numerical label for each device on an IP network. IPv4 uses 32-bit addresses written as four numbers from 0 to 255, such as 192.168.1.1. That gives about 4.3 billion addresses, which is not enough for every device. IPv6 uses 128-bit addresses written as eight groups of four hexadecimal digits, giving about $3.4 \times 10^{38}$ addresses. IPv6 has a simpler header and makes IPsec mandatory, but it needs new equipment and its adoption has been slow, so IPv4 is still everywhere.
+
+**Public and private addresses.** A <Term id="a2-3-public-ip"/> is unique across the internet and goes to devices that must be reached directly, such as web and email servers. A <Term id="a2-3-private-ip"/> is used inside a local network and is not routed on the internet. Three ranges are reserved for private use: 10.0.0.0 to 10.255.255.255 (about 16.7 million addresses), 172.16.0.0 to 172.31.255.255 (about 1 million) and 192.168.0.0 to 192.168.255.255 (65,536, typical of home Wi-Fi). The address 127.0.0.1 is the loopback address; it sends traffic back to the same computer.
+
+**Static and dynamic addresses.** A <Term id="a2-3-static-ip"/> is fixed and set by hand, so a server can always be found at the same place. A <Term id="a2-3-dynamic-ip"/> is leased for a limited time, usually when a device connects, from a pool that a DHCP server manages. Static addresses suit services, but configuring them by hand across thousands of devices is impractical; dynamic addresses let a small pool serve many devices.
+
+**NAT.** <Term id="a2-3-nat"/> lets many private devices share one public address. The router rewrites the source address and port of each outgoing packet, records the mapping in a NAT table and translates the replies back to the correct device. A household of devices can therefore appear to the internet as a single address.
+
+**Media (A2.3.2).** Fibre-optic cable sends light pulses through glass or plastic fibres. It offers very high bandwidth over long distances, keeps <Term id="a2-3-attenuation"/> very low, is immune to electromagnetic interference and is hard to tap, but it is costly and needs skilled installation. Twisted pair cables carry electrical pulses through pairs of copper wires; unshielded twisted pair (UTP) is cheap and common, while shielded twisted pair (STP) resists interference better. Wireless uses radio, infrared or microwaves. It needs no cables and is simple to set up, but bandwidth and range are limited, and signals are exposed to interference and eavesdropping unless they are encrypted. Compare media using bandwidth, installation complexity, cost, range, interference, attenuation, reliability and security, and remember that real speeds fall below the theoretical maximum.
+
+**Packet switching (A2.3.3).** In <Term id="a2-3-packet-switching"/>, the data is divided into packets. Each packet is encapsulated: protocol information, such as source and destination addresses, a sequence number and error-checking codes, is wrapped around its payload. The packets are sent independently, so they can take different routes and arrive out of order. Switches forward data packets inside a LAN using MAC addresses from their MAC address table. Routers forward packets between networks using IP addresses: each router checks the destination address, consults its routing table and picks the next hop. When all packets arrive, the destination uses the sequence numbers to reassemble the message and asks for any missing packet to be sent again.
+
+**Routing (A2.3.4).** A <Term id="a2-3-static-routing"/> is configured by an administrator, who enters the destination network, the subnet mask and the next hop or exit interface for each route. Static routes are predictable, need no route-exchange traffic and give the administrator control over valid paths, but they do not react to a failed link and become error-prone in a large network. A <Term id="a2-3-dynamic-routing"/> uses routing protocols, such as RIP, OSPF or BGP, which exchange information and choose paths by metrics such as hop count, bandwidth and latency. When a link fails, the routers recalculate their routes automatically. The costs are extra processing and bandwidth, a convergence period while all routers agree on the new network, and security risks if the updates are not protected.
+
+<Callout kind="tip">When a question asks how a packet moves, follow it in order: split and address, route hop by hop, then reassemble.</Callout>
+
+## Worked example
+
+Follow a message that is split into three packets.
+
+<Steps>
+<Step>The message is split into three packets, numbered 1, 2 and 3. Each packet gets a header with the destination address and its sequence number.</Step>
+<Step>Routers forward each packet on its own. Packet 2 takes a longer route, so the packets arrive in the order 1, 3, 2.</Step>
+<Step>The destination reads the sequence numbers, puts the packets back in the order 1, 2, 3 and rebuilds the message.</Step>
+<Step>If packet 2 had never arrived, the destination would ask the sender to resend packet 2 only, not the whole message.</Step>
+</Steps>
+
+## Visual
+
+Open the [Data transmission lab](/cs-lab/a2-3-transmissions.html) and follow the IP addressing, NAT and media sections alongside the text.
+
+## How it is examined
+
+<Callout kind="exam">The book's command-term table (p. 602–603) links each term to an assessment objective (AO). Define, Label, List and State are AO1. Calculate, Describe, Distinguish, Estimate, Identify and Outline are AO2. Compare, Discuss, Evaluate, Explain, Justify and Suggest are AO3. The marks belong to each question, not to the command term: read the mark total in brackets and give one distinct, correct point for each mark. An Explain answer on packets or routing needs a chain of linked reasons, so write each link as its own step. Distinguish needs the differences made clear, and Compare needs similarities that refer to both items throughout.</Callout>
+
+## Common mistakes
+
+<Callout kind="mistake">Do not confuse an IP address with a MAC address. The IP address is used to route packets between networks, while switches inside a LAN forward using MAC addresses.</Callout>
+
+<Callout kind="mistake">Static routing does not react to failures. A failed link stays in a static table until an administrator edits it, whereas a dynamic protocol recalculates the routes by itself.</Callout>
+
+## Check yourself
+
+Try these before you check your answers.
+
+<Question id="a2-3-q01"/>
+
+<Question id="a2-3-q02"/>
+
+<Question id="port-a2-3-q5b"/>
+
+<Reveal title="Hint for the NAT question">Think about which address the internet sees, and where the router keeps the record that lets a reply find the right device.</Reveal>
+
+## Summary
+
+- IPv4 uses 32-bit addresses and IPv6 uses 128-bit addresses. NAT lets many private devices share one public address.
+- Public addresses are unique across the internet, private ones are reused inside local networks, and static addresses stay fixed while dynamic ones are leased.
+- Fibre, twisted pair and wireless differ in bandwidth, range, cost, interference and security. Attenuation limits how far a signal can travel.
+- Packets are routed independently and reassembled with sequence numbers. Static routes are set by hand; dynamic routes are learned through protocols.

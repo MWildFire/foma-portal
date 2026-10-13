@@ -1,0 +1,80 @@
+## Big idea
+
+A computer runs every program on the same chain of hardware. The CPU does the calculating and the control work, memory holds what is in use right now, and storage keeps everything else. Three ideas explain most of this topic: parts communicate over buses, memory is arranged as a speed hierarchy, and performance rises when work runs in parallel.
+
+## Explanation
+
+**CPU parts.** <Term id="a1-1-alu"/> performs arithmetic and logical operations. <Term id="a1-1-cu"/> decodes instructions and sends control signals to the other parts. Registers are tiny, very fast stores inside the CPU: the instruction register (IR) keeps the instruction being run now, the program counter (PC) holds the address of the next one, the memory address and memory data registers (MAR, MDR) handle memory transfers, and the accumulator (AC) keeps intermediate results. Buses are shared channels. The address bus carries a memory address, and its width sets how many locations can be addressed (32 lines give $2^{32}$). The data bus carries data and instructions in both directions. The control bus carries read, write and acknowledge signals.
+
+**Processors.** A single-core CPU executes one instruction stream at a time. A multi-core processor has several independent cores on one chip. Co-processors take over specialized work.
+
+**GPU and CPU (HL).** <Term id="a1-1-gpu"/> has thousands of smaller cores optimized for high throughput, so many data items can receive the same operation at once. A CPU has fewer, more powerful cores, optimized for low latency and flexible, general-purpose work. They cooperate: the CPU runs the operating system and control logic, while the GPU takes the parallel workload.
+
+**Primary memory.** Registers are the fastest store, and cache (L1, L2, L3) sits between them and RAM. The CPU checks registers, then L1, L2 and L3, then RAM. A cache hit finds the data quickly; a cache miss forces a slower fetch. The book's access times run from 0.2–0.5 ns for registers to 50–70 ns for RAM. <Term id="a1-1-volatile-memory"/> such as RAM loses its data without power. <Term id="a1-1-rom"/> is non-volatile and stores start-up instructions; it is not part of the everyday register–cache–RAM path.
+
+**Fetch–decode–execute.** The <Term id="a1-1-fde-cycle"/> repeats for every instruction.
+
+<Steps>
+
+<Step>Fetch: the address in the PC goes to the MAR and onto the address bus; the instruction returns on the data bus through the MDR into the IR; the PC moves on.</Step>
+
+<Step>Decode: the CU reads the opcode, the operands and the addressing mode from the IR.</Step>
+
+<Step>Execute: the ALU calculates, memory is read or written, or a jump changes the PC.</Step>
+
+</Steps>
+
+**Pipelining and multi-core (HL).** <Term id="a1-1-pipelining"/> splits execution into stages (fetch, decode, execute, write back), so different instructions occupy different stages at the same time. Once the pipeline is full, one instruction finishes each cycle. In a <Term id="a1-1-multi-core"/> processor, each core has its own pipeline, ALU, CU and registers, while the cores share L3 cache and RAM. Shared data must stay consistent, which is cache coherence.
+
+**Secondary storage.** <Term id="a1-1-secondary-storage"/> keeps data for the long term, even when the power is off. An HDD uses spinning magnetic platters: large and cheap per gigabyte, but slow (about 100–200 MB/s) and noisy. An <Term id="a1-1-ssd"/> stores data in flash memory with no moving parts: much faster (2,500–7,000 MB/s in the book's examples), quieter and more durable, but more expensive per gigabyte and limited in write cycles. eMMC is internal flash in phones and tablets. USB flash drives, memory cards, optical discs and network attached storage (NAS) are common external options.
+
+**Compression.** Lossless compression removes redundancy, so the file can be rebuilt exactly. Lossy compression discards detail people are unlikely to notice (as in JPEG and MP3), and the loss cannot be undone. <Term id="a1-1-rle"/> is a simple lossless method: each run of identical characters becomes a count and the character. Long runs compress well, while random text can grow.
+
+**Cloud computing.** <Term id="a1-1-cloud-computing"/> provides servers, storage and software over the internet, billed by use. SaaS gives a finished application in a browser, and the provider manages everything. PaaS gives developers a platform (operating system, databases, tools), and the provider runs the infrastructure. IaaS gives virtual servers and storage. The customer controls the operating system and software, so IaaS offers the most control and is the most expensive option.
+
+## Worked example
+
+Three instructions pass through a four-stage pipeline (fetch, decode, execute, write back). Each stage takes 1 ns.
+
+Without pipelining, each instruction uses all four stages before the next one starts: $3 \times 4 = 12$ ns. With pipelining, the first instruction finishes after 4 ns, and each later instruction finishes 1 ns after the one before it: $4 + 1 + 1 = 6$ ns. The same work takes half the time, and the gain grows with more instructions.
+
+## Visual
+
+Step through the fetch–decode–execute cycle and compare memory speeds in the [hardware lab](/cs-lab/a1-1-hardware.html).
+
+## How it is examined
+
+The book's command-term table (pp. 602–603) gives each term an assessment objective (AO) level. The AO describes the kind of thinking the term asks for, not a number of marks. State (AO1) needs only a name or value. Define (AO1) needs a precise meaning. Outline (AO2) needs a brief account without reasons. Describe (AO2) needs a detailed account. Calculate (AO2) needs every working step shown. Explain (AO3) adds reasons. Compare (AO3) refers to both items throughout. Evaluate (AO3) weighs strengths and limitations and ends with a justified conclusion.
+
+<Callout kind="exam">Pipelining and the CPU–GPU comparison are HL only (marked AHL in the book). For Calculate, show each step; for Evaluate, always end with a conclusion.</Callout>
+
+## Common mistakes
+
+- Mixing up the ALU and the CU: the ALU calculates, the CU directs.
+- Calling SSDs volatile: flash keeps data without power.
+- Saying pipelining makes one instruction faster: it raises how many instructions finish per unit of time.
+- Treating the cloud as one physical place: it is a network of remote servers.
+- Using RLE on data with no repeats: the file can become bigger.
+- Saying lossy compression is reversible: the discarded detail cannot be restored.
+
+<Callout kind="mistake">In SaaS, PaaS and IaaS, the key question is who manages what. More control means more responsibility and usually a higher cost.</Callout>
+
+## Check yourself
+
+Answer each question first, then compare your answer with the markscheme.
+
+<Question id="a1-1-q02"/>
+
+<Question id="a1-1-q06"/>
+
+<Question id="a1-1-q07"/>
+
+## Summary
+
+- The ALU, control unit, registers and buses carry out the fetch–decode–execute cycle.
+- Memory is a hierarchy from registers and cache to RAM and storage; volatile memory loses its data without power.
+- GPUs suit parallel work; pipelining and multi-core designs raise throughput (HL).
+- Secondary storage trades speed for capacity and persistence; SSDs are fast and flash-based.
+- Lossless compression restores data exactly; lossy compression does not. Cloud models differ in how much control the customer keeps.
+
+<Callout kind="tip">Learn the five register names and their roles first; the fetch–decode–execute cycle depends on them.</Callout>

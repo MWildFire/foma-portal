@@ -1,0 +1,88 @@
+## Big idea
+
+Relational tables are not the only way to store data. Alternative models trade relational structure for flexibility, scale, speed or location, and data warehouses collect historical data for analysis. A strong answer names the model, says what it is for and states its trade-off.
+
+## Explanation
+
+### Alternative database models
+
+Relational databases store data in related tables. A NoSQL database <Term id="a3-4-nosql"/> stores each record as a document instead of spreading it across linked tables. It uses a flexible schema, so documents need not share the same fields, and it scales well, which suits very large datasets and busy systems.
+
+A cloud-based database <Term id="a3-4-cloud-database"/> (the PaaS model) keeps a conventional structure but runs on a remote platform. It scales quickly and can serve users worldwide, but every request crosses a network, which adds latency.
+
+A spatial database <Term id="a3-4-spatial-database"/> stores points, lines and polygons and answers questions such as whether two boundaries overlap. An in-memory database <Term id="a3-4-in-memory-database"/> keeps all its data in RAM. This is very fast for real-time processing, but a crash can lose the data.
+
+### Data warehouses
+
+A data warehouse <Term id="a3-4-data-warehouse"/> is an append-only store of historical data, used for analysis rather than transactions. The textbook gives four characteristics: subject-oriented (organised by topics such as sales), integrated (data from many sources), time-variant (history is kept, so trends are visible) and non-volatile (loaded data is not changed).
+
+Data reaches the warehouse through extract, transform and load (ETL) <Term id="a3-4-etl"/>. Extraction gathers data from source systems. Transformation cleans it by normalising formats, cleansing errors, filtering unwanted records and validating against warehouse rules. Loading writes the prepared data in. A data lake, which keeps raw data unprocessed, is not defined in the textbook.
+
+### OLAP and data mining
+
+Online analytical processing (OLAP) <Term id="a3-4-olap"/> analyses data after it has been organised. A star or snowflake schema links warehouse tables through keys, producing an OLAP cube <Term id="a3-4-olap-cube"/>, a multi-dimensional table whose axes show dimensions such as product, customer and time. The five operations are roll-up (summarise up a hierarchy), drill-down (more detail), slice (fix one value on one dimension), dice (select values on several dimensions) and pivot (rotate the cube).
+
+Data mining <Term id="a3-4-data-mining"/> works on raw data without pre-processing to find patterns. The textbook names five techniques (classification, clustering, regression, association rules and sequential patterns). OLAP and data mining complement each other: mining finds patterns and OLAP examines them from several angles. Mined patterns can be biased, for example by selection bias or overfitting, so they must be checked.
+
+### Distributed databases
+
+A distributed database <Term id="a3-4-distributed-database"/> is split into segments held in different locations, yet it must look and behave like one database. Data is divided by fragmentation <Term id="a3-4-fragmentation"/>, where each part sits at one site, or by replication <Term id="a3-4-replication"/>, where copies sit at several sites. Replication improves availability but needs careful concurrency control.
+
+Strong consistency makes every update visible everywhere at once; it is strict and costly. Eventual consistency lets copies disagree for a time but settle on one state when updates stop, which lowers overhead at the cost of accuracy. An atomic commit means every participant must agree before a cross-site update is committed.
+
+### Trade-offs against relational databases
+
+A relational database offers a fixed schema, joins and ACID transactions. The alternatives gain flexibility, scale, speed or location, but each has a cost: documents may repeat data that must be updated in several places, cloud and distributed systems depend on the network, and in-memory data is volatile.
+
+## Worked example
+
+A bookshop chain wants to know which regions are growing in cookbook sales.
+
+<Steps>
+<Step>Extract the sales records from each shop's till system, then transform them: standardise dates and remove duplicate receipts.</Step>
+<Step>Load the cleaned records into the warehouse. Nothing is edited afterwards, so the history stays reliable.</Step>
+<Step>Build an OLAP cube with axes for product, region and month. Slice on cookbooks, roll up to yearly totals, then drill down into a growing region.</Step>
+<Step>To find which other products are bought with cookbooks, use data mining: association rule discovery works on the raw transactions.</Step>
+</Steps>
+
+## Visual
+
+Study Figure 19 on printed page 221 and look for the three axes of the OLAP cube, then name the dimension that each axis represents.
+
+## How it is examined
+
+The textbook's table of command terms (pp. 602–603) links each term to an assessment objective (AO1 to AO3). That describes the skill tested; it is not a mark value. For this topic:
+
+- Outline: the main points briefly, for example the three ETL stages.
+- Describe: what something is or how it works, in several linked points.
+- Explain: the mechanism and why it matters, linked with "because" or "so that".
+- Distinguish: a clear difference on the same point for both items.
+- Suggest: a suitable model or technique for a scenario, with a reason.
+- Discuss: arguments on both sides, then a supported judgement.
+
+<Callout kind="exam">Discuss and Evaluate reward balanced arguments and a judgement that uses the scenario. A one-sided answer loses marks even when each point is correct.</Callout>
+
+## Common mistakes
+
+<Callout kind="mistake">Calling a data warehouse a transactional database. It holds historical data for analysis and does not process single orders or payments.</Callout>
+
+<Callout kind="mistake">Treating OLAP and data mining as the same thing. OLAP works on pre-processed cubes; data mining works on raw data.</Callout>
+
+<Callout kind="mistake">Saying that distributed means copied. Fragmentation splits the data, replication copies it, and a distributed database can use either or both.</Callout>
+
+<Callout kind="mistake">Claiming that eventual consistency guarantees the latest value on every read. It allows temporary differences between copies.</Callout>
+
+## Check yourself
+
+Try these before you open the mark schemes.
+
+<Question id="a3-4-q01"/>
+<Question id="a3-4-q02"/>
+<Question id="a3-4-q03"/>
+<Question id="port-a3-4-q5"/>
+
+## Summary
+
+Alternative databases trade relational structure for flexibility (NoSQL), location (cloud), geographic shape (spatial) or speed (in-memory). Warehouses hold historical data for OLAP analysis and data mining, and distributed databases must balance availability, consistency and complexity.
+
+<Callout kind="tip">In every answer, name the model, give the mechanism, then state the trade-off for the scenario.</Callout>
