@@ -14,7 +14,7 @@ Because the chord gradient is a change in $y$ divided by a change in $x$, the sa
 
 <Callout kind="define">Derivative: the gradient function $f'(x) = \lim_{h \to 0} \dfrac{f(x+h) - f(x)}{h}$, which gives the gradient of the curve $y = f(x)$ at every point where the limit exists.</Callout>
 
-<Callout kind="gdc">Make a table of values of the chord gradient for $h = 0.1$, $0.01$ and $0.001$, using the numerical derivative at a point or a table of values of $(f(x+h) - f(x))/h$. Watch the values as $h$ shrinks: they settle on the derivative.</Callout>
+<Callout kind="gdc">On a Calculator page, type `Define f(x)=x^3-6*x^2+9*x+1` and `Define g(h)=(f(1+h)-f(1))/h`, then evaluate `g(0.1)`, `g(0.01)` and `g(0.001)`: the chord gradients settle on $f'(1)$. Check with `nDerivative(f(x),x=1)`. This calculator has no `limit(` command, so read a limit from a table of values like this.</Callout>
 
 ## Worked example
 

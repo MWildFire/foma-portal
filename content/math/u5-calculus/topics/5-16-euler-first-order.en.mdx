@@ -22,7 +22,7 @@ The same method works for a <Term id="euler-coupled-system"/>, for example $\dfr
 
 <Formula id="euler-system-step"/>
 
-<Callout kind="gdc">Build the steps as a table of values or as a recursive sequence on your calculator, so that each row uses the previous row. For a system, both new values in a row must come from the same previous row.</Callout>
+<Callout kind="gdc">On a Lists & Spreadsheet page, type the starting values in row 1 (`0` in `a1`, `1` in `b1`) and the Euler rules in row 2; for $dy/dx = x - y$ with $h = 0.2$ these are `=a1+0.2` in `a2` and `=b1+0.2*(a1-b1)` in `b2`. Fill each column down: select its cell in row 2, choose `Menu → Data → Fill`, extend the range with the arrow keys and press `enter`, then compare the first rows with your hand working. Every formula uses only the row above, so for a system both new values come from the same old row.</Callout>
 
 ## Worked example
 
