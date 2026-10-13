@@ -1,0 +1,413 @@
+import test, { after, before } from 'node:test';
+import assert from 'node:assert/strict';
+import { join } from 'node:path';
+import { createServer } from 'vite';
+import { createElement } from 'react';
+import { renderToString } from 'react-dom/server';
+import { MemoryRouter, Route, Routes } from 'react-router-dom';
+
+// Smoke test of the study pages: they are loaded through Vite (the same transforms as the real build) and drawn
+// once on the server for a few addresses and saved states. It catches a crash on an empty pack, a missing text, a
+// broken filter, a list in the wrong order. Effects and clicks do not run here; the logic behind them is covered by
+// the other study-*.test.mjs files.
+const root = join(import.meta.dirname, '..');
+let server;
+let i18n;
+const loaded = {};
+
+before(async () => {
+  server = await createServer({
+    root,
+    appType: 'custom',
+    server: { middlewareMode: true },
+    logLevel: 'silent',
+    // The router offers an ES module for Node under the "module-sync" condition. Vite does not ask for it by
+    // default, picks the CommonJS file and then cannot read the named exports.
+    ssr: { resolve: { conditions: ['module-sync', 'module', 'node', 'development|production'], externalConditions: ['node', 'module-sync'] } },
+  });
+  i18n = (await server.ssrLoadModule('/src/i18n/index.ts')).default;
+  await new Promise(resolve => setTimeout(resolve, 20));
+  const files = {
+    PracticePage: '/src/pages/PracticePage.tsx',
+    GlossaryPage: '/src/pages/GlossaryPage.tsx',
+    FormulasPage: '/src/pages/FormulasPage.tsx',
+    SimsPage: '/src/pages/SimsPage.tsx',
+    ReportPage: '/src/pages/ReportPage.tsx',
+    PracticeView: '/src/components/practice/PracticeView.tsx',
+    GlossaryView: '/src/components/glossary/GlossaryView.tsx',
+    FormulasView: '/src/components/formulas/FormulasView.tsx',
+    SimsView: '/src/components/sims/SimsView.tsx',
+    ReportView: '/src/components/report/ReportView.tsx',
+  };
+  for (const [name, path] of Object.entries(files)) loaded[name] = (await server.ssrLoadModule(path))[name];
+});
+
+after(async () => {
+  await server?.close();
+});
+
+// ---- drawing
+
+// A saved progress state in localStorage for the time of one draw (storage.ts reads window.localStorage).
+function withStorage(state, drawIt) {
+  const values = new Map(state ? [['foma-portal-v1', JSON.stringify(state)]] : []);
+  globalThis.window = {
+    localStorage: { getItem: key => values.get(key) ?? null, setItem: (key, value) => values.set(key, value) },
+    addEventListener: () => {},
+    removeEventListener: () => {},
+    dispatchEvent: () => true,
+  };
+  const error = console.error;
+  // React Router uses useLayoutEffect, which warns on the server. That is not a problem of the pages.
+  console.error = (...args) => {
+    if (!String(args[0]).includes('useLayoutEffect does nothing on the server')) error(...args);
+  };
+  try {
+    return drawIt();
+  } finally {
+    console.error = error;
+    delete globalThis.window;
+  }
+}
+
+async function draw(element, url, { lang = 'en', state, pattern } = {}) {
+  await i18n.changeLanguage(lang);
+  const inner = pattern ? createElement(Routes, null, createElement(Route, { path: pattern, element })) : element;
+  return withStorage(state, () => renderToString(createElement(MemoryRouter, { initialEntries: [url] }, inner)));
+}
+
+const page = (name, pattern, url, options) => draw(createElement(loaded[name]), url, { ...options, pattern });
+const view = (name, props, url, options) => draw(createElement(loaded[name], props), url, options);
+
+// ---- a small subject to draw
+
+const L = (en, ru) => ({ en, ru: ru ?? `${en} (по-русски)` });
+const topic = (id, order, extra = {}) => ({
+  id, subject: 'geo', code: `T.${order}`, title: L(`Topic ${id}`, `Тема ${id}`), papers: ['P1'], order, minutes: 30, priority: 1,
+  inMockScope: 'yes', outcomes: [], termIds: [], questionIds: [], sources: [], ...extra,
+});
+const question = (id, paper, topicIds, command, marks = 2) => ({
+  id, subject: 'geo', topicIds, paper, marks, command, origin: 'original',
+  prompt: L(`Prompt of ${id}`, `Условие ${id}`),
+  markscheme: L(`Markscheme of ${id}`, `Критерии ${id}`),
+});
+const term = (id, papers = ['P1']) => ({
+  id, term: L(`term ${id}`, `термин ${id} (term ${id})`), def: L(`English definition of ${id}`, `Русское определение ${id}`),
+  syllabus: `S.${id}`, papers, src: { kind: 'textbook', title: 'Course book', locator: 'ch. 1, p. 10' },
+});
+const formula = (id, inBooklet) => ({
+  id, tex: 'a^2 + b^2 = c^2', name: L(`Formula ${id}`, `Формула ${id}`), meaning: L(`Meaning ${id}`, `Смысл ${id}`),
+  when: L(`When ${id}`, `Когда ${id}`), syllabus: 'F.1', ...(inBooklet === undefined ? {} : { inBooklet }),
+});
+const loader = () => Promise.resolve({ default: () => null });
+
+function pack(overrides = {}) {
+  return {
+    meta: { id: 'geo', title: L('Geography SL', 'География SL'), level: 'SL', color: 'teal' },
+    syllabus: [],
+    topics: [topic('t1', 1, { termIds: ['a'], formulaIds: ['f1'], sims: ['geo.river'] }), topic('t2', 2)],
+    topicBodies: {},
+    terms: [term('a'), term('b', ['P2'])],
+    formulas: [formula('f1', true), formula('f2', false), formula('f3')],
+    questions: [
+      question('q1', 'P1', ['t1'], 'Explain'),
+      question('q2', 'P1', ['t2'], 'Calculate'),
+      question('q3', 'P2', ['t1'], 'explain'),
+      question('q4', 'P2', ['t2'], 'Evaluate'),
+    ],
+    cases: [],
+    papers: [{
+      subject: 'geo', paper: 'P1', title: L('Paper 1'), minutes: 60, marks: 20, structure: L('s'), strategy: L('s'),
+      timedSets: [{ id: 'set-a', title: L('Mock set A', 'Набор А'), questionIds: ['q4', 'q2', 'q404'], minutes: 45 }],
+    }],
+    sims: { 'geo.river': loader },
+    ...overrides,
+  };
+}
+
+const empty = () => pack({ topics: [], terms: [], formulas: [], questions: [], papers: [], sims: {} });
+const inOrder = (html, first, second) => html.indexOf(first) !== -1 && html.indexOf(first) < html.indexOf(second);
+
+// ---- practice
+
+test('practice, example subject: the questions are shown and the markscheme is hidden', async () => {
+  const html = await page('PracticePage', '/s/:subject/practice', '/s/_example/practice');
+  assert.match(html, /bus ticket rises/);
+  assert.match(html, /Show the markscheme/);
+  assert.ok(!html.includes('% change in quantity'), 'the markscheme text must stay hidden until the button is pressed');
+  assert.match(html, /Command term: Calculate/);
+  assert.match(html, /Marks: 3/);
+  assert.match(html, /Showing 2 of 2 questions/);
+});
+
+test('practice with an empty pack shows an empty state and does not crash', async () => {
+  const html = await view('PracticeView', { pack: empty() }, '/s/geo/practice');
+  assert.match(html, /No questions yet/);
+  assert.ok(!html.includes('Filters'));
+});
+
+test('an unknown subject gives the "subject not found" page', async () => {
+  for (const name of ['PracticePage', 'GlossaryPage', 'FormulasPage']) {
+    const html = await page(name, '/s/:subject/x', '/s/nope/x');
+    assert.match(html, /Subject not found/, name);
+  }
+});
+
+test('practice: the filters come from the address and narrow the list', async () => {
+  const props = { pack: pack() };
+  const all = await view('PracticeView', props, '/s/geo/practice');
+  for (const id of ['q1', 'q2', 'q3', 'q4']) assert.ok(all.includes(`Prompt of ${id}`), id);
+  assert.match(all, /Showing 4 of 4 questions/);
+
+  const byPaper = await view('PracticeView', props, '/s/geo/practice?paper=P2');
+  assert.ok(byPaper.includes('Prompt of q3') && byPaper.includes('Prompt of q4'));
+  assert.ok(!byPaper.includes('Prompt of q1') && !byPaper.includes('Prompt of q2'));
+
+  const combined = await view('PracticeView', props, '/s/geo/practice?paper=P2&command=Explain&topic=t1');
+  assert.ok(combined.includes('Prompt of q3'));
+  assert.ok(!combined.includes('Prompt of q4') && !combined.includes('Prompt of q1'));
+  assert.match(combined, /Showing 1 of 4 questions/);
+  assert.match(combined, /Clear filters/);
+});
+
+test('practice: a filter value that no question has is ignored', async () => {
+  const html = await view('PracticeView', { pack: pack() }, '/s/geo/practice?paper=P3&topic=nope&command=zzz');
+  assert.match(html, /Showing 4 of 4 questions/);
+  assert.ok(!html.includes('Clear filters'));
+});
+
+test('practice: when no question matches, a message is shown', async () => {
+  const html = await view('PracticeView', { pack: pack() }, '/s/geo/practice?paper=P1&command=evaluate');
+  assert.match(html, /No questions match these filters/);
+});
+
+test('practice: questions rated wrong come first under "To redo"', async () => {
+  const state = { questions: { 'geo/q3': { rating: 'wrong', at: '2026-10-12' }, 'geo/q1': { rating: 'right', at: '2026-10-12' } } };
+  const html = await view('PracticeView', { pack: pack() }, '/s/geo/practice', { state });
+  assert.match(html, /To redo \(1\)/);
+  assert.ok(inOrder(html, 'Prompt of q3', 'Prompt of q1'), 'q3 (wrong) before q1');
+  assert.ok(inOrder(html, 'To redo (1)', 'Other questions (3)'));
+  assert.ok(inOrder(html, 'Prompt of q1', 'Prompt of q2'), 'the rest keep their order');
+});
+
+test('practice: with nothing rated wrong the redo list says so', async () => {
+  const html = await view('PracticeView', { pack: pack() }, '/s/geo/practice');
+  assert.match(html, /To redo \(0\)/);
+  assert.match(html, /Nothing to redo here/);
+});
+
+test('practice, timed mode: ?set= opens the set with its questions in order, time and clock', async () => {
+  const html = await view('PracticeView', { pack: pack() }, '/s/geo/practice?set=set-a');
+  assert.match(html, /Mock set A/);
+  assert.match(html, /45:00/);
+  assert.match(html, /Start the timer/);
+  assert.ok(inOrder(html, 'Prompt of q4', 'Prompt of q2'), 'the order of the set');
+  assert.ok(!html.includes('Prompt of q1') && !html.includes('Prompt of q3'), 'only the questions of the set');
+  assert.match(html, /q404/, 'a question missing from the pack is named');
+  assert.match(html, /Standard time/);
+  assert.ok(!html.includes('Filters'), 'filters are off in timed mode');
+  assert.match(html, /Leave timed mode/);
+});
+
+test('practice, timed mode: extra time adds 25% and says so', async () => {
+  const state = { settings: { accessArrangements: { extraTime: true } } };
+  const html = await view('PracticeView', { pack: pack() }, '/s/geo/practice?set=set-a', { state });
+  assert.match(html, /57:00/);
+  assert.match(html, /Extra time is on: 45 min \+ 25% \(\+12 min\) = 57 min/);
+  assert.ok(!html.includes('45:00'));
+});
+
+test('practice, timed mode: a set that does not exist is reported, and the normal list stays', async () => {
+  const html = await view('PracticeView', { pack: pack() }, '/s/geo/practice?set=nope');
+  assert.match(html, /There is no timed set/);
+  assert.match(html, /nope/);
+  assert.match(html, /Prompt of q1/);
+});
+
+test('practice: a subject without timed sets says so', async () => {
+  const html = await view('PracticeView', { pack: pack({ papers: [] }) }, '/s/geo/practice');
+  assert.match(html, /no timed sets yet/);
+});
+
+test('practice in Russian', async () => {
+  const state = { settings: { accessArrangements: { extraTime: true } } };
+  const html = await view('PracticeView', { pack: pack() }, '/s/geo/practice?set=set-a', { lang: 'ru', state });
+  assert.match(html, /Практика/);
+  assert.match(html, /Условие q4/);
+  assert.match(html, /Дополнительное время включено/);
+  assert.match(html, /57:00/);
+});
+
+// ---- glossary and flashcards
+
+test('glossary, example subject: English term and definition come before the Russian ones, with syllabus and source', async () => {
+  const html = await page('GlossaryPage', '/s/:subject/terms', '/s/_example/terms');
+  assert.match(html, /Syllabus EX\.1/);
+  assert.match(html, /Papers: P1/);
+  assert.ok(inOrder(html, 'The quantity of a good that buyers', 'Количество товара, которое покупатели'), 'EN definition first');
+  assert.match(html, /спрос \(demand\)/);
+  assert.match(html, /Common pitfall/);
+  assert.match(html, /Source/);
+  assert.match(html, /Own notes/);
+  assert.match(html, /Due today/);
+});
+
+test('glossary: the list is A-Z by the English term and shows the topics that use a term', async () => {
+  const p = pack({ terms: [term('zebra'), term('apple'), term('a')] });
+  const html = await view('GlossaryView', { pack: p }, '/s/geo/terms');
+  assert.ok(inOrder(html, '>term a<', '>term apple<') && inOrder(html, '>term apple<', '>term zebra<'));
+  assert.match(html, /In topics/);
+  assert.match(html, /Topic t1/);
+  assert.match(html, /Showing 3 of 3 terms/);
+});
+
+test('glossary: the counts at the top show new cards as due and the cards in each box', async () => {
+  const state = { terms: { 'geo/a': { box: 2, due: '2099-01-01' } } };
+  const html = await view('GlossaryView', { pack: pack() }, '/s/geo/terms', { state });
+  const tile = (label, value) => new RegExp(`${label}(<[^>]*>[^<]*</[^>]*>)*</dt><dd>${value}</dd>`);
+  assert.match(html, tile('Terms', 2));
+  assert.match(html, tile('Due today', 1));
+  assert.match(html, tile('New', 1));
+  assert.match(html, tile('Box 2', 1));
+  assert.match(html, tile('Box 1', 0));
+});
+
+test('flashcards: the first due card shows only the term; the definition waits for Space or a tap', async () => {
+  const html = await view('GlossaryView', { pack: pack() }, '/s/geo/terms?mode=cards');
+  assert.match(html, /Card 1 of 2/);
+  assert.match(html, />term a</);
+  assert.match(html, /Show the definition/);
+  assert.ok(!html.includes('English definition of a'), 'the definition is hidden');
+  assert.match(html, /Space/);
+});
+
+test('flashcards: only cards due today or earlier are shown', async () => {
+  const state = { terms: { 'geo/a': { box: 2, due: '2099-01-01' } } };
+  const html = await view('GlossaryView', { pack: pack() }, '/s/geo/terms?mode=cards', { state });
+  assert.match(html, /Card 1 of 1/);
+  assert.match(html, />term b</);
+  assert.ok(!html.includes('>term a<'));
+});
+
+test('flashcards: with nothing due the page says so and names the next day', async () => {
+  const state = { terms: { 'geo/a': { box: 2, due: '2099-01-05' }, 'geo/b': { box: 1, due: '2099-01-02' } } };
+  const html = await view('GlossaryView', { pack: pack() }, '/s/geo/terms?mode=cards', { state });
+  assert.match(html, /No cards left for today/);
+  assert.match(html, /2099-01-02/);
+});
+
+test('glossary with an empty pack shows an empty state', async () => {
+  assert.match(await view('GlossaryView', { pack: empty() }, '/s/geo/terms?mode=cards'), /No terms yet/);
+  assert.match(await view('GlossaryView', { pack: empty() }, '/s/geo/terms'), /No terms yet/);
+});
+
+test('glossary in Russian', async () => {
+  const html = await view('GlossaryView', { pack: pack() }, '/s/geo/terms', { lang: 'ru' });
+  assert.match(html, /Глоссарий и карточки/);
+  assert.match(html, /На сегодня/);
+  assert.match(html, /Программа S\.a/);
+});
+
+// ---- formulas
+
+test('formulas, example subject: KaTeX, name, meaning, when, units, example and the booklet badge', async () => {
+  const html = await page('FormulasPage', '/s/:subject/formulas', '/s/_example/formulas');
+  assert.match(html, /class="katex/);
+  assert.match(html, /Price elasticity of demand/);
+  assert.match(html, /In the formula booklet/);
+  assert.match(html, /dimensionless/);
+  assert.match(html, /Price rises 10%/);
+});
+
+test('formulas: "booklet only" keeps the booklet formulas', async () => {
+  const all = await view('FormulasView', { pack: pack() }, '/s/geo/formulas');
+  for (const id of ['f1', 'f2', 'f3']) assert.ok(all.includes(`Formula ${id}`), id);
+  assert.match(all, /Showing 3 of 3 formulas/);
+  const booklet = await view('FormulasView', { pack: pack() }, '/s/geo/formulas?booklet=1');
+  assert.ok(booklet.includes('Formula f1'));
+  assert.ok(!booklet.includes('Formula f2') && !booklet.includes('Formula f3'));
+  assert.match(booklet, /Showing 1 of 3 formulas/);
+  const none = await view('FormulasView', { pack: pack({ formulas: [formula('f2', false)] }) }, '/s/geo/formulas?booklet=1');
+  assert.match(none, /No formula from the booklet/);
+});
+
+test('formulas: links to the topics that use a formula; an empty pack gives an empty state', async () => {
+  const html = await view('FormulasView', { pack: pack() }, '/s/geo/formulas');
+  assert.match(html, /Used in topics/);
+  assert.match(html, /Topic t1/);
+  assert.match(await view('FormulasView', { pack: empty() }, '/s/geo/formulas'), /No formulas yet/);
+});
+
+test('formulas: a formula that does not compile does not crash the page', async () => {
+  const broken = { ...formula('bad', true), tex: '\\frac{1' };
+  const html = await view('FormulasView', { pack: pack({ formulas: [broken] }) }, '/s/geo/formulas');
+  assert.match(html, /Formula bad/);
+});
+
+// ---- simulations
+
+test('simulations: the example subject is hidden unless the address says ?include=example', async () => {
+  const hidden = await page('SimsPage', '/sims', '/sims');
+  assert.ok(!hidden.includes('_example.demo'));
+  const shown = await page('SimsPage', '/sims', '/sims?include=example');
+  assert.match(shown, /_example\.demo/);
+  assert.match(shown, /Example topic: demand and elasticity/);
+});
+
+test('simulations: grouped by subject, with the id, the subject and links to the topics', async () => {
+  const econ = pack({ meta: { id: 'econ', title: L('Economics HL'), level: 'HL', color: 'amber' }, sims: { 'econ.market': loader }, topics: [topic('markets', 1, { sims: ['econ.market'] })] });
+  const html = await view('SimsView', { packs: [pack(), econ] }, '/sims');
+  assert.match(html, /geo\.river/);
+  assert.match(html, /econ\.market/);
+  assert.match(html, /Geography SL/);
+  assert.match(html, /Economics HL/);
+  assert.match(html, /Topic markets/);
+  assert.match(html, /Simulations: (<!-- -->)?2/);
+});
+
+test('simulations: no simulations gives an empty state', async () => {
+  assert.match(await view('SimsView', { packs: [empty()] }, '/sims'), /No simulations yet/);
+  assert.match(await view('SimsView', { packs: [] }, '/sims'), /No simulations yet/);
+});
+
+test('simulations: ?sim= opens one, an unknown id is reported', async () => {
+  const open = await view('SimsView', { packs: [pack()] }, '/sims?sim=geo.river');
+  assert.match(open, /Simulation: (<!-- -->)?geo\.river/);
+  assert.match(open, /Close the simulation/);
+  const missing = await view('SimsView', { packs: [pack()] }, '/sims?sim=geo.nope');
+  assert.match(missing, /There is no simulation/);
+});
+
+// ---- report
+
+test('report: the text has the date, one block per subject and counts only', async () => {
+  const state = {
+    topics: { 'geo/t1': { done: '2026-10-12', rag: 'green' }, 'geo/t2': { rag: 'red' } },
+    questions: { 'geo/q1': { rating: 'right', at: '2026-10-12' }, 'geo/q2': { rating: 'wrong', at: '2026-10-12' } },
+    terms: { 'geo/a': { box: 3, due: '2026-10-20' } },
+  };
+  const html = await view('ReportView', { packs: [pack(), empty()] }, '/report', { state });
+  assert.match(html, /Progress report/);
+  assert.match(html, /Date: \d{4}-\d{2}-\d{2} \(Asia\/Dubai\)/);
+  assert.match(html, /Topics done: 1 of 2/);
+  assert.match(html, /Confidence \(RAG\): red 1, amber 0, green 1, not rated 0/);
+  assert.match(html, /Questions rated: 2 of 4 \(right 1, partial 0, wrong 1\)/);
+  assert.match(html, /box 3: 1/);
+  assert.match(html, /1\. Topic t1/);
+  assert.match(html, /Copy the report/);
+  assert.match(html, /readOnly|readonly/);
+});
+
+test('report in Russian is written in Russian, with Russian topic titles', async () => {
+  const state = { topics: { 'geo/t1': { done: '2026-10-12' } } };
+  const html = await view('ReportView', { packs: [pack()] }, '/report', { lang: 'ru', state });
+  assert.match(html, /Отчёт о прогрессе/);
+  assert.match(html, /Пройдено тем: 1 из 2/);
+  assert.match(html, /1\. Тема t1/);
+  assert.match(html, /Скопировать отчёт/);
+});
+
+test('report page: the real subjects draw without a crash', async () => {
+  const html = await page('ReportPage', '/report', '/report');
+  assert.match(html, /Progress report/);
+});
