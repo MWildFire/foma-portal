@@ -3,7 +3,7 @@ import type { SourceRef, Term } from '../../../../src/contract/types';
 // Syllabus core 2.3 (responding to global climate change). Definitions are in our own words, following the IPCC AR6
 // and SROCC glossaries and the Geography guide (2017), core 2.3. No textbook is available yet, so the source has no locator
 // (PLAN.md section 7).
-const src: SourceRef = { kind: 'own', title: 'Author wording, Geography guide (2017) core 2.3; textbook locator pending' };
+const src: SourceRef = { kind: 'own', title: 'Geography guide (2017), core 2.3' };
 
 export const terms: Term[] = [
   {

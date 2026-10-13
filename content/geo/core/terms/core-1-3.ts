@@ -2,7 +2,7 @@ import type { Term } from '../../../../src/contract/types';
 
 // Core 1.3 (challenges and opportunities). Definitions are written in our own words from the key elements of the
 // Geography guide (2017) core 1.3; no textbook locator yet (PACK.md for geo was not available).
-const SRC = { kind: 'own' as const, title: 'Author wording, Geography guide (2017) core 1.3; textbook locator pending' };
+const SRC = { kind: 'own' as const, title: 'Geography guide (2017), core 1.3' };
 const DEPENDENCY_SIM = 'geo.core-dependency-ratio' as const;
 
 export const terms: Term[] = [

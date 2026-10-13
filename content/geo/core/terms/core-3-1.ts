@@ -2,7 +2,7 @@ import type { SourceRef, Term } from '../../../../src/contract/types';
 
 // Syllabus core 3.1 (global trends in consumption). Definitions are in our own words, from the Geography guide (2017), core 3.1.
 // No textbook is available yet, so the source has no locator (PLAN.md section 7).
-const src: SourceRef = { kind: 'own', title: 'Author wording, Geography guide (2017) core 3.1; textbook locator pending' };
+const src: SourceRef = { kind: 'own', title: 'Geography guide (2017), core 3.1' };
 
 export const terms: Term[] = [
   {

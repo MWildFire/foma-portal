@@ -2,7 +2,7 @@ import type { Term } from '../../../../src/contract/types';
 
 // Topic core-1.1 (population and economic development). Definitions are our own wording of the key elements of the
 // Geography guide (2017) core 1.1; no textbook locator is available yet (no PACK), so the source kind is 'own'.
-const own = { kind: 'own' as const, title: 'Author wording, Geography guide (2017) core 1.1; textbook locator pending' };
+const own = { kind: 'own' as const, title: 'Geography guide (2017), core 1.1' };
 
 export const terms: Term[] = [
   {

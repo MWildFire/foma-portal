@@ -2,7 +2,7 @@ import type { Term } from '../../../../src/contract/types';
 
 // Core 1.2 (changing populations and places). Definitions are written in our own words from the key elements
 // of the Geography guide (2017) core 1.2; no textbook locator yet (PACK.md for geo was not available).
-const SRC = { kind: 'own' as const, title: 'Author wording, Geography guide (2017) core 1.2; textbook locator pending' };
+const SRC = { kind: 'own' as const, title: 'Geography guide (2017), core 1.2' };
 
 export const terms: Term[] = [
   {

@@ -3,7 +3,7 @@ import type { SourceRef, Term } from '../../../../src/contract/types';
 // Syllabus core 3.2 (impacts of changing trends in resource consumption). Definitions are in our own words, from the Geography guide (2017), core 3.2.
 // No textbook is available yet, so the source has no locator (PLAN.md section 7).
 // Two concepts that other topics already define are not repeated here: resource security (core-3-1) and water security (core-2-2).
-const src: SourceRef = { kind: 'own', title: 'Author wording, Geography guide (2017) core 3.2; textbook locator pending' };
+const src: SourceRef = { kind: 'own', title: 'Geography guide (2017), core 3.2' };
 
 export const terms: Term[] = [
   {
