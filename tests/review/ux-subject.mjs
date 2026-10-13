@@ -231,9 +231,10 @@ function serviceHits(text) {
 }
 
 function rawMathHits(text) {
-  // A "$" right after a letter is a currency sign (US$, A$), not the start of TeX.
-  const dollars = [...text.matchAll(/(?<![A-Za-z])\$/g)];
-  const commands = [...text.matchAll(/\\[a-zA-Z]{2,}/g)];
+  // Not TeX: a "$" after a letter or digit, before a digit or another "$" (US$, A$, "100$", "$99", "$$$$$"), and a
+  // Python "\n" before a capital letter in a string.
+  const dollars = [...text.matchAll(/(?<![A-Za-z\d$])\$(?![$\d])/g)];
+  const commands = [...text.matchAll(/\\[a-zA-Z]{2,}/g)].filter((m) => !/^\\n[A-Z]/.test(m[0]));
   const first = dollars[0] ?? commands[0];
   return { dollars: dollars.length, commands: commands.length, sample: first ? snippet(text, first.index) : '' };
 }

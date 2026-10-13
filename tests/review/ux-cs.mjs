@@ -277,8 +277,9 @@ function serviceHits(text) {
 }
 
 function rawMathHits(text) {
-  const dollars = [...text.matchAll(/\$/g)];
-  const commands = [...text.matchAll(/\\[a-zA-Z]{2,}/g)];
+  // Not TeX: currency and price marks ("$99", "100$", "$$$$$") and a Python "\n" before a capital letter in a string.
+  const dollars = [...text.matchAll(/(?<![A-Za-z\d$])\$(?![$\d])/g)];
+  const commands = [...text.matchAll(/\\[a-zA-Z]{2,}/g)].filter((m) => !/^\\n[A-Z]/.test(m[0]));
   const first = dollars[0] ?? commands[0];
   return { dollars: dollars.length, commands: commands.length, sample: first ? snippet(text, first.index) : '' };
 }
