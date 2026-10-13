@@ -4,13 +4,17 @@ import { useTranslation } from 'react-i18next';
 import type { PaperGuide } from '../contract/types';
 import { BreadcrumbsNav } from '../components/layout/BreadcrumbsNav';
 import { RichText } from '../components/content/RichText';
-import { TopicHero } from '../components/content/TopicHero';
+import { useContentLang } from '../components/content/useContentLang';
+import { SectionHeading, TopicHero } from '../components/content/TopicHero';
+import { PastPaperCard } from '../components/past-papers/PastPaperCard';
+import { usePastPaperProgress } from '../components/past-papers/usePastPaperProgress';
 import { usePageTitle, useScrollToTop } from '../components/content/usePageTitle';
 import { SubjectBar } from '../components/subject/SubjectHeader';
 import { SubjectNotFound } from '../components/subject/SubjectNotFound';
 import { ROUTES } from '../config/routes';
 import { getSubject } from '../content/registry';
-import { pickText } from '../lib/text';
+import { groupPastPapers } from '../lib/past-papers';
+import { pickText, shownLangs } from '../lib/text';
 import { guidesForPaper, isPaperKey, timedSetSearch } from '../lib/topic-list';
 import '../components/content/ui.css';
 import '../components/subject/subject.css';
@@ -81,6 +85,9 @@ function GuideSection({ guide, subject, lang }: { guide: PaperGuide; subject: st
 export function PaperPage() {
   const { subject = '', paper = '' } = useParams();
   const { t, i18n } = useTranslation(['paper', 'subject', 'common']);
+  const [contentLang] = useContentLang();
+  const base = useId();
+  const { progressOf, extraTime, setScore, setSolved } = usePastPaperProgress(subject);
   const pack = getSubject(subject);
   const guides = pack && isPaperKey(paper) ? guidesForPaper(pack.papers, paper) : [];
   const paperName = isPaperKey(paper) ? t(`paperNames.${paper}`, { ns: 'subject' }) : paper;
@@ -92,6 +99,8 @@ export function PaperPage() {
   if (!pack) return <SubjectNotFound />;
 
   const crumbs = [{ label: subjectTitle, to: ROUTES.subject(subject) }, { label: paperName }];
+  // The past papers of this paper, newest session first: the same cards as on the past-papers page, with the timer.
+  const pastRefs = isPaperKey(paper) ? (groupPastPapers(pack.pastPapers).find(group => group.paper === paper)?.refs ?? []) : [];
 
   return (
     <div data-subject-color={pack.meta.color}>
@@ -107,8 +116,27 @@ export function PaperPage() {
         <>
           <TopicHero title={t('title', { paper: paperName })} />
           {guides.map((guide, index) => (
-            <GuideSection key={`${guide.part ?? ''}-${index}`} guide={guide} subject={subject} lang={i18n.language} />
+            <GuideSection key={`${guide.part ?? ''}-${index}`} guide={guide} subject={subject} lang={shownLangs(contentLang)[0]} />
           ))}
+          {pastRefs.length > 0 ? (
+            <section aria-labelledby={`${base}-past`} className="mt-8">
+              <SectionHeading id={`${base}-past`}>{t('pastPapers.heading', { ns: 'subject' })}</SectionHeading>
+              <div className="flex flex-col gap-4">
+                {pastRefs.map(ref => (
+                  <PastPaperCard
+                    key={ref.id}
+                    subject={subject}
+                    paper={ref}
+                    topics={pack.topics}
+                    progress={progressOf(ref.id)}
+                    extraTime={extraTime}
+                    onScore={(itemIndex, score) => setScore(ref.id, itemIndex, score)}
+                    onSolved={date => setSolved(ref.id, date)}
+                  />
+                ))}
+              </div>
+            </section>
+          ) : null}
         </>
       )}
     </div>

@@ -103,6 +103,10 @@
     "solve": "Mark as solved",
     "unsolve": "Remove the mark",
     "solvedOn": "Solved on {{date}}",
-    "asked": "What the exam asks"
+    "asked": "What the exam asks",
+    "solveOnTime": "Solve on time",
+    "hideTimer": "Hide the timer",
+    "allowance": "Time: {{minutes}} min",
+    "allowanceExtra": "With extra time (+25%): {{minutes}} min"
   }
 }

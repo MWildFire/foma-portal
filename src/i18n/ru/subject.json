@@ -103,6 +103,10 @@
     "solve": "Отметить как решённый",
     "unsolve": "Снять отметку",
     "solvedOn": "Решено {{date}}",
-    "asked": "Что спрашивают"
+    "asked": "Что спрашивают",
+    "solveOnTime": "Решать на время",
+    "hideTimer": "Скрыть таймер",
+    "allowance": "Время: {{minutes}} мин",
+    "allowanceExtra": "С доп. временем (+25%): {{minutes}} мин"
   }
 }

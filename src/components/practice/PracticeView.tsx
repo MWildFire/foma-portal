@@ -23,9 +23,9 @@ import {
   type PracticeFilters,
 } from '../../lib/practice';
 import type { GlobalState, Rating } from '../../lib/storage';
-import { pickText } from '../../lib/text';
-import { toLang } from '../../lib/topic-lang';
+import { pickText, shownLangs } from '../../lib/text';
 import { dubaiDate } from '../../lib/topic-progress';
+import { useContentLang } from '../content/useContentLang';
 import { TopicHero } from '../content/TopicHero';
 import { FilterBar } from './FilterBar';
 import { QuestionCard } from './QuestionCard';
@@ -67,7 +67,9 @@ function QuestionList({ questions, offset = 0, progress, subject, ...rest }: Lis
 // comes first) and timed mode for a set (?set=<id>). Filters and the chosen set live in the address.
 export function PracticeView({ pack, tracks = NO_TRACKS }: { pack: SubjectPack; tracks?: readonly ListeningTrackRef[] }) {
   const { t, i18n } = useTranslation(['practice', 'subject', 'common']);
-  const lang = toLang(i18n.language);
+  // The practice text follows the content-language mode: the first language the mode shows (English for EN+RU).
+  const [contentLang] = useContentLang();
+  const lang = shownLangs(contentLang)[0];
   const subject = pack.meta.id;
   const [state, update] = useLocalProgress();
   const [params, setParams] = useSearchParams();
