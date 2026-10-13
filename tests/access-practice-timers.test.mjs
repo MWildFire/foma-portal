@@ -36,11 +36,12 @@ test('with extra time the school table gives the minutes (45 is 56, not 57)', ()
   }
 });
 
-test('a time missing from the table is the printed time plus 25%, rounded to the nearest minute', () => {
+test('a time missing from the table is the printed time plus 25%, rounded up to the minute (decision 6)', () => {
   assert.equal(allowance({ paper: 'P1', minutes: 80 }, true), 100);
   assert.equal(allowance({ paper: 'P1', minutes: 20 }, true), 25);
   assert.equal(allowance({ paper: 'P1', minutes: 50 }, true), 63); // 62.5 rounds up
-  assert.equal(allowance({ paper: 'P1', minutes: 45 }, true, 'geo', { ...exams, accessMinutes: {} }), 56);
+  assert.equal(allowance({ paper: 'P1', minutes: 25 }, true, 'geo', { ...exams, accessMinutes: {} }), 32); // 31.25 rounds up
+  assert.equal(allowance({ paper: 'P1', minutes: 45 }, true, 'geo', { ...exams, accessMinutes: {} }), 57); // 56.25 rounds up
 });
 
 test('the table wins over the arithmetic', () => {
@@ -117,12 +118,12 @@ test('every timed set and past-paper length in the content gets the school table
   assert.ok(contentSittings.length > 0, 'the content has sittings to check');
   for (const { kind, subject, id, set } of contentSittings) {
     assert.match(set.paper, /^P[123]$/, `${kind} ${subject} ${id}: paper`);
-    const expected = set.part === 'listening' ? set.minutes : (exams.accessMinutes[String(set.minutes)] ?? Math.round(set.minutes * 1.25));
+    const expected = set.part === 'listening' ? set.minutes : (exams.accessMinutes[String(set.minutes)] ?? Math.ceil(set.minutes * 1.25));
     assert.equal(allowance(set, true, subject), expected, `${kind} ${subject} ${id}`);
   }
 });
 
-test('the lengths the school table lacks are named here: their rule is printed time plus 25%, rounded (a decision for the owner)', () => {
+test('the lengths the school table lacks are named here: their rule is printed time plus 25%, rounded up (decision 6)', () => {
   const lacking = contentSittings.filter(row => !hasTableRow(row));
   assert.deepEqual(
     lacking.filter(row => row.kind === 'timed set').map(row => `${row.subject} ${row.id}`).sort(),

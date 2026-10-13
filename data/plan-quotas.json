@@ -6,7 +6,7 @@
   "unitMinutes": 25,
   "notes": "capacity = recall + sum(quota). Minutes per subject per day. 'timed' = full or partial timed paper inside that subject's quota (paper minutes + review). 'set' = a timed set of the paper's guide, with its own title in both languages and no past paper. If [redacted] changes capacity in Settings, quotas scale proportionally; timed blocks are never scaled.",
   "days": [
-    { "date": "2026-10-14", "capacity": 150, "recall": 15, "focus": { "en": "Diagnostics: Geo core unit 1, maths diagnostic under time, English works list", "ru": "Диагностика: география, ядро, юнит 1; математика на время; список произведений по английскому" }, "quota": { "geo": 60, "math": 45, "eng": 30 },
+    { "date": "2026-10-14", "capacity": 150, "recall": 15, "focus": { "en": "Diagnostics: Geo core unit 1, maths diagnostic under time, English Paper 2 criteria (25 marks)", "ru": "Диагностика: география, ядро, юнит 1; математика на время; английский: критерии Paper 2 (25 баллов)" }, "quota": { "geo": 60, "math": 45, "eng": 30 },
       "timed": [ { "subject": "math", "paper": "P1", "set": "diagnostic", "minutes": 45, "title": { "en": "Diagnostic, maths", "ru": "Диагностика, математика" } } ] },
     { "date": "2026-10-15", "capacity": 150, "recall": 15, "focus": { "en": "First pass Geo + Math, French text types", "ru": "Первый проход: география и математика; французский — типы текстов" }, "quota": { "geo": 50, "math": 50, "fr": 35 } },
     { "date": "2026-10-16", "capacity": 120, "recall": 15, "focus": { "en": "First pass Geo + Math, Economics diagnostic", "ru": "Первый проход: география и математика; диагностика по экономике" }, "quota": { "geo": 50, "math": 25, "econ": 30 } },

@@ -121,6 +121,8 @@ export function ExamsPage() {
               const isNext = !finished && !running && next?.exam.id === exam.id;
               const info = subjectInfo(infos, exam.subject);
               const ranges = examRanges(EXAMS, exam, separateRoom);
+              const noteInRu = lang === 'ru' && exam.noteRu !== undefined;
+              const note = noteInRu ? exam.noteRu : exam.note;
               return (
                 <li key={exam.id} className={`${card(isNext || running)} p-3`}>
                   <div className="flex flex-wrap items-start justify-between gap-x-3 gap-y-1">
@@ -180,10 +182,10 @@ export function ExamsPage() {
                       </>
                     )}
                   </dl>
-                  {exam.note && (
+                  {note && (
                     <p className={`mt-1 break-words text-sm ${MUTED}`}>
                       <span className="font-medium">{t('fields.note')}: </span>
-                      <span lang="en">{exam.note}</span>
+                      <span lang={noteInRu ? 'ru' : 'en'}>{note}</span>
                     </p>
                   )}
                   <Link to={ROUTES.paper(exam.subject, exam.paper)} className="inline-flex min-h-[44px] items-center text-sm font-medium">

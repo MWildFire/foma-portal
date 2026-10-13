@@ -19,7 +19,8 @@ export interface ExamPaper {
   acc2Start?: string;             // start in the access-arrangements room
   minutes: number;
   room: string;                   // kept exactly as written in the file
-  note?: string;
+  note?: string;                  // in English, as the printout's notes are
+  noteRu?: string;                // the same note in Russian; shown in the Russian interface when present
 }
 
 export interface ExamAccess {

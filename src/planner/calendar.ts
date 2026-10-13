@@ -40,6 +40,7 @@ function examOf(raw: unknown, defaultRoom: string): ExamPaper | null {
   if (typeof raw.part === 'string') exam.part = raw.part;
   if (typeof raw.acc2Start === 'string' && parseClock(raw.acc2Start) !== null) exam.acc2Start = raw.acc2Start;
   if (typeof raw.note === 'string') exam.note = raw.note;
+  if (typeof raw.noteRu === 'string') exam.noteRu = raw.noteRu;
   return exam;
 }
 
@@ -148,12 +149,13 @@ export function lastExamOverall(exams: ExamsFile): string | null {
   return last;
 }
 
-// A sitting's length with extra time: the school's table first, plain arithmetic (rounded) otherwise.
+// A sitting's length with extra time: the school's table first, otherwise the printed length plus the extra time,
+// rounded up to the minute (decision 6 of round 4).
 export function extendedMinutes(exams: ExamsFile, minutes: number): number {
   const fromTable = exams.accessMinutes[String(minutes)];
   if (typeof fromTable === 'number') return fromTable;
   const factor = exams.access?.extraTime ?? DEFAULT_EXTRA_TIME_FACTOR;
-  return Math.round(minutes * (1 + factor));
+  return Math.ceil(minutes * (1 + factor));
 }
 
 // The papers the schedule marks as "no extra time" (access.noExtraTime, by exam id), e.g. the French listening.
