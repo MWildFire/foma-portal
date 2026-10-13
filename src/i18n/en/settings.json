@@ -1,0 +1,60 @@
+{
+  "intro": "Settings are saved on this device only.",
+  "language": {
+    "title": "Language",
+    "intro": "The language of the portal's buttons and pages."
+  },
+  "access": {
+    "title": "Access arrangements",
+    "intro": "Turn these on only if the school has granted you access arrangements.",
+    "extraTime": {
+      "label": "25% extra time",
+      "hint": "Timed papers in the plan and exam end times get 25% more time."
+    },
+    "separateRoom": {
+      "label": "Separate room (ACC2)",
+      "hint": "The Today page shows when your next exam starts in ACC2."
+    }
+  },
+  "load": {
+    "title": "Study time per day",
+    "intro": "Minutes of study for each weekday, including the 15 min recall. Without your own number, each day keeps the time from the study schedule (normally Mon–Thu 150, Fri 120, Sat–Sun 270 min). Your number replaces that time on every ordinary day of that weekday; timed papers keep their full length. Exam days always keep their evening time from the schedule. 0 makes it a rest day.",
+    "default": "Default: {{time}}",
+    "custom": "Your setting (default {{time}})",
+    "unit": "min",
+    "reset": "Reset to default",
+    "invalid": "Enter whole minutes from 0 to 600.",
+    "planned": "Planned from today with these settings: {{time}}."
+  },
+  "transfer": {
+    "title": "Move your progress",
+    "intro": "Progress is saved only in this browser. To carry on on another device or at another address of the portal, copy the code here and paste it there.",
+    "export": {
+      "title": "Your progress code",
+      "label": "Code with your progress and settings:",
+      "nothing": "Nothing is saved on this device yet, so this code is empty:",
+      "copy": "Copy code",
+      "copied": "Copied. Paste it into Settings on the other device.",
+      "manual": "This browser cannot copy by itself. The code is selected: copy it with Ctrl+C (⌘C on a Mac), or press and hold it on a phone.",
+      "blocked": "This browser does not let the portal read its saved progress (private mode or blocked storage), so there is no code to copy."
+    },
+    "import": {
+      "title": "Paste a code from another device",
+      "label": "Progress code:",
+      "ready": "The code is valid: made on {{date}} (Dubai time), saved items: {{items}}.",
+      "warning": "Importing replaces the progress and settings on this device with the ones in the code.",
+      "button": "Import progress",
+      "confirm": "Replace the progress on this device? This cannot be undone.",
+      "yes": "Yes, replace",
+      "cancel": "Cancel",
+      "done": "Progress imported (saved items: {{items}}). The plan has been recalculated.",
+      "failed": "This browser did not let the portal save the progress (private mode or full storage)."
+    },
+    "problem": {
+      "empty": "Paste a progress code first.",
+      "invalid": "This is not a progress code. Copy the whole code from the other device and paste it again.",
+      "noProgress": "This code holds no progress.",
+      "damaged": "This code is damaged: the progress inside cannot be read."
+    }
+  }
+}
