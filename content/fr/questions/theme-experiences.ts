@@ -44,7 +44,7 @@ export const questions: FrQuestion[] = [
     },
     markscheme: {
       en: "Answer C. At first Inès misses her home, so « avoir le mal du pays » means to be homesick, that is, to miss one's home and family. A is about illness, and B describes how she felt later, not the meaning of the expression.",
-      ru: "Ответ C. Сначала Инес скучает по дому, поэтому «avoir le mal du pays» значит тосковать по дому, то есть сожалеть о доме и семье. A говорит о болезни, а B описывает, что она почувствовала позже, а не значение выражения.",
+      ru: "Ответ C. Сначала Инес скучает по дому, поэтому «avoir le mal du pays» значит тосковать по дому, то есть скучать по дому и семье. A говорит о болезни, а B описывает, что она почувствовала позже, а не значение выражения.",
     },
     answer: 'C',
     origin: 'original',

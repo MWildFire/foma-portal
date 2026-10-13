@@ -334,7 +334,7 @@ export const terms: FrTerm[] = [
   {
     id: 'v-t2-036',
     term: { en: 'surprised, amazed', ru: 'удивлённый', fr: 'étonné' },
-    def: { en: 'feeling surprise, often in a positive way', ru: 'испытывающий удивление, часто приятное' },
+    def: { en: 'feeling surprise at something unexpected', ru: 'испытывающий удивление, часто приятное' },
     example: { en: 'The tourists were amazed by the beauty of the landscape.', ru: 'Туристы были поражены красотой пейзажа.', fr: 'Les touristes étaient étonnés par la beauté du paysage.' },
     syllabus: 'T2',
     papers: ['P1', 'P2'],
@@ -585,7 +585,7 @@ export const terms: FrTerm[] = [
     id: 'v-t2-063',
     term: { en: 'host family', ru: 'принимающая семья', fr: "la famille d'accueil" },
     def: { en: 'a family that offers a home and meals to a visiting student', ru: 'семья, которая предоставляет жильё и питание приехавшему ученику' },
-    example: { en: 'My host family introduced me to the local cooking.', ru: 'Моя принимающая семья познакомила меня с местной кухней.', fr: "Ma famille d'accueil m'a fait découvrir la cuisine locale." },
+    example: { en: 'My host family introduced me to the local cuisine.', ru: 'Моя принимающая семья познакомила меня с местной кухней.', fr: "Ma famille d'accueil m'a fait découvrir la cuisine locale." },
     syllabus: 'T2',
     papers: ['P1', 'P2'],
     src: { kind: 'own', title: "Authors' French B vocabulary list (2026)" },
@@ -685,7 +685,7 @@ export const terms: FrTerm[] = [
   },
   {
     id: 'v-t2-074',
-    term: { en: 'anecdote, short story', ru: 'забавный случай', fr: "l'anecdote" },
+    term: { en: 'anecdote, funny story', ru: 'забавный случай', fr: "l'anecdote" },
     def: { en: "a short, often amusing story about a real event in someone's life", ru: 'короткая, часто забавная история о реальном событии из жизни человека' },
     example: { en: 'He told us a very funny anecdote about his first day at school.', ru: 'Он рассказал нам очень смешной случай о своём первом дне в школе.', fr: "Il nous a raconté une anecdote très drôle sur son premier jour d'école." },
     pitfall: { en: 'An anecdote is a short true story from life, not an invented one; for a made-up story, say histoire.', ru: 'Anecdote — это короткая правдивая история из жизни, а не выдуманная; для вымысла используйте histoire.' },
@@ -695,7 +695,7 @@ export const terms: FrTerm[] = [
   },
   {
     id: 'v-t2-075',
-    term: { en: 'to remember, to recall', ru: 'вспоминать', fr: 'se rappeler' },
+    term: { en: 'to recall', ru: 'вспоминать', fr: 'se rappeler' },
     def: { en: 'to bring a memory back to mind, especially a detail', ru: 'вспоминать что-то из прошлого, особенно какую-то деталь' },
     example: { en: 'I remember the name of the hotel, but not the town.', ru: 'Я помню название отеля, но не город.', fr: "Je me rappelle le nom de l'hôtel, mais pas la ville." },
     pitfall: { en: 'Se rappeler is followed directly by the noun (je me rappelle la ville); se souvenir needs de (je me souviens de la ville).', ru: 'После se rappeler существительное стоит сразу (je me rappelle la ville); se souvenir требует de (je me souviens de la ville).' },

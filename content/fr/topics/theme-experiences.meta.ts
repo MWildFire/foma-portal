@@ -11,7 +11,7 @@ const topic: TopicMeta = {
   priority: 1,
   inMockScope: 'yes',
   outcomes: [
-    { en: 'I can talk about trips, accommodation and transport, using the passé composé and the imparfait', ru: 'Могу рассказывать о поездках, жилье и транспорте, используя passé composé и imparfait' },
+    { en: 'I can talk about trips, accommodation and transport, using the passé composé and the imparfait', ru: 'Могу рассказывать о поездках, жильё и транспорте, используя passé composé и imparfait' },
     { en: 'I can tell a travel anecdote in order: events in the passé composé, the background in the imparfait', ru: 'Могу рассказать историю о поездке по порядку: события в passé composé, фон в imparfait' },
     { en: 'I can make the past participle agree with être and with a direct object placed before avoir', ru: 'Могу согласовать причастие прошедшего времени с être и с прямым дополнением перед avoir' },
     { en: 'I can describe feelings and sensations with precise words, such as ému, avoir le mal du pays and avoir le trac', ru: 'Могу описывать чувства и ощущения точными словами: ému, avoir le mal du pays, avoir le trac' },
