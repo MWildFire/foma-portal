@@ -27,13 +27,16 @@ aws s3api put-bucket-encryption --bucket $B --server-side-encryption-configurati
   '{"Rules":[{"ApplyServerSideEncryptionByDefault":{"SSEAlgorithm":"AES256"}}]}'
 ```
 The bucket is private (all public access blocked), versioned and encrypted (AES256). The state
-contains the Basic Auth strings, so keep it private and never copy it out.
+holds SHA-256 digests of the Basic Auth headers, not the passwords. Versions written before that
+change still hold the old base64 strings, so keep the bucket private and never copy the state out.
 
 ## Passwords
 `infra/auth.auto.tfvars` (gitignored; see `auth.auto.tfvars.example`) holds `foma_password` and
 `dmitry_password`. Generate with `openssl rand -base64 18` and keep a copy in
 `~/.foma-portal/credentials.txt` (chmod 600). Never print or commit them. To rotate: change both
-files, `terraform apply`. A fresh checkout or worktree needs `auth.auto.tfvars` before `plan`; rebuild it:
+files, `terraform apply`. For one run you can pass them as `TF_VAR_foma_password` and
+`TF_VAR_dmitry_password` instead, which leaves no copy on disk. A fresh checkout or worktree
+otherwise needs `auth.auto.tfvars` before `plan`; rebuild it:
 ```sh
 umask 077; awk -F': ' '$1=="foma"{f=$2} $1=="dmitry"{d=$2} END{printf "foma_password   = \"%s\"\ndmitry_password = \"%s\"\n", f, d}' \
   ~/.foma-portal/credentials.txt > infra/auth.auto.tfvars

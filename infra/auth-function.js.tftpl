@@ -1,8 +1,10 @@
 // Rendered by Terraform from infra/auth-function.js.tftpl. Do not edit in the console.
 // Runtime cloudfront-js-2.0, viewer-request. Plain ES5 style on purpose.
+var crypto = require('crypto');
 var APEX_HOST = '${apex_domain}';
 var WWW_HOST = 'www.${apex_domain}';
-var TOKENS = ${jsonencode(tokens)};
+// SHA-256 hex digests of the two expected Authorization header values. No passwords here.
+var TOKEN_HASHES = ${jsonencode(token_hashes)};
 
 function handler(event) {
   var request = event.request;
@@ -20,12 +22,14 @@ function handler(event) {
     };
   }
 
-  // 2. Basic Auth: the header must equal one of the two expected values.
-  var supplied = headers.authorization ? headers.authorization.value : '';
+  // 2. Basic Auth: the digest of the Authorization header must equal one of the expected digests.
   var allowed = false;
-  for (var i = 0; i < TOKENS.length; i++) {
-    if (supplied === TOKENS[i]) {
-      allowed = true;
+  if (headers.authorization) {
+    var suppliedHash = crypto.createHash('sha256').update(headers.authorization.value).digest('hex');
+    for (var i = 0; i < TOKEN_HASHES.length; i++) {
+      if (suppliedHash === TOKEN_HASHES[i]) {
+        allowed = true;
+      }
     }
   }
 
