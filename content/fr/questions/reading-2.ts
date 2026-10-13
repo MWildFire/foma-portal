@@ -15,9 +15,9 @@ export const questions: FrQuestion[] = [
     marks: 1,
     command: 'Identify',
     prompt: {
-      en: "Write vrai, faux or non mentionné, and quote the words from the article that prove it. The school changed its timetable because the parents asked for it.",
-      ru: "Напишите vrai, faux или non mentionné и приведите слова из статьи, которые это подтверждают. Школа изменила расписание, потому что об этом попросили родители.",
-      fr: "Écrivez vrai, faux ou non mentionné, et citez les mots de l'article qui le prouvent. Le lycée a changé son emploi du temps parce que les parents l'ont demandé.",
+      en: "Write vrai, faux or non mentionné. For vrai or faux, quote the sentence from the text that proves it. The school changed its timetable because the parents asked for it.",
+      ru: "Напишите vrai, faux или non mentionné. Если ответ vrai или faux, приведите фразу из текста, которая это доказывает. Школа изменила расписание, потому что об этом попросили родители.",
+      fr: "Écrivez vrai, faux ou non mentionné. Si la réponse est vrai ou faux, citez la phrase du texte qui le prouve. Le lycée a changé son emploi du temps parce que les parents l'ont demandé.",
     },
     markscheme: {
       en: "Answer: non mentionné. The article never says who asked for the change. Paragraph 1 gives only the aim: « L'objectif est de permettre aux élèves qui travaillent en dehors des cours de suivre leur scolarité sans s'épuiser ».",
@@ -35,9 +35,9 @@ export const questions: FrQuestion[] = [
     marks: 1,
     command: 'Identify',
     prompt: {
-      en: "Write vrai, faux or non mentionné, and quote the words from the article that prove it. The first lessons on Tuesdays now start later than before.",
-      ru: "Напишите vrai, faux или non mentionné и приведите слова из статьи, которые это подтверждают. Первые уроки по вторникам теперь начинаются позже, чем раньше.",
-      fr: "Écrivez vrai, faux ou non mentionné, et citez les mots de l'article qui le prouvent. Les premiers cours du mardi commencent plus tard qu'avant.",
+      en: "Write vrai, faux or non mentionné. For vrai or faux, quote the sentence from the text that proves it. The first lessons on Tuesdays now start later than before.",
+      ru: "Напишите vrai, faux или non mentionné. Если ответ vrai или faux, приведите фразу из текста, которая это доказывает. Первые уроки по вторникам теперь начинаются позже, чем раньше.",
+      fr: "Écrivez vrai, faux ou non mentionné. Si la réponse est vrai ou faux, citez la phrase du texte qui le prouve. Les premiers cours du mardi commencent plus tard qu'avant.",
     },
     markscheme: {
       en: "Answer: vrai. Paragraph 2: « les cours commencent désormais à neuf heures et demie, au lieu de huit heures, le mardi et le jeudi ». The lessons now start at half past nine instead of eight.",
@@ -55,9 +55,9 @@ export const questions: FrQuestion[] = [
     marks: 1,
     command: 'Identify',
     prompt: {
-      en: "Write vrai, faux or non mentionné, and quote the words from the article that prove it. All students have Friday afternoons free, without any condition.",
-      ru: "Напишите vrai, faux или non mentionné и приведите слова из статьи, которые это подтверждают. Все ученики свободны по пятницам после обеда, без каких-либо условий.",
-      fr: "Écrivez vrai, faux ou non mentionné, et citez les mots de l'article qui le prouvent. Tous les élèves ont l'après-midi du vendredi libre, sans aucune condition.",
+      en: "Write vrai, faux or non mentionné. For vrai or faux, quote the sentence from the text that proves it. All students have Friday afternoons free, without any condition.",
+      ru: "Напишите vrai, faux или non mentionné. Если ответ vrai или faux, приведите фразу из текста, которая это доказывает. Все ученики свободны по пятницам после обеда, без каких-либо условий.",
+      fr: "Écrivez vrai, faux ou non mentionné. Si la réponse est vrai ou faux, citez la phrase du texte qui le prouve. Tous les élèves ont l'après-midi du vendredi libre, sans aucune condition.",
     },
     markscheme: {
       en: "Answer: faux. Paragraph 2: « Le vendredi après-midi est libre pour ceux qui le demandent, à condition de rattraper le contenu sur la plateforme en ligne du lycée ». Only students who ask, and who catch up online, have the free afternoon.",
@@ -101,7 +101,7 @@ export const questions: FrQuestion[] = [
     },
     markscheme: {
       en: "Answer: A. Paragraph 3 (Inès): « Maintenant, je fais mes devoirs avant d'aller au travail, et je suis beaucoup plus calme ». Mathis finds the early start hard, and M. Denis worries about lost lessons (paragraph 4).",
-      ru: "Ответ: A. Абзац 3 (Inès): « Maintenant, je fais mes devoirs avant d'aller au travail, et je suis beaucoup plus calme ». Mathis трудно вставать рано, а M. Denis беспокоится о потерянных уроках (абзац 4).",
+      ru: "Ответ: A. Абзац 3 (Inès): « Maintenant, je fais mes devoirs avant d'aller au travail, et je suis beaucoup plus calme ». Для Mathis трудно вставать рано, а M. Denis беспокоится о потерянных уроках (абзац 4).",
     },
     answer: 'A',
     origin: 'original',
@@ -217,9 +217,9 @@ export const questions: FrQuestion[] = [
     marks: 1,
     command: 'Identify',
     prompt: {
-      en: "Write vrai, faux or non mentionné, and quote the words from the article that prove it. The mayor thought that the situation was acceptable.",
-      ru: "Напишите vrai, faux или non mentionné и приведите слова из статьи, которые это подтверждают. Мэр считал, что положение дел приемлемо.",
-      fr: "Écrivez vrai, faux ou non mentionné, et citez les mots de l'article qui le prouvent. Le maire trouvait la situation acceptable.",
+      en: "Write vrai, faux or non mentionné. For vrai or faux, quote the sentence from the text that proves it. The mayor thought that the situation was acceptable.",
+      ru: "Напишите vrai, faux или non mentionné. Если ответ vrai или faux, приведите фразу из текста, которая это доказывает. Мэр считал, что положение дел приемлемо.",
+      fr: "Écrivez vrai, faux ou non mentionné. Si la réponse est vrai ou faux, citez la phrase du texte qui le prouve. Le maire trouvait la situation acceptable.",
     },
     markscheme: {
       en: "Answer: faux. Paragraph 1: « un chiffre que le maire jugeait inacceptable ». He judged the figure unacceptable.",
@@ -237,9 +237,9 @@ export const questions: FrQuestion[] = [
     marks: 1,
     command: 'Identify',
     prompt: {
-      en: "Write vrai, faux or non mentionné, and quote the words from the article that prove it. The amount of plastic waste has fallen by more than half.",
-      ru: "Напишите vrai, faux или non mentionné и приведите слова из статьи, которые это подтверждают. Количество пластиковых отходов уменьшилось больше чем вдвое.",
-      fr: "Écrivez vrai, faux ou non mentionné, et citez les mots de l'article qui le prouvent. La quantité de déchets plastiques a diminué de plus de moitié.",
+      en: "Write vrai, faux or non mentionné. For vrai or faux, quote the sentence from the text that proves it. The amount of plastic waste has fallen by more than half.",
+      ru: "Напишите vrai, faux или non mentionné. Если ответ vrai или faux, приведите фразу из текста, которая это доказывает. Количество пластиковых отходов уменьшилось больше чем вдвое.",
+      fr: "Écrivez vrai, faux ou non mentionné. Si la réponse est vrai ou faux, citez la phrase du texte qui le prouve. La quantité de déchets plastiques a diminué de plus de moitié.",
     },
     markscheme: {
       en: "Answer: vrai. Paragraph 1: « la quantité a diminué de plus de moitié ».",
@@ -319,7 +319,7 @@ export const questions: FrQuestion[] = [
     prompt: {
       en: "Complete the sentence with one word from the article: Meals are now served in ……… crockery, which can be used again.",
       ru: "Дополните предложение одним словом из статьи: Теперь обеды подают в ……… посуде, которую можно использовать снова.",
-      fr: "Complétez la phrase avec un mot de l'article : Les repas sont désormais servis dans de la vaisselle ……… .",
+      fr: "Complétez la phrase avec un mot de l'article : Les repas sont désormais servis dans de la vaisselle ……….",
     },
     markscheme: {
       en: "Answer: réutilisable (reusable). Paragraph 3: « Les repas sont désormais servis dans de la vaisselle réutilisable ».",
@@ -337,9 +337,9 @@ export const questions: FrQuestion[] = [
     marks: 1,
     command: 'State',
     prompt: {
-      en: "Complete the sentence with one word from the article: Once a ……… , volunteers pick up the rubbish in the fields.",
+      en: "Complete the sentence with one word from the article: Once a ………, volunteers pick up the rubbish in the fields.",
       ru: "Дополните предложение одним словом из статьи: Раз в ……… волонтёры собирают мусор на полях.",
-      fr: "Complétez la phrase avec un mot de l'article : Une fois par ……… , des volontaires ramassent les déchets dans les champs.",
+      fr: "Complétez la phrase avec un mot de l'article : Une fois par ………, des volontaires ramassent les déchets dans les champs.",
     },
     markscheme: {
       en: "Answer: mois (month). Paragraph 4: « Une fois par mois, des volontaires ramassent les déchets dans les champs ».",
@@ -382,7 +382,7 @@ export const questions: FrQuestion[] = [
       fr: "Quel verbe du texte signifie « parvenir à (un but) » ? Écrivez le verbe tel qu'il apparaît dans le texte.",
     },
     markscheme: {
-      en: "Answer: atteindre (to reach). Paragraph 5: « il faudra du temps avant d'atteindre l'objectif zéro plastique ».",
+      en: "Answer: atteindre (to reach) (in the text: d'atteindre). Paragraph 5: « il faudra du temps avant d'atteindre l'objectif zéro plastique ».",
       ru: "Ответ: atteindre (достичь). Абзац 5: « il faudra du temps avant d'atteindre l'objectif zéro plastique ».",
     },
     answer: 'atteindre',
@@ -397,12 +397,12 @@ export const questions: FrQuestion[] = [
     marks: 1,
     command: 'Identify',
     prompt: {
-      en: "Write vrai, faux or non mentionné, and quote the words from the article that prove it. The state paid for part of the first measures in the village.",
-      ru: "Напишите vrai, faux или non mentionné и приведите слова из статьи, которые это подтверждают. Государство оплатило часть первых мер в деревне.",
-      fr: "Écrivez vrai, faux ou non mentionné, et citez les mots de l'article qui le prouvent. L'État a financé une partie des premières mesures du village.",
+      en: "Write vrai, faux or non mentionné. For vrai or faux, quote the sentence from the text that proves it. The state paid for part of the first measures in the village.",
+      ru: "Напишите vrai, faux или non mentionné. Если ответ vrai или faux, приведите фразу из текста, которая это доказывает. Государство оплатило часть первых мер в деревне.",
+      fr: "Écrivez vrai, faux ou non mentionné. Si la réponse est vrai ou faux, citez la phrase du texte qui le prouve. L'État a financé une partie des premières mesures du village.",
     },
     markscheme: {
-      en: "Answer: non mentionné. The article never mentions state funding. Paragraph 5 says only that the municipal council is still studying a financial aid: « le conseil municipal étudie donc une aide financière ».",
+      en: "Answer: non mentionné. The article never mentions state funding. Paragraph 5 says only that the municipal council is still studying financial aid: « le conseil municipal étudie donc une aide financière ».",
       ru: "Ответ: non mentionné. О государственном финансировании в статье не говорится. В абзаце 5 сказано только, что муниципальный совет пока изучает финансовую помощь: « le conseil municipal étudie donc une aide financière ».",
     },
     answer: 'non mentionné',
@@ -419,13 +419,13 @@ export const questions: FrQuestion[] = [
     marks: 1,
     command: 'Identify',
     prompt: {
-      en: "Write vrai, faux or non mentionné, and quote the words from the article that prove it. The city built a new station this year.",
-      ru: "Напишите vrai, faux или non mentionné и приведите слова из статьи, которые это подтверждают. В этом году город построил новый вокзал.",
-      fr: "Écrivez vrai, faux ou non mentionné, et citez les mots de l'article qui le prouvent. La ville a construit une nouvelle gare cette année.",
+      en: "Write vrai, faux or non mentionné. For vrai or faux, quote the sentence from the text that proves it. The city built a new station this year.",
+      ru: "Напишите vrai, faux или non mentionné. Если ответ vrai или faux, приведите фразу из текста, которая это доказывает. В этом году город построил новый вокзал.",
+      fr: "Écrivez vrai, faux ou non mentionné. Si la réponse est vrai ou faux, citez la phrase du texte qui le prouve. La ville a construit une nouvelle gare cette année.",
     },
     markscheme: {
-      en: "Answer: non mentionné. The article never says that a station was built. Paragraph 1 says only that the new lines link the outskirts with the centre and the station: « Elles relient les quartiers de la périphérie au centre-ville et à la gare ».",
-      ru: "Ответ: non mentionné. В статье не говорится, что вокзал построили. В абзаце 1 сказано только, что новые линии соединяют окраины с центром и с вокзалом: « Elles relient les quartiers de la périphérie au centre-ville et à la gare ».",
+      en: "Answer: non mentionné. The article never says that a station was built. Paragraph 1 says only that the new lines link the outskirts with the centre and the station: « Elles relient les quartiers de la périphérie au centre-ville et à la gare ». Paragraph 4 mentions only roadworks (travaux) near the station, not a new building.",
+      ru: "Ответ: non mentionné. В статье не говорится, что вокзал построили. В абзаце 1 сказано только, что новые линии соединяют окраины с центром и с вокзалом: « Elles relient les quartiers de la périphérie au centre-ville et à la gare ». В абзаце 4 говорится только о дорожных работах у вокзала, а не о новом здании.",
     },
     answer: 'non mentionné',
     origin: 'original',
@@ -439,9 +439,9 @@ export const questions: FrQuestion[] = [
     marks: 1,
     command: 'Identify',
     prompt: {
-      en: "Write vrai, faux or non mentionné, and quote the words from the article that prove it. The three new bus lines started running in September.",
-      ru: "Напишите vrai, faux или non mentionné и приведите слова из статьи, которые это подтверждают. Три новые автобусные линии начали работать в сентябре.",
-      fr: "Écrivez vrai, faux ou non mentionné, et citez les mots de l'article qui le prouvent. Les trois nouvelles lignes de bus ont été mises en service en septembre.",
+      en: "Write vrai, faux or non mentionné. For vrai or faux, quote the sentence from the text that proves it. The three new bus lines started running in September.",
+      ru: "Напишите vrai, faux или non mentionné. Если ответ vrai или faux, приведите фразу из текста, которая это доказывает. Три новые автобусные линии начали работать в сентябре.",
+      fr: "Écrivez vrai, faux ou non mentionné. Si la réponse est vrai ou faux, citez la phrase du texte qui le prouve. Les trois nouvelles lignes de bus ont été mises en service en septembre.",
     },
     markscheme: {
       en: "Answer: vrai. Paragraph 1: « En septembre, la ville de Vallonne a mis en service trois nouvelles lignes de bus ».",
@@ -459,9 +459,9 @@ export const questions: FrQuestion[] = [
     marks: 1,
     command: 'Identify',
     prompt: {
-      en: "Write vrai, faux or non mentionné, and quote the words from the article that prove it. Line 7 runs every fifteen minutes between seven and nine in the morning.",
-      ru: "Напишите vrai, faux или non mentionné и приведите слова из статьи, которые это подтверждают. Линия 7 ходит каждые пятнадцать минут с семи до девяти утра.",
-      fr: "Écrivez vrai, faux ou non mentionné, et citez les mots de l'article qui le prouvent. La ligne 7 passe toutes les quinze minutes entre sept et neuf heures du matin.",
+      en: "Write vrai, faux or non mentionné. For vrai or faux, quote the sentence from the text that proves it. Line 7 runs every fifteen minutes between seven and nine in the morning.",
+      ru: "Напишите vrai, faux или non mentionné. Если ответ vrai или faux, приведите фразу из текста, которая это доказывает. Линия 7 ходит каждые пятнадцать минут с семи до девяти утра.",
+      fr: "Écrivez vrai, faux ou non mentionné. Si la réponse est vrai ou faux, citez la phrase du texte qui le prouve. La ligne 7 passe toutes les quinze minutes entre sept et neuf heures du matin.",
     },
     markscheme: {
       en: "Answer: faux. Paragraph 2: « les bus passent toutes les dix minutes entre sept et neuf heures du matin ». The buses run every ten minutes, not every fifteen.",
