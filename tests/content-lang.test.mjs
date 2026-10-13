@@ -10,6 +10,7 @@ import {
   resolveContentLang,
   toLang,
 } from '../src/lib/topic-lang.ts';
+import { termLabelIn } from '../src/lib/text.ts';
 
 const loader = () => Promise.resolve({ default: () => null });
 
@@ -62,4 +63,18 @@ test('missingLangs lists the wanted languages that have no body', () => {
   assert.deepEqual(missingLangs({ en: loader, ru: loader }, 'en+ru'), []);
   assert.deepEqual(missingLangs(undefined, 'ru'), ['ru']);
   assert.deepEqual(missingLangs({ en: loader }, 'en'), []);
+});
+
+test('EN+RU term labels put the UI language first: Russian in a Russian UI, English in an English one', () => {
+  const term = { en: 'standard form', ru: 'стандартный вид' };
+  assert.equal(termLabelIn(term, 'en+ru', 'ru'), 'стандартный вид (standard form)');
+  assert.equal(termLabelIn(term, 'en+ru', 'en'), 'standard form (стандартный вид)');
+  assert.equal(termLabelIn(term), 'standard form (стандартный вид)', 'English first when no UI language is given');
+  // The Russian text already carries the English term in brackets: the copy is not doubled, in either order.
+  const copy = { en: 'standard form', ru: 'стандартный вид (standard form)' };
+  assert.equal(termLabelIn(copy, 'en+ru', 'ru'), 'стандартный вид (standard form)');
+  assert.equal(termLabelIn(copy, 'en+ru', 'en'), 'standard form (стандартный вид)');
+  // A single language does not depend on the UI language.
+  assert.equal(termLabelIn(term, 'ru', 'en'), 'стандартный вид (standard form)');
+  assert.equal(termLabelIn(term, 'en', 'ru'), 'standard form');
 });

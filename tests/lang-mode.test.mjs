@@ -259,6 +259,13 @@ test('term card: the body language decides the text; without a language both sho
   assert.ok(both.includes('>demand (спрос)</span>') && both.includes(EN_DEF) && both.includes(RU_DEF));
 });
 
+test('term card with both languages: the UI language orders the label, and both definitions show', async () => {
+  const inRussian = await draw(createElement(loaded.TermCard, { term: term('demand') }), '/', { lang: 'ru' });
+  assert.ok(inRussian.includes('>спрос (demand)</span>') && inRussian.includes(EN_DEF) && inRussian.includes(RU_DEF));
+  const inEnglish = await draw(createElement(loaded.TermCard, { term: term('demand') }), '/', { lang: 'en' });
+  assert.ok(inEnglish.includes('>demand (спрос)</span>') && inEnglish.includes(EN_DEF) && inEnglish.includes(RU_DEF));
+});
+
 test('term card: an own-notes source is left out', async () => {
   const html = await draw(createElement(loaded.TermCard, { term: term('demand', { src: { kind: 'own', title: 'Internal note' } }), lang: 'en' }), '/');
   assert.ok(!html.includes('Internal note'));

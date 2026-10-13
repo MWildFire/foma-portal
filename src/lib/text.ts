@@ -23,11 +23,11 @@ export function textsIn(text: L | null | undefined, mode?: ContentLang): { lang:
   });
 }
 
-// The label of a term in the mode: "demand" for EN, "спрос (demand)" for RU, "demand (спрос)" for EN+RU (English
-// first, as the exam is in English).
-export function termLabelIn(term: L, mode?: ContentLang): string {
+// The label of a term in the mode: "demand" for EN, "спрос (demand)" for RU. For EN+RU the language of the UI comes
+// first: "спрос (demand)" in a Russian UI, "demand (спрос)" in an English one (the default, as the exam is in English).
+export function termLabelIn(term: L, mode?: ContentLang, uiLang: Lang = 'en'): string {
   const langs = shownLangs(mode);
-  if (langs.length > 1) return termLabel(term);
+  if (langs.length > 1) return uiLang === 'ru' ? termLabelRu(term) : termLabel(term);
   return langs[0] === 'ru' ? termLabelRu(term) : term.en.trim();
 }
 
