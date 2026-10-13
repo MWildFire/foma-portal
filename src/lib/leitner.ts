@@ -116,3 +116,37 @@ export function dueQueue<T extends { id: string }>(subject: string, items: reado
   scheduled.sort((a, b) => (a.due < b.due ? -1 : a.due > b.due ? 1 : a.box - b.box));
   return [...scheduled.map(entry => entry.item), ...fresh];
 }
+
+// The keyboard on the flashcards: Space shows the definition; 1, 2 and 3 give the answer (in the order of ANSWERS,
+// which is the order of the buttons). The page asks this function what a key press means, so the rules can be
+// tested without a browser.
+export interface DeckKey {
+  key: string;
+  code?: string;
+  repeat?: boolean;
+  ctrlKey?: boolean;
+  metaKey?: boolean;
+  altKey?: boolean;
+  defaultPrevented?: boolean;
+}
+
+export type DeckKeyAction = { type: 'reveal' } | { type: 'answer'; answer: Answer } | null;
+
+export function deckKeyAction(
+  event: DeckKey,
+  context: {
+    /** The definition is on the screen. */
+    revealed: boolean;
+    /** The key went to a button, link, field or other control that has its own keyboard behaviour. */
+    onControl: boolean;
+    /** The key went to a place where the student types (a text box, a list). */
+    onTextField: boolean;
+  },
+): DeckKeyAction {
+  // A held key repeats; a shortcut such as Ctrl+1 (switch tab) belongs to the browser.
+  if (event.defaultPrevented || event.repeat || event.ctrlKey || event.metaKey || event.altKey) return null;
+  if (event.key === ' ' || event.code === 'Space') return context.onControl ? null : { type: 'reveal' };
+  if (!context.revealed || context.onTextField) return null;
+  const index = ['1', '2', '3'].indexOf(event.key);
+  return index === -1 ? null : { type: 'answer', answer: ANSWERS[index] };
+}

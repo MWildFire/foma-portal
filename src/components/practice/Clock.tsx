@@ -17,11 +17,19 @@ export function Clock({ minutes }: { minutes: number }) {
   // even when the browser slows a background tab down.
   useEffect(() => {
     if (timer.status !== 'running') return undefined;
-    const id = window.setInterval(() => {
+    const look = (): void => {
       const now = Date.now();
       setTimer(current => tickTimer(current, now));
-    }, 250);
-    return () => window.clearInterval(id);
+    };
+    const id = window.setInterval(look, 250);
+    // A tab in the background is slowed down: look again the moment the student comes back.
+    document.addEventListener('visibilitychange', look);
+    window.addEventListener('pageshow', look);
+    return () => {
+      window.clearInterval(id);
+      document.removeEventListener('visibilitychange', look);
+      window.removeEventListener('pageshow', look);
+    };
   }, [timer.status]);
 
   // The time is read once, outside the updater, so a repeated call of the updater gives the same result.

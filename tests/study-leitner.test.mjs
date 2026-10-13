@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { ANSWERS, BOXES, INTERVAL_DAYS, addDays, clampBox, deckStats, dueQueue, isDue, nextBox, review, termKey } from '../src/lib/leitner.ts';
+import { ANSWERS, BOXES, INTERVAL_DAYS, addDays, clampBox, deckKeyAction, deckStats, dueQueue, isDue, nextBox, review, termKey } from '../src/lib/leitner.ts';
 import { normalizeState } from '../src/lib/storage.ts';
 
 const TODAY = '2026-10-13';
@@ -154,4 +154,43 @@ test('answering a card takes it out of the queue for today', () => {
   const progress = { 'geo/a': review(undefined, 'missed', TODAY) };
   assert.deepEqual(dueQueue('geo', items, progress, TODAY).map(item => item.id), ['b']);
   assert.deepEqual(dueQueue('geo', items, progress, addDays(TODAY, 1)).map(item => item.id), ['a', 'b']);
+});
+
+// ---- the keyboard
+
+const PLAIN = { revealed: false, onControl: false, onTextField: false };
+const SHOWN = { ...PLAIN, revealed: true };
+
+test('Space shows the definition, also when the browser reports only the key code', () => {
+  assert.deepEqual(deckKeyAction({ key: ' ' }, PLAIN), { type: 'reveal' });
+  assert.deepEqual(deckKeyAction({ key: 'Spacebar', code: 'Space' }, PLAIN), { type: 'reveal' });
+  assert.deepEqual(deckKeyAction({ key: ' ' }, SHOWN), { type: 'reveal' }, 'harmless when it is already shown');
+});
+
+test('Space on a button, link or field is left to the browser', () => {
+  assert.equal(deckKeyAction({ key: ' ' }, { ...PLAIN, onControl: true }), null);
+  assert.equal(deckKeyAction({ key: ' ' }, { ...SHOWN, onControl: true, onTextField: true }), null);
+});
+
+test('the keys 1, 2 and 3 answer in the order of the buttons, once the definition is shown', () => {
+  assert.deepEqual(deckKeyAction({ key: '1' }, SHOWN), { type: 'answer', answer: 'knew' });
+  assert.deepEqual(deckKeyAction({ key: '2' }, SHOWN), { type: 'answer', answer: 'unsure' });
+  assert.deepEqual(deckKeyAction({ key: '3' }, SHOWN), { type: 'answer', answer: 'missed' });
+  assert.deepEqual([...ANSWERS], ['knew', 'unsure', 'missed']);
+});
+
+test('a number does nothing before the definition is shown, in a text box, or for other keys', () => {
+  assert.equal(deckKeyAction({ key: '1' }, PLAIN), null);
+  assert.equal(deckKeyAction({ key: '1' }, { ...SHOWN, onTextField: true }), null);
+  for (const key of ['0', '4', '9', 'a', 'Enter', 'ArrowRight', 'Escape']) assert.equal(deckKeyAction({ key }, SHOWN), null, key);
+  assert.deepEqual(deckKeyAction({ key: '1' }, { ...SHOWN, onControl: true }), { type: 'answer', answer: 'knew' }, 'a number on a focused button still answers');
+});
+
+test('a held key, a browser shortcut or an already handled key is ignored', () => {
+  assert.equal(deckKeyAction({ key: '1', repeat: true }, SHOWN), null);
+  assert.equal(deckKeyAction({ key: ' ', repeat: true }, PLAIN), null);
+  assert.equal(deckKeyAction({ key: '1', ctrlKey: true }, SHOWN), null);
+  assert.equal(deckKeyAction({ key: '1', metaKey: true }, SHOWN), null);
+  assert.equal(deckKeyAction({ key: ' ', altKey: true }, PLAIN), null);
+  assert.equal(deckKeyAction({ key: '2', defaultPrevented: true }, SHOWN), null);
 });

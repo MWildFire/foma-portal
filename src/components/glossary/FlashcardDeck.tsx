@@ -2,7 +2,7 @@ import { useCallback, useEffect, useId, useMemo, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next';
 import { BookMarked, CircleCheck, CircleHelp, CircleX, type LucideIcon } from 'lucide-react';
 import type { Lang, Term } from '../../contract/types';
-import { ANSWERS, dueQueue, type Answer } from '../../lib/leitner';
+import { ANSWERS, deckKeyAction, dueQueue, type Answer } from '../../lib/leitner';
 import type { GlobalState } from '../../lib/storage';
 import { pickText } from '../../lib/text';
 import { InlineText } from '../content/RichText';
@@ -79,18 +79,15 @@ export function FlashcardDeck({ subject, terms, progress, today, lang, nextDue, 
   useEffect(() => {
     if (!current) return undefined;
     const onKeyDown = (event: KeyboardEvent): void => {
-      if (event.defaultPrevented || event.repeat || event.ctrlKey || event.metaKey || event.altKey) return;
-      if (event.key === ' ' || event.code === 'Space') {
-        if (matches(event.target, INTERACTIVE)) return;
-        event.preventDefault();
-        reveal();
-        return;
-      }
-      if (!revealed || matches(event.target, TEXT_FIELD)) return;
-      const index = ['1', '2', '3'].indexOf(event.key);
-      if (index === -1) return;
+      const action = deckKeyAction(event, {
+        revealed,
+        onControl: matches(event.target, INTERACTIVE),
+        onTextField: matches(event.target, TEXT_FIELD),
+      });
+      if (!action) return;
       event.preventDefault();
-      answer(ANSWERS[index]);
+      if (action.type === 'reveal') reveal();
+      else answer(action.answer);
     };
     window.addEventListener('keydown', onKeyDown);
     return () => window.removeEventListener('keydown', onKeyDown);
