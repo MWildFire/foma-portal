@@ -4,7 +4,7 @@ import type { Lang } from '../../contract/types';
 import { useNow } from '../../hooks/useExamCountdown';
 import { useLocalProgress } from '../../hooks/useLocalProgress';
 import { dubaiToday } from '../../planner/dates';
-import { EXAMS, QUOTAS, plannerSubjects } from '../../planner/data';
+import { EXAMS, QUOTAS, plannerPastPapers, plannerSubjects } from '../../planner/data';
 import { buildPlan } from '../../planner/plan';
 
 // The plan for today's date in Dubai, rebuilt whenever the progress store changes or the date turns over.
@@ -15,7 +15,7 @@ export function usePlan() {
   const now = useNow(10_000);
   const today = dubaiToday(now);
   const plan = useMemo(
-    () => buildPlan({ today, exams: EXAMS, quotas: QUOTAS, subjects: plannerSubjects(), state }),
+    () => buildPlan({ today, exams: EXAMS, quotas: QUOTAS, subjects: plannerSubjects(), state, pastPapers: plannerPastPapers() }),
     [today, state],
   );
   return { plan, state, update, now, today, lang };

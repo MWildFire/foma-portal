@@ -3,6 +3,7 @@
 import examsJson from '../../data/exams.json';
 import quotasJson from '../../data/plan-quotas.json';
 import { listSubjects } from '../content/registry';
+import type { PastPaperRef } from '../contract/types';
 import { parseExams, parseQuotas } from './calendar';
 import type { ExamsFile, PlannerSubject, QuotasFile } from './types';
 
@@ -10,6 +11,11 @@ export const EXAMS: ExamsFile = parseExams(examsJson);
 export const QUOTAS: QuotasFile = parseQuotas(quotasJson);
 
 let cached: PlannerSubject[] | null = null;
+
+// Every subject's past papers, for the links of the timed sittings and the Geography practice (none until the content has them).
+export function plannerPastPapers(): PastPaperRef[] {
+  return listSubjects().flatMap(pack => pack.pastPapers);
+}
 
 // What the planner needs from every subject pack. Packs are fixed at build time, so this is computed once.
 export function plannerSubjects(): PlannerSubject[] {
