@@ -10,6 +10,13 @@ import { papers as frPapers } from '../content/fr/papers.ts';
 import { papers as mathPapers } from '../content/math/papers.ts';
 import { papers as geoCorePapers } from '../content/geo/core/papers.ts';
 import { papers as geoOptionPapers } from '../content/geo/options/papers.ts';
+import { pastPapers as csPast } from '../content/cs/pastpapers.ts';
+import { pastPapers as econPast } from '../content/econ/pastpapers.ts';
+import { pastPapers as engPast } from '../content/eng/pastpapers.ts';
+import { pastPapers as frPast } from '../content/fr/pastpapers.ts';
+import { pastPapers as mathPast } from '../content/math/pastpapers.ts';
+import { pastPapers as geoCorePast } from '../content/geo/core/pastpapers.ts';
+import { pastPapers as geoOptionPast } from '../content/geo/options/pastpapers.ts';
 
 // The school's schedule, read from disk as the planner tests do.
 const exams = parseExams(JSON.parse(readFileSync(new URL('../data/exams.json', import.meta.url), 'utf8')));
@@ -90,29 +97,39 @@ test('economics P3 (60 minutes) is 75 with extra time, and the French reading se
   assert.equal(allowance({ paper: 'P2', part: 'reading', minutes: 45 }, false, 'fr'), 45);
 });
 
-// Every timed set the content prints, read the way the portal reads it (the guide's paper and part, the set's minutes).
-const contentTimedSets = [
-  ['cs', csPapers], ['econ', econPapers], ['eng', engPapers], ['fr', frPapers], ['math', mathPapers],
-  ['geo', geoCorePapers], ['geo', geoOptionPapers],
-].flatMap(([subject, guides]) => guides.flatMap(guide => (guide.timedSets ?? []).map(set => ({
-  subject,
-  id: set.id,
-  set: { paper: guide.paper, part: guide.part, minutes: set.minutes },
-}))));
+// Every sitting length the content prints, read the way the portal reads it: the timed sets of the paper guides and the
+// past-paper refs (their minutes are the printed time; the portal adds the extra time on top).
+const contentSittings = [
+  ...[['cs', csPapers], ['econ', econPapers], ['eng', engPapers], ['fr', frPapers], ['math', mathPapers],
+    ['geo', geoCorePapers], ['geo', geoOptionPapers]]
+    .flatMap(([subject, guides]) => guides.flatMap(guide => (guide.timedSets ?? []).map(set => ({
+      kind: 'timed set', subject, id: set.id, set: { paper: guide.paper, part: guide.part, minutes: set.minutes },
+    })))),
+  ...[['cs', csPast], ['econ', econPast], ['eng', engPast], ['fr', frPast], ['math', mathPast],
+    ['geo', geoCorePast], ['geo', geoOptionPast]]
+    .flatMap(([subject, refs]) => refs.map(ref => ({
+      kind: 'past paper', subject, id: ref.id, set: { paper: ref.paper, part: ref.part, minutes: ref.minutes },
+    }))),
+];
+const hasTableRow = ({ set }) => exams.accessMinutes[String(set.minutes)] !== undefined;
 
-test('every timed set in the content gets the school table, and the French listening keeps its printed time', () => {
-  assert.ok(contentTimedSets.length > 0, 'the content has timed sets to check');
-  for (const { subject, id, set } of contentTimedSets) {
-    assert.match(set.paper, /^P[123]$/, `${subject} ${id}: paper`);
+test('every timed set and past-paper length in the content gets the school table, and the French listening keeps its printed time', () => {
+  assert.ok(contentSittings.length > 0, 'the content has sittings to check');
+  for (const { kind, subject, id, set } of contentSittings) {
+    assert.match(set.paper, /^P[123]$/, `${kind} ${subject} ${id}: paper`);
     const expected = set.part === 'listening' ? set.minutes : (exams.accessMinutes[String(set.minutes)] ?? Math.round(set.minutes * 1.25));
-    assert.equal(allowance(set, true, subject), expected, `${subject} ${id}`);
+    assert.equal(allowance(set, true, subject), expected, `${kind} ${subject} ${id}`);
   }
 });
 
-test('the timed sets whose printed length has no row in the school table are named here (their rule: printed time plus 25%, rounded)', () => {
-  const withoutRow = contentTimedSets
-    .filter(({ set }) => exams.accessMinutes[String(set.minutes)] === undefined)
-    .map(({ subject, id }) => `${subject} ${id}`)
-    .sort();
-  assert.deepEqual(withoutRow, ['econ p1-essay-plan', 'eng p1-one-extract-30', 'eng p2-essay-80', 'eng p2-plan-10']);
+test('the lengths the school table lacks are named here: their rule is printed time plus 25%, rounded (a decision for the owner)', () => {
+  const lacking = contentSittings.filter(row => !hasTableRow(row));
+  assert.deepEqual(
+    lacking.filter(row => row.kind === 'timed set').map(row => `${row.subject} ${row.id}`).sort(),
+    ['econ p1-essay-plan', 'eng p1-one-extract-30', 'eng p2-essay-80', 'eng p2-plan-10'],
+  );
+  assert.deepEqual(
+    [...new Set(lacking.filter(row => row.kind === 'past paper').map(row => row.set.minutes))].sort((a, b) => a - b),
+    [15, 20, 30, 80, 130],
+  );
 });
