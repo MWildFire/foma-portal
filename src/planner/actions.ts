@@ -1,12 +1,14 @@
 // Changes to the progress store made from the plan. All functions return a new state and never touch their input.
 import type { SubjectId } from '../contract/types.ts';
-import type { GlobalState, PlanBlock, Rag } from './types.ts';
+import type { GlobalState, PlanBlock, Rag, Weekday } from './types.ts';
 import type { Interval } from './queue.ts';
 // The .ts extensions are what Node's test runner needs; tsconfig.json does not allow them for value imports, hence the ignores.
 // @ts-ignore TS5097
 import { parseBlockId } from './blocks.ts';
 // @ts-ignore TS5097
 import { addInterval, isCovered } from './queue.ts';
+// @ts-ignore TS5097
+import { DEFAULT_DAILY_LOAD, MAX_DAILY_LOAD } from './loads.ts';
 
 const topicKeyOf = (block: PlanBlock): string | null =>
   block.kind === 'topic' && block.subject && block.topicId ? `${block.subject}/${block.topicId}` : null;
@@ -64,4 +66,17 @@ export function setTopicRag(state: GlobalState, subject: SubjectId, topicId: str
   if (Object.keys(entry).length > 0) topics[key] = entry;
   else delete topics[key];
   return { ...state, topics };
+}
+
+// The study load of one weekday, in minutes. `null`, or a number equal to the default, removes the override.
+export function setDailyLoad(state: GlobalState, day: Weekday, minutes: number | null): GlobalState {
+  const dailyLoadMinutes = { ...state.settings.dailyLoadMinutes };
+  const value = minutes === null ? null : Math.min(MAX_DAILY_LOAD, Math.max(0, Math.round(minutes)));
+  if (value === null || value === DEFAULT_DAILY_LOAD[day]) delete dailyLoadMinutes[day];
+  else dailyLoadMinutes[day] = value;
+  return { ...state, settings: { ...state.settings, dailyLoadMinutes } };
+}
+
+export function setAccessArrangement(state: GlobalState, key: 'extraTime' | 'separateRoom', value: boolean): GlobalState {
+  return { ...state, settings: { ...state.settings, accessArrangements: { ...state.settings.accessArrangements, [key]: value } } };
 }
