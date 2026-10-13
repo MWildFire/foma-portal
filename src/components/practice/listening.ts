@@ -1,9 +1,10 @@
 // Listening in a timed set: which recordings a set needs and the order they play in. Pure (no React); the player is
 // ListeningPlayer.tsx. Tests: tests/access-listening.test.mjs (the real sets and tracks are checked there too).
 
-// The pause between the two plays of a recording, and between two recordings, in seconds. A placeholder until the
-// official IB listening instructions are checked: the single-recording sim (src/sims/fr/listening-logic.ts) uses 30.
-export const LISTENING_PAUSE_SECONDS = 60;
+// The pause between the two plays of a recording, and between two recordings, in seconds. The IB instructions to French B
+// SL Paper 2 listening (2022–2025, cover page): "Each audio text will be played twice. There will be a two-minute pause
+// before each audio text is repeated." The single-recording sim (src/sims/fr/listening-logic.ts) uses the same 120.
+export const LISTENING_PAUSE_SECONDS = 120;
 
 // A recording (a track of content/fr/listening/*.ts) as a practice set needs it.
 export interface ListeningTrackRef {

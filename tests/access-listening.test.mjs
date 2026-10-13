@@ -27,8 +27,8 @@ test('a set of three recordings plays each one twice, in order, with a pause bet
   assert.deepEqual(pauses(steps), [LISTENING_PAUSE_SECONDS, LISTENING_PAUSE_SECONDS, LISTENING_PAUSE_SECONDS, LISTENING_PAUSE_SECONDS, LISTENING_PAUSE_SECONDS, 0]);
 });
 
-test('the pause is one named constant of 60 seconds, and a given pause only changes the number', () => {
-  assert.equal(LISTENING_PAUSE_SECONDS, 60);
+test('the pause is one named constant of two minutes (IB instructions), and a given pause only changes the number', () => {
+  assert.equal(LISTENING_PAUSE_SECONDS, 120);
   assert.deepEqual(pauses(playbackSteps(tracks, 5)), [5, 5, 5, 5, 5, 0]);
   assert.deepEqual(pauses(playbackSteps(tracks, 0)), [0, 0, 0, 0, 0, 0]);
   assert.deepEqual(pauses(playbackSteps(tracks, Number.NaN)), [0, 0, 0, 0, 0, 0]);
