@@ -17,12 +17,13 @@
   margin-bottom: 0.75rem;
 }
 
-/* The text is monospace and wraps inside the box, so the page never scrolls sideways. */
+/* The text is monospace and wraps inside the box, so the page never scrolls sideways. The size stays at 16px: a smaller
+   one makes iOS Safari zoom the page when the box is focused. */
 .study-input.rp-text {
   min-height: 12rem;
   font-family: 'JetBrains Mono', ui-monospace, monospace;
-  font-size: 0.875rem;
-  line-height: 1.5;
+  font-size: 1rem;
+  line-height: 1.45;
   text-overflow: clip;
   white-space: pre-wrap;
   overflow-wrap: anywhere;
