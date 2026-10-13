@@ -33,6 +33,14 @@ function tsFiles(dir) {
   return fs.readdirSync(full).filter(name => name.endsWith('.ts')).sort().map(name => path.join(full, name));
 }
 
+function walkFiles(dir) {
+  if (!fs.existsSync(dir)) return [];
+  return fs.readdirSync(dir, { withFileTypes: true }).flatMap(entry => {
+    const full = path.join(dir, entry.name);
+    return entry.isDirectory() ? walkFiles(full) : [full];
+  });
+}
+
 async function load(file) {
   return import(pathToFileURL(file).href);
 }
@@ -162,6 +170,19 @@ async function main() {
     check(tracks.length >= 8, `listening tracks: ${tracks.length} (need at least 8)`);
     check(sims.length >= 5, `sims: ${sims.length} (need listening-player, reading-practice, conjugation-trainer, connector-sort, letter-builder)`);
     check(papers.length >= 3, `paper guides: ${papers.length} (need P1, P2 reading, P2 listening)`);
+  }
+
+  // ---- mixed scripts: a word with Latin and Cyrillic letters is a typo (look-alike characters) ----
+  for (const file of walkFiles(ROOT_FR)) {
+    if (!/\.(ts|mdx)$/.test(file)) continue;
+    const lines = fs.readFileSync(file, 'utf8').split('\n');
+    lines.forEach((line, index) => {
+      for (const word of line.match(/[\p{L}\p{M}'’-]+/gu) ?? []) {
+        if (/\p{Script=Latin}/u.test(word) && /\p{Script=Cyrillic}/u.test(word)) {
+          errors.push(`mixed scripts in "${word}" at ${path.relative(root, file)}:${index + 1} (Latin and Cyrillic look-alike letters)`);
+        }
+      }
+    });
   }
 
   // ---- report ----
