@@ -16,8 +16,8 @@ export const cases: CaseStudy[] = [
     lat: 6.5244,
     lng: 3.3792,
     facts: {
-      en: 'UN DESA (2025), World Cities in 2025 (data booklet), annex table 3: Lagos had 7.9 million people in 2000 and 12.8 million in 2025, an average annual rate of change of 1.92% over 2000–2025. The UN projects 16.2 million by 2050. In 2025 Lagos ranked 26th among the world’s cities and was one of 33 megacities. These figures use the UN city definition, which covers a different area from Lagos State.',
-      ru: 'UN DESA (2025), World Cities in 2025 (data booklet), таблица 3 приложения: в Лагосе жило 7,9 млн человек в 2000 году и 12,8 млн в 2025 году; среднегодовой темп изменения численности за 2000–2025 годы составил 1,92%. ООН прогнозирует 16,2 млн человек к 2050 году. В 2025 году Лагос занимал 26-е место среди городов мира и был одним из 33 мегаполисов. Цифры рассчитаны по определению ООН для города; его территория отличается от штата Лагос.',
+      en: 'UN DESA (2025), World Cities in 2025 (data booklet), annex table 3: Lagos had 7.9 million people in 2000 and 12.8 million in 2025, an average annual rate of change of 1.92% over 2000–2025. The UN projects 16.2 million by 2050. In 2025 Lagos ranked 26th among the world’s cities and was one of 33 megacities. These figures use the UN city definition, which covers a different area from Lagos State. Across Nigeria, cities and towns (Degree of Urbanization) are projected to grow from 165 million people in 2018 to 307 million in 2050, about 142 million more (UN DESA, World Urbanization Prospects 2025, file F01).',
+      ru: 'UN DESA (2025), World Cities in 2025 (data booklet), таблица 3 приложения: в Лагосе жило 7,9 млн человек в 2000 году и 12,8 млн в 2025 году; среднегодовой темп изменения численности за 2000–2025 годы составил 1,92%. ООН прогнозирует 16,2 млн человек к 2050 году. В 2025 году Лагос занимал 26-е место среди городов мира и был одним из 33 мегаполисов. Цифры рассчитаны по определению ООН для города; его территория отличается от штата Лагос. По Нигерии города и малые города (по методике Degree of Urbanization) по прогнозу вырастут с 165 млн человек в 2018 году до 307 млн в 2050 году, примерно на 142 млн (UN DESA, World Urbanization Prospects 2025, файл F01).',
     },
     usedFor: TOPIC,
     src: [
@@ -25,6 +25,11 @@ export const cases: CaseStudy[] = [
         kind: 'web',
         title: 'UN DESA Population Division, World Cities in 2025: data booklet (2025), annex table 3 (p. 30)',
         url: 'https://www.un.org/development/desa/pd/sites/www.un.org.development.desa.pd/files/undesa_pd_2025_data-booklet_world_cities_in_2025.pdf',
+      },
+      {
+        kind: 'web',
+        title: 'UN DESA Population Division, World Urbanization Prospects: The 2025 Revision, file F01 (population by degree of urbanization category)',
+        url: 'https://population.un.org/wup/assets/Download/Countries%20and%20Aggregates/WUP2025-F01-Degree-of-Urbanization_Pop_by_category.xlsx',
       },
     ],
   },
