@@ -77,6 +77,21 @@ const steps: Step[] = [
     },
   },
   {
+    title: { en: 'Limit cases: PES = 0 and PES = infinity', ru: 'Крайние случаи: PES = 0 и PES = ∞' },
+    text: {
+      en: 'Perfectly inelastic supply (PES = 0) is a vertical line: quantity stays at 12 whatever the price. Perfectly elastic supply (PES = infinity) is a horizontal line at price 6: any quantity is supplied at 6, and nothing is supplied below 6.',
+      ru: 'Абсолютно неэластичное предложение (PES = 0) — вертикальная линия: величина предложения остаётся равной 12 при любой цене. Абсолютно эластичное предложение (PES = ∞) — горизонтальная линия на уровне цены 6: любой объём поставляется по цене 6, а ниже 6 не поставляется ничего.',
+    },
+    graph: {
+      ...axes,
+      curves: [
+        { id: 'vert', points: [[12, 0], [12, 16]], tone: 'supply', label: { en: 'PES = 0', ru: 'PES = 0' } },
+        { id: 'horiz', points: [[0, 6], [24, 6]], tone: 'alt', label: { en: 'PES = ∞', ru: 'PES = ∞' } },
+      ],
+      marks: [{ id: 'E', at: [12, 6], tone: 'ink', label: { en: 'E (P 6, Q 12)', ru: 'E (P 6, Q 12)' }, dx: 8, dy: 14 }],
+    },
+  },
+  {
     title: { en: 'Time period', ru: 'Фактор времени' },
     text: {
       en: 'The time period matters. In the short run (SR) firms cannot add capacity, so supply is steep and PES is low. In the long run (LR) they can build, hire and buy more inputs, so the same price rise brings a larger change in quantity: PES is higher.',

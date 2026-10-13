@@ -3,7 +3,7 @@ import { StepPlayer, fn, type CurveSpec, type Step, type TickSpec } from './_lib
 
 // Negative production externality (pollution). Demand is MPB = MSB: P = 12 - 0.5Q.
 // Supply is MPC: P = 0.5Q. External cost = 3 per unit, so MSC: P = 0.5Q + 3.
-// Market: MPB = MPC at Qm = 12, P = 6. Socially optimal: MSB = MSC at Q* = 9, P = 7.5 (MPC there = 4.5).
+// Market: MPB = MPC at Qm = 12, P = 6. Socially optimal: MSB = MSC at Qopt = 9, P = 7.5 (MPC there = 4.5).
 // Welfare loss = 1/2 x 3 x 3 = 4.5: triangle (9, 7.5), (12, 9), (12, 6). A tax of 3 (= external cost) shifts supply to MSC.
 const D: [number, number][] = [[24, 0], [4, 10]];
 const MPC = fn(q => 0.5 * q, 0, 24, 1);
@@ -16,7 +16,7 @@ const axes = {
   yMax: 14,
   xLabel: { en: 'Quantity (Q)', ru: 'Количество (Q)' },
   yLabel: { en: 'Price (P)', ru: 'Цена (P)' },
-  xTicks: [{ value: 9, label: { en: 'Q* 9', ru: 'Q* 9' } }, { value: 12, label: { en: 'Qm 12', ru: 'Qm 12' } }],
+  xTicks: [{ value: 9, label: { en: 'Qopt 9', ru: 'Qopt 9' } }, { value: 12, label: { en: 'Qm 12', ru: 'Qm 12' } }],
   yTicks: ticks([4.5, 6, 7.5, 9, 12]),
 };
 
@@ -57,8 +57,8 @@ const steps: Step[] = [
   {
     title: { en: 'Socially optimal quantity', ru: 'Социально оптимальный объём' },
     text: {
-      en: 'The socially optimal output is where MSB = MSC: 12 - 0.5Q = 0.5Q + 3, so Q* = 9 at P = 7.5. Beyond Q* each unit costs society more than it gives.',
-      ru: 'Оптимальный выпуск (socially optimal) там, где MSB = MSC: 12 - 0.5Q = 0.5Q + 3, то есть Q* = 9 при P = 7.5. Сверх Q* каждая единица обходится обществу дороже, чем приносит пользы.',
+      en: 'The socially optimal output is where MSB = MSC: 12 - 0.5Q = 0.5Q + 3, so Qopt = 9 at P = 7.5. Beyond Qopt each unit costs society more than it gives.',
+      ru: 'Оптимальный выпуск (socially optimal) там, где MSB = MSC: 12 - 0.5Q = 0.5Q + 3, то есть Qopt = 9 при P = 7.5. Сверх Qopt каждая единица обходится обществу дороже, чем приносит пользы.',
     },
     graph: {
       ...axes,
@@ -76,8 +76,8 @@ const steps: Step[] = [
   {
     title: { en: 'Welfare loss', ru: 'Потери благосостояния' },
     text: {
-      en: 'The market makes 12, which is 3 more than Q* = 9. The units from 9 to 12 cost society more than they are worth: the red triangle is the welfare loss, 1/2 x 3 x 3 = 4.5.',
-      ru: 'Рынок производит 12, то есть на 3 больше Q* = 9. Единицы с 9 до 12 обходятся обществу дороже, чем стоят: красный треугольник — это потери благосостояния, 1/2 x 3 x 3 = 4.5.',
+      en: 'The market makes 12, which is 3 more than Qopt = 9. The units from 9 to 12 cost society more than they are worth: the red triangle is the welfare loss, 1/2 x 3 x 3 = 4.5.',
+      ru: 'Рынок производит 12, то есть на 3 больше Qopt = 9. Единицы с 9 до 12 обходятся обществу дороже, чем стоят: красный треугольник — это потери благосостояния, 1/2 x 3 x 3 = 4.5.',
     },
     graph: {
       ...axes,
@@ -97,8 +97,8 @@ const steps: Step[] = [
   {
     title: { en: 'Tax equal to the external cost (complete picture)', ru: 'Налог, равный внешней издержке (полная картина)' },
     text: {
-      en: 'A tax of 3 per unit, equal to the external cost, shifts supply up to MSC (S+t). The market moves to Q* = 9: buyers pay 7.5, producers keep 4.5, and the welfare loss disappears.',
-      ru: 'Налог 3 на единицу, равный внешней издержке, сдвигает предложение вверх до MSC (S+t). Рынок переходит к Q* = 9: покупатели платят 7.5, производители получают 4.5, а потери благосостояния исчезают.',
+      en: 'A tax of 3 per unit, equal to the external cost, shifts supply up to MSC (S+t). The market moves to Qopt = 9: buyers pay 7.5, producers keep 4.5, and the welfare loss disappears.',
+      ru: 'Налог 3 на единицу, равный внешней издержке, сдвигает предложение вверх до MSC (S+t). Рынок переходит к Qopt = 9: покупатели платят 7.5, производители получают 4.5, а потери благосостояния исчезают.',
     },
     graph: {
       ...axes,

@@ -55,22 +55,22 @@ const steps: Step[] = [
   {
     title: { en: 'Efficient quantity', ru: 'Эффективный объём' },
     text: {
-      en: 'Efficient output is where total benefit equals marginal cost (MC = 5). The sum meets MC at E, so Q 10 is efficient.',
-      ru: 'Эффективный объём там, где общая выгода равна предельным издержкам (marginal cost, MC = 5). Сумма пересекает MC в точке E, поэтому Q 10 — эффективный объём.',
+      en: 'Efficient output is where total benefit equals marginal cost (MC = 5). The sum meets MC at E, so Qopt = 10 is efficient.',
+      ru: 'Эффективный объём там, где общая выгода равна предельным издержкам (marginal cost, MC = 5). Сумма пересекает MC в точке E, поэтому Qopt = 10 — эффективный объём.',
     },
     graph: {
       ...axes,
       curves: [...indiv, sum, mc],
       guides: [{ id: 'eq', from: [10, 0], to: [10, 5], tone: 'ink' }],
-      marks: [{ id: 'e', at: [10, 5], tone: 'ink', label: { en: 'E (Q 10)', ru: 'E (Q 10)' }, dx: 8, dy: -8 }],
+      marks: [{ id: 'e', at: [10, 5], tone: 'ink', label: { en: 'Qopt 10', ru: 'Qopt 10' }, dx: 8, dy: -8 }],
       xTicks: ticks([10]),
     },
   },
   {
     title: { en: 'Market under-provision', ru: 'Недопроизводство на рынке' },
     text: {
-      en: 'Free riders can use the good without paying. Only A pays, so the market stops at Q 7, where A demand meets MC. That is 3 units below the efficient Q 10.',
-      ru: 'Безбилетники (free riders) пользуются благом, не платя. Платит только A, поэтому рынок останавливается на Q 7, где спрос A пересекает MC. Это на 3 единицы меньше эффективного Q 10.',
+      en: 'Free riders can use the good without paying. Only A pays, so the market stops at Qm = 7, where A demand meets MC. That is 3 units below the efficient Qopt = 10.',
+      ru: 'Безбилетники (free riders) пользуются благом, не платя. Платит только A, поэтому рынок останавливается на Qm = 7, где спрос A пересекает MC. Это на 3 единицы меньше эффективного Qopt = 10.',
     },
     graph: {
       ...axes,
@@ -80,8 +80,8 @@ const steps: Step[] = [
         { id: 'mq', from: [7, 0], to: [7, 5], tone: 'demand' },
       ],
       marks: [
-        { id: 'e', at: [10, 5], tone: 'ink', label: { en: 'E (Q 10)', ru: 'E (Q 10)' }, dx: 8, dy: -8 },
-        { id: 'm', at: [7, 5], tone: 'demand', label: { en: 'M (Q 7)', ru: 'M (Q 7)' }, dx: -50, dy: 20 },
+        { id: 'e', at: [10, 5], tone: 'ink', label: { en: 'Qopt 10', ru: 'Qopt 10' }, dx: 8, dy: -8 },
+        { id: 'm', at: [7, 5], tone: 'demand', label: { en: 'Qm 7', ru: 'Qm 7' }, dx: -50, dy: 20 },
       ],
       xTicks: ticks([7, 10]),
     },
