@@ -25,6 +25,7 @@ const topic: TopicMeta = {
     'cn-051', 'cn-052', 'cn-053', 'cn-054', 'cn-055', 'cn-056', 'cn-057', 'cn-058', 'cn-059', 'cn-060',
   ],
   questionIds: ['p1-connectors-q1', 'p1-connectors-q2'],
+  sims: ['fr.connector-sort'],
   sources: [
     { kind: 'ib-guide', title: 'IB Language B guide (2018)' },
     { kind: 'own', title: "Authors' French B material (2026)" },
