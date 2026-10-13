@@ -11,11 +11,12 @@ import { ROUTES } from '../config/routes';
 import type { Lang } from '../contract/types';
 import { useExamCountdown } from '../hooks/useExamCountdown';
 import { useLocalProgress } from '../hooks/useLocalProgress';
+import { examRanges } from '../lib/exam-ranges';
 import { accessChoiceOf } from '../planner/access';
-import { examEndMs, examStartClock, examStartMs, hasExtraTime, sittingMinutes } from '../planner/calendar';
+import { examEndMs, examStartMs } from '../planner/calendar';
 import { EXAMS } from '../planner/data';
 import { dubaiToday } from '../planner/dates';
-import { capitalize, formatDate, formatTimeRange } from '../planner/format';
+import { capitalize, formatDate } from '../planner/format';
 import { hallClashes, hallOf } from '../planner/rooms';
 import type { ExamPaper } from '../planner/types';
 
@@ -30,8 +31,8 @@ function byDay(papers: ExamPaper[]): { date: string; papers: ExamPaper[] }[] {
   return out;
 }
 
-// The mock exam calendar from data/exams.json, in Dubai time. Times are the student's own: the ACC2 start with the
-// separate room, and the end includes the extra time (not for the French listening).
+// The mock exam calendar from data/exams.json, in Dubai time. Each paper shows the printed sitting (main hall) and,
+// when it has extra time, the student's own sitting with extra time: from the ACC2 start with the separate room.
 export function ExamsPage() {
   const { t, i18n } = useTranslation('exams');
   const { t: ta } = useTranslation('access');
@@ -119,12 +120,25 @@ export function ExamsPage() {
               const running = !finished && startMs <= now;
               const isNext = !finished && !running && next?.exam.id === exam.id;
               const info = subjectInfo(infos, exam.subject);
-              const length = sittingMinutes(EXAMS, exam, extraTime);
-              const ownStart = examStartClock(exam, separateRoom);
+              const ranges = examRanges(EXAMS, exam, separateRoom);
               return (
                 <li key={exam.id} className={`${card(isNext || running)} p-3`}>
                   <div className="flex flex-wrap items-start justify-between gap-x-3 gap-y-1">
-                    <p className="m-0 text-lg font-semibold tabular-nums">{formatTimeRange(ownStart, length)}</p>
+                    <p className="m-0 tabular-nums">
+                      <span className="whitespace-nowrap">
+                        <span className="text-lg font-semibold">{ranges.printed.range}</span>{' '}
+                        <span className={`text-sm ${MUTED}`}>{t('printedTime')}</span>
+                      </span>
+                      {ranges.extended && (
+                        <>
+                          <span className={MUTED} aria-hidden>{' · '}</span>
+                          <span className="whitespace-nowrap">
+                            <span className="text-lg font-semibold">{ranges.extended.range}</span>{' '}
+                            <span className={`text-sm ${MUTED}`}>{t('withExtraTime')}</span>
+                          </span>
+                        </>
+                      )}
+                    </p>
                     {finished && (
                       <Chip>
                         <CircleCheck size={12} aria-hidden /> {t('status.finished')}
@@ -161,9 +175,7 @@ export function ExamsPage() {
                       <>
                         <dt className={MUTED}>{t('fields.extraTime')}</dt>
                         <dd className="m-0 break-words tabular-nums">
-                          {hasExtraTime(EXAMS, exam)
-                            ? t('extraTimeValue', { time: formatMinutes(tp, length), range: formatTimeRange(ownStart, length) })
-                            : ta('noExtraTime')}
+                          {ranges.extended ? formatMinutes(tp, ranges.extended.minutes) : ta('noExtraTime')}
                         </dd>
                       </>
                     )}

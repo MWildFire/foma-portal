@@ -33,6 +33,7 @@
   },
   "separateStart": "ACC2, starts at {{time}}",
   "noSeparateStart": "no separate start time in the schedule",
-  "extraTimeValue": "{{time}} ({{range}})",
+  "printedTime": "Printed time",
+  "withExtraTime": "With extra time (+25%)",
   "paperGuide": "Paper guide"
 }

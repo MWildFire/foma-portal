@@ -33,6 +33,7 @@
   },
   "separateStart": "ACC2, начало в {{time}}",
   "noSeparateStart": "в расписании нет отдельного времени начала",
-  "extraTimeValue": "{{time}} ({{range}})",
+  "printedTime": "Печатное время",
+  "withExtraTime": "С доп. временем (+25 %)",
   "paperGuide": "Гид по пейперу"
 }
