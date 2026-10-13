@@ -1,10 +1,10 @@
 import type { PastPaperRef } from '../../../src/contract/types';
 
 // Geography SL Paper 1, option G (Urban environments): past papers from May 2019 to November 2025, 13 sessions
-// (there was no May 2020 session). Links go to the IB PDFs on ibdocs.re. Each entry covers option G: question 13
-// (structured, 10 marks) and question 14a or 14b (extended, choose one, 10 marks each). The guides are our own words;
-// the question, resource and markscheme text is not copied here. The validator times an option without its own
-// row in data/exams.json as the whole paper (90 minutes, 40 marks), so every entry keeps those values.
+// (there was no May 2020 session). Links go to the IB PDFs on ibdocs.re. Each entry is one option of the paper, a
+// section with its own time: 45 minutes and 20 marks (question 13, structured, 10 marks; question 14a or 14b,
+// extended, choose one, 10 marks each). The second option of Paper 1 is added when it is known. The guides are our
+// own words; the question, resource and markscheme text is not copied here.
 export const pastPapers: PastPaperRef[] = [
   {
     id: 'geo-p1-m19-option-g',
@@ -15,7 +15,7 @@ export const pastPapers: PastPaperRef[] = [
       { kind: 'resources', url: 'https://ibdocs.re/p/IB%20PAST%20PAPERS%20-%20YEAR/2019%20Examination%20Session/May%202019%20Examination%20Session/Individuals%20and%20societies/Geography_paper_1__resource_booklet_HLSL.pdf' },
       { kind: 'markscheme', url: 'https://ibdocs.re/p/IB%20PAST%20PAPERS%20-%20YEAR/2019%20Examination%20Session/May%202019%20Examination%20Session/Individuals%20and%20societies/Geography_paper_1__HLSL_markscheme.pdf' },
     ],
-    minutes: 90, marks: 40,
+    minutes: 45, marks: 20,
     items: [
       { q: '13', marks: 10, topicIds: ['g1-urban-variety', 'g2-urban-change', 'g3-urban-stress'], command: 'State / Outline / Explain', option: 'G', inMockScope: true },
       { q: '14a', marks: 10, topicIds: ['g4-sustainable-cities'], command: 'Examine', option: 'G', inMockScope: true },
@@ -31,7 +31,7 @@ export const pastPapers: PastPaperRef[] = [
       { kind: 'resources', url: 'https://ibdocs.re/p/IB%20PAST%20PAPERS%20-%20YEAR/2019%20Examination%20Session/November%202019%20Examination%20Session/Individuals%20and%20societies/Geography_paper_1__resource_booklet_HLSL.pdf' },
       { kind: 'markscheme', url: 'https://ibdocs.re/p/IB%20PAST%20PAPERS%20-%20YEAR/2019%20Examination%20Session/November%202019%20Examination%20Session/Individuals%20and%20societies/Geography_paper_1__SL_markscheme.pdf' },
     ],
-    minutes: 90, marks: 40,
+    minutes: 45, marks: 20,
     items: [
       { q: '13', marks: 10, topicIds: ['g1-urban-variety', 'g2-urban-change'], command: 'Identify / Estimate / Suggest / Explain', option: 'G', inMockScope: true },
       { q: '14a', marks: 10, topicIds: ['g3-urban-stress'], command: 'Examine', option: 'G', inMockScope: true },
@@ -47,7 +47,7 @@ export const pastPapers: PastPaperRef[] = [
       { kind: 'resources', url: 'https://ibdocs.re/p/IB%20PAST%20PAPERS%20-%20YEAR/2020%20Examination%20Session/November%202020%20Examination%20Session/Individuals%20and%20societies/Geography_paper_1__resource_booklet_HLSL.pdf' },
       { kind: 'markscheme', url: 'https://ibdocs.re/p/IB%20PAST%20PAPERS%20-%20YEAR/2020%20Examination%20Session/November%202020%20Examination%20Session/Individuals%20and%20societies/Geography_paper_1__SL_markscheme.pdf' },
     ],
-    minutes: 90, marks: 40,
+    minutes: 45, marks: 20,
     items: [
       { q: '13', marks: 10, topicIds: ['g4-sustainable-cities'], command: 'Identify / Determine / Outline / Explain', option: 'G', inMockScope: true },
       { q: '14a', marks: 10, topicIds: ['g2-urban-change', 'g4-sustainable-cities'], command: 'Examine', option: 'G', inMockScope: true },
@@ -63,7 +63,7 @@ export const pastPapers: PastPaperRef[] = [
       { kind: 'resources', url: 'https://ibdocs.re/p/IB%20PAST%20PAPERS%20-%20YEAR/2021%20Examination%20Session/May%202021%20Examination%20Session/Individuals%20and%20societies/Geography_paper_1__resource_booklet_HLSL.pdf' },
       { kind: 'markscheme', url: 'https://ibdocs.re/p/IB%20PAST%20PAPERS%20-%20YEAR/2021%20Examination%20Session/May%202021%20Examination%20Session/Individuals%20and%20societies/Geography_paper_1__HLSL_markscheme.pdf' },
     ],
-    minutes: 90, marks: 40,
+    minutes: 45, marks: 20,
     items: [
       { q: '13', marks: 10, topicIds: ['g2-urban-change', 'g3-urban-stress'], command: 'State / Outline / Explain', option: 'G', inMockScope: true },
       { q: '14a', marks: 10, topicIds: ['g1-urban-variety'], command: 'Examine', option: 'G', inMockScope: true },
@@ -79,7 +79,7 @@ export const pastPapers: PastPaperRef[] = [
       { kind: 'resources', url: 'https://ibdocs.re/p/IB%20PAST%20PAPERS%20-%20YEAR/2021%20Examination%20Session/November%202021%20Examination%20Session/Individuals%20and%20societies/Geography_paper_1__resource_booklet_HLSL.pdf' },
       { kind: 'markscheme', url: 'https://ibdocs.re/p/IB%20PAST%20PAPERS%20-%20YEAR/2021%20Examination%20Session/November%202021%20Examination%20Session/Individuals%20and%20societies/Geography_paper_1__HLSL_markscheme.pdf' },
     ],
-    minutes: 90, marks: 40,
+    minutes: 45, marks: 20,
     items: [
       { q: '13', marks: 10, topicIds: ['g3-urban-stress'], command: 'State / Outline / Suggest', option: 'G', inMockScope: true },
       { q: '14a', marks: 10, topicIds: ['g1-urban-variety'], command: 'Examine', option: 'G', inMockScope: true },
@@ -95,7 +95,7 @@ export const pastPapers: PastPaperRef[] = [
       { kind: 'resources', url: 'https://ibdocs.re/p/IB%20PAST%20PAPERS%20-%20YEAR/2022%20Examination%20Session/May%202022%20Examination%20Session/Individuals%20and%20societies/Geography_paper_1__resource_booklet_HLSL.pdf' },
       { kind: 'markscheme', url: 'https://ibdocs.re/p/IB%20PAST%20PAPERS%20-%20YEAR/2022%20Examination%20Session/May%202022%20Examination%20Session/Individuals%20and%20societies/Geography_paper_1__SL_markscheme.pdf' },
     ],
-    minutes: 90, marks: 40,
+    minutes: 45, marks: 20,
     items: [
       { q: '13', marks: 10, topicIds: ['g1-urban-variety', 'g2-urban-change', 'g4-sustainable-cities'], command: 'Identify / State / Outline / Explain', option: 'G', inMockScope: true },
       { q: '14a', marks: 10, topicIds: ['g3-urban-stress', 'g4-sustainable-cities'], command: 'Examine', option: 'G', inMockScope: true },
@@ -112,7 +112,7 @@ export const pastPapers: PastPaperRef[] = [
       { kind: 'resources', url: 'https://ibdocs.re/p/IB%20PAST%20PAPERS%20-%20YEAR/2022%20Examination%20Session/November%202022%20Examination%20Session/Individuals%20and%20societies/Geography_paper_1__resource_booklet_HLSL.pdf' },
       { kind: 'markscheme', url: 'https://ibdocs.re/p/IB%20PAST%20PAPERS%20-%20YEAR/2022%20Examination%20Session/November%202022%20Examination%20Session/Individuals%20and%20societies/Geography_paper_1__SL_markscheme.pdf' },
     ],
-    minutes: 90, marks: 40,
+    minutes: 45, marks: 20,
     items: [
       { q: '13', marks: 10, topicIds: ['g3-urban-stress', 'g4-sustainable-cities'], command: 'State / Outline / Explain', option: 'G', inMockScope: true },
       { q: '14a', marks: 10, topicIds: ['g2-urban-change'], command: 'To what extent', option: 'G', inMockScope: true },
@@ -129,7 +129,7 @@ export const pastPapers: PastPaperRef[] = [
       { kind: 'resources', url: 'https://ibdocs.re/p/IB%20PAST%20PAPERS%20-%20YEAR/2023%20Examination%20Session/May%202023%20Examination%20Session/Individuals%20and%20societies/Geography_paper_1__resource_booklet_HLSL.pdf' },
       { kind: 'markscheme', url: 'https://ibdocs.re/p/IB%20PAST%20PAPERS%20-%20YEAR/2023%20Examination%20Session/May%202023%20Examination%20Session/Individuals%20and%20societies/Geography_paper_1__HLSL_markscheme.pdf' },
     ],
-    minutes: 90, marks: 40,
+    minutes: 45, marks: 20,
     items: [
       { q: '13', marks: 10, topicIds: ['g2-urban-change', 'g3-urban-stress'], command: 'State / Identify / Outline / Explain', option: 'G', inMockScope: true },
       { q: '14a', marks: 10, topicIds: ['g2-urban-change', 'g3-urban-stress'], command: 'Examine', option: 'G', inMockScope: true },
@@ -146,7 +146,7 @@ export const pastPapers: PastPaperRef[] = [
       { kind: 'resources', url: 'https://ibdocs.re/p/IB%20PAST%20PAPERS%20-%20YEAR/2023%20Examination%20Session/November%202023%20Examination%20Session/Individuals%20and%20societies/Geography_paper_1__resource_booklet_HLSL.pdf' },
       { kind: 'markscheme', url: 'https://ibdocs.re/p/IB%20PAST%20PAPERS%20-%20YEAR/2023%20Examination%20Session/November%202023%20Examination%20Session/Individuals%20and%20societies/Geography_paper_1__HLSL_markscheme.pdf' },
     ],
-    minutes: 90, marks: 40,
+    minutes: 45, marks: 20,
     items: [
       { q: '13', marks: 10, topicIds: ['g4-sustainable-cities'], command: 'Estimate / State / Outline / Explain', option: 'G', inMockScope: true },
       { q: '14a', marks: 10, topicIds: ['g3-urban-stress', 'g4-sustainable-cities'], command: 'Evaluate', option: 'G', inMockScope: true },
@@ -163,7 +163,7 @@ export const pastPapers: PastPaperRef[] = [
       { kind: 'resources', url: 'https://ibdocs.re/p/IB%20PAST%20PAPERS%20-%20YEAR/2024%20Examination%20Session/May%202024%20Examination%20Session/Individuals%20and%20societies/Geography_paper_1__resource_booklet_HLSL.pdf' },
       { kind: 'markscheme', url: 'https://ibdocs.re/p/IB%20PAST%20PAPERS%20-%20YEAR/2024%20Examination%20Session/May%202024%20Examination%20Session/Individuals%20and%20societies/Geography_paper_1__SL_markscheme.pdf' },
     ],
-    minutes: 90, marks: 40,
+    minutes: 45, marks: 20,
     items: [
       { q: '13', marks: 10, topicIds: ['g2-urban-change'], command: 'State / Outline / Explain', option: 'G', inMockScope: true },
       { q: '14a', marks: 10, topicIds: ['g4-sustainable-cities'], command: 'Examine', option: 'G', inMockScope: true },
@@ -180,7 +180,7 @@ export const pastPapers: PastPaperRef[] = [
       { kind: 'resources', url: 'https://ibdocs.re/p/IB%20PAST%20PAPERS%20-%20YEAR/2024%20Examination%20Session/November%202024%20Examination%20Session/Individuals%20and%20societies/Geography_paper_1__resource_booklet_HLSL.pdf' },
       { kind: 'markscheme', url: 'https://ibdocs.re/p/IB%20PAST%20PAPERS%20-%20YEAR/2024%20Examination%20Session/November%202024%20Examination%20Session/Individuals%20and%20societies/Geography_paper_1__HLSL_markscheme.pdf' },
     ],
-    minutes: 90, marks: 40,
+    minutes: 45, marks: 20,
     items: [
       { q: '13', marks: 10, topicIds: ['g1-urban-variety', 'g3-urban-stress'], command: 'State / Estimate / Outline / Explain', option: 'G', inMockScope: true },
       { q: '14a', marks: 10, topicIds: ['g3-urban-stress', 'g4-sustainable-cities'], command: 'Examine', option: 'G', inMockScope: true },
@@ -197,7 +197,7 @@ export const pastPapers: PastPaperRef[] = [
       { kind: 'resources', url: 'https://ibdocs.re/p/IB%20PAST%20PAPERS%20-%20YEAR/2025%20Examination%20Session/May%202025%20Examination%20Session/Individuals%20and%20societies/Geography_paper_1_resource_booklet_HLSL.pdf' },
       { kind: 'markscheme', url: 'https://ibdocs.re/p/IB%20PAST%20PAPERS%20-%20YEAR/2025%20Examination%20Session/May%202025%20Examination%20Session/Individuals%20and%20societies/Geography_paper_1_SL_markscheme.pdf' },
     ],
-    minutes: 90, marks: 40,
+    minutes: 45, marks: 20,
     items: [
       { q: '13', marks: 10, topicIds: ['g1-urban-variety', 'g4-sustainable-cities'], command: 'Estimate / State / Outline / Explain', option: 'G', inMockScope: true },
       { q: '14a', marks: 10, topicIds: ['g3-urban-stress', 'g4-sustainable-cities'], command: 'Examine', option: 'G', inMockScope: true },
@@ -214,7 +214,7 @@ export const pastPapers: PastPaperRef[] = [
       { kind: 'resources', url: 'https://ibdocs.re/p/IB%20PAST%20PAPERS%20-%20YEAR/2025%20Examination%20Session/November%202025%20Examination%20Session/Individuals%20and%20societies/Geography_paper_1_resource_booklet_HLSL.pdf' },
       { kind: 'markscheme', url: 'https://ibdocs.re/p/IB%20PAST%20PAPERS%20-%20YEAR/2025%20Examination%20Session/November%202025%20Examination%20Session/Individuals%20and%20societies/Geography_paper_1_HLSL_markscheme.pdf' },
     ],
-    minutes: 90, marks: 40,
+    minutes: 45, marks: 20,
     items: [
       { q: '13', marks: 10, topicIds: ['g2-urban-change', 'g3-urban-stress', 'g4-sustainable-cities'], command: 'Identify / State / Outline / Explain', option: 'G', inMockScope: true },
       { q: '14a', marks: 10, topicIds: ['g3-urban-stress', 'g4-sustainable-cities'], command: 'Evaluate', option: 'G', inMockScope: true },
