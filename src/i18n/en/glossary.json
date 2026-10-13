@@ -9,8 +9,8 @@
     "heading": "Your flashcards",
     "total": "Terms",
     "due": "Due today",
-    "dueHint": "new cards included",
     "fresh": "New",
+    "freshHint": "Up to {{n}} per session",
     "box": "Box {{n}}",
     "interval": "Interval: {{n}} d"
   },
@@ -52,9 +52,11 @@
     "keys": "Keyboard: Space shows the definition, 1, 2 and 3 choose the answer.",
     "how": "Knew it moves a card up one box, Unsure keeps it where it is, Did not know sends it back to box 1.",
     "doneTitle": "No cards left for today",
-    "doneBody": "You have gone through all the cards that were due. Come back tomorrow.",
+    "doneBody": "You went through every card that was due. Come back when the next ones are due.",
+    "noneDue": "No card is due right now.",
     "answeredToday": "Cards answered now: {{n}}",
     "next": "The next card is due on {{date}}.",
-    "toGlossary": "Open the glossary"
+    "toGlossary": "Open the glossary",
+    "moreNew": "Study {{n}} more new cards"
   }
 }

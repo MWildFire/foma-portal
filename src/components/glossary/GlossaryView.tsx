@@ -1,11 +1,11 @@
-import { useCallback, useDeferredValue, useId, useMemo, useState } from 'react';
+import { useCallback, useDeferredValue, useEffect, useId, useMemo, useRef, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { Check } from 'lucide-react';
 import type { SubjectPack } from '../../contract/pack';
 import type { PaperId, Term, TopicMeta } from '../../contract/types';
 import { useLocalProgress } from '../../hooks/useLocalProgress';
-import { BOXES, INTERVAL_DAYS, deckStats, review, termKey, type Answer } from '../../lib/leitner';
+import { BOXES, INTERVAL_DAYS, NEW_PER_SESSION, deckStats, review, termKey, type Answer } from '../../lib/leitner';
 import type { TermProgress } from '../../lib/storage';
 import { toLang } from '../../lib/topic-lang';
 import { dubaiDate } from '../../lib/topic-progress';
@@ -78,10 +78,22 @@ export function GlossaryView({ pack }: { pack: SubjectPack }) {
     return saved ?? review(undefined, answer, day);
   }, [subject, update]);
 
+  // "Open the glossary" in the flashcards: the button disappears with the deck, so the focus goes to the switch.
+  const glossarySwitch = useRef<HTMLButtonElement>(null);
+  const focusSwitch = useRef(false);
+  useEffect(() => {
+    if (mode === 'list' && focusSwitch.current) glossarySwitch.current?.focus({ preventScroll: true });
+    focusSwitch.current = false;
+  }, [mode]);
+  const showGlossary = useCallback((): void => {
+    focusSwitch.current = true;
+    setMode('list');
+  }, [setMode]);
+
   const tiles = [
     { key: 'total', label: t('stats.total'), value: stats.total },
-    { key: 'due', label: t('stats.due'), hint: t('stats.dueHint'), value: stats.due },
-    { key: 'fresh', label: t('stats.fresh'), value: stats.fresh },
+    { key: 'due', label: t('stats.due'), value: stats.due },
+    { key: 'fresh', label: t('stats.fresh'), hint: t('stats.freshHint', { n: NEW_PER_SESSION }), value: stats.fresh },
     ...BOXES.map(box => ({
       key: `box${box}`,
       label: t('stats.box', { n: box }),
@@ -107,7 +119,7 @@ export function GlossaryView({ pack }: { pack: SubjectPack }) {
           </section>
 
           <div role="group" aria-label={t('modes.label')} className="foma-btn-row gl-modes">
-            <button type="button" className="foma-btn" aria-pressed={mode === 'list'} onClick={() => setMode('list')}>
+            <button ref={glossarySwitch} type="button" className="foma-btn" aria-pressed={mode === 'list'} onClick={() => setMode('list')}>
               {mode === 'list' ? <Check size={16} aria-hidden="true" /> : null}
               {t('modes.list')}
             </button>
@@ -125,8 +137,9 @@ export function GlossaryView({ pack }: { pack: SubjectPack }) {
               today={today}
               lang={lang}
               nextDue={stats.nextDue}
+              fresh={stats.fresh}
               onAnswer={answerCard}
-              onShowGlossary={() => setMode('list')}
+              onShowGlossary={showGlossary}
             />
           ) : (
             <section aria-label={t('modes.list')} className="study-section">

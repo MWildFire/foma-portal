@@ -2,7 +2,7 @@ import { useCallback, useEffect, useId, useMemo, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next';
 import { BookMarked, CircleCheck, CircleHelp, CircleX, type LucideIcon } from 'lucide-react';
 import type { Lang, Term } from '../../contract/types';
-import { ANSWERS, deckKeyAction, dueQueue, type Answer } from '../../lib/leitner';
+import { ANSWERS, NEW_PER_SESSION, deckKeyAction, dueQueue, type Answer } from '../../lib/leitner';
 import type { GlobalState } from '../../lib/storage';
 import { pickText } from '../../lib/text';
 import { InlineText } from '../content/RichText';
@@ -22,6 +22,8 @@ interface Props {
   lang: Lang;
   /** The earliest day a card that is not due yet comes back. */
   nextDue: string | null;
+  /** Cards that were never answered, to offer another batch of new cards when the session is done. */
+  fresh: number;
   /** Saves the answer and returns the box and the day it was stored with. */
   onAnswer: (term: Term, answer: Answer) => { box: number; due: string };
   onShowGlossary: () => void;
@@ -35,11 +37,13 @@ function matches(target: EventTarget | null, selector: string): boolean {
   return target instanceof Element && target.closest(selector) !== null;
 }
 
-// Flashcards: one due card at a time. The term is shown first; Space (or a tap) shows the definition; then
-// 1, 2 or 3 (or a button) says how well the student knew it. Only cards due today or earlier are shown, and a
-// card answered now leaves the queue until its next day.
-export function FlashcardDeck({ subject, terms, progress, today, lang, nextDue, onAnswer, onShowGlossary }: Props) {
+// Flashcards: one card at a time. The term is shown first; Space (or a tap) shows the definition; then 1, 2 or 3
+// (or a button) says how well the student knew it. A session is the cards that are due today or earlier plus a few
+// new ones (NEW_PER_SESSION); it is fixed when the deck opens, and a card answered now leaves it. When the session
+// is done the student can ask for another batch of new cards.
+export function FlashcardDeck({ subject, terms, progress, today, lang, nextDue, fresh, onAnswer, onShowGlossary }: Props) {
   const { t } = useTranslation('glossary');
+  const [session, setSession] = useState<string[]>(() => dueQueue(subject, terms, progress, today).map(term => term.id));
   const [answered, setAnswered] = useState<string[]>([]);
   const [revealed, setRevealed] = useState(false);
   const [last, setLast] = useState<{ term: string; box: number; due: string } | null>(null);
@@ -50,13 +54,22 @@ export function FlashcardDeck({ subject, terms, progress, today, lang, nextDue, 
   const answerLabelId = useId();
   const progressId = useId();
 
+  const byId = useMemo(() => new Map(terms.map(term => [term.id, term] as const)), [terms]);
   const queue = useMemo(() => {
     const gone = new Set(answered);
-    return dueQueue(subject, terms, progress, today).filter(term => !gone.has(term.id));
-  }, [subject, terms, progress, today, answered]);
+    return session.flatMap(id => (gone.has(id) || !byId.has(id) ? [] : [byId.get(id) as Term]));
+  }, [session, answered, byId]);
 
   const current = queue[0];
-  const total = answered.length + queue.length;
+  const total = session.length;
+
+  // Another batch: the cards that are due now and not yet in this session, and up to NEW_PER_SESSION new ones.
+  const addMore = useCallback((): void => {
+    setSession(list => {
+      const have = new Set(list);
+      return [...list, ...dueQueue(subject, terms, progress, today).filter(term => !have.has(term.id)).map(term => term.id)];
+    });
+  }, [subject, terms, progress, today]);
 
   // When the button that was pressed disappears, the focus would fall back to the top of the page. So if the button
   // had the focus, it goes to the answers (the box itself, not a button: a second Space must not answer).
@@ -93,6 +106,20 @@ export function FlashcardDeck({ subject, terms, progress, today, lang, nextDue, 
     return () => window.removeEventListener('keydown', onKeyDown);
   }, [current, revealed, answer, reveal]);
 
+  // Coming from the "Flashcards" switch with the keyboard: the switch is still focused, and Space would only press it
+  // again. Put the focus on the first card. A page that opens on the flashcards keeps its focus where it is.
+  useEffect(() => {
+    const active = document.activeElement;
+    if (active instanceof HTMLElement && active.closest('.gl-modes')) revealButton.current?.focus({ preventScroll: true });
+  }, []);
+
+  // The last card was answered: the button that was pressed is gone, so the focus goes to the "done" panel.
+  const doneBox = useRef<HTMLDivElement>(null);
+  const finished = !current && answered.length > 0;
+  useEffect(() => {
+    if (finished) doneBox.current?.focus({ preventScroll: true });
+  }, [finished]);
+
   // The definition has appeared: move the focus to the answers if the reveal button had it (see reveal above).
   useEffect(() => {
     if (revealed && focusAnswers.current) answersBox.current?.focus({ preventScroll: true });
@@ -111,14 +138,19 @@ export function FlashcardDeck({ subject, terms, progress, today, lang, nextDue, 
   if (!current) {
     return (
       <section className="gl-deck" aria-label={t('cards.heading')}>
-        <div className="gl-card" role="status">
+        <div ref={doneBox} tabIndex={-1} className="gl-card gl-card--done">
           <p className="gl-card__done"><CircleCheck size={20} aria-hidden="true" />{t('cards.doneTitle')}</p>
-          <p className="study-muted">{t('cards.doneBody')}</p>
+          <p className="study-muted">{answered.length > 0 ? t('cards.doneBody') : t('cards.noneDue')}</p>
           {answered.length > 0 ? <p className="study-muted">{t('cards.answeredToday', { n: answered.length })}</p> : null}
           {nextDue ? <p className="study-muted">{t('cards.next', { date: nextDue })}</p> : null}
-          <p className="mb-0 mt-3">
+          <div className="foma-btn-row mt-3">
+            {fresh > 0 ? (
+              <button type="button" className="foma-btn foma-btn--primary" onClick={addMore}>
+                {t('cards.moreNew', { n: Math.min(NEW_PER_SESSION, fresh) })}
+              </button>
+            ) : null}
             <button type="button" className="foma-btn" onClick={onShowGlossary}>{t('cards.toGlossary')}</button>
-          </p>
+          </div>
         </div>
       </section>
     );

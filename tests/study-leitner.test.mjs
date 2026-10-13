@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { ANSWERS, BOXES, INTERVAL_DAYS, addDays, clampBox, deckKeyAction, deckStats, dueQueue, isDue, nextBox, review, termKey } from '../src/lib/leitner.ts';
+import { ANSWERS, BOXES, INTERVAL_DAYS, NEW_PER_SESSION, addDays, clampBox, deckKeyAction, deckStats, dueQueue, isDue, nextBox, review, termKey } from '../src/lib/leitner.ts';
 import { normalizeState } from '../src/lib/storage.ts';
 
 const TODAY = '2026-10-13';
@@ -76,8 +76,7 @@ test('what review writes is accepted by the storage normalizer unchanged', () =>
   assert.deepEqual(normalizeState({ terms: written }).terms, written);
 });
 
-test('a new card and a card whose day has come are due; a future card is not', () => {
-  assert.equal(isDue(undefined, TODAY), true);
+test('a scheduled card is due on its day or later; a future card is not', () => {
   assert.equal(isDue({ box: 1, due: '2026-10-12' }, TODAY), true);
   assert.equal(isDue({ box: 1, due: '2026-10-13' }, TODAY), true);
   assert.equal(isDue({ box: 1, due: '2026-10-14' }, TODAY), false);
@@ -100,19 +99,19 @@ const PROGRESS = {
   'math/a': { box: 4, due: '2026-10-01' }, // another subject: ignored
 };
 
-test('deck stats count due cards (new ones included), new cards, boxes and the next day', () => {
+test('deck stats count the cards that are due, the new cards, the cards in each box and the next day', () => {
   assert.deepEqual(deckStats('geo', IDS, PROGRESS, TODAY), {
     total: 6,
-    due: 4, // a, b, e, f
+    due: 2, // a and b; the new cards e and f are not due, they are new
     fresh: 2,
     boxes: [1, 1, 1, 1],
     nextDue: '2026-10-14',
   });
 });
 
-test('deck stats of an empty pack and of a fresh student are all zeros or all new', () => {
+test('deck stats of an empty pack and of a fresh student', () => {
   assert.deepEqual(deckStats('geo', [], {}, TODAY), { total: 0, due: 0, fresh: 0, boxes: [0, 0, 0, 0], nextDue: null });
-  assert.deepEqual(deckStats('geo', ['a', 'b'], {}, TODAY), { total: 2, due: 2, fresh: 2, boxes: [0, 0, 0, 0], nextDue: null });
+  assert.deepEqual(deckStats('geo', ['a', 'b'], {}, TODAY), { total: 2, due: 0, fresh: 2, boxes: [0, 0, 0, 0], nextDue: null });
 });
 
 test('deck stats count a repeated id once and clamp a stored box', () => {
@@ -123,9 +122,24 @@ test('deck stats count a repeated id once and clamp a stored box', () => {
   assert.equal(stats.nextDue, '2026-10-20');
 });
 
-test('the queue holds only due cards: longest overdue first, then new cards in pack order', () => {
+test('the queue holds the due cards (longest overdue first), then new cards in pack order', () => {
   const items = IDS.map(id => ({ id }));
   assert.deepEqual(dueQueue('geo', items, PROGRESS, TODAY).map(item => item.id), ['a', 'b', 'e', 'f']);
+});
+
+test('a session takes at most 10 new cards, however many terms are new; all due cards always come', () => {
+  assert.equal(NEW_PER_SESSION, 10);
+  const items = Array.from({ length: 214 }, (_, index) => ({ id: `t${index}` }));
+  assert.equal(dueQueue('geo', items, {}, TODAY).length, 10);
+  assert.deepEqual(dueQueue('geo', items, {}, TODAY).map(item => item.id), items.slice(0, 10).map(item => item.id));
+  assert.equal(dueQueue('geo', items, {}, TODAY, 25).length, 25);
+  assert.equal(dueQueue('geo', items, {}, TODAY, 0).length, 0);
+  assert.equal(dueQueue('geo', items, {}, TODAY, -3).length, 0);
+  const progress = Object.fromEntries(items.slice(0, 15).map(item => [`geo/${item.id}`, { box: 1, due: '2026-10-01' }]));
+  const queue = dueQueue('geo', items, progress, TODAY).map(item => item.id);
+  assert.equal(queue.length, 15 + 10, 'every due card plus 10 new ones');
+  assert.deepEqual(queue.slice(0, 15), items.slice(0, 15).map(item => item.id));
+  assert.equal(queue[15], 't15');
 });
 
 test('on the same day weaker boxes come first, and equal cards keep the pack order', () => {
@@ -164,12 +178,12 @@ const SHOWN = { ...PLAIN, revealed: true };
 test('Space shows the definition, also when the browser reports only the key code', () => {
   assert.deepEqual(deckKeyAction({ key: ' ' }, PLAIN), { type: 'reveal' });
   assert.deepEqual(deckKeyAction({ key: 'Spacebar', code: 'Space' }, PLAIN), { type: 'reveal' });
-  assert.deepEqual(deckKeyAction({ key: ' ' }, SHOWN), { type: 'reveal' }, 'harmless when it is already shown');
+  assert.equal(deckKeyAction({ key: ' ' }, SHOWN), null, 'once the definition is shown, Space is left to the browser (it scrolls)');
 });
 
 test('Space on a button, link or field is left to the browser', () => {
   assert.equal(deckKeyAction({ key: ' ' }, { ...PLAIN, onControl: true }), null);
-  assert.equal(deckKeyAction({ key: ' ' }, { ...SHOWN, onControl: true, onTextField: true }), null);
+  assert.equal(deckKeyAction({ key: ' ' }, { ...PLAIN, onControl: true, onTextField: true }), null);
 });
 
 test('the keys 1, 2 and 3 answer in the order of the buttons, once the definition is shown', () => {

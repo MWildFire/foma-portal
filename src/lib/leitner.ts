@@ -3,13 +3,17 @@ import type { TermProgress } from './storage';
 // Flashcards use four Leitner boxes. A card in box 1 comes back after 1 day, in box 2 after 2 days, in box 3
 // after 4 days and in box 4 after 7 days. Progress is stored as terms["<subject>/<termId>"] = { box, due }.
 //
-// A card that was never answered has no entry: it is "new" and counts as due. Pure functions only, so the
-// rules can be tested without a browser. This file may import types only (the unit tests run it as plain
-// TypeScript, without a bundler).
+// A card that was never answered has no entry: it is "new". New cards are not "due" (nothing is scheduled yet);
+// a study session takes every card that is due plus a few new ones, so a first session over 200 terms is 10 cards,
+// not 200. Pure functions only, so the rules can be tested without a browser. This file may import types only (the
+// unit tests run it as plain TypeScript, without a bundler).
 
 export type Box = 1 | 2 | 3 | 4;
 export const BOXES: readonly Box[] = [1, 2, 3, 4];
 export const INTERVAL_DAYS: Readonly<Record<Box, number>> = { 1: 1, 2: 2, 3: 4, 4: 7 };
+
+/** New cards added to one study session. The student can ask for another batch when the session is done. */
+export const NEW_PER_SESSION = 10;
 
 // How well the student knew the card: up one box, stay in the box, back to box 1.
 export type Answer = 'knew' | 'unsure' | 'missed';
@@ -54,17 +58,16 @@ export function review(current: TermProgress | undefined, answer: Answer, today:
 
 const dayOf = (value: string): string | null => (DATE_PREFIX.test(value) ? value.slice(0, 10) : null);
 
-// A new card is due. A scheduled card is due on its date or after it. A date that cannot be read counts as due,
-// so a damaged entry never hides a card for good.
-export function isDue(progress: TermProgress | undefined, today: string): boolean {
-  if (!progress) return true;
+// A scheduled card is due on its date or after it. A date that cannot be read counts as due, so a damaged entry
+// never hides a card for good. (A card with no entry is new, not due: see dueQueue.)
+export function isDue(progress: TermProgress, today: string): boolean {
   const due = dayOf(progress.due);
   return due === null || due <= today;
 }
 
 export interface DeckStats {
   total: number;
-  /** New cards plus the cards whose day has come. */
+  /** Cards whose day has come (scheduled earlier, not answered yet today). New cards are not counted here. */
   due: number;
   /** Cards that were never answered. */
   fresh: number;
@@ -86,7 +89,6 @@ export function deckStats(subject: string, termIds: readonly string[], progress:
     const entry = progress[termKey(subject, id)];
     if (!entry) {
       stats.fresh += 1;
-      stats.due += 1;
       continue;
     }
     stats.boxes[clampBox(entry.box) - 1] += 1;
@@ -100,9 +102,15 @@ export function deckStats(subject: string, termIds: readonly string[], progress:
   return stats;
 }
 
-// The cards to study now, in the order to show them: scheduled cards first (the longest overdue first, weaker
-// boxes first on the same day), then the new cards in the order of the pack.
-export function dueQueue<T extends { id: string }>(subject: string, items: readonly T[], progress: ProgressMap, today: string): T[] {
+// The cards of a study session, in the order to show them: every card that is due (the longest overdue first,
+// weaker boxes first on the same day), then new cards in the order of the pack, at most `newLimit` of them.
+export function dueQueue<T extends { id: string }>(
+  subject: string,
+  items: readonly T[],
+  progress: ProgressMap,
+  today: string,
+  newLimit: number = NEW_PER_SESSION,
+): T[] {
   const scheduled: { item: T; due: string; box: Box }[] = [];
   const fresh: T[] = [];
   const seen = new Set<string>();
@@ -114,7 +122,7 @@ export function dueQueue<T extends { id: string }>(subject: string, items: reado
     else if (isDue(entry, today)) scheduled.push({ item, due: dayOf(entry.due) ?? '', box: clampBox(entry.box) });
   }
   scheduled.sort((a, b) => (a.due < b.due ? -1 : a.due > b.due ? 1 : a.box - b.box));
-  return [...scheduled.map(entry => entry.item), ...fresh];
+  return [...scheduled.map(entry => entry.item), ...fresh.slice(0, Math.max(0, newLimit))];
 }
 
 // The keyboard on the flashcards: Space shows the definition; 1, 2 and 3 give the answer (in the order of ANSWERS,
@@ -145,7 +153,8 @@ export function deckKeyAction(
 ): DeckKeyAction {
   // A held key repeats; a shortcut such as Ctrl+1 (switch tab) belongs to the browser.
   if (event.defaultPrevented || event.repeat || event.ctrlKey || event.metaKey || event.altKey) return null;
-  if (event.key === ' ' || event.code === 'Space') return context.onControl ? null : { type: 'reveal' };
+  // Space shows the definition. Once it is shown, Space is left to the browser, so it can scroll a long card.
+  if (event.key === ' ' || event.code === 'Space') return context.onControl || context.revealed ? null : { type: 'reveal' };
   if (!context.revealed || context.onTextField) return null;
   const index = ['1', '2', '3'].indexOf(event.key);
   return index === -1 ? null : { type: 'answer', answer: ANSWERS[index] };
