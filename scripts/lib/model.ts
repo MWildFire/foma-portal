@@ -17,6 +17,7 @@ export interface TopicMeta {
   id: string;
   subject: string;
   code: string;
+  codes?: string[];
   title?: LText;
   inMockScope?: string;
   termIds?: string[];

@@ -1,7 +1,7 @@
 import { list, textOf, type Pack, type TopicMeta } from './model.ts';
 
 // How much of a subject's syllabus has a finished topic. Used by `npm run coverage` and by the validator's summary.
-// A code is covered when a topic has the same `code` and both <id>.en.mdx and <id>.ru.mdx exist.
+// A code is covered when a topic has it as `code` or in `codes`, and both <id>.en.mdx and <id>.ru.mdx exist.
 
 export type Scope = 'yes' | 'no' | 'unknown';
 
@@ -32,7 +32,7 @@ function scopeOf(topics: TopicMeta[]): Scope {
 export function computeCoverage(pack: Pack, hasBodies: (topicId: string) => boolean): Coverage {
   const rows = pack.syllabus.map((item): CoverageRow => {
     const code = textOf(item.code);
-    const topics = pack.topics.filter(topic => topic.code === code);
+    const topics = pack.topics.filter(topic => topic.code === code || list(topic.codes).indexOf(code) !== -1);
     return {
       code,
       title: item.title ? textOf(item.title.en) : '',
@@ -67,7 +67,7 @@ export function renderCoverage(subject: string, coverage: Coverage): string {
   const lines = [
     `# Coverage ${subject}: ${formatPercent(coverage.percent)} (${summary})`,
     '',
-    `A code is covered when a topic has that \`code\` and both \`<id>.en.mdx\` and \`<id>.ru.mdx\` exist. Codes whose topics are outside the mock (\`no\`) are left out of the percentage. Written by \`npm run coverage -- ${subject}\`; do not edit by hand.`,
+    `A code is covered when a topic has that \`code\` (or lists it in \`codes\`) and both \`<id>.en.mdx\` and \`<id>.ru.mdx\` exist. Codes whose topics are outside the mock (\`no\`) are left out of the percentage. Written by \`npm run coverage -- ${subject}\`; do not edit by hand.`,
     '',
     '| Code | Title (EN) | Papers | In mock scope | Covered by topic | EN+RU MDX |',
     '|---|---|---|---|---|---|',

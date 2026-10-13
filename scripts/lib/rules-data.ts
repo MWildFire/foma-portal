@@ -111,6 +111,9 @@ export function checkRefs(r: Report, ctx: DataCtx): void {
     if (hasSyllabus && !known.codes.has(textOf(topic.code))) {
       fail('topic', id, 'topic', `code "${topic.code}" is not a code in syllabus.ts`, textOf(topic.code));
     }
+    list(topic.codes).forEach(code => {
+      if (hasSyllabus && !known.codes.has(textOf(code))) fail('topic', id, 'topic', `codes lists "${code}", which is not a code in syllabus.ts`, textOf(code));
+    });
     const lists: { field: string; values: string[]; ids: Set<string>; target: string }[] = [
       { field: 'termIds', values: list(topic.termIds), ids: known.terms, target: 'term' },
       { field: 'formulaIds', values: list(topic.formulaIds), ids: known.formulas, target: 'formula' },

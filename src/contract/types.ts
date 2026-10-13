@@ -18,6 +18,7 @@ export interface TopicMeta {
   id: string;                 // kebab, уникален в предмете, = имя файла
   subject: SubjectId;
   code: string;               // '4.18' | '2.8' | 'A3.2' | 'B2.4' | 'core-2.1' | 'G.3' | 'p1-method'
+  codes?: string[];          // more syllabus codes this topic covers (grouping); `code` stays the main one
   title: L;
   papers: PaperId[];
   hl?: boolean; option?: string;
