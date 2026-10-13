@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { AlarmClock, Pause, Play, RotateCcw, TimerOff } from 'lucide-react';
 import { createTimer, formatClock, isWarning, pauseTimer, resetTimer, secondsLeft, startTimer, tickTimer, type TimerState } from '../../lib/practice';
@@ -21,8 +21,13 @@ export function Clock({ minutes, storageKey }: { minutes: number; storageKey: st
     return readStoredTimer(storageKey, fresh.totalMs) ?? fresh;
   });
 
-  // Save when the clock starts, pauses, ends or is reset. While it runs, the end moment is all that is needed.
+  // Save when the clock starts, pauses, ends or is reset. While it runs, the end moment is all that is needed. What
+  // was just read from storage is not written back: that would renew its eight hours every time the page is opened.
+  const written = useRef(`${timer.status}|${timer.endsAt}`);
   useEffect(() => {
+    const signature = `${timer.status}|${timer.endsAt}`;
+    if (written.current === signature) return;
+    written.current = signature;
     writeStoredTimer(storageKey, timer);
   }, [storageKey, timer.status, timer.endsAt]);
 
