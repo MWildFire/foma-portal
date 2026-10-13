@@ -35,8 +35,10 @@ i18n
   })
   .then(() => syncDocumentLang(i18n.language));
 
-// The document language follows the UI language, so screen readers and hyphenation use the right one.
+// The document language follows the UI language, so screen readers and hyphenation use the right one. The unit tests
+// load this module in Node, where there is no document.
 function syncDocumentLang(language: string): void {
+  if (typeof document === 'undefined') return;
   document.documentElement.lang = language.toLowerCase().startsWith('ru') ? 'ru' : 'en';
 }
 i18n.on('languageChanged', syncDocumentLang);
