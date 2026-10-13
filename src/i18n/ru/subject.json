@@ -107,6 +107,7 @@
     "solveOnTime": "Решать на время",
     "hideTimer": "Скрыть таймер",
     "allowance": "Время: {{minutes}} мин",
-    "allowanceExtra": "С доп. временем (+25%): {{minutes}} мин"
+    "allowanceExtra": "С доп. временем (+25%): {{minutes}} мин",
+    "itemsSummary": "Вопросы и ваши баллы ({{count}})"
   }
 }

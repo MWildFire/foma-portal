@@ -82,7 +82,9 @@ export function PastPaperCard({ subject, paper, topics, progress, extraTime, onS
         </div>
       </details>
 
-      <section aria-label={t('pastPapers.items')} className="flex flex-col gap-3">
+      <details>
+        <summary className="cursor-pointer font-medium">{t('pastPapers.itemsSummary', { count: paper.items.length })}</summary>
+      <section aria-label={t('pastPapers.items')} className="mt-3 flex flex-col gap-3">
         <ol className="m-0 flex list-none flex-col gap-3 p-0">
           {paper.items.map((item, index) => {
             const value = progress?.scores?.[String(index)];
@@ -125,6 +127,7 @@ export function PastPaperCard({ subject, paper, topics, progress, extraTime, onS
           })}
         </ol>
       </section>
+      </details>
 
       <footer className="flex flex-wrap items-center gap-3">
         <span>{t('pastPapers.selfScore', { earned: score.earned, total: score.total })}</span>
