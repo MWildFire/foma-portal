@@ -16,7 +16,7 @@ Five families of extended models appear in this topic.
 
 For a logistic model the key features follow from the formula. The starting value is $f(0) = \dfrac{L}{1+C}$. The inflection point, where growth changes from speeding up to slowing down, is at $x = \dfrac{\ln C}{k}$, and there $y = \dfrac{L}{2}$. Growth is fastest at that point, at the rate $\dfrac{kL}{4}$. <Formula id="logistic-key-features"/>
 
-<Callout kind="gdc">For a logistic model, use the logistic regression option on the GDC with your data. Match the parameters in its output to $L$, $C$ and $k$ by the form of the curve. To find when the model reaches a given value, solve $f(x) = 180$ with the solver, or find the intersection of two graphs.</Callout>
+<Callout kind="gdc">For a logistic model, enter the data in two lists and use `Menu → Statistics → Stat Calculations → Logistic Regression (d=0)`, which fits $y = \dfrac{c}{1 + a e^{-bx}}$, so $L = c$, $C = a$ and $k = b$. To find when the model reaches a value such as $f(x) = 180$, use `Menu → Algebra → Numerical Solve` on a Calculator page, or graph $f$ and the line $y = 180$ and use `Menu → Analyze Graph → Intersection`.</Callout>
 
 ## Worked example
 

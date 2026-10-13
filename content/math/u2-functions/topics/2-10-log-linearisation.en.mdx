@@ -15,7 +15,7 @@ Logarithms also make <Term id="linearisation"/> possible. Taking logarithms of b
 
 To decide between the two models, compare how straight each transformed graph is. A cloud of points that lies closer to a line, a value of $r$ nearer to 1 and no clear curve in the residuals all point to the better model.
 
-<Callout kind="gdc">Enter the logarithms of the data into two lists and use a linear regression of one list on the other. Read the gradient, the intercept and $r$ from the output. Use base 10 for $\log$ and base $e$ for $\ln$, and keep the same base throughout a model.</Callout>
+<Callout kind="gdc">In Lists & Spreadsheet, put the data in named columns and fill the logarithm columns you need in the formula cell (the second cell from the top), using one base throughout ($\log$ is base 10, $\ln$ is base $e$). Then use `Menu → Statistics → Stat Calculations → Linear Regression (mx+b)` with the two columns that make the straight line as `X List` and `Y List`; the output shows the gradient as $m$ and the intercept as $b$, and also gives $r$. `Power Regression` and `Exponential Regression` report $r$ for the log-transformed data, so you can compare it with your line.</Callout>
 
 To return to the original model, use the intercept $c$ of the line: with base 10, $a = 10^{c}$; with natural logarithms, $a = e^{c}$.
 
