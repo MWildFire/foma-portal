@@ -1,0 +1,209 @@
+import { useCallback, useId, useMemo, useRef } from 'react';
+import { useSearchParams } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+import type { SubjectPack } from '../../contract/pack';
+import type { Lang, Question, TopicMeta } from '../../contract/types';
+import { useLocalProgress } from '../../hooks/useLocalProgress';
+import {
+  filterOptions,
+  filterQuestions,
+  filtersFromParams,
+  listTimedSets,
+  questionsOfSet,
+  rateQuestion,
+  ratingCounts,
+  ratingKey,
+  sanitizeFilters,
+  splitRedo,
+  withFilter,
+  withoutFilters,
+  wrongIds,
+  type PracticeFilters,
+} from '../../lib/practice';
+import type { GlobalState, Rating } from '../../lib/storage';
+import { pickText } from '../../lib/text';
+import { toLang } from '../../lib/topic-lang';
+import { dubaiDate } from '../../lib/topic-progress';
+import { TopicHero } from '../content/TopicHero';
+import { FilterBar } from './FilterBar';
+import { QuestionCard } from './QuestionCard';
+import { TimedPanel } from './TimedPanel';
+import { StatGrid } from './fields';
+import '../content/ui.css';
+import './fields.css';
+import './practice.css';
+
+interface ListProps {
+  questions: readonly Question[];
+  lang: Lang;
+  subject: string;
+  topicIndex: ReadonlyMap<string, TopicMeta>;
+  progress: GlobalState['questions'];
+  onRate: (questionId: string, rating: Rating) => void;
+}
+
+function QuestionList({ questions, progress, subject, ...rest }: ListProps) {
+  return (
+    <ol className="study-list">
+      {questions.map((question, position) => {
+        const saved = progress[ratingKey(subject, question.id)];
+        return (
+          <li key={question.id}>
+            <QuestionCard question={question} index={position + 1} subject={subject} rating={saved?.rating} ratedAt={saved?.at} {...rest} />
+          </li>
+        );
+      })}
+    </ol>
+  );
+}
+
+// #/s/:subject/practice. Questions of the subject with filters (paper, topic, command term), a mistake log ("to redo"
+// comes first) and timed mode for a set (?set=<id>). Filters and the chosen set live in the address.
+export function PracticeView({ pack }: { pack: SubjectPack }) {
+  const { t, i18n } = useTranslation(['practice', 'subject', 'common']);
+  const lang = toLang(i18n.language);
+  const subject = pack.meta.id;
+  const [state, update] = useLocalProgress();
+  const [params, setParams] = useSearchParams();
+  const summaryId = useId();
+  const redoId = useId();
+  const listId = useId();
+  const timedListId = useId();
+
+  const topicIndex = useMemo(() => new Map(pack.topics.map(topic => [topic.id, topic] as const)), [pack.topics]);
+  const options = useMemo(() => filterOptions(pack.questions, pack.topics.map(topic => topic.id)), [pack.questions, pack.topics]);
+  const filters = useMemo(() => sanitizeFilters(filtersFromParams(params), options), [params, options]);
+  // Keyed by the three values, not by the object: a change of ?set= must not rebuild the list.
+  const filtered = useMemo(
+    () => filterQuestions(pack.questions, filters),
+    [pack.questions, filters.paper, filters.topic, filters.command],
+  );
+
+  const sets = useMemo(() => listTimedSets(pack.papers), [pack.papers]);
+  const requestedSet = params.get('set') ?? '';
+  const active = useMemo(() => sets.find(set => set.id === requestedSet), [sets, requestedSet]);
+  const inSet = useMemo(() => (active ? questionsOfSet(active, pack.questions) : null), [active, pack.questions]);
+
+  // "To redo" is decided when the page opens or the filters change. A rating given now moves a question the next
+  // time, so the cards do not jump under the student's finger while they read a markscheme.
+  const progress = state.questions;
+  const progressRef = useRef(progress);
+  progressRef.current = progress;
+  const redoIds = useMemo(() => wrongIds(subject, filtered, progressRef.current), [subject, filtered]);
+  const parts = useMemo(() => splitRedo(filtered, redoIds), [filtered, redoIds]);
+  const counts = ratingCounts(subject, pack.questions, progress);
+
+  const topicTitle = useCallback((id: string): string => {
+    const topic = topicIndex.get(id);
+    return topic ? pickText(topic.title, lang) : id;
+  }, [topicIndex, lang]);
+
+  const onRate = useCallback((questionId: string, rating: Rating): void => {
+    update(current => ({ ...current, questions: rateQuestion(current.questions, ratingKey(subject, questionId), rating, dubaiDate()) }));
+  }, [update, subject]);
+
+  const changeFilter = useCallback((name: keyof PracticeFilters, value: string): void => {
+    setParams(previous => withFilter(previous, name, value), { replace: true });
+  }, [setParams]);
+  const clearFilters = useCallback((): void => {
+    setParams(previous => withoutFilters(previous), { replace: true });
+  }, [setParams]);
+  const chooseSet = useCallback((id: string): void => {
+    setParams(previous => {
+      const next = new URLSearchParams(previous);
+      if (id) next.set('set', id);
+      else next.delete('set');
+      return next;
+    }, { replace: true });
+  }, [setParams]);
+
+  const listProps = { lang, subject, topicIndex, progress, onRate };
+
+  return (
+    <div className="study-page">
+      <TopicHero title={t('title')} intro={t('intro')} />
+
+      {pack.questions.length === 0 ? (
+        <section className="study-empty" aria-labelledby={summaryId}>
+          <h2 id={summaryId}>{t('empty.title')}</h2>
+          <p className="study-muted">{t('empty.body')}</p>
+        </section>
+      ) : (
+        <>
+          <section aria-labelledby={summaryId}>
+            <h2 id={summaryId} className="study-h2">{t('summary.heading')}</h2>
+            <StatGrid
+              label={t('summary.heading')}
+              tiles={[
+                { key: 'total', label: t('summary.total'), value: counts.total },
+                { key: 'right', label: t('summary.right'), value: counts.right },
+                { key: 'partial', label: t('summary.partial'), value: counts.partial },
+                { key: 'wrong', label: t('summary.wrong'), value: counts.wrong },
+                { key: 'unrated', label: t('summary.unrated'), value: counts.unrated },
+              ]}
+            />
+          </section>
+
+          <div>
+            <TimedPanel
+              sets={sets}
+              active={active}
+              requestedId={requestedSet}
+              extraTime={state.settings.accessArrangements.extraTime}
+              lang={lang}
+              questionCount={inSet?.found.length ?? 0}
+              missing={inSet?.missing ?? []}
+              onSelect={chooseSet}
+            />
+
+            {active && inSet ? (
+              <section aria-labelledby={timedListId} className="study-section">
+                <h2 id={timedListId} className="study-h2">{t('timed.list', { n: inSet.found.length })}</h2>
+                {inSet.found.length === 0 ? <p className="study-muted">{t('timed.emptySet')}</p> : <QuestionList questions={inSet.found} {...listProps} />}
+              </section>
+            ) : (
+              <>
+                <FilterBar
+                  filters={filters}
+                  options={options}
+                  topicTitle={topicTitle}
+                  shown={filtered.length}
+                  total={pack.questions.length}
+                  onChange={changeFilter}
+                  onClear={clearFilters}
+                />
+
+                {filtered.length === 0 ? (
+                  <p role="note" className="study-banner study-section" data-tone="amber">{t('filters.none')}</p>
+                ) : (
+                  <>
+                    <section aria-labelledby={redoId} className="study-section">
+                      <h2 id={redoId} className="study-h2">{t('redo.heading', { n: parts.redo.length })}</h2>
+                      {parts.redo.length === 0 ? (
+                        <p className="study-muted">{t('redo.empty')}</p>
+                      ) : (
+                        <>
+                          <p className="study-muted" style={{ marginBottom: '0.75rem' }}>{t('redo.hint')}</p>
+                          <QuestionList questions={parts.redo} {...listProps} />
+                        </>
+                      )}
+                    </section>
+
+                    {parts.rest.length > 0 ? (
+                      <section aria-labelledby={listId} className="study-section">
+                        <h2 id={listId} className="study-h2">
+                          {t(parts.redo.length > 0 ? 'list.headingOther' : 'list.heading', { n: parts.rest.length })}
+                        </h2>
+                        <QuestionList questions={parts.rest} {...listProps} />
+                      </section>
+                    ) : null}
+                  </>
+                )}
+              </>
+            )}
+          </div>
+        </>
+      )}
+    </div>
+  );
+}

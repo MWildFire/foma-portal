@@ -1,0 +1,158 @@
+/* Shared pieces of the study pages. Colours come from the tokens in src/index.css and src/components/content/ui.css,
+   so the dark theme needs nothing extra. Nothing here is wider than its box: the page never scrolls sideways. */
+
+.study-page {
+  min-width: 0;
+}
+
+.study-panel {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  border: 1px solid var(--color-border);
+  border-radius: 0.75rem;
+  background: var(--color-card);
+}
+
+.study-h2 {
+  margin: 0 0 0.75rem;
+  font-size: 1.125rem;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.study-muted {
+  margin: 0;
+  color: var(--color-muted);
+  font-size: 0.9375rem;
+}
+
+/* Count tiles: label above the number in the markup, number shown first. */
+.study-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(7rem, 1fr));
+  gap: 0.5rem;
+  margin: 0;
+}
+
+.study-stat {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: flex-end;
+  min-width: 0;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--color-border);
+  border-radius: 0.75rem;
+  background: var(--color-card);
+}
+
+.study-stat dt {
+  color: var(--color-muted);
+  font-size: 0.8125rem;
+  line-height: 1.3;
+  overflow-wrap: anywhere;
+}
+
+.study-stat dd {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 1.25;
+  font-variant-numeric: tabular-nums;
+}
+
+.study-stat__hint {
+  display: block;
+  font-size: 0.75rem;
+}
+
+/* Fields: a visible label above every control. */
+.study-fields {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
+  gap: 0.75rem;
+}
+
+.study-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  min-width: 0;
+}
+
+.study-field__label {
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.study-input {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
+  min-height: 44px;
+  padding: 0.35rem 0.6rem;
+  border: 1px solid var(--color-muted);
+  border-radius: 0.5rem;
+  background: var(--color-card);
+  color: var(--color-fg);
+  font-family: var(--font-ui);
+  font-size: 1rem;
+  line-height: 1.3;
+  text-overflow: ellipsis;
+}
+
+.study-input::placeholder {
+  color: var(--color-muted);
+  opacity: 1;
+}
+
+/* A status line that always keeps its height, so the page does not jump when the text appears. */
+.study-status {
+  min-height: 1.5rem;
+  margin: 0.5rem 0 0;
+  font-size: 0.9375rem;
+}
+
+/* Rich text from the content (prompts, definitions): long formulas scroll inside their box. */
+.study-rich {
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-wrap: anywhere;
+}
+
+.study-rich > :first-child {
+  margin-top: 0;
+}
+
+.study-rich > :last-child {
+  margin-bottom: 0;
+}
+
+/* A banner with an icon and a sentence: the text says what it is, the tone only supports it. */
+.study-banner {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--tone-line, var(--color-border));
+  border-radius: 0.5rem;
+  background: var(--tone-bg, var(--color-card));
+  color: var(--tone-fg, var(--color-fg));
+  font-size: 0.9375rem;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+}
+
+.study-banner svg {
+  flex: none;
+  margin-top: 0.15rem;
+}
+
+.study-empty {
+  margin-top: 1.5rem;
+}
+
+.study-empty h2 {
+  margin: 0 0 0.25rem;
+  font-size: 1.125rem;
+}

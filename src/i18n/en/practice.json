@@ -1,0 +1,92 @@
+{
+  "title": "Practice",
+  "intro": "Answer on paper first. Then open the markscheme and rate your answer honestly. Questions you rate as wrong come back to the top of the list.",
+  "empty": {
+    "title": "No questions yet",
+    "body": "The practice questions for this subject are still being written."
+  },
+  "summary": {
+    "heading": "Your results",
+    "total": "Questions",
+    "right": "Right",
+    "partial": "Partly right",
+    "wrong": "Wrong",
+    "unrated": "Not rated yet"
+  },
+  "timed": {
+    "heading": "Timed practice",
+    "intro": "Choose a set and press the start button. Write your answers on paper, then check them with the markscheme.",
+    "set": "Timed set",
+    "none": "No timed set (all questions)",
+    "option": "{{title}} ({{minutes}} min)",
+    "noSets": "This subject has no timed sets yet.",
+    "notFound": "There is no timed set “{{id}}” in this subject. Choose one from the list.",
+    "part": "Part: {{part}}",
+    "questions": "Questions: {{n}}",
+    "minutes": "Time: {{n}} min",
+    "extra": {
+      "on": "Extra time is on: {{base}} min + 25% (+{{extra}} min) = {{total}} min.",
+      "off": "Standard time. You can switch on 25% extra time in Settings.",
+      "settings": "Open Settings"
+    },
+    "missing": "These questions are not in the question bank yet: {{ids}}.",
+    "leave": "Leave timed mode",
+    "list": "Questions of this set ({{n}})",
+    "emptySet": "This set has no questions yet.",
+    "clock": "Time left",
+    "state": {
+      "idle": "Not started",
+      "running": "Running",
+      "paused": "Paused",
+      "done": "Finished"
+    },
+    "start": "Start the timer",
+    "pause": "Pause",
+    "resume": "Resume",
+    "reset": "Start over",
+    "warn": "5 minutes or less left. Start wrapping up.",
+    "over": "Time is up. Stop writing, then check your answers with the markscheme."
+  },
+  "filters": {
+    "heading": "Filters",
+    "paper": "Paper",
+    "topic": "Topic",
+    "command": "Command term",
+    "all": "All",
+    "option": "{{label}} ({{n}})",
+    "shown": "Showing {{shown}} of {{total}} questions",
+    "clear": "Clear filters",
+    "none": "No questions match these filters. Clear the filters to see all questions."
+  },
+  "redo": {
+    "heading": "To redo ({{n}})",
+    "hint": "Questions you rated as wrong. The list is updated the next time you open this page or change the filters.",
+    "empty": "Nothing to redo here. A question you rate as wrong appears in this list first."
+  },
+  "list": {
+    "heading": "Questions ({{n}})",
+    "headingOther": "Other questions ({{n}})"
+  },
+  "q": {
+    "label": "Question {{n}}",
+    "section": "Section: {{name}}",
+    "command": "Command term: {{term}}",
+    "marks": "Marks: {{n}}",
+    "minutes": "About {{n}} min",
+    "last": "Last rating: {{rating}}, {{date}}",
+    "rating": {
+      "right": "Right",
+      "partial": "Partly right",
+      "wrong": "Wrong"
+    },
+    "stimulus": "Source material",
+    "hints": "Hints",
+    "show": "Show the markscheme",
+    "hide": "Hide the markscheme",
+    "markscheme": "Markscheme",
+    "model": "Model answer",
+    "rate": "How did you do? Compare your answer with the markscheme and rate it.",
+    "saved": "Saved: {{rating}}",
+    "revise": "Revise the topic:"
+  }
+}
