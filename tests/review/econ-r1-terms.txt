@@ -1,0 +1,140 @@
+# econ-r1: термины без точного написания в разделе содержания гайда IB 2020 (автопроверка, 307 терминов)
+# Колонки: id, код программы, EN-термин. Многие совпадения теряются из-за форм слова (externality/externalities, curve/curves) — проверять вручную.
+positive-statement	1.2	positive statement
+economic-goods	1.1	economic goods
+production-possibility-curve	1.1	production possibility curve
+productive-efficiency	1.1	productive efficiency
+principal-agent-problem	2.10	principal-agent problem
+market-for-lemons	2.10	market for lemons
+mandatory-disclosure	2.10	mandatory disclosure
+rivalry	2.8	rivalry in consumption
+non-excludability	2.8	non-excludability
+tragedy-of-the-commons	2.8	tragedy of the commons
+open-access-equilibrium	2.8	open-access equilibrium
+socially-optimal-use	2.8	socially optimal use
+harvest-quota	2.8	harvest quota
+supernormal-profit	2.3	supernormal profit
+anchoring-bias	2.4	anchoring bias
+loss-aversion	2.4	loss aversion
+present-bias	2.4	present bias
+managerial-objectives	2.4	managerial objectives
+altruism	2.4	altruism
+substitute-goods	2.1	substitute goods
+complementary-goods	2.1	complementary goods
+movement-along-demand-curve	2.1	movement along the demand curve
+shift-of-demand-curve	2.1	shift of the demand curve (change in demand)
+unit-elastic-supply	2.6	unit elastic supply
+perfectly-elastic-supply	2.6	perfectly elastic supply
+perfectly-inelastic-supply	2.6	perfectly inelastic supply
+factor-mobility	2.6	mobility of factors of production
+spare-capacity	2.6	spare capacity
+equity-efficiency-trade-off	2.12	equity-efficiency trade-off
+horizontal-equity	2.12	horizontal equity
+vertical-equity	2.12	vertical equity
+regressive-tax	2.12	regressive tax
+externality	2.8	externality
+external-cost	2.8	external cost
+external-benefit	2.8	external benefit
+marginal-private-cost	2.8	marginal private cost (MPC)
+marginal-private-benefit	2.8	marginal private benefit (MPB)
+pigouvian-tax	2.8	Pigouvian tax
+specific-tax	2.7	specific tax
+ad-valorem-tax	2.7	ad valorem tax
+tax-incidence	2.7	tax incidence
+deadweight-loss	2.7	deadweight loss
+cross-price-elasticity-of-demand	2.5	cross-price elasticity of demand
+close-complements	2.5	close complements
+price-discrimination	2.11	price discrimination
+x-inefficiency	2.11	X-inefficiency
+marginal-cost-pricing	2.11	marginal cost pricing
+average-cost-pricing	2.11	average cost pricing
+excess-capacity	2.11	excess capacity
+price-leadership	2.11	price leadership
+dominant-strategy	2.11	dominant strategy
+nash-equilibrium	2.11	Nash equilibrium
+unit-elastic-demand	2.5	unit elastic demand
+necessity-good	2.5	necessity good
+non-rivalry	2.9	non-rivalry
+free-rider-problem	2.9	free-rider problem
+vertical-summation	2.9	vertical summation
+optimal-public-good-quantity	2.9	optimal quantity of a public good
+quasi-public-good	2.9	quasi-public good
+public-provision	2.9	public provision
+cost-of-production	2.2	cost of production
+substitutes-in-production	2.2	substitutes in production
+joint-supply	2.2	joint supply
+movement-along-supply-curve	2.2	movement along the supply curve
+shift-of-supply-curve	2.2	shift of the supply curve (change in supply)
+long-run-aggregate-supply	3.2	long-run aggregate supply (LRAS)
+output-gap	3.2	output gap
+budget-surplus	3.6	budget surplus
+national-debt	3.6	national debt
+discretionary-fiscal-policy	3.6	discretionary fiscal policy
+expansionary-fiscal-policy	3.6	expansionary fiscal policy
+income-inequality	3.4	income inequality
+line-of-equality	3.4	line of equality
+absolute-poverty	3.4	absolute poverty
+demand-pull-inflation	3.3	demand-pull inflation
+structural-unemployment	3.3	structural unemployment
+withdrawals	3.1	withdrawals (leakages)
+nominal-gdp	3.1	nominal GDP
+gdp-deflator	3.1	GDP deflator
+income-approach	3.1	income approach
+production-approach	3.1	production approach
+policy-interest-rate	3.5	policy interest rate
+transmission-mechanism	3.5	transmission mechanism
+expansionary-monetary-policy	3.5	expansionary monetary policy
+liquidity-trap	3.5	liquidity trap
+multiplier-effect	3.2	multiplier effect
+market-based-supply-side-policies	3.7	market-based supply-side policies
+interventionist-supply-side-policies	3.7	interventionist supply-side policies
+privatisation	3.7	privatisation
+industrial-policy	3.7	industrial policy
+trade-liberalisation	3.7	trade liberalisation
+infant-industry	4.3	infant industry
+strategic-industry	4.3	strategic industry
+declining-industry	4.3	declining industry
+anti-dumping-duty	4.3	anti-dumping duty
+downstream-industry	4.3	downstream industry
+trade-war	4.3	trade war
+rent-seeking	4.3	rent-seeking
+trade-balance	4.6	trade balance
+terms-of-trade	4.6	terms of trade
+expenditure-switching-policy	4.6	expenditure-switching policy
+expenditure-reducing-policy	4.6	expenditure-reducing policy
+vicious-circle-of-poverty	4.9	vicious circle of poverty
+economic-institutions	4.9	economic institutions
+external-debt	4.9	external debt
+debt-overhang	4.9	debt overhang
+technology-transfer	4.9	technology transfer
+conflict-trap	4.9	conflict trap
+absolute-advantage	4.1	absolute advantage
+specialisation	4.1	specialisation
+import-competing-industry	4.1	import-competing industry
+adjustment-costs	4.1	adjustment costs
+trade-dependence	4.1	trade dependence
+common-external-tariff	4.4	common external tariff
+economic-union	4.4	economic union
+rules-of-origin	4.4	rules of origin
+real-exchange-rate	4.5	real exchange rate
+foreign-exchange-market	4.5	foreign exchange market
+currency-speculation	4.5	currency speculation
+gni-per-capita	4.8	GNI per capita
+purchasing-power-parity	4.8	purchasing power parity (PPP)
+international-dollar	4.8	international dollar
+life-expectancy-at-birth	4.8	life expectancy at birth
+mean-years-of-schooling	4.8	mean years of schooling
+export-led-growth	4.10	export-led growth
+special-economic-zone	4.10	special economic zone
+tied-aid	4.10	tied aid
+economic-infrastructure	4.10	economic infrastructure
+natural-capital	4.7	natural capital
+intergenerational-equity	4.7	intergenerational equity
+emissions-trading-scheme	4.7	emissions trading scheme
+renewable-energy-subsidy	4.7	renewable energy subsidy
+carbon-leakage	4.7	carbon leakage
+command-and-control-regulation	4.7	command-and-control regulation
+protectionism	4.2	protectionism
+voluntary-export-restraint	4.2	voluntary export restraint (VER)
+quota-rent	4.2	quota rent
+exchange-controls	4.2	exchange controls
