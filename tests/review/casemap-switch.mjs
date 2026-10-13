@@ -32,6 +32,9 @@ function mapTopics(dir = join(ROOT, 'content')) {
 const TOPICS = mapTopics();
 // The label of each text-language button (src/i18n/en/topic.json, contentLang).
 const LABEL = { en: 'EN', ru: 'RU', 'en+ru': 'EN + RU' };
+// The note a CaseMap shows instead of a map when no case has coordinates, in the text language of the body
+// (src/i18n/en/topic.json and src/i18n/ru/topic.json, caseMap.noCoordinates).
+const NO_COORDINATES_NOTES = ['No coordinates, so not on the map', 'Нет координат, на карте не показаны'];
 // Each run starts with a quiet page, then switches the text language twice in quick succession. Every switch that
 // removes a freshly mounted map, 40 ms after it appeared, is the case that used to crash.
 const RUNS = [
@@ -74,11 +77,13 @@ async function runOnce(browser, base, subject, topic, run) {
   await page.addInitScript(lang => localStorage.setItem('foma-content-lang', lang), run.start);
   await page.goto(`${base}/#/s/${subject}/t/${topic}`, { waitUntil: 'load' });
   await page.waitForSelector('.foma-casemap', { timeout: 30000 });
-  // A CaseMap with no coordinates in the topic draws a text list only, with no map to switch.
+  // A CaseMap with no coordinates draws a text note only, with no map to switch. Such a topic is skipped only when the
+  // page says so; a missing map without the note is a problem of its own.
   const hasMap = await page.waitForSelector('.leaflet-container', { timeout: 15000 }).then(() => true, () => false);
   if (!hasMap) {
+    const notes = (await page.locator('.foma-casemap').allInnerTexts()).join(' ');
     await context.close();
-    return null;
+    return NO_COORDINATES_NOTES.some(note => notes.includes(note)) ? null : ['no map drawn and no "no coordinates" note on the page'];
   }
   await sleep(400); // the first zoom timers have fired: the steps below start from a quiet map
   for (const lang of run.steps) {
