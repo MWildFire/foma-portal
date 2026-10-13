@@ -52,6 +52,9 @@ terraform output name_servers   # four NS for the registrar
 Only [redacted] changes DNS: Spaceship -> Nameservers -> Custom -> paste the four NS.
 
 ## Step 2 - real domain, after delegation
+Applied on 13.10.2026 (commit `18e0ee5`): the plan was 8 to add, 3 to change, 0 to destroy; the apply added 8 and changed
+the distribution. `terraform plan` right after the apply shows no changes. The steps stay here for a rebuild.
+
 Run only when `dig NS fomalearningportal.academy +short` lists the four Route 53 servers. Also check
 that no other CloudFront distribution in the account uses the two names, and that the zone holds only
 its NS and SOA records. In this order:
