@@ -62,3 +62,9 @@ a {
   overflow-x: auto;
   overflow-y: hidden;
 }
+
+/* Inside the focusable formula box of Tex.tsx, that box scrolls and the formula does not: a second, keyboard-unreachable
+   scroll box is what axe reports. Both axes are reset, since overflow-x alone would still compute to auto. */
+.overflow-x-auto > .katex-display {
+  overflow: visible;
+}

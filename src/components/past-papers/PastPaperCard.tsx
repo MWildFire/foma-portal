@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import type { PastPaperRef, TopicMeta } from '../../contract/types';
 import { ROUTES } from '../../config/routes';
 import type { PastPaperProgress } from '../../lib/storage';
-import { clampScore, selfScore, sessionDate } from '../../lib/past-papers';
+import { clampScore, selfScore, sessionLabel } from '../../lib/past-papers';
 import { pickText } from '../../lib/text';
 import { RichText } from '../content/RichText';
 import { dubaiToday } from '../subject/AssignmentList';
@@ -30,10 +30,7 @@ export interface PastPaperCardProps {
 export function PastPaperCard({ subject, paper, topics, progress, extraTime, onScore, onSolved }: PastPaperCardProps) {
   const { t, i18n } = useTranslation('subject');
   const lang = i18n.language;
-  const date = sessionDate(paper.session);
-  const title = date
-    ? new Intl.DateTimeFormat(lang, { month: 'long', year: 'numeric', timeZone: 'UTC' }).format(new Date(Date.UTC(date.year, date.monthIndex, 1)))
-    : paper.session;
+  const title = sessionLabel(paper.session, lang);
   const topicById = new Map(topics.map(topic => [topic.id, topic]));
   const score = selfScore(paper, progress?.scores);
   const solved = progress?.solved;

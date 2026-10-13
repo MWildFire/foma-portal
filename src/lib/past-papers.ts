@@ -1,14 +1,18 @@
 import type { PaperId, PastPaperRef } from '../contract/types';
 
-// Pure helpers for the past-papers page: session order, grouping and self-scoring.
+// Pure helpers for the past-papers page: session order and labels, grouping and self-scoring.
 
 const SESSION = /^([MN])(\d{2})$/;   // May or November, two-digit year: M24, N23
+const SPECIMEN = /^SPEC(\d{2})$/;    // Specimen paper, named by its exam year: SPEC27
 
-// Newest first: November 2024 after May 2024, 2024 after 2023. Unknown sessions sort last.
+// Newest first. Each year has three slots, May, November and its specimen, so November 2024 sorts after May 2024,
+// 2024 after 2023, and a specimen after the November of its year. Unknown sessions sort last.
 export function sessionRank(session: string): number {
   const match = SESSION.exec(session);
-  if (!match) return Number.NEGATIVE_INFINITY;
-  return (2000 + Number(match[2])) * 2 + (match[1] === 'N' ? 1 : 0);
+  if (match) return (2000 + Number(match[2])) * 3 + (match[1] === 'N' ? 1 : 0);
+  const specimen = SPECIMEN.exec(session);
+  if (specimen) return (2000 + Number(specimen[1])) * 3 + 2;
+  return Number.NEGATIVE_INFINITY;
 }
 
 // The month and year a session was held in (May or November), for labels such as "May 2024".
@@ -16,6 +20,19 @@ export function sessionDate(session: string): { year: number; monthIndex: number
   const match = SESSION.exec(session);
   if (!match) return null;
   return { year: 2000 + Number(match[2]), monthIndex: match[1] === 'M' ? 4 : 10 };
+}
+
+// The heading of a session: "May 2024" or "November 2024" in the reader's language, "Specimen 2027" for a specimen
+// (Russian readers also see the English name in brackets), and the code itself for any other session code.
+export function sessionLabel(session: string, lang: string): string {
+  const specimen = SPECIMEN.exec(session);
+  if (specimen) {
+    const year = 2000 + Number(specimen[1]);
+    return lang.startsWith('ru') ? `Образец ${year} (Specimen ${year})` : `Specimen ${year}`;
+  }
+  const date = sessionDate(session);
+  if (!date) return session;
+  return new Intl.DateTimeFormat(lang, { month: 'long', year: 'numeric', timeZone: 'UTC' }).format(new Date(Date.UTC(date.year, date.monthIndex, 1)));
 }
 
 const PAPER_ORDER: PaperId[] = ['P1', 'P2', 'P3'];
