@@ -83,14 +83,14 @@ export default function ComplexPlaneLab({ lang }: { lang: Lang }) {
         <circle cx={X(a)} cy={Y(b)} r={5} fill="#4f6fd8" />
         <circle cx={X(productRe)} cy={Y(productIm)} r={5} fill="#e0883a" />
         <text x={X(a) + 7} y={Y(b) - 7} fontSize={13} fill="#4f6fd8">{t.z}</text>
-        <text x={X(productRe) + 7} y={Y(productIm) - 7} fontSize={13} fill="#e0883a">{t.product}</text>
+        <text x={X(productRe) + 7} y={Y(productIm) - 7} fontSize={13} fill="currentColor">{t.product}</text>
       </svg>
       <figcaption style={{ fontSize: 13, lineHeight: 1.6 }}>
         {t.value} {cartesian(a, b)} · {t.modulus}: {r.toFixed(2)} · {t.argument}: {degrees.toFixed(1)}°
         <br />
         {t.polar}: {r.toFixed(2)}(cos {degrees.toFixed(1)}° + i sin {degrees.toFixed(1)}°)
         <br />
-        <span style={{ color: '#e0883a' }}>
+        <span>
           {t.fixed} {cartesian(productRe, productIm)}
         </span>
         <br />
