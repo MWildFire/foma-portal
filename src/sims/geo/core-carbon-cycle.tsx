@@ -159,8 +159,8 @@ export default function CarbonCycle({ lang }: { lang: Lang }) {
 
       <p style={{ marginTop: 10, fontSize: 13, opacity: 0.8 }}>
         {t(
-          'Sources: stores and 1750 fluxes, IPCC AR6 WG1 (2021), Chapter 5, Figure 5.12 (values as printed); cumulative ocean and land uptake since 1750, Table 5.1. Present flows: Global Carbon Budget 2025, decadal means 2015–2024, Table 7 (doi:10.5194/essd-18-3211-2026). Atmosphere 2025: global annual mean 425.64 ppm (GCB 2025, section 3.5.4, from NOAA GML data), with 1 ppm = 2.124 GtC (GCB 2025, section 2.4.1). Values are rounded.',
-          'Источники: запасы и потоки на 1750 г. — IPCC AR6 WG1 (2021), глава 5, рисунок 5.12 (значения как на рисунке); накопленное поглощение океаном и сушей с 1750 г. — таблица 5.1. Потоки настоящего времени — Global Carbon Budget 2025, средние за 2015–2024, таблица 7 (doi:10.5194/essd-18-3211-2026). Атмосфера в 2025 г.: глобальная среднегодовая концентрация 425,64 ppm (GCB 2025, раздел 3.5.4, данные NOAA GML); 1 ppm = 2,124 ГтС (GCB 2025, раздел 2.4.1). Значения округлены.',
+          'Sources: stores and 1750 fluxes, IPCC AR6 WG1 (2021), Chapter 5, Figure 5.12 (values as printed); cumulative ocean and land uptake since 1750, Table 5.1. Present flows: Global Carbon Budget 2025, decadal means 2015–2024, Table 7 (doi:10.5194/essd-18-3211-2026). Atmosphere 2025: global annual mean 425.64 ppm (GCB 2025, section 3.5.4, from NOAA GML data, not the Mauna Loa station value), with 1 ppm = 2.124 GtC (GCB 2025, section 2.4.1). Values are rounded.',
+          'Источники: запасы и потоки на 1750 г. — IPCC AR6 WG1 (2021), глава 5, рисунок 5.12 (значения как на рисунке); накопленное поглощение океаном и сушей с 1750 г. — таблица 5.1. Потоки настоящего времени — Global Carbon Budget 2025, средние за 2015–2024, таблица 7 (doi:10.5194/essd-18-3211-2026). Атмосфера в 2025 г.: глобальная среднегодовая концентрация 425,64 ppm (GCB 2025, раздел 3.5.4, данные NOAA GML, а не значение станции Мауна-Лоа); 1 ppm = 2,124 ГтС (GCB 2025, раздел 2.4.1). Значения округлены.',
         )}
       </p>
 

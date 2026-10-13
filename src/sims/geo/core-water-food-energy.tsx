@@ -8,8 +8,9 @@ import type { Lang } from '../../contract/types';
 //    (values read from the World Bank API; shown to whole percent, as the series is).
 // 2. Hydropower share of global electricity production: 15.2% in 2025. IEA Energy Statistics, series EG.ELC.HYRO.ZS
 //    (values read from the World Bank API; shown to one decimal, as the series is).
-// 3. Agrifood systems: about 30% of global energy consumption, and about 70% of agrifood energy used after the farm gate.
-//    IRENA and FAO (2021), as listed on the FAO energy page ("Facts and figures", marked "as of 2025").
+// 3. Agrifood systems: about 30% of global energy consumption (IRENA and FAO, 2021, PDF p. 15). In developed countries
+//    about a quarter of agrifood energy is used in production, 45% in processing and distribution and 30% in retail,
+//    preparation and cooking (IRENA and FAO, 2021, PDF p. 9). The global 70% after the farm gate is not in the source.
 
 type Bilingual = { en: string; ru: string };
 type Tone = 'water' | 'food' | 'energy';
@@ -240,8 +241,8 @@ const BADGES: Badge[] = [
     w: 218,
     h: 70,
     tone: 'energy',
-    en: ['70% of agrifood energy', 'is used after the farm gate:', 'processing, transport, storage', 'IRENA and FAO, 2021'],
-    ru: ['70% энергии пищевой цепочки', 'расходуется после фермы:', 'переработка, перевозка, хранение', 'IRENA и FAO, 2021'],
+    en: ['Developed countries:', 'about a quarter in production;', 'the rest after the farm gate', 'IRENA and FAO, 2021'],
+    ru: ['Развитые страны:', 'около четверти — в производстве;', 'остальное — после фермы', 'IRENA и FAO, 2021'],
   },
 ];
 
@@ -423,8 +424,8 @@ export default function WaterFoodEnergy({ lang }: { lang: Lang }) {
 
       <p style={{ marginTop: 10, fontSize: 13, opacity: 0.8 }}>
         {t(
-          'Sources: agriculture share of freshwater withdrawals, 71% in 2022, FAO AQUASTAT (World Bank series ER.H2O.FWAG.ZS). Hydropower share of electricity production, 15.2% in 2025, IEA Energy Statistics (World Bank series EG.ELC.HYRO.ZS). Agrifood systems use about 30% of global energy consumption, and about 70% of agrifood energy is used after the farm gate: IRENA and FAO (2021), as listed on the FAO energy page, where the figures are marked as of 2025. Values are rounded as the sources show them.',
-          'Источники: доля сельского хозяйства в заборе пресной воды, 71% в 2022 г., FAO AQUASTAT (ряд Всемирного банка ER.H2O.FWAG.ZS). Доля гидроэнергетики в производстве электроэнергии, 15,2% в 2025 г., IEA Energy Statistics (ряд Всемирного банка EG.ELC.HYRO.ZS). Агропищевые системы потребляют около 30% мировой энергии, а около 70% энергии агропищевых систем расходуется после фермы: IRENA и FAO (2021), по странице FAO об энергетике, где цифры помечены как актуальные на 2025 г. Значения округлены так же, как в источниках.',
+          'Sources: agriculture share of freshwater withdrawals, 71% in 2022, FAO AQUASTAT (World Bank series ER.H2O.FWAG.ZS). Hydropower share of electricity production, 15.2% in 2025, IEA Energy Statistics (World Bank series EG.ELC.HYRO.ZS). Agrifood systems use about 30% of global energy consumption (IRENA and FAO, 2021, PDF p. 15). In developed countries about a quarter of agrifood energy is used in production and the rest after the farm gate (IRENA and FAO, 2021, PDF p. 9). Values are rounded as the sources show them.',
+          'Источники: доля сельского хозяйства в заборе пресной воды, 71% в 2022 г., FAO AQUASTAT (ряд Всемирного банка ER.H2O.FWAG.ZS). Доля гидроэнергетики в производстве электроэнергии, 15,2% в 2025 г., IEA Energy Statistics (ряд Всемирного банка EG.ELC.HYRO.ZS). Агропищевые системы потребляют около 30% мировой энергии (IRENA и FAO, 2021, PDF стр. 15). В развитых странах около четверти энергии агропищевых систем расходуется в производстве, остальное — после фермы (IRENA и FAO, 2021, PDF стр. 9). Значения округлены так же, как в источниках.',
         )}
       </p>
 

@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import type { Lang } from '../../contract/types';
 
-// A simplified energy balance, not a forecast. Pre-industrial CO₂ is taken as 280 ppm (1750).
+// A simplified energy balance, not a forecast. Pre-industrial CO₂ is rounded to 280 ppm; the 1750 value is about 278 ppm
+// (NOAA composite 277.6 ppm).
 // Forcing: ΔF = 5.35 × ln(C ÷ C₀) W/m², the standard simplified expression.
 // Warming: ΔT = S × log₂(C ÷ C₀), with a climate sensitivity S = 3 °C per doubling of CO₂ (IPCC AR6 best estimate;
 // likely range 2.5–4 °C). It is the equilibrium value for CO₂ alone, before ocean lag and other forcings.
@@ -68,8 +69,8 @@ export default function GreenhouseEffect({ lang }: { lang: Lang }) {
       </p>
       <p style={{ fontSize: 13, opacity: 0.8 }}>
         {ru
-          ? 'Модель упрощённая. Источник: IPCC AR6 WG1 (2021): климатическая чувствительность, наилучшая оценка 3 °C, вероятный диапазон 2,5–4 °C.'
-          : 'The model is simplified. Source: IPCC AR6 WG1 (2021): climate sensitivity best estimate 3 °C, likely range 2.5–4 °C.'}
+          ? 'Модель упрощённая. Доиндустриальная концентрация CO₂ округлена до 280 ppm (около 278 ppm в 1750 г. по данным NOAA). Источник: IPCC AR6 WG1 (2021): климатическая чувствительность, наилучшая оценка 3 °C, вероятный диапазон 2,5–4 °C.'
+          : 'The model is simplified. Pre-industrial CO₂ is rounded to 280 ppm (about 278 ppm in 1750 by NOAA). Source: IPCC AR6 WG1 (2021): climate sensitivity best estimate 3 °C, likely range 2.5–4 °C.'}
       </p>
     </div>
   );
