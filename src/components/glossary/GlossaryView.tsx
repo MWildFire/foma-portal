@@ -129,6 +129,13 @@ export function GlossaryView({ pack }: { pack: SubjectPack }) {
             </button>
           </div>
 
+          {mode === 'list' && stats.due > 0 ? (
+            <div className="study-banner gl-due" data-tone="blue">
+              <span>{t('modes.dueNotice', { n: stats.due })}</span>
+              <button type="button" className="foma-btn foma-btn--primary" onClick={() => setMode('cards')}>{t('modes.start')}</button>
+            </div>
+          ) : null}
+
           {mode === 'cards' ? (
             <FlashcardDeck
               subject={subject}

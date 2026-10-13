@@ -5,6 +5,15 @@
   margin-top: 1.25rem;
 }
 
+/* "Cards due today: 12" with the button that starts them. */
+.study-banner.gl-due {
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem 1rem;
+  margin-top: 1rem;
+}
+
 .gl-list {
   display: grid;
   gap: 0.75rem;

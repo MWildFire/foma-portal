@@ -17,7 +17,9 @@
   "modes": {
     "label": "View",
     "list": "Glossary",
-    "cards": "Flashcards"
+    "cards": "Flashcards",
+    "dueNotice": "Cards due today: {{n}}",
+    "start": "Start the flashcards"
   },
   "list": {
     "search": "Search the terms",

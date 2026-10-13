@@ -374,6 +374,16 @@ test('glossary in Russian', async () => {
   assert.match(html, /Программа S\.a/);
 });
 
+test('glossary: cards that are due are announced in the list, with a button that starts them', async () => {
+  const due = await view('GlossaryView', { pack: pack() }, '/s/geo/terms', { state: { terms: { 'geo/a': { box: 1, due: '2026-01-01' } } } });
+  assert.match(due, /Cards due today: (<!-- -->)?1/);
+  assert.match(due, /Start the flashcards/);
+  const none = await view('GlossaryView', { pack: pack() }, '/s/geo/terms');
+  assert.ok(!none.includes('Start the flashcards'), 'new cards are not due, so there is no notice');
+  const inDeck = await view('GlossaryView', { pack: pack() }, '/s/geo/terms?mode=cards', { state: { terms: { 'geo/a': { box: 1, due: '2026-01-01' } } } });
+  assert.ok(!inDeck.includes('Start the flashcards'), 'no notice inside the flashcards');
+});
+
 test('flashcards: a session has at most 10 new cards, however many terms there are', async () => {
   const many = Array.from({ length: 214 }, (_, index) => term(`n${String(index).padStart(3, '0')}`));
   const html = await view('GlossaryView', { pack: pack({ terms: many }) }, '/s/geo/terms?mode=cards');
