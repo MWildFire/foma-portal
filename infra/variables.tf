@@ -24,7 +24,7 @@ variable "github_oidc_sub_prefix" {
 variable "custom_domain_enabled" {
   description = "Step 2 switch: ACM certificate, validation records, alias records and distribution aliases. Set to true only after the registrar delegates the domain to the Route 53 name servers."
   type        = bool
-  default     = false
+  default     = true
 }
 
 variable "create_github_oidc_provider" {
