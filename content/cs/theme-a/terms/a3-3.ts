@@ -85,8 +85,8 @@ export const terms: Term[] = [
     id: 'a3-3-tcl',
     term: { en: 'Transaction control language (TCL)', ru: 'язык управления транзакциями (Transaction Control Language, TCL)' },
     def: {
-      en: 'The part of SQL that controls transactions. COMMIT keeps the changes made in a transaction, ROLLBACK undoes them, and SAVEPOINT marks a point that a rollback can return to.',
-      ru: 'Часть SQL, которая управляет транзакциями. COMMIT сохраняет изменения транзакции, ROLLBACK их отменяет, а SAVEPOINT отмечает точку, к которой можно откатиться.',
+      en: 'The part of SQL that controls transactions. COMMIT keeps the changes made in a transaction, and ROLLBACK undoes them.',
+      ru: 'Часть SQL, которая управляет транзакциями. COMMIT сохраняет изменения транзакции, а ROLLBACK их отменяет.',
     },
     syllabus: 'A3.3',
     papers: ['P1'],

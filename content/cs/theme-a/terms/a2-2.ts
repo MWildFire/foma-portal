@@ -36,7 +36,7 @@ export const terms: Term[] = [
     src: { kind: 'textbook', title: BOOK, locator: 'ch. A2.2, p. 124' },
     example: {
       en: 'A home network with one router at the centre; phones, laptops and a television connect to it directly.',
-      ru: 'Домашняя сеть с одним роутером в центре; телефоны, ноутбуки и телевизор подключены к нему напрямую.',
+      ru: 'Домашняя сеть с одним маршрутизатором в центре; телефоны, ноутбуки и телевизор подключены к нему напрямую.',
     },
     pitfall: {
       en: 'A star survives the loss of one cable, but the central switch is a single point of failure: if it fails, the whole network fails.',
@@ -47,8 +47,8 @@ export const terms: Term[] = [
     id: 'a2-2-mesh',
     term: { en: 'Mesh topology', ru: 'сетчатая топология (mesh topology)' },
     def: {
-      en: 'A layout in which nodes connect directly to many other nodes, forming a web of links. In a full mesh every node links to every other node; in a partial mesh only some pairs are linked. Data can be rerouted when a link fails.',
-      ru: 'Схема, в которой узлы напрямую соединяются со многими другими узлами и образуют сеть связей. В полной сетке каждый узел связан с каждым, в частичной — только с некоторыми. При обрыве связи данные можно переправить по другому пути.',
+      en: 'A layout in which nodes connect directly to many other nodes, so data can be rerouted when a link fails. In a full mesh every node links to every other node; in a partial mesh only some pairs are linked.',
+      ru: 'Схема, в которой узлы напрямую соединяются со многими другими узлами, поэтому при обрыве связи данные можно переправить по другому пути. В полной сетке каждый узел связан с каждым, в частичной — только с некоторыми.',
     },
     syllabus: 'A2.2',
     papers: ['P1'],
@@ -86,7 +86,7 @@ export const terms: Term[] = [
     term: { en: 'Server', ru: 'сервер (server)' },
     def: {
       en: 'Hardware or software that supplies information, shared assets or services to client machines across a network. Servers are built for dependability and fault tolerance rather than personal use.',
-      ru: 'Аппаратное или программное обеспечение, которое предоставляет информацию, общие ресурсы или услуги клиентским машинам по сети. Серверы строят ради высокой надёжности и отказоустойчивости, а не для личного использования.',
+      ru: 'Аппаратное или программное обеспечение, которое предоставляет информацию, общие ресурсы или услуги клиентским устройствам по сети. Серверы строят ради высокой надёжности и отказоустойчивости, а не для личного использования.',
     },
     syllabus: 'A2.2',
     papers: ['P1'],

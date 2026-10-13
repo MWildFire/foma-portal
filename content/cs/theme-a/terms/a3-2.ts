@@ -69,8 +69,8 @@ export const terms: Term[] = [
     id: 'a3-2-erd',
     term: { en: 'Entity relationship diagram (ERD)', ru: 'диаграмма «сущность-связь» (entity relationship diagram, ERD)' },
     def: {
-      en: 'A standard diagram that shows the entities of a database, their attributes and the relationships between them. Designers use it to plan the schema before the database is built.',
-      ru: 'Стандартная диаграмма, которая показывает сущности базы данных, их атрибуты и связи между ними. По ней планируют схему до создания базы.',
+      en: 'A standard diagram that shows the entities of a database and the relationships between them; attributes can be added at the logical level. Designers use it to plan the schema before the database is built.',
+      ru: 'Стандартная диаграмма, которая показывает сущности базы данных и связи между ними; атрибуты можно добавить на логическом уровне. По ней планируют схему до создания базы.',
     },
     syllabus: 'A3.2',
     papers: ['P1'],
@@ -137,8 +137,8 @@ export const terms: Term[] = [
     id: 'a3-2-normalization',
     term: { en: 'Normalization', ru: 'нормализация (normalization)' },
     def: {
-      en: 'A design method that splits an unnormalized table into smaller linked tables so that every non-key attribute depends on the whole primary key and on nothing else. It removes most anomalies.',
-      ru: 'Метод проектирования, при котором таблица разбивается на меньшие связанные таблицы так, чтобы каждый неключевой атрибут зависел от всего первичного ключа и ни от чего другого. Метод устраняет большинство аномалий.',
+      en: 'A design method that splits an unnormalized table into smaller linked tables so that every non-key attribute depends on the whole primary key and on nothing else. It minimises the risk of anomalies.',
+      ru: 'Метод проектирования, при котором таблица разбивается на меньшие связанные таблицы так, чтобы каждый неключевой атрибут зависел от всего первичного ключа и ни от чего другого. Метод сводит к минимуму риск аномалий.',
     },
     syllabus: 'A3.2',
     papers: ['P1'],

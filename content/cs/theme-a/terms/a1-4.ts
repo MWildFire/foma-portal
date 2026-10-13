@@ -13,8 +13,8 @@ export const terms: Term[] = [
     papers: ['P1'],
     src: { kind: 'textbook', title: 'Oxford IB DP Computer Science Course Companion (2025)', locator: 'ch. A1.4, p. 90' },
     example: {
-      en: 'The line score = 42 becomes several machine instructions, such as a load and a store, before the processor runs it.',
-      ru: 'Строка score = 42 превращается в несколько машинных инструкций, например загрузку и сохранение, прежде чем процессор её выполнит.',
+      en: 'The statement score = 42 becomes several machine instructions, such as a load and a store, before the processor runs it.',
+      ru: 'Оператор score = 42 превращается в несколько машинных инструкций, например загрузку и сохранение, прежде чем процессор её выполнит.',
     },
     pitfall: {
       en: 'Translation is not the same as running: a compiler finishes before the program starts, while an interpreter translates and runs line by line.',
@@ -118,7 +118,7 @@ export const terms: Term[] = [
   },
   {
     id: 'a1-4-parser',
-    term: { en: 'Parser', ru: 'парсер (parser)' },
+    term: { en: 'Parser', ru: 'синтаксический анализатор (parser)' },
     def: {
       en: 'A software component that checks input, usually text, against a language’s grammar rules and builds a tree-shaped structure, such as a parse tree, that shows how the parts relate.',
       ru: 'Программный компонент, который проверяет входные данные (обычно текст) по правилам грамматики языка и строит древовидную структуру (например, дерево разбора), показывающую связи между частями.',

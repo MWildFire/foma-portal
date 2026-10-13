@@ -81,8 +81,8 @@ export const terms: Term[] = [
     id: 'a4-1-reinforcement',
     term: { en: 'Reinforcement learning (RL)', ru: 'обучение с подкреплением (reinforcement learning, RL)' },
     def: {
-      en: 'A type of machine learning in which an agent acts in an environment, receives rewards and penalties, and adjusts its actions to maximise the total reward it collects over time.',
-      ru: 'Тип машинного обучения, при котором агент действует в среде, получает награды и штрафы и меняет свои действия, чтобы максимизировать суммарную награду за время работы.',
+      en: 'A type of machine learning in which an agent acts in an environment and receives rewards and penalties. The full definition, with the policy and the cumulative reward, is in A4.3.',
+      ru: 'Тип машинного обучения, при котором агент действует в среде и получает награды и штрафы. Полное определение, с политикой и накопленной наградой, дано в разделе A4.3.',
     },
     syllabus: 'A4.1',
     papers: ['P1'],
@@ -157,8 +157,8 @@ export const terms: Term[] = [
     id: 'a4-1-gpu',
     term: { en: 'Graphics processing unit (GPU)', ru: 'графический процессор (graphics processing unit, GPU)' },
     def: {
-      en: 'A processor originally designed for graphics that carries out many calculations at the same time, which makes it very effective for training deep learning models.',
-      ru: 'Процессор, изначально созданный для обработки графики, который выполняет много вычислений одновременно; поэтому он очень эффективен для обучения моделей глубокого обучения.',
+      en: 'The GPU described in A1.1, used here for its parallel processing, which makes it very effective for training deep learning models.',
+      ru: 'Графический процессор из раздела A1.1: параллельная обработка делает его очень эффективным для обучения моделей глубокого обучения.',
     },
     syllabus: 'A4.1',
     papers: ['P1'],

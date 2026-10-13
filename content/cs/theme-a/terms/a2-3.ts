@@ -36,14 +36,14 @@ export const terms: Term[] = [
     syllabus: 'A2.3',
     papers: ['P1'],
     src: { kind: 'textbook', title: 'Oxford IB DP Computer Science Course Companion (2025)', locator: 'ch. A2.3, p. 145' },
-    example: { en: '192.168.1.1 is a common private address for a home router.', ru: '192.168.1.1 — распространённый частный адрес домашнего роутера.' },
+    example: { en: '192.168.1.1 is a common private address for a home router.', ru: '192.168.1.1 — распространённый частный адрес домашнего маршрутизатора.' },
   },
   {
     id: 'a2-3-nat',
     term: { en: 'Network address translation (NAT)', ru: 'трансляция сетевых адресов (network address translation, NAT)' },
     def: {
       en: 'A method, usually run by a router, that maps many private IP addresses to one or a few public addresses and keeps a table so that replies reach the right device.',
-      ru: 'Метод, который обычно выполняет роутер: он сопоставляет множество частных IP-адресов одному или нескольким публичным и ведёт таблицу, чтобы ответы попадали на нужное устройство.',
+      ru: 'Метод, который обычно выполняет маршрутизатор: он сопоставляет множество частных IP-адресов одному или нескольким публичным и ведёт таблицу, чтобы ответы попадали на нужное устройство.',
     },
     syllabus: 'A2.3',
     papers: ['P1'],
@@ -104,12 +104,12 @@ export const terms: Term[] = [
     term: { en: 'Static routing', ru: 'статическая маршрутизация (static routing)' },
     def: {
       en: 'Routes are entered into each router by an administrator. They stay the same until someone edits them, so the network does not react to failures by itself.',
-      ru: 'Маршруты вводит в каждый роутер администратор. Они остаются прежними, пока их не изменят вручную, поэтому сеть сама не реагирует на отказы.',
+      ru: 'Маршруты вводит в каждый маршрутизатор администратор. Они остаются прежними, пока их не изменят вручную, поэтому сеть сама не реагирует на отказы.',
     },
     syllabus: 'A2.3',
     papers: ['P1'],
     src: { kind: 'textbook', title: 'Oxford IB DP Computer Science Course Companion (2025)', locator: 'ch. A2.3, p. 152' },
-    example: { en: 'A small office router with one hard-coded route to the internet.', ru: 'Роутер маленького офиса с одним жёстко заданным маршрутом в интернет.' },
+    example: { en: 'A small office router with one hard-coded route to the internet.', ru: 'Маршрутизатор маленького офиса с одним жёстко заданным маршрутом в интернет.' },
     pitfall: { en: 'A failed link stays in a static table until someone edits it by hand.', ru: 'Отказавший канал остаётся в статической таблице, пока кто-то не исправит её вручную.' },
   },
   {
@@ -117,12 +117,12 @@ export const terms: Term[] = [
     term: { en: 'Dynamic routing', ru: 'динамическая маршрутизация (dynamic routing)' },
     def: {
       en: 'Routers learn and update their routes automatically by exchanging information through routing protocols, such as RIP, OSPF or BGP.',
-      ru: 'Роутеры сами узнают маршруты и обновляют их, обмениваясь информацией по протоколам маршрутизации, например RIP, OSPF или BGP.',
+      ru: 'Маршрутизаторы сами узнают маршруты и обновляют их, обмениваясь информацией по протоколам маршрутизации, например RIP, OSPF или BGP.',
     },
     syllabus: 'A2.3',
     papers: ['P1'],
     src: { kind: 'textbook', title: 'Oxford IB DP Computer Science Course Companion (2025)', locator: 'ch. A2.3, p. 152' },
-    example: { en: 'Routers running OSPF recalculate their paths when a link fails.', ru: 'Роутеры, работающие по OSPF, пересчитывают пути при отказе канала.' },
-    pitfall: { en: 'Routers need time (convergence) to agree on new routes after a change, so performance can dip during that period.', ru: 'Роутерам нужно время (сходимость, convergence), чтобы согласовать новые маршруты после изменения, поэтому в этот период производительность может падать.' },
+    example: { en: 'Routers running OSPF recalculate their paths when a link fails.', ru: 'Маршрутизаторы, работающие по OSPF, пересчитывают пути при отказе канала.' },
+    pitfall: { en: 'Routers need time (convergence) to agree on new routes after a change, so performance can dip during that period.', ru: 'Маршрутизаторам нужно время (сходимость, convergence), чтобы согласовать новые маршруты после изменения, поэтому в этот период производительность может падать.' },
   },
 ];

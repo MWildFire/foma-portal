@@ -5,8 +5,8 @@ export const terms: Term[] = [
     id: 'a3-4-nosql',
     term: { en: 'NoSQL database', ru: 'нереляционная база данных (NoSQL database)' },
     def: {
-      en: 'A database that stores each record as a document with a flexible schema, instead of spreading it across related tables. It is designed to scale well, so it suits very large volumes of data and high numbers of users.',
-      ru: 'База данных, которая хранит каждую запись как документ с гибкой схемой, а не разносит её по связанным таблицам. Она рассчитана на хорошее масштабирование, поэтому подходит для очень больших объёмов данных и большого числа пользователей.',
+      en: 'A non-relational database, such as a document, key-value, column-family or graph store, with a flexible schema that does not spread each record across linked tables. It is designed to scale well, so it suits very large volumes of data and high numbers of users.',
+      ru: 'Нереляционная база данных (например, документная, «ключ–значение», колоночная или графовая) с гибкой схемой, которая не разносит каждую запись по связанным таблицам. Она рассчитана на хорошее масштабирование, поэтому подходит для очень больших объёмов данных и большого числа пользователей.',
     },
     syllabus: 'A3.4',
     papers: ['P1'],
@@ -81,8 +81,8 @@ export const terms: Term[] = [
     id: 'a3-4-data-warehouse',
     term: { en: 'Data warehouse', ru: 'хранилище данных (data warehouse)' },
     def: {
-      en: 'An append-only repository of historical data, collected from many sources and used to analyse trends and support business decisions rather than to process individual transactions.',
-      ru: 'Хранилище, в которое данные только добавляются (append-only): в нём накапливаются исторические данные из многих источников, которые используют для анализа трендов и бизнес-решений, а не для обработки отдельных операций.',
+      en: 'A repository of historical data organised by subject area and collected from many sources. It is non-volatile: data is appended and, once loaded, is never changed or deleted. It is used to analyse trends and support business decisions rather than to process individual transactions.',
+      ru: 'Хранилище исторических данных, организованное по предметным областям и собранное из многих источников. Оно неизменяемое (non-volatile): данные только добавляются (append-only), а загруженные данные не меняются и не удаляются. Его используют для анализа трендов и бизнес-решений, а не для обработки отдельных операций.',
     },
     syllabus: 'A3.4',
     papers: ['P1'],

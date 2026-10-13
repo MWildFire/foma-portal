@@ -6,7 +6,7 @@ export const terms: Term[] = [
     term: { en: 'Operating system (OS)', ru: 'операционная система (operating system, OS)' },
     def: {
       en: 'System software that sits between users, applications and the hardware. It manages resources such as the CPU, memory, storage and devices, and provides services such as file, process and security management.',
-      ru: 'Системное программное обеспечение, которое стоит между пользователями, приложениями и аппаратурой. Оно управляет ресурсами (процессором, памятью, хранилищем, устройствами) и предоставляет службы: управление файлами, процессами и безопасностью.',
+      ru: 'Системное программное обеспечение, которое стоит между пользователями, приложениями и аппаратным обеспечением. Оно управляет ресурсами (процессором, памятью, хранилищем, устройствами) и предоставляет службы: управление файлами, процессами и безопасностью.',
     },
     syllabus: 'A1.3',
     papers: ['P1'],

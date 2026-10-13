@@ -48,7 +48,7 @@ export const terms: Term[] = [
     term: { en: 'Virtual private network (VPN)', ru: 'виртуальная частная сеть (virtual private network, VPN)' },
     def: {
       en: 'A method of stretching a private network over a public one, such as the internet, through an encrypted tunnel. It lets remote devices use the private network’s resources securely.',
-      ru: 'Способ растянуть частную сеть через публичную, например интернет, с помощью зашифрованного туннеля. Он позволяет удалённым устройствам безопасно пользоваться ресурсами частной сети.',
+      ru: 'Способ расширить частную сеть через публичную, например интернет, с помощью зашифрованного туннеля. Он позволяет удалённым устройствам безопасно пользоваться ресурсами частной сети.',
     },
     syllabus: 'A2.1',
     papers: ['P1'],
@@ -197,7 +197,7 @@ export const terms: Term[] = [
   },
   {
     id: 'a2-1-mac-address',
-    term: { en: 'Media access control (MAC) address', ru: 'MAC-адрес (media access control, MAC)' },
+    term: { en: 'Media access control (MAC) address', ru: 'MAC-адрес (media access control address, MAC)' },
     def: {
       en: 'A 48-bit hexadecimal address built into a network interface card (NIC) and used to deliver frames to the correct device on the same local network. It is written as six pairs of hexadecimal digits.',
       ru: '48-битный шестнадцатеричный адрес, встроенный в сетевую карту (NIC) и используемый для доставки кадров нужному устройству в той же локальной сети. Записывается шестью парами шестнадцатеричных цифр.',

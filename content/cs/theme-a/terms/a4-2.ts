@@ -83,7 +83,7 @@ export const terms: Term[] = [
     term: { en: 'Feature selection', ru: 'отбор признаков (feature selection)' },
     def: {
       en: 'Choosing the most useful attributes of a data set to keep, and removing the ones that are redundant or irrelevant. The aim is to keep the features that give the best performance.',
-      ru: 'Выбор наиболее полезных признаков набора данных для сохранения и удаление избыточных или нерелевантных признаков. Цель — оставить признаки, которые дают наилучший результат модели.',
+      ru: 'Выбор наиболее полезных признаков набора данных для сохранения и удаления избыточных или нерелевантных признаков. Цель — оставить признаки, которые дают наилучший результат модели.',
     },
     syllabus: 'A4.2',
     papers: ['P1'],

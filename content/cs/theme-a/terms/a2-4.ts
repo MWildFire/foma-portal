@@ -83,7 +83,7 @@ export const terms: Term[] = [
   },
   {
     id: 'a2-4-mitm',
-    term: { en: 'Man-in-the-middle (MitM) attack', ru: 'атака «человек посередине» (man-in-the-middle, MitM)' },
+    term: { en: 'Man-in-the-middle (MitM) attack', ru: 'атака «человек посередине» (man-in-the-middle (MitM) attack)' },
     def: {
       en: 'An attack in which the attacker secretly sits between two parties, intercepting and possibly altering their messages while each party believes it is talking directly to the other.',
       ru: 'Атака, при которой злоумышленник тайно находится между двумя сторонами, перехватывает и может изменять их сообщения, а каждая сторона думает, что общается напрямую с другой.',
@@ -199,8 +199,8 @@ export const terms: Term[] = [
     id: 'a2-4-digital-certificate',
     term: { en: 'Digital certificate', ru: 'цифровой сертификат (digital certificate)' },
     def: {
-      en: 'A certificate that links a public key to a verified identity, such as a website or an organisation. A trusted certificate authority (CA) checks the owner and signs the certificate, so a browser can trust it.',
-      ru: 'Электронный документ, который связывает открытый ключ с проверенной личностью, например сайтом или организацией. Доверенный центр сертификации (certificate authority, CA) проверяет владельца и подписывает сертификат, поэтому браузер может ему доверять.',
+      en: 'An electronic document, signed by a trusted certificate authority (CA), that links a public key to a verified identity, such as a website or an organisation. The CA checks the owner before it signs, so a browser can trust the certificate.',
+      ru: 'Электронный документ с цифровой подписью доверенного центра сертификации (certificate authority, CA), который связывает открытый ключ с проверенной личностью, например сайтом или организацией. Центр проверяет владельца перед подписанием, поэтому браузер может доверять сертификату.',
     },
     syllabus: 'A2.4',
     papers: ['P1'],

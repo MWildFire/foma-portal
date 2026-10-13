@@ -1,6 +1,6 @@
 import type { Term } from '../../../../src/contract/types';
 
-const OWN_SOURCE = 'Case-study concepts used in IB section B; defined for this portal';
+const OWN_SOURCE = 'Case-study concepts in IB section B';
 const TEXTBOOK = 'Oxford IB DP Computer Science Course Companion (2025)';
 
 export const terms: Term[] = [

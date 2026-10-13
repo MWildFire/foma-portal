@@ -133,8 +133,8 @@ export const terms: Term[] = [
     papers: ['P1'],
     src: { kind: 'textbook', title: BOOK, locator: 'ch. A1.1, p. 21' },
     example: {
-      en: 'In a laundry pipeline, one load dries while the next is washed; after the first load, a finished load appears every 30 minutes instead of every 90.',
-      ru: 'В «конвейере стирки» одна партия сушится, пока следующая стирается; после первой партии готовая партия появляется каждые 30 минут вместо каждых 90.',
+      en: 'In a laundry pipeline, washing, drying and folding overlap: after the first load, a finished load appears every 30 minutes instead of every 90.',
+      ru: 'В «конвейере стирки» стирка, сушка и складывание идут одновременно: после первой партии готовая партия появляется каждые 30 минут вместо каждых 90.',
     },
     pitfall: {
       en: 'Pipelining does not make one instruction finish sooner; it increases how many instructions finish in a given time.',
@@ -164,8 +164,8 @@ export const terms: Term[] = [
     id: 'a1-1-secondary-storage',
     term: { en: 'Secondary memory storage', ru: 'вторичная память (secondary memory storage)' },
     def: {
-      en: 'Storage that the CPU cannot access directly and that keeps data for the long term, such as an HDD, an SSD or a flash drive.',
-      ru: 'Накопители, к которым ЦП не обращается напрямую и которые предназначены для долговременного хранения данных, например HDD, SSD или флеш-накопитель.',
+      en: 'Storage that keeps data for the long term, even when the power is off, such as an HDD, an SSD or a flash drive.',
+      ru: 'Накопители, которые хранят данные надолго, даже когда питание выключено, например HDD, SSD или флеш-накопитель.',
     },
     syllabus: 'A1.1',
     papers: ['P1'],
