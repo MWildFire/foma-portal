@@ -8,7 +8,7 @@ import { parseBlockId } from './blocks.ts';
 // @ts-ignore TS5097
 import { addInterval, isCovered } from './queue.ts';
 // @ts-ignore TS5097
-import { DEFAULT_DAILY_LOAD, MAX_DAILY_LOAD } from './loads.ts';
+import { MAX_DAILY_LOAD } from './loads.ts';
 
 const topicKeyOf = (block: PlanBlock): string | null =>
   block.kind === 'topic' && block.subject && block.topicId ? `${block.subject}/${block.topicId}` : null;
@@ -68,12 +68,13 @@ export function setTopicRag(state: GlobalState, subject: SubjectId, topicId: str
   return { ...state, topics };
 }
 
-// The study load of one weekday, in minutes. `null`, or a number equal to the default, removes the override.
+// The study load of one weekday, in minutes; `null` removes the override. A number equal to the usual load is kept
+// as an override too: without one, each day keeps the minutes of data/plan-quotas.json, and some days there differ
+// from the usual load (Fri 30 Oct and Sun 25 Oct have 240), so "120 on Fridays" must really mean 120 on every Friday.
 export function setDailyLoad(state: GlobalState, day: Weekday, minutes: number | null): GlobalState {
   const dailyLoadMinutes = { ...state.settings.dailyLoadMinutes };
-  const value = minutes === null ? null : Math.min(MAX_DAILY_LOAD, Math.max(0, Math.round(minutes)));
-  if (value === null || value === DEFAULT_DAILY_LOAD[day]) delete dailyLoadMinutes[day];
-  else dailyLoadMinutes[day] = value;
+  if (minutes === null || !Number.isFinite(minutes)) delete dailyLoadMinutes[day];
+  else dailyLoadMinutes[day] = Math.min(MAX_DAILY_LOAD, Math.max(0, Math.round(minutes)));
   return { ...state, settings: { ...state.settings, dailyLoadMinutes } };
 }
 

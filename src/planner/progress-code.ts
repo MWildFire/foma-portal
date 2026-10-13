@@ -14,12 +14,19 @@ export type ImportCheck =
   | { ok: true; pack: ProgressPack; items: number; madeAt: string };
 
 const STATE_KEY: string = STORAGE_KEY;
+// The language detector saves the UI language on every device, so that key alone is not progress.
+const LANGUAGE_KEY = 'foma-lang';
+
+// The saved items that are progress (everything but the UI language).
+export function progressKeys(data: Record<string, string>): string[] {
+  return Object.keys(data).filter(key => key !== LANGUAGE_KEY);
+}
 
 export function checkImport(text: string): ImportCheck {
   if (text.trim() === '') return { ok: false, problem: 'empty' };
   const pack = decodeProgress(text);
   if (!pack) return { ok: false, problem: 'invalid' };
-  const items = Object.keys(pack.data).length;
+  const items = progressKeys(pack.data).length;
   if (items === 0) return { ok: false, problem: 'no-progress' };
   const state = pack.data[STATE_KEY];
   if (state !== undefined) {

@@ -142,12 +142,17 @@ export function extendedMinutes(exams: ExamsFile, minutes: number): number {
   return typeof fromTable === 'number' ? fromTable : Math.round(minutes * EXTRA_TIME_FACTOR);
 }
 
-// Start of the sitting in the main hall.
-export function examStartMs(exam: ExamPaper): number {
-  return dubaiEpoch(exam.date, exam.start);
+// The start time the student actually has: the separate room (ACC2) has its own start when the schedule gives one,
+// otherwise everybody starts with the main hall.
+export function examStartClock(exam: ExamPaper, separateRoom = false): string {
+  return separateRoom && exam.acc2Start ? exam.acc2Start : exam.start;
 }
 
-export function examEndMs(exam: ExamPaper, exams: ExamsFile, extraTime: boolean): number {
+export function examStartMs(exam: ExamPaper, separateRoom = false): number {
+  return dubaiEpoch(exam.date, examStartClock(exam, separateRoom));
+}
+
+export function examEndMs(exam: ExamPaper, exams: ExamsFile, extraTime: boolean, separateRoom = false): number {
   const length = extraTime ? extendedMinutes(exams, exam.minutes) : exam.minutes;
-  return examStartMs(exam) + length * 60_000;
+  return examStartMs(exam, separateRoom) + length * 60_000;
 }

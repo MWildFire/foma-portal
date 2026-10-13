@@ -2,9 +2,9 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { setAccessArrangement, setDailyLoad } from '../src/planner/actions.ts';
 import { DEFAULT_DAILY_LOAD, effectiveLoad, MAX_DAILY_LOAD, parseLoadInput } from '../src/planner/loads.ts';
-import { checkImport } from '../src/planner/progress-code.ts';
+import { checkImport, progressKeys } from '../src/planner/progress-code.ts';
 import { collectProgress, encodeProgress } from '../src/lib/transfer.ts';
-import { emptyState } from './planner-fixtures.mjs';
+import { dayOf, emptyState, plan } from './planner-fixtures.mjs';
 
 test('the default loads are the ones of PLAN.md', () => {
   assert.deepEqual(DEFAULT_DAILY_LOAD, { mon: 150, tue: 150, wed: 150, thu: 150, fri: 120, sat: 270, sun: 270 });
@@ -25,9 +25,16 @@ test('a load override is saved per weekday and can be reset', () => {
   assert.deepEqual(emptyState().settings.dailyLoadMinutes, {}, 'the original state is untouched');
 });
 
-test('typing the default load back is the same as resetting it', () => {
-  const state = setDailyLoad(setDailyLoad(emptyState(), 'fri', 90), 'fri', 120);
+test('typing the usual load is a real setting; only reset removes it', () => {
+  // Fri 30 Oct has 240 minutes in the schedule, so "120 on Fridays" must be kept to apply there too.
+  let state = setDailyLoad(setDailyLoad(emptyState(), 'fri', 90), 'fri', 120);
+  assert.deepEqual(state.settings.dailyLoadMinutes, { fri: 120 });
+  const oct30 = dayOf(plan('2026-10-14', { state }), '2026-10-30');
+  assert.equal(oct30.capacity, 120);
+  assert.equal(dayOf(plan('2026-10-14'), '2026-10-30').capacity, 240, 'without a setting the schedule decides');
+  state = setDailyLoad(state, 'fri', null);
   assert.deepEqual(state.settings.dailyLoadMinutes, {});
+  assert.deepEqual(setDailyLoad(emptyState(), 'fri', Number.NaN).settings.dailyLoadMinutes, {});
 });
 
 test('loads are kept within 0 and 600 minutes', () => {
@@ -55,8 +62,11 @@ test('a progress code is checked before anything is replaced', () => {
 
   const ok = checkImport(`  ${code}\n`);
   assert.equal(ok.ok, true);
-  assert.equal(ok.items, 2);
+  assert.equal(ok.items, 1, 'the progress itself; the language key does not count');
   assert.equal(ok.madeAt, '2026-10-14T08:00:00.000Z');
+  assert.deepEqual(Object.keys(ok.pack.data).sort(), ['foma-lang', 'foma-portal-v1'], 'the language still travels with the code');
+  assert.deepEqual(checkImport(encodeProgress({ 'foma-lang': 'ru' })), { ok: false, problem: 'no-progress' });
+  assert.deepEqual(progressKeys({ 'foma-lang': 'en', 'foma-portal-v1': '{}', 'foma-portal-extra': 'x' }), ['foma-portal-v1', 'foma-portal-extra']);
 
   assert.deepEqual(checkImport(''), { ok: false, problem: 'empty' });
   assert.deepEqual(checkImport('   '), { ok: false, problem: 'empty' });
