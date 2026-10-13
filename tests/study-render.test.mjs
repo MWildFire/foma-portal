@@ -181,10 +181,15 @@ test('practice: the filters come from the address and narrow the list', async ()
   assert.match(combined, /Clear filters/);
 });
 
-test('practice: a filter value that no question has is ignored', async () => {
+test('practice: a filter value that no question has is kept, shows a count of 0 and an empty list', async () => {
   const html = await view('PracticeView', { pack: pack() }, '/s/geo/practice?paper=P3&topic=nope&command=zzz');
-  assert.match(html, /Showing 4 of 4 questions/);
-  assert.ok(!html.includes('Clear filters'));
+  assert.match(html, /Showing 0 of 4 questions/);
+  assert.match(html, /No questions match these filters/);
+  assert.match(html, /Paper 3 \(0\)/);
+  assert.match(html, /nope \(0\)/);
+  assert.match(html, /zzz \(0\)/);
+  assert.match(html, /Clear filters/);
+  assert.ok(!html.includes('Prompt of q1'));
 });
 
 test('practice: when no question matches, a message is shown', async () => {

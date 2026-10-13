@@ -13,8 +13,8 @@ import {
   rateQuestion,
   ratingCounts,
   ratingKey,
-  sanitizeFilters,
   splitRedo,
+  withChosen,
   withFilter,
   withoutFilters,
   wrongIds,
@@ -73,8 +73,9 @@ export function PracticeView({ pack }: { pack: SubjectPack }) {
   const timedListId = useId();
 
   const topicIndex = useMemo(() => new Map(pack.topics.map(topic => [topic.id, topic] as const)), [pack.topics]);
-  const options = useMemo(() => filterOptions(pack.questions, pack.topics.map(topic => topic.id)), [pack.questions, pack.topics]);
-  const filters = useMemo(() => sanitizeFilters(filtersFromParams(params), options), [params, options]);
+  const baseOptions = useMemo(() => filterOptions(pack.questions, pack.topics.map(topic => topic.id)), [pack.questions, pack.topics]);
+  const filters = useMemo(() => filtersFromParams(params), [params]);
+  const options = useMemo(() => withChosen(baseOptions, filters), [baseOptions, filters]);
   // Keyed by the three values, not by the object: a change of ?set= must not rebuild the list.
   const filtered = useMemo(
     () => filterQuestions(pack.questions, filters),

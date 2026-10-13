@@ -44,14 +44,19 @@
   margin-bottom: 0.5rem;
 }
 
+/* A long inline formula scrolls inside its paragraph, never the page. */
 .gl-entry__def {
+  max-width: 100%;
   margin: 0.375rem 0 0;
+  overflow-x: auto;
   overflow-wrap: anywhere;
 }
 
 .gl-entry__extra {
+  max-width: 100%;
   margin: 0.5rem 0 0;
   font-size: 0.875rem;
+  overflow-x: auto;
   overflow-wrap: anywhere;
 }
 

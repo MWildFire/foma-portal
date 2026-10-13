@@ -102,13 +102,20 @@ export function filterOptions<Q extends QuestionLike>(questions: readonly Q[], t
   };
 }
 
-// Drops filter values that no question has, so a stale address never shows an empty list with no way to see why.
-export function sanitizeFilters(filters: PracticeFilters, options: FilterOptions): PracticeFilters {
-  return {
-    paper: options.papers.some(item => item.value === filters.paper) ? filters.paper : '',
-    topic: options.topics.some(item => item.value === filters.topic) ? filters.topic : '',
-    command: options.commands.some(item => item.value === filters.command) ? filters.command : '',
-  };
+// The options of the three selects must always include the chosen value. If the address asks for a paper, topic or
+// command term that no question has (a hand-typed address, a link to a topic without questions), the select shows it
+// with a count of 0 and the page says that nothing matches, instead of quietly showing every question.
+export function withChosen(options: FilterOptions, filters: PracticeFilters): FilterOptions {
+  const papers = filters.paper && !options.papers.some(item => item.value === filters.paper)
+    ? PAPER_IDS.flatMap(paper => (paper === filters.paper ? [{ value: paper, count: 0 }] : options.papers.filter(item => item.value === paper)))
+    : options.papers;
+  const topics = filters.topic && !options.topics.some(item => item.value === filters.topic)
+    ? [...options.topics, { value: filters.topic, count: 0 }]
+    : options.topics;
+  const commands = filters.command && !options.commands.some(item => item.value === filters.command)
+    ? [...options.commands, { value: filters.command, label: filters.command, count: 0 }].sort((a, b) => a.label.localeCompare(b.label, 'en'))
+    : options.commands;
+  return { papers, topics, commands };
 }
 
 // ---------------------------------------------------------------------------------------------------------------

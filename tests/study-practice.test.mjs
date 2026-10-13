@@ -20,11 +20,11 @@ import {
   ratingCounts,
   ratingKey,
   resetTimer,
-  sanitizeFilters,
   secondsLeft,
   splitRedo,
   startTimer,
   tickTimer,
+  withChosen,
   withFilter,
   withoutFilters,
   wrongIds,
@@ -92,11 +92,25 @@ test('topics that the pack does not list go last; an empty list gives empty opti
   assert.deepEqual(filterOptions([]), { papers: [], topics: [], commands: [] });
 });
 
-test('sanitizeFilters drops a value that no question has', () => {
+test('a value chosen in the address stays in the options, with a count of 0, when no question has it', () => {
   const options = filterOptions(QUESTIONS, ['t1', 't2', 't3']);
-  assert.deepEqual(sanitizeFilters({ paper: 'P2', topic: 't9', command: 'define' }, options), { paper: 'P2', topic: '', command: '' });
-  assert.deepEqual(sanitizeFilters({ paper: 'P1', topic: 't1', command: 'explain' }, options), { paper: 'P1', topic: 't1', command: 'explain' });
-  assert.deepEqual(sanitizeFilters({ paper: 'P1', topic: 't1', command: 'explain' }, filterOptions([])), NO_FILTERS);
+  const chosen = withChosen(options, { paper: 'P2', topic: 't9', command: 'define' });
+  assert.deepEqual(chosen.papers, options.papers, 'a paper that exists is not added twice');
+  assert.deepEqual(chosen.topics.at(-1), { value: 't9', count: 0 });
+  assert.equal(chosen.topics.length, options.topics.length + 1);
+  assert.deepEqual(chosen.commands.map(item => item.value), ['calculate', 'define', 'evaluate', 'explain']);
+  assert.deepEqual(chosen.commands.find(item => item.value === 'define'), { value: 'define', label: 'define', count: 0 });
+
+  const noThird = withChosen(filterOptions(QUESTIONS.slice(0, 2), ['t1']), { ...NO_FILTERS, paper: 'P3' });
+  assert.deepEqual(noThird.papers, [{ value: 'P1', count: 2 }, { value: 'P3', count: 0 }]);
+  const middle = withChosen(filterOptions([q('x', 'P1', [], 'Define'), q('y', 'P3', [], 'Define')]), { ...NO_FILTERS, paper: 'P2' });
+  assert.deepEqual(middle.papers.map(item => item.value), ['P1', 'P2', 'P3'], 'papers stay in order');
+});
+
+test('with nothing chosen the options are left as they are', () => {
+  const options = filterOptions(QUESTIONS, ['t1', 't2', 't3']);
+  assert.deepEqual(withChosen(options, NO_FILTERS), options);
+  assert.deepEqual(withChosen(filterOptions([]), NO_FILTERS), { papers: [], topics: [], commands: [] });
 });
 
 // ---- timed sets
