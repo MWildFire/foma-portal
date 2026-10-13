@@ -53,11 +53,23 @@ export const cases: CaseStudy[] = [
     lat: 36.0,
     lng: 138.0,
     facts: {
-      en: 'In 2023 (UN WPP 2024) the crude birth rate was 6.0 and the crude death rate 12.3 per 1000, so natural change was negative, a natural decrease of about 6 per 1000 a year. The total fertility rate was 1.2 children per woman in 2023, against 3.6 in 1950 (UN WPP 2024), and the median age was 49.0 years (UN WPP 2024). The HDI was 0.925 in 2023 (UNDP, Human Development Report 2025), and GNI per capita was USD 38,340 in 2025 (World Bank, Atlas method).',
-      ru: 'В 2023 году (UN WPP 2024) общий коэффициент рождаемости составил 6,0, а смертности — 12,3 на 1000 человек, поэтому естественный прирост был отрицательным: естественная убыль около 6 на 1000 в год. Суммарный коэффициент рождаемости был 1,2 ребёнка на женщину в 2023 году против 3,6 в 1950 году (UN WPP 2024), медианный возраст — 49,0 года (UN WPP 2024). ИРЧП был 0,925 в 2023 году (UNDP, Human Development Report 2025), а ВНД на душу населения — 38 340 USD в 2025 году (Всемирный банк, метод Атлас).',
+      en: 'In 2023 (UN WPP 2024) the crude birth rate was 6.0 and the crude death rate 12.3 per 1000, so natural change was negative, a natural decrease of about 6 per 1000 a year. The total fertility rate was 1.2 children per woman in 2023, against 3.6 in 1950 (UN WPP 2024), and the median age was 49.0 years (UN WPP 2024). The HDI was 0.925 in 2023 (UNDP, Human Development Report 2025), and GNI per capita was USD 38,340 in 2025 (World Bank, Atlas method). In the year to 1 October 2024 the population fell by 550,127, to 123,801,750: natural change was −889,970 (717,291 births and 1,607,261 deaths), and net migration (+339,843) offset part of it (Statistics Bureau of Japan, monthly population report, March 2026).',
+      ru: 'В 2023 году (UN WPP 2024) общий коэффициент рождаемости составил 6,0, а смертности — 12,3 на 1000 человек, поэтому естественный прирост был отрицательным: естественная убыль около 6 на 1000 в год. Суммарный коэффициент рождаемости был 1,2 ребёнка на женщину в 2023 году против 3,6 в 1950 году (UN WPP 2024), медианный возраст — 49,0 года (UN WPP 2024). ИРЧП был 0,925 в 2023 году (UNDP, Human Development Report 2025), а ВНД на душу населения — 38 340 USD в 2025 году (Всемирный банк, метод Атлас). За год до 1 октября 2024 года население сократилось на 550 127 человек, до 123 801 750: естественная убыль составила 889 970 (717 291 рождение и 1 607 261 смерть), а чистая миграция (+339 843) частично её компенсировала (Статистическое бюро Японии, ежемесячный отчёт о населении, март 2026 года).',
     },
     usedFor: ['core-1-1-population-development'],
-    src: sources,
+    src: [
+      ...sources,
+      {
+        kind: 'web',
+        title: 'Statistics Bureau of Japan, Population Estimates as of 1 October 2024 (2024 summary, table 4)',
+        url: 'https://www.stat.go.jp/data/jinsui/2024np/pdf/2024summary.pdf',
+      },
+      {
+        kind: 'web',
+        title: 'Statistics Bureau of Japan, Monthly Population Estimates, March 2026 (annual table, 2024 row)',
+        url: 'https://www.stat.go.jp/data/jinsui/pdf/202603.pdf',
+      },
+    ],
   },
   {
     id: 'core-1-1-case-bangladesh',

@@ -56,7 +56,7 @@ export const cases: CaseStudy[] = [
       },
       {
         kind: 'web',
-        title: 'Ember, Yearly Electricity Data (Global), last updated 15 September 2026',
+        title: 'Ember, Yearly Electricity Data (Global), file updated 6 October 2026',
         url: 'https://ember-energy.org/data/yearly-electricity-data/',
       },
     ],

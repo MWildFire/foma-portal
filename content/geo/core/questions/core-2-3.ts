@@ -110,8 +110,8 @@ export const questions: Question[] = [
     marks: 10,
     command: 'Using the infographic',
     stimulus: {
-      en: 'Figure 1 (the infographic) shows the share of electricity generated from renewable sources (hydro, wind, solar, bioenergy and other renewables) for the world, China, Germany and the UAE in 2015 and 2025, as a percentage of total electricity generation. Source: Ember, Yearly Electricity Data (Global), last updated 15 September 2026.',
-      ru: 'На рисунке 1 (инфографика) показана доля электроэнергии, выработанной из возобновляемых источников (гидроэнергия, ветер, солнце, биомасса и прочие возобновляемые), в мире, Китае, Германии и ОАЭ в 2015 и 2025 годах, в процентах от всей выработки электроэнергии. Источник: Ember, Yearly Electricity Data (Global), последнее обновление 15 сентября 2026 года.',
+      en: 'Figure 1 (the infographic) shows the share of electricity generated from renewable sources (hydro, wind, solar, bioenergy and other renewables) for the world, China, Germany and the UAE in 2015 and 2025, as a percentage of total electricity generation. Source: Ember, Yearly Electricity Data (Global), file updated 6 October 2026.',
+      ru: 'На рисунке 1 (инфографика) показана доля электроэнергии, выработанной из возобновляемых источников (гидроэнергия, ветер, солнце, биомасса и прочие возобновляемые), в мире, Китае, Германии и ОАЭ в 2015 и 2025 годах, в процентах от всей выработки электроэнергии. Источник: Ember, Yearly Electricity Data (Global), файл обновлён 6 октября 2026 года.',
     },
     prompt: {
       en: '(a) Using Figure 1, describe the change in the share of renewables in electricity generation in Germany from 2015 to 2025. [2]\n(b) Calculate the percentage-point change in the share of renewables in electricity generation for the world from 2015 to 2025. Show your working. [2]\n(c) Evaluate the use of renewable electricity as a response to climate change, using the UAE or Germany as an example. [6]',

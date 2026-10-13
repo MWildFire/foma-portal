@@ -43,7 +43,7 @@ const topic: TopicMeta = {
     { kind: 'web', title: 'UNFCCC, Kyoto Protocol (1997), text (Article 3.1)', url: 'https://unfccc.int/resource/docs/convkp/kpeng.pdf' },
     { kind: 'web', title: 'UNFCCC, Paris Agreement (2015), text (Articles 2, 4, 8 and 9)', url: 'https://unfccc.int/sites/default/files/resource/parisagreement_publication.pdf' },
     { kind: 'web', title: 'UNFCCC, The Paris Agreement: adoption on 12 December 2015 and entry into force on 4 November 2016', url: 'https://unfccc.int/process-and-meetings/the-paris-agreement' },
-    { kind: 'web', title: 'Ember, Yearly Electricity Data (Global), last updated 15 September 2026 (Figure 1 and Section B)', url: 'https://ember-energy.org/data/yearly-electricity-data/' },
+    { kind: 'web', title: 'Ember, Yearly Electricity Data (Global), file updated 6 October 2026 (Figure 1 and Section B)', url: 'https://ember-energy.org/data/yearly-electricity-data/' },
     { kind: 'web', title: 'Our World in Data, annual CO2 emissions by country, based on Global Carbon Project data (Section A question 2)', url: 'https://ourworldindata.org/grapher/annual-co2-emissions-per-country' },
   ],
 };
