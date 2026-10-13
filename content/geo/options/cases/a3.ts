@@ -62,25 +62,25 @@ export const cases: CaseStudy[] = [
     lat: 41.6528,
     lng: -83.5379,
     facts: {
-      en: 'In August 2014 microcystin, a toxin made by blue-green algae (cyanobacteria) in Lake Erie, contaminated the water supply of the City of Toledo. The City’s water department provides water to about 500,000 people in the city and elsewhere in Northwest Ohio, and for three days the water was contaminated. Ohio EPA recorded advisories for microcystin in finished drinking water at public water systems in 2013 and 2014. The WHO provisional guideline for microcystins in drinking water is 1 µg/L.',
-      ru: 'В августе 2014 года микроцистин — токсин сине-зелёных водорослей (цианобактерий) в озере Эри — загрязнил водоснабжение города Толедо. Водный отдел города обслуживает около 500 тыс. человек в самом городе и в других местах северо-западной части Огайо, и три дня вода была загрязнена. Агентство по охране окружающей среды Огайо (Ohio EPA) фиксировало предупреждения о микроцистине в питьевой воде на системах водоснабжения в 2013 и 2014 годах. Предварительный норматив ВОЗ для микроцистинов в питьевой воде — 1 мкг/л.',
+      en: 'In August 2014 microcystin, a toxin made by blue-green algae (cyanobacteria) in Lake Erie, contaminated the water supply of the City of Toledo. A do-not-drink advisory was in force from 2 to 4 August 2014 and was issued for all customers of the Collins Park water treatment plant, which had 440,552 residents in four counties in 2010 (CDC, 2016). Ohio’s first microcystin do-not-drink advisory had been issued in 2013, in Carroll Township (CDC, 2016). The WHO provisional guideline value for total microcystins (the sum of all variants, free and cell-bound) in drinking water is 1 µg/L; it is based on microcystin-LR, the most studied variant (WHO, 2022).',
+      ru: 'В августе 2014 года микроцистин — токсин сине-зелёных водорослей (цианобактерий) в озере Эри — загрязнил водоснабжение города Толедо. Предупреждение «не пить воду» действовало со 2 по 4 августа 2014 года и было выпущено для всех потребителей водоочистной станции «Коллинз-Парк», в которой в 2010 году насчитывалось 440 552 жителя четырёх округов (CDC, 2016). Первое в штате Огайо предупреждение «не пить воду» из-за микроцистина было выпущено в 2013 году в Кэрролл-Тауншипе (Carroll Township) (CDC, 2016). Предварительное руководящее значение ВОЗ для суммы всех микроцистинов (всех вариантов, свободных в воде и связанных с клетками) в питьевой воде составляет 1 мкг/л; оно основано на данных о микроцистине-LR, наиболее изученном варианте (ВОЗ, 2022).',
     },
     usedFor: ['a3-water-scarcity'],
     src: [
       {
         kind: 'web',
-        title: 'US District Court, Northern District of Ohio, Environmental Law and Policy Center v. EPA, Case 3:17-cv-01514, order of 11 April 2018 (background on Toledo)',
-        url: 'https://assets.documentcloud.org/documents/4436700/Carr-Order.pdf',
-      },
-      {
-        kind: 'web',
-        title: 'Ohio EPA, Ohio EPA’s Experience with Harmful Algal Blooms at Public Water Systems (presentation, 27 April 2016, archived by US EPA)',
-        url: 'https://19january2021snapshot.epa.gov/sites/static/files/2016-05/documents/region5-ohio-hab-experience-public-water.pdf',
+        title: 'CDC, MMWR 2016;65:925–929: Community Needs Assessment After Microcystin Toxin Contamination of a Municipal Water Supply, Lucas County, Ohio, September 2014',
+        url: 'https://www.cdc.gov/mmwr/volumes/65/wr/mm6535a1.htm',
       },
       {
         kind: 'web',
         title: 'WHO: Guidelines for drinking-water quality, fourth edition incorporating the first and second addenda (2022)',
         url: 'https://www.who.int/publications/i/item/9789240045064',
+      },
+      {
+        kind: 'web',
+        title: 'WHO: Guidelines for drinking-water quality, fourth edition (2022), chemical fact sheet: Microcystins',
+        url: 'https://cdn.who.int/media/docs/default-source/wash-documents/water-safety-and-quality/chemical-fact-sheets-2022/microcystins-fact-sheet-2022.pdf?sfvrsn=e1b5c768_2&download=true',
       },
     ],
   },

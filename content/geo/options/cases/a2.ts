@@ -14,8 +14,8 @@ export const cases: CaseStudy[] = [
     lat: 52.1326,
     lng: 5.2913,
     facts: {
-      en: 'Since 2006 the ‘Room for the River’ programme has carried out measures at 34 locations along the IJssel, Waal, Lower Rhine and Lek. The programme cost a total of €2.3 billion and was completed in early 2019 with the opening of the Reevediep flood channel. It has improved safety for around 4 million people. Without flood defences such as dikes, dunes and storm surge barriers, about 60% of the Netherlands would be regularly flooded (Delta Programme).',
-      ru: 'С 2006 года программа «Room for the River» проводит меры в 34 местах вдоль рек IJssel, Waal, Lower Rhine и Lek. Её общая стоимость составила 2,3 млрд евро, а завершилась она в начале 2019 года открытием разгрузочного канала Reevediep. Она повысила безопасность примерно для 4 млн человек. Без защитных сооружений — дамб, дюн и штормовых барьеров — около 60% территории Нидерландов регулярно затапливалось бы (Delta Programme).',
+      en: 'Since 2006 the ‘Room for the River’ programme has carried out measures at 34 locations along the IJssel, Waal, Lower Rhine and Lek. The programme cost a total of €2.3 billion and was completed in early 2019 with the opening of the Reevediep flood channel. It has improved safety for around 4 million people. Without the flood defences (storm-surge barriers, dikes and dunes), regular flooding would cover about 60% of the Netherlands (Delta Programme).',
+      ru: 'С 2006 года программа «Room for the River» проводит меры в 34 местах вдоль рек IJssel, Waal, Lower Rhine и Lek. Её общая стоимость составила 2,3 млрд евро, а завершилась она в начале 2019 года открытием разгрузочного канала Reevediep. Она повысила безопасность примерно для 4 млн человек. Без защитных сооружений (штормовых барьеров, дамб и дюн) регулярное затопление охватило бы около 60% территории Нидерландов (Delta Programme).',
     },
     usedFor: ['a2-flooding'],
     src: [

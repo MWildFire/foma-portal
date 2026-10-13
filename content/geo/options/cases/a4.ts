@@ -13,8 +13,8 @@ export const cases: CaseStudy[] = [
     lat: 25.2048,
     lng: 55.2708,
     facts: {
-      en: 'In 2025 the UAE Ministry of Energy and Infrastructure said that non-conventional water (desalinated seawater and treated wastewater) provides 53% of the country’s water supply, with a total capacity of over 3 million cubic metres a day. The same statement says that 73% of treated wastewater is reused to irrigate landscapes in the country’s cities. The UAE Water Security Strategy 2036 aims to cut total water demand by 21% and to raise the reuse of treated water to 95%. FAO’s AQUASTAT profile states that irrigation in the UAE is completely based on groundwater, so the aquifers carry the main risk.',
-      ru: 'В 2025 году Министерство энергетики и инфраструктуры ОАЭ сообщило, что нетрадиционные источники воды (опреснённая морская вода и очищенные сточные воды) дают 53% водоснабжения страны при общей мощности более 3 млн кубометров в сутки. В том же сообщении сказано, что 73% очищенных сточных вод повторно используются для полива ландшафтов в городах страны. Стратегия водной безопасности ОАЭ до 2036 года ставит цель снизить общий спрос на воду на 21% и повысить повторное использование очищенной воды до 95%. По страновому профилю FAO AQUASTAT орошение в ОАЭ полностью основано на подземных водах, поэтому главный риск несут водоносные горизонты.',
+      en: 'In 2025 the UAE Ministry of Energy and Infrastructure said that non-conventional water (desalinated seawater and treated wastewater) provides 53% of the country’s water supply. The same statement says that over 160 wastewater treatment plants have a total capacity of over 3 million cubic metres a day, that 73% of treated wastewater is reused to irrigate landscapes in the country’s cities, and that the UAE mostly relies on wastewater treatment plants to meet its irrigation needs. The UAE Water Security Strategy 2036 aims to cut total water demand by 21% and to raise the reuse of treated water to 95%.',
+      ru: 'В 2025 году Министерство энергетики и инфраструктуры ОАЭ сообщило, что нетрадиционные источники воды (опреснённая морская вода и очищенные сточные воды) дают 53% водоснабжения страны. В том же сообщении сказано, что более 160 станций очистки сточных вод имеют общую мощность более 3 млн кубометров в сутки, что 73% очищенных сточных вод повторно используются для полива ландшафтов в городах страны и что ОАЭ в основном полагаются на станции очистки сточных вод при удовлетворении потребностей в орошении. Стратегия водной безопасности ОАЭ до 2036 года ставит цель снизить общий спрос на воду на 21% и повысить повторное использование очищенной воды до 95%.',
     },
     usedFor: ['a4-water-management'],
     src: [
@@ -27,11 +27,6 @@ export const cases: CaseStudy[] = [
         kind: 'web',
         title: 'The UAE Water Security Strategy 2036 (UAE Government portal)',
         url: 'https://u.ae/en/about-the-uae/strategies-initiatives-and-awards/strategies-plans-and-visions/environment-and-energy/the-uae-water-security-strategy-2036',
-      },
-      {
-        kind: 'web',
-        title: 'FAO AQUASTAT: United Arab Emirates, irrigation by country',
-        url: 'https://www.fao.org/aquastat/en/geospatial-information/global-maps-irrigated-areas/irrigation-by-country/country/ARE',
       },
     ],
   },
@@ -77,8 +72,8 @@ export const cases: CaseStudy[] = [
     lat: 11.2,
     lng: 35.1,
     facts: {
-      en: 'The Grand Ethiopian Renaissance Dam on the Blue Nile was inaugurated on 9 September 2025, with an installed capacity of 5,150 MW (Tractebel, 2025). Its reservoir is designed to hold about 74 billion cubic metres (UN News, 2020). Talks in 2020 centred on how fast the reservoir fills and what effect this would have on water supplies in Sudan and Egypt downstream. Egypt’s allocation under the 1959 Nile Waters Agreement is 55.5 km³ a year, and FAO’s AQUASTAT profile calls the Nile Egypt’s main water source. Ethiopia was not a party to the 1959 agreement and disputes its legitimacy.',
-      ru: 'Великая эфиопская плотина возрождения (GERD) на Голубом Ниле открыта 9 сентября 2025 года; её установленная мощность — 5 150 МВт (Tractebel, 2025). Водохранилище рассчитано примерно на 74 млрд кубометров (UN News, 2020). На переговорах в 2020 году обсуждали, как быстро заполняется водохранилище и как это скажется на водоснабжении Судана и Египта ниже по течению. Квота Египта по Соглашению о водах Нила 1959 года составляет 55,5 км³ в год, а в профиле FAO AQUASTAT Нил назван главным источником воды Египта. Эфиопия не была стороной соглашения 1959 года и оспаривает его законность.',
+      en: 'The Grand Ethiopian Renaissance Dam on the Blue Nile was inaugurated on 9 September 2025, with a capacity of 5,150 MW (Tractebel, 2025). Its reservoir is designed to hold about 74 billion cubic metres (UN News, 2020). Talks in 2020 centred on how fast the reservoir fills and what effect this would have on water supplies in Sudan and Egypt downstream. The 1959 agreement was bilateral, between Egypt and Sudan only; it gave Egypt an allocation of 55.5 billion cubic metres a year, and Egyptians rely totally on the Nile for all their needs (Brookings, 2015). Ethiopia was not a party to it. The legal framework regulating the allocation of the Nile’s waters has been dominated by colonial-era agreements, which Sudan and Egypt embrace and the nine upstream states contest (Down To Earth, 2025).',
+      ru: 'Великая эфиопская плотина возрождения (GERD) на Голубом Ниле открыта 9 сентября 2025 года; её мощность — 5 150 МВт (Tractebel, 2025). Водохранилище рассчитано примерно на 74 млрд кубометров (UN News, 2020). На переговорах в 2020 году обсуждали, как быстро заполняется водохранилище и как это скажется на водоснабжении Судана и Египта ниже по течению. Соглашение 1959 года было двусторонним, между Египтом и Суданом; оно дало Египту квоту 55,5 млрд кубометров в год, а египтяне полностью полагаются на Нил во всех своих потребностях (Brookings, 2015). Эфиопия не была его стороной. Правовую основу, регулирующую распределение вод Нила, во многом определяют колониальные соглашения; их поддерживают Судан и Египет, а девять государств верхнего течения оспаривают (Down To Earth, 2025).',
     },
     usedFor: ['a4-water-management'],
     src: [
@@ -94,8 +89,13 @@ export const cases: CaseStudy[] = [
       },
       {
         kind: 'web',
-        title: 'FAO AQUASTAT: Egypt country profile',
-        url: 'https://www.fao.org/fileadmin/user_upload/aquastat/pdf_files/EGY_egypt_cp.pdf',
+        title: 'Brookings Institution: “The limits of the new ‘Nile Agreement’” (2015)',
+        url: 'https://www.brookings.edu/articles/the-limits-of-the-new-nile-agreement',
+      },
+      {
+        kind: 'web',
+        title: 'Down To Earth: “Ethiopia’s mega dam has taken 14 years to build…” (9 September 2025)',
+        url: 'https://www.downtoearth.org.in/amp/story/africa/ethiopias-mega-dam-has-taken-14-years-to-build-what-it-means-for-the-niles-11-river-states-why-its-so-controversial',
       },
     ],
   },
@@ -109,15 +109,20 @@ export const cases: CaseStudy[] = [
     lat: 24.86,
     lng: 67.01,
     facts: {
-      en: 'The Indus Waters Treaty was signed in Karachi on 19 September 1960 by India and Pakistan, with the International Bank for Reconstruction and Development (World Bank) as a party. The eastern rivers (Ravi, Beas and Sutlej) are for India’s unrestricted use. The western rivers (Indus, Jhelum and Chenab) are for Pakistan’s unrestricted use, and India may use them only in limited ways and may store water on them only as the annexes allow. On 23 April 2025 India announced that it was holding the treaty in abeyance, after the Pahalgam attack that killed 26 people. In March 2026 the Indian government said the treaty would remain in abeyance until Pakistan ends its support for cross-border terrorism.',
-      ru: 'Договор о водах Инда был подписан в Карачи 19 сентября 1960 года Индией и Пакистаном; Международный банк реконструкции и развития (Всемирный банк) выступил стороной договора. Восточные реки (Рави, Беас и Сатледж) предназначены для неограниченного использования Индией. Западные реки (Инд, Джелам и Ченаб) — для неограниченного использования Пакистаном, а Индия может использовать их лишь ограниченно и строить на них хранилища только в пределах приложений к договору. 23 апреля 2025 года Индия объявила о приостановке действия договора после теракта в Пахалгаме, в котором погибли 26 человек. В марте 2026 года правительство Индии заявило, что договор останется в приостановке, пока Пакистан не прекратит поддерживать трансграничный терроризм.',
+      en: 'The Indus Waters Treaty was signed in Karachi on 19 September 1960 by India and Pakistan, after negotiations that the World Bank mediated. The treaty gives the eastern rivers (Ravi, Beas and Sutlej) mainly to India and the western rivers (Indus, Jhelum and Chenab) mainly to Pakistan. India may use the western rivers only in limited ways, such as irrigation within set limits and storage up to set capacities. On 23 April 2025, after a terrorist attack near Pahalgam in Kashmir, India announced that it was holding the treaty in abeyance. In March 2026 India’s permanent representative to the UN, P. Harish, said that the treaty would remain in abeyance until Pakistan ends its support for terrorism.',
+      ru: 'Договор о водах Инда был подписан в Карачи 19 сентября 1960 года Индией и Пакистаном после переговоров, которые проводились при посредничестве Всемирного банка. Договор отдаёт восточные реки (Рави, Беас и Сатледж) в основном Индии, а западные (Инд, Джелам и Ченаб) — в основном Пакистану. Индия может использовать западные реки лишь ограниченно, например для орошения в установленных пределах и для хранения воды до установленных объёмов. 23 апреля 2025 года, после теракта близ Пахалгама в Кашмире, Индия объявила, что договор приостановлен (in abeyance). В марте 2026 года постоянный представитель Индии при ООН П. Хариш заявил, что договор останется приостановленным, пока Пакистан не прекратит поддерживать терроризм.',
     },
     usedFor: ['a4-water-management'],
     src: [
       {
         kind: 'web',
-        title: 'Treaty text: UN Treaty Series, registration no. 6032 (volume 419)',
-        url: 'https://treaties.un.org/doc/Publication/UNTS/Volume%20419/volume-419-I-6032-English.pdf',
+        title: 'World Bank Group Timeline: India and Pakistan sign Indus Waters Treaty (19 September 1960)',
+        url: 'https://timeline.worldbank.org/en/timeline/eventdetail/1716',
+      },
+      {
+        kind: 'web',
+        title: 'Wikipedia: Indus Waters Treaty (signing at Karachi, river allocation, limits on Indian use, suspension of 23 April 2025)',
+        url: 'https://en.wikipedia.org/wiki/Indus_Waters_Treaty',
       },
       {
         kind: 'web',
@@ -128,6 +133,11 @@ export const cases: CaseStudy[] = [
         kind: 'web',
         title: 'All India Radio (Akashvani News): India says Indus Waters Treaty to remain in abeyance (March 2026)',
         url: 'https://www.newsonair.gov.in/india-says-indus-waters-treaty-to-remain-in-abeyance-until-pakistan-ends-support-to-terrorism',
+      },
+      {
+        kind: 'web',
+        title: 'Organiser: “India reiterates at UN that Indus Waters Treaty will remain in abeyance until Pakistan ends terror support” (20 March 2026)',
+        url: 'https://organiser.org/2026/03/20/344996/bharat/india-reiterates-at-un-indus-waters-treaty-to-remain-in-abeyance-until-pakistan-ends-terror-support/amp/',
       },
     ],
   },
