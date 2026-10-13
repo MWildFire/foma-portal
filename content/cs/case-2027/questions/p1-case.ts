@@ -1,7 +1,9 @@
 import type { Question } from '../../../../src/contract/types';
 
-// Practice questions for section B. Every scenario below is generic and written inside its own prompt.
-// None of them is the 2027 case study, which is not in the portal yet.
+// Practice questions for section B on the 2027 case study (Generative AI for image creation). Each prompt carries its own
+// short scenario, written in our words, so the practice works without the booklet. The questions are original; the case
+// booklet is the school's file and its text is not copied here. Questions q01, q02, q04, q05, q06, q08 and q13 are used in
+// the timed sets in papers.ts, so keep their ids and marks.
 export const questions: Question[] = [
   {
     id: 'p1-case-q01',
@@ -12,12 +14,12 @@ export const questions: Question[] = [
     marks: 2,
     command: 'Describe',
     prompt: {
-      en: 'A town has road sensors at 40 junctions. Each sensor sends a reading to a central server, and the server sends a new timing plan back to the traffic lights. Describe what latency means in this system, and give one effect that high latency could have on traffic.',
-      ru: 'Город установил датчики на 40 перекрёстках. Каждый датчик отправляет показания на центральный сервер, а сервер присылает новый план работы светофоров обратно. Опишите (Describe), что означает задержка (latency) в этой системе, и назовите один эффект, который высокая задержка может вызвать в движении транспорта.',
+      en: 'A design studio types a short description of a sunset over a desert into a text-to-image model, and the model returns a picture of it. Describe what the model takes as input and what it produces, and give one reason why a studio would use this approach for advertising.',
+      ru: 'Дизайн-студия вводит короткое описание заката над пустыней в модель преобразования текста в изображение, и модель возвращает картинку. Опишите (Describe), что модель получает на входе и что выдаёт на выходе, и назовите одну причину, по которой студии удобно использовать такой подход в рекламе.',
     },
     markscheme: {
-      en: '[1] Latency is the delay between a sensor reading being sent and the new timing plan reaching the lights, that is, the full round trip. [1] High latency means the lights act on old readings, so the timings may not match the traffic (for example, a green light stays on after the queue has gone).',
-      ru: '[1] Задержка (latency) — время между отправкой показаний датчика и получением нового плана светофорами, то есть полный путь туда и обратно. [1] При высокой задержке светофоры действуют по старым показаниям, и план может не соответствовать реальному потоку машин (например, зелёный горит, когда очередь уже рассосалась).',
+      en: '[1] Input: a textual prompt (a description). Output: a new image that matches the description. [1] A valid reason, for example: a studio can turn one detailed brief into several visual options quickly for concept art or an advertising campaign.',
+      ru: '[1] Вход: текстовый запрос (описание). Выход: новое изображение, которое соответствует описанию. [1] Верная причина, например: студия быстро получает несколько визуальных вариантов по одному подробному брифу для концепт-арта или рекламной кампании.',
     },
     origin: 'original',
   },
@@ -30,12 +32,12 @@ export const questions: Question[] = [
     marks: 3,
     command: 'Explain',
     prompt: {
-      en: 'A town plans to grow from 40 to 400 junctions and keep one central server for all of the sensor data. Explain why the central server must be scalable as the number of junctions grows.',
-      ru: 'Город планирует вырасти с 40 до 400 перекрёстков и оставить один центральный сервер для всех данных с датчиков. Объясните (Explain), почему центральный сервер должен быть масштабируемым (scalable) при росте числа перекрёстков.',
+      en: 'A studio uses a class-conditional model that is given the label "landscape". Explain why every output is then a landscape, and why this helps the studio when a client asks for a consistent set of images.',
+      ru: 'Студия использует модель с условием по классу: ей задают метку «пейзаж». Объясните (Explain), почему все результаты становятся пейзажами и почему это помогает студии, когда клиент просит единый набор изображений.',
     },
     markscheme: {
-      en: '[1] Scalability is the ability to handle more load (sensors, readings and requests) without a large drop in speed. [1] Ten times as many junctions means roughly ten times as many readings and requests for the server to process. [1] Without scaling, the server becomes overloaded, so readings and new plans arrive late or are lost; more capacity is needed, for example more servers or a load-balanced cluster.',
-      ru: '[1] Масштабируемость (scalability) — способность справляться с ростом нагрузки (датчиков, показаний и запросов) без заметного падения скорости. [1] В десять раз больше перекрёстков означает примерно в десять раз больше показаний и запросов для обработки на сервере. [1] Без масштабирования сервер перегрузится, и планы придут с задержкой или будут потеряны; нужны дополнительные мощности, например ещё серверы или распределение нагрузки между ними.',
+      en: '[1] The model is conditioned on the class label, so the label is an input that restricts the category of the output. [1] The model produces images of that class only, so the output stays inside the category. [1] Predictable output matches the brief, which supports a consistent set of images for the client.',
+      ru: '[1] Модель обусловлена меткой класса: метка — входные данные, которые ограничивают категорию результата. [1] Модель создаёт изображения только этого класса, поэтому результат остаётся в его рамках. [1] Предсказуемый результат соответствует брифу и помогает получить единый набор изображений для клиента.',
     },
     origin: 'original',
   },
@@ -48,12 +50,12 @@ export const questions: Question[] = [
     marks: 2,
     command: 'Identify',
     prompt: {
-      en: 'A hospital stores patient records on a central server. Nurses open the records on tablets connected to the hospital Wi-Fi. Identify two measures that protect a record while it travels from the server to a tablet, and give a brief reason for each.',
-      ru: 'Больница хранит карточки пациентов на центральном сервере. Медсёстры открывают карточки на планшетах, подключённых к Wi-Fi больницы. Укажите (Identify) две меры, которые защищают карточку во время передачи с сервера на планшет, и коротко объясните каждую.',
+      en: 'A photographer gives a studio a black-and-white photograph and asks for a coloured version of the same scene. Identify the input and the output of this image-to-image translation task.',
+      ru: 'Фотограф передаёт студии чёрно-белую фотографию и просит цветную версию той же сцены. Укажите (Identify) вход и выход этой задачи перевода изображения в изображение (image-to-image translation).',
     },
     markscheme: {
-      en: '[1] Encryption of the connection, for example HTTPS or a VPN tunnel, which scrambles the record so that a listener on the Wi-Fi cannot read it. [1] Authentication of the tablet and the nurse, for example a password with a second factor or a digital certificate, so that only authorised staff can request a record.',
-      ru: '[1] Шифрование соединения, например HTTPS или VPN-туннель: данные перемешаны, и тот, кто слушает Wi-Fi, не может их прочитать. [1] Аутентификация медсестры и планшета, например пароль со вторым фактором или цифровой сертификат, чтобы запрос могли сделать только авторизованные сотрудники.',
+      en: '[1] Input: the black-and-white image, which is the source image. [1] Output: a coloured image of the same scene, with the same content but in colour.',
+      ru: '[1] Вход: чёрно-белое изображение, то есть исходное. [1] Выход: цветное изображение той же сцены с тем же содержанием, но в цвете.',
     },
     origin: 'original',
   },
@@ -66,12 +68,12 @@ export const questions: Question[] = [
     marks: 3,
     command: 'Distinguish',
     prompt: {
-      en: 'The hospital encrypts records in two places: while they travel to the tablets, and while they are stored on the disks of the server. Distinguish between encryption in transit and encryption at rest, and name one threat that each one protects against.',
-      ru: 'Больница шифрует карточки в двух местах: во время передачи на планшеты и во время хранения на дисках сервера. Различите (Distinguish) шифрование при передаче (encryption in transit) и шифрование при хранении (encryption at rest) и назовите по одной угрозе, от которой защищает каждое из них.',
+      en: 'Distinguish between conditional and unconditional image generation. Give one suitable use of each in a design studio.',
+      ru: 'Различите (Distinguish) условную (conditional) и безусловную (unconditional) генерацию изображений. Приведите по одному подходящему применению каждой в дизайн-студии.',
     },
     markscheme: {
-      en: '[1] Encryption in transit protects data while it moves between devices and the server. [1] Encryption at rest protects data that is stored on disks or in backups. [1] A threat for transit (for example, interception on the Wi-Fi network) and a threat for rest (for example, theft of a disk or a backup tape).',
-      ru: '[1] Шифрование при передаче защищает данные, пока они движутся между устройствами и сервером. [1] Шифрование при хранении защищает данные, которые лежат на дисках или в резервных копиях. [1] Угроза для передачи, например перехват в сети Wi-Fi, и угроза для хранения, например кража диска или резервной ленты.',
+      en: '[1] Conditional generation uses a given input, such as a class label, a sketch or a segmentation map, to control the output. [1] Unconditional generation uses no predefined input and relies on patterns learned from the training data. [1] Suitable uses: conditional for a campaign that must match a sketch or a brief; unconditional for exploratory art or for synthetic datasets used to train other models.',
+      ru: '[1] Условная генерация использует заданный вход, например метку класса, эскиз или карту сегментации, чтобы управлять результатом. [1] Безусловная генерация не получает заданных входов и опирается на закономерности, выученные из обучающих данных. [1] Подходящие применения: условная — для кампании, которая должна совпадать с эскизом или брифом; безусловная — для исследовательского искусства или синтетических наборов данных для обучения других моделей.',
     },
     origin: 'original',
   },
@@ -84,12 +86,12 @@ export const questions: Question[] = [
     marks: 4,
     command: 'Explain',
     prompt: {
-      en: 'An online marketplace recommends products with an algorithm trained on past purchases. New sellers and products from small local shops almost never appear in the purchase history. Explain how this could lead to algorithmic bias in the recommendations.',
-      ru: 'Онлайн-маркетплейс рекомендует товары с помощью алгоритма, обученного на прошлых покупках. Новые продавцы и товары небольших местных магазинов почти не попадают в историю покупок. Объясните (Explain), как это может привести к алгоритмической предвзятости (algorithmic bias) в рекомендациях.',
+      en: 'Explain how a diffusion model turns random noise into a new image. Refer to noise injection, the denoiser and the number of steps.',
+      ru: 'Объясните (Explain), как диффузионная модель превращает случайный шум в новое изображение. Упомяните внедрение шума (noise injection), денойзер и число шагов.',
     },
     markscheme: {
-      en: '[1] The model learns from past purchases, so its training data reflects what was bought before. [1] Sellers and products that are rare in the data get fewer recommendations, which is an unfair outcome. [1] Recommended items sell more and gather more clicks, which adds more data about them (a feedback loop). [1] The harm falls on new sellers and small shops, which lose visibility and sales.',
-      ru: '[1] Модель учится на прошлых покупках, поэтому её обучающие данные отражают то, что покупали раньше. [1] Продавцы и товары, которых мало в данных, получают меньше рекомендаций, и это несправедливый результат. [1] Рекомендованные товары продаются лучше и собирают больше кликов, поэтому о них появляется ещё больше данных (петля обратной связи). [1] Вред ложится на новых продавцов и небольшие магазины: они теряют видимость и продажи.',
+      en: '[1] Noise injection: the process starts from random noise. [1] A neural denoiser, typically a CNN, removes part of the noise at each step. [1] Each step uses patterns learned from the training data, so the image becomes more coherent. [1] The steps repeat (Figure 1 of the case shows eight denoising steps), and the noise gradually becomes a recognisable image.',
+      ru: '[1] Внедрение шума (noise injection): процесс начинается со случайного шума. [1] Нейросеть-денойзер, обычно CNN, убирает часть шума на каждом шаге. [1] На каждом шаге используются закономерности, выученные на обучающих данных, поэтому изображение становится связнее. [1] Шаги повторяются (на рисунке 1 в кейсе их восемь), и шум постепенно превращается в узнаваемое изображение.',
     },
     origin: 'original',
   },
@@ -102,12 +104,12 @@ export const questions: Question[] = [
     marks: 3,
     command: 'Suggest',
     prompt: {
-      en: 'The recommendations of an online marketplace rarely show new sellers or small local shops, because the algorithm is trained on past purchases. Suggest two strategies that could reduce this bias, and give a reason for each.',
-      ru: 'Рекомендации онлайн-маркетплейса редко показывают новых продавцов и небольшие местные магазины, потому что алгоритм обучен на прошлых покупках. Предложите (Suggest) две стратегии, которые могут уменьшить эту предвзятость, и объясните причину для каждой.',
+      en: 'A studio finds that its diffusion model takes too long to produce photorealistic images for a campaign. Suggest two changes that reduce the computational cost, and justify one of them by naming the trade-off it creates.',
+      ru: 'Студия заметила, что её диффузионная модель слишком долго создаёт фотореалистичные изображения для кампании. Предложите (Suggest) два изменения, которые снижают вычислительные затраты, и обоснуйте (justify) одно из них, назвав компромисс, который оно создаёт.',
     },
     markscheme: {
-      en: '[1] First strategy, for example balancing or re-weighting the training data so that new sellers are represented. [1] Second strategy, for example regular fairness testing that compares how often each group of sellers is recommended. [1] A reason for each strategy linked to the scenario, for example that a model cannot correct a bias that it never sees in its data.',
-      ru: '[1] Первая стратегия, например балансировка или перевзвешивание обучающих данных, чтобы новые продавцы были представлены. [1] Вторая стратегия, например регулярная проверка справедливости, которая сравнивает, как часто рекомендуется каждая группа продавцов. [1] Причина для каждой стратегии, связанная со сценарием, например: модель не может исправить предвзятость, которую не видит в своих данных.',
+      en: '[1] Suggestion 1, for example: reduce the number of denoising steps or use a faster sampling method. [1] Suggestion 2, for example: use a smaller or optimised denoiser, or produce low-resolution drafts and then upscale them. [1] Justification of one suggestion with its trade-off, for example: fewer steps save time but can reduce detail and realism.',
+      ru: '[1] Предложение 1, например: уменьшить число шагов шумоподавления или использовать более быстрый метод сэмплирования. [1] Предложение 2, например: взять меньший или оптимизированный денойзер либо сначала создавать черновики в низком разрешении и затем увеличивать их. [1] Обоснование одного предложения с его компромиссом, например: меньше шагов экономит время, но может снизить детализацию и реализм.',
     },
     origin: 'original',
   },
@@ -120,12 +122,12 @@ export const questions: Question[] = [
     marks: 2,
     command: 'Outline',
     prompt: {
-      en: 'A smart thermostat sends daily temperature and occupancy data from a home to a cloud server. The account of the household uses a weak password that is also used on other websites. Outline one data-protection risk for the household, and one step the household could take.',
-      ru: 'Умный термостат отправляет данные о температуре и о том, когда люди дома, с домашнего устройства на облачный сервер. Аккаунт семьи защищён слабым паролем, который используется и на других сайтах. Кратко опишите (Outline) один риск для защиты данных семьи и один шаг, который семья может предпринять.',
+      en: 'A model is trained only on photographs of cities. Outline why its outputs are likely to show urban scenes, even when the prompt asks for a forest.',
+      ru: 'Модель обучили только на фотографиях городов. Кратко опишите (Outline), почему её результаты, скорее всего, будут показывать городские сцены, даже если в запросе указан лес.',
     },
     markscheme: {
-      en: '[1] Risk: someone who gets into the account can learn when people are at home, and can change the heating or lock the owner out. [1] Step: use a unique, strong password and turn on two-factor authentication.',
-      ru: '[1] Риск: тот, кто получит доступ к аккаунту, узнает, когда люди бывают дома, и может менять отопление или заблокировать владельца. [1] Шаг: уникальный надёжный пароль и двухфакторная аутентификация.',
+      en: '[1] The model learns its patterns only from the training data, so it has no good model of forests. [1] The training data shapes the generated content, so the outputs tend to show urban scenes whatever the prompt asks for.',
+      ru: '[1] Модель выучивает закономерности только из обучающих данных, поэтому у неё нет хорошего представления о лесах. [1] Обучающие данные задают содержание результата, поэтому изображения, скорее всего, будут городскими независимо от запроса.',
     },
     origin: 'original',
   },
@@ -138,12 +140,12 @@ export const questions: Question[] = [
     marks: 3,
     command: 'Describe',
     prompt: {
-      en: 'A payment company has customers in five countries, but it keeps all transaction records on servers in one country. Describe what data sovereignty means, and give one reason why a government might require records about its citizens to stay inside its borders.',
-      ru: 'Платёжная компания работает с клиентами в пяти странах, но хранит все записи о транзакциях на серверах в одной стране. Опишите (Describe), что означает суверенитет данных (data sovereignty), и приведите одну причину, по которой правительство может требовать, чтобы записи о гражданах страны оставались внутри её границ.',
+      en: 'Describe three ways a studio can check that a set of generated images keeps the same main character across a campaign.',
+      ru: 'Опишите (Describe) три способа, которыми студия может проверить, что набор сгенерированных изображений сохраняет одного и того же главного персонажа во всей кампании.',
     },
     markscheme: {
-      en: '[1] Data sovereignty means that data is governed by the laws of the country where it is collected or stored. [1] Those laws can require personal or financial data to be stored inside the country. [1] A reason, for example protecting the privacy of citizens under local law, or allowing government bodies to access records during an investigation.',
-      ru: '[1] Суверенитет данных означает, что на данные распространяются законы страны, где их собрали или где они хранятся. [1] Эти законы могут требовать хранить персональные или финансовые данные внутри страны. [1] Причина, например: защита приватности граждан по местному законодательству или доступ государственных органов к записям при расследовании.',
+      en: '[1] Embedding-based comparison: each image is turned into an embedding, so images of the same character lie close together and the distance can be measured. [1] A fixed reference: a reference image or a fixed character description is used for every generation, and each output is compared with it. [1] A human check against the brief: the reviewer looks for the same face, clothing and proportions in every image.',
+      ru: '[1] Сравнение на основе эмбеддингов: каждое изображение превращается в эмбеддинг, поэтому изображения одного персонажа лежат близко, и расстояние можно измерить. [1] Фиксированный образец: для каждой генерации используется опорное изображение или фиксированное описание персонажа, и каждый результат сравнивается с ним. [1] Проверка человеком по брифу: рецензент смотрит, сохраняются ли лицо, одежда и пропорции на каждом изображении.',
     },
     origin: 'original',
   },
@@ -156,12 +158,12 @@ export const questions: Question[] = [
     marks: 4,
     command: 'Explain',
     prompt: {
-      en: 'A driverless car sends camera frames to a machine learning model that runs on the car itself. At 50 km/h the car travels about 14 metres every second. Explain why low latency matters more than high throughput when the model decides whether to brake.',
-      ru: 'Камера беспилотного автомобиля отправляет кадры модели машинного обучения, которая работает внутри самого автомобиля. На скорости 50 км/ч машина проезжает около 14 метров в секунду. Объясните (Explain), почему для решения о торможении важнее низкая задержка (latency), чем высокая пропускная способность (throughput).',
+      en: 'Explain how the choice of training dataset can make a generative model’s outputs unfair to some groups of people. Use one example.',
+      ru: 'Объясните (Explain), как выбор обучающего набора данных может сделать результаты генеративной модели несправедливыми для некоторых групп людей. Приведите один пример.',
     },
     markscheme: {
-      en: '[1] Latency is the delay from a camera frame to the braking decision. [1] Braking must start quickly, so a decision that is late by a fraction of a second means the car has already travelled further. [1] For example, a delay of 0.5 seconds means about 7 metres travelled before the brakes start. [1] High throughput (many frames processed each second) does not help when each decision is late, because the car reacts to old information.',
-      ru: '[1] Задержка (latency) — время от кадра камеры до решения о торможении. [1] Тормозить нужно быстро: решение, запоздавшее на долю секунды, означает, что машина успела проехать дальше. [1] Например, задержка 0,5 секунды означает около 7 метров пути до начала торможения. [1] Высокая пропускная способность (throughput), то есть много обработанных кадров в секунду, не помогает, если каждое решение запаздывает: машина реагирует на устаревшие данные.',
+      en: '[1] The model learns the patterns that are most common in its training data. [1] If one group, style or setting is over-represented, the model produces it more often and more accurately. [1] Under-represented groups are then shown less accurately, in stereotyped roles or not at all. [1] A correct example, for instance a dataset in which almost all the people are of one age group, so older people appear rarely or in stereotyped roles.',
+      ru: '[1] Модель выучивает закономерности, которые чаще всего встречаются в её обучающих данных. [1] Если одна группа, стиль или обстановка представлены слишком сильно, модель создаёт их чаще и точнее. [1] Недопредставленные группы выходят менее точными, в стереотипных ролях или вовсе пропадают. [1] Верный пример, например: набор, где почти все люди одной возрастной группы, поэтому пожилые люди появляются редко или в стереотипных ролях.',
     },
     origin: 'original',
   },
@@ -174,12 +176,12 @@ export const questions: Question[] = [
     marks: 3,
     command: 'Construct',
     prompt: {
-      en: 'A bus-priority system at a junction uses a camera to detect an approaching bus. The camera sends the detection to a server, which changes the light so that the bus can pass. Construct a labelled diagram of the data flow from the camera to the traffic light, showing where the data is processed and where it is stored.',
-      ru: 'Система приоритета для автобусов на перекрёстке использует камеру, которая обнаруживает приближающийся автобус. Камера отправляет сигнал на сервер, а сервер переключает светофор, чтобы автобус проехал. Постройте (Construct) подписанную диаграмму потока данных от камеры до светофора и покажите, где данные обрабатываются и где хранятся.',
+      en: 'Construct a three-point checklist that a studio should complete before it uses a new image dataset to train a model.',
+      ru: 'Составьте (Construct) чек-лист из трёх пунктов, который студия должна заполнить, прежде чем использовать новый набор изображений для обучения модели.',
     },
     markscheme: {
-      en: '[1] The camera (or sensor) is the source, and an arrow carries its data to the server (or processing unit). [1] The server processes the detection and sends a command to the traffic-light controller, which changes the light. [1] A storage element (for example a log or a database) is shown, and each arrow is labelled with the data it carries.',
-      ru: '[1] Камера (датчик) — источник данных, стрелка несёт эти данные на сервер (или в блок обработки). [1] Сервер обрабатывает обнаружение и отправляет команду контроллеру светофора, который меняет сигнал. [1] Показано место хранения (например, журнал или база данных), а каждая стрелка подписана данными, которые по ней идут.',
+      en: '[1] Check the copyright and licence of each image, and confirm that the rights holders agreed to its use. [1] Check that the dataset represents the groups, styles and settings the studio will need, and note any gaps (dataset curation and bias mitigation). [1] Keep a dataset log with the sources and the curation decisions, so the studio can disclose how the model was trained.',
+      ru: '[1] Проверить авторские права и лицензию каждого изображения и убедиться, что правообладатели согласились на использование. [1] Проверить, что набор отражает группы, стили и обстановку, которые нужны студии, и отметить пробелы (кураторство набора данных и снижение предвзятости). [1] Вести журнал набора: источники и решения по отбору, чтобы студия могла раскрыть, как обучалась модель.',
     },
     origin: 'original',
   },
@@ -192,12 +194,12 @@ export const questions: Question[] = [
     marks: 4,
     command: 'Compare',
     prompt: {
-      en: 'A city runs two systems: an online voting system for local elections, and a mobile app for paying parking fees. Compare the security and data-protection needs of these two systems. Refer to both systems throughout your answer.',
-      ru: 'Город использует две системы: онлайн-голосование на местных выборах и мобильное приложение для оплаты парковки. Сравните (Compare) потребности этих систем в безопасности и защите данных. Ссылайтесь на обе системы на протяжении всего ответа.',
+      en: 'Compare diffusion models and GANs as tools for generating photorealistic images. Refer to how each is trained, and to one advantage and one disadvantage of each.',
+      ru: 'Сравните (Compare) диффузионные модели и GAN как инструменты для создания фотореалистичных изображений. Укажите, как обучается каждая из них, и назовите по одному преимуществу и недостатку у каждой.',
     },
     markscheme: {
-      en: '[1] Both systems must authenticate users, so that only the right person can vote or pay. [1] Both send data over networks, so both need encryption in transit. [1] Both keep an audit trail (a log of actions) so that actions can be checked later. [1] Both store personal data, so data-protection rules apply to both.',
-      ru: '[1] Обе системы должны проверять личность пользователя, чтобы голосовать или платить мог только нужный человек. [1] Обе передают данные по сети, поэтому обеим нужно шифрование при передаче. [1] В обеих ведётся журнал действий, чтобы их можно было проверить позже. [1] Обе хранят персональные данные, поэтому на них распространяются правила защиты данных.',
+      en: '[1] Training: a diffusion model learns to remove noise step by step; a GAN has a generator and a discriminator trained against each other. [1] Diffusion: advantage is photorealistic results; disadvantage is the significant computational cost of many denoising steps. [1] GAN: advantage is sharp, high-quality images from the adversarial dynamic; disadvantage is unstable training, which can lead to mode collapse. [1] A supported comparison, for example: a studio with enough computing power and a need for photorealism would favour diffusion; a studio that can manage training instability may prefer a GAN for sharp images.',
+      ru: '[1] Обучение: диффузионная модель учится убирать шум шаг за шагом; GAN состоит из генератора и дискриминатора, которые обучаются в состязании. [1] Диффузия: преимущество — фотореалистичные результаты; недостаток — значительные вычислительные затраты на множество шагов шумоподавления. [1] GAN: преимущество — чёткие качественные изображения благодаря состязательной динамике; недостаток — нестабильное обучение, которое может привести к коллапсу мод. [1] Обоснованное сравнение, например: студия с достаточной вычислительной мощностью и потребностью в фотореализме выберет диффузию; студия, которая справляется с нестабильностью обучения, может предпочесть GAN ради чётких изображений.',
     },
     origin: 'original',
   },
@@ -210,12 +212,12 @@ export const questions: Question[] = [
     marks: 4,
     command: 'Discuss',
     prompt: {
-      en: 'A hospital considers sharing de-identified patient records with a research company. Discuss how the main stakeholders, namely patients, doctors and researchers, would view this proposal.',
-      ru: 'Больница рассматривает передачу обезличенных записей пациентов исследовательской компании. Обсудите (Discuss), как основные заинтересованные стороны (stakeholders) — пациенты, врачи и исследователи — оценят это предложение.',
+      en: 'Discuss whether a design studio should tell its clients when an image was made with generative AI. Give arguments for and against, and reach a supported view.',
+      ru: 'Обсудите (Discuss), должна ли дизайн-студия сообщать клиентам, что изображение создано генеративным ИИ. Приведите аргументы за и против и сделайте обоснованный вывод.',
     },
     markscheme: {
-      en: '[1] Patients: concern about privacy and consent, and the risk that records could be linked back to a person. [1] Doctors: possible benefits for future care, but concern about trust and the extra work of managing consent. [1] Researchers: access to larger datasets, which need careful checks on quality and bias. [1] A balanced conclusion that weighs these views, with a clear reason for the position taken.',
-      ru: '[1] Пациенты: тревога за приватность и согласие, а также риск, что данные снова свяжут с конкретным человеком. [1] Врачи: возможная польза для будущего лечения, но беспокойство о доверии и дополнительная работа по учёту согласий. [1] Исследователи: доступ к большим наборам данных, которые требуют проверки качества и предвзятости. [1] Взвешенный вывод, который учитывает эти взгляды, с ясной причиной выбранной позиции.',
+      en: '[1] An argument for disclosure: transparency keeps the trust of clients and the audience and avoids misleading them. [1] An argument against: disclosure may lower the perceived value of the work or cause concern when the image is only a draft. [1] An ethical or legal point, for example: the rights to outputs depend on the training data and the applicable rules, and clear disclosure helps everyone understand the origin. [1] A balanced conclusion, for example: disclosure is needed when the client or the audience could be misled, applied through one clear policy for all clients.',
+      ru: '[1] Аргумент за раскрытие: прозрачность сохраняет доверие клиентов и аудитории и не вводит их в заблуждение. [1] Аргумент против: раскрытие может снизить воспринимаемую ценность работы или вызвать тревогу, если изображение только черновик. [1] Этический или правовой довод, например: права на результаты зависят от обучающих данных и применимых правил, и понятное раскрытие помогает всем понимать происхождение работы. [1] Сбалансированный вывод, например: раскрывать нужно, когда клиент или аудитория могут быть введены в заблуждение, и это закрепляется единым понятным правилом для всех клиентов.',
     },
     origin: 'original',
   },
@@ -228,12 +230,12 @@ export const questions: Question[] = [
     marks: 8,
     command: 'To what extent',
     prompt: {
-      en: 'The traffic system of a city uses a central cloud server to store and analyse all sensor data, and the server sends timing plans to the junctions. The city may move the decision logic into a small computer at each junction instead. To what extent is cloud processing a better choice than local processing at each junction? Consider scalability, latency, data sovereignty, security and cost in your answer.',
-      ru: 'Система управления движением в городе хранит и анализирует все данные датчиков на центральном облачном сервере, а сервер отправляет планы работы светофоров на перекрёстки. Город рассматривает перенос логики решений в небольшой компьютер на каждом перекрёстке. В какой степени (To what extent) облачная обработка лучше локальной обработки на каждом перекрёстке? Учтите в ответе масштабируемость (scalability), задержку (latency), суверенитет данных (data sovereignty), безопасность и стоимость.',
+      en: 'To what extent is a hybrid model a better choice than a single model for a design studio that needs photorealistic images, control over the output attributes and an exact record of how each image was made? Refer to at least two component models.',
+      ru: 'В какой степени гибридная модель лучше одной модели для дизайн-студии, которой нужны фотореалистичные изображения, контроль над свойствами результата и точная запись того, как создано каждое изображение? Опирайтесь минимум на две компонентные модели.',
     },
     markscheme: {
-      en: '[1] Cloud processing scales easily: capacity can be added without buying hardware for every junction. [1] Cloud processing adds latency and depends on the network, so a lost connection can stop time-critical decisions. [1] Local processing gives low latency and keeps working when the network fails. [1] Local processing can keep personal data inside the city, which matters for data-sovereignty rules, while a cloud provider may store data in another country. [1] Security: a central service is a bigger target, but a specialist provider may defend it better than a small local team, and each junction computer needs its own protection and maintenance. [1] Cost: cloud use is paid over time without a large upfront cost, while local computers need an upfront investment and maintenance at every site. [1] A hybrid design (real-time control at the junction, analysis in the cloud) is a trade-off, and a strong answer discusses it. [1] A clear conclusion that states which option the city should choose, or the hybrid, and why, based on the points above.',
-      ru: '[1] Облачная обработка легко масштабируется: мощность можно добавить без покупки оборудования для каждого перекрёстка. [1] Облако добавляет задержку и зависит от сети, поэтому обрыв связи может остановить решения, которые нельзя откладывать. [1] Локальная обработка даёт низкую задержку и продолжает работать, когда сеть недоступна. [1] Локальная обработка может держать персональные данные внутри города, что важно для правил суверенитета данных, а облачный провайдер может хранить данные в другой стране. [1] Безопасность: центральный сервис — более заманчивая цель, но специализированный провайдер может защищать его лучше небольшой команды, а компьютеры на каждом перекрёстке требуют собственной защиты и обслуживания. [1] Стоимость: облако оплачивается по мере использования без больших первоначальных затрат, а локальные компьютеры требуют вложений и обслуживания на каждом объекте. [1] Гибридная схема (управление в реальном времени на перекрёстке, анализ в облаке) — это компромисс (trade-off), и сильный ответ его обсуждает. [1] Ясный вывод о том, какой вариант или гибрид выбрать и почему, опираясь на перечисленные пункты.',
+      en: '[1–2] Benefits: a hybrid combines the strengths of several models, so it can produce higher-quality images with better control over output attributes. [1–2] Specific fit: a flow-based model gives an exact, reversible mapping, so each image can be traced; a VAE latent space allows controlled changes; diffusion or GANs provide photorealism. [1–2] Limitations: combining models adds complexity, training cost and more settings to tune, and the components may still trade off quality against stability or speed. [1–2] A justified conclusion, for example: a hybrid is the better choice if traceability and control matter and the studio can afford the complexity; otherwise a single model may be the better choice.',
+      ru: '[1–2] Преимущества: гибридная модель объединяет сильные стороны нескольких моделей и даёт более качественные изображения с лучшим контролем над свойствами результата. [1–2] Конкретное соответствие: потоковая модель даёт точное обратимое соответствие, поэтому каждое изображение можно проследить; латентное пространство VAE позволяет управляемо менять результат; диффузия или GAN дают фотореализм. [1–2] Ограничения: сочетание моделей усложняет систему, увеличивает стоимость обучения и число настроек, а компоненты всё равно могут требовать компромисса между качеством, стабильностью и скоростью. [1–2] Обоснованный вывод, например: гибридная модель лучше, если важны прослеживаемость и контроль, а студия может позволить себе сложность; иначе одна модель может оказаться лучшим выбором.',
     },
     origin: 'original',
   },
@@ -244,14 +246,14 @@ export const questions: Question[] = [
     paper: 'P1',
     section: 'B',
     marks: 3,
-    command: 'Evaluate',
+    command: 'Explain',
     prompt: {
-      en: 'A payment app uses a machine learning model to block payments that look unusual. The model catches many fraud attempts, but it sometimes blocks honest customers. Evaluate the model by weighing one advantage against one limitation, and then state your conclusion.',
-      ru: 'Платёжное приложение использует модель машинного обучения, которая блокирует необычные платежи. Модель выявляет много мошеннических попыток, но иногда блокирует честных клиентов. Оцените (Evaluate) модель: взвесьте одно преимущество и одно ограничение, а затем сделайте вывод.',
+      en: 'Explain what mode collapse is, and why it reduces the value of a GAN for a studio that needs many different designs.',
+      ru: 'Объясните (Explain), что такое коллапс мод (mode collapse) и почему он снижает ценность GAN для студии, которой нужны разные варианты дизайна.',
     },
     markscheme: {
-      en: '[1] An advantage, for example fewer losses from fraud and a fast reaction without waiting for a person. [1] A limitation, for example false positives that block honest customers, or bias if some groups are blocked more often. [1] A clear conclusion, for example keep the model but send blocked payments to a human check, with the reason given.',
-      ru: '[1] Преимущество, например меньше потерь от мошенничества и быстрая реакция без ожидания человека. [1] Ограничение, например ложные срабатывания, которые блокируют честных клиентов, или предвзятость, если некоторые группы блокируются чаще. [1] Ясный вывод, например: оставить модель, но отправлять заблокированные платежи на проверку человеку, с объяснением причины.',
+      en: '[1] Mode collapse: the generator produces a limited set of variations instead of the full diversity of the training dataset. [1] The studio gets repetitive outputs and cannot offer a real range of concepts. [1] Repetition makes campaigns look alike, so mitigation techniques are needed to restore diversity.',
+      ru: '[1] Коллапс мод: генератор создаёт ограниченный набор вариантов вместо всего разнообразия обучающего набора. [1] Студия получает повторяющиеся результаты и не может предложить реальный выбор концепций. [1] Повторы делают кампании похожими друг на друга, поэтому нужны методы, которые восстанавливают разнообразие.',
     },
     origin: 'original',
   },
@@ -264,13 +266,32 @@ export const questions: Question[] = [
     marks: 3,
     command: 'Justify',
     prompt: {
-      en: 'An online voting system could keep a full audit log that links each vote to the voter. Justify whether the system should keep this link, using the trade-off between checking the results and keeping votes secret.',
-      ru: 'Система онлайн-голосования может хранить полный журнал аудита, который связывает каждый голос с избирателем. Обоснуйте (Justify), стоит ли системе сохранять такую связь, учитывая компромисс (trade-off) между проверкой результатов и тайной голосования.',
+      en: 'A studio must reproduce an exact image months later for a client. Justify whether a flow-based model or a VAE is more suitable for this requirement.',
+      ru: 'Студии через несколько месяцев нужно точно воспроизвести изображение для клиента. Обоснуйте (Justify), какая модель лучше подходит для этого требования: потоковая (flow-based) модель или VAE.',
     },
     markscheme: {
-      en: '[1] An audit log helps check the results and detect fraud, which supports accountability. [1] A log that links each vote to a voter breaks the secrecy of the vote, which is a serious harm. [1] A justified decision, for example keep records that prove a vote was counted without tying it to the voter, so that both needs are met.',
-      ru: '[1] Журнал аудита помогает проверить результаты и выявить мошенничество, что поддерживает подотчётность. [1] Связь каждого голоса с избирателем нарушает тайну голосования, а это серьёзный вред. [1] Обоснованное решение, например: хранить записи, которые подтверждают учёт голоса, без привязки к избирателю, чтобы выполнить обе задачи.',
+      en: '[1] Flow-based model: it learns an exact, reversible mapping between random noise and the image, so the same input gives the same image and the generation can be traced. [1] VAE: it represents images in a latent space that allows flexible exploration, but the case does not describe an exact, reversible mapping, so it does not guarantee the same image. [1] Conclusion: a flow-based model is more suitable when reproducibility and transparency matter.',
+      ru: '[1] Потоковая модель: она выучивает точное обратимое соответствие между случайным шумом и изображением, поэтому тот же вход даёт то же изображение, и генерацию можно проследить. [1] VAE: она представляет изображения в латентном пространстве, что удобно для свободного исследования вариантов, но в кейсе не описано точное обратимое соответствие, поэтому повтор одного и того же изображения не гарантирован. [1] Вывод: потоковая модель лучше, когда важны воспроизводимость и прозрачность.',
     },
+    origin: 'original',
+  },
+  {
+    id: 'p1-case-q16',
+    subject: 'cs',
+    topicIds: ['case-2027'],
+    paper: 'P1',
+    section: 'B',
+    marks: 3,
+    command: 'Calculate',
+    prompt: {
+      en: 'A diffusion model uses 40 denoising steps for each image, and each step takes 1.5 seconds on the studio’s GPU. Calculate the total time, in minutes, to generate 60 images one after another.',
+      ru: 'Диффузионная модель использует 40 шагов шумоподавления на каждое изображение, а каждый шаг занимает 1,5 секунды на видеокарте (GPU) студии. Вычислите (Calculate) общее время в минутах, чтобы последовательно создать 60 изображений.',
+    },
+    markscheme: {
+      en: '[1] Time for one image: 40 × 1.5 = 60 seconds. [1] Time for 60 images: 60 × 60 = 3600 seconds. [1] 3600 ÷ 60 = 60 minutes (answer: 60 minutes).',
+      ru: '[1] Время одного изображения: 40 × 1,5 = 60 секунд. [1] Время 60 изображений: 60 × 60 = 3600 секунд. [1] 3600 ÷ 60 = 60 минут (ответ: 60 минут).',
+    },
+    answer: '60',
     origin: 'original',
   },
 ];
