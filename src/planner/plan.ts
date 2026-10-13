@@ -469,6 +469,7 @@ export function buildPlan(input: PlannerInput): Plan {
     const active = activeOn(date);
     const blocks: PlanBlock[] = [];
     let planned = 0;
+    let moved = 0;                  // exact minutes taken over from earlier days (blocks that carry them are marked "moved")
 
     let recallBlock: PlanBlock | null = null;
     if (base.recall > 0 && active.length > 0) {
@@ -502,6 +503,7 @@ export function buildPlan(input: PlannerInput): Plan {
         const finishedToday = state.blocks[item.id] !== undefined;
         if ((!eve || sits(item.entry)) && (finishedToday || flex >= need)) {
           items.push(item);
+          moved += ext(item.entry.minutes);
           const swapped = Math.min(flex, need);   // the paper takes the place of regular work
           flex -= swapped;
           if (!eve) debt.set(subject, (debt.get(subject) ?? 0) + swapped);
@@ -537,6 +539,7 @@ export function buildPlan(input: PlannerInput): Plan {
           slot.extra = units * STEP;
           debt.set(slot.subject, (debt.get(slot.subject) ?? 0) - slot.extra);
           planned += slot.extra;
+          moved += slot.extra;
         }
       }
     }
@@ -576,6 +579,7 @@ export function buildPlan(input: PlannerInput): Plan {
       baseCapacity: base.baseCapacity,
       minutes: blocks.reduce((sum, block) => sum + block.minutes, 0),
       doneMinutes: blocks.reduce((sum, block) => sum + (block.status === 'done' ? block.minutes : 0), 0),
+      moved,
       focus: base.focus,
       exams: base.exams,
       eveOf: base.eve,

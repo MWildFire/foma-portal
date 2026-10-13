@@ -30,10 +30,14 @@ test('unfinished work moves to the nearest day with that subject’s quota', () 
   const first = dayOf(result, '2026-10-18');
   assert.equal(minutesOf(blocksOf(first, 'fr')), 45 + 35, 'the quota plus the moved 35 minutes');
   assert.equal(movedMinutes(first) >= 35, true);
+  assert.equal(first.moved, 35, 'the day says exactly how much moved onto it');
   assert.ok(blocksOf(first, 'fr').some(b => b.status === 'moved'));
   assert.ok(blocksOf(first, 'geo').every(b => b.status === 'planned'), 'other subjects have no debt');
   assert.deepEqual(result.unplaced, []);
-  for (const day of result.days.filter(d => d.date < '2026-10-18')) assert.equal(movedMinutes(day), 0, day.date);
+  for (const day of result.days.filter(d => d.date < '2026-10-18')) {
+    assert.equal(movedMinutes(day), 0, day.date);
+    assert.equal(day.moved, 0, day.date);
+  }
 });
 
 test('a day may exceed its capacity by at most 15% when it takes over moved work', () => {
@@ -44,6 +48,8 @@ test('a day may exceed its capacity by at most 15% when it takes over moved work
     if (day.blocks.length === 0) continue;
     assert.ok(day.minutes <= Math.floor(1.15 * day.capacity), `${day.date}: ${day.minutes} > 115% of ${day.capacity}`);
     assert.ok(day.minutes >= day.capacity, `${day.date}: moved work only adds minutes`);
+    assert.ok(day.moved >= day.minutes - day.capacity, `${day.date}: every minute over capacity is moved work`);
+    assert.ok(day.moved <= movedMinutes(day), `${day.date}: the blocks marked "moved" hold all of the moved minutes`);
   }
   assert.ok(sum(result.days.map(d => movedMinutes(d))) > 0);
   assert.ok(result.days[0].minutes > result.days[0].capacity, 'today takes as much as the 15% allows');
@@ -129,6 +135,7 @@ test('a missed timed paper moves to a later day that has room for it', () => {
   const moved = eng.find(b => b.kind === 'timed');
   assert.deepEqual([moved.id, moved.status, moved.movedFrom, moved.paper, moved.minutes], ['m:2026-10-23/eng/P1', 'moved', '2026-10-23', 'P1', 45]);
   assert.equal(minutesOf(eng), 105, 'the paper takes the place of regular work, the day stays as long as planned');
+  assert.equal(dayOf(result, '2026-10-28').moved, 45, 'the moved paper counts as moved work on its new day');
   // Maths P3 (45 min) finds no day with enough regular maths work before the last maths paper.
   assert.deepEqual(result.unplaced.map(u => [u.subject, u.timed.map(t => `${t.paper}@${t.from}`)]), [['math', ['P3@2026-10-23']]]);
   // A moved timed paper is never put on the eve of a different paper.

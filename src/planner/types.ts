@@ -145,6 +145,7 @@ export interface PlanDay {
   baseCapacity: number;           // minutes in plan-quotas.json
   minutes: number;                // sum of the blocks
   doneMinutes: number;
+  moved: number;                  // minutes of work moved here from earlier days (debt and timed papers)
   focus: string | null;
   exams: ExamPaper[];
   eveOf: ExamPaper[];             // exams that sit the next day
