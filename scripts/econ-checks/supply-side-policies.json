@@ -1,0 +1,5 @@
+{
+  "checks": [
+    { "question": "econ-supply-side-policies-01", "fn": "ratio", "args": { "a": 150, "b": 600 } }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "checks": [
+    { "question": "econ-monopoly-and-natural-monopoly-01", "fn": "linear_price", "args": { "a": 60, "b": 2, "c": 20, "d": 2 } },
+    { "question": "econ-monopoly-and-natural-monopoly-02", "fn": "profit", "args": { "p": 40, "q": 10, "total_cost": 260 } },
+    { "question": "econ-monopoly-and-natural-monopoly-03", "fn": "total_revenue", "args": { "p": 36, "q": 12 } },
+    { "question": "econ-monopoly-and-natural-monopoly-04", "fn": "triangle", "args": { "base": 10, "height": 20 } }
+  ]
+}

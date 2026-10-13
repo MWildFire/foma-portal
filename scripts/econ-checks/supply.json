@@ -1,0 +1,5 @@
+{
+  "checks": [
+    { "question": "econ-supply-01", "fn": "pct_change", "args": { "old": 1200, "new": 1500 } }
+  ]
+}

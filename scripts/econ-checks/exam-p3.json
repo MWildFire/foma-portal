@@ -1,0 +1,18 @@
+{
+  "checks": [
+    { "question": "p3-set-01", "fn": "rectangle", "args": { "base": 35, "height": 10 }, "expect_in": ["markscheme.en", "markscheme.ru"] },
+    { "question": "p3-set-01", "fn": "tax_revenue", "args": { "t": 10, "q": 30 }, "expect_in": ["markscheme.en", "markscheme.ru"] },
+    { "question": "p3-set-01", "fn": "pct_change", "args": { "old": 35, "new": 30 }, "expect_in": ["markscheme.en", "markscheme.ru"] },
+    { "question": "p3-set-02", "fn": "tax_revenue", "args": { "t": 100, "q": 0.3 }, "expect_in": ["markscheme.en", "markscheme.ru"] },
+    { "question": "p3-set-02", "fn": "pct_change", "args": { "old": 0.5, "new": 0.3 }, "expect_in": ["markscheme.en", "markscheme.ru"] },
+    { "question": "p3-set-02", "fn": "pct_change", "args": { "old": 400, "new": 500 }, "expect_in": ["markscheme.en", "markscheme.ru"] },
+    { "question": "p3-set-03", "fn": "multiplier", "args": { "mps": 0.2, "mpt": 0.1, "mpm": 0.1 }, "expect_in": ["markscheme.en", "markscheme.ru"] },
+    { "question": "p3-set-03", "fn": "rectangle", "args": { "base": 2.5, "height": 120 }, "expect_in": ["markscheme.en", "markscheme.ru"] },
+    { "question": "p3-set-03", "fn": "output_gap", "args": { "actual": 9700, "potential": 10000 }, "expect_in": ["markscheme.en", "markscheme.ru"] },
+    { "question": "p3-set-04", "fn": "pes", "args": { "q1": 400, "q2": 500, "p1": 0.36, "p2": 0.42 }, "expect_in": ["markscheme.en", "markscheme.ru"] },
+    { "question": "p3-set-04", "fn": "pct_change", "args": { "old": 400, "new": 500 }, "expect_in": ["markscheme.en", "markscheme.ru"] },
+    { "question": "p3-set-04", "fn": "pct_change", "args": { "old": 0.36, "new": 0.42 }, "expect_in": ["markscheme.en", "markscheme.ru"] },
+    { "question": "p3-set-04", "fn": "rectangle", "args": { "base": 0.06, "height": 500 }, "expect_in": ["markscheme.en", "markscheme.ru"] },
+    { "question": "p3-set-04", "fn": "rectangle", "args": { "base": 500, "height": 0.5 }, "expect_in": ["markscheme.en", "markscheme.ru"] }
+  ]
+}

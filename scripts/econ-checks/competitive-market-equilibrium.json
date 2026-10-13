@@ -1,0 +1,8 @@
+{
+  "checks": [
+    { "question": "econ-competitive-market-equilibrium-01", "fn": "linear_price", "args": { "a": 100, "b": 4, "c": 10, "d": 3 } },
+    { "question": "econ-competitive-market-equilibrium-02", "fn": "excess_demand", "args": { "a": 100, "b": 4, "c": 10, "d": 3, "p": 12.5 } },
+    { "question": "econ-competitive-market-equilibrium-03", "fn": "triangle", "args": { "base": 25, "height": 13.5 } },
+    { "question": "econ-competitive-market-equilibrium-04", "fn": "profit", "args": { "p": 12.4, "q": 500, "total_cost": 5487.5 } }
+  ]
+}

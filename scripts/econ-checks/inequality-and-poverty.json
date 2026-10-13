@@ -1,0 +1,6 @@
+{
+  "checks": [
+    { "question": "econ-inequality-and-poverty-01", "fn": "gini", "args": { "area_a": 2000, "area_b": 3000 } },
+    { "question": "econ-inequality-and-poverty-02", "fn": "gini", "args": { "area_a": 1500, "area_b": 3500 } }
+  ]
+}

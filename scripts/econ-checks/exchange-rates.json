@@ -1,0 +1,9 @@
+{
+  "checks": [
+    { "question": "econ-exchange-rates-01", "fn": "convert", "args": { "amount": 500, "rate": 3.6725 } },
+    { "question": "econ-exchange-rates-02", "fn": "pct_change", "args": { "old": 3.6725, "new": 3.30 } },
+    { "question": "econ-exchange-rates-03", "fn": "convert", "args": { "amount": 500, "rate": 3.30 } },
+    { "question": "econ-exchange-rates-04", "fn": "ratio", "args": { "a": 4407, "b": 5000 } },
+    { "question": "econ-exchange-rates-05", "fn": "convert", "args": { "amount": 320, "rate": 4.70 } }
+  ]
+}

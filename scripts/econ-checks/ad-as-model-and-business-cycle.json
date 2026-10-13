@@ -1,0 +1,6 @@
+{
+  "checks": [
+    { "question": "econ-ad-as-model-and-business-cycle-01", "fn": "output_gap", "args": { "actual": 470, "potential": 500 } },
+    { "question": "econ-ad-as-model-and-business-cycle-02", "fn": "ratio", "args": { "a": 30, "b": 2.5 } }
+  ]
+}

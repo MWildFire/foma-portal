@@ -1,0 +1,6 @@
+{
+  "checks": [
+    { "question": "econ-benefits-of-trade-01", "fn": "ratio", "args": { "a": 150, "b": 60 } },
+    { "question": "econ-benefits-of-trade-02", "fn": "ratio", "args": { "a": 60, "b": 40 } }
+  ]
+}

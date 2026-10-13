@@ -1,0 +1,6 @@
+{
+  "checks": [
+    { "question": "econ-oligopoly-and-monopolistic-competition-01", "fn": "profit", "args": { "p": 12, "q": 300, "total_cost": 2400 } },
+    { "question": "econ-oligopoly-and-monopolistic-competition-02", "fn": "total_revenue", "args": { "p": 10, "q": 450 } }
+  ]
+}

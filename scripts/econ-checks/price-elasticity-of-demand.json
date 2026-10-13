@@ -1,0 +1,9 @@
+{
+  "checks": [
+    { "question": "econ-price-elasticity-of-demand-01", "fn": "ped", "args": { "q1": 500, "q2": 400, "p1": 4.0, "p2": 4.4 } },
+    { "question": "econ-price-elasticity-of-demand-02", "fn": "ped", "args": { "q1": 800, "q2": 760, "p1": 2.0, "p2": 2.5 } },
+    { "question": "econ-price-elasticity-of-demand-03", "fn": "total_revenue", "args": { "p": 5.0, "q": 380 } },
+    { "question": "econ-price-elasticity-of-demand-04", "fn": "pct_change", "args": { "old": 1200, "new": 1050 } },
+    { "question": "econ-price-elasticity-of-demand-05", "fn": "ped", "args": { "q1": 120, "q2": 150, "p1": 9.0, "p2": 8.1 } }
+  ]
+}

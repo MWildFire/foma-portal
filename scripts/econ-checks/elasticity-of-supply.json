@@ -1,0 +1,7 @@
+{
+  "checks": [
+    { "question": "econ-elasticity-of-supply-01", "fn": "pes", "args": { "q1": 120, "q2": 180, "p1": 40, "p2": 50 } },
+    { "question": "econ-elasticity-of-supply-02", "fn": "pes", "args": { "q1": 400, "q2": 420, "p1": 20, "p2": 25 } },
+    { "question": "econ-elasticity-of-supply-03", "fn": "pes", "args": { "q1": 500, "q2": 650, "p1": 100, "p2": 110 } }
+  ]
+}

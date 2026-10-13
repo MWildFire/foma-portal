@@ -1,0 +1,9 @@
+{
+  "checks": [
+    { "question": "econ-multiplier-01", "fn": "mps", "args": { "mpc": 0.75 } },
+    { "question": "econ-multiplier-02", "fn": "multiplier", "args": { "mps": 0.2, "mpt": 0.1, "mpm": 0.2 } },
+    { "question": "econ-multiplier-03", "fn": "multiplier_from_mpc", "args": { "mpc": 0.6 } },
+    { "question": "econ-multiplier-04", "fn": "ratio", "args": { "a": 40, "b": 0.4 } },
+    { "question": "econ-multiplier-05", "fn": "ratio", "args": { "a": 15, "b": 0.25 } }
+  ]
+}

@@ -1,0 +1,6 @@
+{
+  "checks": [
+    { "question": "econ-fiscal-policy-01", "fn": "budget_balance", "args": { "tax_revenue": 540, "spending": 610 } },
+    { "question": "econ-fiscal-policy-02", "fn": "multiplier", "args": { "mps": 0.2, "mpt": 0.25, "mpm": 0.15 } }
+  ]
+}
