@@ -33,7 +33,7 @@ const topic: TopicMeta = {
     'core-loss-and-damage',
     'core-common-but-differentiated-responsibilities',
   ],
-  questionIds: ['core-2-3-a1', 'core-2-3-a2', 'core-2-3-a3', 'core-2-3-a4', 'core-2-3-a5', 'core-2-3-b1'],
+  questionIds: ['core-2-3-b1', 'core-2-3-a1', 'core-2-3-a2', 'core-2-3-a3', 'core-2-3-a5'],
   caseIds: ['core-2-3-case-netherlands-delta-works', 'core-2-3-case-dubai-solar-park', 'core-2-3-case-pakistan-floods'],
   sources: [
     { kind: 'ib-guide', title: 'Geography guide (2017), core 2.3' },

@@ -33,7 +33,7 @@ const topic: TopicMeta = {
     'core-water-food-energy-nexus',
     'core-development-induced-displacement',
   ],
-  questionIds: ['core-3-2-a1', 'core-3-2-a2', 'core-3-2-a3', 'core-3-2-a4', 'core-3-2-a5', 'core-3-2-b1'],
+  questionIds: ['core-3-2-a1', 'core-3-2-b1', 'core-3-2-a2', 'core-3-2-a3', 'core-3-2-a4', 'core-3-2-a5'],
   caseIds: ['core-3-2-case-aral-sea', 'core-3-2-case-colorado-river', 'core-3-2-case-ogoniland'],
   sims: ['geo.core-water-food-energy'],
   sources: [

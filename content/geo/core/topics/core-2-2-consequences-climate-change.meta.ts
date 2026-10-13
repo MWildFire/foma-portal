@@ -33,7 +33,7 @@ const topic: TopicMeta = {
     'core-resilience',
     'core-adaptive-capacity',
   ],
-  questionIds: ['core-2-2-a1', 'core-2-2-a2', 'core-2-2-a3', 'core-2-2-a4', 'core-2-2-a5', 'core-2-2-b1'],
+  questionIds: ['core-2-2-b1', 'core-2-2-a1', 'core-2-2-a2', 'core-2-2-a4', 'core-2-2-a5'],
   caseIds: ['core-2-2-case-bangladesh', 'core-2-2-case-tuvalu', 'core-2-2-case-australia'],
   sources: [
     { kind: 'ib-guide', title: 'Geography guide (2017), core 2.2' },

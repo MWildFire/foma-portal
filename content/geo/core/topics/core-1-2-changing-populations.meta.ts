@@ -34,7 +34,7 @@ const topic: TopicMeta = {
     'core-brain-drain',
   ],
   sims: ['geo.core-push-pull'],
-  questionIds: ['core-1-2-a1', 'core-1-2-a2', 'core-1-2-a3', 'core-1-2-a4', 'core-1-2-a5', 'core-1-2-b1'],
+  questionIds: ['core-1-2-b1', 'core-1-2-a1', 'core-1-2-a2', 'core-1-2-a5'],
   caseIds: ['core-1-2-case-lagos', 'core-1-2-case-shenzhen', 'core-1-2-case-dubai'],
   sources: [
     { kind: 'ib-guide', title: 'Geography guide (2017), core 1.2' },

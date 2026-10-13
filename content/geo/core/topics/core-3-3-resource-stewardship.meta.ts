@@ -33,7 +33,7 @@ const topic: TopicMeta = {
     'core-desalination',
     'core-multilateral-environmental-agreement',
   ],
-  questionIds: ['core-3-3-a1', 'core-3-3-a2', 'core-3-3-a3', 'core-3-3-a4', 'core-3-3-a5', 'core-3-3-b1'],
+  questionIds: ['core-3-3-b1', 'core-3-3-a2', 'core-3-3-a3', 'core-3-3-a5'],
   caseIds: ['core-3-3-case-peru-anchoveta', 'core-3-3-case-bhutan-forest', 'core-3-3-case-cape-town'],
   sources: [
     { kind: 'ib-guide', title: 'Geography guide (2017), core 3.3' },
