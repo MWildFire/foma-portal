@@ -1,6 +1,6 @@
 import type { Question } from '../../../../src/contract/types';
 
-// EX-3: P3 policy papers 01 to 04 (Economics HL mock, policy paper, 40 marks, 60 minutes).
+// EX-3 practice: P3 policy sets 01 to 04 (40 marks, 60 minutes each; longer than the school mock in p3-mock.ts).
 // Tasks (a) to (d) are worth 30 marks and task (e) is worth 10 marks; the markscheme has one line per mark.
 // All numbers are invented and labelled as illustrative data. The places (Ardmoor, Lorania, Tarnovia, Halvary) are fictional.
 // The data are written as bullet lists because the portal renders no tables.

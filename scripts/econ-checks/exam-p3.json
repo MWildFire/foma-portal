@@ -13,6 +13,13 @@
     { "question": "p3-set-04", "fn": "pct_change", "args": { "old": 400, "new": 500 }, "expect_in": ["markscheme.en", "markscheme.ru"] },
     { "question": "p3-set-04", "fn": "pct_change", "args": { "old": 0.36, "new": 0.42 }, "expect_in": ["markscheme.en", "markscheme.ru"] },
     { "question": "p3-set-04", "fn": "rectangle", "args": { "base": 0.06, "height": 500 }, "expect_in": ["markscheme.en", "markscheme.ru"] },
-    { "question": "p3-set-04", "fn": "rectangle", "args": { "base": 500, "height": 0.5 }, "expect_in": ["markscheme.en", "markscheme.ru"] }
+    { "question": "p3-set-04", "fn": "rectangle", "args": { "base": 500, "height": 0.5 }, "expect_in": ["markscheme.en", "markscheme.ru"] },
+    { "question": "p3-mock-01", "fn": "difference", "args": { "a": 16, "b": 12 }, "expect_in": ["markscheme.en", "markscheme.ru"] },
+    { "question": "p3-mock-01", "fn": "pct_change", "args": { "old": 14, "new": 12 }, "signed": true, "expect_in": ["markscheme.en", "markscheme.ru"] },
+    { "question": "p3-mock-01", "fn": "total_revenue", "args": { "p": 3, "q": 14 }, "expect_in": ["markscheme.en", "markscheme.ru"] },
+    { "question": "p3-mock-01", "fn": "total_revenue", "args": { "p": 2.5, "q": 12 }, "expect_in": ["markscheme.en", "markscheme.ru"] },
+    { "question": "p3-mock-01", "fn": "ped", "args": { "q1": 14, "q2": 16, "p1": 3.0, "p2": 3.5 }, "expect_in": ["markscheme.en", "markscheme.ru"] },
+    { "question": "p3-mock-01", "fn": "rectangle", "args": { "base": 450, "height": 4 }, "expect_in": ["markscheme.en", "markscheme.ru"] },
+    { "question": "p3-mock-01", "fn": "rectangle", "args": { "base": 6, "height": 0.5 }, "expect_in": ["markscheme.en", "markscheme.ru"] }
   ]
 }
