@@ -150,5 +150,5 @@
 
 /* A control that the keyboard scrolls into view must not end up under the sticky clock. */
 html:has(.study-clock) {
-  scroll-padding-top: 8.5rem;
+  scroll-padding-top: 10rem;
 }

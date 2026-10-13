@@ -259,12 +259,27 @@ export function isWarning(timer: TimerState): boolean {
 // A running countdown survives a reload (a phone that discards a background tab, a pulled-down page). It is saved
 // when it starts, pauses or ends, as the moment it ends, and read again when the page opens.
 
-/** A saved countdown older than this is forgotten. */
+/** A saved countdown that is running or paused is forgotten after this long. */
 export const TIMER_KEEP_MS = 8 * 60 * 60 * 1000;
+/** A countdown that has ended is shown as "Time is up" for this long (a reload right after the end), then forgotten,
+ *  so a paper started tomorrow does not open as finished. */
+export const DONE_KEEP_MS = 15 * 60 * 1000;
 
 // One saved countdown per timed set.
 export function timerStorageKey(subject: string, setId: string): string {
   return `foma-portal-timer-v1:${subject}/${setId}`;
+}
+
+// What is worth saving about a countdown: its state and its end moment. Two countdowns with the same signature need
+// no second write, so a countdown just read from storage is not written back (that would renew its time to live).
+export function timerSignature(timer: TimerState): string {
+  return `${timer.status}|${timer.endsAt}`;
+}
+
+// Leaving a timed set, or choosing another one, is a decision to stop that paper: the key of the countdown to forget,
+// or null when the student stays on the same set (or was not in a set).
+export function timerKeyToForget(subject: string, activeSetId: string, nextSetId: string): string | null {
+  return activeSetId && activeSetId !== nextSetId ? timerStorageKey(subject, activeSetId) : null;
 }
 
 export function timerToStored(timer: TimerState, now: number): string {
@@ -289,17 +304,25 @@ export function timerFromStored(raw: string | null | undefined, totalMs: number,
   if (saved.status !== 'running' && saved.status !== 'paused' && saved.status !== 'done') return null;
   if (!finite(saved.totalMs) || saved.totalMs !== totalMs || !finite(saved.savedAt)) return null;
   if (now - saved.savedAt > TIMER_KEEP_MS || saved.savedAt - now > 5 * 60_000) return null;
-  if (saved.status === 'done') return { status: 'done', totalMs, remainingMs: 0, endsAt: null };
+  if (saved.status === 'done') {
+    return now - saved.savedAt <= DONE_KEEP_MS ? { status: 'done', totalMs, remainingMs: 0, endsAt: null } : null;
+  }
   if (!finite(saved.remainingMs) || saved.remainingMs < 0 || saved.remainingMs > totalMs) return null;
   if (saved.status === 'paused') return { status: 'paused', totalMs, remainingMs: saved.remainingMs, endsAt: null };
   if (!finite(saved.endsAt) || saved.endsAt - now > totalMs + 1000) return null;
-  const remainingMs = Math.max(0, saved.endsAt - now);
-  if (remainingMs === 0) return { status: 'done', totalMs, remainingMs: 0, endsAt: null };
-  return { status: 'running', totalMs, remainingMs, endsAt: saved.endsAt };
+  const left = saved.endsAt - now;
+  if (left <= 0) return -left <= DONE_KEEP_MS ? { status: 'done', totalMs, remainingMs: 0, endsAt: null } : null;
+  return { status: 'running', totalMs, remainingMs: left, endsAt: saved.endsAt };
 }
 
 // ---------------------------------------------------------------------------------------------------------------
 // Ratings and the mistake log
+
+// The "to redo" list is worked out again when this changes: the subject, the filters, or the timed set (going into or
+// out of timed mode). A rating given in between does not change it, so the cards stay where they are.
+export function redoSnapshotKey(subject: string, filters: PracticeFilters, activeSetId: string): string {
+  return [subject, filters.paper, filters.topic, filters.command, activeSetId].join('|');
+}
 
 // The key in storage.questions.
 export function ratingKey(subject: string, questionId: string): string {

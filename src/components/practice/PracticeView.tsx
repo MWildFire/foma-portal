@@ -13,8 +13,9 @@ import {
   rateQuestion,
   ratingCounts,
   ratingKey,
+  redoSnapshotKey,
   splitRedo,
-  timerStorageKey,
+  timerKeyToForget,
   withChosen,
   withFilter,
   withoutFilters,
@@ -93,7 +94,7 @@ export function PracticeView({ pack }: { pack: SubjectPack }) {
   // mode. A rating given in between moves a question the next time, so the cards do not jump under the student's
   // finger while they read a markscheme. (The list is kept in state, not in a memo: a memo may be thrown away.)
   const progress = state.questions;
-  const snapshotKey = `${subject}|${filters.paper}|${filters.topic}|${filters.command}|${active?.id ?? ''}`;
+  const snapshotKey = redoSnapshotKey(subject, filters, active?.id ?? '');
   const [snapshot, setSnapshot] = useState(() => ({ key: snapshotKey, ids: wrongIds(subject, filtered, progress) }));
   let redoIds = snapshot.ids;
   if (snapshot.key !== snapshotKey) {
@@ -121,7 +122,8 @@ export function PracticeView({ pack }: { pack: SubjectPack }) {
   const activeId = active?.id ?? '';
   const chooseSet = useCallback((id: string): void => {
     // Leaving a set or choosing another one is a decision to stop that paper: its saved countdown is forgotten.
-    if (activeId && activeId !== id) clearStoredTimer(timerStorageKey(subject, activeId));
+    const forget = timerKeyToForget(subject, activeId, id);
+    if (forget) clearStoredTimer(forget);
     setParams(previous => {
       const next = new URLSearchParams(previous);
       if (id) next.set('set', id);

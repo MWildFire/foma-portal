@@ -31,6 +31,7 @@
     },
     "missing": "These questions are not in the question bank yet: {{ids}}.",
     "leave": "Leave timed mode",
+    "leaveConfirm": "The clock is running. If you leave timed mode, the time is lost. Leave anyway?",
     "list": "Questions of this set ({{n}})",
     "emptySet": "This set has no questions yet.",
     "clock": "Time left",

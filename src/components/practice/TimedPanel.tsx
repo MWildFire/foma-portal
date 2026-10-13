@@ -6,6 +6,7 @@ import { ROUTES } from '../../config/routes';
 import { PAPER_IDS, allowedMinutes, extraMinutes, timerStorageKey, type TimedSetInfo } from '../../lib/practice';
 import { pickText } from '../../lib/text';
 import { Clock } from './Clock';
+import { readStoredTimer } from './timerStorage';
 import { FilterSelect } from './fields';
 import '../content/ui.css';
 import './fields.css';
@@ -36,6 +37,15 @@ export function TimedPanel({ subject, sets, active, requestedId, extraTime, lang
   const headingId = useId();
   const allowed = active ? allowedMinutes(active.minutes, extraTime) : 0;
   const papers = PAPER_IDS.filter(paper => sets.some(set => set.paper === paper));
+
+  // Leaving timed mode throws the countdown away. If it is running (it is saved when it starts), ask first.
+  const leave = (): void => {
+    if (active) {
+      const saved = readStoredTimer(timerStorageKey(subject, active.id), allowed * 60_000);
+      if (saved?.status === 'running' && !window.confirm(t('timed.leaveConfirm'))) return;
+    }
+    onSelect('');
+  };
 
   return (
     <>
@@ -101,7 +111,7 @@ export function TimedPanel({ subject, sets, active, requestedId, extraTime, lang
             ) : null}
 
             <p className="mb-0 mt-3">
-              <button type="button" className="foma-btn" onClick={() => onSelect('')}>{t('timed.leave')}</button>
+              <button type="button" className="foma-btn" onClick={leave}>{t('timed.leave')}</button>
             </p>
           </div>
         ) : null}

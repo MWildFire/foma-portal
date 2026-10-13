@@ -34,13 +34,11 @@ export function FilterSelect({ label, value, onChange, children, selectRef }: {
   );
 }
 
-export function SearchField({ label, value, placeholder, onChange, inputRef }: {
+export function SearchField({ label, value, placeholder, onChange }: {
   label: string;
   value: string;
   placeholder?: string;
   onChange: (value: string) => void;
-  /** To put the focus on the box from outside. */
-  inputRef?: RefObject<HTMLInputElement>;
 }) {
   const id = useId();
   return (
@@ -48,7 +46,6 @@ export function SearchField({ label, value, placeholder, onChange, inputRef }: {
       <label htmlFor={id} className="study-field__label">{label}</label>
       <input
         id={id}
-        ref={inputRef}
         type="search"
         className="study-input"
         value={value}

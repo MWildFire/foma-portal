@@ -1,4 +1,5 @@
 import { useMemo } from 'react';
+import { useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { usePageTitle } from '../components/content/usePageTitle';
 import { useScrollToTopOnArrival } from '../components/practice/pageScroll';
@@ -14,7 +15,9 @@ export function SimsPage() {
   }, []);
 
   usePageTitle(t('title'), t('brand', { ns: 'common' }));
-  useScrollToTopOnArrival('sims');
+  // A link to one simulation (?sim=) scrolls that simulation into view; the page must not pull it back to the top.
+  const { search } = useLocation();
+  useScrollToTopOnArrival('sims', !new URLSearchParams(search).has('sim'));
 
   return <SimsView packs={packs} />;
 }

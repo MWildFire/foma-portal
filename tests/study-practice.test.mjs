@@ -1,6 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {
+  DONE_KEEP_MS,
   NO_FILTERS,
   TIMER_KEEP_MS,
   WARN_SECONDS,
@@ -19,6 +20,7 @@ import {
   questionsOfSet,
   rateQuestion,
   ratingCounts,
+  redoSnapshotKey,
   ratingKey,
   resetTimer,
   secondsLeft,
@@ -26,6 +28,8 @@ import {
   startTimer,
   tickTimer,
   timerFromStored,
+  timerKeyToForget,
+  timerSignature,
   timerStorageKey,
   timerToStored,
   withChosen,
@@ -292,6 +296,71 @@ test('a finished countdown comes back as finished', () => {
   const done = tickTimer(startTimer(createTimer(45), T0), T0 + 50 * 60_000);
   assert.equal(done.status, 'done');
   assert.deepEqual(timerFromStored(store(done, T0 + 50 * 60_000), TOTAL, T0 + 51 * 60_000), { status: 'done', totalMs: TOTAL, remainingMs: 0, endsAt: null });
+});
+
+test('a finished countdown is shown as finished for 15 minutes, then forgotten', () => {
+  assert.equal(DONE_KEEP_MS, 15 * 60_000);
+  const done = tickTimer(startTimer(createTimer(45), T0), T0 + 50 * 60_000);
+  const raw = store(done, T0 + 50 * 60_000);
+  assert.equal(timerFromStored(raw, TOTAL, T0 + 50 * 60_000 + DONE_KEEP_MS)?.status, 'done');
+  assert.equal(timerFromStored(raw, TOTAL, T0 + 50 * 60_000 + DONE_KEEP_MS + 1), null);
+  assert.equal(timerFromStored(raw, TOTAL, T0 + 7 * 60 * 60_000), null, 'seven hours later a new paper opens fresh');
+});
+
+test('a running countdown that ended long ago is forgotten, one that ended a moment ago is finished', () => {
+  const raw = store(startTimer(createTimer(45), T0));
+  const end = T0 + TOTAL;
+  assert.equal(timerFromStored(raw, TOTAL, end + 60_000)?.status, 'done');
+  assert.equal(timerFromStored(raw, TOTAL, end + DONE_KEEP_MS)?.status, 'done');
+  assert.equal(timerFromStored(raw, TOTAL, end + DONE_KEEP_MS + 1), null);
+});
+
+test('a paused countdown is kept for the full eight hours', () => {
+  const paused = pauseTimer(startTimer(createTimer(45), T0), T0 + 60_000);
+  const raw = store(paused, T0 + 60_000);
+  assert.equal(timerFromStored(raw, TOTAL, T0 + 60_000 + 7 * 60 * 60_000)?.status, 'paused');
+  assert.equal(timerFromStored(raw, TOTAL, T0 + 60_000 + TIMER_KEEP_MS + 1), null);
+});
+
+test('the signature changes when the countdown starts, pauses, resumes, ends or is reset, not while it only ticks', () => {
+  const idle = createTimer(45);
+  const running = startTimer(idle, T0);
+  const ticked = tickTimer(running, T0 + 5_000);
+  const paused = pauseTimer(ticked, T0 + 6_000);
+  const resumed = startTimer(paused, T0 + 20_000);
+  const done = tickTimer(resumed, T0 + 20_000 + 50 * 60_000);
+  const signatures = [idle, running, paused, resumed, done].map(timerSignature);
+  assert.equal(new Set(signatures).size, 5, signatures.join(' / '));
+  assert.equal(timerSignature(ticked), timerSignature(running), 'a tick changes the display, not what is saved');
+  assert.equal(timerSignature(resetTimer(done)), timerSignature(idle));
+});
+
+test('a countdown read from storage has the signature it was saved with, so it is not written back', () => {
+  for (const timer of [startTimer(createTimer(45), T0), pauseTimer(startTimer(createTimer(45), T0), T0 + 30_000)]) {
+    const back = timerFromStored(store(timer, T0 + 30_000), TOTAL, T0 + 40_000);
+    assert.equal(timerSignature(back), timerSignature(timer));
+  }
+});
+
+test('leaving a set or choosing another one forgets the saved countdown of the old set only', () => {
+  assert.equal(timerKeyToForget('geo', 'set-a', ''), timerStorageKey('geo', 'set-a'));
+  assert.equal(timerKeyToForget('geo', 'set-a', 'set-b'), timerStorageKey('geo', 'set-a'));
+  assert.equal(timerKeyToForget('geo', 'set-a', 'set-a'), null);
+  assert.equal(timerKeyToForget('geo', '', 'set-a'), null);
+  assert.equal(timerKeyToForget('geo', '', ''), null);
+});
+
+test('the redo list is worked out again for another subject, filter or timed set, not after a rating', () => {
+  const key = (filters, set = '', subject = 'geo') => redoSnapshotKey(subject, { ...NO_FILTERS, ...filters }, set);
+  const base = key({});
+  assert.equal(key({}), base, 'the same page gives the same key');
+  assert.notEqual(key({ paper: 'P1' }), base);
+  assert.notEqual(key({ topic: 't1' }), base);
+  assert.notEqual(key({ command: 'explain' }), base);
+  assert.notEqual(key({}, 'set-a'), base, 'going into timed mode');
+  assert.notEqual(key({}, 'set-a'), key({}, 'set-b'));
+  assert.notEqual(key({}, '', 'math'), base);
+  assert.notEqual(key({ paper: 'P1', topic: '' }), key({ paper: '', topic: 'P1' }), 'a value in another filter is another page');
 });
 
 test('a countdown is not restored when it cannot be trusted', () => {
