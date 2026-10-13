@@ -1,0 +1,101 @@
+## Big idea
+
+Graph algorithms turn network questions into fixed sequences of steps. Vertex degrees decide whether a route can use every edge once. A spanning tree connects every vertex at the least total weight. The postman and travelling salesman problems add the cost of repeated edges, or bound the best tour between two values.
+
+## Explanation
+
+A walk is a sequence of vertices joined by edges, and it may repeat both vertices and edges. A trail is a walk with no repeated edge. A path is a walk with no repeated vertex. A circuit is a closed trail that starts and ends at the same vertex, and a cycle is a closed path.
+
+A connected graph has an <Term id="eulerian-circuit"/> when every vertex has even degree. If exactly two vertices have odd degree, the graph has an Eulerian trail that is not closed: it starts at one odd vertex and ends at the other. The degrees always add up to twice the number of edges, so the number of odd vertices is always even:
+
+<Formula id="handshaking-degree-sum"/>
+
+A Hamiltonian cycle visits every vertex exactly once and returns to its starting vertex. A Hamiltonian path also visits every vertex exactly once, but it does not return. Unlike the Eulerian case, there is no quick degree test for it, so you find one by inspection or by trying routes.
+
+<Callout kind="define">A spanning tree is a subgraph that contains every vertex, is connected and has no cycles. A spanning tree of a graph with $n$ vertices has $n - 1$ edges.</Callout>
+
+<Formula id="spanning-tree-edge-count"/>
+
+A <Term id="minimum-spanning-tree"/> has the least total weight of all spanning trees. Kruskal's algorithm sorts the edges by weight and goes through them in order, accepting each edge that does not close a cycle, until $n - 1$ edges are accepted. Prim's algorithm starts at any vertex and repeatedly adds the cheapest edge that joins the tree to a vertex outside it. Both give a minimum spanning tree with the same total weight, although they may add the edges in a different order.
+
+The <Term id="chinese-postman-problem"/> asks for a closed route of least total weight that traverses every edge at least once. If every vertex has even degree, one pass along each edge is enough, and the answer is the total weight. Otherwise some edges must be repeated: with two odd vertices, repeat the shortest route between them; with four odd vertices, there are three ways to pair them, and you choose the pairing with the least total of shortest-route lengths. A shortest route can be shorter than the direct edge, so compare the routes through other vertices too. The length of the route is
+
+<Formula id="postman-route-length"/>
+
+The <Term id="travelling-salesman-problem"/> asks for a Hamiltonian cycle of least total weight in a complete weighted graph. Exact answers are hard to find by hand, so exams ask for two bounds. The nearest-neighbour algorithm starts at a vertex, always moves to the nearest unvisited vertex and finally returns to the start; its total is an upper bound, because the tour is a Hamiltonian cycle. The deleted-vertex algorithm deletes one vertex, finds a minimum spanning tree of the others and adds the two cheapest edges from the deleted vertex; the total is a lower bound:
+
+<Formula id="deleted-vertex-bound"/>
+
+<Callout kind="gdc">Write the weights in a table and keep a running total as you go. A GDC helps only with arithmetic, for example with a table of values for the weights; check each total by hand.</Callout>
+
+## Worked example
+
+The sites A to F are joined by cables. The lengths in km are AB 4, AC 3, BC 6, BD 5, CD 8, CE 9, DE 7, DF 10 and EF 2.
+
+<Steps>
+<Step>Kruskal: sort the cables by length: EF 2, AC 3, AB 4, BD 5, BC 6, DE 7, CD 8, CE 9, DF 10.</Step>
+<Step>Accept EF 2, AC 3, AB 4 and BD 5. None of them closes a cycle.</Step>
+<Step>Reject BC 6. A, B and C are already joined by AB and AC, so this cable would close a cycle.</Step>
+<Step>Accept DE 7. The tree now has 5 edges for 6 vertices, so it is complete.</Step>
+<Step>Total length of the tree: 2 + 3 + 4 + 5 + 7 = 21 km.</Step>
+<Step>Prim from A adds AC 3, AB 4, BD 5, DE 7 and EF 2, in that order. The total is again 21 km, so the two algorithms agree.</Step>
+</Steps>
+
+Graph P has the sites A to E and the streets AB 5, AC 6, AD 3, AE 12, BC 1, BE 7 and CE 2, with lengths in km.
+
+<Steps>
+<Step>Degrees: A 4, B 3, C 3, D 1 and E 3. The odd vertices are B, C, D and E, so some streets must be walked twice.</Step>
+<Step>Pair the odd vertices in three ways, with the shortest route for each pair: BD + CE gives 8 + 2 = 10; BC + DE gives 1 + 11 = 12; BE + CD gives 3 + 9 = 12.</Step>
+<Step>The smallest pairing is BD + CE, so the route repeats BA, AD and CE.</Step>
+<Step>Route length: total weight 36 plus repeated weight 10 gives 46 km.</Step>
+</Steps>
+
+The complete graph K has the lengths AB 1, AC 2, AD 8, AE 5, BC 10, BD 16, BE 11, CD 7, CE 13 and DE 9.
+
+<Steps>
+<Step>Nearest neighbour from A: A to B (1), B to C (10), C to D (7), D to E (9) and E back to A (5). The total, which is an upper bound, is 32.</Step>
+<Step>Deleted vertex A: the minimum spanning tree of B, C, D and E uses CD 7, DE 9 and BC 10, with total 26. Adding the two cheapest edges from A, AB 1 and AC 2, gives the lower bound 29.</Step>
+<Step>So the minimum weight of a Hamiltonian cycle lies between 29 and 32.</Step>
+</Steps>
+
+<Reveal title="What an exhaustive check shows">There are 12 different Hamiltonian cycles in K. The least one is A–B–E–D–C–A, with weight 30, which lies inside the interval. In the exam you give the bounds, not the exact minimum.</Reveal>
+
+## Visual
+
+<Sim id="math.mst-lab"/>
+
+The first lab runs Kruskal and Prim on the network of the first worked example. Step through the edges to see which are accepted and which are rejected, and how the running total grows.
+
+<Sim id="math.route-lab"/>
+
+The second lab draws the postman route on graph P for each pairing of the odd vertices, and the nearest-neighbour tour with its deleted-vertex bound on the complete graph K. Change the start vertex or the deleted vertex and watch the bounds change.
+
+## How it is examined
+
+Find and Determine ask for a final answer, while Use and Show that ask for the method. Write each step of the algorithm: the edges in the order you consider them, which ones you accept and reject, and the running total. In a postman question, name the odd vertices and the pairing you chose, because marks are given for the shortest-route lengths. A travelling salesman question asks for an upper bound and a lower bound, so give both and write the interval. Comment and Explain questions need a reason: if the bounds differ, say that they do not give the exact minimum.
+
+<Callout kind="exam">Count the odd vertices before anything else. Their number decides whether repeated edges are needed and how many pairings you must compare.</Callout>
+
+## Common mistakes
+
+<Callout kind="mistake">Accepting an edge that closes a cycle in Kruskal's algorithm, or stopping before $n - 1$ edges are accepted.</Callout>
+
+- Using the direct edge between two odd vertices when a shorter route exists. If the direct edge BC has length 10 but B–A–C has length 9, the route through A is the one to repeat.
+- Forgetting the repeated edges: the route length is the total weight plus the pairing cost, not the pairing cost alone.
+- Calling the nearest-neighbour total the minimum. It is only an upper bound, and another start vertex can give a different total.
+
+## Check yourself
+
+<Question id="q-3-16-01"/>
+
+<Question id="q-3-16-02"/>
+
+<Question id="q-3-16-03"/>
+
+## Summary
+
+- A closed trail that uses every edge once exists when every vertex has even degree; exactly two odd vertices give an open Eulerian trail.
+- Kruskal's algorithm accepts the cheapest edges that create no cycle until $n - 1$ are accepted; Prim's algorithm grows one tree from a vertex.
+- A minimum spanning tree has the least total weight among all spanning trees.
+- The Chinese postman route is the total weight plus the cheapest pairing of odd vertices, measured by shortest routes.
+- For the travelling salesman problem, the nearest-neighbour total is an upper bound and the deleted-vertex total is a lower bound.

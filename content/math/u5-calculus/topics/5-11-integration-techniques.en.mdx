@@ -1,0 +1,68 @@
+## Big idea
+
+Integration reverses differentiation. Standard integrals cover powers, $\dfrac{1}{x}$, $\sin x$, $\cos x$, $\dfrac{1}{\cos^{2} x}$ and $e^{x}$. For harder integrands, a substitution turns a composite function into a simpler one that you can integrate.
+
+## Explanation
+
+Integration reverses differentiation. An indefinite integral is an antiderivative plus the <Term id="constant-of-integration"/>, while a definite integral has no constant, because the limits remove it.
+
+For any rational $n$ except $-1$, the power rule applies:
+
+<Formula id="integral-power-rule"/>
+
+For $n = -1$ the result is $\int \dfrac{1}{x}\,dx = \ln|x| + C$. The other standard results are $\int \sin x\,dx = -\cos x + C$, $\int \cos x\,dx = \sin x + C$, $\int \dfrac{1}{\cos^{2} x}\,dx = \tan x + C$ and $\int e^{x}\,dx = e^{x} + C$. For simple integrands use <Term id="integration-by-inspection"/>: find a function whose derivative is the integrand, then correct the constant factor.
+
+When the integrand is a function of $g(x)$ multiplied by $g'(x)$, use <Term id="integration-by-substitution"/>: put $u = g(x)$, so that $g'(x)\,dx = du$.
+
+<Formula id="integral-substitution-rule"/>
+
+<Callout kind="define">Integration by substitution: for an integrand of the form $f(g(x))\,g'(x)$, put $u = g(x)$ and replace $g'(x)\,dx$ by $du$, which gives $\int f(u)\,du$.</Callout>
+
+For a definite integral the limits must change with the variable, so the limits in $u$ come from the limits in $x$:
+
+<Formula id="definite-integral-substitution"/>
+
+<Callout kind="gdc">Use the GDC's definite integral function to evaluate $\int_a^b f(x)\,dx$ numerically, and compare it with your exact answer. A match confirms the substitution; a mismatch usually means the limits were not changed.</Callout>
+
+## Worked example
+
+<Steps>
+<Step>Indefinite integral: let $u = 3x^{2} + 1$, so $du = 6x\,dx$. The integrand $6x(3x^{2}+1)^{4}$ becomes $u^{4}\,du$, and $\int 6x(3x^{2}+1)^{4}\,dx = \dfrac{u^{5}}{5} + C = \dfrac{(3x^{2}+1)^{5}}{5} + C$.</Step>
+<Step>Definite integral: $\int_{0}^{1} 6x(3x^{2}+1)^{4}\,dx$. The limits change to $u$: $x = 0$ gives $u = 1$ and $x = 1$ gives $u = 4$. So the value is $\left[\dfrac{u^{5}}{5}\right]_{1}^{4} = \dfrac{4^{5} - 1^{5}}{5} = 204.6$ (1 decimal place).</Step>
+<Step>Definite integral: $\int_{1}^{2} x(x^{2}-1)^{3}\,dx$. Let $u = x^{2} - 1$, so $du = 2x\,dx$ and $x\,dx = \dfrac{1}{2}du$. The limits become $u = 0$ and $u = 3$, so the value is $\dfrac{1}{2}\left[\dfrac{u^{4}}{4}\right]_{0}^{3} = \dfrac{81}{8} = 10.125$ (3 decimal places).</Step>
+</Steps>
+
+## Visual
+
+<Callout kind="tip">Think of substitution as a relabelling of the same area. Shade the region under $y = 6x(3x^{2}+1)^{4}$ between the two $x$ limits. After the substitution the same shaded area is found by integrating in $u$ between the new limits: the region does not change, only its labels do.</Callout>
+
+## How it is examined
+
+Calculate, Find and Show that questions give marks for the method and for the answer. For a substitution, the marks are for choosing $u$ and finding $du$ in terms of $dx$ (M1), for changing the limits (M1), for the integral in $u$ (A1) and for the final value to the required accuracy (A1). Show that questions need the substitution written out, so that the result is derived rather than asserted.
+
+<Callout kind="exam">When a question says use the substitution, state $du$ in terms of $dx$ and the new limits before you integrate. Marks are lost when the limits are left in $x$.</Callout>
+
+## Common mistakes
+
+<Callout kind="mistake">Integrating in $u$ between the original $x$ limits, for example $\int_{0}^{1} u^{4}\,du$ when $u$ runs from 1 to 4.</Callout>
+
+- Forgetting the $dx$ factor: the integral in $u$ equals the original only after $du = 6x\,dx$ has been used.
+- Missing a constant factor: $\int 2x(x^{2}+1)^{3}\,dx$ differs from $\int x(x^{2}+1)^{3}\,dx$ by a factor of 2.
+- Writing $\int x^{-1}\,dx = \dfrac{x^{0}}{0}$; for $n = -1$ the answer is $\ln|x| + C$.
+
+## Check yourself
+
+<Question id="q-5-11-01"/>
+
+<Question id="q-5-11-02"/>
+
+<Question id="q-5-11-03"/>
+
+## Summary
+
+- Integration reverses differentiation; the constant $C$ belongs to indefinite integrals only.
+- $\int x^{n}\,dx = \dfrac{x^{n+1}}{n+1} + C$ for $n \neq -1$, and $\int \dfrac{1}{x}\,dx = \ln|x| + C$.
+- $\int \sin x\,dx = -\cos x + C$, $\int \cos x\,dx = \sin x + C$, $\int \dfrac{1}{\cos^{2} x}\,dx = \tan x + C$ and $\int e^{x}\,dx = e^{x} + C$.
+- For $\int f(g(x))\,g'(x)\,dx$, substitute $u = g(x)$ to get $\int f(u)\,du$.
+- In a definite integral, change the limits to values of $u$, or substitute back before using the original limits.
+- Check a value by differentiating, or against the GDC's definite integral.

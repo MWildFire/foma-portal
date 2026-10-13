@@ -1,0 +1,66 @@
+## Big idea
+
+The gradient tells you which way a graph is heading. Where $f'(x) > 0$ the graph rises, where $f'(x) < 0$ it falls, and where $f'(x) = 0$ it is momentarily level. Increasing and decreasing are properties of intervals, not of single points.
+
+## Explanation
+
+If $f'(x) > 0$ for every $x$ in an interval, then $f$ is <Term id="increasing-function-derivative"/> on that interval. If $f'(x) < 0$ for every $x$ in an interval, $f$ is <Term id="decreasing-function-derivative"/> there. Use <Formula id="increasing-test-derivative"/> and <Formula id="decreasing-test-derivative"/> as the tests.
+
+For a polynomial gradient, the sign of $f'(x)$ can change only where $f'(x) = 0$, so solve that equation first. Record the result as a <Term id="sign-diagram-derivative"/>: mark the zeros on a number line, test one value in each section, and write the sign of $f'(x)$ above it.
+
+The condition is about the sign of the gradient, not of the function: a function can be increasing while its values are still negative.
+
+An isolated point where $f'(x) = 0$ does not break an increasing interval. For $f(x) = x^3$, $f'(0) = 0$, yet $f$ is increasing on the whole real line, because $f'(x) > 0$ everywhere except at $x = 0$.
+
+<Callout kind="define">Increasing on an interval: $f'(x) > 0$ for every $x$ in the interval, except possibly at isolated points where $f'(x) = 0$. Decreasing is defined in the same way, with $f'(x) < 0$.</Callout>
+
+<Callout kind="gdc">Draw the graph of the gradient function, found with a numerical derivative or entered directly. Intervals where the graph of $f'(x)$ lies above the $x$-axis give increasing, and intervals where it lies below give decreasing. Check the sign at a few points in a table of values.</Callout>
+
+## Worked example
+
+Let $f(x) = x^3 - 6x^2 + 9x + 1$, so $f'(x) = 3x^2 - 12x + 9 = 3(x - 1)(x - 3)$.
+
+<Steps>
+<Step>$f'(x) = 0$ when $x = 1$ or $x = 3$. These are the only points where the sign of $f'(x)$ can change.</Step>
+<Step>Test $x = 0$: $f'(0) = 9 > 0$, so $f$ is increasing for $x < 1$.</Step>
+<Step>Test $x = 2$: $f'(2) = -3 < 0$, so $f$ is decreasing for $1 < x < 3$.</Step>
+<Step>Test $x = 4$: $f'(4) = 9 > 0$, so $f$ is increasing for $x > 3$.</Step>
+</Steps>
+
+<Reveal title="Why one test value per interval?">Between two consecutive zeros the sign of $f'(x)$ cannot change, so every value in that interval gives the same sign. One test value settles the whole interval.</Reveal>
+
+## Visual
+
+<Sim id="math.tangent-optimisation-lab"/>
+
+The number line under the curve shows the sign of $f'(x)$: green where $f$ is increasing and red where it is decreasing. Move $x$ across $x = 1$ and $x = 3$ and watch the sign change and the label switch. The orange tangent tilts up when $f'(x) > 0$ and down when $f'(x) < 0$.
+
+## How it is examined
+
+Write down questions ask for the zeros of $f'(x)$ with little or no working. Find and Justify questions ask for intervals, and the marks split between the method (solving $f'(x) = 0$ and testing signs), the intervals themselves, and the reason, which is a sentence that cites the sign of $f'(x)$. Show that questions need the factorised form of $f'(x)$ written out.
+
+<Callout kind="exam">Give each interval with both ends and the correct inequality signs, and say which sign of $f'(x)$ you used. A bare list of numbers earns no reasoning mark.</Callout>
+
+## Common mistakes
+
+<Callout kind="mistake">Using the sign of $f(x)$ instead of the sign of $f'(x)$. A function can be increasing while it is still negative.</Callout>
+
+- Writing the decreasing interval as $x > 1$ or $x < 3$. Decreasing on $1 < x < 3$ needs both conditions.
+- Stating that $f$ is increasing at $x = 2$. Increasing and decreasing describe intervals, not single points.
+- Ignoring the domain in the question when giving intervals, for example reporting $x < 1$ when the domain is $-1 \le x \le 5$.
+
+## Check yourself
+
+<Question id="q-5-2-01"/>
+
+<Question id="q-5-2-02"/>
+
+<Question id="q-5-2-03"/>
+
+## Summary
+
+- The sign of $f'(x)$ gives the direction: positive means increasing, negative means decreasing.
+- Find the zeros of $f'(x)$ first; they divide the number line into sections.
+- Test one value in each section, because the sign holds throughout the section.
+- Increasing and decreasing describe intervals; isolated zeros of $f'(x)$ do not break an increasing interval.
+- Give intervals with the correct inequality signs, and say which sign of $f'(x)$ you used.

@@ -1,0 +1,84 @@
+## Big idea
+
+The unit circle has radius 1, so the point at angle $\theta$ from the positive $x$-axis is $(\cos\theta, \sin\theta)$. This one picture gives the sign of sine, cosine and tangent in every quadrant, the identity $\sin^2\theta + \cos^2\theta = 1$, and the link $\tan\theta = \dfrac{\sin\theta}{\cos\theta}$. Trigonometric equations then have every solution in an interval, not only the one a calculator shows first.
+
+## Explanation
+
+Put the centre of the circle at the origin and measure $\theta$ anticlockwise from the positive $x$-axis. The ray at angle $\theta$ meets the <Term id="unit-circle"/> at a point $P$. Because $OP = 1$, the coordinates of $P$ are $(\cos\theta, \sin\theta)$: the cosine is the $x$-coordinate and the sine is the $y$-coordinate.
+
+<Callout kind="define">Unit circle: the circle of radius 1 centred at the origin. The point at angle $\theta$ from the positive $x$-axis is $(\cos\theta, \sin\theta)$.</Callout>
+
+<Formula id="unit-circle-point"/>
+
+Since $OP = 1$, Pythagoras' theorem gives $x^2 + y^2 = 1$, which is the identity for every angle:
+
+$$
+\sin^{2}\theta + \cos^{2}\theta = 1
+$$
+
+<Formula id="pythagorean-identity"/>
+
+The point $P$ lies in one of four quadrants, and that fixes the sign of each ratio. <Term id="quadrant-sign-rule"/> In quadrant I all three ratios are positive; in II only sine; in III only tangent; in IV only cosine.
+
+The tangent is the ratio of the two coordinates, so it is undefined when $\cos\theta = 0$, that is at $90^\circ$ and $270^\circ$:
+
+$$
+\tan\theta = \frac{\sin\theta}{\cos\theta}
+$$
+
+<Formula id="tan-identity"/>
+
+Reflecting $P$ in the $y$-axis gives the angle $180^\circ - \theta$ with the same sine. This symmetry produces the <Term id="ambiguous-case-sine-rule"/>: when the sine rule gives $\sin B$, both $B$ and $180^\circ - B$ satisfy it, and each may or may not give a valid triangle.
+
+<Formula id="sine-rule-ambiguous-case"/>
+
+To solve a trigonometric equation in an interval, sketch both sides as functions of $x$ and find their intersection points inside the interval. For a value between $-1$ and $1$, sine or cosine takes that value twice in each full period, so an interval often holds several solutions.
+
+<Callout kind="gdc">On the GDC, enter the two sides as functions of $x$, set the window to the given interval, and read every intersection point inside it. Check that the angle mode matches the units of the interval.</Callout>
+
+## Worked example
+
+<Steps>
+<Step>Point at $\theta = 120^\circ$: on the unit circle, $\cos 120^\circ = -0.500$ and $\sin 120^\circ = 0.866$ (to 3 decimal places). So $\tan 120^\circ = \dfrac{0.866}{-0.500} = -1.732$ (to 3 decimal places).</Step>
+<Step>Given $\cos\theta = 0.6$ with $\theta$ in quadrant IV, $\sin^2\theta = 1 - 0.36 = 0.64$. Sine is negative in quadrant IV, so $\sin\theta = -0.800$ (to 3 decimal places).</Step>
+<Step>Triangle with $a = 8$ cm, $b = 10$ cm and $A = 40^\circ$: $\sin B = \dfrac{10 \sin 40^\circ}{8} = 0.803$ (to 3 decimal places). So $B = 53.5^\circ$ or $B = 126.5^\circ$ (to 1 decimal place). Both are possible, because $40^\circ + 53.5^\circ < 180^\circ$ and $40^\circ + 126.5^\circ < 180^\circ$.</Step>
+</Steps>
+
+<Reveal title="Why does a second angle appear?">Sine takes the same value at an angle and at its supplement. For $B = 53.5^\circ$, the supplement $180^\circ - 53.5^\circ = 126.5^\circ$ has the same sine, so both are candidates for angle $B$.</Reveal>
+
+## Visual
+
+<Sim id="math.unit-circle-lab"/>
+
+Move the slider through the four quadrants. The signs of $\cos\theta$, $\sin\theta$ and $\tan\theta$ change exactly where the table says, and the tangent becomes undefined at $90^\circ$ and $270^\circ$.
+
+## How it is examined
+
+Find, Solve and Show that questions in this topic give marks for the method and for every solution. For an equation in an interval, list each solution inside the interval and check its quadrant before choosing a sign. In the ambiguous case, the reasoning mark needs a written check that each angle gives a valid triangle, so state it.
+
+<Callout kind="exam">Solve on the interval the question names, not on a default range. Give each solution to the accuracy asked, and say whether a second triangle is possible.</Callout>
+
+## Common mistakes
+
+<Callout kind="mistake">Giving only the calculator value of $\arcsin$ or $\arccos$ and missing the second solution in the interval. For example, $\sin x = 0.5$ has $x = 30^\circ$ and $x = 150^\circ$ in $0^\circ \le x \le 360^\circ$.</Callout>
+
+- Choosing the wrong sign. In quadrant II $\sin\theta$ is positive, so $\cos\theta = -0.6$ gives $\sin\theta = +0.8$, not $-0.8$.
+- Accepting the second triangle of the ambiguous case without checking that the angle sum is less than $180^\circ$.
+- Writing $\tan 90^\circ = 0$. Since $\cos 90^\circ = 0$, the tangent is undefined there.
+
+## Check yourself
+
+<Question id="q-3-8-01"/>
+
+<Question id="q-3-8-02"/>
+
+<Question id="q-3-8-03"/>
+
+## Summary
+
+- On the unit circle the point at angle $\theta$ is $(\cos\theta, \sin\theta)$.
+- $\sin^2\theta + \cos^2\theta = 1$ for every angle $\theta$.
+- $\tan\theta = \dfrac{\sin\theta}{\cos\theta}$, and it is undefined where $\cos\theta = 0$.
+- Signs by quadrant: all positive in I, sine in II, tangent in III, cosine in IV.
+- $\sin\theta = \sin(180^\circ - \theta)$, so the sine rule can give two triangles in the ambiguous case.
+- For an equation on an interval, find every solution inside the interval and check each one.

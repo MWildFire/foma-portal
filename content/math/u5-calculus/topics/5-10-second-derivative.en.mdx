@@ -1,0 +1,67 @@
+## Big idea
+
+The second derivative measures how the gradient itself changes. Its sign tells you whether a curve bends upwards or downwards, and at a stationary point it tells you whether that point is a maximum or a minimum.
+
+## Explanation
+
+The derivative $f'(x)$ is the gradient function. Differentiate it once more and you get the <Term id="second-derivative"/>, written $f''(x)$, or $\dfrac{d^{2}y}{dx^{2}}$ when $y = f(x)$.
+
+<Formula id="second-derivative-notation"/>
+
+Because $f''(x)$ is the rate of change of the gradient, its sign describes the bend of the curve, its <Term id="concavity"/>: the curve is concave up where $f''(x) > 0$, so the gradient is increasing, and concave down where $f''(x) < 0$, so the gradient is decreasing.
+
+At a stationary point $x = a$, where $f'(a) = 0$, the <Term id="second-derivative-test"/> decides the type of point from the sign of $f''(a)$.
+
+<Formula id="second-derivative-test-rule"/>
+
+<Callout kind="define">Second derivative test: at a point where $f'(a) = 0$, a positive $f''(a)$ gives a local minimum, a negative $f''(a)$ gives a local maximum, and $f''(a) = 0$ settles nothing.</Callout>
+
+<Callout kind="gdc">Use the GDC's derivative-at-a-point function on $f'(x)$ to evaluate $f''(a)$, then read its sign. Check the result against a table of values of $f'(x)$ either side of $a$: the gradient changes from positive to negative at a maximum and from negative to positive at a minimum.</Callout>
+
+For a power of $x$ the second derivative follows a short rule: each differentiation lowers the power by one.
+
+<Formula id="second-derivative-power"/>
+
+## Worked example
+
+<Steps>
+<Step>Take $f(x) = x^{3} - 6x^{2} + 9x + 1$. Then $f'(x) = 3x^{2} - 12x + 9 = 3(x - 1)(x - 3)$, so the stationary points are at $x = 1$ and $x = 3$.</Step>
+<Step>Differentiate again: $f''(x) = 6x - 12$. At $x = 1$, $f''(1) = -6 < 0$, so there is a local maximum with $f(1) = 5$. At $x = 3$, $f''(3) = 6 > 0$, so there is a local minimum with $f(3) = 1$.</Step>
+<Step>For $g(x) = x e^{-x}$: $g'(x) = (1 - x)e^{-x}$, so $x = 1$ is stationary. Then $g''(1) = -e^{-1} = -0.368$ (3 decimal places), so this is a local maximum with $g(1) = e^{-1} = 0.368$ (3 decimal places).</Step>
+</Steps>
+
+<Reveal title="Why the test can fail">For $f(x) = x^{4}$ at the origin, the gradient and the second derivative are both zero, so the test gives no conclusion. The point is still a minimum, because the gradient is negative on the left and positive on the right. In that case read the sign of $f'$ on either side instead.</Reveal>
+
+## Visual
+
+<Callout kind="tip">Sketch the cubic from the worked example. Mark the peak at $x = 1$ and the trough at $x = 3$, and write the sign of $f''$ beside each: negative at the peak, where the curve bends downwards, and positive at the trough, where it bends upwards. A small sign table next to the sketch shows the classification at a glance.</Callout>
+
+## How it is examined
+
+Find and Determine questions give marks for differentiating twice (M1), for a correct second derivative (A1) and for a reasoned conclusion (R1). The reasoning mark needs both the sign of $f''(a)$ and the word maximum or minimum: a bare answer gets no reasoning mark. Show that questions expect the stationary condition $f'(a) = 0$ to be stated before the test is applied.
+
+<Callout kind="exam">Write the stationary condition $f'(a) = 0$ first, then the sign of $f''(a)$, then the conclusion. That order is what the reasoning mark looks for.</Callout>
+
+## Common mistakes
+
+<Callout kind="mistake">Applying the second derivative test where $f'(a) \neq 0$. The test needs a stationary point first.</Callout>
+
+- Classifying a point with $f'(a)$ instead of $f''(a)$.
+- Concluding a maximum or minimum from $f''(a) = 0$. The test is inconclusive there.
+- Differentiating once when the question asks for $f''$: $f'(x) = 3x^{2} - 12x + 9$ is the gradient, not the second derivative.
+
+## Check yourself
+
+<Question id="q-5-10-01"/>
+
+<Question id="q-5-10-02"/>
+
+<Question id="q-5-10-03"/>
+
+## Summary
+
+- The second derivative $f''(x)$ is the derivative of $f'(x)$, the rate of change of the gradient.
+- Its sign gives concavity: $f''(x) > 0$ means concave up, and $f''(x) < 0$ means concave down.
+- At a stationary point $x = a$, $f''(a) > 0$ gives a local minimum and $f''(a) < 0$ gives a local maximum.
+- If $f''(a) = 0$ the test is inconclusive; check the sign of $f'$ on either side of $a$.
+- In exam answers, state the stationary condition, the sign of the second derivative and the conclusion.

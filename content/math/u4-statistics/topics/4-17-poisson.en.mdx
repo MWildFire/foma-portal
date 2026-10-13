@@ -1,0 +1,71 @@
+## Big idea
+
+The Poisson distribution counts events in a fixed interval when they occur at random, one at a time, independently and at a constant average rate. One parameter, $m$, sets both the mean and the variance.
+
+## Explanation
+
+Counts like these are common: calls to a helpline in an hour, faults along a cable, customers at a café in half an hour. Model a count $X$ with a Poisson distribution when three conditions hold: events happen singly, they are independent of each other, and the average rate does not change over the interval.
+
+The <Term id="poisson-distribution"/> is written $X \sim \text{Po}(m)$, where <Term id="poisson-parameter"/> $m$ is the average number of events in the interval:
+
+$$
+P(X = x) = \frac{e^{-m}\, m^{x}}{x!}, \qquad x = 0, 1, 2, \dots
+$$
+
+<Formula id="poisson-pmf"/>
+
+For a Poisson variable both the mean and the variance equal $m$. Because $m$ belongs to one particular interval, it must be rescaled when the interval changes: an average of 4 per 10 minutes becomes $m = 12$ over 30 minutes, not $m = 4$.
+
+<Term id="independent-poisson-sum"/> is the same idea in reverse. If $X \sim \text{Po}(m_1)$ and $Y \sim \text{Po}(m_2)$ are independent, then $X + Y \sim \text{Po}(m_1 + m_2)$.
+
+<Callout kind="define">Poisson distribution: the distribution of the number of events in a fixed interval, when the events happen one at a time, independently, at a constant mean rate. Written $X \sim \text{Po}(m)$.</Callout>
+
+<Callout kind="gdc">Use the Poisson pdf and Poisson cdf entries in the distributions menu of the GDC. Enter the mean $m$ for the interval, not the rate per minute. The cdf gives $P(X \le x)$, so $P(X \ge k) = 1 - P(X \le k - 1)$.</Callout>
+
+## Worked example
+
+A helpline receives calls at random, at an average of 3 per hour. Let $X$ be the number of calls in one hour, so $X \sim \text{Po}(3)$.
+
+<Steps>
+<Step>$P(X = 5) = \dfrac{e^{-3}\, 3^{5}}{5!} = 0.101$ (to 3 decimal places).</Step>
+<Step>$P(X \le 2) = e^{-3}\left(1 + 3 + \dfrac{3^{2}}{2!}\right) = 8.5\,e^{-3} = 0.423$ (to 3 decimal places).</Step>
+<Step>Over two hours the mean doubles to $m = 6$. Two independent hours give $Y \sim \text{Po}(6)$, so $P(Y = 4) = \dfrac{e^{-6}\, 6^{4}}{4!} = 0.134$ (to 3 decimal places).</Step>
+</Steps>
+
+<Reveal title="Why not keep m = 3 for two hours?">The mean grows with the length of the interval: two hours have twice the expected number of calls. Keeping $m = 3$ would give the answer for one hour, not for two.</Reveal>
+
+## Visual
+
+<Sim id="math.binomial-poisson-lab"/>
+
+The lab draws binomial and Poisson bars side by side for the same mean $np$. Raise $n$ and lower $p$, and the binomial bars move towards the Poisson bars. That limit is why the Poisson model works for rare events.
+
+## How it is examined
+
+Calculate and Find questions give a mark for the correct model or formula, a mark for the rescaled mean, and a mark for the answer to the required accuracy. Show that questions need the assumptions stated in words: single events, independence, constant rate. Comment questions need a conclusion linked to the context, not a repeat of the number.
+
+<Callout kind="exam">Write the mean for the interval named in the question before the probability. The probability follows from it.</Callout>
+
+## Common mistakes
+
+<Callout kind="mistake">Using the rate per hour for a half-hour interval without rescaling $m$.</Callout>
+
+- Writing $P(X \ge k)$ as $P(X \le k)$. The complement is $1 - P(X \le k - 1)$.
+- Forgetting that $0! = 1$ when $x = 0$.
+- Calling a count Poisson without stating the assumptions: single, independent events at a constant rate.
+
+## Check yourself
+
+<Question id="q-4-17-01"/>
+
+<Question id="q-4-17-02"/>
+
+<Question id="q-4-17-03"/>
+
+## Summary
+
+- The Poisson distribution counts events in a fixed interval at a constant mean rate $m$.
+- $P(X = x) = e^{-m} m^{x} / x!$ for $x = 0, 1, 2, \dots$; the mean and the variance both equal $m$.
+- Rescale $m$ whenever the interval length changes.
+- A sum of independent Poisson counts is Poisson, with the means added.
+- The model needs single, independent events at a constant rate; say so in your answer.

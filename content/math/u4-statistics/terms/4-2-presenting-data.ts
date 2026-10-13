@@ -1,0 +1,52 @@
+import type { Term } from '../../../../src/contract/types';
+
+const source = {
+  kind: 'ib-guide' as const,
+  title: 'IB Mathematics: applications and interpretation guide (first assessment 2021)',
+  locator: 'sub-topic 4.2',
+  url: 'https://www.ibo.org/globalassets/new-structure/university-admission/pdfs/dp-mathematics-applications-and-interpretation-guide-en.pdf',
+};
+
+export const terms: Term[] = [
+  {
+    id: 'histogram-grouped-data',
+    term: { en: 'histogram', ru: 'гистограмма (histogram)' },
+    def: {
+      en: 'A diagram for grouped continuous data in which each class is drawn as a bar on a continuous horizontal axis, with no gaps between bars. The area of each bar is proportional to the class frequency.',
+      ru: 'Диаграмма для сгруппированных непрерывных данных: каждый класс изображается столбцом на непрерывной горизонтальной оси без промежутков между столбцами. Площадь каждого столбца пропорциональна частоте класса.',
+    },
+    syllabus: '4.2',
+    papers: ['P1', 'P2', 'P3'],
+    src: source,
+    pitfall: {
+      en: 'When class widths differ, the height is the frequency density, not the frequency.',
+      ru: 'Если ширина классов разная, по высоте откладывают плотность частоты, а не частоту.',
+    },
+  },
+  {
+    id: 'cumulative-frequency-graph',
+    term: { en: 'cumulative frequency graph', ru: 'график накопленных частот (cumulative frequency graph)' },
+    def: {
+      en: 'A graph of the running total of frequencies, plotted against the upper class boundary, with the points joined. It is used to read the median, the quartiles and any percentile.',
+      ru: 'График нарастающей суммы частот, построенный против верхней границы класса; точки соединяются линией. По нему читают медиану, квартили и любой перцентиль.',
+    },
+    syllabus: '4.2',
+    papers: ['P1', 'P2', 'P3'],
+    src: source,
+    pitfall: {
+      en: 'Plot each cumulative frequency at the upper class boundary, and start the curve at zero at the lower end of the first class.',
+      ru: 'Каждую накопленную частоту откладывайте при верхней границе класса, а кривую начинайте с нуля у нижнего края первого класса.',
+    },
+  },
+  {
+    id: 'box-and-whisker-diagram',
+    term: { en: 'box and whisker diagram', ru: 'диаграмма размаха (box and whisker diagram)' },
+    def: {
+      en: 'A diagram that shows the lowest value, the lower quartile, the median, the upper quartile and the highest value of a data set. The box runs from the lower to the upper quartile with a line at the median, and the whiskers reach the lowest and highest values.',
+      ru: 'Диаграмма, которая показывает наименьшее значение, нижний квартиль, медиану, верхний квартиль и наибольшее значение набора данных. Ящик идёт от нижнего квартиля до верхнего с линией на медиане, усы доходят до наименьшего и наибольшего значений.',
+    },
+    syllabus: '4.2',
+    papers: ['P1', 'P2', 'P3'],
+    src: source,
+  },
+];

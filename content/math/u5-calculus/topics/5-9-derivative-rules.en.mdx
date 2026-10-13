@@ -1,0 +1,99 @@
+## Big idea
+
+Derivative rules let you differentiate combined functions: products, quotients and functions of functions. Related rates use the chain rule for quantities that change together, so one rate with respect to time can be found from another.
+
+## Explanation
+
+The power rule holds for any rational $n$, including negative and fractional powers. The standard derivatives of $\sin x$, $\cos x$, $\tan x$, $e^{x}$ and $\ln x$ are listed below. Trigonometric functions are used in radians.
+
+$$
+\frac{d}{dx}\left(x^{n}\right) = n\,x^{n-1}
+$$
+
+<Formula id="derivative-power-rule"/>
+
+- $\dfrac{d}{dx}\sin x = \cos x$
+- $\dfrac{d}{dx}\cos x = -\sin x$
+- $\dfrac{d}{dx}\tan x = \sec^{2} x = \dfrac{1}{\cos^{2} x}$
+- $\dfrac{d}{dx}e^{x} = e^{x}$
+- $\dfrac{d}{dx}\ln x = \dfrac{1}{x}$
+
+<Formula id="derivative-standard-functions"/>
+
+A <Term id="chain-rule-derivative"/> handles a function of a function. For $y = f(g(x))$ put $u = g(x)$, and then
+
+$$
+\frac{dy}{dx} = \frac{dy}{du}\cdot\frac{du}{dx}
+$$
+
+<Formula id="chain-rule-formula"/>
+
+For a product $y = uv$ the <Term id="product-rule-derivative"/> gives $\dfrac{dy}{dx} = u\dfrac{dv}{dx} + v\dfrac{du}{dx}$. For a quotient $y = \dfrac{u}{v}$ the <Term id="quotient-rule-derivative"/> gives $\dfrac{dy}{dx} = \dfrac{v\dfrac{du}{dx} - u\dfrac{dv}{dx}}{v^{2}}$.
+
+$$
+\frac{d}{dx}(uv) = u\frac{dv}{dx} + v\frac{du}{dx}, \qquad \frac{d}{dx}\left(\frac{u}{v}\right) = \frac{v\dfrac{du}{dx} - u\dfrac{dv}{dx}}{v^{2}}
+$$
+
+<Formula id="product-quotient-formulas"/>
+
+A <Term id="related-rates-change"/> problem links two quantities that both change with time, such as the volume and the radius of a sphere. Differentiate the link with respect to time using the chain rule, substitute the known values, and solve for the rate you need.
+
+<Callout kind="define">Chain rule: if $y = f(g(x))$, then $\dfrac{dy}{dx} = f'(g(x))\,g'(x)$. Related rates: rates of change of quantities linked by a relation, all depending on time.</Callout>
+
+<Callout kind="gdc">Use the numerical derivative function on the GDC to check a gradient at a given $x$: enter the function and the value of $x$. Use it to check an answer; in the exam, write the rule you used first.</Callout>
+
+## Worked example
+
+<Steps>
+<Step>Let $u = 2x + 1$, so $y = u^{5}$, $\dfrac{dy}{du} = 5u^{4}$ and $\dfrac{du}{dx} = 2$.</Step>
+<Step>At $x = 1$ we have $u = 3$, so $\dfrac{dy}{du} = 5 \times 3^{4} = 405$.</Step>
+<Step>Chain rule: $\dfrac{dy}{dx} = \dfrac{dy}{du}\cdot\dfrac{du}{dx} = 405 \times 2 = 810$ at $x = 1$.</Step>
+</Steps>
+
+<Steps>
+<Step>Product rule with $u = x$ and $v = e^{x}$: $\dfrac{du}{dx} = 1$ and $\dfrac{dv}{dx} = e^{x}$, so $\dfrac{dy}{dx} = x e^{x} + e^{x} = (x + 1)e^{x}$.</Step>
+<Step>At $x = 1$: $\dfrac{dy}{dx} = 2e = 5.44$ (to 2 decimal places).</Step>
+</Steps>
+
+<Steps>
+<Step>For a sphere, $V = \dfrac{4}{3}\pi r^{3}$, so $\dfrac{dV}{dr} = 4\pi r^{2}$.</Step>
+<Step>Chain rule: $\dfrac{dV}{dt} = \dfrac{dV}{dr}\cdot\dfrac{dr}{dt} = 4\pi r^{2}\dfrac{dr}{dt}$.</Step>
+<Step>When $r = 5$ and $\dfrac{dr}{dt} = 0.2$: $\dfrac{dV}{dt} = 4\pi \times 25 \times 0.2 = 20\pi = 62.83$ cm$^{3}$ per second (to 2 decimal places).</Step>
+</Steps>
+
+<Reveal title="Why multiply the two rates?">The rate $\dfrac{dV}{dr}$ is in cm$^{2}$ and $\dfrac{dr}{dt}$ is in cm per second. Their product is in cm$^{3}$ per second, which is the unit of $\dfrac{dV}{dt}$.</Reveal>
+
+## Visual
+
+<Callout kind="tip">Sketch $y = f(x)$ and the tangent at the point of interest: the derivative is the gradient of the tangent, so the sketch shows whether your sign is plausible. For related rates, draw the shape (a sphere or a cone) and label the quantities that change with time before you write any equation.</Callout>
+
+## How it is examined
+
+Find questions mark each rule you use (M1 for choosing the chain, product or quotient rule), the derivative (A1) and the substitution, with the final answer to the required accuracy (A1). In related rates, marks go to the link between the quantities (M1), to differentiating with respect to time using the chain rule (M1) and to the final rate with its units (A1). Show that questions give the result in advance, so every algebra step must be written out.
+
+<Callout kind="exam">Write the rule before you substitute numbers. Substituting first and differentiating afterwards loses the method marks.</Callout>
+
+## Common mistakes
+
+<Callout kind="mistake">Differentiating $\sin x$ to $-\cos x$. The derivative of $\sin x$ is $\cos x$, and the derivative of $\cos x$ is $-\sin x$.</Callout>
+
+- Forgetting the inner derivative: $\dfrac{d}{dx}(2x+1)^{5}$ is $5(2x+1)^{4} \times 2$, not $5(2x+1)^{4}$.
+- Reversing the quotient rule numerator. It is $v\dfrac{du}{dx} - u\dfrac{dv}{dx}$.
+- In related rates, substituting $r = 5$ before differentiating, or finding $\dfrac{dV}{dr}$ when the question asks for $\dfrac{dV}{dt}$.
+
+## Check yourself
+
+<Question id="q-5-9-01"/>
+
+<Question id="q-5-9-02"/>
+
+<Question id="q-5-9-03"/>
+
+## Summary
+
+- The power rule $\dfrac{d}{dx}(x^{n}) = nx^{n-1}$ holds for any rational $n$.
+- Know the standard derivatives: $\cos x$, $-\sin x$, $\sec^{2} x$, $e^{x}$ and $\dfrac{1}{x}$.
+- Chain rule: $\dfrac{dy}{dx} = \dfrac{dy}{du}\cdot\dfrac{du}{dx}$; product rule: $(uv)' = u'v + uv'$.
+- Quotient rule: $\left(\dfrac{u}{v}\right)' = \dfrac{u'v - uv'}{v^{2}}$.
+- Related rates: differentiate the relation with respect to time, then substitute the known values.
+- Write the rule before the numbers, and keep the units with the rate.

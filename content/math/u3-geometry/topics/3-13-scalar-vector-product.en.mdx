@@ -1,0 +1,98 @@
+## Big idea
+
+The scalar product turns two vectors into one number that measures how far they point in the same direction, and it gives the angle between them. The vector product turns two vectors into a third vector, perpendicular to both, whose length is the area of the parallelogram they span.
+
+## Explanation
+
+For vectors $\mathbf{v}$ and $\mathbf{w}$ with angle $\theta$ between them, the <Term id="scalar-product"/> (scalar product) is
+
+$$
+\mathbf{v}\cdot\mathbf{w} = |\mathbf{v}|\,|\mathbf{w}|\cos\theta
+$$
+
+<Formula id="scalar-product-angle"/>
+
+Calculating it from components, $\mathbf{v}\cdot\mathbf{w} = v_1 w_1 + v_2 w_2 + v_3 w_3$, is usually quicker. Rearranging gives the angle:
+
+$$
+\cos\theta = \frac{\mathbf{v}\cdot\mathbf{w}}{|\mathbf{v}|\,|\mathbf{w}|}, \qquad 0^\circ \le \theta \le 180^\circ
+$$
+
+<Formula id="scalar-product-components"/>
+
+Two non-zero vectors are perpendicular exactly when their scalar product is zero. A positive scalar product means an acute angle; a negative one means an obtuse angle.
+
+For two lines with direction vectors $\mathbf{b}_1$ and $\mathbf{b}_2$, the <Term id="acute-angle-between-lines"/> (acute angle between two lines) uses the absolute value of the scalar product, so that the cosine is never negative:
+
+$$
+\cos\varphi = \frac{|\mathbf{b}_1\cdot\mathbf{b}_2|}{|\mathbf{b}_1|\,|\mathbf{b}_2|}
+$$
+
+The <Term id="vector-product"/> (vector product) $\mathbf{v}\times\mathbf{w}$ is a vector perpendicular to both $\mathbf{v}$ and $\mathbf{w}$. Its magnitude is
+
+$$
+|\mathbf{v}\times\mathbf{w}| = |\mathbf{v}|\,|\mathbf{w}|\sin\theta
+$$
+
+<Formula id="vector-product-magnitude"/>
+
+This magnitude is the area of the parallelogram with sides $\mathbf{v}$ and $\mathbf{w}$; the triangle with those two sides has half that area. In components the vector product is
+
+$$
+\mathbf{v}\times\mathbf{w} = (v_2 w_3 - v_3 w_2,\ v_3 w_1 - v_1 w_3,\ v_1 w_2 - v_2 w_1)
+$$
+
+<Formula id="vector-product-components"/>
+
+<Callout kind="define">Scalar product: $\mathbf{v}\cdot\mathbf{w} = |\mathbf{v}|\,|\mathbf{w}|\cos\theta$, a number. Vector product: $\mathbf{v}\times\mathbf{w}$, a vector perpendicular to both, with $|\mathbf{v}\times\mathbf{w}| = |\mathbf{v}|\,|\mathbf{w}|\sin\theta$.</Callout>
+
+<Callout kind="gdc">Set the GDC to degree mode before using the inverse cosine. Enter the vectors in the GDC's vector form and use its dot product and cross product functions, or type the component formulas directly.</Callout>
+
+## Worked example
+
+Vectors $\mathbf{v} = (3, 0, 4)$ and $\mathbf{w} = (1, 2, 2)$.
+
+<Steps>
+<Step>Scalar product: $\mathbf{v}\cdot\mathbf{w} = 3(1) + 0(2) + 4(2) = 11$.</Step>
+<Step>Angle: $|\mathbf{v}| = 5$, $|\mathbf{w}| = 3$ and $|\mathbf{v}||\mathbf{w}| = 15$, so $\cos\theta = \dfrac{11}{15} = 0.733$ and $\theta = 42.8^\circ$ (to 1 decimal place).</Step>
+<Step>Vector product: $\mathbf{v}\times\mathbf{w} = (-8, -2, 6)$, so $|\mathbf{v}\times\mathbf{w}| = \sqrt{104} = 10.2$, which is the area of the parallelogram (to 1 decimal place).</Step>
+</Steps>
+
+<Reveal title="Why is the vector product a vector, not a number?">It has a direction as well as a size. It points perpendicular to the plane of $\mathbf{v}$ and $\mathbf{w}$, and it reverses if the order of the vectors is swapped.</Reveal>
+
+## Visual
+
+<Sim id="math.vector-lab"/>
+
+Set $\mathbf{a}$ and $\mathbf{b}$ with the sliders and watch the angle, the scalar product and the sum change together. The scalar product is zero when the arrows are at right angles, negative when the angle is obtuse, and largest when they point the same way. The lab also shows the area of the parallelogram spanned by $\mathbf{a}$ and $\mathbf{b}$, which is $|\mathbf{a}\times\mathbf{b}|$ for vectors in the plane.
+
+## How it is examined
+
+Find questions give marks for the scalar product, for the substitution into the cosine formula and for the angle to the required accuracy. The acute angle between two lines needs the absolute value, so the answer is never obtuse. Show that questions often test perpendicularity, which means a scalar product of zero. Hence questions about area use your vector product result, with a half for a triangle.
+
+<Callout kind="exam">Write the scalar product in component form first, then divide by the two magnitudes. Check that the answer is in degrees when the question asks for degrees, and round only at the end.</Callout>
+
+## Common mistakes
+
+<Callout kind="mistake">Taking the area of triangle $OAB$ as $|\overrightarrow{OA}\times\overrightarrow{OB}|$. The triangle is half of the parallelogram: $\tfrac{1}{2}|\overrightarrow{OA}\times\overrightarrow{OB}|$.</Callout>
+
+- Giving the obtuse angle as the answer for two lines. Use $|\mathbf{b}_1\cdot\mathbf{b}_2|$ so that the cosine is positive.
+- Leaving the GDC in radian mode when the answer is required in degrees.
+- Assuming the vector product is commutative. Swapping the order gives $\mathbf{w}\times\mathbf{v} = -(\mathbf{v}\times\mathbf{w})$, so the components change sign.
+
+## Check yourself
+
+<Question id="q-3-13-01"/>
+
+<Question id="q-3-13-02"/>
+
+<Question id="q-3-13-03"/>
+
+## Summary
+
+- $\mathbf{v}\cdot\mathbf{w} = |\mathbf{v}||\mathbf{w}|\cos\theta = v_1 w_1 + v_2 w_2 + v_3 w_3$ is a number.
+- The angle between vectors: $\cos\theta = \dfrac{\mathbf{v}\cdot\mathbf{w}}{|\mathbf{v}||\mathbf{w}|}$; perpendicular vectors have a zero scalar product.
+- For two lines, the acute angle comes from $|\mathbf{b}_1\cdot\mathbf{b}_2|$.
+- $|\mathbf{v}\times\mathbf{w}| = |\mathbf{v}||\mathbf{w}|\sin\theta$ is the area of the parallelogram, and the triangle has half of it.
+- The vector product is perpendicular to both vectors and changes sign when the order is swapped.
+- Set degree mode before using the inverse cosine.

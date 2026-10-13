@@ -1,0 +1,77 @@
+## Big idea
+
+Euler's method follows the slope field numerically. From a starting point it moves along the tangent for a fixed step length $h$, reads the gradient at the new point, and repeats. It gives approximate values of $y$ at equally spaced values of $x$.
+
+## Explanation
+
+<Term id="euler-method-first-order"/> turns the slope field into numbers. Starting from $(x_0, y_0)$, it moves along the tangent for a short distance, reads the gradient at the new point and repeats. The result is an approximate solution at a list of points, not a formula for the curve.
+
+<Callout kind="define">Euler's method: a numerical method that approximates the solution of $dy/dx = f(x, y)$ from a starting point by repeating the step $y_{n+1} = y_n + h\,f(x_n, y_n)$.</Callout>
+
+Each step is a line segment along the tangent at the start of the step:
+
+<Formula id="euler-step-first-order"/>
+
+The horizontal distance $h$ is the <Term id="euler-step-length-first-order"/>. Because it is fixed, $x_n = x_0 + nh$, and halving $h$ doubles the number of steps needed to reach the same $x$.
+
+The error comes from the curve bending away from its tangent. For $dy/dx = x - y$ with $y(0) = 1$, the curve bends upwards on $0 \le x \le 1$, so each tangent lies below the curve and the Euler values fall short of the true solution. Halving $h$ roughly halves the error.
+
+In general, if the curve bends upwards ($d^2y/dx^2 > 0$) the Euler values tend to be too small, and if it bends downwards they tend to be too large.
+
+The same method works for a <Term id="euler-coupled-system"/>, for example $\dfrac{dx}{dt} = f_1(x, y, t)$ and $\dfrac{dy}{dt} = f_2(x, y, t)$. Every step updates $x$, $y$ and $t$ together:
+
+<Formula id="euler-system-step"/>
+
+<Callout kind="gdc">Build the steps as a table of values or as a recursive sequence on your calculator, so that each row uses the previous row. For a system, both new values in a row must come from the same previous row.</Callout>
+
+## Worked example
+
+Use Euler's method for $\dfrac{dy}{dx} = x - y$ with $y(0) = 1$ and $h = 0.2$, from $x = 0$ to $x = 1$. The exact solution $y = x - 1 + 2e^{-x}$ lets you check the error.
+
+<Steps>
+<Step>From $(0, 1)$ the gradient is $0 - 1 = -1$, so $y_1 = 1 + 0.2(-1) = 0.8$ at $x_1 = 0.2$.</Step>
+<Step>From $(0.2, 0.8)$ the gradient is $0.2 - 0.8 = -0.6$, so $y_2 = 0.8 + 0.2(-0.6) = 0.68$ at $x_2 = 0.4$. The same rule gives $y_3 = 0.624$, $y_4 = 0.6192$ and $y_5 = 0.65536$ at $x_5 = 1$.</Step>
+<Step>The exact value is $y(1) = 2e^{-1} = 0.736$ (to 3 decimal places). The Euler estimate $0.655$ (to 3 decimal places) is an underestimate, with error $0.080$. With $h = 0.1$ the estimate is $0.697$ and the error is $0.038$; with $h = 0.05$ the error falls to $0.019$.</Step>
+</Steps>
+
+<Steps>
+<Step>Take $\dfrac{dx}{dt} = y$ and $\dfrac{dy}{dt} = t - x$ with $x = 1$ and $y = 0$ at $t = 0$, and $h = 0.5$. The first step gives $x_1 = 1 + 0.5(0) = 1$, $y_1 = 0 + 0.5(0 - 1) = -0.5$ and $t_1 = 0.5$.</Step>
+<Step>From $t = 0.5$ both updates use $x_1 = 1$ and $y_1 = -0.5$: $x_2 = 1 + 0.5(-0.5) = 0.75$ and $y_2 = -0.5 + 0.5(0.5 - 1) = -0.75$, so $t_2 = 1$.</Step>
+</Steps>
+
+## Visual
+
+<Sim id="math.direction-field-lab"/>
+
+The orange polygon is Euler's method from $(0, y_0)$ with the chosen step length, and the dashed curve is the exact solution. With the default settings ($dy/dx = x - y$, $y_0 = 1$, $h = 0.2$) the polygon reaches $0.655$ at $x = 1$, as in the worked example. Move the step slider towards $h = 0.05$ and watch the polygon approach the dashed curve.
+
+## How it is examined
+
+Marks are usually given for the method: one for the rule $y_{n+1} = y_n + h\,f(x_n, y_n)$ with the right numbers, one for carrying the values from one step to the next, and one for the final value to the required accuracy. Check the number of steps first: from $x = 0$ to $x = 1$ with $h = 0.2$ there are five steps. For an overestimate or underestimate, the reason is the curvature of the solution, not the size of the answer.
+
+<Callout kind="exam">Keep full values through the steps and round only the final answer. Rounding each step can move the last decimal place.</Callout>
+
+## Common mistakes
+
+<Callout kind="mistake">Using the value at the end of a step to find the gradient for that same step. Euler's method uses the gradient at the start of each step.</Callout>
+
+- Counting the steps wrongly: from $x = 0$ to $x = 1$ with $h = 0.2$ needs five steps, not four.
+- Using $h$ as the change in $y$. It is the change in $x$.
+- For a system, using the new $x$ to calculate the new $y$ in the same step. With $t = 0.5$, $x = 1$ and $y = -0.5$, the correct value is $y_2 = -0.75$; using the new $x_2 = 0.75$ wrongly gives $-0.625$.
+
+## Check yourself
+
+<Question id="q-5-16-01"/>
+
+<Question id="q-5-16-02"/>
+
+<Question id="q-5-16-03"/>
+
+## Summary
+
+- Euler's method moves along the tangent at the start of each step: $y_{n+1} = y_n + h\,f(x_n, y_n)$.
+- Keep one row per step, and keep full values until the final answer.
+- For a system, update $x$, $y$ and $t$ together, using only the values at the start of the step.
+- Halving the step length roughly halves the error for this method.
+- If the curve bends upwards the estimate is usually too small; if it bends downwards, usually too large.
+- The number of steps is the length of the interval divided by $h$.

@@ -1,0 +1,62 @@
+## Big idea
+
+A power of $x$ is differentiated by bringing the power down as a multiplier and reducing the power by one. A sum is differentiated term by term, and a constant term disappears.
+
+## Explanation
+
+For an integer $n$, the <Term id="power-rule-derivative"/> says that the derivative of $ax^n$ is $anx^{n-1}$. It also works for negative powers, so write each term as a power of $x$ before you differentiate: $\dfrac{6}{x^2} = 6x^{-2}$.
+
+<Formula id="derivative-power-formula"/>
+
+A curve is usually a sum of such terms, and the derivative of a sum is the sum of the derivatives (<Term id="derivative-of-sum-of-terms"/>). The derivative of a constant is 0, because a constant does not change. Apply <Formula id="derivative-sum-formula"/> to each addition or subtraction.
+
+<Callout kind="define">Power rule: if $y = ax^{n}$ for an integer $n$, then $\dfrac{dy}{dx} = anx^{n-1}$. A constant term $c$ has derivative 0.</Callout>
+
+<Callout kind="gdc">Check a symbolic derivative at one point against the numerical derivative at a point, then write the derivative by hand. The GDC confirms the number; the exam needs the algebra.</Callout>
+
+## Worked example
+
+Let $y = 3x^4 - 2x^{-1} + 5x - 7$. Find $\dfrac{dy}{dx}$ and its value at $x = 2$.
+
+<Steps>
+<Step>Differentiate term by term: $3x^4 \to 12x^3$, $-2x^{-1} \to 2x^{-2}$, $5x \to 5$ and $-7 \to 0$. So $\dfrac{dy}{dx} = 12x^{3} + 2x^{-2} + 5$.</Step>
+<Step>At $x = 2$: $12 \times 2^{3} = 96$ and $2 \times 2^{-2} = 0.5$, so $\dfrac{dy}{dx} = 96 + 0.5 + 5 = 101.5$.</Step>
+</Steps>
+
+<Reveal title="Why does the power go down by one?">Start from $x^4$. Its gradient is $4x^3$: the power 4 comes down as a multiplier, and the new power is one less. The same pattern holds for every integer $n$, including negative ones. For example, $x^{-1}$ has derivative $-x^{-2}$.</Reveal>
+
+## Visual
+
+<Sim id="math.tangent-optimisation-lab"/>
+
+The lab's curve is $f(x) = x^3 - 6x^2 + 9x + 1$, so its gradient function is $f'(x) = 3x^2 - 12x + 9$, found with the power rule. Move $x$ and compare the live tangent gradient with your own hand calculation of $f'(x)$ at the same point.
+
+## How it is examined
+
+Find questions give a mark for the method (applying the power rule to each term), a mark for each correct term, and a mark for the value at the given point. Equivalent forms of the same expression are usually accepted, for example $\dfrac{2}{x^2}$ or $2x^{-2}$, but a missing term costs the mark.
+
+<Callout kind="exam">Write $\dfrac{6}{x^2}$ as $6x^{-2}$ and show that step. A constant term gives 0: write the 0 so that the reader sees it was considered.</Callout>
+
+## Common mistakes
+
+<Callout kind="mistake">Keeping the old power, for example writing $\dfrac{d}{dx}(x^3) = 3x^3$ instead of $3x^2$.</Callout>
+
+- Multiplying by the power but forgetting to reduce it, so $3x^4$ becomes $12x^4$ instead of $12x^3$.
+- Differentiating $\dfrac{6}{x^2}$ without writing it as $6x^{-2}$ first, which leads to a wrong power.
+- Treating the constant term as if it were $x$: the derivative of $-7$ is $0$, not $-7x$.
+
+## Check yourself
+
+<Question id="q-5-3-01"/>
+
+<Question id="q-5-3-02"/>
+
+<Question id="q-5-3-03"/>
+
+## Summary
+
+- For an integer $n$, $\dfrac{d}{dx}(ax^n) = anx^{n-1}$.
+- Negative powers follow the same rule: $\dfrac{d}{dx}(x^{-1}) = -x^{-2}$.
+- Write each term as a power of $x$ before you differentiate, for example $\dfrac{6}{x^2} = 6x^{-2}$.
+- Differentiate a sum term by term; the derivative of a constant is 0.
+- Evaluate $\dfrac{dy}{dx}$ at the given point, and use it as the gradient of the curve.

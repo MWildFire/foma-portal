@@ -1,0 +1,80 @@
+## Big idea
+
+Rotate a region through 360 degrees about an axis and it sweeps out a solid. The same definite integral that gives the area of the region also gives the volume of the solid, once each thin strip is turned into a thin disc.
+
+## Explanation
+
+A region bounded by a curve, an axis and two bounds forms a <Term id="solid-of-revolution"/> when it is rotated through 360 degrees about that axis.
+
+<Callout kind="define">Solid of revolution: the solid formed when a plane region is rotated through 360 degrees about an axis. Its volume is found by the disc method, which adds up the volumes of thin discs.</Callout>
+
+For the x-axis, take a thin vertical strip of height $y$ and width $dx$. When the region turns about the x-axis, the strip becomes a thin disc of radius $y$ and thickness $dx$. The <Term id="disc-method-volume"/> adds these discs over the interval:
+
+$$
+V = \pi \int_a^b y^2 \, dx
+$$
+
+<Formula id="revolution-volume-x-axis"/>
+
+The area of the same region comes from the same strip: $A = \int_a^b y \, dx$, when $y \ge 0$ on the interval. <Formula id="revolution-area-x-axis"/>
+
+For the y-axis, the strip is horizontal: its length is $x$ and its thickness is $dy$. Write the curve as $x$ in terms of $y$ first, then integrate with respect to $y$ between the y-bounds:
+
+$$
+V = \pi \int_c^d x^2 \, dy
+$$
+
+<Formula id="revolution-volume-y-axis"/>
+
+For the area between the curve and the y-axis, use the same idea: <Term id="area-integral-y-axis"/>, so $A = \int_c^d x \, dy$, the integral of the horizontal width. <Formula id="revolution-area-y-axis"/>
+
+<Callout kind="gdc">Use the definite integral function of the GDC on the right function: $y^2$ for a rotation about the x-axis, and $x^2$ for a rotation about the y-axis, with the curve written as $x$ in terms of $y$. Multiply the result by $\pi$, or keep $\pi$ exact. The bounds must match the variable: x-values for the x-axis, y-values for the y-axis.</Callout>
+
+## Worked example
+
+The region enclosed by the curve $y = 4 - x^2$, the x-axis and the y-axis, for $0 \le x \le 2$, is rotated through 360 degrees. Find the area of the region and the volume of the solid about each axis. Give each answer to 3 significant figures.
+
+<Steps>
+<Step>Area: $A = \int_0^2 (4 - x^2)\,dx = \left[4x - \dfrac{x^3}{3}\right]_0^2 = \dfrac{16}{3} = 5.33$ (3 s.f.).</Step>
+<Step>About the x-axis: $V_x = \pi \int_0^2 (4 - x^2)^2\,dx = \pi \left[16x - \dfrac{8x^3}{3} + \dfrac{x^5}{5}\right]_0^2 = \dfrac{256\pi}{15} = 53.6$ (3 s.f.).</Step>
+<Step>About the y-axis: the curve gives $x^2 = 4 - y$, with $0 \le y \le 4$. So $V_y = \pi \int_0^4 (4 - y)\,dy = \pi \left[4y - \dfrac{y^2}{2}\right]_0^4 = 8\pi = 25.1$ (3 s.f.).</Step>
+</Steps>
+
+<Reveal title="Why is the y-axis integral simpler here?">Writing the curve as $x^2 = 4 - y$ removes the square of a bracket. The integrand becomes a linear function of $y$, so the integral is quicker. The bounds are y-values as well: 0 and 4.</Reveal>
+
+## Visual
+
+<Sim id="math.revolution-lab"/>
+
+The lab draws the region under $y = 9 - x^2$ between the bounds $a$ and $b$. The discs are drawn edge-on as rectangles of height $y$ at their midpoints. Move the bounds: the shaded area and the exact volume about the x-axis update at once. Increase the number of discs, and the disc sum approaches the exact volume.
+
+## How it is examined
+
+Calculate and Find questions give marks for the correct integral (with $y^2$ or $x^2$ and $\pi$), for the correct bounds, and for the final answer to the accuracy the question asks for. Sketch the region before you integrate: the sketch shows which axis the region touches and whether the curve lies above that axis. Show that questions state the result you must reach, so every step has to lead to it. Hence questions use an earlier result, such as the area, to find the volume. Keep $\pi$ exact when the question asks for an exact value.
+
+<Callout kind="exam">Write the axis, the variable and the bounds before the integral. For a rotation about the y-axis the bounds are y-values, and the integrand is $x^2$.</Callout>
+
+## Common mistakes
+
+<Callout kind="mistake">Writing $\pi \int y \, dx$ instead of $\pi \int y^2 \, dx$. The disc has area $\pi y^2$, so the radius must be squared.</Callout>
+
+- Using x-values as the bounds when the region is rotated about the y-axis. The bounds are the y-values where the region starts and ends.
+- Integrating with respect to x when the curve is given as x in terms of y. Rewrite the curve and use $dy$.
+- Giving a negative area. When the curve lies below the x-axis, $\int y \, dx$ is negative, so the area is the absolute value of the integral.
+
+## Check yourself
+
+<Question id="q-5-12-01"/>
+
+<Question id="q-5-12-02"/>
+
+<Question id="q-5-12-03"/>
+
+## Summary
+
+- A solid of revolution is formed when a plane region is rotated through 360 degrees about an axis.
+- About the x-axis: $V = \pi \int_a^b y^2 \, dx$, with bounds in x.
+- About the y-axis: write the curve as $x$ in terms of $y$, then $V = \pi \int_c^d x^2 \, dy$, with bounds in y.
+- Areas: $A = \int_a^b y \, dx$ or $A = \int_c^d x \, dy$, for a region on one side of the axis.
+- Sketch the region first; the sketch fixes the axis, the bounds and the sign of the integrand.
+- Keep $\pi$ exact, or round only the final answer to the accuracy the question asks for.

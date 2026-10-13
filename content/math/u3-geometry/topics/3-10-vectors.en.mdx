@@ -1,0 +1,70 @@
+## Big idea
+
+A vector has both a size and a direction. Writing it in components lets you find its length, compare directions and rescale it to any length you need.
+
+## Explanation
+
+A <Term id="vector-magnitude-direction"/> is written as a column of components, $\mathbf{v} = \begin{pmatrix} v_1 \\ v_2 \\ v_3 \end{pmatrix}$, or in unit-vector form $\mathbf{v} = v_1\mathbf{i} + v_2\mathbf{j} + v_3\mathbf{k}$, where $\mathbf{i}$, $\mathbf{j}$ and $\mathbf{k}$ are the unit vectors along the axes. A scalar has a size but no direction.
+
+The length (magnitude) of $\mathbf{v}$ is $|\mathbf{v}| = \sqrt{v_1^{2} + v_2^{2} + v_3^{2}}$ (<Formula id="vector-length-3d"/>). In two dimensions, drop the $v_3$ term.
+
+The <Term id="position-vector-from-origin"/> of a point P is $\overrightarrow{OP}$, so its components are the coordinates of P. The vector from A to B is found by subtracting position vectors: $\overrightarrow{AB} = \mathbf{b} - \mathbf{a}$ (<Formula id="vector-ab-points"/>). Its magnitude is the distance AB.
+
+Scalar multiples act component by component. The vector $k\mathbf{v}$ has magnitude $|k||\mathbf{v}|$. It points the same way as $\mathbf{v}$ when $k > 0$ and the opposite way when $k < 0$. The vector $-\mathbf{v}$ has the same length as $\mathbf{v}$ and the opposite direction. The zero vector $\mathbf{0} = \begin{pmatrix} 0 \\ 0 \\ 0 \end{pmatrix}$ has zero length and no direction.
+
+A <Term id="unit-vector-in-direction"/> has magnitude 1. Divide a non-zero vector by its magnitude to get a unit vector in the same direction: $\hat{\mathbf{v}} = \mathbf{v}/|\mathbf{v}|$ (<Formula id="unit-vector-normalise"/>). Multiply that unit vector by $L$ to get a vector of length $L$ in the same direction.
+
+The midpoint M of AB has position vector $\mathbf{m} = \dfrac{\mathbf{a} + \mathbf{b}}{2}$ (<Formula id="midpoint-position-vector"/>).
+
+<Callout kind="define">Vector: a quantity with both magnitude and direction. Its magnitude is written $|\mathbf{v}|$; a unit vector has magnitude 1.</Callout>
+
+<Callout kind="gdc">Enter the components as a list or a column and use the vector magnitude (norm) function. Keep full precision until the last step, then round as the question asks.</Callout>
+
+## Worked example
+
+Let $A(1, -2, 4)$ and $B(5, 1, -2)$.
+
+<Steps>
+<Step>$\overrightarrow{AB} = \mathbf{b} - \mathbf{a} = \begin{pmatrix} 5 - 1 \\ 1 - (-2) \\ -2 - 4 \end{pmatrix} = \begin{pmatrix} 4 \\ 3 \\ -6 \end{pmatrix}$.</Step>
+<Step>$|\overrightarrow{AB}| = \sqrt{4^{2} + 3^{2} + (-6)^{2}} = \sqrt{61} = 7.810$ (to 3 decimal places), so the distance AB is 7.810 units.</Step>
+<Step>The unit vector in the direction of AB is $\dfrac{1}{\sqrt{61}} \begin{pmatrix} 4 \\ 3 \\ -6 \end{pmatrix} = \begin{pmatrix} 0.512 \\ 0.384 \\ -0.768 \end{pmatrix}$ (to 3 decimal places).</Step>
+</Steps>
+
+<Reveal title="Why not a minus b?">Going from A to B means finishing at B and starting at A. The displacement is the end position vector minus the start position vector. The vector $\mathbf{a} - \mathbf{b}$ points from B back to A.</Reveal>
+
+## Visual
+
+Sketch the triangle O, A, B with arrows from O to A and from O to B. The arrow from A to B closes the triangle, so $\mathbf{a} + \overrightarrow{AB} = \mathbf{b}$, which gives $\overrightarrow{AB} = \mathbf{b} - \mathbf{a}$.
+
+<Callout kind="tip">A quick three-arrow sketch shows why subtraction is correct before you calculate anything.</Callout>
+
+## How it is examined
+
+Find questions give marks for the components, for the magnitude and for the final answer to the stated accuracy. Hence questions reuse an earlier result, so keep exact values or extra decimals until the last step. Show that questions need each component written out. A typical split is M1 for a correct subtraction or magnitude, A1 for the components, and A1 for the value to the required accuracy.
+
+<Callout kind="exam">Read the accuracy in the question (3 decimal places or 3 significant figures) before you round anything.</Callout>
+
+## Common mistakes
+
+<Callout kind="mistake">Subtracting in the wrong order: $\overrightarrow{AB} = \mathbf{a} - \mathbf{b}$ points from B to A.</Callout>
+
+- Dropping the square root in the magnitude: $\sqrt{61}$ is the length, not 61.
+- Dividing a vector by one of its components to get a unit vector. Divide by the magnitude.
+- Rounding early, for example using 7.8 instead of 7.810, which changes the third decimal place of the unit vector.
+
+## Check yourself
+
+<Question id="q-3-10-01"/>
+
+<Question id="q-3-10-02"/>
+
+<Question id="q-3-10-03"/>
+
+## Summary
+
+- A vector has magnitude and direction. Write it as components, or as $v_1\mathbf{i} + v_2\mathbf{j} + v_3\mathbf{k}$.
+- The magnitude is $|\mathbf{v}| = \sqrt{v_1^{2} + v_2^{2} + v_3^{2}}$.
+- $\overrightarrow{AB} = \mathbf{b} - \mathbf{a}$: the end position vector minus the start position vector.
+- $k\mathbf{v}$ multiplies the length by $|k|$ and reverses the direction when $k < 0$; $-\mathbf{v}$ is the reverse of $\mathbf{v}$.
+- A unit vector is $\mathbf{v}/|\mathbf{v}|$; the zero vector has no direction.
+- The midpoint of AB has position vector $(\mathbf{a} + \mathbf{b})/2$.

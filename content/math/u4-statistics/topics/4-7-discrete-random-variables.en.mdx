@@ -1,0 +1,82 @@
+## Big idea
+
+A discrete random variable assigns a number to each outcome of a random process. Its probability distribution lists those numbers with their probabilities, and its expected value is the long-run average of those numbers.
+
+## Explanation
+
+A <Term id="discrete-random-variable"/> $X$ takes separate values $x$, and each value has a probability $P(X = x)$. Examples are the number of heads in three tosses of a coin, the prize from one ticket, or the number of faulty items in a sample.
+
+The full list of values with their probabilities is the <Term id="discrete-probability-distribution"/>. It is often written as a table. The probabilities must add to 1, because one of the values must occur:
+
+$$
+\sum_{x} P(X = x) = 1
+$$
+
+<Formula id="probability-distribution-sum"/>
+
+The <Term id="expected-value-discrete"/> is the long-run average value of $X$. Multiply each value by its probability, then add the products:
+
+$$
+E(X) = \sum x\,P(X = x)
+$$
+
+<Formula id="discrete-expected-value"/>
+
+<Callout kind="define">Expected value: $E(X) = \sum x\,P(X = x)$, a probability-weighted average of the values of $X$. It is a long-run average, and it need not be a value that $X$ can take.</Callout>
+
+In applications, $E(X)$ answers questions about average prizes, average profit or average cost. For a game that costs $c$ to play, the net gain is $G = X - c$, so $E(G) = E(X) - c$. The game is fair when $E(G) = 0$.
+
+$$
+E(G) = E(X) - c
+$$
+
+<Formula id="expected-gain-game"/>
+
+<Callout kind="gdc">Enter the values of $x$ in list L1 and the probabilities $P(X = x)$ in list L2. Make L3 equal to L1 times L2, then use the statistics menu to find the sum of L3. The sum is $E(X)$.</Callout>
+
+## Worked example
+
+A discrete random variable $X$ takes the values 1, 2 and 4 with probabilities 0.5, 0.3 and 0.2 respectively.
+
+<Steps>
+<Step>Check the distribution: $0.5 + 0.3 + 0.2 = 1$, so the probabilities are valid.</Step>
+<Step>Expected value: $E(X) = 1 \times 0.5 + 2 \times 0.3 + 4 \times 0.2 = 0.5 + 0.6 + 0.8 = 1.9$.</Step>
+<Step>Game: a player pays 2.5 to play and receives $X$, so the expected net gain is $E(G) = 1.9 - 2.5 = -0.6$. The game is not fair: on average the player loses 0.6 per game.</Step>
+</Steps>
+
+<Reveal title="Why is E(X) = 1.9 not a possible value?">$X$ can only be 1, 2 or 4, so a single play never gives 1.9. It is a long-run average: over many plays, the average result settles near 1.9.</Reveal>
+
+## Visual
+
+<Callout kind="tip">Draw a bar chart with the values of $x$ along the horizontal axis and $P(X = x)$ as the height of each bar. The bar heights add to 1. The expected value is the balance point of the bars: the point on the horizontal axis where the bar chart would balance.</Callout>
+
+## How it is examined
+
+Find and Determine questions give a method mark for writing the sum $\sum x\,P(X = x)$ and an accuracy mark for the answer. Write out each product before you add them: a missing product is the most common reason for losing a mark. In context, state the units (AED) and interpret the sign of an expected gain: a negative value means that the player loses on average. In multi-part P2 questions, a wrong $E(X)$ can be carried into later parts, and examiners give follow-through marks only when the method is correct, so keep the working for every part.
+
+<Callout kind="exam">Show that the probabilities add to 1 before you calculate $E(X)$. If they do not, a value is missing from the table or a probability is wrong.</Callout>
+
+## Common mistakes
+
+<Callout kind="mistake">Taking the simple average of the values, $\dfrac{1 + 2 + 4}{3}$, instead of weighting each value by its probability.</Callout>
+
+- Forgetting an outcome with $x = 0$. It adds 0 to the sum, but its probability is still needed to check that the probabilities add to 1.
+- Rounding $E(X)$ to the nearest value that $X$ can take. An expected value need not be a possible value.
+- Using $E(X) \times c$ for the expected net gain instead of $E(X) - c$.
+
+## Check yourself
+
+<Question id="q-4-7-01"/>
+
+<Question id="q-4-7-02"/>
+
+<Question id="q-4-7-03"/>
+
+## Summary
+
+- A discrete random variable takes separate values, and its probabilities add to 1.
+- $E(X) = \sum x\,P(X = x)$ is a probability-weighted average: the long-run average of $X$.
+- $E(X)$ need not be a value that $X$ can take.
+- For a game with cost $c$, $E(G) = E(X) - c$; the game is fair when $E(G) = 0$.
+- A GDC finds $E(X)$ from two lists: multiply the lists and add the products.
+- Write out each product before you add, and give the units in context.

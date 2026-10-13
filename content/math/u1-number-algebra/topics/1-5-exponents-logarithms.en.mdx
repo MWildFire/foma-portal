@@ -1,0 +1,71 @@
+## Big idea
+
+Powers and logarithms are two sides of one idea. A power with an integer exponent follows a few simple laws, and a logarithm reads the exponent back out of a power: if $10^{y}=x$, then $y=\log_{10}x$.
+
+## Explanation
+
+Integer exponents follow the same laws for every power of one non-zero base $a$. <Term id="exponent-laws-integer"/> let you multiply, divide and raise powers by working only with the exponents.
+
+<Formula id="exponent-product-quotient-power"/>
+
+<Formula id="exponent-zero-negative"/>
+
+A zero exponent gives 1, and a negative exponent gives a reciprocal. So $5^{0}=1$ and $4^{-2}=\dfrac{1}{16}$.
+
+A logarithm is an exponent. For $x>0$, <Term id="logarithm-base-10"/> is written $\log_{10}x$, and <Term id="logarithm-base-e"/> is written $\ln x$, so $\ln x=\log_{e}x$.
+
+<Callout kind="define">Logarithm base 10: for $x>0$, $\log_{10}x=y$ means $10^{y}=x$. Natural logarithm: for $x>0$, $\ln x=y$ means $e^{y}=x$.</Callout>
+
+Each logarithm undoes its power:
+
+<Formula id="log-inverse-10-e"/>
+
+So if $10^{y}=250$, then $y=\log_{10}250$, and if $e^{y}=20$, then $y=\ln 20$.
+
+<Callout kind="gdc">Evaluate $\log_{10}$ and $\ln$ with the logarithm functions of your GDC, one for base 10 and one for base e. Enter the whole argument, keep the full value during the working, and round only at the end. Check that the function you use has the base the question names.</Callout>
+
+## Worked example
+
+Apply the laws of exponents, then use the logarithm functions to solve two equations.
+
+<Steps>
+<Step>Use the laws of exponents on the exponents: $\dfrac{2^{5}\times 2^{-3}}{2^{-1}}=2^{5+(-3)-(-1)}=2^{3}=8$.</Step>
+<Step>Evaluate with technology: $\log_{10}250=2.398$ (3 decimal places). This is the power to which 10 must be raised to give 250.</Step>
+<Step>Solve $e^{y}=20$ for $y$: $y=\ln 20=2.996$ (3 decimal places).</Step>
+</Steps>
+
+<Reveal title="Why take ln of both sides?">Taking the natural logarithm of both sides of $e^{y}=20$ removes the exponential, because $\ln(e^{y})=y$. The exact answer is $y=\ln 20$, and you round it only at the end.</Reveal>
+
+## Visual
+
+<Callout kind="tip">Sketch $y=10^{x}$ and $y=\log_{10}x$ on the same axes, with the line $y=x$ for reference. The two curves are reflections of each other in the line $y=x$: the point $(0,1)$ on the first curve becomes the point $(1,0)$ on the second. The same picture works for $e^{x}$ and $\ln x$.</Callout>
+
+## How it is examined
+
+Calculate and Find questions give a mark for the method, such as substituting into the pH formula, a mark for the value from technology, and a mark for the answer to the required accuracy. Show that questions need each law of exponents named as you use it. Read the accuracy instruction carefully: 2 decimal places means two digits after the decimal point, not two significant figures.
+
+<Callout kind="exam">Show that asks for every step to be justified. Write the law you use beside the line where you use it.</Callout>
+
+## Common mistakes
+
+<Callout kind="mistake">Treating $2^{3}+2^{4}$ as $2^{7}$. Exponents add only when powers are multiplied.</Callout>
+
+- Writing $4^{-2}$ as $-16$ instead of $\dfrac{1}{16}$.
+- Using $\log_{10}$ when the question asks for $\ln$, or the other way round.
+- Rounding a value too early and then using the rounded value in the next step.
+
+## Check yourself
+
+<Question id="q-1-5-01"/>
+
+<Question id="q-1-5-02"/>
+
+<Question id="q-1-5-03"/>
+
+## Summary
+
+- The laws of integer exponents: $a^{m}\times a^{n}=a^{m+n}$, $a^{m}\div a^{n}=a^{m-n}$ and $(a^{m})^{n}=a^{mn}$.
+- For $a\neq 0$: $a^{0}=1$ and $a^{-n}=\dfrac{1}{a^{n}}$.
+- For $x>0$: $\log_{10}x=y$ means $10^{y}=x$, and $\ln x=y$ means $e^{y}=x$.
+- A logarithm undoes its power: $10^{\log_{10}x}=x$ and $e^{\ln x}=x$.
+- Evaluate $\log_{10}$ and $\ln$ with technology, and round only at the end.

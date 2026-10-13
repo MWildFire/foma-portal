@@ -1,0 +1,75 @@
+## Big idea
+
+Many measurements cluster symmetrically around a typical value, and a normal distribution describes them. Its bell-shaped curve is fixed by two numbers, the mean $\mu$ and the standard deviation $\sigma$, and probabilities are areas under the curve.
+
+## Explanation
+
+A continuous variable $X$ with a normal distribution, $X \sim N(\mu, \sigma^2)$, has a symmetric <Term id="normal-bell-curve"/> centred on its mean $\mu$. The standard deviation $\sigma$ sets the spread: a larger $\sigma$ gives a flatter, wider curve. The mean, median and mode are all equal to $\mu$, and the total area under the curve is 1.
+
+<Callout kind="define">Normal distribution: a continuous distribution with a symmetric, bell-shaped density centred on the mean $\mu$ and spread given by the standard deviation $\sigma$. Written $X \sim N(\mu, \sigma^2)$.</Callout>
+
+The height of the curve at $x$ is given by
+
+$$
+f(x) = \frac{1}{\sigma\sqrt{2\pi}}\, e^{-\frac{(x-\mu)^{2}}{2\sigma^{2}}}
+$$
+
+<Formula id="normal-density-formula"/>
+
+About 68% of values lie within one standard deviation of the mean, about 95% within two, and about 99.7% within three. Probabilities are areas, so $P(X = a) = 0$ and $P(X < a) = P(X \le a)$.
+
+The number of standard deviations that a value lies away from the mean is its <Term id="normal-standardised-score"/>: $z = \dfrac{x - \mu}{\sigma}$. Standardising turns any normal variable into $Z \sim N(0, 1)$, so one table serves every normal distribution. <Formula id="normal-standardisation-formula"/>
+
+<Callout kind="gdc">Use the normal cdf and inverse normal entries in the distributions menu of the GDC. Enter the mean $\mu$ and the standard deviation $\sigma$, not the variance $\sigma^2$. The normal cdf gives the area to the left of a value, or between two values. The inverse normal takes an area to the left and returns $x$. For an area to the right, use $1 - p$ as the area to the left.</Callout>
+
+The <Term id="normal-inverse-calculation"/> works backwards from an area: $x = \mu + z\sigma$, where $z$ is the inverse normal of that area. <Formula id="normal-inverse-formula"/>
+
+## Worked example
+
+Journey times on a route in Dubai, $X$ minutes, are normally distributed with mean 32 minutes and standard deviation 4 minutes, so $X \sim N(32, 4^2)$.
+
+<Steps>
+<Step>$P(X \le 36) = P\left(Z \le \dfrac{36 - 32}{4}\right) = P(Z \le 1) = 0.841$ (to 3 decimal places).</Step>
+<Step>$P(28 < X < 36) = 0.683$ (to 3 decimal places): both limits are one standard deviation from the mean.</Step>
+<Step>The value $x$ with $P(X \le x) = 0.9$ is $x = 37.13$ (to 2 decimal places), found with the inverse normal.</Step>
+</Steps>
+
+<Reveal title="Why do 28 and 36 give the same area on each side?">Both limits are 4 minutes, one standard deviation, from the mean 32. The curve is symmetric, so the area between them is the same on both sides of 32 and equals $P(-1 < Z < 1)$.</Reveal>
+
+## Visual
+
+<Sim id="math.normal-lab"/>
+
+Move the mean to shift the curve, and change the standard deviation to make it wider or narrower. Set the bounds $a$ and $b$ to shade $P(a \le X \le b)$, and read the standardised scores below the graph. Set the probability $p$ to mark the value $x$ with $P(X \le x) = p$ by a dashed line.
+
+## How it is examined
+
+Find and Calculate questions give a mark for standardising, or for entering $\mu$ and $\sigma$ correctly, a mark for the area or value found, and a mark for the answer to the required accuracy. Sketch a labelled diagram when a question asks for one: mark the mean and shade the required area. Comment questions need a conclusion linked to the context, not a repeat of the number.
+
+<Callout kind="exam">Decide which area you need, to the left, to the right or between two values, before you enter anything into the GDC. Most lost marks come from using the wrong area.</Callout>
+
+## Common mistakes
+
+<Callout kind="mistake">Entering the variance $\sigma^2$ into the GDC instead of the standard deviation $\sigma$. Every probability is then wrong.</Callout>
+
+- Using $P(X \le x)$ for an area to the right: $P(X > x) = 1 - P(X \le x)$.
+- Quoting the z-value when the question asks for the value $x$: convert back with $x = \mu + z\sigma$.
+- Rounding $p$ in one part and then using the rounded value in a later part, which changes the answer.
+
+## Check yourself
+
+<Question id="q-4-9-01"/>
+
+<Question id="q-4-9-02"/>
+
+<Question id="q-4-9-03"/>
+
+## Summary
+
+- $X \sim N(\mu, \sigma^2)$ has a symmetric bell-shaped curve centred on $\mu$, and $\sigma$ sets the spread.
+- The total area under the curve is 1; probabilities are areas, and $P(X = a) = 0$.
+- Standardise with $Z = \dfrac{X - \mu}{\sigma}$ to compare values or to use one table of $Z \sim N(0, 1)$.
+- Enter the standard deviation $\sigma$, not the variance, into the GDC.
+- For an area to the left use the normal cdf; for an area to the right use $1 - P$.
+- Inverse normal: give the area to the left, and the GDC returns the value $x$.
+- Use unrounded values in later parts and give the accuracy the question asks for.

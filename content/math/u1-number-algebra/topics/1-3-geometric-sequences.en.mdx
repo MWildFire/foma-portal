@@ -1,0 +1,78 @@
+## Big idea
+
+A geometric sequence multiplies by the same factor at every step. That one factor, the common ratio, describes growth when it is above 1 and decay when it is between 0 and 1. The nth term and the sum of the first n terms follow from two formulas.
+
+## Explanation
+
+A <Term id="geometric-sequence"/> multiplies by the same non-zero number at each step, the <Term id="common-ratio"/> $r$. Its terms are $u_1, u_1 r, u_1 r^2, \dots$ When $r > 1$ the terms grow, and when $0 < r < 1$ they decay. A negative $r$ makes the signs alternate.
+
+<Formula id="geometric-common-ratio"/>
+
+To find the $n$th term, start from $u_1$ and multiply by $r$ exactly $n - 1$ times.
+
+<Formula id="geometric-nth-term"/>
+
+<Callout kind="define">Geometric sequence: a sequence in which each term is the previous term multiplied by a constant non-zero ratio $r$.</Callout>
+
+The <Term id="geometric-series"/> is the sum of the first $n$ terms. When $r \ne 1$ it is found from the formula below; when $r = 1$ all terms are equal and the sum is $n u_1$.
+
+<Formula id="geometric-sum"/>
+
+<Term id="sigma-notation-geometric"/> writes the same sum compactly, so $\sum_{k=1}^{n} u_1 r^{k-1}$ is the sum of the first $n$ terms of the series.
+
+Geometric models describe growth or decay at a fixed percentage per period. Check the model against the data, and remember that a percentage change applies to the current amount, not to the starting amount.
+
+<Callout kind="gdc">Use a table of values for the sequence to list the terms and confirm the common ratio. For the total of many terms, use the sum function of the GDC, and check the answer with the formula $S_n = u_1(1 - r^n)/(1 - r)$.</Callout>
+
+## Worked example
+
+Let $u_1 = 8$ and $r = 0.5$ for a geometric sequence. Find $u_4$ and $S_4$.
+
+<Steps>
+<Step>Find the 4th term: $u_4 = u_1 r^3 = 8 \times 0.5^3 = 1$.</Step>
+<Step>Find the sum of the first 4 terms: $S_4 = \dfrac{8(1 - 0.5^4)}{1 - 0.5} = 15$. This agrees with adding the four terms directly.</Step>
+</Steps>
+
+Next, evaluate $\sum_{k=1}^{4} 3 \times 2^{k-1}$ by writing out the terms.
+
+<Steps>
+<Step>Substitute $k = 1, 2, 3, 4$: the terms are 3, 6, 12 and 24.</Step>
+<Step>Add them: $3 + 6 + 12 + 24 = 45$, which agrees with $S_4 = \dfrac{3(2^4 - 1)}{2 - 1} = 45$.</Step>
+</Steps>
+
+<Reveal title="Why does the formula need r not equal to 1?">When $r = 1$ the denominator $1 - r$ is zero, so the formula cannot be used. The sum is then simply $n u_1$, because every term equals $u_1$.</Reveal>
+
+## Visual
+
+<Callout kind="tip">Plot the terms against the term number. A geometric sequence with $r > 1$ gives a curve that rises faster and faster, while $0 < r < 1$ gives a curve that falls and levels off near zero. The pattern is identified by equal ratios between neighbouring points, not by equal differences.</Callout>
+
+## How it is examined
+
+Find and Calculate questions give a mark for the common ratio or the formula, a mark for substitution, and a mark for the final value. Context questions need the model stated, with $u_1$ and $r$ taken from the wording, and an interpretation of the answer, such as whether the quantity is growing or decaying.
+
+<Callout kind="exam">Check whether the question asks for the sum of $n$ terms or for the $n$th term, and whether the starting value counts as one of the terms. A drop of 40% per period gives $r = 0.6$, not $0.4$.</Callout>
+
+## Common mistakes
+
+<Callout kind="mistake">Using $r = 0.4$ for a 40% decrease. The common ratio is $1 - 0.4 = 0.6$.</Callout>
+
+- Adding $r$ instead of multiplying by it, which turns the sequence into an arithmetic one.
+- Using $u_1 r^{n}$ for the nth term instead of $u_1 r^{n-1}$, which shifts every term by one step.
+- Applying the sum formula when $r = 1$, where the denominator is zero; the sum is $n u_1$ instead.
+
+## Check yourself
+
+<Question id="q-1-3-01"/>
+
+<Question id="q-1-3-02"/>
+
+<Question id="q-1-3-03"/>
+
+## Summary
+
+- A geometric sequence multiplies by a constant non-zero ratio $r$ each step: $u_{n+1} = r u_n$.
+- $u_n = u_1 r^{n-1}$ gives any term, and $r = u_{n+1}/u_n$ identifies the common ratio.
+- $S_n = \dfrac{u_1(1 - r^n)}{1 - r}$ for $r \ne 1$ gives the sum of the first $n$ terms.
+- $r > 1$ means growth and $0 < r < 1$ means decay; a negative $r$ makes the signs alternate.
+- Sigma notation $\sum_{k=1}^{n} u_1 r^{k-1}$ writes a geometric sum compactly.
+- For growth or decay at rate $p$ per period, the ratio is $1 + p$ or $1 - p$, with $p$ as a decimal.

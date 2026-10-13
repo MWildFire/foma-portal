@@ -1,0 +1,66 @@
+## Big idea
+
+If the common ratio of a geometric sequence lies between $-1$ and $1$, each term is, in size, a shrinking fraction of the one before. The partial sums then settle at a fixed limit, the sum to infinity, which you can find without adding infinitely many terms.
+
+## Explanation
+
+The sum of the first $n$ terms is $S_{n}=\dfrac{u_{1}(1-r^{n})}{1-r}$ for $r\neq 1$. <Formula id="geometric-partial-sum-formula"/> <Term id="partial-sum-limit"/>
+
+When $|r|<1$, the powers $r^{n}$ tend to $0$ as $n$ grows, so $S_{n}$ approaches $\dfrac{u_{1}}{1-r}$. This limit is the <Term id="sum-to-infinity"/>, written $S_{\infty}=\dfrac{u_{1}}{1-r}$. <Formula id="geometric-sum-to-infinity"/>
+
+A geometric series with $u_{1}\neq 0$ is <Term id="convergent-geometric-series"/> exactly when $|r|<1$. If $|r|\geq 1$, the terms do not shrink to zero, the partial sums do not settle, and the formula does not apply.
+
+The gap between the limit and the first $n$ terms is $S_{\infty}-S_{n}=\dfrac{u_{1}r^{n}}{1-r}$. <Formula id="geometric-tail-remainder"/> It tells you how many terms are needed for a given accuracy.
+
+<Callout kind="define">Sum to infinity: for $|r|<1$, $S_{\infty}=\dfrac{u_{1}}{1-r}$, where $u_{1}$ is the first term and $r$ the common ratio. The sum to infinity does not exist when $|r|\geq 1$.</Callout>
+
+<Callout kind="gdc">Check convergence with a table of values for the partial sums $S_{n}$: the values should level off near the answer given by the formula. The formula gives the exact limit; the table only supports it.</Callout>
+
+## Worked example
+
+A geometric sequence has terms $36,\,-12,\,4,\,\dots$. Find its sum to infinity, and check it against the sum of the first 10 terms.
+
+<Steps>
+<Step>Find the common ratio: $r=\dfrac{-12}{36}=-\dfrac{1}{3}$. Since $|r|=\dfrac{1}{3}<1$, the sum to infinity exists.</Step>
+<Step>Use $S_{\infty}=\dfrac{u_{1}}{1-r}$: $S_{\infty}=\dfrac{36}{1-\left(-\frac{1}{3}\right)}=\dfrac{36}{\frac{4}{3}}=27$.</Step>
+<Step>Check with 10 terms: $S_{10}=\dfrac{36\left(1-\left(-\frac{1}{3}\right)^{10}\right)}{1-\left(-\frac{1}{3}\right)}=27-\dfrac{27}{59049}\approx 26.99954$, which rounds to $27.000$ to 3 decimal places.</Step>
+</Steps>
+
+<Reveal title="Why does a negative ratio still converge?">The terms alternate in sign, but each term is one third of the size of the one before. The partial sums therefore swing above and below $27$ with smaller and smaller swings, and settle at $27$.</Reveal>
+
+## Visual
+
+Plot the partial sums $S_{1}, S_{2}, S_{3}, \dots$ against $n$. When $0<r<1$ they climb towards a horizontal line at $S_{\infty}$ from below. When $-1<r<0$ they zigzag around that line, and each swing is smaller than the one before.
+
+<Callout kind="tip">The distance from the partial sum to the limit shrinks by the factor $|r|$ at every step. That is why the sum settles.</Callout>
+
+## How it is examined
+
+Find and Determine questions give an R1 mark for stating $|r|<1$, an M1 mark for substituting into $S_{\infty}=\dfrac{u_{1}}{1-r}$ and an A1 mark for the value. Show that questions need the partial sum formula, the step $r^{n}\to 0$ and the conclusion about the limit. In context questions, marks are lost when a total counts only part of each cycle, or when a least whole number of terms is rounded down instead of up.
+
+<Callout kind="exam">Write the condition $|r|<1$ before you use $S_{\infty}$. Without it, the reasoning mark is lost even when the value is right.</Callout>
+
+## Common mistakes
+
+<Callout kind="mistake">Using $S_{\infty}$ when $|r|\geq 1$, for example with $r=1.2$. The sum to infinity does not exist, so there is no value to find.</Callout>
+
+- Taking $r$ as the difference $u_{2}-u_{1}$. The common ratio is $r=\dfrac{u_{2}}{u_{1}}$.
+- Dropping a minus sign: with $r=-0.25$ the denominator is $1-(-0.25)=1.25$, not $0.75$.
+- Counting only the falls of a bouncing ball. Each bounce has a rise as well as a fall.
+
+## Check yourself
+
+<Question id="q-1-11-01"/>
+
+<Question id="q-1-11-02"/>
+
+<Question id="q-1-11-03"/>
+
+## Summary
+
+- The sum to infinity exists only when $|r|<1$.
+- $S_{\infty}=\dfrac{u_{1}}{1-r}$, where $u_{1}$ is the first term and $r$ the common ratio.
+- A negative ratio can still converge: the partial sums zigzag towards the limit.
+- The gap between $S_{\infty}$ and $S_{n}$ is $\dfrac{u_{1}r^{n}}{1-r}$.
+- A bouncing ball's total distance counts every rise and every fall.
+- To find how many terms are needed, solve the inequality for this gap, using logarithms or a table.

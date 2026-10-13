@@ -1,0 +1,68 @@
+## Big idea
+
+Every rounded number stands for a range of exact values. Good answers keep track of that range: they state the bounds, the meaningful digits and the size of the error, rather than trusting one rounded value.
+
+## Explanation
+
+A number given to a set number of <Term id="significant-figures"/> is rounded. Significant figures are counted from the first non-zero digit, so the two leading zeros of 0.0047 are not significant. Decimal places count only the digits after the point.
+
+A value $a$ rounded to $d$ decimal places comes from an exact value $x$ within half a unit of the last decimal place. The ends of this range are the <Term id="bounds-of-rounded-value"/>:
+
+<Formula id="rounding-bounds"/>
+
+When measured values are combined, the bounds of the result come from the bounds of the inputs. A product or an area is largest when every factor takes its upper bound and smallest when every factor takes its lower bound. For a quotient, the largest value uses the upper bound of the top and the lower bound of the bottom.
+
+The <Term id="percentage-error"/> compares an approximate value with the exact value, as a percentage of the exact value:
+
+<Formula id="percentage-error-formula"/>
+
+<Callout kind="tip">Estimate first by rounding each value to one significant figure. If the full calculation is far from the estimate, check your working before you round the answer.</Callout>
+
+## Worked example
+
+A rectangular plot is 12.4 m long and 8.6 m wide, each correct to 1 decimal place. Find the bounds of the length and of the area. Then find the percentage error when 3.6 is used for the true value 3.75.
+
+<Steps>
+<Step>Length: half a unit of the first decimal place is 0.05, so the bounds are $12.4 - 0.05 = 12.35$ and $12.4 + 0.05 = 12.45$. The length $L$ satisfies $12.35 \le L < 12.45$.</Step>
+<Step>Width: the bounds are 8.55 and 8.65. The largest area uses both upper bounds, $12.45 \times 8.65 = 107.69$, and the smallest uses both lower bounds, $12.35 \times 8.55 = 105.59$ (both to 2 decimal places).</Step>
+<Step>Percentage error when 3.6 is used for the true value 3.75: $\dfrac{|3.6 - 3.75|}{3.75} \times 100 = 4.00\%$ (to 2 decimal places).</Step>
+</Steps>
+
+<Reveal title="Why the modulus sign?">Errors can be above or below the exact value. The modulus sign makes the difference positive either way, so a percentage error is never negative.</Reveal>
+
+## Visual
+
+The rounded value can be drawn as a short interval on a number line. The exact value sits somewhere inside it, and the two bounds are the ends of that interval. Sketch the interval for each rounded value before you combine them, so that you can see which bounds give the largest or the smallest result.
+
+<Callout kind="tip">Mark the bounds of every rounded measurement on a number line, then pick the upper or the lower bound for each factor to get the largest or smallest result.</Callout>
+
+## How it is examined
+
+Write down and Find questions give a mark for each correct bound and an accuracy mark for the number of decimal places or significant figures asked for. Estimate questions reward a sensible rounding to one significant figure and a clear comparison. Comment questions need a conclusion based on the bounds, not a repeat of a calculated value.
+
+<Callout kind="exam">Keep full accuracy in the working and round only the final answer, unless the question asks you to round an intermediate step.</Callout>
+
+## Common mistakes
+
+<Callout kind="mistake">Writing the bounds of 12.4 as 12.3 and 12.5. The half unit is 0.05, so the bounds are 12.35 and 12.45.</Callout>
+
+- Taking the largest rounded values as the upper bound of a quotient, instead of the upper bound of the top and the lower bound of the bottom.
+- Dividing by the approximate value instead of the exact value when finding a percentage error.
+- Counting the leading zeros of 0.0047 as significant figures. It has two significant figures.
+
+## Check yourself
+
+<Question id="q-1-6-01"/>
+
+<Question id="q-1-6-02"/>
+
+<Question id="q-1-6-03"/>
+
+## Summary
+
+- A value $a$ rounded to $d$ decimal places has the bounds $a - \frac{1}{2} \times 10^{-d}$ and $a + \frac{1}{2} \times 10^{-d}$; the lower bound is included and the upper bound is not.
+- Significant figures are counted from the first non-zero digit, so leading zeros never count.
+- The largest product uses every upper bound, and the smallest uses every lower bound.
+- For a quotient, use the upper bound of the top and the lower bound of the bottom for the largest value.
+- A percentage error is the difference from the exact value, divided by the exact value, times 100.
+- Estimate by rounding each value to one significant figure, and round only the final answer.

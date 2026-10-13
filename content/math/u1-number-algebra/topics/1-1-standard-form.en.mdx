@@ -1,0 +1,69 @@
+## Big idea
+
+Standard form writes any number as a number between 1 and 10 multiplied by a power of ten: $a \times 10^{k}$. Very large and very small numbers become short, and multiplying or dividing them reduces to adding or subtracting powers of ten.
+
+## Explanation
+
+A number is in <Term id="standard-form"/> when it has the form $a \times 10^{k}$ with $1 \le a < 10$ and $k$ an integer. The power $k$ gives the order of magnitude of the number, and $a$ carries its digits. In $4.2 \times 10^{4}$ the digits are 4.2 and the size is about ten thousand.
+
+<Formula id="standard-form-representation"/>
+
+To write a number in standard form, move the decimal point until exactly one non-zero digit stands before it. Each move to the left increases $k$ by 1, and each move to the right decreases $k$ by 1. So $0.00047 = 4.7 \times 10^{-4}$ and $380\,000 = 3.8 \times 10^{5}$.
+
+The number $a$ is the <Term id="standard-form-mantissa"/>, and the power $k$ is the <Term id="standard-form-order"/>. Comparing two numbers in standard form is quick: the larger power of ten is the larger number, and when the powers are equal, compare $a$.
+
+<Callout kind="define">Standard form: a way of writing a number as $a \times 10^{k}$, where $1 \le a < 10$ and $k$ is an integer.</Callout>
+
+To multiply or divide, work on the two parts separately: multiply (or divide) the numbers $a$ and add (or subtract) the powers. For example, $(3.6 \times 10^{5}) \times (2.4 \times 10^{-3}) = 8.64 \times 10^{2}$. If the new $a$ falls outside $1 \le a < 10$, adjust it: $12 \times 10^{4}$ becomes $1.2 \times 10^{5}$.
+
+<Formula id="standard-form-product-quotient"/>
+
+To add or subtract, first write both numbers with the same power of ten, then add the numbers $a$. Adding the $a$ values without aligning the powers gives an answer with the wrong order of magnitude, so always align first.
+
+<Callout kind="gdc">Enter very large and very small values with the calculator's scientific notation entry rather than as long strings of zeros. A result shown in scientific notation, with the power of ten after an E or as a superscript, means the same as $a \times 10^{k}$.</Callout>
+
+## Worked example
+
+Calculate $(3.6 \times 10^{5}) \times (2.4 \times 10^{-3})$, then write $4.2 \times 10^{4} + 3.8 \times 10^{3}$ as a single number in standard form.
+
+<Steps>
+<Step>Multiply the numbers and add the powers: $3.6 \times 2.4 = 8.64$ and $10^{5} \times 10^{-3} = 10^{2}$, so the product is $8.64 \times 10^{2}$. Because $1 \le 8.64 < 10$, it is already in standard form.</Step>
+<Step>Align the powers of ten: $3.8 \times 10^{3} = 0.38 \times 10^{4}$.</Step>
+<Step>Add the numbers $a$: $4.2 + 0.38 = 4.58$, so the sum is $4.58 \times 10^{4}$.</Step>
+</Steps>
+
+<Reveal title="Why align the powers first?">Adding the $a$ values directly, without aligning the powers of ten, gives an answer with the wrong order of magnitude. Only numbers with the same power of ten can be added in this way.</Reveal>
+
+## Visual
+
+<Callout kind="tip">Picture a number line of powers of ten, where each step to the right multiplies by 10. Standard form places $a$, a number from 1 up to 10, on the step for $10^{k}$. Moving the decimal point one place changes $a$ by a factor of ten and $k$ by one in the opposite direction, so $3.8 \times 10^{3}$ and $0.38 \times 10^{4}$ are the same point on the line written in two ways.</Callout>
+
+## How it is examined
+
+Calculate and Express questions earn a method mark for moving the decimal point or combining the powers, then an accuracy mark for $a$ and another for $k$. The number of significant figures or decimal places in the question sets the accuracy: round $a$ to exactly the requested precision. Context questions, such as the Earth and the Moon, also reward a sentence that says what the answer means in the situation.
+
+<Callout kind="exam">Write the final answer in standard form, with $1 \le a < 10$ and the number of significant figures the question asks for. Keep $k$ as an integer.</Callout>
+
+## Common mistakes
+
+<Callout kind="mistake">Leaving $12 \times 10^{4}$ as the final answer. The mantissa must satisfy $1 \le a < 10$, so write $1.2 \times 10^{5}$.</Callout>
+
+- Moving the decimal point the wrong way: $0.00047$ is $4.7 \times 10^{-4}$, not $4.7 \times 10^{4}$.
+- Adding the $a$ values without first writing both numbers with the same power of ten.
+- Rounding $a$ to the wrong number of decimal places, so the answer does not have the required significant figures.
+
+## Check yourself
+
+<Question id="q-1-1-01"/>
+
+<Question id="q-1-1-02"/>
+
+<Question id="q-1-1-03"/>
+
+## Summary
+
+- Standard form is $a \times 10^{k}$, with $1 \le a < 10$ and $k$ an integer.
+- The mantissa $a$ carries the digits; the power $k$ gives the order of magnitude.
+- To multiply or divide, combine the $a$ values and add or subtract the powers, then adjust $a$ if needed.
+- To add or subtract, write both numbers with the same power of ten first.
+- Give the final answer to the number of significant figures or decimal places the question asks for.

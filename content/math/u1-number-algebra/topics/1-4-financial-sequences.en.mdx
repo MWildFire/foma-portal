@@ -1,0 +1,72 @@
+## Big idea
+
+Compound interest and reducing-balance depreciation are both geometric sequences. Each period the amount is multiplied by the same factor, so the whole method is to find that factor and count the periods.
+
+## Explanation
+
+When interest is added to a balance, the next period's interest is earned on the interest as well. This is why <Term id="compound-interest"/> grows faster than simple interest. For a principal $PV$ at $r\%$ a year, with interest added $k$ times a year, the value after $n$ years is:
+
+<Formula id="compound-interest-periods"/>
+
+Each <Term id="compounding-period"/> uses the rate $\frac{r}{k}\%$, and there are $kn$ periods in $n$ years. Annual compounding is the case $k = 1$. Monthly compounding is $k = 12$, which gives $12n$ periods at $\frac{r}{12}\%$ each.
+
+<Callout kind="define">Compound interest: interest added to the balance at the end of each period, so that the balance is multiplied by a fixed growth factor $1 + \frac{r}{100k}$ in each period.</Callout>
+
+Depreciation can also be a geometric sequence. In <Term id="reducing-balance-depreciation"/>, the value falls by a fixed percentage of its value at the start of each year. If $V_0$ is the starting value and $r\%$ is lost each year, the value after $n$ years is:
+
+<Formula id="reducing-balance-value"/>
+
+To find the rate from two values, solve the same formula for $r$:
+
+<Formula id="depreciation-rate"/>
+
+<Callout kind="gdc">Use a financial solver if your GDC has one, or a table of values for the balance. Enter the number of periods, the rate per period and the present value, then read the future value. Check that the rate is per period, not per year.</Callout>
+
+## Worked example
+
+A deposit of AED 20,000 earns 3.5% a year, compounded annually. A car bought for AED 85,000 loses 12% of its value each year on a reducing-balance basis.
+
+<Steps>
+<Step>Compound interest, annual: $FV = 20000 \times 1.035^{5} = 23\,753.73$ (to 2 decimal places). The common ratio is 1.035 and there are 5 periods, so the deposit is worth AED 23,753.73.</Step>
+<Step>Depreciation: $V_4 = 85000 \times 0.88^{4} = 50\,974.11$ (to 2 decimal places). The car keeps 88% of its value each year, so after 4 years it is worth AED 50,974.11.</Step>
+<Step>First year with the car below AED 40,000: after 5 years the value is $85000 \times 0.88^{5} = 44\,857.21$, and after 6 years it is $85000 \times 0.88^{6} = 39\,474.35$. The value first drops below AED 40,000 in year 6, so the least value of $n$ is 6.</Step>
+</Steps>
+
+<Reveal title="Why is the factor less than 1?">The value goes down each year, so the factor is one minus the percentage lost. Using one plus the percentage would model growth, not depreciation.</Reveal>
+
+## Visual
+
+<Sim id="math.tvm-lab"/>
+
+Set the principal to 20,000, the rate to 3.5, the years to 5 and the payments per year to 1. The compound value is 23,753.73, the same as the first step of the worked example. Then raise the payments per year towards 12: the value grows a little more, because interest is added more often and the growth factor for each period becomes smaller.
+
+## How it is examined
+
+Find and Calculate questions give a mark for the correct growth or decay factor, a mark for the number of periods, and an accuracy mark for the rounding the question asks for. Show that and Comment questions need the values from earlier parts and a conclusion linked to the context. To find a rate or a number of years, write the unknown inside the same formula and solve it.
+
+<Callout kind="exam">Write the common ratio and the number of periods before you substitute numbers. An answer rounded differently from the question's instruction loses the accuracy mark.</Callout>
+
+## Common mistakes
+
+<Callout kind="mistake">Using the annual rate in a monthly calculation. At 4% a year, the rate per month is 4 divided by 12 per cent, and the number of periods is 12 times the number of years.</Callout>
+
+- Using $\frac{r}{100}$ as the growth factor instead of $1 + \frac{r}{100}$, or using $1 + \frac{r}{100}$ for depreciation instead of $1 - \frac{r}{100}$.
+- Treating reducing-balance depreciation as a fixed amount lost each year. The loss shrinks each year, because it is a percentage of a smaller value.
+- Rounding the common ratio early, which moves the final answer.
+
+## Check yourself
+
+<Question id="q-1-4-01"/>
+
+<Question id="q-1-4-02"/>
+
+<Question id="q-1-4-03"/>
+
+## Summary
+
+- Compound interest multiplies the balance by $1 + \frac{r}{100k}$ in each period, and there are $kn$ periods in $n$ years.
+- Reducing-balance depreciation multiplies the value by $1 - \frac{r}{100}$ each year, so the yearly values form a geometric sequence.
+- To find an unknown rate, solve for the common ratio, then take the required root.
+- Match the rate and the number of periods to the compounding frequency: for monthly interest, divide the rate by 12 and multiply the years by 12.
+- Round only the final answer, and give it in the form the question asks for.
+- Check a result with a financial solver or a table of values on the GDC.

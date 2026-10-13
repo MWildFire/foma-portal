@@ -1,0 +1,75 @@
+## Big idea
+
+Two quantities that influence each other can be described by two linear differential equations. Near the equilibrium point at the origin, the behaviour is decided by two numbers from the coefficient matrix: its trace and its determinant. Together they show whether trajectories spiral, circle, settle into the origin, or leave along two lines.
+
+## Explanation
+
+A coupled linear system has the form $\frac{dx}{dt} = ax + by$, $\frac{dy}{dt} = cx + dy$. In matrix form it is $\frac{d\mathbf{x}}{dt} = A\mathbf{x}$, where $A = \begin{pmatrix} a & b \\ c & d \end{pmatrix}$ and $\mathbf{x} = \begin{pmatrix} x \\ y \end{pmatrix}$.
+
+<Formula id="linear-system-2d"/>
+
+Each point of the <Term id="phase-plane-2d"/> is a state of the system. The origin is an <Term id="equilibrium-point-2d"/>, and it is the only one when $D \neq 0$. Its type follows from the trace $T = a + d$, the determinant $D = ad - bc$ and the eigenvalues, which solve $\lambda^{2} - T\lambda + D = 0$.
+
+<Formula id="trace-determinant-2d"/>
+
+<Formula id="eigenvalues-trace-determinant"/>
+
+Read the type in this order:
+
+- $D < 0$: the eigenvalues are real with opposite signs. The origin is a <Term id="saddle-point-2d"/> and is always unstable.
+- $D > 0$ and $T^{2} \geq 4D$: the eigenvalues are real with the same sign, so the origin is a node. It is stable if $T < 0$, when nearby trajectories go into the origin, and unstable if $T > 0$. A repeated eigenvalue ($T^{2} = 4D$) also gives a node.
+- $D > 0$ and $T^{2} < 4D$: the eigenvalues are complex, so the origin is a spiral (focus). It is stable if $T < 0$ and unstable if $T > 0$.
+- $T = 0$ and $D > 0$: the eigenvalues are purely imaginary, $\lambda = \pm i\sqrt{D}$. The origin is a <Term id="centre-equilibrium-2d"/>, surrounded by closed orbits.
+
+<Callout kind="define">Phase portrait: a sketch of several trajectories in the phase plane, showing the equilibrium point, its type, and the direction of motion as $t$ increases.</Callout>
+
+<Callout kind="gdc">Use the eigenvalue function of your GDC on the coefficient matrix to check your values. The device gives the numbers; you still read the type from the signs of $D$, $T$ and $T^{2} - 4D$.</Callout>
+
+## Worked example
+
+Take $\frac{dx}{dt} = x + 2y$ and $\frac{dy}{dt} = 3x + 2y$, so that $A = \begin{pmatrix} 1 & 2 \\ 3 & 2 \end{pmatrix}$.
+
+<Steps>
+<Step>$T = 1 + 2 = 3$ and $D = (1)(2) - (2)(3) = -4$. Since $D < 0$, the origin is a saddle point.</Step>
+<Step>The characteristic equation is $\lambda^{2} - 3\lambda - 4 = 0$, which factorises as $(\lambda - 4)(\lambda + 1) = 0$. The eigenvalues are $\lambda = 4$ and $\lambda = -1$.</Step>
+<Step>For $\lambda = 4$, the first row gives $(1 - 4)x + 2y = 0$, so $y = 1.5x$: the eigen-direction $(2, 3)$ has slope $1.5$. For $\lambda = -1$, the first row gives $2x + 2y = 0$, so $y = -x$: the eigen-direction $(1, -1)$ has slope $-1$.</Step>
+</Steps>
+
+<Reveal title="Why is the origin unstable?">Trajectories that start on the line through $(2, 3)$ move away from the origin, because the eigenvalue $4$ is positive. Trajectories on the line through $(1, -1)$ move in towards the origin, because $-1$ is negative. A trajectory that starts near the origin in a general direction is pushed away along the first line, so the origin is unstable.</Reveal>
+
+## Visual
+
+<Sim id="math.phase-portrait-lab"/>
+
+The lab opens on the stable spiral $a = -1$, $b = 2$, $c = -2$, $d = -1$ from the last question. Set $a = 1$, $b = 2$, $c = 3$, $d = 2$ to see the saddle of the worked example, and watch how the curves approach along one direction and leave along the other. The label reads the type from $T$ and $D$ and shows the eigenvalues. The curves are drawn with small Euler steps, so a centre drifts slightly outwards; this is a numerical effect, not a property of the system.
+
+## How it is examined
+
+Find questions give marks for the characteristic equation, for each eigenvalue and for the reason behind the classification. Determine questions ask for the type and the stability, justified by the signs of $D$ and $T$. Sketch questions give marks for the eigen-directions, for arrows that show whether trajectories move towards or away from the origin, and for a label that names the type.
+
+<Callout kind="exam">Write the values of $T$ and $D$ before you name the type. A marker can then follow your working even if a later eigenvalue has a slip.</Callout>
+
+## Common mistakes
+
+<Callout kind="mistake">Calling any system with $T = 0$ a centre without checking that $D > 0$. If $D < 0$, the origin is a saddle.</Callout>
+
+- Taking the trace as $b + c$ instead of $a + d$.
+- Choosing between node and spiral from the sign of $T$ alone. The test is the sign of $T^{2} - 4D$.
+- Drawing the arrows the wrong way. Arrows show increasing $t$, so a stable node has its arrows pointing towards the origin.
+
+## Check yourself
+
+<Question id="q-5-17-01"/>
+
+<Question id="q-5-17-02"/>
+
+<Question id="q-5-17-03"/>
+
+## Summary
+
+- Write the system as $\frac{d\mathbf{x}}{dt} = A\mathbf{x}$, then find $T = a + d$ and $D = ad - bc$.
+- $D < 0$: a saddle point, always unstable.
+- $D > 0$ and $T^{2} \geq 4D$: a node, stable if $T < 0$ and unstable if $T > 0$.
+- $D > 0$ and $T^{2} < 4D$: a spiral, stable if $T < 0$ and unstable if $T > 0$.
+- $T = 0$ and $D > 0$: a centre, with closed orbits and purely imaginary eigenvalues.
+- When $D \neq 0$ the origin is the only equilibrium point; sketch the eigen-directions first, then the arrows.

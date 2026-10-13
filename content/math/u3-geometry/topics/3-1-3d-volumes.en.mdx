@@ -1,0 +1,115 @@
+## Big idea
+
+Lengths, volumes and surface areas in 3D are found with the tools you already know from 2D: Pythagoras's theorem and right-angled trigonometry, applied to triangles hidden inside solids. Once you can see the right-angled triangle, the formulas for pyramids, cones, spheres and hemispheres follow.
+
+## Explanation
+
+<Term id="distance-between-points-3d"/>
+
+Points in space have three coordinates. For $A(x_1, y_1, z_1)$ and $B(x_2, y_2, z_2)$, apply Pythagoras twice: first in the horizontal plane, then in the vertical plane through $AB$.
+
+$$
+AB = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2 + (z_2 - z_1)^2}
+$$
+
+<Formula id="distance-3d-points"/>
+
+The midpoint $M$ of $AB$ has coordinates equal to the averages of the coordinates of $A$ and $B$: $M\left(\dfrac{x_1 + x_2}{2}, \dfrac{y_1 + y_2}{2}, \dfrac{z_1 + z_2}{2}\right)$.
+
+<Term id="right-pyramid"/>
+
+A right pyramid has its apex $V$ directly above the centre $O$ of its base, so the perpendicular height $h = VO$ meets the base at $O$. The volume uses this perpendicular height, not the slant height of a face:
+
+$$
+V = \frac{1}{3}Ah
+$$
+
+<Formula id="pyramid-volume"/>
+
+Here $A$ is the area of the base.
+
+<Term id="right-cone"/>
+
+A cone with base radius $r$, perpendicular height $h$ and slant height $l$ satisfies $l^2 = r^2 + h^2$. Its volume is given below, and its curved surface area is $\pi r l$.
+
+$$
+V = \frac{1}{3}\pi r^2 h
+$$
+
+<Formula id="cone-volume"/>
+
+A sphere of radius $r$ has volume $\dfrac{4}{3}\pi r^3$ and surface area $4\pi r^2$. A hemisphere is half a sphere: its volume is $\dfrac{2}{3}\pi r^3$, its curved surface area is $2\pi r^2$, and its total surface area, including the flat circular face, is $3\pi r^2$.
+
+$$
+V = \frac{4}{3}\pi r^3
+$$
+
+<Formula id="sphere-volume"/>
+
+For a composite solid, add the volumes of the parts. For the surface area, count only the surfaces that can be seen from outside: where two parts are joined, the shared face disappears.
+
+<Term id="angle-between-line-and-plane"/>
+
+The angle between a line and a plane is the angle between the line and its projection onto the plane. Drop a perpendicular from a point $P$ on the line to the plane, with foot $F$. If the line meets the plane at $T$, the projection is $TF$ and the angle is $\angle PTF$, found in the right-angled triangle $PFT$.
+
+The angle between two intersecting lines is the angle at their common point. Find it in the triangle the two lines form, using the cosine rule, or SOH CAH TOA if that triangle is right-angled.
+
+<Callout kind="define">Right pyramid: a pyramid whose apex lies directly above the centre of its base. Angle between a line and a plane: the angle between the line and its projection onto the plane.</Callout>
+
+<Callout kind="gdc">Use the square root and power functions of the GDC with the value of $\pi$ stored in the calculator, not 3.14, and keep intermediate results unrounded. For an angle from an inverse trigonometric function, check that the angle mode is set to degrees.</Callout>
+
+## Worked example
+
+Points $A(2, -1, 5)$ and $B(4, 1, 8)$ are given in metres.
+
+<Steps>
+<Step>The coordinate differences are 2, 2 and 3, so $AB^2 = 2^2 + 2^2 + 3^2 = 17$ and $AB = \sqrt{17} = 4.12$ m (3 significant figures).</Step>
+<Step>The midpoint coordinates are the averages of the coordinates: $M = (3, 0, 6.5)$.</Step>
+</Steps>
+
+A right square pyramid has a base of side 6 cm and perpendicular height $VO = 4$ cm, with $O$ the centre of the base.
+
+<Steps>
+<Step>The base area is 36 cm², so the volume is $V = \dfrac{1}{3} \times 36 \times 4 = 48$ cm³.</Step>
+<Step>The midpoint $M$ of one base edge is 3 cm from $O$, so the slant height of a face is $VM = \sqrt{4^2 + 3^2} = 5$ cm. Each triangular face has area $\dfrac{1}{2} \times 6 \times 5 = 15$ cm², so the total surface area is $36 + 4 \times 15 = 96$ cm².</Step>
+<Step>Half of a base diagonal is $OA = 3\sqrt{2}$, so the angle $\theta$ between the edge $VA$ and the base satisfies $\tan\theta = \dfrac{VO}{OA} = \dfrac{4}{3\sqrt{2}} = 0.943$, giving $\theta = 43.3^{\circ}$ (1 decimal place).</Step>
+</Steps>
+
+<Reveal title="Why not use the slant height?">The volume formula needs the perpendicular height $VO$. Using the slant height $VM$ instead gives a volume that is too large.</Reveal>
+
+## Visual
+
+Picture a right square pyramid standing on a table. The apex $V$ sits straight above the centre $O$ of the square base, so $VO$ is perpendicular to the base. Triangle $VOA$, where $A$ is a corner of the base, is right-angled at $O$, and the angle at $A$ is the angle between the edge $VA$ and the base. Triangle $VOM$, where $M$ is the midpoint of one base edge, is also right-angled at $O$, and its hypotenuse $VM$ is the slant height of the face.
+
+<Callout kind="tip">Before any calculation, sketch the solid and shade the right-angled triangle you need. Most 3D questions reduce to one or two triangles like $VOA$ or $VOM$.</Callout>
+
+## How it is examined
+
+Calculate and Find questions give a method mark for the right-angled triangle or the formula, a mark for the substitution, and an accuracy mark for the answer with the rounding and units asked for. Show that questions need every line of working, with the exact value kept until the last line. For a composite solid, a reasoning mark is often given for stating which surfaces are joined.
+
+<Callout kind="exam">Write down the right-angled triangle before the first formula. The method mark is given for the triangle even if a later length is wrong.</Callout>
+
+## Common mistakes
+
+<Callout kind="mistake">Putting the slant height $l$ into $V = \frac{1}{3}Ah$ instead of the perpendicular height $h$.</Callout>
+
+- Squaring and adding the coordinate differences but forgetting the square root, which gives the squared distance.
+- Counting the disc where a hemisphere and a cone are joined as part of the outside surface.
+- Using the total surface area of a hemisphere, $3\pi r^2$, when the question asks for the curved surface, $2\pi r^2$.
+
+## Check yourself
+
+<Question id="q-3-1-01"/>
+
+<Question id="q-3-1-02"/>
+
+<Question id="q-3-1-03"/>
+
+## Summary
+
+- The distance is $AB = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2 + (z_2 - z_1)^2}$, and the midpoint averages each coordinate.
+- A right pyramid or cone has volume one third of base area times perpendicular height, not slant height.
+- A sphere has volume $\frac{4}{3}\pi r^3$ and surface area $4\pi r^2$; a hemisphere takes half the volume.
+- For a composite solid, add the volumes but count only the surfaces visible from outside.
+- The angle between a line and a plane is measured from the line's projection onto the plane.
+- Keep $\pi$ and surds exact until the last step, and round only at the end.

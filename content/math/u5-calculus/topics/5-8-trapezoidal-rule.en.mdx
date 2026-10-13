@@ -1,0 +1,85 @@
+## Big idea
+
+The trapezoidal rule estimates the area under a curve with straight-sided trapezia. It works from a formula or from a table of values, so it is useful when the integral cannot be found by anti-differentiation. Whether the estimate is too large or too small depends only on the curvature of the curve.
+
+## Explanation
+
+Split the interval $[a, b]$ into $n$ strips of equal width, the <Term id="trapezoidal-strip-width"/> $h = \dfrac{b-a}{n}$. Each strip is a trapezium: its parallel sides are the ordinates at its two ends, and its top side is a chord of the curve. Adding the strip areas gives the estimate from the <Term id="trapezoidal-rule"/>:
+
+$$
+\int_{a}^{b} y\,dx \approx \frac{h}{2}\left[y_{0} + 2\left(y_{1} + y_{2} + \dots + y_{n-1}\right) + y_{n}\right]
+$$
+
+<Formula id="trapezoidal-estimate"/>
+
+The ordinates $y_{0}, y_{1}, \dots, y_{n}$ are the values of the curve at $x = a, a + h, \dots, b$. So $n$ strips need $n + 1$ ordinates: the two end values are used once and every inner value twice. The area of strip $k$ is
+
+$$
+A_{k} = \frac{h}{2}\left(y_{k-1} + y_{k}\right)
+$$
+
+<Formula id="trapezium-strip-area"/>
+
+The error is the estimate minus the exact value, $E = T_{n} - I$. This is the <Term id="trapezoidal-error-sign"/>. Where $f''(x) > 0$ the curve is concave up, the chords lie above it and the estimate is too large. Where $f''(x) < 0$ the curve is concave down and the estimate is too small.
+
+$$
+E = T_{n} - \int_{a}^{b} f(x)\,dx
+$$
+
+<Formula id="trapezoidal-error-formula"/>
+
+<Callout kind="define">Trapezoidal rule: an approximation of $\int_{a}^{b} y\,dx$ by $n$ trapezia of equal width $h = \dfrac{b-a}{n}$, whose top sides are chords of the curve.</Callout>
+
+<Callout kind="gdc">Use the definite integral function on the GDC for the exact value $I$, and a table of values for $f(x)$ to read the ordinates. In the exam, write the sum out by hand so that each ordinate and its coefficient (1 or 2) is visible.</Callout>
+
+## Worked example
+
+<Steps>
+<Step>Strip width: $h = \dfrac{2-0}{4} = 0.5$. For $f(x) = x^{2}$ the ordinates are $y_{0} = 0$, $y_{1} = 0.25$, $y_{2} = 1$, $y_{3} = 2.25$ and $y_{4} = 4$.</Step>
+<Step>Estimate: $T_{4} = \dfrac{0.5}{2}\left[0 + 2(0.25 + 1 + 2.25) + 4\right] = 2.75$.</Step>
+<Step>Exact value: $I = \displaystyle\int_{0}^{2} x^{2}\,dx = \dfrac{8}{3} = 2.667$ (to 3 decimal places). The error is $E = T_{4} - I = 2.75 - 2.667 = 0.083$ (to 3 decimal places). Since $f''(x) = 2 > 0$, we have $T_{4} > I$: the estimate is an overestimate.</Step>
+</Steps>
+
+<Steps>
+<Step>A car's speed is recorded every 3 seconds: $v = 0$, $8$, $12$ and $10$ m/s at $t = 0$, $3$, $6$ and $9$ s. The strip width is $h = 3$, so there are $n = 3$ strips.</Step>
+<Step>Distance: $s \approx \dfrac{3}{2}\left[0 + 2(8 + 12) + 10\right] = 75$ m.</Step>
+</Steps>
+
+<Reveal title="Why is the answer only an estimate?">The speed between two readings is unknown. The trapezia assume a straight-line change between readings, so the true distance may differ from 75 m.</Reveal>
+
+## Visual
+
+<Sim id="math.trapezoid-lab"/>
+
+The lab draws $n$ trapezia under $y = 2 + \sin x$ between $a$ and $b$. The exact integral $2(b-a) + \cos a - \cos b$ comes from a fixed formula, so the error $E = T_{n} - I$ can be read directly. With the default $a = 0$ and $b = \pi$ the curve is concave down over the whole interval, so $E$ stays negative. Increase $n$ and watch the trapezia follow the curve more closely.
+
+## How it is examined
+
+Estimate questions give a mark for the strip width and the formula (M1), a mark for substituting the ordinates (M1) and a mark for the value to the required accuracy (A1). Sign questions need a reason (R1): name the curvature from $f''(x)$, then state the sign of $E$. Estimate asks for an approximate value. Justify and Comment need a reason linked to the curve or to the context.
+
+<Callout kind="exam">Write the strip width $h$ and a table of ordinates before you substitute. A table prevents the two most common slips: a missing ordinate and a missing factor 2.</Callout>
+
+## Common mistakes
+
+<Callout kind="mistake">Using $n$ ordinates for $n$ strips, or dividing by $n - 1$ to get the strip width. Four strips need five ordinates, from $x = a$ to $x = b$.</Callout>
+
+- Forgetting the factor 2 on the inner ordinates, or the factor $\dfrac{h}{2}$ in front of the bracket.
+- Claiming the estimate is always an underestimate. The sign follows the curvature: for a concave up curve the estimate is too large.
+- Giving the sign without a reason. Name the curvature from $f''(x)$, for example "$f''(x) > 0$, so the curve is concave up".
+
+## Check yourself
+
+<Question id="q-5-8-01"/>
+
+<Question id="q-5-8-02"/>
+
+<Question id="q-5-8-03"/>
+
+## Summary
+
+- The trapezoidal rule approximates $\int_{a}^{b} y\,dx$ with $n$ strips of width $h = \dfrac{b-a}{n}$.
+- The estimate is $\dfrac{h}{2}\left[y_{0} + 2(y_{1} + \dots + y_{n-1}) + y_{n}\right]$: the inner ordinates count twice.
+- $n$ strips need $n + 1$ ordinates, from $x = a$ to $x = b$.
+- The error $E = T_{n} - I$ is positive (an overestimate) where $f''(x) > 0$, and negative (an underestimate) where $f''(x) < 0$.
+- More strips bring the chords closer to the curve and reduce the error.
+- Give a reason for the sign by naming the curvature from $f''(x)$.

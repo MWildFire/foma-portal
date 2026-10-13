@@ -1,0 +1,63 @@
+## Big idea
+
+Not every pattern is a straight line. A least-squares curve fits a chosen model to the data, and $R^2$ tells you how much of the variation in $y$ the model explains. A higher $R^2$ means a better fit, but it does not prove that the model is right.
+
+## Explanation
+
+A <Term id="least-squares-curve"/> is a model curve whose parameters make the sum of squared <Term id="regression-residual"/>s as small as possible. A residual is the observed value minus the predicted value, $y_i - \hat{y}_i$, and the quantity being made small is <Formula id="sum-squared-residuals"/>. It is the same least-squares idea as for a straight line.
+
+When the pattern is curved, choose a model whose shape suits the data. The logarithmic model $y = a + b\ln x$ suits data that rise quickly and then level off. The GDC fits $a$ and $b$ by least squares, as <Formula id="logarithmic-regression-model"/> shows.
+
+The <Term id="coefficient-of-determination"/> shows how much of the variation in $y$ the model explains, as <Formula id="coefficient-of-determination-formula"/> defines. $R^2 = 1$ means every point lies on the curve; $R^2 = 0$ means the model does no better than the mean of $y$.
+
+<Callout kind="gdc">Enter $x$ in one list and $y$ in the other, then choose the logarithmic regression option. It gives $a$ and $b$ for $y = a + b\ln x$, using the natural logarithm, and it shows $R^2$ when the diagnostics are switched on. Some GDCs fit exponential or power models by a straight line through the logarithms of the data; the $R^2$ they show then describes that line, so check what is being reported.</Callout>
+
+<Callout kind="define">Coefficient of determination $R^2$: the proportion of the variation in $y$ that the model explains, $R^2 = 1 - \dfrac{\sum (y_i - \hat{y}_i)^2}{\sum (y_i - \bar{y})^2}$.</Callout>
+
+## Worked example
+
+The number of sign-ups to a revision app, $y$ (in hundreds), after $x$ weeks is: $x$: 1, 2, 4, 8, 16; $y$: 4.4, 5.2, 7.9, 9.3, 11.6. The points rise quickly and then flatten, so a logarithmic model is worth trying.
+
+<Steps>
+<Step>The GDC logarithmic regression gives $a = 3.98$ and $b = 2.67$, so $y = 3.98 + 2.67\ln x$.</Step>
+<Step>$R^2 = 0.979$ for this model, so it explains most of the variation in the sign-ups.</Step>
+<Step>A straight line gives $R^2 = 0.898$, a smaller value, so the logarithmic model fits better. Its prediction after $x = 12$ weeks is $\hat{y} = 3.98 + 2.67\ln 12 = 10.6$, that is 10.6 hundred sign-ups.</Step>
+</Steps>
+
+<Reveal title="Why not judge the model by R² alone?">A quadratic curve always fits the same data at least as well as a straight line, because the straight line is a special case of it. So compare models with the same number of parameters where you can, check that the shape is sensible, and ask whether the model still works beyond the data.</Reveal>
+
+## Visual
+
+<Sim id="math.regression-lab"/>
+
+Choose the revision data set and compare the straight line, the logarithmic curve and the quadratic curve. The lab shows $R^2$ and the sum of squared residuals for each model. The red bars are residuals: the curve that follows the points most closely has the smallest residuals and the largest $R^2$.
+
+## How it is examined
+
+Find questions give marks for the GDC method, for each value (a, b, $R^2$, a prediction) to the required accuracy, and for choosing the better model. Determine and Comment questions need reasons: the model with the larger $R^2$ and a sensible shape, a note that a prediction outside the data is an extrapolation, and an interpretation of $b$ in context.
+
+<Callout kind="exam">Give $R^2$ to 3 decimal places unless the question says otherwise, and state which model it belongs to.</Callout>
+
+## Common mistakes
+
+<Callout kind="mistake">Treating a higher $R^2$ as proof that a model is correct, or comparing $R^2$ for models with different numbers of parameters as if that settled the choice.</Callout>
+
+- Using $\log_{10} x$ where the model says $\ln x$. Fit the model with the natural logarithm, as the GDC option does.
+- Confusing a residual with an observed value. A residual is $y_i - \hat{y}_i$: the observed value minus the predicted value.
+- Quoting the $R^2$ of an exponential or power regression as the $R^2$ of the curve, when the GDC fitted a straight line to the logarithms.
+
+## Check yourself
+
+<Question id="q-4-13-01"/>
+
+<Question id="q-4-13-02"/>
+
+<Question id="q-4-13-03"/>
+
+## Summary
+
+- A least-squares curve minimises the sum of squared residuals $\sum (y_i - \hat{y}_i)^2$.
+- The logarithmic model $y = a + b\ln x$ is fitted on the GDC with the natural logarithm, and suits data that rise and then level off.
+- $R^2 = 1 - \dfrac{\sum (y_i - \hat{y}_i)^2}{\sum (y_i - \bar{y})^2}$ is the share of the variation in $y$ that the model explains.
+- A model with more parameters always fits the same data at least as well, so compare $R^2$ with care.
+- A prediction outside the data range is an extrapolation: say that it is less reliable.

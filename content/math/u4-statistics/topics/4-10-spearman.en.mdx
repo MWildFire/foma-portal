@@ -1,0 +1,63 @@
+## Big idea
+
+Spearman's rank correlation uses the order of the data, not the values themselves. It measures whether one variable consistently rises or falls with the other, even when the link is curved, and one extreme value has little effect on it.
+
+## Explanation
+
+Replace each value by its rank: 1 for the smallest, $n$ for the largest. The <Term id="spearman-rank-correlation"/> is Pearson's correlation calculated on the two lists of ranks. When no two ranks are tied, it can be found from the differences $d_i$ between the two ranks of each item, using <Formula id="spearman-rs-d-formula"/>. With tied values, use <Formula id="spearman-rs-as-ranks"/>, which applies Pearson's formula to the ranks, with the average rank given to each tied value.
+
+Spearman's coefficient detects a <Term id="monotonic-association"/>: y always rises, or always falls, as x rises, but not necessarily in a straight line. For such data $r_s$ can be close to $1$ or $-1$ even when Pearson's $r$ is smaller.
+
+Pearson's $r$ uses the actual values, so one extreme point can change it a great deal. This is the <Term id="outlier-effect-on-correlation"/>. Use $r_s$ when the data are ranked, when the pattern is monotonic but curved, or when an outlier would distort $r$. Spearman's coefficient has limits too: it uses only the order, so it ignores how large the differences are, and a non-monotonic pattern can give $r_s$ close to 0 even when the points are clearly related.
+
+<Callout kind="define">Spearman's rank correlation coefficient $r_s$: Pearson's correlation coefficient calculated from ranks. It lies between $-1$ and $1$ and measures how consistently two variables move in the same or opposite order.</Callout>
+
+<Callout kind="gdc">Many GDCs have no direct Spearman option. Rank each list by hand, enter the two lists of ranks and use the two-variable statistics (or linear regression) on them. The correlation shown for the two lists of ranks is $r_s$.</Callout>
+
+## Worked example
+
+Two judges rank six bakeries from 1 (best) to 6. Judge A gives 1, 2, 3, 4, 5, 6 and judge B gives 2, 1, 4, 3, 6, 5.
+
+<Steps>
+<Step>The differences $d = A - B$ are $-1, 1, -1, 1, -1, 1$. Their squares add up to $\sum d^2 = 6$.</Step>
+<Step>$r_s = 1 - \dfrac{6 \times 6}{6 \times 35} = 0.829$ (to 3 decimal places).</Step>
+<Step>The value is strong and positive: the judges mostly agree, and their only disagreements are swaps of neighbouring places.</Step>
+</Steps>
+
+<Reveal title="Why square the differences?">The differences $d_i$ always add up to zero, so their plain sum tells you nothing. Squaring keeps the size of every difference.</Reveal>
+
+## Visual
+
+There is no simulation for this topic, so sketch the ranks yourself. Plot the rank of each item in one list against its rank in the other list. Points close to a rising line mean that the two orders agree; points close to a falling line mean that they disagree.
+
+<Callout kind="tip">On a rank-against-rank diagram, a point on the line $y = x$ is an item the two judges placed in the same position.</Callout>
+
+## How it is examined
+
+Calculate and Find questions give marks for the ranks (or the differences), for the sum of the squared differences, and for the final value to the required accuracy. Comment questions compare $r_s$ with Pearson's $r$ and ask which one suits the data; name a reason, such as an outlier, a curved monotonic pattern or ranked data. A wrong rank loses every later mark, so write the ranks in a table and check that each list runs from 1 to $n$.
+
+<Callout kind="exam">When you compare coefficients, quote both values to 3 decimal places, decide which one describes the pattern, and give the reason in one sentence.</Callout>
+
+## Common mistakes
+
+<Callout kind="mistake">Adding the differences $d_i$ instead of their squares: the plain sum is always zero.</Callout>
+
+- Ranking one list from the largest value and the other from the smallest. The two orders then run in opposite directions and $r_s$ changes sign.
+- Using the $d$-formula when two values are tied. Give tied values the average of their ranks and use Pearson's formula on the ranks.
+- Concluding that the relationship is linear because $r_s$ is high. $r_s$ measures a monotonic pattern, so it can be high for a curve.
+
+## Check yourself
+
+<Question id="q-4-10-01"/>
+
+<Question id="q-4-10-02"/>
+
+<Question id="q-4-10-03"/>
+
+## Summary
+
+- Spearman's $r_s$ is Pearson's correlation calculated on ranks, so it lies between $-1$ and $1$.
+- With no tied ranks, $r_s = 1 - \dfrac{6\sum d_i^2}{n(n^2 - 1)}$, where $d_i$ is the difference between the two ranks of an item.
+- Use $r_s$ for ranked data, for monotonic patterns that are not straight, and when an extreme value would distort $r$.
+- Pearson's $r$ uses the actual values and is sensitive to outliers; state which coefficient you use and why.
+- Square the differences before adding them, and rank both lists in the same direction.

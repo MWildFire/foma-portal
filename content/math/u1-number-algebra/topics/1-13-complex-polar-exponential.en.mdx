@@ -1,0 +1,78 @@
+## Big idea
+
+Polar and exponential forms describe a complex number by its distance from the origin and its angle. In these forms, multiplication becomes stretching and turning, so powers and sums of sinusoids of the same frequency become simple.
+
+## Explanation
+
+The <Term id="modulus-argument-form"/> of a complex number is $z = r(\cos\theta + i\sin\theta)$, written $r\,\text{cis}\,\theta$, where $r = |z|$ and $\theta = \arg z$.
+
+<Formula id="complex-polar-form"/>
+
+The <Term id="complex-argument"/> must lie in the right quadrant. When $a < 0$, the arctan of $b/a$ lands in the wrong half-plane, so add $\pi$ for a point in the second quadrant and subtract $\pi$ for one in the third.
+
+The <Term id="exponential-form"/> is $z = re^{i\theta}$, with $\theta$ in radians. It follows from Euler’s relation $e^{i\theta} = \cos\theta + i\sin\theta$, and it is the most compact form for products and powers.
+
+<Formula id="complex-exponential-form"/>
+
+<Callout kind="define">cis θ is shorthand for cos θ + i sin θ, so r cis θ is the modulus–argument form of the same number.</Callout>
+
+To multiply, multiply the moduli and add the arguments. To divide, divide the moduli and subtract the arguments. For an integer power $n$, raise the modulus to the power $n$ and multiply the argument by $n$. This rule is <Term id="de-moivre-theorem"/>:
+
+<Formula id="complex-de-moivre"/>
+
+Adding sinusoids of the same frequency uses the complex number $a - bi$. Its modulus is the amplitude $R$ and its argument is $-\varphi$, so $a\cos\omega t + b\sin\omega t = R\cos(\omega t - \varphi)$:
+
+<Formula id="sinusoid-sum-equal-frequency"/>
+
+Geometrically, multiplying by $e^{i\theta}$ rotates a point anticlockwise about the origin through $\theta$, and multiplying by a positive real number stretches it.
+
+<Callout kind="gdc">Use the complex-number arithmetic of the GDC to check products, quotients and powers, and set the angle unit to match the question: radians whenever the form is $re^{i\theta}$.</Callout>
+
+## Worked example
+
+Let $z = -2 + 2i$.
+
+<Steps>
+<Step>Modulus and argument: $r = |z| = 2.83$ and $\theta = \dfrac{3\pi}{4} = 2.356$ radians (to 3 significant figures and 3 decimal places), so $z = 2\sqrt{2}\,e^{3\pi i/4} \approx 2.83\,e^{2.356i}$.</Step>
+<Step>Fourth power: $z^{4} = r^{4}e^{4i\theta} = 64\,e^{3\pi i} = -64$, using $r^{4} = 64$.</Step>
+<Step>Sum of sinusoids: $6\cos\omega t + 8\sin\omega t = R\cos(\omega t - \varphi)$ with $R = \sqrt{6^{2}+8^{2}} = 10.0$ and $\varphi = \arctan(8/6) = 0.927$ radians (3 decimal places).</Step>
+</Steps>
+
+<Reveal title="Why not just take arctan of b over a?">The calculator's arctan gives an angle in only one half of the plane, so for a point in the second or third quadrant you must add or subtract $\pi$. The Argand diagram shows the quadrant before you start.</Reveal>
+
+## Visual
+
+<Sim id="math.complex-plane-lab"/>
+
+Multiplying by $w = 1 + i$ is the same as multiplying by $\sqrt{2}\,e^{i\pi/4}$: the modulus is multiplied by $\sqrt{2}$, and the argument increases by $45^\circ$. Move the sliders and check this for several values of $z$. The orange point always shows $zw$.
+
+## How it is examined
+
+Find and Express questions award marks for the modulus, for the argument with the correct quadrant, and for the form requested. When a question asks for a sum of sinusoids, give $R$ and $\varphi$ as separate answers, with $\varphi$ in the unit the question asks for. Powers and quotients are expected to be worked in polar form, with the steps shown.
+
+<Callout kind="exam">Check the unit of $\theta$. The exponential form $re^{i\theta}$ takes $\theta$ in radians; if a question asks for degrees, say so in the answer.</Callout>
+
+## Common mistakes
+
+<Callout kind="mistake">Writing $|z^{3}| = 3|z|$ instead of $|z|^{3}$. The modulus is raised to the power, and the argument is multiplied by the power.</Callout>
+
+- Taking $\arg z = \arctan(b/a)$ without checking the quadrant, so that $-2 + 2i$ is given the angle $-\pi/4$ instead of $3\pi/4$.
+- Mixing degrees and radians, for example writing $e^{30i}$ when the angle is 30 degrees.
+- Writing $R = a + b$ for the amplitude of $a\cos\omega t + b\sin\omega t$, instead of $R = \sqrt{a^{2} + b^{2}}$.
+
+## Check yourself
+
+<Question id="q-1-13-01"/>
+
+<Question id="q-1-13-02"/>
+
+<Question id="q-1-13-03"/>
+
+## Summary
+
+- $z = r(\cos\theta + i\sin\theta) = r\,\text{cis}\,\theta = re^{i\theta}$, with $r = |z|$ and $\theta$ in radians in the exponential form.
+- Check the quadrant of $\theta$: after an arctan, add or subtract $\pi$ for points in the second or third quadrant.
+- Multiply moduli and add arguments; divide moduli and subtract arguments.
+- de Moivre: $(r\,\text{cis}\,\theta)^{n} = r^{n}\,\text{cis}\,(n\theta)$ for an integer $n$.
+- $a\cos\omega t + b\sin\omega t = R\cos(\omega t - \varphi)$, with $R = \sqrt{a^{2}+b^{2}}$, $R\cos\varphi = a$ and $R\sin\varphi = b$.
+- Multiplying by $e^{i\theta}$ rotates the Argand diagram anticlockwise through $\theta$.

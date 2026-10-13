@@ -1,0 +1,86 @@
+## Big idea
+
+The tangent to a curve at a point is the straight line that touches the curve there with the same gradient. The normal is the line through the same point that is perpendicular to the tangent. Both come from one number: the derivative at that point.
+
+## Explanation
+
+For a curve $y = f(x)$, the gradient of the curve at $x = a$ is $f'(a)$. The <Term id="tangent-to-curve"/> at the point $(a, f(a))$ has this gradient, so its equation is
+
+$$
+y - f(a) = f'(a)\,(x - a)
+$$
+
+<Formula id="tangent-equation"/>
+
+Find $f'(a)$ term by term with the power rule. For a polynomial, the gradient function is the sum of the gradient functions of its power terms.
+
+<Formula id="gradient-function-power-term"/>
+
+Two perpendicular lines have gradients whose product is $-1$. So the <Term id="normal-to-curve"/> at the same point has gradient $-\dfrac{1}{f'(a)}$, provided $f'(a) \neq 0$. The <Term id="gradient-of-normal"/> is the negative reciprocal of the tangent gradient, not its negative.
+
+<Formula id="normal-gradient"/>
+
+The normal passes through $(a, f(a))$, so its equation is
+
+$$
+y - f(a) = -\frac{1}{f'(a)}\,(x - a)
+$$
+
+<Formula id="normal-equation"/>
+
+<Callout kind="define">Tangent: the straight line through a point on a curve that has the same gradient as the curve at that point. Normal: the straight line through the same point that is perpendicular to the tangent.</Callout>
+
+<Callout kind="gdc">Use the numerical derivative of the GDC at $x = a$ to check $f'(a)$. Write the algebraic derivative in your working; the GDC value is a check, not a replacement for the working.</Callout>
+
+## Worked example
+
+Let $f(x) = x^3 - 2x + 1$, and let $P$ be the point on the curve where $x = 2$.
+
+<Steps>
+<Step>Point and gradient: $f(2) = 8 - 4 + 1 = 5$, so $P(2, 5)$. The gradient function is $f'(x) = 3x^2 - 2$, so the tangent gradient at $P$ is $f'(2) = 10$.</Step>
+<Step>Tangent: $y - 5 = 10(x - 2)$, so $y = 10x - 15$. It meets the x-axis when $10x - 15 = 0$, at $x = 1.5$.</Step>
+<Step>Normal: its gradient is $-\dfrac{1}{10} = -0.1$, so $y - 5 = -0.1(x - 2)$ and $y = -0.1x + 5.2$.</Step>
+</Steps>
+
+<Reveal title="Why is the normal gradient -0.1 and not the negative of 10?">The two lines are perpendicular, so their gradients multiply to $-1$: $10 \times (-0.1) = -1$. Taking the negative of the tangent gradient gives a line that is not perpendicular to the tangent.</Reveal>
+
+## Visual
+
+Sketch the cubic $y = x^3 - 2x + 1$ for values of $x$ near 2, and mark the point $P(2, 5)$ on it. Key points for the sketch:
+
+- The tangent passes through $P$ and rises steeply to the right, with gradient 10. It crosses the x-axis at $(1.5, 0)$ and the y-axis at $(0, -15)$.
+- The normal passes through $P$ and falls gently to the right, with gradient $-0.1$. It crosses the y-axis at $(0, 5.2)$.
+- The two lines meet at $P$ at a right angle. Near $P$ the curve and the tangent run in the same direction.
+
+<Callout kind="tip">Check the sketch before you finish: a tangent with a positive gradient rises to the right, and its normal falls to the right with a gradient of the opposite sign and reciprocal size.</Callout>
+
+## How it is examined
+
+Find questions give marks for the gradient function, for the tangent or normal gradient at the given point, and for the final equation, intercept or distance. Show that questions need the point substituted into the curve, with the gradient found from the derivative and shown in the working. Context questions ask you to state the model and give the equations first, then answer the question in context, rounding only at the end.
+
+<Callout kind="exam">Write the point $(a, f(a))$ and the gradient before the equation. Without the point, the equation of the tangent cannot earn the final mark.</Callout>
+
+## Common mistakes
+
+<Callout kind="mistake">Using $f(a)$ as the gradient of the tangent. The gradient is $f'(a)$, not the height of the curve at $x = a$.</Callout>
+
+- Using $-f'(a)$ as the normal gradient instead of $-1/f'(a)$.
+- Writing the tangent as $y = mx + c$ and then using a $c$ that does not come from the point $(a, f(a))$.
+- Rounding the gradient early and carrying the rounded value into the intercept, so the final answer drifts.
+
+## Check yourself
+
+<Question id="q-5-4-01"/>
+
+<Question id="q-5-4-02"/>
+
+<Question id="q-5-4-03"/>
+
+## Summary
+
+- The gradient of the curve at $x = a$ is $f'(a)$, and the tangent at $(a, f(a))$ is $y - f(a) = f'(a)(x - a)$.
+- The normal is perpendicular to the tangent, so its gradient is $-1/f'(a)$ when $f'(a) \neq 0$.
+- A tangent with zero gradient is horizontal, and its normal is the vertical line $x = a$.
+- The intercepts of the tangent and the normal with the axes give triangles, distances and areas.
+- Differentiate term by term, and use a GDC numerical derivative only as a check.
+- In context, state the equations and round only at the final step.

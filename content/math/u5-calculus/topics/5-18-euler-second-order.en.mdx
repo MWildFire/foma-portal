@@ -1,0 +1,74 @@
+## Big idea
+
+A second-order equation for $x(t)$, such as a damped oscillation, can be solved numerically. Write $v = \frac{dx}{dt}$, turn the equation into two first-order equations, and step both forward together with Euler's method.
+
+## Explanation
+
+Let $v = \frac{dx}{dt}$. Then $\frac{dv}{dt} = \frac{d^{2}x}{dt^{2}}$, so the equation $\frac{d^{2}x}{dt^{2}} = f(x, \frac{dx}{dt}, t)$ becomes the system
+
+$$
+\frac{dx}{dt} = v, \qquad \frac{dv}{dt} = f(x, v, t).
+$$
+
+<Term id="second-order-reduction-system"/> is the name for this step, and <Formula id="second-order-as-system"/> gives it in full.
+
+Euler's method with step length $h$ starts from $t_0$, $x_0$ and $v_0$, and moves forward one step at a time:
+
+$$
+x_{n+1} = x_n + h\,v_n, \qquad v_{n+1} = v_n + h\,f(x_n, v_n, t_n), \qquad t_{n+1} = t_n + h.
+$$
+
+<Formula id="euler-second-order-update"/>
+
+Both updates use the values at the start of the step, as <Term id="euler-second-order-step"/> requires. After $n$ steps the time is $t_n = nh$, as <Term id="step-length-h-second-order"/> explains. If $f$ contains $t$, use the current $t_n$ at every step.
+
+<Callout kind="define">Euler's method for a second-order equation: the approximate values of $x$ and $\frac{dx}{dt}$ at time $t_n$, found by applying the Euler step to the system with a fixed step length $h$.</Callout>
+
+<Callout kind="gdc">Build a table of values with one column for $x$ and one for $v$. Enter the two update rules so that each row is computed from the row above. Keep full accuracy in the table and round only the final answers.</Callout>
+
+## Worked example
+
+Take $\frac{d^{2}x}{dt^{2}} = -4x - 0.5\frac{dx}{dt}$, with $x = 1$ and $\frac{dx}{dt} = 0$ at $t = 0$, and step length $h = 0.1$.
+
+<Steps>
+<Step>Step 1 from $t_0 = 0$: $t_1 = 0.1$, $x_1 = 1 + 0.1 \times 0 = 1.000$ and $v_1 = 0 + 0.1(-4 \times 1 - 0.5 \times 0) = -0.400$.</Step>
+<Step>Step 2 uses the values from step 1 on the right-hand side: $t_2 = 0.2$, $x_2 = 1.000 + 0.1 \times (-0.400) = 0.960$ and $v_2 = -0.400 + 0.1(-4 \times 1.000 - 0.5 \times (-0.400)) = -0.780$.</Step>
+<Step>Step 3 again: $t_3 = 0.3$, $x_3 = 0.960 + 0.1 \times (-0.780) = 0.882$ and $v_3 = -0.780 + 0.1(-4 \times 0.960 - 0.5 \times (-0.780)) = -1.125$.</Step>
+</Steps>
+
+<Reveal title="Why not use the new x in the update for v?">Using the new position in the update for $v$ gives a different scheme, not Euler's method. Both updates use the values at the start of the step, which is why step 2 uses only $x_1$ and $v_1$.</Reveal>
+
+## Visual
+
+<Callout kind="tip">Plot $x$ against $t$ from your table and join the points with a smooth curve. Smaller steps put the points closer to the true curve. For an oscillation, each Euler step adds a little energy, so the peaks grow slowly; <Formula id="euler-energy-growth"/> gives the growth per step.</Callout>
+
+## How it is examined
+
+Find questions give a mark for the system, a mark for each step carried out correctly, and a mark for each final value. Show that questions need the algebra written out in full, with each cross term shown. Marks are lost most often through early rounding, so carry full accuracy through the table and round only the final answer.
+
+<Callout kind="exam">Write the system first, then one line for each step with its time. Round only the final answers.</Callout>
+
+## Common mistakes
+
+<Callout kind="mistake">Using the new $x_{n+1}$ on the right-hand side when updating $v$. That is a different method, and it gives different values.</Callout>
+
+- Applying Euler's method to $\frac{d^{2}x}{dt^{2}}$ directly, without first writing the system.
+- Counting the steps wrongly. The number of steps is the total time divided by $h$.
+- Rounding at every step, so that the final answer drifts away from the value the method gives.
+
+## Check yourself
+
+<Question id="q-5-18-01"/>
+
+<Question id="q-5-18-02"/>
+
+<Question id="q-5-18-03"/>
+
+## Summary
+
+- Set $v = \frac{dx}{dt}$ to turn a second-order equation into two first-order equations.
+- Each Euler step updates $x$ with $h\,v_n$ and $v$ with $h\,f(x_n, v_n, t_n)$, using the values at the start of the step.
+- After $n$ steps the time is $t_n = nh$, so the number of steps is the total time divided by $h$.
+- A smaller step length $h$ gives a more accurate result, but needs more steps.
+- For an oscillation, Euler's method adds energy at each step, so the amplitude grows.
+- Round only the final answers, and check them against an exact solution if one is given.

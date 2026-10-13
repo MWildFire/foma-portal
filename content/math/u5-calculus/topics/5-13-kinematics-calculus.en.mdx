@@ -1,0 +1,80 @@
+## Big idea
+
+Displacement, velocity and acceleration are linked by calculus. Velocity is the rate of change of displacement, and acceleration is the rate of change of velocity. Differentiation takes you down this chain from $s$ to $v$ to $a$. Integration takes you back up, and each integration leaves a constant that a starting condition must fix.
+
+## Explanation
+
+Let $s$ be the <Term id="calc-kinematics-displacement"/> of a particle from a fixed origin $O$ on a straight line, at time $t$. The <Term id="calc-kinematics-velocity"/> $v$ and the <Term id="calc-kinematics-acceleration"/> $a$ are found by differentiating:
+
+$$
+v = \frac{ds}{dt}, \qquad a = \frac{dv}{dt} = \frac{d^{2}s}{dt^{2}}
+$$
+
+<Formula id="calc-kinematics-derivatives"/>
+
+To go back up the chain, integrate. Each integration adds a constant, so a boundary condition such as $s(0) = 2$ or $v(0) = 0$ is needed:
+
+$$
+s = \int v\,dt, \qquad v = \int a\,dt
+$$
+
+<Formula id="calc-kinematics-integrals"/>
+
+For polynomial functions of time, use the power rule for integration: $\int t^{n}\,dt = \dfrac{t^{n+1}}{n+1} + C$ for $n \neq -1$.
+
+<Formula id="calc-kinematics-power-integral"/>
+
+The displacement between $t_1$ and $t_2$ is $\int_{t_1}^{t_2} v\,dt$, and it is signed. The <Term id="calc-kinematics-distance"/> (distance travelled) is the length of the path, $\int_{t_1}^{t_2} |v|\,dt$. The two agree only when $v$ keeps one sign on the interval.
+
+<Formula id="calc-kinematics-total-distance"/>
+
+<Callout kind="define">Displacement $s$ is the position relative to a fixed origin. Velocity $v = ds/dt$ gives the direction through its sign and the speed through its size. Acceleration $a = dv/dt$ is the rate of change of velocity.</Callout>
+
+<Callout kind="gdc">Plot velocity against time and read where the graph crosses the time axis to find the rest times. For the distance, use the definite integral function of the GDC on each interval where the velocity keeps its sign.</Callout>
+
+## Worked example
+
+A particle $P$ moves along a straight line. At time $t$ seconds its velocity is $v = 3t^{2} - 12t + 9$ m s$^{-1}$, and $P$ is at $s = 2$ m when $t = 0$.
+
+<Steps>
+<Step>At rest: $v = 3(t-1)(t-3) = 0$ gives $t = 1$ and $t = 3$. The acceleration is $a = \dfrac{dv}{dt} = 6t - 12$, so $a = -6$ m s$^{-2}$ at $t = 1$ and $a = 6$ m s$^{-2}$ at $t = 3$.</Step>
+<Step>Integrate the velocity: $s = t^{3} - 6t^{2} + 9t + C$. The starting condition $s(0) = 2$ gives $C = 2$, so $s = t^{3} - 6t^{2} + 9t + 2$. Then $s(1) = 6$, $s(3) = 2$ and $s(4) = 6$, in metres.</Step>
+<Step>The displacement from $t = 0$ to $t = 4$ is $s(4) - s(0) = 6 - 2 = 4$ m. Since $v$ changes sign at $t = 1$ and $t = 3$, the distance travelled is $|6 - 2| + |2 - 6| + |6 - 2| = 12$ m.</Step>
+</Steps>
+
+<Reveal title="Why is the distance not 4 m?">The displacement compares only the start and the finish. The particle moves 4 m forward, then 4 m back between $t = 1$ and $t = 3$, then 4 m forward again. The path is 12 m long, while the displacement is only 4 m.</Reveal>
+
+## Visual
+
+<Callout kind="tip">Sketch $s$, $v$ and $a$ against $t$ on one time axis. Where $v$ crosses the axis, $s$ has a stationary point and the particle is momentarily at rest. Where $a$ crosses the axis, $v$ has a stationary point, so its maximum or minimum can be read off.</Callout>
+
+## How it is examined
+
+Find and Show that questions give a mark for each differentiation or integration, a mark for using the starting condition, and a mark for the final value with the stated accuracy. Questions that ask for the time at rest need $v = 0$ solved, followed by a check of the sign of $v$ on each side. Justify and Comment questions need an argument from the sign of $v$ or $a$, not a repeat of the number.
+
+<Callout kind="exam">Write the constant of integration and the substitution of the starting condition on the same line. A missing constant usually loses the method mark.</Callout>
+
+## Common mistakes
+
+<Callout kind="mistake">Taking the integral of velocity over an interval as the distance travelled when $v$ changes sign. That integral gives displacement, which can be smaller than the distance.</Callout>
+
+- Forgetting the constant of integration, or applying the starting condition before integrating.
+- Reading $a = 0$ as "at rest". It means the velocity has a stationary value, which does not have to be zero speed.
+- Confusing $s = 0$ (the particle is at the origin) with $v = 0$ (the particle is momentarily at rest).
+
+## Check yourself
+
+<Question id="q-5-13-01"/>
+
+<Question id="q-5-13-02"/>
+
+<Question id="q-5-13-03"/>
+
+## Summary
+
+- Differentiate to go down the chain: $v = ds/dt$ and $a = dv/dt$.
+- Integrate to go up, and add one constant at each integration.
+- A starting condition such as $s(0) = 2$ or $v(0) = 0$ fixes the constant.
+- The particle is at rest when $v = 0$; it turns back only if $v$ changes sign there.
+- Displacement is $\int v\,dt$ and is signed; distance travelled is $\int |v|\,dt$ and is never negative.
+- Where $a = 0$, $v$ has a stationary value; the sign change of $a$ shows whether it is a maximum or a minimum.

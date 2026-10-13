@@ -1,0 +1,91 @@
+## Big idea
+
+Optimisation is the search for the largest or the smallest value of a quantity in a practical situation. Calculus does the search. Write the quantity as one function of one variable, find where its gradient is zero, and check that this turning point is the maximum or minimum the question asks for.
+
+## Explanation
+
+Most optimisation questions follow the same steps. Draw a diagram and name the variables. Choose a letter, such as $x$, for the quantity you can change, and write the quantity to be maximised or minimised as one function of $x$.
+
+<Term id="optimisation-in-context"/>
+
+That function is the objective function. Any other variable is removed with a constraint, such as a fixed length of fencing or a fixed size of sheet, so that only $x$ remains.
+
+<Term id="objective-function"/>
+
+<Term id="optimisation-constraint"/>
+
+Before you differentiate, state the feasible domain: the values of $x$ that make sense in the context, such as positive lengths. A stationary point outside the domain is not an answer.
+
+<Term id="feasible-domain"/>
+
+Differentiate each power term with the power rule, then solve $f'(x)=0$ inside the domain:
+
+$$
+\frac{d}{dx}\left(a x^{n}\right)=a n x^{n-1}
+$$
+
+<Formula id="optimisation-power-derivative"/>
+
+A box made by folding a sheet, with squares of side $x$ cut from the corners, has this volume function:
+
+<Formula id="open-box-volume"/>
+
+A rectangular pen built against a wall, with $P$ metres of fencing for its three sides, has this area:
+
+<Formula id="wall-enclosure-area"/>
+
+The cost per unit, which is the average cost, is:
+
+<Formula id="average-cost-function"/>
+
+Justify the maximum or minimum with the sign of the gradient. At a maximum the gradient is positive just before the turning point and negative just after it; at a minimum the signs are reversed. Then answer the question in context, with units and the accuracy asked for.
+
+<Callout kind="define">Optimisation in context: finding the largest or smallest value of a quantity written as a function of one variable, with the domain set by the context.</Callout>
+
+<Callout kind="gdc">Use the GDC to draw the objective function and to find its maximum or minimum on the graph, or to build a table of values near the answer. The exam still needs the function, the derivative and the sign argument written out, not only the number the GDC gives.</Callout>
+
+## Worked example
+
+A cinema sells tickets for AED $p$ each. The number of tickets sold is $400-10p$. Find the ticket price that maximises the revenue, and the revenue at that price.
+
+<Steps>
+<Step>Write the objective function. Revenue is price times tickets sold, so $R(p)=p(400-10p)=400p-10p^{2}$. The number of tickets must be positive, so $400-10p>0$, which gives $0<p<40$.</Step>
+<Step>Differentiate and solve: $R'(p)=400-20p=-20(p-20)$. The equation $R'(p)=0$ gives $p=20$. The gradient is positive for $p<20$ and negative for $p>20$, so it changes from positive to negative and the revenue has a maximum at $p=20$.</Step>
+<Step>Answer in context: at $p=20$ the number of tickets sold is $400-10 \times 20=200$, so the revenue is $20 \times 200=4000$. The maximum revenue is AED 4000, at a ticket price of AED 20.</Step>
+</Steps>
+
+<Reveal title="Why is the turning point not enough on its own?">The sign test shows that $p=20$ is a maximum. The domain shows that both ends of the range give zero revenue: a price of zero brings in no money, and at the upper end of the range no tickets are sold. Inside the domain, the turning point is the only candidate worth checking.</Reveal>
+
+## Visual
+
+<Callout kind="tip">Sketch the objective function against $x$. A box volume starts at zero, climbs to a single peak and falls back to zero at the far end of the domain. The peak is the optimum. A valley or an endpoint is not the maximum you want, however large its height looks.</Callout>
+
+## How it is examined
+
+Optimisation questions are Find questions, usually in Paper 1 or Paper 2. Show that gives the function in the required form, and Justify asks for the sign argument. Marks go to the objective function (often M1 for writing it correctly), to the derivative and the solution of the gradient equation (M1 and A1), to the justification by the sign of the gradient (R1), and to the answer with its units (A1). Write the function before you differentiate: a correct final value with no visible function scores few marks.
+
+<Callout kind="exam">The justification mark depends on a sign argument. Write the sign of the gradient before and after the turning point, and name the value of $x$ you found.</Callout>
+
+## Common mistakes
+
+<Callout kind="mistake">Differentiating before the function has one variable. A volume written as $x \times y \times z$ cannot be differentiated with respect to $x$ alone until $y$ and $z$ are written in terms of $x$.</Callout>
+
+- Ignoring the domain: accepting a value of $x$ that makes a side length negative, just because the gradient is zero there.
+- Stating that a turning point is a maximum without a sign check or a reason.
+- Answering with the value of $x$ when the question asks for the maximum value, or the other way round.
+
+## Check yourself
+
+<Question id="q-5-7-01"/>
+
+<Question id="q-5-7-02"/>
+
+<Question id="q-5-7-03"/>
+
+## Summary
+
+- Write the quantity to optimise as one function of one variable, using the constraint.
+- State the feasible domain from the context before you differentiate.
+- Solve $f'(x)=0$ and keep only the solutions inside the domain.
+- A maximum has a gradient that changes from positive to negative; a minimum has one that changes from negative to positive.
+- Answer the question asked, in context, with units and the required accuracy.

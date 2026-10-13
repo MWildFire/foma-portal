@@ -1,0 +1,76 @@
+## Big idea
+
+An eigenvector is a direction that a square matrix does not turn: it only stretches or shrinks it, by a factor called the eigenvalue. For a $2 \times 2$ matrix, the eigenvalues come from a quadratic equation. When there are two distinct real eigenvalues, the eigenvectors give a shortcut for high powers of the matrix, which is what you need to model repeated steps of a system.
+
+## Explanation
+
+An <Term id="eigenvector-2x2"/> is a non-zero vector $\mathbf{v}$ that the matrix $A$ sends to a multiple of itself: $A\mathbf{v} = \lambda\mathbf{v}$. The number $\lambda$ is the <Term id="eigenvalue-2x2"/>. The equation can be rewritten as $(A - \lambda I)\mathbf{v} = \mathbf{0}$, which has a non-zero solution only when $\det(A - \lambda I) = 0$.
+
+<Formula id="eigen-equation"/>
+
+The condition $\det(A - \lambda I) = 0$ is the <Term id="characteristic-polynomial-2x2"/>. For $A = \begin{pmatrix} a & b \\ c & d \end{pmatrix}$ it is a quadratic in $\lambda$, and its coefficients come from the trace $a + d$ and the determinant $ad - bc$.
+
+<Formula id="char-poly-2x2"/>
+
+Solve the quadratic with the quadratic formula. Its discriminant $(a + d)^2 - 4(ad - bc)$ decides the type of the eigenvalues: positive gives two distinct real values, zero gives one repeated value, and negative gives complex values, with no real eigenvectors.
+
+<Formula id="eigenvalues-2x2-formula"/>
+
+For a known eigenvalue $\lambda$, solve $(A - \lambda I)\mathbf{v} = \mathbf{0}$. Any non-zero multiple of the answer is also an eigenvector, so the answer is a direction rather than one vector.
+
+<Callout kind="define">Eigenvalue and eigenvector: for a square matrix $A$, a number $\lambda$ and a non-zero vector $\mathbf{v}$ with $A\mathbf{v} = \lambda\mathbf{v}$. Then $\lambda$ is an eigenvalue of $A$, and $\mathbf{v}$ is an eigenvector for $\lambda$.</Callout>
+
+Suppose $A$ has distinct real eigenvalues $\lambda_1$ and $\lambda_2$ with eigenvectors $\mathbf{v}_1$ and $\mathbf{v}_2$. Put $P = \begin{pmatrix} \mathbf{v}_1 & \mathbf{v}_2 \end{pmatrix}$ and $D = \begin{pmatrix} \lambda_1 & 0 \\ 0 & \lambda_2 \end{pmatrix}$. Then $AP = PD$, so $A = PDP^{-1}$. This is <Term id="diagonalisation-2x2"/>, and it reduces powers of $A$ to powers of two numbers.
+
+<Formula id="matrix-power-diagonal"/>
+
+<Callout kind="gdc">Use an eigenvalue and eigenvector function for a matrix to check your values, and a matrix power function to check $A^n$. In the exam, write the characteristic equation and the eigenvector equations by hand, because the method is what earns the marks.</Callout>
+
+## Worked example
+
+Let $A = \begin{pmatrix} 5 & -4 \\ 2 & -1 \end{pmatrix}$.
+
+<Steps>
+<Step>Characteristic equation: $(5 - \lambda)(-1 - \lambda) - (-4)(2) = \lambda^2 - 4\lambda + 3 = 0$, so $\lambda = 3$ or $\lambda = 1$.</Step>
+<Step>For $\lambda = 3$: $2v_1 - 4v_2 = 0$, so $\mathbf{v}_1 = \begin{pmatrix} 2 \\ 1 \end{pmatrix}$. For $\lambda = 1$: $4v_1 - 4v_2 = 0$, so $\mathbf{v}_2 = \begin{pmatrix} 1 \\ 1 \end{pmatrix}$. Check: $A\mathbf{v}_1 = \begin{pmatrix} 6 \\ 3 \end{pmatrix} = 3\mathbf{v}_1$.</Step>
+<Step>$P = \begin{pmatrix} 2 & 1 \\ 1 & 1 \end{pmatrix}$, $D = \begin{pmatrix} 3 & 0 \\ 0 & 1 \end{pmatrix}$ and $P^{-1} = \begin{pmatrix} 1 & -1 \\ -1 & 2 \end{pmatrix}$. So $A^2 = PD^2P^{-1} = \begin{pmatrix} 17 & -16 \\ 8 & -7 \end{pmatrix}$.</Step>
+</Steps>
+
+<Reveal title="Why is the power easy to find?">$D^2$ only squares the two diagonal entries, giving $3^2 = 9$ and $1^2 = 1$. Multiplying by $P$ on the left and $P^{-1}$ on the right then gives $A^2$ in one step, and the same idea gives $A^n$ for any $n$.</Reveal>
+
+## Visual
+
+<Sim id="math.eigen-2x2-lab"/>
+
+The lab draws the unit circle (dashed) and the ellipse that $A$ turns it into. The straight lines are the eigenvector directions: along them the matrix only stretches, by the eigenvalue. Change any entry and watch the trace, the determinant and the eigenvalues update. The determinant is the area factor: the ellipse has area $\pi |\det A|$.
+
+## How it is examined
+
+Find, Determine and Show that questions give marks for the characteristic equation (M1), the eigenvalues (A1), the eigenvector equation (M1) and each eigenvector (A1). Questions about powers use the earlier results, so write $P$ and $D$ clearly and do not start again. Give a reason for each conclusion: for example, that the eigenvalues are real because the discriminant is positive, or that $A^n$ tends to the zero matrix because both eigenvalues have size less than 1.
+
+<Callout kind="exam">Set out the steps in this order: the eigenvalues, one eigenvector for each, then $P$, $D$ and $P^{-1}$. A slip in one step then does not hide the method used in the others.</Callout>
+
+## Common mistakes
+
+<Callout kind="mistake">Writing the characteristic equation as $\lambda^2 - 4\lambda - 3 = 0$ for a matrix with determinant $3$. The constant term is $+\det A$.</Callout>
+
+- Mixing the order of the columns of $P$ and the diagonal entries of $D$. The first column must be the eigenvector for the first diagonal entry.
+- Writing $A^n = D^n$, which forgets $P$ and $P^{-1}$.
+- Treating an eigenvector as one unique vector. Any non-zero multiple works, so $(2, 1)$ and $(4, 2)$ are both correct.
+
+## Check yourself
+
+<Question id="q-1-15-01"/>
+
+<Question id="q-1-15-02"/>
+
+<Question id="q-1-15-03"/>
+
+## Summary
+
+- An eigenvector $\mathbf{v} \neq \mathbf{0}$ satisfies $A\mathbf{v} = \lambda\mathbf{v}$; $\lambda$ is the eigenvalue.
+- The characteristic equation $\lambda^2 - (a+d)\lambda + (ad - bc) = 0$ gives the eigenvalues of a $2 \times 2$ matrix.
+- For each eigenvalue, solve $(A - \lambda I)\mathbf{v} = \mathbf{0}$; any non-zero multiple of the answer is an eigenvector.
+- Two distinct real eigenvalues allow $A = PDP^{-1}$ with $D$ diagonal.
+- Powers follow from $A^n = PD^nP^{-1}$, where $D^n$ raises each eigenvalue to the power $n$.
+- A negative discriminant means complex eigenvalues and no real eigenvectors.

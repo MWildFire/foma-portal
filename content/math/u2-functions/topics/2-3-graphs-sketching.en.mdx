@@ -1,0 +1,74 @@
+## Big idea
+
+A graph shows every input–output pair of a function at once. A sketch shows only what matters — the shape, the intercepts and the turning points — and can be built from a formula, from a context, or from a graph you already know.
+
+## Explanation
+
+The <Term id="graph-points-of-function"/> is the set of points $(x, f(x))$ for $y = f(x)$. A curve is the graph of a function when every vertical line meets it at most once; this is the vertical line test.
+
+A <Term id="sketch-key-features"/> need not be drawn to scale. Label what the question asks for: the intercepts with the axes, the coordinates of the maximum and minimum points, and any end of the domain. A context limits the domain, so a number of items $n$ satisfies $n \ge 0$, and a time satisfies $t \ge 0$.
+
+For a quadratic $y = ax^2 + bx + c$, the turning point has x-coordinate $-\dfrac{b}{2a}$, the axis of symmetry of the parabola.
+
+<Formula id="quadratic-vertex-x-coordinate"/>
+
+<Term id="translating-graph-vector"/> is done by replacing $x$ by $x - a$ and adding $b$. The graph $y = f(x - a) + b$ takes every point $(p, q)$ on $y = f(x)$ to $(p + a, q + b)$: $a$ units to the right and $b$ units up. If $(1, 3)$ lies on $y = f(x)$, then $(3, 2)$ lies on $y = f(x - 2) - 1$.
+
+To sketch $y = f(x) + g(x)$, add the heights of $y = f(x)$ and $y = g(x)$ at each $x$; where $g(x) = 0$ the sum equals $f(x)$. The <Term id="graph-sum-difference"/> is built this way, and the difference $y = f(x) - g(x)$ is found by subtracting heights.
+
+<Formula id="graph-sum-function"/>
+
+<Formula id="graph-difference-function"/>
+
+<Callout kind="define">Sketch: a labelled diagram that shows the shape of a graph and its key features, such as intercepts, turning points, asymptotes and the ends of the domain. It need not be to scale unless the question asks for it.</Callout>
+
+<Callout kind="gdc">Enter both functions and plot them on the same window. Read the maximum and minimum points and the points of intersection from the graph. For a sum or difference, enter the combined expression as one function and read its key points from its graph.</Callout>
+
+## Worked example
+
+Let $f(x) = x^2 - 4$ and $g(x) = 6 - 2x$, and let $h(x) = f(x) + g(x)$.
+
+<Steps>
+<Step>Add the two functions: $h(x) = x^2 - 4 + 6 - 2x = x^2 - 2x + 2$.</Step>
+<Step>The turning point is at $x = -\dfrac{b}{2a} = \dfrac{2}{2} = 1$, with $h(1) = 1$, so the minimum point is $(1, 1)$. The y-intercept is $h(0) = 2$, and $h(2) = 2$ by symmetry about $x = 1$.</Step>
+<Step>The discriminant is $(-2)^2 - 4(1)(2) = -4$, which is negative, so $h(x) = 0$ has no solutions. The graph has no x-intercepts and lies entirely above the x-axis.</Step>
+</Steps>
+
+<Reveal title="How can I check the sketch?">Substitute a few values, such as $x = 0, 1, 2$, into $h(x)$ and plot them. The points $(0, 2)$, $(1, 1)$ and $(2, 2)$ must lie on your curve.</Reveal>
+
+## Visual
+
+Sketch $y = f(x)$, a parabola whose lowest point is at $x = 0$ and lies below the x-axis, and $y = g(x)$, a straight line falling from left to right. At each $x$ the height of the sum is the height of $f$ plus the height of $g$. Where $g$ is above the x-axis the sum is higher than $f$, and where $g$ is below it the sum is lower. For the example above, $f$ is negative for $-2 < x < 2$, but $g$ is positive there, so the sum never reaches zero.
+
+<Callout kind="tip">Mark the key points first, the intercepts and turning points, then add a few heights from a table of values and join the points with a smooth curve.</Callout>
+
+## How it is examined
+
+Sketch, State and Write down questions reward labelled key features more than a perfect curve. Each correct key point, label or shape usually earns a mark, and a sketch with a wrong turning point or the wrong direction of opening loses those marks. Find questions on the sum or difference of functions give a mark for forming the combined expression and a mark for the value found from it.
+
+<Callout kind="exam">Label the axes and state the coordinates of every feature the question names. A point that is only drawn, without its coordinates, may not earn the mark.</Callout>
+
+## Common mistakes
+
+<Callout kind="mistake">Shifting the graph the wrong way: $y = f(x - 2)$ moves the graph 2 units to the right, not to the left.</Callout>
+
+- Adding x-coordinates instead of heights when forming $f(x) + g(x)$.
+- Sketching the curve from two or three points and missing a turning point or an x-intercept.
+- Ignoring the context: drawing a profit curve for a negative number of items, or a time before the start.
+
+## Check yourself
+
+<Question id="q-2-3-01"/>
+
+<Question id="q-2-3-02"/>
+
+<Question id="q-2-3-03"/>
+
+## Summary
+
+- The graph of $y = f(x)$ is the set of points $(x, f(x))$, and a function's graph passes the vertical line test.
+- A sketch shows labelled key features: intercepts, turning points and the ends of the domain.
+- The turning point of $y = ax^2 + bx + c$ has x-coordinate $-\dfrac{b}{2a}$.
+- $y = f(x - a) + b$ moves the graph $a$ units right and $b$ units up.
+- The graph of $f(x) + g(x)$ is found by adding the heights of $f$ and $g$ at each $x$.
+- Use the context to limit the domain before reading off key values.

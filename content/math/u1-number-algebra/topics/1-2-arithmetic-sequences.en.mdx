@@ -1,0 +1,78 @@
+## Big idea
+
+An arithmetic sequence adds the same amount at every step. Its nth term and the sum of its first n terms follow from two formulas, and the same model can estimate real data that only roughly follow a constant step.
+
+## Explanation
+
+An <Term id="arithmetic-sequence"/> has a constant step. Each term is the previous term plus the same number, the <Term id="common-difference"/> $d$, so the terms are $u_1, u_1 + d, u_1 + 2d, \dots$
+
+<Formula id="arithmetic-common-difference"/>
+
+Subtracting any term from the next one gives the same $d$ every time, which is a quick test for an arithmetic sequence. To find any term without listing the earlier ones, count the steps: the $n$th term is $n - 1$ steps after $u_1$.
+
+<Formula id="arithmetic-nth-term"/>
+
+<Callout kind="define">Arithmetic sequence: a sequence in which each term is the previous term plus a constant common difference $d$.</Callout>
+
+The <Term id="arithmetic-series"/> is the sum of the first $n$ terms. Pairing the first and last terms gives the quick formula below.
+
+<Formula id="arithmetic-sum"/>
+
+<Term id="sigma-notation-arithmetic"/> writes the same sum compactly: $\sum_{k=1}^{n} u_k$ means add the terms for $k = 1, 2, \dots, n$.
+
+Real data are rarely exactly arithmetic. A straight-line model $u_n = u_1 + (n-1)d$ is an approximation: compare its values with the actual ones, and treat predictions far beyond the data with caution.
+
+<Callout kind="gdc">Use a table of values for the sequence to list the terms and check the common difference. For the sum of many terms, use the sum function of the GDC, and check the answer with the formula for $S_n$.</Callout>
+
+## Worked example
+
+Let $u_1 = 5$ and $d = 3$ for an arithmetic sequence. Find $u_{10}$ and $S_{10}$.
+
+<Steps>
+<Step>Find the 10th term: $u_{10} = u_1 + 9d = 5 + 9 \times 3 = 32$.</Step>
+<Step>Find the sum of the first 10 terms: $S_{10} = \dfrac{10}{2}(u_1 + u_{10}) = 5 \times (5 + 32) = 185$.</Step>
+</Steps>
+
+Next, evaluate $\sum_{k=1}^{4}(2k+1)$ by substituting each value of $k$.
+
+<Steps>
+<Step>Substitute $k = 1, 2, 3, 4$: the terms are 3, 5, 7 and 9, which form an arithmetic sequence with first term 3 and last term 9.</Step>
+<Step>Add them, or use the formula: $S_4 = \dfrac{4}{2}(3 + 9) = 24$.</Step>
+</Steps>
+
+<Reveal title="Why does the sum formula use the first and last terms?">Pair the first term with the last, the second with the second-last, and so on. Each pair has the same total $u_1 + u_n$, and there are $n/2$ pairs, so the sum is $\frac{n}{2}(u_1 + u_n)$.</Reveal>
+
+## Visual
+
+<Callout kind="tip">Plot $u_n$ against $n$: the points of an arithmetic sequence lie on one straight line. The gradient of that line is the common difference $d$, and the points rise by the same height at each step. If the points curve, or the steps change size, the sequence is not arithmetic, and a straight-line model will only fit approximately.</Callout>
+
+## How it is examined
+
+Find and Calculate questions give a mark for identifying $d$ or choosing the correct formula, a mark for substituting into it, and a mark for the final value. Show that questions need the test that $u_{n+1} - u_n$ is the same for every $n$. Context questions also need an interpretation of the answer, for example what the model predicts for a named week, and a comment on how far the model can be trusted.
+
+<Callout kind="exam">Read the command and the wording carefully: $u_n$ is one term, and $S_n$ is the sum of the first $n$ terms. Answering the wrong quantity usually costs all the marks for the answer.</Callout>
+
+## Common mistakes
+
+<Callout kind="mistake">Writing $u_n = u_1 + nd$. The first term makes no step, so the formula uses $(n-1)d$.</Callout>
+
+- Using $n$ instead of $n - 1$ in the nth-term formula, which shifts every term by one step.
+- Confusing $u_n$ (one term) with $S_n$ (the sum of terms).
+- Miscounting the number of terms in a sum that does not start at $k = 1$: from $k = a$ to $k = b$ there are $b - a + 1$ terms.
+
+## Check yourself
+
+<Question id="q-1-2-01"/>
+
+<Question id="q-1-2-02"/>
+
+<Question id="q-1-2-03"/>
+
+## Summary
+
+- An arithmetic sequence has a constant common difference, $d = u_{n+1} - u_n$.
+- $u_n = u_1 + (n-1)d$ gives any term, and $S_n = \dfrac{n}{2}(2u_1 + (n-1)d)$ gives the sum of the first $n$ terms.
+- $S_n = \dfrac{n}{2}(u_1 + u_n)$ is the same sum when the last term is known.
+- Sigma notation $\sum_{k=1}^{n} u_k$ writes the sum compactly; substitute each value of $k$.
+- From $k = a$ to $k = b$ there are $b - a + 1$ terms.
+- A linear model is an approximation: compare it with the actual data before trusting its predictions.

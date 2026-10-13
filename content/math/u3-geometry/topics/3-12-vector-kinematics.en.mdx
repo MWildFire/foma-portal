@@ -1,0 +1,82 @@
+## Big idea
+
+The position vector $\mathbf{r}(t)$ tells you where a moving object is at time $t$. Its rate of change is the velocity vector $\mathbf{v}$, and its length is the speed. In two or three dimensions, each component gives one equation in the single variable $t$.
+
+## Explanation
+
+The <Term id="kinematics-position-vector"/> (position vector) is measured from a fixed origin. If an object starts at $\mathbf{r}_0$ and moves with constant velocity $\mathbf{v}$, then after $t$ seconds it is at
+
+$$
+\mathbf{r}(t) = \mathbf{r}_0 + t\,\mathbf{v}
+$$
+
+<Formula id="kinematics-constant-velocity"/>
+
+The path is a straight line through $\mathbf{r}_0$ in the direction of $\mathbf{v}$. The displacement over a time $\Delta t$ is $\Delta t\,\mathbf{v}$, so displacement divided by time is the <Term id="kinematics-velocity-vector"/> (velocity vector).
+
+When the velocity changes, the velocity is found by differentiating the position vector one component at a time:
+
+$$
+\mathbf{v}(t) = \frac{d\mathbf{r}}{dt} = \left(\frac{dx}{dt},\ \frac{dy}{dt}\right)
+$$
+
+<Formula id="kinematics-velocity-derivative"/>
+
+The <Term id="kinematics-speed"/> (speed) is the magnitude of the velocity, $|\mathbf{v}|$. In two dimensions $|\mathbf{v}| = \sqrt{v_1^2 + v_2^2}$; in three dimensions add $v_3^2$ under the root.
+
+<Formula id="kinematics-speed-magnitude"/>
+
+Two objects collide when they are at the same place at the same time. Set $\mathbf{r}_1(t) = \mathbf{r}_2(t)$ and use the same $t$ in every component. Two equations in one unknown must share a solution.
+
+<Callout kind="define">Position vector $\mathbf{r}(t)$: the vector from the origin to a moving object at time $t$. Velocity vector: $\mathbf{v} = d\mathbf{r}/dt$; for constant velocity it is the displacement divided by the time.</Callout>
+
+<Callout kind="gdc">For the least speed of a motion with variable velocity, enter the speed as a function of $t$, $|\mathbf{v}(t)|$, and use the GDC's minimum function over the given interval. Check the endpoints as well.</Callout>
+
+## Worked example
+
+A drone starts at the point with position vector $(2, 5, 10)$ metres and flies with constant velocity $(3, -1, 4)$ metres per second. Time $t$ is in seconds.
+
+<Steps>
+<Step>Position at time $t$: $\mathbf{r}(t) = (2, 5, 10) + t(3, -1, 4)$. At $t = 4$, $\mathbf{r}(4) = (14, 1, 26)$.</Step>
+<Step>Speed: $|\mathbf{v}| = \sqrt{3^2 + (-1)^2 + 4^2} = \sqrt{26} = 5.10$ m/s, to 2 decimal places.</Step>
+<Step>Displacement from $t = 0$ to $t = 4$ is $\mathbf{r}(4) - \mathbf{r}(0) = (12, -4, 16)$, with length $\sqrt{416} = 20.40$ m (to 2 decimal places). This is $4|\mathbf{v}|$, as expected for constant velocity.</Step>
+</Steps>
+
+<Reveal title="Why do the displacement and the distance travelled match?">With constant velocity the object moves in a straight line at a steady speed, so the length of the displacement equals the speed multiplied by the time.</Reveal>
+
+## Visual
+
+<Sim id="math.vector-lab"/>
+
+The lab draws two vectors $\mathbf{a}$ and $\mathbf{b}$ and the path $\mathbf{r}(t)$ for $0 \le t \le 4$. With the box unticked, $\mathbf{a}$ is a constant velocity and the path is a straight line. Tick "variable velocity" and $\mathbf{b}$ becomes a constant acceleration: the velocity $\mathbf{a} + t\mathbf{b}$ changes and the path curves. Move the time slider to read off the position and the speed at each moment.
+
+## How it is examined
+
+Find questions reward the velocity from the derivative, the speed as a magnitude and the position at a given time. Show that questions about collisions need every component to agree at one time. A minimum-speed question needs the time as well as the speed. A GDC minimum finds one turning point at a time, so check the graph or the symmetry for any others.
+
+<Callout kind="exam">Give the speed as a positive number with its unit. Give the position as a vector, with the components in the same order as the question.</Callout>
+
+## Common mistakes
+
+<Callout kind="mistake">Writing the speed as $|v_1| + |v_2|$. The speed is the length of the vector, $\sqrt{v_1^2 + v_2^2}$.</Callout>
+
+- Treating the position vector as the velocity. Differentiate to get the velocity; the position itself is not a rate.
+- Checking one component of a collision and stopping. Every component must agree at the same $t$.
+- Giving one time when a minimum occurs at two values of $t$.
+
+## Check yourself
+
+<Question id="q-3-12-01"/>
+
+<Question id="q-3-12-02"/>
+
+<Question id="q-3-12-03"/>
+
+## Summary
+
+- $\mathbf{r}(t) = \mathbf{r}_0 + t\mathbf{v}$ describes constant velocity in two or three dimensions.
+- The velocity is $\mathbf{v}(t) = d\mathbf{r}/dt$: differentiate each component separately.
+- Speed is the magnitude $|\mathbf{v}|$, a length, never the sum of the components.
+- A collision needs equal position vectors at the same time $t$, in every component.
+- For a minimum speed over an interval, check the turning points and the endpoints; the minimum can occur at more than one time.
+- The displacement is $\mathbf{r}(t) - \mathbf{r}(0)$; with constant velocity its length is the speed multiplied by the time.

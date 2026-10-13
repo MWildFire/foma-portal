@@ -1,0 +1,84 @@
+## Big idea
+
+A matrix is a rectangular array of numbers that packs several linear calculations into one object. Once you know the rules for adding and multiplying matrices, and the test for an inverse, you can solve a whole system of equations in one step.
+
+## Explanation
+
+An $m \times n$ matrix has $m$ rows and $n$ columns. Its element in row $i$ and column $j$ is $a_{ij}$. The <Term id="matrix-order"/> is always written as rows by columns.
+
+Two matrices are equal when they have the same order and equal corresponding elements. You can add or subtract matrices only when their orders match, working element by element. A scalar multiple $kA$ multiplies every element of $A$ by $k$.
+
+To multiply, take row $i$ of $A$ and column $j$ of $B$, multiply them pair by pair and add. This is possible only when $A$ has as many columns as $B$ has rows:
+
+$$
+(m \times n)(n \times p) = (m \times p)
+$$
+
+<Formula id="matrix-product-entry"/>
+
+Matrix multiplication is associative, $(AB)C = A(BC)$, and distributive, $A(B + C) = AB + AC$. It is not commutative: $AB \neq BA$ in general, and $BA$ may not even be defined. The <Term id="identity-matrix"/> $I$ leaves a matrix unchanged under multiplication: $AI = IA = A$. The zero matrix, with every element 0, satisfies $A + O = A$.
+
+For a $2 \times 2$ matrix, the <Term id="determinant-2x2"/> is a single number that decides whether an inverse exists.
+
+<Formula id="det-2x2-formula"/>
+
+When $\det A \neq 0$, the <Term id="inverse-matrix"/> exists, and $AA^{-1} = A^{-1}A = I$.
+
+<Formula id="inverse-2x2-formula"/>
+
+A system of two linear equations can be written as $A\mathbf{x} = \mathbf{b}$. When $\det A \neq 0$ it has exactly one solution, $\mathbf{x} = A^{-1}\mathbf{b}$.
+
+<Formula id="linear-system-solution"/>
+
+If $\det A = 0$, $A$ has no inverse, and the system has either no solution or infinitely many, never exactly one.
+
+<Callout kind="define">Inverse matrix: for a square matrix $A$, the matrix $A^{-1}$ with $AA^{-1} = A^{-1}A = I$. It exists only when $\det A \neq 0$.</Callout>
+
+<Callout kind="gdc">For matrices larger than 2 × 2, use technology: a matrix determinant function, a matrix inverse function and a matrix product. To solve $A\mathbf{x} = \mathbf{b}$, use a function for linear systems in matrix form, then multiply $A$ by the answer to check it.</Callout>
+
+## Worked example
+
+Let $A = \begin{pmatrix} 2 & 1 \\ 1 & 1 \end{pmatrix}$ and $B = \begin{pmatrix} 1 & 0 \\ -2 & 3 \end{pmatrix}$.
+
+<Steps>
+<Step>$\det A = 2 \times 1 - 1 \times 1 = 1 \neq 0$, so $A^{-1}$ exists: $A^{-1} = \begin{pmatrix} 1 & -1 \\ -1 & 2 \end{pmatrix}$.</Step>
+<Step>For $\mathbf{b} = \begin{pmatrix} 5 \\ 3 \end{pmatrix}$, $\mathbf{x} = A^{-1}\mathbf{b} = \begin{pmatrix} 2 \\ 1 \end{pmatrix}$. Check: $2(2) + 1 = 5$ and $2 + 1 = 3$.</Step>
+<Step>$AB = \begin{pmatrix} 0 & 3 \\ -1 & 3 \end{pmatrix}$ and $BA = \begin{pmatrix} 2 & 1 \\ -1 & 1 \end{pmatrix}$, so $AB \neq BA$.</Step>
+</Steps>
+
+<Reveal title="Why does the order of the factors matter?">Each entry of $AB$ is a row of $A$ times a column of $B$. Swapping the factors pairs the rows and columns differently, so the entries change. Always write a product in the order the problem gives.</Reveal>
+
+## Visual
+
+<Callout kind="tip">Read the columns of $A$ as two arrows from the origin. They span a parallelogram with area $|\det A|$. When $\det A = 0$ the two arrows lie on one line, the area collapses to zero, and the matrix has no inverse.</Callout>
+
+## How it is examined
+
+Find, Calculate and Determine questions give marks for the method (M1), the accurate answer (A1) and a reasoned statement (R1). Show that questions need each step shown. Check the determinant first: a zero value means there is no inverse, and the mark scheme looks for that statement. For larger matrices, the mark scheme accepts a GDC result when you name the function type you used and show the matrix you entered. Marks are most often lost to a sign error in the inverse, a missing factor $\dfrac{1}{\det A}$, or a product written in the wrong order.
+
+<Callout kind="exam">In a product question, check that the orders match and write the order of the answer, $m \times p$, before you calculate.</Callout>
+
+## Common mistakes
+
+<Callout kind="mistake">Writing $AB = BA$ because both products look possible. Matrix multiplication is not commutative.</Callout>
+
+- Swapping the signs of $a$ and $d$ instead of $b$ and $c$ when forming the inverse, or leaving out the factor $\dfrac{1}{ad-bc}$. The correct form is $\dfrac{1}{ad-bc}\begin{pmatrix} d & -b \\ -c & a \end{pmatrix}$.
+- Using an inverse when $\det A = 0$. The inverse does not exist, so the method stops there.
+- Multiplying in the wrong order: $A^{-1}\mathbf{b}$ is correct for a column vector $\mathbf{b}$, while $\mathbf{b}A^{-1}$ is not defined.
+
+## Check yourself
+
+<Question id="q-1-14-01"/>
+
+<Question id="q-1-14-02"/>
+
+<Question id="q-1-14-03"/>
+
+## Summary
+
+- An $m \times n$ matrix has $m$ rows and $n$ columns; $a_{ij}$ sits in row $i$, column $j$.
+- Addition needs equal orders. The product $AB$ needs the number of columns of $A$ to equal the number of rows of $B$.
+- $AB \neq BA$ in general; multiplication is associative and distributive.
+- For a $2 \times 2$ matrix, $\det A = ad - bc$, and the inverse exists exactly when $\det A \neq 0$.
+- When $\det A \neq 0$, the solution of $A\mathbf{x} = \mathbf{b}$ is $\mathbf{x} = A^{-1}\mathbf{b}$.
+- For matrices larger than 2 × 2, use technology and name the function you used.

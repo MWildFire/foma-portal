@@ -1,0 +1,78 @@
+## Big idea
+
+A straight line in two or three dimensions is fixed by one point on it and one direction. The vector equation $\mathbf{r} = \mathbf{a} + \lambda\mathbf{b}$ says that every point of the line is reached by starting at $\mathbf{a}$ and moving $\lambda$ times the direction vector $\mathbf{b}$.
+
+## Explanation
+
+Let $\mathbf{r}$ be the position vector of any point on the line. The point with position vector $\mathbf{a}$ lies on the line, and $\mathbf{b}$ is a <Term id="direction-vector-of-line"/> (direction vector), so it is parallel to the line. The number $\lambda$ is the <Term id="vector-line-parameter"/> (parameter): each real value of $\lambda$ gives one point. At $\lambda = 0$ we are at $\mathbf{a}$, and at $\lambda = 1$ we are at $\mathbf{a} + \mathbf{b}$.
+
+The <Term id="vector-equation-of-line"/> (vector equation of a line) is
+
+$$
+\mathbf{r} = \mathbf{a} + \lambda\mathbf{b}, \qquad \lambda \in \mathbb{R}
+$$
+
+<Formula id="vector-line-form"/>
+
+Any non-zero multiple of $\mathbf{b}$ is also a direction vector, so one line has many vector equations. Two lines are parallel when their direction vectors are parallel, that is, when one direction vector is a multiple of the other.
+
+Writing the components gives parametric equations. In two dimensions $x = a_1 + \lambda b_1$ and $y = a_2 + \lambda b_2$; in three dimensions add $z = a_3 + \lambda b_3$. Eliminating $\lambda$ from the two-dimensional pair gives the gradient $\dfrac{b_2}{b_1}$ when $b_1 \neq 0$.
+
+<Formula id="vector-line-components"/>
+
+For a line through two points $A$ and $B$, take $\mathbf{a} = \overrightarrow{OA}$ and $\mathbf{b} = \overrightarrow{AB} = \overrightarrow{OB} - \overrightarrow{OA}$. The points with $0 \le \lambda \le 1$ lie on the segment $AB$.
+
+<Formula id="vector-line-two-points"/>
+
+<Callout kind="define">Vector equation of a line: $\mathbf{r} = \mathbf{a} + \lambda\mathbf{b}$, where $\mathbf{a}$ is the position vector of a point on the line, $\mathbf{b}$ is a direction vector and $\lambda$ is a real parameter.</Callout>
+
+<Callout kind="gdc">To find where two lines meet, give the second line its own parameter, for example $\mu$. Equate the components, solve the first two equations for the two parameters with a linear system solver on the GDC, and then check the third component by hand.</Callout>
+
+## Worked example
+
+Line $L$ passes through $A(2, -1, 4)$ and $B(5, 3, -2)$. Does the point $P(8, 7, -8)$ lie on $L$?
+
+<Steps>
+<Step>Direction vector: $\overrightarrow{AB} = (5-2,\ 3-(-1),\ -2-4) = (3, 4, -6)$, so $\mathbf{r} = (2, -1, 4) + \lambda(3, 4, -6)$.</Step>
+<Step>Test $P$. The first component gives $2 + 3\lambda = 8$, so $\lambda = 2$. Then the second component is $-1 + 4(2) = 7$ and the third is $4 - 6(2) = -8$. All three match, so $P$ lies on $L$.</Step>
+<Step>The midpoint of $AB$ is at $\lambda = 0.5$: $(2, -1, 4) + 0.5(3, 4, -6) = (3.5, 1, 1)$.</Step>
+</Steps>
+
+<Reveal title="Why must the same λ work for all three components?">A point on the line has one value of $\lambda$. If the components need different values, the point is not on the line.</Reveal>
+
+## Visual
+
+Picture the point $A$ with the arrow $\mathbf{b}$ drawn from it. Each step of $\lambda$ along the arrow moves you to another point of the line. Negative values of $\lambda$ move you the other way, and every real $\lambda$ gives a point, so the line goes on in both directions.
+
+<Callout kind="tip">Sketch $A$, draw $\mathbf{b}$ from $A$ and mark the points for $\lambda = -1$, $0$, $1$ and $2$. The points are equally spaced, which is why they lie on one straight line.</Callout>
+
+## How it is examined
+
+Find and Write down questions give one mark for a correct direction vector, one for using the parameter correctly and one for the final point. Show that and Determine questions about two lines need an intersection check: solve two components for the two parameters, then confirm the third component. A question about parallel lines compares direction vectors, not points.
+
+<Callout kind="exam">Use a different letter for the parameter of each line, for example $\lambda$ and $\mu$. Using the same letter for both lines forces both lines through one parameter value and hides the point where they meet.</Callout>
+
+## Common mistakes
+
+<Callout kind="mistake">Writing $\mathbf{r} = \mathbf{a} + \mathbf{b}$ without the parameter $\lambda$. That is one point, not a line.</Callout>
+
+- Finding the direction as $A + B$. The direction is the difference $\overrightarrow{AB} = \mathbf{b} - \mathbf{a}$.
+- Checking only two components in three dimensions. Two equations can agree while the third fails, and then the lines do not meet.
+- Reusing $\lambda$ for the second line, which forces both lines through the same parameter value.
+
+## Check yourself
+
+<Question id="q-3-11-01"/>
+
+<Question id="q-3-11-02"/>
+
+<Question id="q-3-11-03"/>
+
+## Summary
+
+- $\mathbf{r} = \mathbf{a} + \lambda\mathbf{b}$ is the vector equation of the line through the point with position vector $\mathbf{a}$ parallel to $\mathbf{b}$.
+- Any non-zero multiple of a direction vector is also a direction vector of the same line.
+- Each value of $\lambda$ gives one point on the line; give each line its own parameter.
+- To find where two lines meet, equate the components and check every component, including the third in three dimensions.
+- Parallel lines have parallel direction vectors.
+- For a line through $A$ and $B$, use $\overrightarrow{AB}$ as the direction vector.

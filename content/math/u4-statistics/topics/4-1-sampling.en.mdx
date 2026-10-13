@@ -1,0 +1,72 @@
+## Big idea
+
+Statistics uses a sample to learn about a whole population. A sample is useful only if it is chosen fairly: a random sample lets the sample results estimate population values, while a biased sample gives consistently wrong answers, however large it is.
+
+## Explanation
+
+The <Term id="population-and-sample"/> is the whole group you want to know about, for example all 900 students of a school. A sample is the part of it that you actually measure. Data are the values you record: discrete data are counted (the number of siblings in a family), and continuous data are measured on a scale (height in centimetres, journey time in minutes).
+
+A sample should be chosen by <Term id="random-sample-technique"/>, so that every member of the population has a known, non-zero chance of being selected. Random choice does not make one particular sample typical, but it means that differences from the population come from chance, and their size can be judged.
+
+A sample chosen by convenience can carry <Term id="selection-bias"/>, a systematic difference from the population. Interviewing the first students through the school gate, or taking responses to an online poll from one group only, gives biased samples. Bias does not shrink as the sample grows, because it comes from the method, not from the number of people.
+
+Sample statistics estimate population values. The sample mean estimates the population mean:
+
+$$
+\bar{x}=\frac{1}{n}\sum_{i=1}^{n}x_i
+$$
+
+<Formula id="sample-mean-estimate"/>
+
+The sample proportion estimates the population proportion, so a proportion from a random sample can be scaled up to the whole population. <Formula id="sample-proportion-estimate"/>
+
+An outlier is a value that lies far from the rest of the data. Check it before you use it: it may be a recording error, or a real but unusual member of the population. Do not delete it silently.
+
+<Callout kind="define">Random sample: a sample in which every member of the population has a known, non-zero chance of being selected, so that chance alone decides who is included.</Callout>
+
+## Worked example
+
+A random sample of 50 students from a school of 900 students is asked whether they have a part-time job. 15 of the 50 say yes.
+
+<Steps>
+<Step>Sample proportion: $\hat{p} = \dfrac{15}{50} = 0.300$.</Step>
+<Step>Estimate for the school: $0.300 \times 900 = 270$ students.</Step>
+<Step>The first 50 students to arrive at the gate give $\hat{p} = \dfrac{22}{50} = 0.440$. This is $0.440 - 0.300 = 0.140$ higher than the estimate from the random sample, which shows bias in the gate sample.</Step>
+</Steps>
+
+<Reveal title="Why does a bigger gate sample not fix this?">Taking 500 students from the gate instead of 50 reduces the random variation, but early arrivals are still over-represented. The estimate settles on the wrong value, so the error is bias, not chance.</Reveal>
+
+## Visual
+
+<Callout kind="tip">Sketch the population as a rectangle of dots and mark your sample on it. A random sample is spread evenly over the rectangle. A biased sample clusters in one area, such as the gate, and its estimate leans towards that area.</Callout>
+
+## How it is examined
+
+Sampling questions ask you to name the population, choose a suitable sampling method, or explain bias in the context of the data. Estimate questions reward the correct sample statistic first, then the scaling to the population. Explanations lose marks when they call a sample biased without the reason, such as who was left out.
+
+<Callout kind="exam">When asked to comment on a sample, name the population, give the source of the bias in one phrase, and say which way the estimate is likely to be wrong.</Callout>
+
+## Common mistakes
+
+<Callout kind="mistake">Calling any large or quickly collected sample random.</Callout>
+
+- Believing that a bigger biased sample gives a more reliable estimate.
+- Scaling a sample proportion by the sample size instead of the population size.
+- Deleting an outlier without checking whether it is a recording error or a real value.
+
+## Check yourself
+
+<Question id="q-4-1-01"/>
+
+<Question id="q-4-1-02"/>
+
+<Question id="q-4-1-03"/>
+
+## Summary
+
+- The population is the whole group of interest; the sample is the part you measure.
+- A random sample gives every member of the population a known, non-zero chance of selection.
+- Bias is a systematic error from the sampling method, and a larger sample does not remove it.
+- Discrete data are counted, continuous data are measured, and outliers are checked before use.
+- The sample mean and the sample proportion estimate the population mean and proportion.
+- Scale an estimated proportion by the population size to estimate a count.

@@ -1,0 +1,72 @@
+## Big idea
+
+An adjacency matrix stores a graph as a grid of 0s and 1s, and its powers count walks. The entry in row $i$, column $j$ of $A^k$ is the number of walks of length $k$ from vertex $i$ to vertex $j$, so a long list of routes that may repeat stops becomes a matrix calculation.
+
+## Explanation
+
+The <Term id="adjacency-matrix"/> of a graph with $n$ vertices is an $n \times n$ table. Its entry in row $i$ and column $j$ is 1 when there is an edge (or an arc, for a directed graph) from vertex $i$ to vertex $j$, and 0 otherwise. For a simple undirected graph the matrix is symmetric, with zeros on the diagonal because there are no loops.
+
+A <Term id="graph-walk"/> is a sequence of vertices in which each consecutive pair is joined by an edge; its length is the number of edges used. Walks may repeat vertices and edges, which is why they are counted with a matrix rather than by drawing each route.
+
+The <Term id="walk-count-matrix-power"/> is the entry in row $i$, column $j$ of $A^k$, see <Formula id="walk-count-power"/>. For walks of length at most $k$, add the powers $A, A^2, \dots, A^k$ at that position, see <Formula id="walk-count-at-most-k"/>.
+
+A weighted adjacency table replaces each 1 by the weight of the edge, for example a distance or a travel time. The walk counts still use the matrix of 0s and 1s; to find the total weight of a walk, add the weights of its edges.
+
+For a strongly connected directed graph (every vertex can be reached from every other vertex), in which each step leaves along an outgoing arc chosen at random, divide each row of $A$ by its row sum, which is the out-degree of that vertex. The result is the <Term id="transition-matrix-graph"/>, written $T$, and each of its rows adds to 1. The entry in row $i$, column $j$ of $T^n$ is the probability of being at vertex $j$ after $n$ steps, see <Formula id="walk-transition-matrix"/> and <Formula id="walk-n-step-probability"/>.
+
+<Callout kind="define">Walk: a sequence of vertices in which each consecutive pair is joined by an edge; its length is the number of edges. The number of walks of length $k$ from $i$ to $j$ is the entry in row $i$, column $j$ of $A^k$.</Callout>
+
+<Callout kind="gdc">Enter the adjacency matrix as a matrix, then take a matrix power for $A^k$. Read the entry in the row of the start vertex and the column of the end vertex. For walks of length at most $k$, add the entries in that position of $A$, $A^2$, up to $A^k$.</Callout>
+
+## Worked example
+
+The graph is the one from the previous topic: vertices A, B, C, D and E, with edges AB, AC, BC, BD, CD and DE. Its adjacency matrix, with rows and columns in the order A, B, C, D, E, is
+
+$$
+A = \begin{pmatrix} 0 & 1 & 1 & 0 & 0 \\ 1 & 0 & 1 & 1 & 0 \\ 1 & 1 & 0 & 1 & 0 \\ 0 & 1 & 1 & 0 & 1 \\ 0 & 0 & 0 & 1 & 0 \end{pmatrix}
+$$
+
+<Steps>
+<Step>The matrix is symmetric, because the graph is undirected, and its diagonal is zero, because there are no loops. Each 1 marks one edge: the 1 in row A, column B is the edge AB.</Step>
+<Step>Walks of length 3 from A to D: the entry in row A, column D of $A^3$ is 2. The two walks are A–B–C–D and A–C–B–D.</Step>
+<Step>Walks of length at most 3 from A to D: add the entries in row A, column D of $A$, $A^2$ and $A^3$, which gives $0 + 2 + 2 = 4$.</Step>
+</Steps>
+
+<Reveal title="Why do walks with repeated vertices count?">A walk may return along an edge it has just used. For example A–B–A–B–D is a walk from A to D that repeats vertices and edges, and the matrix counts it automatically.</Reveal>
+
+## Visual
+
+<Sim id="math.adjacency-lab"/>
+
+The lab draws the graph of the worked example with its adjacency matrix. Choose a start vertex, an end vertex and a walk length $k$: the number of walks of length $k$ between them is the matching entry of $A^k$, and the lab also shows the total for walks of length at most $k$. Increase $k$ to see how quickly the counts grow when walks may repeat vertices.
+
+## How it is examined
+
+Find and Write down questions give marks for the matrix method and for the entry you read. Walks of length at most $k$ need the sum of the powers, and a common loss of marks is to stop at $A^k$. Transition questions need the probabilities as decimals to the required accuracy, and each row of $T$ must add to 1.
+
+<Callout kind="exam">Read the entry in the row of the start vertex and the column of the end vertex. The other order counts walks in the reverse direction, which can give a different number in a directed graph.</Callout>
+
+## Common mistakes
+
+<Callout kind="mistake">Using $A^k$ alone for walks of length at most $k$. You need the sum $A + A^2 + \dots + A^k$.</Callout>
+
+- Reading the row of the end vertex instead of the row of the start vertex.
+- Dividing each row of the adjacency matrix by the total number of arcs instead of by its own row sum, which gives rows that do not add to 1.
+- Counting only paths. A walk may repeat vertices and edges, and the matrix counts all of them.
+
+## Check yourself
+
+<Question id="q-3-15-01"/>
+
+<Question id="q-3-15-02"/>
+
+<Question id="q-3-15-03"/>
+
+## Summary
+
+- The adjacency matrix $A$ has a 1 in row $i$, column $j$ for each edge or arc from vertex $i$ to vertex $j$.
+- A walk is a sequence of vertices joined by consecutive edges; it may repeat vertices and edges.
+- The entry in row $i$, column $j$ of $A^k$ is the number of walks of length $k$ from $i$ to $j$.
+- The number of walks of length at most $k$ is the sum $A + A^2 + \dots + A^k$ at that position.
+- A weighted adjacency table holds the weights; add them along a walk to get its total weight.
+- For a strongly connected digraph, divide each row of $A$ by its row sum to get the transition matrix $T$; the entries of $T^n$ are probabilities after $n$ steps.

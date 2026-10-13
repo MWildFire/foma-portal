@@ -1,0 +1,70 @@
+## Big idea
+
+Many quantities change at a rate that depends on their current value. A hot drink cools faster when it is much hotter than the room, and a tank loses salt faster when it holds more salt. A differential equation writes such a rule in symbols. Separation of variables solves the simplest of these equations: put every term in $y$ on one side and every term in $x$ (or $t$) on the other, then integrate both sides.
+
+## Explanation
+
+To set up a model, name the variable, describe the rate of change in words, and write it as a derivative. "The rate of cooling is proportional to the difference between the temperature and the room temperature" becomes $\dfrac{dT}{dt} = -k(T - 20)$. An equation that contains only a first derivative is a <Term id="de-first-order-equation"/>.
+
+When the equation has the form $\dfrac{dy}{dx} = f(x)\,g(y)$, the variables can be separated. The <Term id="de-separation-of-variables"/> method then gives $\dfrac{1}{g(y)}\,dy = f(x)\,dx$: integrate both sides, add one constant, and solve for $y$.
+
+<Formula id="de-separated-form"/>
+
+Integrating $\dfrac{1}{y}$ produces a logarithm, so after integrating, take exponentials of both sides to solve for $y$.
+
+<Formula id="de-log-integral"/>
+
+The <Term id="de-initial-condition"/> (for example $T(0) = 90$) fixes the constant. Cooling, limited growth and mixing with fresh water all have solutions of the form $y = L + (y_0 - L)e^{-kt}$, which approach the limit $L$ as $t$ grows.
+
+<Formula id="de-relaxation-solution"/>
+
+<Callout kind="define">A first-order differential equation relates a function to its first derivative. It can be solved by separation of variables when it can be written as $g(y)\,dy = f(x)\,dx$.</Callout>
+
+<Callout kind="gdc">Plot temperature against time and find where the graph reaches the level you need, or use a solver for an equation in $t$, to find the time when the temperature reaches a given value.</Callout>
+
+## Worked example
+
+A cup of tea at 90 °C is placed in a room at 20 °C. The rate of cooling is proportional to $T - 20$, where $T$ is the temperature in degrees Celsius and $t$ is the time in minutes. After 10 minutes the tea is at 55 °C.
+
+<Steps>
+<Step>Model: $\dfrac{dT}{dt} = -k(T - 20)$ with $T(0) = 90$. Separating and integrating gives $\dfrac{dT}{T - 20} = -k\,dt$, so $\ln|T - 20| = -kt + C$ and $T - 20 = Ae^{-kt}$. The initial condition gives $A = 70$, so $T = 20 + 70e^{-kt}$.</Step>
+<Step>Use $T(10) = 55$: $20 + 70e^{-10k} = 55$, so $e^{-10k} = \dfrac{1}{2}$ and $k = \dfrac{\ln 2}{10} = 0.0693$ per minute (to 4 decimal places).</Step>
+<Step>After 20 minutes $e^{-20k} = \dfrac{1}{4}$, so $T = 20 + 70 \times \dfrac{1}{4} = 37.5$ °C. The tea reaches 30 °C when $e^{-kt} = \dfrac{1}{7}$, so $t = \dfrac{10\ln 7}{\ln 2} = 28.1$ minutes (to 1 decimal place).</Step>
+</Steps>
+
+<Reveal title="Check by substitution">Differentiate $T = 20 + 70e^{-kt}$ to get $\dfrac{dT}{dt} = -70k\,e^{-kt} = -k(T - 20)$, which is the model. The initial condition also holds, because $20 + 70 = 90$.</Reveal>
+
+## Visual
+
+<Callout kind="tip">Sketch $T$ against $t$. The curve starts at 90, falls quickly while $T$ is well above 20, and flattens towards the horizontal line $T = 20$ without crossing it. A larger $k$ makes the curve flatten sooner.</Callout>
+
+## How it is examined
+
+Set-up marks come from turning the words of the model into an equation with the right sign and the right quantity (for example $T - 20$, not $T$). Method marks need the separation and integration written out, including the constant of integration. The accuracy mark depends on using the initial condition to find the constant. Show that questions give the target expression, so every step must be visible. Comment questions need a reason linked to the context, such as the limit as $t$ becomes large or the range of time in which the model applies.
+
+<Callout kind="exam">Write the general solution first, then substitute the initial condition. Give the particular solution in the form the question asks for, and state the units of $t$.</Callout>
+
+## Common mistakes
+
+<Callout kind="mistake">Writing the model with $T$ instead of $T - 20$. The tea would then cool towards 0 °C rather than towards the room temperature of 20 °C.</Callout>
+
+- Forgetting the constant of integration, or adding it to one side only.
+- Dividing by $y$ and losing the constant solution $y = 0$. Check constant solutions separately.
+- Writing $\ln|T - 20| = -kt + C$ and then treating it as $T - 20 = -kt + C$, without taking exponentials.
+
+## Check yourself
+
+<Question id="q-5-14-01"/>
+
+<Question id="q-5-14-02"/>
+
+<Question id="q-5-14-03"/>
+
+## Summary
+
+- A differential equation links a function to its rate of change; a model turns the phrase "the rate is proportional to ..." into an equation for the derivative.
+- Separation of variables: bring the equation to $g(y)\,dy = f(x)\,dx$, integrate both sides and add one constant.
+- The initial condition fixes the constant and gives the particular solution.
+- Cooling, limited growth and mixing models have the form $y = L + (y_0 - L)e^{-kt}$ and approach the limit $L$.
+- Check a solution by substitution: differentiate it, compare with the equation and test the initial condition.
+- Interpret the answer: the limit as $t$ becomes large, the time to reach a level, and the range in which the model is valid.

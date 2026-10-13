@@ -1,0 +1,68 @@
+## Big idea
+
+A loan is repaid by equal payments: each payment covers the interest for that period, and the rest reduces the balance. Savings made by equal regular deposits form an annuity. Both use the same compound factor, so one rate per period and one number of periods describe either case.
+
+## Explanation
+
+An <Term id="amortisation-loan"/> repays a loan with equal instalments over a fixed term. Each instalment first pays the interest on the balance for that period, and the rest reduces the balance. Use the rate per period $i = \frac{r}{100k}$ and the number of instalments $N = kn$, where $k$ is the number of payments a year. For a loan of $PV$, the equal instalment $M$ is:
+
+<Formula id="annuity-payment"/>
+
+Regular equal payments made at equal intervals form an <Term id="annuity"/>. If the same deposit $M$ is made at the end of each period into an account that earns $i$ per period, the value after $N$ periods is:
+
+<Formula id="annuity-future-value"/>
+
+The <Term id="outstanding-balance"/> after $j$ instalments is the loan compounded for $j$ periods, less the value of the $j$ instalments paid so far:
+
+<Formula id="outstanding-balance-formula"/>
+
+<Callout kind="gdc">Use a financial solver to find an instalment or a future value. Use a table of values for the balance to produce an amortisation table with one row per instalment. Enter the number of payments and the rate per payment period, and keep money paid and money received with opposite signs, as the solver expects.</Callout>
+
+## Worked example
+
+A loan of AED 60,000 is repaid by 60 equal monthly instalments. The interest rate is 6% a year, compounded monthly. Find the instalment, the interest and balance after the first payment, and the balance after 24 payments.
+
+<Steps>
+<Step>Rate per month $i = \dfrac{6}{1200}$ and $N = 60$. The instalment is $M = \dfrac{60000\,i}{1-(1+i)^{-60}} = 1159.97$ (to 2 decimal places).</Step>
+<Step>Interest in the first month is $60000 \times \frac{6}{1200} = 300.00$. The rest of the first instalment repays $1159.97 - 300.00 = 859.97$, so the balance after one payment is $60000 - 859.97 = 59140.03$.</Step>
+<Step>After 24 instalments the balance is $B_{24} = 60000(1+i)^{24} - 1159.97 \times \dfrac{(1+i)^{24}-1}{i} = 38129.33$ (to 2 decimal places).</Step>
+</Steps>
+
+<Reveal title="Why does the balance fall slowly at first?">In the early months most of each instalment pays interest on a large balance, so only a small part of it reduces the debt. Later instalments reduce the balance faster, because less interest is charged each month.</Reveal>
+
+## Visual
+
+<Sim id="math.tvm-lab"/>
+
+The lab uses the same formulas. With a principal of 60,000, a rate of 6, 5 years and 12 payments a year, it shows the instalment of 1159.97 and the first rows of the table: interest 300.00, principal repaid 859.97 and balance 59140.03 after the first payment. Increase the years and watch the instalment fall. The balance curve bends more, because in a long loan most of the early instalments are interest.
+
+## How it is examined
+
+Find and Calculate questions give a mark for the rate per period and the number of periods, a mark for the method (the instalment, the balance or the future value), and an accuracy mark for the rounding asked. Comment questions ask how the balance or the share of interest changes over time, and expect a reason based on the interest charged on the balance.
+
+<Callout kind="exam">Before you use the solver, say whether you are finding an instalment, a balance or a future value. The number of periods and the sign of the payment depend on that choice.</Callout>
+
+## Common mistakes
+
+<Callout kind="mistake">Using the annual rate with monthly instalments. The rate per month is 6 divided by 12 per cent, and the number of instalments is 12 times the number of years.</Callout>
+
+- Subtracting the instalment from the balance before adding that period's interest. Interest is charged on the balance first.
+- Using the savings formula, where deposits build up, for a loan being repaid, or the reverse.
+- Rounding the instalment to a whole number too early. Keep full accuracy in the working.
+
+## Check yourself
+
+<Question id="q-1-7-01"/>
+
+<Question id="q-1-7-02"/>
+
+<Question id="q-1-7-03"/>
+
+## Summary
+
+- An amortised loan has equal instalments; each one pays that period's interest first and reduces the balance by the rest.
+- Match the rate per period $i = \frac{r}{100k}$ and the number of periods $N = kn$ to the payment frequency.
+- The instalment is $M = \dfrac{PV\,i}{1-(1+i)^{-N}}$, and the balance after $j$ payments is $B_j = PV(1+i)^j - M\dfrac{(1+i)^j-1}{i}$.
+- A savings annuity with deposits $M$ has future value $FV = M\dfrac{(1+i)^N-1}{i}$.
+- Balances fall slowly at first because most of each early payment is interest.
+- Check the answer with a financial solver or an amortisation table on the GDC.

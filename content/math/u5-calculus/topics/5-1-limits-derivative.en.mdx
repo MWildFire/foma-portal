@@ -1,0 +1,65 @@
+## Big idea
+
+The derivative measures how fast a curve rises or falls at one point. It is defined with a limit: the gradient of a chord through two nearby points settles on the gradient of the curve as the gap between the points shrinks to zero.
+
+## Explanation
+
+A <Term id="limit-of-function"/> describes where a function is heading as its input approaches a value. The notation $\lim_{h \to 0} g(h) = L$ means that $g(h)$ can be made as close to $L$ as we like by taking $h$ small enough. The value of $g$ at $h = 0$ itself is not needed, and it often cannot be found by substitution.
+
+Take a curve $y = f(x)$ and two of its points, at $x$ and at $x + h$. The gradient of the chord joining them is <Formula id="chord-gradient"/>. It is the average rate of change of $f$ over the interval.
+
+When $h$ becomes smaller and smaller, the chord turns into the tangent. Written as a limit, this gives the <Term id="derivative-gradient-function"/>, $f'(x)$, defined by <Formula id="derivative-limit-definition"/>.
+
+Because the chord gradient is a change in $y$ divided by a change in $x$, the same limit gives the <Term id="derivative-rate-of-change"/>. Attach the units of $y$ per unit of $x$ to every answer.
+
+<Callout kind="define">Derivative: the gradient function $f'(x) = \lim_{h \to 0} \dfrac{f(x+h) - f(x)}{h}$, which gives the gradient of the curve $y = f(x)$ at every point where the limit exists.</Callout>
+
+<Callout kind="gdc">Make a table of values of the chord gradient for $h = 0.1$, $0.01$ and $0.001$, using the numerical derivative at a point or a table of values of $(f(x+h) - f(x))/h$. Watch the values as $h$ shrinks: they settle on the derivative.</Callout>
+
+## Worked example
+
+Let $f(x) = x^3 - 6x^2 + 9x + 1$, and let $g(h)$ be the gradient of the chord from $x = 1$ to $x = 1 + h$.
+
+<Steps>
+<Step>For $h = 0.1$: $f(1) = 5$ and $f(1.1) = 4.971$, so $g(0.1) = \dfrac{4.971 - 5}{0.1} = -0.2900$ (to 4 decimal places).</Step>
+<Step>For $h = 0.01$: $f(1.01) = 4.999701$, so $g(0.01) = \dfrac{4.999701 - 5}{0.01} = -0.0299$ (to 4 decimal places).</Step>
+<Step>The chord gradients $-0.2900$ and $-0.0299$ keep getting closer to $0$ as $h$ shrinks. So $\lim_{h \to 0} g(h) = 0$: the gradient of the curve at $x = 1$ is $0$.</Step>
+</Steps>
+
+<Reveal title="Why does the chord gradient settle?">Expanding the cube gives $f(1 + h) = 5 - 3h^2 + h^3$, so $g(h) = -3h + h^2$. Both terms go to $0$ as $h$ goes to $0$, which is why the limit exists.</Reveal>
+
+## Visual
+
+<Sim id="math.tangent-optimisation-lab"/>
+
+Move the point $x$ along the curve, then reduce the step $h$ towards $0.01$. The green chord from $x$ to $x + h$ turns into the orange tangent, and the chord gradient $g(h)$ settles on the tangent gradient $f'(x)$. The number line under the curve shows the sign of $f'(x)$ at the chosen point.
+
+## How it is examined
+
+Find questions give a mark for the chord formula, a mark for each correct chord gradient or rate, and a mark for the final answer to the required accuracy. Show that questions need every algebra step written out, so the reader can see where the limit comes from. Comment questions need a link between the chord and the tangent in words: the chord gradient approaches the gradient of the curve as the step gets smaller.
+
+<Callout kind="exam">Keep extra decimal places inside a calculation and round only the final answer to the accuracy asked for. Rounding a chord gradient too early can change the last digit of the answer.</Callout>
+
+## Common mistakes
+
+<Callout kind="mistake">Substituting $h = 0$ into $\dfrac{f(x+h) - f(x)}{h}$. This gives $\dfrac{0}{0}$, which says nothing about the limit. Find the limit from the chord values, or simplify first.</Callout>
+
+- Writing $f(x + h)$ as $f(x) + f(h)$. The function must be evaluated at $x + h$ itself.
+- Forgetting to divide by $h$, which gives the change in $y$ rather than the gradient.
+- Giving a rate without units, for example writing 10 instead of 10 litres per minute.
+
+## Check yourself
+
+<Question id="q-5-1-01"/>
+
+<Question id="q-5-1-02"/>
+
+<Question id="q-5-1-03"/>
+
+## Summary
+
+- A limit describes the value a function approaches, which need not be its value at that point.
+- The gradient of the chord from $x$ to $x + h$ is $\dfrac{f(x+h) - f(x)}{h}$.
+- The gradient function $f'(x)$ is the limit of this chord gradient as $h \to 0$.
+- The derivative is also the instantaneous rate of change; always give its units.
+- Estimate a derivative by making $h$ smaller and checking that the values settle.

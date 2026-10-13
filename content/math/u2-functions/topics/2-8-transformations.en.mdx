@@ -1,0 +1,69 @@
+## Big idea
+
+Each change to $y = f(x)$ moves, stretches or flips the graph in a predictable way. Every point $(x, y)$ of the original graph moves to a new point, and the equation tells you the rule for that move.
+
+## Explanation
+
+<Term id="function-graph-translation"/> keeps the shape and moves the graph. $y = f(x) + b$ moves every point up by $b$, and $y = f(x - a)$ moves every point $a$ units to the right. A negative value reverses the direction.
+
+<Term id="function-graph-reflection"/> flips the graph over a line. $y = -f(x)$ reflects it in the $x$-axis, and $y = f(-x)$ reflects it in the $y$-axis.
+
+<Formula id="function-graph-reflection-rules"/>
+
+<Term id="function-graph-stretch"/> multiplies distances from an axis by a fixed factor. $y = p f(x)$ stretches the graph vertically by factor $p$, and $y = f(qx)$ stretches it horizontally by factor $\frac{1}{q}$. The factor is the reciprocal of the number multiplying $x$, so $y = f(2x)$ makes the graph half as wide.
+
+<Formula id="function-graph-general-form"/>
+
+<Callout kind="define">Transformation of a graph: a rule that sends each point $(x, y)$ of $y = f(x)$ to a new point. The transformed graph is the set of all the new points.</Callout>
+
+Several transformations can be combined in one equation. Each point $(x, y)$ of $y = f(x)$ has an <Term id="function-graph-image-point"/> on $y = p\,f(q(x - a)) + b$: the $x$-coordinate is divided by $q$ and then $a$ is added, while the $y$-coordinate is multiplied by $p$ and then $b$ is added.
+
+<Formula id="function-graph-image-rule"/>
+
+<Callout kind="gdc">Draw the original and the transformed function on the same axes, and compare key points such as a maximum, a minimum or a zero. For the transformed function, a table of values gives the same $y$-values as the original at the image $x$-values, which checks the image rule.</Callout>
+
+## Worked example
+
+<Steps>
+<Step>The point $(3, 8)$ lies on $y = f(x)$. For $y = 0.5f(x - 4) + 1$ the horizontal rule is $x \mapsto x + 4$, so the $x$-coordinate becomes $3 + 4 = 7$. The vertical rule is $y \mapsto 0.5y + 1$, so the $y$-coordinate becomes $0.5 \times 8 + 1 = 5$. The image is $(7, 5)$.</Step>
+<Step>Factorise first: $3x + 3 = 3(x + 1)$, so the transformed curve is $y = f(3(x + 1))$ with $q = 3$ and $a = -1$. The $x$-coordinate of the image of $(3, 8)$ is $\frac{3}{3} + (-1) = 0$, and the $y$-coordinate stays $8$. The image is $(0, 8)$.</Step>
+</Steps>
+
+<Reveal title="Why factorising first matters">The shift is read from the bracket after the coefficient of $x$ has been factored out. Reading the shift straight from $3x + 3$ gives the wrong answer.</Reveal>
+
+## Visual
+
+<Sim id="math.transformations-lab"/>
+
+The lab draws $f(x) = \sin x$ as a dashed grey curve and the transformed curve $y = p\,f(q(x - a)) + b$ as a blue curve. Change $a$ and $b$ to see pure translations, change $p$ to stretch or reflect vertically, and change $q$ to stretch horizontally. The checkbox makes $q$ negative, which reflects the curve in the $y$-axis. The orange point is the image of the maximum $\left(\frac{\pi}{2}, 1\right)$ of $\sin x$, so its position shows the image rule at work.
+
+## How it is examined
+
+Describe, Find and Write down questions reward the correct stretch factor, the correct direction of each translation, and the image of a named point. When a question asks for a sequence of transformations, state the stretch first and then the translation for a bracket $q(x - a)$, and give each step with its vector or scale factor. Show that questions may ask for the equation of the transformed graph, so practise writing $p f(q(x - a)) + b$ without losing the bracket.
+
+<Callout kind="exam">The image rule gives a fast check: find the image of one key point of the original graph and make sure it lies on the transformed graph.</Callout>
+
+## Common mistakes
+
+<Callout kind="mistake">Reading $y = f(x + 2)$ as a shift 2 units to the right. The graph moves 2 units to the left.</Callout>
+
+- Using $q$ instead of $\frac{1}{q}$ as the scale factor. $y = f(3x)$ compresses the graph horizontally to one third of its width.
+- Translating by $qa$ when the bracket is $q(x - a)$. The shift is $a$; the form $f(qx - a)$ equals $f\bigl(q(x - \tfrac{a}{q})\bigr)$ and moves the graph by $\tfrac{a}{q}$.
+- Dividing after the translation when finding an image: the $x$-coordinate is $a + \frac{x}{q}$, not $\frac{x + a}{q}$.
+
+## Check yourself
+
+<Question id="q-2-8-01"/>
+
+<Question id="q-2-8-02"/>
+
+<Question id="q-2-8-03"/>
+
+## Summary
+
+- $y = f(x) + b$ moves the graph up by $b$; $y = f(x - a)$ moves it $a$ units to the right.
+- $y = -f(x)$ reflects in the $x$-axis; $y = f(-x)$ reflects in the $y$-axis.
+- $y = p f(x)$ stretches vertically by factor $p$; $y = f(qx)$ stretches horizontally by factor $\frac{1}{q}$.
+- For $y = p f(q(x - a)) + b$ the point $(x, y)$ maps to $\left(a + \frac{x}{q}, py + b\right)$.
+- Divide the $x$-coordinate by $q$ and then add $a$; never multiply the shift $a$ by $q$.
+- Test each transformation on one key point, such as a maximum, a minimum or a zero.

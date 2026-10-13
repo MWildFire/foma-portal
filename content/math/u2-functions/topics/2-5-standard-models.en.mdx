@@ -1,0 +1,81 @@
+## Big idea
+
+Many real quantities follow one of a few standard shapes: a straight line for a steady rate, a parabola for a single peak or dip, a curve that levels off for a quantity moving towards a limit, a power law for direct and inverse variation, a cubic for two turning points, and a wave for a repeating cycle. Recognise the shape, read the parameters from the context, and the model is ready to use.
+
+## Explanation
+
+Choose the family from the shape of the data or from the wording of the context, then read each parameter back into the context. A model is only useful when you can say what each of its numbers means.
+
+A linear model $y = mx + c$ has a constant gradient $m$, the change in $y$ for each unit increase in $x$, and a $y$-intercept $c$, the value when $x = 0$.
+
+A quadratic model has one turning point. The <Term id="standard-quadratic-vertex"/> is the point $(h, k)$ in the vertex form below, and the axis of symmetry is the vertical line $x = h$. A positive $a$ gives a minimum and a negative $a$ gives a maximum. Use the vertex for the maximum or minimum, and the zeros for the times or distances at which the model is zero.
+
+<Formula id="standard-quadratic-vertex-form"/>
+
+An exponential model $y = k \cdot a^{x} + c$ approaches a horizontal line. The <Term id="standard-exponential-asymptote"/> is $y = c$. The $y$-intercept is $k + c$. With $0 < a < 1$ the values decay towards $c$; with $a > 1$ and $k > 0$ they grow, and as $x$ tends to minus infinity they approach $c$.
+
+<Formula id="standard-exponential-model"/>
+
+A power model $y = ax^{n}$ with integer $n$ describes <Term id="standard-direct-inverse-variation"/>. With $n = 1$, $y = ax$ is direct variation: doubling $x$ doubles $y$, and the graph passes through the origin. With $n = -1$, $y = a/x$ is inverse variation: doubling $x$ halves $y$, and $x$ cannot be $0$.
+
+<Formula id="standard-power-variation"/>
+
+A cubic $y = ax^3 + bx^2 + cx + d$ has at most two turning points and at most three zeros. Read its key features with the methods from the previous topic and the GDC.
+
+A sinusoidal model $y = a\sin(bx) + d$ repeats its pattern. The <Term id="standard-sinusoidal-amplitude"/> is $|a|$. Its midline is $y = d$, its maximum is $d + |a|$, its minimum is $d - |a|$, and its period is $2\pi/b$. A cosine model has the same features but starts at a maximum when $a > 0$.
+
+<Formula id="standard-sinusoidal-model"/>
+
+<Callout kind="define">Amplitude: half the difference between the maximum and minimum values of a periodic model. In $a\sin(bx) + d$ it is $|a|$.</Callout>
+
+<Callout kind="gdc">Use the GDC to read the key features of a model: the maximum, minimum, zero and intersection functions, each with a left and a right bound. To fit a model to data, use the regression function that matches the chosen family. Keep full accuracy in your working and round the parameters only as the question asks.</Callout>
+
+## Worked example
+
+A cup of coffee at $80$ °C is left in a room at $26$ °C. Its temperature after $t$ minutes is modelled by $T(t) = 26 + 54 \times 0.92^{t}$.
+
+<Steps>
+<Step>Starting temperature: $T(0) = 26 + 54 = 80$, so the coffee starts at 80 °C.</Step>
+<Step>After 10 minutes: $T(10) = 26 + 54 \times 0.92^{10} = 49.5$ °C (to 1 decimal place).</Step>
+<Step>Time to reach 40 °C: solve $26 + 54 \times 0.92^{t} = 40$, so $0.92^{t} = \dfrac{40 - 26}{54}$ and $t = \dfrac{\ln\left(\frac{40 - 26}{54}\right)}{\ln 0.92} = 16.2$ minutes (to 1 decimal place).</Step>
+</Steps>
+
+<Reveal title="Why can the coffee never reach 26 °C?">Because $54 \times 0.92^{t}$ is always positive, $T(t)$ is always above $26$. As $t$ grows, $0.92^{t}$ gets closer to $0$, so $T(t)$ approaches the horizontal asymptote $y = 26$ from above.</Reveal>
+
+## Visual
+
+Sketch a decreasing curve. It starts at $(0, 80)$, falls steeply at first and then flattens towards the dashed horizontal line $y = 26$. Mark the points $(10, 49.5)$ and $(16.2, 40)$ on the curve. The gap between the curve and the line shrinks by the same factor every minute, which is why the curve flattens.
+
+<Callout kind="tip">Draw the asymptote first as a dashed line. It shows the limit of the model before you calculate anything.</Callout>
+
+## How it is examined
+
+Questions ask you to identify a family, read its parameters and use the model. A typical mark scheme gives M1 for a correct substitution or equation, A1 for each value to the required accuracy, and R1 for a statement about an asymptote, an amplitude or the meaning of a parameter. Words such as "approaches" or "never" need a reason from the equation, such as the asymptote or the sign of $k \cdot a^{t}$.
+
+<Callout kind="exam">Name the family (linear, quadratic, cubic, exponential, power or sinusoidal) before you substitute values. A correct number without a named model can lose the method mark.</Callout>
+
+## Common mistakes
+
+<Callout kind="mistake">Taking the asymptote of $k \cdot a^{x} + c$ to be $y = k$ instead of $y = c$.</Callout>
+
+- Taking the period of $\sin(bx)$ to be $b$ instead of $2\pi/b$.
+- Reading the amplitude as the maximum value. The amplitude is $|a|$, half the range.
+- Writing that inverse variation $y = a/x$ is defined at $x = 0$. It is not, because $x \neq 0$.
+
+## Check yourself
+
+<Question id="q-2-5-01"/>
+
+<Question id="q-2-5-02"/>
+
+<Question id="q-2-5-03"/>
+
+## Summary
+
+- Choose the family from the shape of the data and the context, then read its parameters.
+- Linear: $y = mx + c$, with constant gradient $m$ and $y$-intercept $c$.
+- Quadratic: vertex $(h, k)$ and axis $x = h$; $a > 0$ gives a minimum and $a < 0$ a maximum.
+- Exponential $k \cdot a^{x} + c$: horizontal asymptote $y = c$ and $y$-intercept $k + c$.
+- Power $ax^{n}$: direct variation for $n = 1$, inverse variation for $n = -1$.
+- Sinusoidal $a\sin(bx) + d$: amplitude $|a|$, period $2\pi/b$, midline $y = d$.
+- A cubic has at most two turning points; use the GDC for its key features.

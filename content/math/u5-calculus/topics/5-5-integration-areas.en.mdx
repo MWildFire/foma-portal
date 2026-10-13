@@ -1,0 +1,78 @@
+## Big idea
+
+Integration reverses differentiation. A gradient function integrates back to a family of curves; a boundary condition picks out one curve; and a definite integral gives the area between that curve and the x-axis when the curve is above the axis.
+
+## Explanation
+
+For an integer $n$ with $n \neq -1$, an <Term id="indefinite-integral"/> of a power of $x$ raises the power by one and divides by the new power:
+
+$$
+\int x^{n}\,dx = \frac{x^{n+1}}{n+1} + C
+$$
+
+<Formula id="integral-power-term"/>
+
+Integrate a polynomial term by term, and add one constant $C$ at the end. The constant is needed because differentiating any constant gives zero. A <Term id="boundary-condition"/>, such as a point the curve passes through, fixes $C$.
+
+<Formula id="constant-from-boundary"/>
+
+The <Term id="definite-integral-as-area"/> is $\int_a^b f(x)\,dx = F(b) - F(a)$, where $F$ is any anti-derivative of $f$. When $f(x) > 0$ on $[a, b]$, this number is the area between the curve, the x-axis, $x = a$ and $x = b$.
+
+<Formula id="definite-integral-evaluation"/>
+
+<Formula id="area-integral-x-axis"/>
+
+Keep to the power rule for integer $n$ with $n \neq -1$. For $n = -1$ the formula divides by zero, and that case is outside this topic.
+
+<Callout kind="define">Indefinite integral: an anti-derivative of a function, written with a constant $C$. Definite integral: the number $F(b) - F(a)$ for limits $a$ and $b$.</Callout>
+
+<Callout kind="gdc">Use the definite integral function of the GDC: enter the function, the variable and the two limits. Use it to check a hand answer, but show the anti-derivative and the substitution in your working.</Callout>
+
+## Worked example
+
+Let $f'(x) = 3x^2 + 4x + 1$, and let the curve pass through $(1, 7)$.
+
+<Steps>
+<Step>Integrate term by term: $f(x) = x^3 + 2x^2 + x + C$.</Step>
+<Step>Boundary condition: $1 + 2 + 1 + C = 7$, so $C = 3$ and $f(x) = x^3 + 2x^2 + x + 3$.</Step>
+<Step>On $0 \leq x \leq 2$ every term is non-negative and the constant is 3, so $f(x) > 0$. The area between the curve, the x-axis, $x = 0$ and $x = 2$ is $\displaystyle \int_0^2 (x^3 + 2x^2 + x + 3)\,dx = \left[\dfrac{x^4}{4} + \dfrac{2x^3}{3} + \dfrac{x^2}{2} + 3x\right]_0^2 = \dfrac{52}{3} = 17.3$ (3 s.f.).</Step>
+</Steps>
+
+<Reveal title="Why does the constant change the area?">The area uses $f(x)$ itself, and $f(x)$ contains the constant 3 found from the point $(1, 7)$. A different constant would move the curve up or down and change the area.</Reveal>
+
+## Visual
+
+Sketch the curve $y = x^3 + 2x^2 + x + 3$ for $0 \leq x \leq 2$. The curve starts on the y-axis at $(0, 3)$ and rises from left to right, because its gradient $3x^2 + 4x + 1$ is positive for $x \geq 0$. Shade the region between the curve, the x-axis, the y-axis and the vertical line $x = 2$. The region lies entirely above the x-axis, so its area equals the positive definite integral $\int_0^2 (x^3 + 2x^2 + x + 3)\,dx$, and no part of it is cancelled by a part below the axis.
+
+<Callout kind="tip">Before you read an integral as an area, sketch the curve over the limits. If any part of the region lies below the x-axis, the definite integral is not the total area, so do not read it as one.</Callout>
+
+## How it is examined
+
+Find questions give marks for integrating each term (M1, A1), for the constant from the boundary condition (M1), and for the final value (A1). Find and Calculate questions both ask you to write the integral with its limits before you evaluate it. Say why the curve lies above the x-axis, because only then does the definite integral equal the area. Context questions ask what the integral means, so give the units in your answer.
+
+<Callout kind="exam">Write the integral with its function and limits before the number. A bare answer without the integral can lose the method mark.</Callout>
+
+## Common mistakes
+
+<Callout kind="mistake">Dividing by $n$ instead of $n+1$. The integral of $x^2$ is $\dfrac{x^3}{3}$, not $\dfrac{x^3}{2}$.</Callout>
+
+- Dropping the constant $C$ from an indefinite integral, or never using the boundary condition to find it.
+- Subtracting the limits in the wrong order, which gives $F(a) - F(b)$ and a negative area.
+- Reading a definite integral as an area when part of the curve lies below the x-axis: the two parts cancel.
+
+## Check yourself
+
+<Question id="q-5-5-01"/>
+
+<Question id="q-5-5-02"/>
+
+<Question id="q-5-5-03"/>
+
+## Summary
+
+- Integration reverses differentiation: $\int x^n\,dx = \dfrac{x^{n+1}}{n+1} + C$ for integer $n \neq -1$.
+- Integrate term by term, and add one constant $C$ to each indefinite integral.
+- A boundary condition, a point on the curve, fixes $C$.
+- The definite integral $\int_a^b f(x)\,dx = F(b) - F(a)$ is the area between $f$, the x-axis, $x = a$ and $x = b$ when $f(x) > 0$.
+- Use the GDC definite integral function for numerical values, and show the anti-derivative and the limits in your working.
+- A negative integral means the region lies below the x-axis, so check the sign before you call it an area.

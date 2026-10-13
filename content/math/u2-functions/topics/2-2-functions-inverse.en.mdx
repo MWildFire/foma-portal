@@ -1,0 +1,75 @@
+## Big idea
+
+A function gives exactly one output for each allowed input. An inverse function runs the rule backwards, and its graph is the reflection of the original graph in the line $y = x$.
+
+## Explanation
+
+A <Term id="function-single-output"/> gives exactly one output for each allowed input. The letter names the function and the variable names the input: $f(x)$, $v(t)$ and $C(n)$ are read as "f of x", "v of t" and "C of n".
+
+The <Term id="domain-and-range-of-function"/> describe the inputs and outputs. The domain is the set of allowed inputs, and the range is the set of outputs that actually occur. A context can narrow the domain: a time $t$ cannot be negative, so $t \ge 0$. For example, $f(x) = \sqrt{x - 2}$ has domain $x \ge 2$ and range $f(x) \ge 0$.
+
+The <Term id="inverse-function-reflection"/> $f^{-1}$ exists when each output comes from exactly one input. To find it, write $y = f(x)$, swap $x$ and $y$, and solve for $y$. The inverse undoes the function:
+
+<Formula id="inverse-composition-identity"/>
+
+For a linear function $f(x) = ax + b$ with $a \neq 0$, the inverse is $f^{-1}(x) = \dfrac{x - b}{a}$.
+
+<Formula id="inverse-linear-function"/>
+
+The inverse of $f(x) = e^x$ is $f^{-1}(x) = \ln x$ for $x > 0$, because the logarithm undoes the exponential.
+
+<Formula id="inverse-exponential-log"/>
+
+<Callout kind="define">Inverse function: if $f(b) = a$, then $f^{-1}(a) = b$. The domain of $f^{-1}$ is the range of $f$, and the graph of $f^{-1}$ is the reflection of the graph of $f$ in the line $y = x$.</Callout>
+
+A point $(a, b)$ on the graph of $f$ becomes the point $(b, a)$ on the graph of $f^{-1}$. A point on the line $y = x$, such as $(c, c)$, does not move.
+
+<Callout kind="gdc">Plot $y = f(x)$ and $y = x$ on the same window to see the reflection. To find $f^{-1}(a)$ numerically, solve $f(x) = a$ with the equation solver, or read where the graph of $f$ meets the horizontal line $y = a$.</Callout>
+
+## Worked example
+
+A market stall's cost, in AED, of making $n$ tote bags is $C(n) = 4.5n + 12$ for $n \ge 0$.
+
+<Steps>
+<Step>$C(20) = 4.5 \times 20 + 12 = 102$, so 20 bags cost AED 102.</Step>
+<Step>Write $y = 4.5x + 12$, swap $x$ and $y$ and solve for $y$: $x = \dfrac{y - 12}{4.5}$. So $C^{-1}(x) = \dfrac{x - 12}{4.5}$.</Step>
+<Step>$C^{-1}(100) = \dfrac{100 - 12}{4.5} = 19.56$ (to 2 decimal places). The number of bags is a whole number, so 19 bags is the most that can be made for AED 100; 19 bags cost AED 97.5.</Step>
+</Steps>
+
+<Reveal title="Why not round 19.56 up to 20?">Twenty bags cost $C(20) = 102$ AED, which is above AED 100. Rounding the inverse up would give a plan the budget cannot pay for.</Reveal>
+
+## Visual
+
+Draw $y = f(x)$ and the line $y = x$ on the same axes. The graph of $f^{-1}$ is the mirror image of the first graph in the diagonal $y = x$. For example, if $(2, 7)$ lies on $y = f(x)$, then $(7, 2)$ lies on $y = f^{-1}(x)$. A point on $y = x$, such as $(3, 3)$, stays where it is.
+
+<Callout kind="tip">Check your inverse: substitute $f^{-1}(x)$ into $f$ and simplify. If the result is $x$ for every $x$ in the domain, the inverse is correct.</Callout>
+
+## How it is examined
+
+Write down, Find and Show that questions test both the method and the answer. The method mark is for swapping $x$ and $y$, or for writing $f(x) = a$ and solving it; the accuracy mark is for the value. Explain questions ask you to justify a restriction of the domain from the context, and the reasoning mark is for the reason, such as "time cannot be negative".
+
+<Callout kind="exam">Check every answer against the domain and the context. A negative time or a fractional number of bags cannot be the answer, even when the algebra gives it.</Callout>
+
+## Common mistakes
+
+<Callout kind="mistake">Writing $f^{-1}(x) = \dfrac{1}{f(x)}$. The inverse function is not the reciprocal of $f$.</Callout>
+- Reflecting the graph in the x-axis instead of in the line $y = x$.
+- Forgetting that the domain of $f^{-1}$ is the range of $f$, and giving a value outside it.
+- Accepting an algebraic answer that is impossible in context, such as a negative time or a non-whole number of bags.
+
+## Check yourself
+
+<Question id="q-2-2-01"/>
+
+<Question id="q-2-2-02"/>
+
+<Question id="q-2-2-03"/>
+
+## Summary
+
+- A function gives one output for each input; $f(x)$ names the function and the input.
+- The domain is the set of allowed inputs and the range is the set of outputs; context can narrow the domain.
+- $f^{-1}$ reverses $f$: if $f(b) = a$, then $f^{-1}(a) = b$.
+- To find an inverse, write $y = f(x)$, swap $x$ and $y$, and solve for $y$.
+- The graph of $f^{-1}$ is the reflection of the graph of $f$ in the line $y = x$.
+- Check the final answer against the domain and the context.

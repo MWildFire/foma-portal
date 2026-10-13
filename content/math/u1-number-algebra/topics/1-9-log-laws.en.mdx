@@ -1,0 +1,68 @@
+## Big idea
+
+A logarithm undoes a power, so it turns multiplication into addition, division into subtraction and a power into a multiplication. Three laws, valid for a positive base $a \neq 1$ and positive arguments, let you combine, split and simplify logarithms.
+
+## Explanation
+
+If $\log_a x = p$, then $x = a^{p}$. This is the idea behind every law. <Term id="logarithm-definition"/>
+
+Take $x = a^{p}$ and $y = a^{q}$. Then $xy = a^{p+q}$, so $\log_a(xy) = p + q = \log_a x + \log_a y$. The same index rules give the other two laws: $\dfrac{x}{y} = a^{p-q}$ and $x^{m} = a^{mp}$.
+
+<Term id="log-product-law"/> turns a product inside a logarithm into a sum. <Formula id="log-product-rule"/>
+
+<Term id="log-quotient-law"/> turns a quotient into a difference. <Formula id="log-quotient-rule"/>
+
+<Term id="log-power-law"/> moves the power in front as a multiplier. <Formula id="log-power-rule"/>
+
+<Callout kind="define">Laws of logarithms: for $a>0$, $a \neq 1$ and $x,y>0$, $\log_a(xy)=\log_a x+\log_a y$, $\log_a\left(\dfrac{x}{y}\right)=\log_a x-\log_a y$ and $\log_a(x^{m})=m\log_a x$.</Callout>
+
+<Callout kind="gdc">To check a law numerically, evaluate both sides with the logarithm function of the GDC, with base 10 or base e. For another base, enter the logarithm as the ratio of two logarithms with base 10 or base e.</Callout>
+
+## Worked example
+
+Solve $\log_2(x+1)+\log_2(x-1)=3$ for $x>1$.
+
+<Steps>
+<Step>The domain is $x>1$, so both logarithms exist. Combine them with the product law: $\log_2\big((x+1)(x-1)\big)=3$.</Step>
+<Step>Write in index form: $(x+1)(x-1)=2^{3}=8$. So $x^{2}-1=8$ and $x^{2}=9$.</Step>
+<Step>Solve: $x=-3$ or $x=3$. Only $x=3$ satisfies $x>1$, so the solution is $x=3$.</Step>
+</Steps>
+
+<Reveal title="Why reject x = -3?">For $x=-3$ the factor $x-1$ is negative, so $\log_2(x-1)$ does not exist. Every root must be checked against the domain before it is accepted.</Reveal>
+
+## Visual
+
+On the graph of $y=\log_2 x$, moving from $x$ to $2x$ always raises $y$ by exactly $1$, whatever $x$ is. That is the product law $\log_2(2x)=\log_2 2+\log_2 x$ seen as a picture.
+
+<Callout kind="tip">Read each law from both sides. A logarithm of a product becomes a sum, and a power inside a logarithm becomes a multiplier in front.</Callout>
+
+## How it is examined
+
+Show that questions ask for each law written as a separate line, with the law named. Find and Determine questions give a mark for each law used correctly, a mark for the equation in index form and a mark for the answer. The domain check, such as rejecting a root that makes an argument negative, is a separate reasoning mark, so skipping it loses that mark even when the algebra is right.
+
+<Callout kind="exam">Check the domain before you give the final answer. Every argument of a logarithm must be positive.</Callout>
+
+## Common mistakes
+
+<Callout kind="mistake">Splitting a sum: writing $\log_a(x+y)=\log_a x+\log_a y$. The product law needs a product inside the logarithm.</Callout>
+
+- Confusing $(\log_2 8)^{2}$ with $\log_2(8^{2})$. The first is $9$, the second is $6$.
+- Accepting a root that makes an argument zero or negative, such as $x=-3$ in the worked example.
+- Turning a quotient of logarithms into a logarithm of a quotient: $\dfrac{\log_a x}{\log_a y}$ is not $\log_a\left(\dfrac{x}{y}\right)$.
+
+## Check yourself
+
+<Question id="q-1-9-01"/>
+
+<Question id="q-1-9-02"/>
+
+<Question id="q-1-9-03"/>
+
+## Summary
+
+- $\log_a x=y$ means $a^{y}=x$, for $a>0$, $a \neq 1$ and $x>0$.
+- Product law: $\log_a(xy)=\log_a x+\log_a y$.
+- Quotient law: $\log_a\left(\dfrac{x}{y}\right)=\log_a x-\log_a y$.
+- Power law: $\log_a(x^{m})=m\log_a x$, for any real $m$.
+- The laws apply to products, quotients and powers inside a logarithm, never to sums.
+- Check the domain: every argument must be positive before you accept a solution.

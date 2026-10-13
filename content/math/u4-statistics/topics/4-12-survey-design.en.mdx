@@ -1,0 +1,69 @@
+## Big idea
+
+A survey is useful only when its data are valid (they measure the intended thing from a representative sample) and reliable (repeating it gives consistent results). A chi-squared test can then check whether counts fit a model, but only after numerical data are grouped into sensible classes and the degrees of freedom are reduced for every parameter estimated from the data.
+
+## Explanation
+
+Good data collection starts with the sample and the questions. A random or stratified sample of the whole population represents it far better than a convenience sample of friends. Choose variables that answer the research question, and word the questions so that they do not lead the respondent. A pilot test on a few people shows confusing questions before the main survey.
+
+<Term id="reliability-of-questionnaire"/> means that the questionnaire gives consistent results when it is used again under the same conditions. A common check is test–retest: give the same questionnaire twice and compare the answers. For numerical scores, use the correlation between the two sets, Pearson's $r$ or Spearman's $r_s$. For categorical answers, use a chi-squared test of association, as in topic 4.11.
+
+<Term id="validity-of-questionnaire"/> means that it measures what it is meant to measure. Compare the results with an independent criterion, such as marks from a school test, or ask experts to judge the content. A strong association with the criterion supports validity, but no single number proves it.
+
+Before a chi-squared test, numerical data must be grouped. <Term id="categorising-numerical-data"/> means splitting the values into classes that do not overlap and cover every value. Neighbouring classes are combined until every expected frequency is at least 5.
+
+For counts modelled by a Poisson distribution, the mean is estimated by the sample mean, and the expected number of observations with $x$ events is <Formula id="expected-fitted-poisson"/>. For a continuous variable modelled by a normal distribution with the sample mean and variance, the expected number in the class from $a$ to $b$ is <Formula id="expected-fitted-normal"/>. Class probabilities come from standardising each boundary, <Formula id="z-score-class-boundary"/>, and reading the standard normal distribution on the GDC.
+
+Each parameter estimated from the data removes one more degree of freedom, so the degrees of freedom are <Formula id="df-estimated-parameters"/>.
+
+<Callout kind="define">Degrees of freedom for a goodness-of-fit test: $\nu = k - 1 - p$, where $k$ is the number of classes after grouping and $p$ is the number of parameters estimated from the sample.</Callout>
+
+<Callout kind="gdc">Enter the observed and expected counts as two lists and run the chi-squared goodness-of-fit test. It returns the statistic and a p-value, but it uses $k - 1$ degrees of freedom. When parameters were estimated, find the p-value again with the chi-squared cdf and the correct number of degrees of freedom.</Callout>
+
+## Worked example
+
+A school measures the heights of 100 students and groups them into four classes. The sample mean is 165 cm and the standard deviation is 7 cm, and a normal model with these estimates is fitted. Observed counts: below 158 cm, 18; from 158 to 165 cm, 30; from 165 to 172 cm, 36; above 172 cm, 16. Test at the 5% level whether the normal model fits the data.
+
+<Steps>
+<Step>Four classes and two parameters estimated from the sample give $\nu = 4 - 1 - 2 = 1$.</Step>
+<Step>Under the model, $P(X < 158) = P\left(Z < \dfrac{158 - 165}{7}\right) = P(Z < -1) = 0.1587$ (to 4 decimal places). The expected count below 158 cm is $100 \times 0.1587 = 15.9$, and by symmetry the expected count above 172 cm is also 15.9. Each of the two middle classes has $100 \times (0.5 - 0.1587) = 34.1$.</Step>
+<Step>$\chi^2 = \sum \dfrac{(O-E)^2}{E} = 0.891$ (to 3 decimal places). With $\nu = 1$, the p-value is $P(\chi^2 > 0.891) = 0.345$ (to 3 significant figures), and the 5% critical value is $3.841$.</Step>
+<Step>Decision: $0.345 > 0.05$, or equivalently $0.891 < 3.841$. Do not reject $H_0$: the normal model is consistent with the data at the 5% level.</Step>
+</Steps>
+
+<Reveal title="Why is the degree of freedom 1 and not 3?">The four counts add up to 100, which removes one degree of freedom and leaves $4 - 1 = 3$. Estimating the mean and the standard deviation from the same data uses up two more, leaving $3 - 2 = 1$.</Reveal>
+
+## Visual
+
+<Callout kind="tip">Sketch the observed counts as bars and mark the expected counts on the same axes. A bar far above or below its expected height shows where the model fails. In the chi-squared sum, each class contributes $(O-E)^2/E$, so the largest contribution points to the class that disagrees most with the model.</Callout>
+
+## How it is examined
+
+Expect Explain and Determine parts. An explanation needs a reason tied to validity, reliability or bias, not a general statement such as "the survey is good". Numerical parts ask for expected frequencies, the statistic and the degrees of freedom, and the conclusion must be written in context. Marks are most often lost on the degrees of freedom: after a parameter is estimated, $\nu = k - 1 - p$, not $k - 1$. For reliability, name the comparison (test–retest with a correlation or a chi-squared test of association); for validity, name the criterion.
+
+<Callout kind="exam">A P2 question on survey design usually has one explanation part about bias or validity. Prepare one precise sentence for each common source of bias: non-response, self-selection and leading questions.</Callout>
+
+## Common mistakes
+
+<Callout kind="mistake">Using $\nu = k - 1$ after the mean or the standard deviation has been estimated from the data. Subtract one more for each estimated parameter.</Callout>
+
+- Keeping a class whose expected frequency is below 5. Combine it with a neighbour before the statistic is calculated.
+- Calling a questionnaire reliable because its questions look sensible. Reliability needs repeated data and a test.
+- Writing "the survey is valid" without saying how: name the sampling method, the pilot test or the criterion.
+
+## Check yourself
+
+<Question id="q-4-12-01"/>
+
+<Question id="q-4-12-02"/>
+
+<Question id="q-4-12-03"/>
+
+## Summary
+
+- A survey is valid when it measures the intended variable on a sample that represents the population; random and stratified samples beat convenience samples.
+- Reliability means consistent results on repetition; test it with a second administration and a correlation or a chi-squared test of association.
+- Validity is judged against an independent criterion or expert opinion, not by one number.
+- Group numerical data into non-overlapping classes before a chi-squared test, and combine classes until every expected frequency is at least 5.
+- Each parameter estimated from the sample reduces the degrees of freedom: $\nu = k - 1 - p$.
+- For a Poisson fit use $E_i = nP(X = x_i)$ with the sample mean as $m$; for a normal fit use class probabilities with the sample mean and standard deviation.

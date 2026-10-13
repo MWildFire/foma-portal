@@ -1,0 +1,75 @@
+## Big idea
+
+A Markov chain describes a system that moves between a fixed set of states at each step, where the next state depends only on the current state. A transition matrix gathers the step probabilities. Repeated multiplication shows where the system is heading; for a regular chain it heads to the same steady state whatever the start.
+
+## Explanation
+
+<Callout kind="define">Markov chain: a sequence of states in which the probability of the next state depends only on the current state. The step probabilities are collected in a transition matrix.</Callout>
+
+Take two providers, A and B. Each month, a customer of A switches to B with probability 0.2, and a customer of B switches to A with probability 0.3. This course uses the convention that the columns of the <Term id="markov-transition-matrix"/> sum to 1: the column for a state gives the probabilities of the next state, and each row gives the next state.
+
+$$
+T=\begin{pmatrix} 0.8 & 0.3 \\ 0.2 & 0.7 \end{pmatrix}
+$$
+
+The state matrix is a column, $S_n = \begin{pmatrix} a_n \\ b_n \end{pmatrix}$, where $a_n$ and $b_n$ are the proportions with A and with B after $n$ steps. Each step multiplies by $T$, so the state after $n$ steps is given below.
+
+<Formula id="markov-state-after-n-steps"/>
+
+A <Term id="markov-regular-chain"/> is a chain in which some power of $T$ has only positive entries. Here every entry of $T$ is positive, so the chain is regular. The general condition is below.
+
+<Formula id="markov-regular-condition"/>
+
+For a regular chain, the long-run state matrix $S$ is the <Term id="markov-steady-state"/>. It satisfies the equations below together with $a + b = 1$, and it can be found by repeated multiplication or by solving the equations.
+
+<Formula id="markov-steady-state-equation"/>
+
+<Callout kind="gdc">Enter $T$ in the matrix editor of the GDC and store the initial state matrix $S_0$ as a second matrix. To get $S_n$, multiply by $T$ repeatedly, $n$ times, or use the matrix power function to compute $T^{n}$ and multiply it by $S_0$. For the steady state, repeat the multiplication until successive state matrices agree to the required decimal places, or solve $TS = S$ with the equation solver.</Callout>
+
+## Worked example
+
+Use the same $T$ and $S_0 = \begin{pmatrix} 1 \\ 0 \end{pmatrix}$: every customer starts with provider A.
+
+<Steps>
+<Step>$S_1 = TS_0 = \begin{pmatrix} 0.8 \\ 0.2 \end{pmatrix}$ and $S_2 = TS_1 = \begin{pmatrix} 0.70 \\ 0.30 \end{pmatrix}$. After two months, 0.70 of the customers use A and 0.30 use B.</Step>
+<Step>For the steady state, $TS = S$ gives $0.8a + 0.3b = a$, so $0.3b = 0.2a$. With $a + b = 1$, the solution is $a = 0.60$ and $b = 0.40$.</Step>
+<Step>Repeated multiplication from the same start gives $S_{10} = \begin{pmatrix} 0.600 \\ 0.400 \end{pmatrix}$ (to 3 decimal places), already close to the steady state.</Step>
+</Steps>
+
+## Visual
+
+<Sim id="math.markov-lab"/>
+
+The lab runs the two-state chain step by step. Set the switching probabilities and the start, then read the state after $n$ steps and watch the curve settle at the steady state. The defaults are the chain in the worked example.
+
+## How it is examined
+
+Write down and Find questions ask for the matrix and the state matrices. Marks follow the method: one for the multiplication or equation set up, and one for each correct state. Show that questions about regularity need a reason: say that every entry of $T$, or of some power of $T$, is positive. Technology is allowed, but write the matrices and the state matrices so that the examiner can follow them, and round only at the end, to the accuracy the question asks for.
+
+<Callout kind="exam">Check the convention in the question before you multiply. If a question gives rows that sum to 1, transpose the matrix before you use the column form.</Callout>
+
+## Common mistakes
+
+<Callout kind="mistake">Multiplying on the wrong side. With this convention the state is a column, so $S_{n+1} = TS_n$, not $S_nT$.</Callout>
+
+- Concluding that a chain is not regular because $T$ has a zero entry. Check $T^2$, $T^3$ and so on before deciding.
+- Solving $TS = S$ alone and forgetting that the probabilities must sum to 1; the equations on their own have infinitely many solutions.
+- Stopping repeated multiplication too early, before the state matrices have settled.
+- Reading the steady state off the first step, when $S_1$ still depends on the starting state.
+
+## Check yourself
+
+<Question id="q-4-19-01"/>
+
+<Question id="q-4-19-02"/>
+
+<Question id="q-4-19-03"/>
+
+## Summary
+
+- The next state of a Markov chain depends only on the current state.
+- This course uses a transition matrix whose columns sum to 1, and a column state matrix: $S_{n+1} = TS_n$.
+- $S_n = T^{n}S_0$ gives the distribution of states after $n$ steps.
+- A chain is regular when some power of $T$ has only positive entries; a regular chain has exactly one steady state.
+- The steady state satisfies $TS = S$ with its entries summing to 1; it can be found by repeated multiplication or by solving equations.
+- Check the convention in the question before you multiply, and say which convention you used.

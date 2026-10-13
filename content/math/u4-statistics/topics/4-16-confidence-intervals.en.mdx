@@ -1,0 +1,74 @@
+## Big idea
+
+A confidence interval turns a sample mean into a range of plausible values for the population mean $\mu$. Its width comes from the standard error and a critical value, which depend on the confidence level and on whether $\sigma$ is known. The confidence level describes the method: a 95% interval comes from a method that captures $\mu$ in 95% of repeated samples.
+
+## Explanation
+
+When the population standard deviation $\sigma$ is known and the population is normal, a <Term id="confidence-interval-mean"/> for $\mu$ has the z form. The critical value $z^{*}$ leaves the tail area that matches the confidence level (for 95%, 2.5% in each tail), and the standard error is $\sigma/\sqrt{n}$:
+
+<Formula id="ci-mean-z-known-sigma"/>
+
+Usually $\sigma$ is unknown. Replace it by the sample standard deviation $s_{n-1}$ and use the <Term id="t-distribution-df"/>, which has heavier tails. Its critical value $t^{*}$ is larger than $z^{*}$ for the same confidence level, so the interval is wider:
+
+<Formula id="ci-mean-t-unknown-sigma"/>
+
+The half-width of the interval is the <Term id="margin-of-error"/>. Its size depends on the <Term id="confidence-level"/>, on the spread and on the sample size: a higher confidence level or a smaller sample gives a wider interval, and a larger sample gives a narrower one. To find the sample size that keeps the margin of error at most $E$ when $\sigma$ is known, solve for $n$:
+
+<Formula id="sample-size-margin-error"/>
+
+<Callout kind="define">Confidence interval for a mean: an interval $(a, b)$ calculated from sample data, built by a method that captures the population mean $\mu$ in the stated percentage of repeated samples. The stated level belongs to the method, not to one fixed interval.</Callout>
+
+<Callout kind="gdc">Use the z-interval when $\sigma$ is known and the t-interval when it is not. Enter the sample mean, the standard deviation, $n$ and the confidence level 0.95. For the t-interval, enter the sample standard deviation with divisor $n-1$, not the population value. Check the critical value with the inverse normal or inverse t function.</Callout>
+
+## Worked example
+
+A machine fills cans of cola. The volume of a can, in ml, is normally distributed with known standard deviation $\sigma = 4.5$ ml. A random sample of $n = 36$ cans has mean $\bar{x} = 329.6$ ml. Find a 95% confidence interval for $\mu$.
+
+<Steps>
+<Step>The standard error is $\sigma/\sqrt{n} = 4.5/\sqrt{36} = 0.75$ ml, and $z^{*} = 1.960$ (to 3 decimal places) for 95%.</Step>
+<Step>The margin of error is $E = 1.960 \times 0.75 = 1.47$ ml (to 2 decimal places).</Step>
+<Step>The 95% confidence interval is $(329.6 - 1.47,\ 329.6 + 1.47) = (328.13,\ 331.07)$ ml.</Step>
+</Steps>
+
+A random sample of $n = 12$ tomatoes from a large farm has masses that are normally distributed with unknown $\sigma$. The sample mean is $\bar{x} = 58.3$ g and the sample standard deviation with divisor $n-1$ is $s_{n-1} = 4.3$ g. Find a 95% confidence interval for $\mu$ and interpret it.
+
+<Steps>
+<Step>Use the t-distribution with $\nu = 11$ degrees of freedom: $t^{*} = 2.201$ (to 3 decimal places). The standard error is $s_{n-1}/\sqrt{n} = 4.3/\sqrt{12} = 1.241$ (to 3 decimal places).</Step>
+<Step>The margin of error is $E = 2.201 \times 1.241 = 2.73$ g (to 2 decimal places), so the 95% confidence interval is $(58.3 - 2.73,\ 58.3 + 2.73) = (55.57,\ 61.03)$ g.</Step>
+<Step>Interpretation: we are 95% confident that the mean mass of tomatoes from this farm lies between 55.57 g and 61.03 g. The method captures the mean in 95% of repeated samples; it says nothing about the mass of one particular tomato.</Step>
+</Steps>
+
+## Visual
+
+<Callout kind="tip">Draw the interval as a bar centred on $\bar{x}$, with the margin of error on each side. A larger sample or a lower confidence level makes the bar shorter; a higher confidence level makes it longer. The bar moves from sample to sample because $\bar{x}$ changes, while $\mu$ stays fixed.</Callout>
+
+## How it is examined
+
+Calculate and Find questions give marks for naming the method (z or t, with the reason), for the critical value, for the standard error and for end points rounded to the stated decimal places. Interpret questions need the context, the word "mean", the confidence level and the wording "we are 95% confident", not "there is a 95% probability". Explain questions ask why a t interval is needed (σ is unknown and is estimated) or why a higher confidence level gives a wider interval.
+
+<Callout kind="exam">Name the method and, for a t interval, the degrees of freedom. Give the interval as $(a, b)$ or $a < \mu < b$, rounded to the stated decimal places, and then interpret it in context.</Callout>
+
+## Common mistakes
+
+<Callout kind="mistake">Using $z^{*}$ when $\sigma$ is unknown: the interval comes out too narrow. Use $t^{*}$ with $n-1$ degrees of freedom and $s_{n-1}$.</Callout>
+
+- Writing "there is a 95% probability that $\mu$ lies between $a$ and $b$". The interval is random and $\mu$ is fixed.
+- Giving only the margin of error (plus or minus 1.47) when the question asks for an interval, or forgetting to divide $\sigma$ by $\sqrt{n}$.
+- Entering the population standard deviation (divisor $n$) into the GDC where the sample value with divisor $n-1$ is needed.
+
+## Check yourself
+
+<Question id="q-4-16-01"/>
+
+<Question id="q-4-16-02"/>
+
+<Question id="q-4-16-03"/>
+
+## Summary
+
+- A confidence interval for $\mu$ is the sample mean plus or minus a critical value times the standard error.
+- With $\sigma$ known, use $z^{*}$ and $\sigma/\sqrt{n}$; with $\sigma$ unknown, use $t^{*}$ with $n-1$ degrees of freedom and $s_{n-1}/\sqrt{n}$.
+- A 95% level means the method captures $\mu$ in 95% of repeated samples, not that one interval has a 95% chance.
+- A higher confidence level gives a wider interval; a larger sample gives a narrower one.
+- Interpret the interval in context: we are 95% confident that the mean lies between $a$ and $b$.
+- To keep the margin of error at most $E$ with known $\sigma$, use $n \geq (z^{*}\sigma/E)^{2}$.

@@ -1,0 +1,74 @@
+## Big idea
+
+The binomial distribution counts the successes in a fixed number $n$ of independent trials, each with the same probability $p$ of success. Two numbers, $n$ and $p$, describe the whole distribution: every probability, the mean and the variance follow from them.
+
+## Explanation
+
+A count $X$ follows a <Term id="binomial-distribution"/> when the <Term id="binomial-conditions"/> hold: a fixed number $n$ of trials, two outcomes in each trial (success or failure), the same probability $p$ of success in every trial, and independent trials. We write $X \sim \text{B}(n, p)$, and $X$ takes the values $0, 1, \dots, n$.
+
+<Callout kind="define">Binomial distribution: the distribution of the number of successes in $n$ independent trials, each with probability $p$ of success. Written $X \sim \text{B}(n, p)$.</Callout>
+
+For $r = 0, 1, \dots, n$:
+
+$$
+P(X = r) = \binom{n}{r} p^{r} (1-p)^{n-r}
+$$
+
+<Formula id="binomial-pmf"/>
+
+The factor $\binom{n}{r}$ counts the ways to place the $r$ successes among the $n$ trials, and $p^{r}(1-p)^{n-r}$ is the probability of one particular sequence with $r$ successes.
+
+The mean is $np$ and the variance is $np(1-p)$. <Formula id="binomial-mean-variance"/>
+
+<Callout kind="gdc">Use the binomial pdf and binomial cdf entries in the distributions menu of the GDC. Enter $n$ and $p$, then the value $r$: the pdf gives $P(X = r)$, and the cdf gives $P(X \le x)$ for all values up to $x$.</Callout>
+
+A <Term id="binomial-cumulative-probability"/> such as $P(X \ge k)$ comes from the cdf: $P(X \ge k) = 1 - P(X \le k - 1)$. <Formula id="binomial-tail-complement"/>
+
+## Worked example
+
+A basketball player makes 70% of her free throws, and each throw is independent of the others. In 10 throws, let $X$ be the number of baskets, so $X \sim \text{B}(10, 0.7)$.
+
+<Steps>
+<Step>$P(X = 8) = \dbinom{10}{8}(0.7)^{8}(0.3)^{2} = 0.233$ (to 3 decimal places).</Step>
+<Step>$P(X \ge 9) = P(X = 9) + P(X = 10) = 0.149$ (to 3 decimal places).</Step>
+<Step>$E(X) = np = 10 \times 0.7 = 7$ and $\text{Var}(X) = np(1-p) = 10 \times 0.7 \times 0.3 = 2.1$.</Step>
+</Steps>
+
+<Reveal title="Why does at least 9 start at 9?">"At least 9" includes 9 itself, so the tail starts at 9. "More than 9" starts at 10, and it gives a smaller answer.</Reveal>
+
+## Visual
+
+<Sim id="math.binomial-poisson-lab"/>
+
+The lab draws binomial bars (blue) and Poisson bars (orange) for the same mean $np$. Raise $n$ and lower $p$, and the binomial bars move towards the Poisson bars. Under the graph, compare the mean $np$ with the two variances: $np(1-p)$ for the binomial and $np$ for the Poisson.
+
+## How it is examined
+
+Find and Calculate questions give one mark for the model (the values of $n$ and $p$ taken from the context), one mark for the correct expression or GDC entry, and one mark for the answer to the required accuracy. Show that questions need both conditions named in the context, not only the word "binomial". Round only at the end, and give the number of decimal places the question asks for.
+
+<Callout kind="exam">Define $X$ and state $X \sim \text{B}(n, p)$ before you calculate any probability. Without it, a correct number can still lose the model mark.</Callout>
+
+## Common mistakes
+
+<Callout kind="mistake">Treating "at least 9" as "more than 9", so the answer uses $P(X \ge 10)$ instead of $P(X \ge 9)$.</Callout>
+
+- Dropping the binomial coefficient $\binom{n}{r}$: the product $p^{r}(1-p)^{n-r}$ is the probability of one sequence only.
+- Quoting the standard deviation $\sqrt{np(1-p)}$ when the question asks for the variance $np(1-p)$.
+- Using the binomial model when the probability changes between trials, for example when items are chosen without replacement.
+
+## Check yourself
+
+<Question id="q-4-8-01"/>
+
+<Question id="q-4-8-02"/>
+
+<Question id="q-4-8-03"/>
+
+## Summary
+
+- $X \sim \text{B}(n, p)$ counts the successes in $n$ independent trials, each with probability $p$ of success.
+- Check the four conditions in the context, and name $n$ and $p$ before you calculate.
+- $P(X = r) = \binom{n}{r} p^{r}(1-p)^{n-r}$; on the GDC use the pdf for one value and the cdf for a range.
+- The mean is $np$ and the variance is $np(1-p)$.
+- Use the complement for "at least" and "more than" when the cdf accumulates from zero.
+- Round only at the end, and give the number of decimal places the question asks for.

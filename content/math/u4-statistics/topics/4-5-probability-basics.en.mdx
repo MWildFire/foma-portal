@@ -1,0 +1,77 @@
+## Big idea
+
+A trial has outcomes, and an event is a set of outcomes. When every outcome is equally likely, the probability of an event is the number of outcomes in the event divided by the total number of outcomes.
+
+## Explanation
+
+A trial is one action with an uncertain result, such as rolling a die or drawing a counter. Each possible result is an outcome. The set of all outcomes is the <Term id="sample-space-probability"/>, written $U$, and $n(U)$ is the number of outcomes in it. An event $A$ is any set of outcomes taken from $U$.
+
+<Callout kind="define">Event: a set of outcomes from the sample space $U$. When the outcomes are equally likely, $P(A) = \dfrac{n(A)}{n(U)}$, and $0 \le P(A) \le 1$.</Callout>
+
+Probability is found by counting only when the outcomes are <Term id="equally-likely-outcomes"/>:
+
+$$
+P(A) = \frac{n(A)}{n(U)}
+$$
+
+<Formula id="classical-probability-formula"/>
+
+The complement of $A$ is the event that $A$ does not happen. It is written $A'$ and is the <Term id="complementary-event"/>. Exactly one of $A$ and $A'$ happens, so their probabilities add to 1:
+
+$$
+P(A') = 1 - P(A)
+$$
+
+<Formula id="complementary-probability-formula"/>
+
+The <Term id="expected-number-of-occurrences"/> is an average over many repeats. For $n$ trials, the expected number of occurrences of $A$ is $n\,P(A)$. It need not be a whole number, because it is an average and not a count that must happen.
+
+$$
+E = n\,P(A)
+$$
+
+<Formula id="expected-occurrences-formula"/>
+
+## Worked example
+
+A spinner has 8 equal sectors numbered 1 to 8, so every sector is equally likely. Let $A$ be the event that the score is a multiple of 3, and turn the spinner 60 times.
+
+<Steps>
+<Step>Sample space: $n(U) = 8$. The event $A$ is "3 or 6", so $n(A) = 2$ and $P(A) = \dfrac{2}{8} = 0.250$ (to 3 decimal places).</Step>
+<Step>Complement: $P(A') = 1 - 0.25 = 0.750$.</Step>
+<Step>Expected number of occurrences in 60 turns: $60 \times 0.25 = 15$, so about 15 turns are expected to give a multiple of 3.</Step>
+</Steps>
+
+## Visual
+
+<Callout kind="tip">For two dice, draw a 6 by 6 grid with one cell for each pair of results, shade the cells that make the event, and divide the number of shaded cells by 36. For one spinner, writing out the list of sectors does the same job.</Callout>
+
+## How it is examined
+
+Find and Calculate questions give one mark for the method (counting $n(A)$ and dividing by $n(U)$) and one mark for the answer to the required accuracy. Show that questions need every step written, so the examiner can follow the count. Expected-number questions want the value of $n\,P(A)$, not a rounded whole number, unless the question asks for one.
+
+<Callout kind="exam">Say that the outcomes are equally likely before you divide. Without that statement a method mark can be lost, even when the final number is right.</Callout>
+
+## Common mistakes
+
+<Callout kind="mistake">Dividing the number of favourable outcomes by the number of outcomes in the event, instead of by $n(U)$.</Callout>
+
+- Writing $P(A') = P(A)$ instead of $P(A') = 1 - P(A)$.
+- Treating the totals of two dice as equally likely: a total of 2 has one way to happen, a total of 7 has six.
+- Rounding an expected number to a whole number when the question asks for a decimal answer.
+
+## Check yourself
+
+<Question id="q-4-5-01"/>
+
+<Question id="q-4-5-02"/>
+
+<Question id="q-4-5-03"/>
+
+## Summary
+
+- A trial has outcomes; the sample space $U$ lists all of them, and an event is a set of outcomes.
+- For equally likely outcomes, $P(A) = n(A)/n(U)$, and $0 \le P(A) \le 1$.
+- The complement satisfies $P(A') = 1 - P(A)$.
+- The expected number of occurrences in $n$ trials is $n\,P(A)$, which need not be a whole number.
+- Check that the outcomes are equally likely before you count.

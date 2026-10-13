@@ -1,0 +1,68 @@
+## Big idea
+
+Many problems give several conditions at once, or ask where a curve reaches zero. Technology solves these equations numerically. Your skill is to write the equations correctly, choose the right solver, read the answer in context and check it.
+
+## Explanation
+
+A <Term id="system-linear-equations"/> has two or three linear equations in the same unknowns, and its solution satisfies every equation at the same time. For three unknowns $x$, $y$ and $z$ the general form is:
+
+<Formula id="linear-system-three-unknowns"/>
+
+<Callout kind="gdc">Use the system-of-equations solver of your GDC for two or three unknowns. Enter each equation as its coefficients and its constant term, then read the values of the unknowns. If the GDC reports that there is no unique solution, treat that as a finding about the system, not as a fault in your entry.</Callout>
+
+A system with no solution is an <Term id="inconsistent-system"/>: its equations contradict each other, so no set of values satisfies all of them.
+
+A <Term id="polynomial-root"/> is a value $x$ that makes a polynomial $p(x)$ equal zero. A polynomial equation of degree $n$ has at most $n$ real roots, so a cubic may have one, two or three real roots, and you read the number from the result.
+
+<Formula id="polynomial-degree-roots"/>
+
+For a quadratic, the exact roots come from the <Formula id="quadratic-formula-roots"/>. For any polynomial, technology finds the real roots numerically.
+
+<Callout kind="gdc">Use the polynomial root function of your GDC, or find the x-intercepts of the graph of $y=p(x)$ with the zero function. Compare the list of roots with a sketch of the graph, which shows how many to expect.</Callout>
+
+## Worked example
+
+Solve a system of three equations with technology, then check the answer and solve a cubic.
+
+<Steps>
+<Step>Write the system: $2x+y-z=4.5$, $x-3y+2z=2$ and $3x+2y+z=12.5$.</Step>
+<Step>Solve it with the system solver: $x=2.5$, $y=1.5$ and $z=2$.</Step>
+<Step>Check by substitution into the second equation: $2.5-3(1.5)+2(2)=2$, which matches the right-hand side.</Step>
+</Steps>
+
+<Reveal title="A cubic with only one real root">Solve $x^{3}-x-1=0$ with the polynomial root function. The GDC gives one real root, $x=1.325$ (3 decimal places). The other two roots are not real, so there is no second x-intercept to report.</Reveal>
+
+## Visual
+
+<Callout kind="tip">Each linear equation in two unknowns is a straight line, and the solution of a two-equation system is the point where the two lines cross. Parallel lines never cross, so such a system has no solution. For a polynomial, the real roots are the places where the graph of $y=p(x)$ crosses the x-axis, so a quick sketch shows how many roots to expect.</Callout>
+
+## How it is examined
+
+Find questions on systems give a mark for writing the equations correctly, a mark for solving them with technology, and a mark for the answers to the required accuracy. Give the values in the order the question names the unknowns. Polynomial questions ask for real roots, so do not report complex roots. When a root has no meaning in the context, such as a negative number of units, reject it and say why.
+
+<Callout kind="exam">Write each answer with the accuracy the question asks for, and state which root you have rejected and why.</Callout>
+
+## Common mistakes
+
+<Callout kind="mistake">A wrong sign or a missing term in one equation changes the whole solution, so check each entry against the original text.</Callout>
+
+- Reading only the first root of a cubic, although the GDC lists all the real roots.
+- Reporting a complex root as an answer when the question asks for real roots.
+- Treating "no solution" as an error, rather than explaining what it means in the context.
+
+## Check yourself
+
+<Question id="q-1-8-01"/>
+
+<Question id="q-1-8-02"/>
+
+<Question id="q-1-8-03"/>
+
+## Summary
+
+- A system of up to three linear equations has one solution, no solution or infinitely many solutions. Solve it with the system solver.
+- A system with no solution is inconsistent: its equations contradict each other.
+- A polynomial of degree $n$ has at most $n$ real roots, and a cubic can have only one.
+- Find real roots with the polynomial root function, and read them from the output.
+- Check every answer by substitution into the original equations, and in context.
+- Give answers in the order the question names the unknowns, to the accuracy asked.

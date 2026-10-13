@@ -1,0 +1,74 @@
+## Big idea
+
+A combination of independent normal variables is again normal, so a total or a difference of normal measurements can be modelled directly. The mean of a sample from a normal population is normal with variance $\sigma^{2}/n$. For a population of any shape, the central limit theorem says the sample mean is approximately normal once the sample is large.
+
+## Explanation
+
+A combination of independent normal variables is again normal. If $X \sim N(\mu_1, \sigma_1^{2})$ and $Y \sim N(\mu_2, \sigma_2^{2})$ are independent, the <Term id="normal-linear-combination"/> $aX + bY$ has the distribution in the formula below. The means combine linearly, and the variances combine with the squared coefficients:
+
+<Formula id="normal-linear-combination-distribution"/>
+
+The sample mean is a special case. If $X \sim N(\mu, \sigma^{2})$, the <Term id="sampling-distribution-sample-mean"/> of $\bar{X}$ for samples of size $n$ is normal with the same mean and variance $\sigma^{2}/n$. Its standard deviation is the <Term id="standard-error-sample-mean"/>:
+
+<Formula id="sample-mean-normal-distribution"/>
+
+<Formula id="se-sample-mean-formula"/>
+
+When the population is not normal, use the <Term id="central-limit-theorem"/>. For a large sample, the sample mean is approximately normal whatever the shape of the population, with the same mean and variance $\sigma^{2}/n$:
+
+<Formula id="clt-sample-mean-approximation"/>
+
+<Callout kind="define">Central limit theorem: for a large random sample from any population with mean $\mu$ and variance $\sigma^{2}$, the sample mean is approximately $N(\mu, \sigma^{2}/n)$.</Callout>
+
+<Callout kind="gdc">The GDC normal cdf asks for the standard deviation, not the variance. A variance of 369 becomes a standard deviation of $\sqrt{369} = 19.21$ before you enter it. For a sample mean, the standard deviation is the standard error $\sigma/\sqrt{n}$.</Callout>
+
+## Worked example
+
+An apple $A$ and an orange $O$ are put in one bag. Their masses are independent, with $A \sim N(150, 144)$ and $O \sim N(180, 225)$ in grams, where the second number in each bracket is the variance. The total mass is $T = A + O$.
+
+<Steps>
+<Step>$T \sim N(330, 369)$: the mean is $150 + 180 = 330$ g and the variance is $144 + 225 = 369$ g², so the standard deviation is $\sqrt{369} = 19.21$ g.</Step>
+<Step>$P(T > 340) = 0.301$ (to 3 decimal places), using the GDC normal cdf with mean 330 and standard deviation 19.21.</Step>
+</Steps>
+
+The waiting time at a help desk has mean 4.2 minutes and standard deviation 3.0 minutes, but its distribution is not normal. For a random sample of 40 customers, the central limit theorem applies because $n = 40$ is large.
+
+<Steps>
+<Step>The standard error is $\sigma/\sqrt{n} = 3.0/\sqrt{40} = 0.474$ minutes (to 3 decimal places). The variance of $\bar{X}$ is $3.0^{2}/40 = 0.225$, so $\bar{X} \approx N(4.2, 0.225)$.</Step>
+<Step>$P(\bar{X} > 5) \approx 0.046$ (to 3 decimal places), using the GDC normal cdf with mean 4.2 and standard deviation 0.474.</Step>
+</Steps>
+
+## Visual
+
+<Callout kind="tip">Sketch two curves on the same axes. The first is the population curve, which may be skewed. The second is the curve of $\bar{X}$: the same centre $\mu$, but narrower, with spread $\sigma/\sqrt{n}$. As $n$ grows, the curve for $\bar{X}$ becomes narrower and more bell-shaped.</Callout>
+
+## How it is examined
+
+Write down and State questions need the full distribution with its parameters: a normal distribution with a mean and a variance. For the mean of a sample from a population that is not normal, the answer must say "approximately" and give the reason, which is the large sample size (the central limit theorem). Find and Calculate questions give marks for the correct variance, for the standardising or GDC step and for the probability to the required accuracy. Explain questions need a reason in words, not a repeated number.
+
+<Callout kind="exam">Before you use a normal model, name the distribution and its parameters. For a sum or difference of normal variables, say "independent" first.</Callout>
+
+## Common mistakes
+
+<Callout kind="mistake">Using $\sigma^{2}$ instead of $\sigma^{2}/n$ for the variance of $\bar{X}$, or $\sigma$ instead of $\sigma/\sqrt{n}$ for its standard deviation.</Callout>
+
+- Adding standard deviations: $\sigma_{X+Y} \neq \sigma_X + \sigma_Y$. Add the variances, then take the square root.
+- Stating that $\bar{X}$ is normal without a normal population or a large sample.
+- Combining normal variables without checking that they are independent.
+
+## Check yourself
+
+<Question id="q-4-15-01"/>
+
+<Question id="q-4-15-02"/>
+
+<Question id="q-4-15-03"/>
+
+## Summary
+
+- A linear combination of independent normal variables is normal, with mean $a\mu_1 + b\mu_2$ and variance $a^{2}\sigma_1^{2} + b^{2}\sigma_2^{2}$.
+- If $X \sim N(\mu, \sigma^{2})$, then $\bar{X} \sim N(\mu, \sigma^{2}/n)$ exactly.
+- The standard error of the sample mean is $\sigma/\sqrt{n}$.
+- By the central limit theorem, for large $n$, $\bar{X}$ is approximately $N(\mu, \sigma^{2}/n)$ whatever the population shape.
+- Add variances, not standard deviations, and square the coefficients.
+- Name the distribution with its parameters; write "approximately" when you use the central limit theorem.

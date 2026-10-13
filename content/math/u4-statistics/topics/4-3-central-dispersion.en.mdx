@@ -1,0 +1,66 @@
+## Big idea
+
+One average hides how far the values spread. Central tendency (mean, median, mode) says where the data centre; dispersion (range, interquartile range, standard deviation) says how tightly they cluster. Choose the pair that suits the data, and be especially careful when there are extreme values.
+
+## Explanation
+
+The mean, the median and the mode measure the centre of a data set. The mean uses every value, so one extreme value moves it; the median is the middle value of the ordered data and is not moved much by extreme values. For grouped data, the <Term id="estimated-mean-grouped"/> uses the class midpoints and frequencies: <Formula id="grouped-mean-estimate"/>
+
+The <Term id="modal-class"/> is the class with the highest frequency density. When the class widths differ, compare densities rather than frequencies.
+
+The range depends on two values only. The <Term id="interquartile-range"/> is the spread of the middle half of the data: <Formula id="iqr-formula"/> The <Term id="standard-deviation"/> measures the typical distance of the values from the mean and uses every value: <Formula id="sd-formula"/>
+
+<Callout kind="define">Standard deviation: the square root of the mean of the squared deviations from the mean, measured in the same units as the data.</Callout>
+
+If each value $x$ is replaced by $y = ax + b$, the mean becomes $a\bar{x} + b$ and the standard deviation becomes $|a|\sigma$. Adding $b$ moves the mean but does not change the spread. <Formula id="linear-change-effect"/>
+
+<Callout kind="gdc">Enter the values in one list and run one-variable statistics, then read the mean, the median, the quartiles and the standard deviation from the output. For grouped data, enter the midpoints in one list and the frequencies in another, and use the frequency list. The standard deviation that divides by $n$ (labelled $\sigma_x$ on most GDCs) is the one for a complete data set.</Callout>
+
+## Worked example
+
+The weekly study hours of 8 students are: 2, 4, 4, 5, 6, 6, 6, 9.
+
+<Steps>
+<Step>Mean: the sum of the values is 42, so $\bar{x} = \dfrac{42}{8} = 5.25$ hours. Median: the middle two values are 5 and 6, so the median is $\dfrac{5 + 6}{2} = 5.5$ hours. Mode: 6 hours, which occurs three times.</Step>
+<Step>Standard deviation: the squared deviations from the mean add up to $29.5$, so $\sigma = \sqrt{\dfrac{29.5}{8}} = 1.92$ hours (to 2 decimal places).</Step>
+<Step>Quartiles: the lower half 2, 4, 4, 5 has median 4 and the upper half 6, 6, 6, 9 has median 6, so the interquartile range is $6 - 4 = 2$ hours.</Step>
+</Steps>
+
+<Reveal title="Why does one extreme value move the mean but barely move the median?">Adding a value of 30 to these eight values pulls the mean well above 5.25. The median only shifts to the next value in the ordered list, because it depends on position, not on size.</Reveal>
+
+## Visual
+
+Sketch the values as dots on a number line and mark the mean as a balance point. An extreme dot pulls the mean towards it, while the median and the interquartile range hardly move.
+
+<Callout kind="tip">Mark the mean, the median and the quartiles on the same sketch. When the mean is far from the median, the extreme values are pulling the average, and the median is the safer summary.</Callout>
+
+## How it is examined
+
+Calculate and Find questions ask for statistics from raw or grouped data. Estimate questions expect the midpoints method for the mean of grouped data. Compare questions ask for one measure of centre and one measure of spread for each set. Marks are given for the method (for example, the sum of $fx$ divided by the sum of $f$), for the accuracy of the rounded answer, and for the reason in a comparison.
+
+<Callout kind="exam">When asked to compare two data sets, give a measure of centre and a measure of spread for each set, then state which set is more consistent, with a reason based on the numbers.</Callout>
+
+## Common mistakes
+
+<Callout kind="mistake">Estimating the mean of grouped data with the class boundaries instead of the class midpoints.</Callout>
+
+- Dividing by $n - 1$ for the standard deviation of a complete data set; that version is for estimating a population from a sample.
+- Quoting the variance as the standard deviation, or forgetting the square root.
+- Multiplying the standard deviation by $b$ when the constant $b$ is added; adding a constant leaves the spread unchanged.
+
+## Check yourself
+
+<Question id="q-4-3-01"/>
+
+<Question id="q-4-3-02"/>
+
+<Question id="q-4-3-03"/>
+
+## Summary
+
+- The mean uses every value; the median and the interquartile range are not moved much by extreme values.
+- For grouped data, estimate the mean with the class midpoints and the frequencies.
+- The modal class is the class with the highest frequency density.
+- The standard deviation is the square root of the mean squared deviation from the mean, in the units of the data.
+- The interquartile range is $Q_3 - Q_1$ and measures the spread of the middle half of the data.
+- If $y = ax + b$, then $\bar{y} = a\bar{x} + b$ and $\sigma_y = |a|\sigma_x$; adding a constant does not change the spread.

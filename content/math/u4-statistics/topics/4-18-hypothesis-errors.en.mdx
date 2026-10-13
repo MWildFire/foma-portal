@@ -1,0 +1,90 @@
+## Big idea
+
+A hypothesis test asks whether the sample gives enough evidence to reject a claim about the population. A test can go wrong in two ways: it can reject a claim that is true, or keep a claim that is false. The significance level controls the first risk, and a larger sample helps with the second.
+
+## Explanation
+
+<Callout kind="define">Hypothesis test: a procedure that decides whether the data give enough evidence to reject the null hypothesis $H_0$ in favour of the alternative hypothesis $H_1$.</Callout>
+
+Write the claim being tested as $H_0$, and the claim you want evidence for as $H_1$. Choose the significance level $\alpha$, and whether the test is one-tailed or two-tailed, from $H_1$ before you calculate. Reject $H_0$ when the p-value is less than $\alpha$. The p-value is the probability of a result at least as extreme as the one observed, assuming $H_0$ is true. It is not the probability that $H_0$ is true.
+
+When the population variance is unknown, use the <Term id="population-mean-t-test"/>. Its statistic is given below, where $s$ is the sample standard deviation with $n - 1$ in the denominator, so the degrees of freedom are $n - 1$. If the population standard deviation $\sigma$ is known, the same logic gives a z-test with the normal distribution.
+
+<Formula id="population-mean-t-statistic"/>
+
+<Callout kind="gdc">Use the t-test entry in the statistics tests menu of the GDC. With summary values, choose the input that asks for the mean, the standard deviation and the sample size, then choose the tail that matches $H_1$. Read the test statistic and the p-value. Many outputs give a two-tailed p-value: for a one-tailed test, halve it only when the sign of the statistic matches the direction of $H_1$.</Callout>
+
+For a Poisson mean, suppose $X \sim \text{Po}(m)$ and you test $H_0: m = m_0$ from one count; the critical region then comes straight from the Poisson cumulative probabilities. For $n$ independent counts over equal intervals, test the total $T$, which has the distribution given below under $H_0$ (the sum rule from topic 4.17). Because the Poisson distribution is discrete, the actual significance level is at most $\alpha$, and often well below it.
+
+<Formula id="poisson-total-count-test"/>
+
+<Callout kind="gdc">Use the Poisson cdf entry in the distributions menu of the GDC. Enter the mean for the whole period, $n m_0$, not the mean for one interval. Take the largest critical value whose cumulative probability is at most $\alpha$.</Callout>
+
+<Reveal title="Why is the actual significance level rarely exactly 5%?">Counts take whole-number values, so the cumulative probability $P(T \le c)$ jumps from one value to the next. A critical region rarely has probability exactly $0.05$, so the test uses the largest region with probability at most $\alpha$.</Reveal>
+
+For bivariate normal data with sample correlation $r$ from $n$ pairs, test $H_0: \rho = 0$ with the statistic below, which has $n - 2$ degrees of freedom. Use $H_1: \rho \neq 0$ for a two-tailed test, or $H_1: \rho > 0$ or $H_1: \rho < 0$ for a one-tailed test. The t-test for the slope of the regression line gives the same p-value.
+
+<Formula id="correlation-t-statistic"/>
+
+<Callout kind="gdc">Enter the pairs of data, then use the correlation or linear regression t-test entry in the statistics tests menu. The output gives the test statistic and the p-value for $H_0: \rho = 0$. Check the tail before you compare the p-value with $\alpha$.</Callout>
+
+Two kinds of error are possible. A <Term id="type-i-error-probability"/> happens when $H_0$ is true but the test rejects it; its probability is $\alpha$ for a continuous test, and at most $\alpha$ for a discrete one. A <Term id="type-ii-error-probability"/> happens when $H_1$ is true but the test does not reject $H_0$; its probability is $\beta$, and the power of the test is $1 - \beta$.
+
+To find $\beta$, you need one specific value of the parameter under $H_1$. First find the critical region using $H_0$, then find the probability of falling outside it when the parameter has that value. For a fixed $\alpha$, a larger sample reduces both errors. Raising $\alpha$ lowers $\beta$, but increases the risk of a Type I error.
+
+<Callout kind="tip">In a context question, say what each error means for the people involved, for example "we concluded that the fault rate has fallen when it has not".</Callout>
+
+## Worked example
+
+A bakery claims that its loaves weigh 500 g on average. A random sample of 9 loaves has mean 512 g and standard deviation 18 g. Assume the weights are normal. Test $H_0: \mu = 500$ against $H_1: \mu > 500$ at the 5% significance level.
+
+<Steps>
+<Step>$t = \dfrac{512 - 500}{18/\sqrt{9}} = 2.00$ (to 2 decimal places), with $9 - 1 = 8$ degrees of freedom.</Step>
+<Step>The one-tailed p-value is $P(T > 2.00) = 0.040$ (to 3 decimal places) for $T \sim t_{8}$.</Step>
+<Step>Since $0.040 < 0.05$, reject $H_0$. There is evidence that the mean weight of the loaves is more than 500 g.</Step>
+</Steps>
+
+A workshop's machine produces faults at random. Let $X$ be the number of faults in one day, with $X \sim \text{Po}(m)$. Test $H_0: m = 10$ against $H_1: m < 10$ at the 5% significance level, using one day's count.
+
+<Steps>
+<Step>Under $H_0$, $P(X \le 4) = 0.029$ and $P(X \le 5) = 0.067$ (to 3 decimal places). The largest critical region with probability at most 0.05 is $X \le 4$, so the actual significance level is 0.029.</Step>
+<Step>If $X \sim \text{Po}(6)$, then $P(X \le 4) = 0.285$: this is the power of the test. The Type II error probability is $\beta = 1 - 0.285 = 0.715$.</Step>
+</Steps>
+
+## Visual
+
+<Sim id="math.t-test-lab"/>
+
+The lab draws the t-distribution for the chosen degrees of freedom. The shaded area beyond the observed statistic is the p-value. Change the sample mean, the standard deviation, the sample size and the alternative, and watch the p-value cross the significance level.
+
+## How it is examined
+
+Calculate and Find questions give a mark for the test statistic, a mark for the p-value and a mark for the conclusion in words. Write down questions ask for the hypotheses, the significance level and the tail; marks are lost when $H_1$ is not written in the form the question needs. Comment and Explain questions ask about errors in context: use the words "reject" and "do not reject", and say what the decision means for the claim. For a discrete test, write the critical region and the actual significance level.
+
+<Callout kind="exam">Write the hypotheses in terms of the parameter ($\mu$, $m$ or $\rho$) before any calculation. A conclusion with no comparison with the significance level loses the final mark.</Callout>
+
+## Common mistakes
+
+<Callout kind="mistake">Writing "accept $H_0$". The data support "do not reject $H_0$"; a non-significant result does not prove the claim.</Callout>
+
+- Using $n$ instead of $n - 1$ for the t-test degrees of freedom, or $n - 1$ instead of $n - 2$ for the correlation test.
+- Choosing a one-tailed test after seeing the data, or quoting a one-tailed p-value when $H_1$ is two-tailed.
+- Taking the p-value as the probability that $H_0$ is true.
+- Calculating $\beta$ with the wrong critical region, or without a specific value of the parameter under $H_1$.
+
+## Check yourself
+
+<Question id="q-4-18-01"/>
+
+<Question id="q-4-18-02"/>
+
+<Question id="q-4-18-03"/>
+
+## Summary
+
+- Reject $H_0$ only when the p-value is less than the significance level $\alpha$; otherwise write "do not reject $H_0$".
+- For the mean of a normal population with unknown variance, use the t-statistic with $n - 1$ degrees of freedom.
+- For a Poisson mean, test the total of $n$ independent counts: under $H_0$ it is Poisson with mean $n m_0$.
+- To test $\rho = 0$ for bivariate normal data, use $t = \dfrac{r\sqrt{n-2}}{\sqrt{1-r^2}}$ with $n - 2$ degrees of freedom.
+- A Type I error rejects a true $H_0$ (probability $\alpha$); a Type II error keeps a false $H_0$ (probability $\beta$).
+- Finding $\beta$ needs one specific value under $H_1$; the power of the test is $1 - \beta$.

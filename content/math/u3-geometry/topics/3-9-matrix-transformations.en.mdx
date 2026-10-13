@@ -1,0 +1,80 @@
+## Big idea
+
+A 2 × 2 matrix moves every point of the plane by one fixed linear rule. Its determinant tells you two things: by what factor the transformation scales areas, and whether the transformation can be undone.
+
+## Explanation
+
+A point $(x, y)$ is written as a column. A <Term id="transform-matrix"/> $M = \begin{pmatrix} a & b \\ c & d \end{pmatrix}$ sends it to the image point $(x', y')$ by matrix multiplication:
+
+$$
+\begin{pmatrix} x' \\ y' \end{pmatrix} = \begin{pmatrix} a & b \\ c & d \end{pmatrix} \begin{pmatrix} x \\ y \end{pmatrix}
+$$
+
+<Formula id="transform-image-point"/>
+
+Each of the matrices below keeps the origin O fixed. The standard matrices about O are:
+
+- reflection in the x-axis: $\begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix}$; reflection in the line $y = x$: $\begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix}$;
+- stretch with scale factor $k$ parallel to the x-axis: $\begin{pmatrix} k & 0 \\ 0 & 1 \end{pmatrix}$;
+- enlargement with scale factor $k$ and centre O: $\begin{pmatrix} k & 0 \\ 0 & k \end{pmatrix}$;
+- anticlockwise rotation through $\theta$ about O: $\begin{pmatrix} \cos\theta & -\sin\theta \\ \sin\theta & \cos\theta \end{pmatrix}$ (<Formula id="transform-rotation-matrix"/>).
+
+A translation moves the origin, so no 2 × 2 matrix can produce it. Write it as $\mathbf{x}' = M\mathbf{x} + \mathbf{t}$, where $\mathbf{t}$ is the translation vector.
+
+If $T_1$ acts first with matrix $M_1$ and $T_2$ acts second with matrix $M_2$, the image of $\mathbf{x}$ is $M_2 M_1 \mathbf{x}$. So the matrix of the <Term id="transform-composite"/> is $M_2 M_1$. Matrix multiplication is not commutative, so $M_1 M_2$ is usually a different transformation.
+
+For $M = \begin{pmatrix} a & b \\ c & d \end{pmatrix}$ the <Term id="transform-determinant"/> is $\det M = ad - bc$ (<Formula id="transform-det-2x2"/>). Every area is multiplied by $|\det M|$ (<Formula id="transform-area-scale"/>), so the determinant gives the area scale factor. Its sign shows the orientation: $\det M > 0$ keeps it (as for rotations and stretches), $\det M < 0$ reverses it, as in a mirror image. If $\det M = 0$, the transformation is <Term id="transform-singular"/>: the plane collapses onto a line or a point, and no inverse exists.
+
+<Callout kind="define">Transformation matrix: a 2 × 2 matrix M such that the image of the point with position vector $\mathbf{x}$ is $M\mathbf{x}$. The area scale factor is $|\det M|$.</Callout>
+
+<Callout kind="gdc">Enter M as a 2 × 2 matrix. Use the matrix determinant function for $\det M$, and the matrix inverse function for $M^{-1}$ when $\det M \neq 0$. Set the angle unit (degrees or radians) to match the question before you evaluate $\cos\theta$ or $\sin\theta$.</Callout>
+
+## Worked example
+
+Let $M = \begin{pmatrix} 2 & -1 \\ 1 & 1 \end{pmatrix}$, and let triangle $ABC$ have vertices $A(1, 0)$, $B(3, 0)$ and $C(2, 1)$.
+
+<Steps>
+<Step>$\det M = 2(1) - (-1)(1) = 3$, so every area is multiplied by 3.</Step>
+<Step>The image of $P(1, 2)$ is $\begin{pmatrix} 2(1) - 1(2) \\ 1(1) + 1(2) \end{pmatrix} = \begin{pmatrix} 0 \\ 3 \end{pmatrix}$, so $P'(0, 3)$.</Step>
+<Step>Triangle $ABC$ has base 2 and height 1, so its area is $\tfrac{1}{2} \times 2 \times 1 = 1$ square unit. Its image has area $3 \times 1 = 3$ square units.</Step>
+</Steps>
+
+<Reveal title="Why take the absolute value?">The determinant can be negative, but an area cannot. A negative $\det M$ means the orientation is reversed, and the area is still multiplied by $|\det M|$.</Reveal>
+
+## Visual
+
+<Sim id="math.matrix-transform-lab"/>
+
+The lab draws the unit square (dashed) and its image (shaded) for a matrix with entries $a$, $b$, $c$ and $d$. The image is the parallelogram with vertices $O$, $(a, c)$, $(a + b, c + d)$ and $(b, d)$. Move the sliders to see the area of the image change as $|\det M|$, and watch the shape collapse onto a line when $\det M = 0$.
+
+## How it is examined
+
+Find and Write down questions give marks for the matrix or product, for the image coordinates and for the final answer to the stated accuracy. Show that questions need the product written out before the result is stated. Describe fully asks for one named transformation, with its line, scale factor, centre or angle. A typical split is M1 for the correct matrix or product, A1 for the image, and R1 for the geometric meaning, such as "the area is multiplied by $|\det M|$".
+
+<Callout kind="exam">When the question says "first $T_1$, then $T_2$", write the matrix as $M_2 M_1$ before you multiply anything.</Callout>
+
+## Common mistakes
+
+<Callout kind="mistake">Multiplying in the wrong order: writing $M_1 M_2$ when $T_1$ acts first.</Callout>
+
+- Using $\det M$ as the area scale factor instead of $|\det M|$. A negative determinant means reversed orientation, not negative area.
+- Giving an enlargement with scale factor $k$ an area scale factor of $k$. The area scale factor is $k^{2}$.
+- Writing a translation as a 2 × 2 matrix. The origin would stay fixed, so a translation vector must be added.
+
+## Check yourself
+
+<Question id="q-3-9-01"/>
+
+<Question id="q-3-9-02"/>
+
+<Question id="q-3-9-03"/>
+
+## Summary
+
+- A 2 × 2 matrix $M$ sends the point $(x, y)$ to $M(x, y)$, written as a column; the origin stays fixed.
+- Reflections, stretches, enlargements and rotations about O each have a standard matrix.
+- A translation needs a vector added: $\mathbf{x}' = M\mathbf{x} + \mathbf{t}$.
+- If $T_1$ acts first and $T_2$ second, the composite matrix is $M_2 M_1$, so the order matters.
+- The area of the image is $|\det M|$ times the original area.
+- $\det M > 0$ keeps orientation, $\det M < 0$ reverses it, and $\det M = 0$ collapses the plane onto a line, so no inverse exists.
+- Use the GDC for determinants and inverses, and check the angle unit before using $\cos\theta$ or $\sin\theta$.

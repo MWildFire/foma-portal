@@ -1,0 +1,95 @@
+## Big idea
+
+Any triangle can be solved when you know enough of its parts. Right-angled triangles use SOH CAH TOA and Pythagoras. Other triangles use the sine rule when a side and its opposite angle are known, and the cosine rule when two sides and the included angle, or all three sides, are known. The area needs only two sides and the angle between them.
+
+## Explanation
+
+<Term id="soh-cah-toa"/>
+
+In a right-angled triangle, with an angle $\theta$, the opposite side, the adjacent side and the hypotenuse, the three ratios are:
+
+<Formula id="soh-cah-toa-ratios"/>
+
+Label a general triangle $ABC$ so that side $a$ is opposite angle $A$, side $b$ is opposite $B$, and side $c$ is opposite $C$.
+
+<Term id="sine-rule-triangle"/>
+
+The sine rule pairs each side with the sine of its opposite angle:
+
+$$
+\frac{a}{\sin A} = \frac{b}{\sin B} = \frac{c}{\sin C}
+$$
+
+<Formula id="triangle-sine-rule"/>
+
+Use it when you know a side and its opposite angle, plus one more angle or side.
+
+<Term id="cosine-rule-triangle"/>
+
+The cosine rule works for two sides with the angle between them, and for three sides:
+
+$$
+a^2 = b^2 + c^2 - 2bc\cos A, \qquad \cos A = \frac{b^2 + c^2 - a^2}{2bc}
+$$
+
+<Formula id="triangle-cosine-rule"/>
+
+The first form finds the third side. The second form finds an angle when all three sides are known.
+
+<Term id="included-angle"/>
+
+The area of a triangle is $\frac{1}{2}ab\sin C$, where $C$ is the included angle between sides $a$ and $b$.
+
+<Formula id="triangle-area-sine"/>
+
+<Callout kind="define">Sine rule: in any triangle, each side divided by the sine of its opposite angle gives the same value. Cosine rule: the square of one side equals the sum of the squares of the other two, minus twice their product times the cosine of the angle between them.</Callout>
+
+<Callout kind="gdc">Use the inverse cosine function of the GDC to find an angle from the cosine rule, with the angle mode set to degrees. Keep intermediate values unrounded in the calculator's memory.</Callout>
+
+## Worked example
+
+<Steps>
+<Step>In triangle $ABC$, $AB = 4$ cm, $AC = 7$ cm and angle $A = 50^{\circ}$. By the cosine rule, $BC^2 = 4^2 + 7^2 - 2 \times 4 \times 7\cos 50^{\circ} = 29.00$, so $BC = 5.39$ cm (3 significant figures).</Step>
+<Step>The area is $\dfrac{1}{2} \times 4 \times 7 \times \sin 50^{\circ} = 10.7$ cm² (1 decimal place).</Step>
+</Steps>
+
+<Steps>
+<Step>In triangle $PQR$, $p = 6$ cm, $P = 35^{\circ}$ and $Q = 70^{\circ}$. By the sine rule, $\dfrac{q}{\sin 70^{\circ}} = \dfrac{p}{\sin 35^{\circ}}$, so $q = \dfrac{6\sin 70^{\circ}}{\sin 35^{\circ}} = 9.83$ cm (3 significant figures).</Step>
+</Steps>
+
+## Visual
+
+Draw the triangle with vertices $A$, $B$ and $C$, and label each side with the small letter of the opposite vertex: $a$ is opposite $A$, and so on. Mark the angle you know with an arc. The included angle sits between the two sides you know; it is the angle the area formula needs.
+
+<Callout kind="tip">Before choosing a rule, list what you know. A side with its opposite angle means the sine rule. Two sides with the angle between them means the cosine rule, or the area rule if you need the area. Three sides means the cosine rule for an angle.</Callout>
+
+## How it is examined
+
+Calculate and Find questions give a mark for the correct rule, a mark for the substitution, and an accuracy mark for the answer at the required number of decimal places or significant figures. Keep full calculator precision and round only the final answer. In later parts of a question, the answer from an earlier part is often reused, so use the unrounded value where the question allows. Show that questions want each rule written out with the numbers substituted.
+
+<Callout kind="exam">Write the rule with the letters of your triangle before you substitute, for example $b^2 = a^2 + c^2 - 2ac\cos B$. The method mark is given for the correct rule even if the arithmetic goes wrong.</Callout>
+
+## Common mistakes
+
+<Callout kind="mistake">Using the sine rule with a side and an angle that are not opposite each other.</Callout>
+
+- Dropping the minus sign or the factor 2 in the cosine rule.
+- Using the wrong angle in the cosine rule: the angle must be the one opposite the side on the left.
+- Rounding intermediate results, such as the square of a side, before the final root is taken.
+
+## Check yourself
+
+<Question id="q-3-2-01"/>
+
+<Question id="q-3-2-02"/>
+
+<Question id="q-3-2-03"/>
+
+## Summary
+
+- SOH CAH TOA: $\sin\theta = \frac{\text{opp}}{\text{hyp}}$, $\cos\theta = \frac{\text{adj}}{\text{hyp}}$, $\tan\theta = \frac{\text{opp}}{\text{adj}}$ in right-angled triangles.
+- The sine rule $\frac{a}{\sin A} = \frac{b}{\sin B} = \frac{c}{\sin C}$ pairs each side with its opposite angle.
+- The cosine rule $a^2 = b^2 + c^2 - 2bc\cos A$ finds a side from two sides and the included angle, or an angle from three sides.
+- The area is $\frac{1}{2}ab\sin C$, where $C$ lies between sides $a$ and $b$.
+- Choose the rule from the information you have, and label the triangle first.
+- Keep full precision until the final answer, then round as the question asks.

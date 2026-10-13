@@ -1,0 +1,66 @@
+## Big idea
+
+A rational exponent is a fraction used as a power. The denominator tells you which root to take and the numerator tells you which power to raise it to. The laws of exponents you already know for whole numbers carry over, as long as the base is positive.
+
+## Explanation
+
+For a positive base $a$ and $n>0$, $a^{\frac{1}{n}}$ is the positive $n$th root of $a$. In general $a^{\frac{m}{n}}=\left(a^{\frac{1}{n}}\right)^{m}=\sqrt[n]{a^{m}}$. <Term id="rational-exponent"/> <Formula id="rational-power-definition"/>
+
+Once exponents are fractions, the laws stay the same as for whole numbers: multiplying adds the exponents, dividing subtracts them, and a power of a power multiplies them. <Term id="exponent-laws-rational"/> <Formula id="rational-power-laws"/>
+
+A negative exponent gives a reciprocal, and $a^{0}=1$ for $a \neq 0$. <Formula id="rational-power-negative"/>
+
+<Term id="odd-root-negative-base"/> is the exception for negative bases: for odd $n$, the $n$th root of a negative number is real and negative. An even root of a negative number is not real, so $(-4)^{\frac{1}{2}}$ has no real value.
+
+<Callout kind="define">For $a>0$ and $n>0$: $a^{\frac{1}{n}}$ is the positive $n$th root of $a$, and $a^{\frac{m}{n}}=\left(a^{\frac{1}{n}}\right)^{m}$.</Callout>
+
+<Callout kind="gdc">Use the power function of the GDC for a numerical check. Put a fractional exponent in brackets, so that $a^{\frac{2}{3}}$ is not read as $a^{2}$ divided by $3$.</Callout>
+
+## Worked example
+
+Evaluate exactly $\left(\dfrac{4}{9}\right)^{-\frac{3}{2}}\times 27^{\frac{2}{3}}$.
+
+<Steps>
+<Step>Remove the negative exponent and simplify: $\left(\dfrac{4}{9}\right)^{-\frac{3}{2}}=\left(\dfrac{9}{4}\right)^{\frac{3}{2}}=\left(\dfrac{3}{2}\right)^{3}=\dfrac{27}{8}=3.375$.</Step>
+<Step>Take the cube root first: $27^{\frac{2}{3}}=\left(27^{\frac{1}{3}}\right)^{2}=3^{2}=9$.</Step>
+<Step>Multiply: $3.375\times 9=\dfrac{243}{8}=30.375$.</Step>
+</Steps>
+
+<Reveal title="Why must the base be positive?">For a negative base the root can fail to be real. The odd-root rule covers $(-8)^{\frac{1}{3}}$, but an even root such as $(-4)^{\frac{1}{2}}$ has no real value, so the rules are stated for $a>0$.</Reveal>
+
+## Visual
+
+Turn a root into a fraction in the exponent: the index of the root goes to the denominator, so $\sqrt[3]{x^{2}}=x^{\frac{2}{3}}$ and $\sqrt{x}=x^{\frac{1}{2}}$.
+
+<Callout kind="tip">Write both forms side by side in your working. If the expression has a root, rewrite it as a power first; the laws then apply directly.</Callout>
+
+## How it is examined
+
+Calculate and Find questions give a mark for the first simplification, a mark for the next step and a mark for the answer in the required form, exact or decimal. Show that questions need each law named on its own line. A Hence part must use the earlier result, so a fresh calculation loses the method mark. Marks are lost when a decimal is rounded before the last step, or when a negative exponent is left in the final answer.
+
+<Callout kind="exam">If a question asks for a decimal, keep the exact fraction until the last line, and then round.</Callout>
+
+## Common mistakes
+
+<Callout kind="mistake">Treating $a^{\frac{1}{2}}$ as $\dfrac{a}{2}$. The exponent $\frac{1}{2}$ means a square root, not halving.</Callout>
+
+- Splitting a sum: $(a+b)^{\frac{1}{2}}$ is not $a^{\frac{1}{2}}+b^{\frac{1}{2}}$.
+- Forgetting the minus sign in the exponent: $\left(\dfrac{27}{8}\right)^{-\frac{2}{3}}$ is the reciprocal of $\left(\dfrac{27}{8}\right)^{\frac{2}{3}}$, so it is less than $1$, not greater.
+- Mixing up the root and the power: in $x^{\frac{3}{4}}$ the 4 is the root and the 3 is the power.
+
+## Check yourself
+
+<Question id="q-1-10-01"/>
+
+<Question id="q-1-10-02"/>
+
+<Question id="q-1-10-03"/>
+
+## Summary
+
+- $a^{\frac{m}{n}}=\left(\sqrt[n]{a}\right)^{m}$ for $a>0$ and $n>0$: the denominator is the root, the numerator is the power.
+- The laws of exponents for whole numbers hold for rational exponents when the base is positive.
+- A negative exponent gives a reciprocal, and $a^{0}=1$ for $a \neq 0$.
+- Combine powers of the same base before you evaluate.
+- Odd roots of negative numbers are real; even roots of negative numbers are not.
+- Evaluate exactly first, and round only at the end.

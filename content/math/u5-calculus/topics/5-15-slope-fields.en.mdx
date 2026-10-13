@@ -1,0 +1,68 @@
+## Big idea
+
+A first-order differential equation $\dfrac{dy}{dx} = f(x, y)$ gives the gradient of the solution curve at every point $(x, y)$, but not the curve itself. A slope field draws those gradients as short segments on a grid, so the solution curves can be followed by eye.
+
+## Explanation
+
+The equation says that the solution curve through a point $(x, y)$ has gradient $f(x, y)$ there. To draw a <Term id="slope-field-dy-dx"/>, choose the points of a grid, evaluate $f$ at each one, and draw a short segment with that gradient through the point. The segments show the direction of every solution curve, so one diagram serves all starting points.
+
+<Formula id="slope-field-de"/>
+
+<Callout kind="define">Slope field: a diagram of short line segments at grid points, each with the gradient $f(x, y)$ of the solution curves through that point.</Callout>
+
+A <Term id="solution-curve-dy-dx"/> is a curve $y(x)$ that is tangent to the segments at every point and passes through the given starting point. To sketch one, start at the point, move a little to the right in the direction of the nearest segment, and repeat. A sketch that runs against the segments loses marks.
+
+An <Term id="isocline-fxy-k"/> is a curve on which every segment has the same gradient $k$: <Formula id="isocline-equation"/> The isocline $f(x, y) = 0$ is where the segments are horizontal, so a solution curve has a horizontal tangent where it crosses it.
+
+The tangent to a solution curve at $(x_0, y_0)$ is given by the field: <Formula id="tangent-line-at-point"/> The first step of Euler's method (topic 5.16) uses the same line.
+
+An <Term id="equilibrium-value-first-order"/> is a value $c$ with $f(x, c) = 0$ for all $x$. Then $y = c$ is a constant solution, and nearby solution curves move towards it or away from it. For $\dfrac{dy}{dx} = y\left(1 - \dfrac{y}{4}\right)$ the equilibrium values are $y = 0$ and $y = 4$.
+
+<Callout kind="gdc">Many calculators can plot a slope field for a given $f(x, y)$ directly. If yours cannot, make a table of values of $f(x, y)$ at the grid points and draw each gradient by hand.</Callout>
+
+## Worked example
+
+Take $\dfrac{dy}{dx} = x - y$ and the solution curve through $(0, 1)$. The curve $y = x - 1 + 2e^{-x}$ passes through $(0, 1)$ and satisfies the equation, so the field can be checked against it.
+
+<Steps>
+<Step>At $(0, 1)$ the gradient is $f(0, 1) = 0 - 1 = -1$, so the curve starts falling.</Step>
+<Step>The gradient is zero on the line $y = x$. Along the curve, $\dfrac{dy}{dx} = 1 - 2e^{-x} = 0$ gives $x = \ln 2 = 0.693$ and $y = \ln 2 = 0.693$ (to 3 decimal places). Above the line the segments fall and below it they rise, so $(0.693, 0.693)$ is a minimum point.</Step>
+<Step>At $x = 1$ the curve is at $y = 2e^{-1} = 0.736$ (to 3 decimal places), and its gradient is $1 - 0.736 = 0.264$ (to 3 decimal places). The curve is rising there.</Step>
+</Steps>
+
+## Visual
+
+<Sim id="math.direction-field-lab"/>
+
+The lab draws the slope field of one of three equations on $0 \le x \le 1$, with the Euler polygon from the starting point $(0, y_0)$ in orange and the exact solution dashed. Choose $dy/dx = y\left(1 - \dfrac{y}{4}\right)$ and move the starting value from 0 to 5: every curve with $y_0 > 0$ moves towards $y = 4$, and the curve with $y_0 = 0$ stays at 0.
+
+## How it is examined
+
+Write down and State ask for a value or feature that you read from the field, usually with a short reason. Find and Determine ask for a number, usually after substituting into $f(x, y)$, so show the substitution. Sketch asks for a curve through the given point that follows the segments; mark the point and any equilibrium value the question names. Marks are lost for a gradient with the wrong sign, for a curve that ignores the segments, and for claiming an equilibrium from a single horizontal segment.
+
+<Callout kind="exam">In a sketch question, the curve must pass through the given point, follow the gradient at every point you draw, and show any equilibrium value the question asks for.</Callout>
+
+## Common mistakes
+
+<Callout kind="mistake">Substituting the coordinates the wrong way round: the gradient at $(x, y)$ is $f(x, y)$, not $f(y, x)$.</Callout>
+
+- Treating a zero gradient at one point as an equilibrium. A value $c$ is an equilibrium only when $f(x, c) = 0$ for every $x$. For $dy/dx = x - y$ the gradient is zero along the line $y = x$, which is not a horizontal line.
+- Sketching a curve that does not follow the segments, for example one with a corner where the field is smooth.
+- Drawing solution curves that cross. Two different solution curves cannot share a point, so a crossing means the sketch is wrong.
+
+## Check yourself
+
+<Question id="q-5-15-01"/>
+
+<Question id="q-5-15-02"/>
+
+<Question id="q-5-15-03"/>
+
+## Summary
+
+- A slope field draws the gradient $f(x, y)$ of the solution curves at grid points.
+- A solution curve passes through the given point and is tangent to the segments everywhere.
+- The isocline $f(x, y) = k$ joins points with the same gradient $k$; $k = 0$ gives horizontal segments.
+- A value $c$ is an equilibrium when $f(x, c) = 0$ for all $x$, so $y = c$ is a constant solution.
+- Long-term behaviour, such as an approach to an equilibrium, can be read from the arrows.
+- Check a sketch at one point: its gradient there must equal $f(x, y)$.

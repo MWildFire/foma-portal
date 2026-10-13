@@ -1,0 +1,82 @@
+## Big idea
+
+A perpendicular bisector cuts a segment into two equal halves at a right angle. Every point on it is the same distance from both ends of the segment, which makes it the tool for finding equal distances and centres.
+
+## Explanation
+
+The <Term id="midpoint-of-segment"/> of a segment joining $(x_1, y_1)$ and $(x_2, y_2)$ is the average of the coordinates:
+
+$$
+M = \left(\frac{x_1 + x_2}{2}, \frac{y_1 + y_2}{2}\right)
+$$
+
+<Formula id="segment-midpoint-formula"/>
+
+The <Term id="perpendicular-bisector"/> passes through $M$ and is perpendicular to the segment. If the segment has gradient $m$ (with $m \neq 0$), the bisector has gradient $-\dfrac{1}{m}$:
+
+$$
+m_{\perp} = -\frac{1}{m} = -\frac{x_2 - x_1}{y_2 - y_1}
+$$
+
+<Formula id="perpendicular-gradient-formula"/>
+
+With the point $M$ and the gradient, the equation is $y - y_M = m_{\perp}(x - x_M)$. A horizontal segment has a vertical bisector, $x = x_M$, and a vertical segment has a horizontal bisector, $y = y_M$. The general form below covers every case without dividing by a gradient:
+
+$$
+(x_2 - x_1)\,x + (y_2 - y_1)\,y = \tfrac{1}{2}\left(x_2^{2} + y_2^{2} - x_1^{2} - y_1^{2}\right)
+$$
+
+<Formula id="perpendicular-bisector-equation-formula"/>
+
+Two perpendicular bisectors of a triangle meet at the <Term id="circumcentre-of-triangle"/>, which is equally far from all three vertices, so it is the centre of the circle through them.
+
+<Callout kind="define">Perpendicular bisector: the line through the midpoint of a segment, at right angles to it. Every point on it is equally far from the two ends of the segment.</Callout>
+
+<Callout kind="gdc">Once you have two bisector equations, solve them as a pair of linear equations to find where they meet. Check the answer in the third bisector before you use it.</Callout>
+
+## Worked example
+
+Find the perpendicular bisector of the segment AB, where A(2, 1) and B(8, 5), and then check it with one point.
+
+<Steps>
+<Step>Midpoint: $M = \left(\dfrac{2 + 8}{2}, \dfrac{1 + 5}{2}\right) = (5, 3)$.</Step>
+<Step>The gradient of AB is $\dfrac{5 - 1}{8 - 2}$, so the bisector has gradient $-\dfrac{1}{m} = -1.5$. Through $(5, 3)$, $y - 3 = -1.5(x - 5)$, so $y = -1.5x + 10.5$.</Step>
+<Step>Check: the point $(1, 9)$ lies on the line, because $-1.5 \times 1 + 10.5 = 9$. Its distances to A and to B are both $\sqrt{65} = 8.06$.</Step>
+</Steps>
+
+<Reveal title="Why must the bisector cut the segment at its midpoint?">Every point of the bisector is equally far from A and B. On the segment AB, the only point equally far from both ends is the midpoint, so the bisector has to cross the segment there.</Reveal>
+
+## Visual
+
+<Callout kind="tip">Draw segment AB and mark its midpoint M first. The bisector is the line through M at a right angle to AB. Check any point on it by measuring its distances to A and to B: they should be equal, as in the worked example.</Callout>
+
+## How it is examined
+
+Find and Determine questions give a mark for the midpoint, a mark for the gradient of the bisector (the negative reciprocal), and a mark for the final equation in the form the question asks for. Circumcentre questions add a mark for the method (two bisectors meeting) and a mark for checking the third bisector. Use the form the question asks for, such as y = mx + c, and round only as instructed.
+
+<Callout kind="exam">Write the midpoint down first. The bisector must pass through it, so a correct midpoint is worth a mark in its own right.</Callout>
+
+## Common mistakes
+
+<Callout kind="mistake">Using the gradient m of the segment itself instead of −1/m. A line through the midpoint with gradient m lies along the segment, so it is not the bisector.</Callout>
+
+- Forgetting to halve the sum: the midpoint is the average, $(x_1 + x_2)/2$, not $x_1 + x_2$.
+- Taking the midpoint of one side of a triangle as the circumcentre. The circumcentre is where two bisectors meet, and it is usually not on any side.
+- Dividing by a zero gradient for a horizontal segment. Use the general form, or the vertical bisector $x = x_M$.
+
+## Check yourself
+
+<Question id="q-3-5-01"/>
+
+<Question id="q-3-5-02"/>
+
+<Question id="q-3-5-03"/>
+
+## Summary
+
+- The midpoint of a segment is $\left(\dfrac{x_1 + x_2}{2}, \dfrac{y_1 + y_2}{2}\right)$.
+- A perpendicular bisector passes through the midpoint, at right angles to the segment.
+- Its gradient is $-1/m$, where $m$ is the gradient of the segment.
+- Every point on the bisector is equally far from both ends of the segment.
+- Two bisectors of a triangle meet at the circumcentre, the centre of the circle through its three vertices.
+- Check a result with a third bisector, or by measuring the distances.

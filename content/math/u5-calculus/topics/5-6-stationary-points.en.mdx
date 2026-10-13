@@ -1,0 +1,83 @@
+## Big idea
+
+A stationary point is a place where a curve is momentarily flat, because its gradient is zero. The function stops rising or falling there. The point is a local maximum (a peak) or a local minimum (a valley) when the gradient changes sign, and the sign tells you which one it is.
+
+## Explanation
+
+The gradient of a curve at $x$ is its derivative, $f'(x)$. Where the gradient is zero, the curve is flat and the point is a stationary point. To find all stationary points, differentiate the function and solve $f'(x)=0$.
+
+<Term id="stationary-point"/>
+
+<Formula id="stationary-point-condition"/>
+
+For a polynomial, differentiate term by term:
+
+$$
+\frac{d}{dx}\left(a x^{n}\right)=a n x^{n-1}
+$$
+
+<Formula id="stationary-power-derivative"/>
+
+When the gradient is a quadratic, its roots come from the quadratic formula:
+
+<Formula id="stationary-quadratic-roots"/>
+
+A stationary point is a local maximum if the gradient changes from positive to negative as $x$ increases. It is a local minimum if the gradient changes from negative to positive. Checking the sign of the gradient on each side of a zero is the first derivative sign test.
+
+<Term id="local-maximum-point"/>
+
+<Term id="local-minimum-point"/>
+
+<Term id="first-derivative-sign-test"/>
+
+<Callout kind="define">Stationary point: a point on a curve where the gradient is zero, that is $f'(x)=0$. It is a local maximum or a local minimum only if the gradient changes sign there.</Callout>
+
+A zero of the gradient is not always a peak or a valley. The curve $y=x^{3}$ has gradient $3x^{2}$, which is zero at $x=0$. The gradient is positive on both sides of $x=0$, so it does not change sign, and the origin is a stationary point that is neither a maximum nor a minimum.
+
+<Callout kind="gdc">Draw the graph of $f$ and use the maximum or minimum function on the graph to locate a peak or a valley. Build a table of values for $f'(x)$ to see its sign on each side of a zero. The exam answer still needs the equation $f'(x)=0$ written out, and any value from the GDC given to the accuracy the question asks for.</Callout>
+
+## Worked example
+
+Let $f(x)=x^{3}-6x^{2}+9x+1$. Find the stationary points of $f$ and say whether each one is a local maximum or a local minimum.
+
+<Steps>
+<Step>Differentiate: $f'(x)=3x^{2}-12x+9=3(x-1)(x-3)$. Solve $f'(x)=0$, so the stationary points are at $x=1$ and $x=3$.</Step>
+<Step>Test the sign of $f'(x)$ on each side. The product $(x-1)(x-3)$ is positive for $x<1$, negative for $1<x<3$ and positive for $x>3$. The gradient changes from positive to negative at $x=1$, so this is a local maximum. It changes from negative to positive at $x=3$, so this is a local minimum.</Step>
+<Step>Find the coordinates by substituting into $f$: $f(1)=5$ and $f(3)=1$. The local maximum point is $(1,\,5)$ and the local minimum point is $(3,\,1)$.</Step>
+</Steps>
+
+<Reveal title="Why check the sign and not just the height?">A stationary point is not automatically a peak. The value $f(1)=5$ is only a height. The point is a peak because the curve rises before $x=1$ and falls after it. Without the sign check, a peak and a valley look the same, since both are flat points.</Reveal>
+
+## Visual
+
+<Callout kind="tip">Sketch $y=f(x)$ for $x$ between $-1$ and $5$. The curve rises to a peak at $(1,\,5)$, falls to a valley at $(3,\,1)$ and rises again. The tangent is horizontal at both turning points, which is the picture of a zero gradient.</Callout>
+
+## How it is examined
+
+Questions use command terms such as Find, Write down, Justify and Show that. In a Find question, marks go to the derivative, to solving $f'(x)=0$, to the sign argument (usually an R1 mark) and to each coordinate. Write the sign argument in words, with the gradient on each side. A bare statement that a point is a maximum earns no reasoning mark. In a context question, the units belong in the final answer.
+
+<Callout kind="exam">Give both coordinates of a turning point unless the question asks for one only. Justify a maximum or minimum with the sign of the gradient on each side.</Callout>
+
+## Common mistakes
+
+<Callout kind="mistake">Calling every zero of $f'(x)$ a maximum or a minimum without a sign test. The curve $y=x^{3}$ has a zero gradient at $x=0$ with no sign change, so that point is neither.</Callout>
+
+- Solving $f(x)=0$ instead of $f'(x)=0$. That finds where the curve crosses the axis, not where it is flat.
+- Reversing the sign argument. A change from positive to negative is a maximum, so the reverse gives the wrong type.
+- Giving only the $x$-coordinate of a turning point when the question asks for the point, which also needs the $y$-coordinate.
+
+## Check yourself
+
+<Question id="q-5-6-01"/>
+
+<Question id="q-5-6-02"/>
+
+<Question id="q-5-6-03"/>
+
+## Summary
+
+- A stationary point is where the gradient is zero, so solve $f'(x)=0$.
+- For a quadratic gradient, use the quadratic formula to find the $x$-coordinates.
+- Test the sign of $f'(x)$ on each side: positive then negative gives a local maximum, negative then positive gives a local minimum.
+- A zero of the gradient with no sign change is a stationary point but not a maximum or a minimum.
+- Substitute into $f(x)$ for the $y$-coordinate, and give units when the question is in context.

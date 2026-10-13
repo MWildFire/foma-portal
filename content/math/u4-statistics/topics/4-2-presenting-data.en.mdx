@@ -1,0 +1,64 @@
+## Big idea
+
+Presenting data means choosing a display that shows what the question needs. A histogram shows the shape of grouped data, a cumulative frequency graph shows where values sit in order, and a box and whisker diagram shows the middle half of the data and its spread in one picture.
+
+## Explanation
+
+Continuous data are grouped into classes, and a frequency table lists each class with its frequency. In a <Term id="histogram-grouped-data"/> each class is a bar with no gaps, and the area of the bar shows the frequency. When the class widths differ, the bar height is the frequency density, so the areas still show the frequencies: <Formula id="frequency-density"/>
+
+To draw a cumulative frequency graph, add the frequencies up to each upper class boundary and plot each running total against that boundary. Join the points to make a <Term id="cumulative-frequency-graph"/>. The curve starts at zero at the lower end of the first class and ends at the total frequency $n$.
+
+Read the median at cumulative frequency $\dfrac{n}{2}$, the lower quartile at $\dfrac{n}{4}$ and the upper quartile at $\dfrac{3n}{4}$. A percentile is read in the same way: the 90th percentile is at $0.9n$. <Formula id="quartile-cumulative-position"/> The spread of the middle half is the <Term id="interquartile-range"/>, $Q_3 - Q_1$: <Formula id="iqr-formula"/>
+
+A <Term id="box-and-whisker-diagram"/> is built from five values: the lowest value, $Q_1$, the median, $Q_3$ and the highest value. Draw the box from $Q_1$ to $Q_3$ with a line at the median, and draw the whiskers to the lowest and highest values. Two box plots drawn on the same scale allow a direct comparison of their medians and spreads.
+
+<Callout kind="gdc">For ungrouped data, enter the values in one list and run one-variable statistics: the GDC returns $Q_1$ and $Q_3$ as the medians of the two halves. For grouped data the GDC uses class midpoints, so its quartiles can differ from those read off a cumulative frequency graph. Say which method you used.</Callout>
+
+## Worked example
+
+A cumulative frequency table for the times, in minutes, of 40 students gives these cumulative frequencies at the upper class boundaries: 10 minutes: 6; 20 minutes: 18; 30 minutes: 33; 40 minutes: 40.
+
+<Steps>
+<Step>Target values for $n = 40$: $\dfrac{n}{4} = 10$, $\dfrac{n}{2} = 20$ and $\dfrac{3n}{4} = 30$.</Step>
+<Step>Median: the cumulative frequency 20 lies between 18 at 20 minutes and 33 at 30 minutes, so the median is $20 + \dfrac{20 - 18}{33 - 18} \times 10 = 21.3$ minutes (to 1 decimal place).</Step>
+<Step>Lower quartile: the cumulative frequency 10 lies between 6 at 10 minutes and 18 at 20 minutes, giving $10 + \dfrac{10 - 6}{18 - 6} \times 10 = 13.3$. Upper quartile: the cumulative frequency 30 lies between 18 at 20 minutes and 33 at 30 minutes, giving $20 + \dfrac{30 - 18}{33 - 18} \times 10 = 28.0$. The interquartile range is $28.0 - 13.3 = 14.7$ minutes.</Step>
+</Steps>
+
+<Reveal title="Why is the value between two plotted points estimated?">The graph joins only the plotted points, so a value between two points is estimated on the straight line between them. The answer is an estimate, which is why it is given to 1 decimal place.</Reveal>
+
+## Visual
+
+Draw the box plot directly under the cumulative frequency graph, on the same horizontal scale. The edges of the box line up with the quartiles read from the graph, and the line inside the box marks the median.
+
+<Callout kind="tip">Label each axis with the variable and its units, for example minutes on the horizontal axis and cumulative frequency on the vertical axis. A diagram without labels earns no accuracy marks.</Callout>
+
+## How it is examined
+
+Questions ask you to construct a histogram, draw a cumulative frequency graph, read quartiles or percentiles from it, or describe a box plot. Marks are given for correct plotted points, labelled axes and a scale, and for the readings taken from the graph. Reading the median at the wrong cumulative frequency, for example at $n$ instead of $\dfrac{n}{2}$, loses the accuracy mark.
+
+<Callout kind="exam">In a drawing part, plot every point at the upper class boundary and join the points. A histogram or a graph drawn with unlabelled axes loses marks even when the numbers are right.</Callout>
+
+## Common mistakes
+
+<Callout kind="mistake">Putting frequency on the vertical axis of a histogram when the class widths differ.</Callout>
+
+- Plotting cumulative frequency at the lower class boundary or at the class midpoint.
+- Reading the median at a cumulative frequency of $n$ instead of $\dfrac{n}{2}$.
+- Joining the cumulative frequency points with bars instead of straight lines or a smooth curve.
+
+## Check yourself
+
+<Question id="q-4-2-01"/>
+
+<Question id="q-4-2-02"/>
+
+<Question id="q-4-2-03"/>
+
+## Summary
+
+- A histogram has bars with no gaps; with unequal class widths its height is the frequency density.
+- A cumulative frequency graph plots running totals against upper class boundaries.
+- Read the median at $\dfrac{n}{2}$, the lower quartile at $\dfrac{n}{4}$ and the upper quartile at $\dfrac{3n}{4}$.
+- The interquartile range is $Q_3 - Q_1$ and measures the spread of the middle half of the data.
+- A box and whisker diagram shows the lowest value, $Q_1$, the median, $Q_3$ and the highest value.
+- Compare two data sets with box plots drawn on the same scale, using medians and interquartile ranges.
