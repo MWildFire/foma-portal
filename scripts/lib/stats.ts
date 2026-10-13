@@ -1,0 +1,78 @@
+import { list, type Pack } from './model.ts';
+import { formatPercent, type Coverage } from './syllabus-coverage.ts';
+
+// Rule 11 (per-subject figures) and rule 13 (an empty subject is information, not a warning).
+
+const TEXTBOOK_SHARE_TARGET = 70;   // percent of terms whose src is a textbook or an IB guide
+
+export interface SubjectStats {
+  topics: number;
+  codes: number;
+  coveredCodes: number;
+  coveragePercent: number | null;
+  terms: number;
+  termsFromBooks: number;
+  termSharePercent: number | null;
+  formulas: number;
+  questions: number;
+  cases: number;
+  casesWithSource: number;
+  papers: number;
+  sims: number;
+}
+
+const percentOf = (part: number, whole: number): number | null => (whole === 0 ? null : (part / whole) * 100);
+
+export function computeStats(pack: Pack, coverage: Coverage, simCount: number): SubjectStats {
+  const termsFromBooks = pack.terms.filter(term => term.src && (term.src.kind === 'textbook' || term.src.kind === 'ib-guide')).length;
+  return {
+    topics: pack.topics.length,
+    codes: pack.syllabus.length,
+    coveredCodes: coverage.covered,
+    coveragePercent: coverage.percent,
+    terms: pack.terms.length,
+    termsFromBooks,
+    termSharePercent: percentOf(termsFromBooks, pack.terms.length),
+    formulas: pack.formulas.length,
+    questions: pack.questions.length,
+    cases: pack.cases.length,
+    casesWithSource: pack.cases.filter(item => list(item.src).length > 0).length,
+    papers: pack.papers.length,
+    sims: simCount,
+  };
+}
+
+// True when the subject has no content at all: only meta.ts and index.ts exist.
+export function isEmptySubject(stats: SubjectStats, bodyFiles: number): boolean {
+  return stats.topics + stats.codes + stats.terms + stats.formulas + stats.questions + stats.cases + stats.papers + stats.sims + bodyFiles === 0;
+}
+
+export function statsLine(stats: SubjectStats): string {
+  const share = stats.termSharePercent === null ? 'n/a' : formatPercent(stats.termSharePercent);
+  const covered = stats.codes === 0 ? '' : `, covered by a topic ${stats.coveredCodes} (${formatPercent(stats.coveragePercent)} of the codes in scope)`;
+  return [
+    `topics ${stats.topics}`,
+    `syllabus codes ${stats.codes}${covered}`,
+    `terms ${stats.terms}, from textbook or IB guide ${stats.termsFromBooks} (${share})`,
+    `formulas ${stats.formulas}`,
+    `questions ${stats.questions}`,
+    `cases ${stats.cases}, with a source ${stats.casesWithSource} (${formatPercent(percentOf(stats.casesWithSource, stats.cases))})`,
+    `paper guides ${stats.papers}`,
+    `sims ${stats.sims}`,
+  ].join(' | ');
+}
+
+export function statsWarnings(pack: Pack, stats: SubjectStats, checkTermShare: boolean): string[] {
+  const warnings: string[] = [];
+  if (checkTermShare && stats.termSharePercent !== null && stats.termSharePercent < TEXTBOOK_SHARE_TARGET) {
+    warnings.push(`only ${formatPercent(stats.termSharePercent)} of terms (${stats.termsFromBooks} of ${stats.terms}) cite a textbook or an IB guide; the target is ${TEXTBOOK_SHARE_TARGET}% or more`);
+  }
+  if (stats.casesWithSource < stats.cases) {
+    const bare = pack.cases.filter(item => list(item.src).length === 0).map(item => item.id);
+    warnings.push(`${stats.cases - stats.casesWithSource} of ${stats.cases} cases have no source (${bare.join(', ')}); every case needs the place, the year and a source`);
+  }
+  if (stats.codes === 0 && stats.topics + stats.terms + stats.formulas > 0) {
+    warnings.push('the subject has content but no syllabus codes: syllabus.ts is missing or empty, so code references were not checked and coverage cannot be computed');
+  }
+  return warnings;
+}
