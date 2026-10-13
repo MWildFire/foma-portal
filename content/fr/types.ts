@@ -41,7 +41,7 @@ export interface ListeningTrack {
   level: 'B1' | 'B2';
   genre: 'dialogue' | 'interview' | 'announcement' | 'podcast' | 'report';
   turns: ListeningTurn[];    // the script; the transcript and the Polly SSML are both built from it
-  questionIds: string[];     // Questions with paper 'P2' and section 'listening' (content/fr/questions/)
+  questionIds: string[];     // Questions with paper 'P2' and section 'l1' … 'l8' (content/fr/questions/)
   audio: string;             // public path, '/audio/fr/<id>.mp3', written by scripts/fr-polly.sh
   source: SourceRef;
 }
@@ -52,6 +52,6 @@ export interface ReadingPassage {
   title: L;
   level: 'B1' | 'B2';
   paragraphs: string[];      // French text, one string per paragraph
-  questionIds: string[];     // Questions with paper 'P2' and section 'reading' (content/fr/questions/)
+  questionIds: string[];     // Questions with paper 'P2' and section 'r1' … 'r6' (content/fr/questions/)
   source: SourceRef;
 }
