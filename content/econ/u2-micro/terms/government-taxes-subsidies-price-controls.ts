@@ -1,5 +1,8 @@
 import type { Term } from '../../../../src/contract/types';
 
+// Sources: the textbook, with a chapter and page for each term. Definitions are in our own words.
+const book = 'Tragakes, Economics for the IB Diploma: Coursebook (Cambridge University Press, 3rd ed.)';
+
 export const terms: Term[] = [
   {
     id: 'indirect-tax',
@@ -18,13 +21,13 @@ export const terms: Term[] = [
     },
     syllabus: '2.7',
     papers: ['P1', 'P2', 'P3'],
-    src: { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 2.7' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 4.3, p. 127' },
   },
   {
     id: 'specific-tax',
     term: { en: 'specific tax', ru: 'налог на единицу (specific tax)' },
     def: {
-      en: 'A fixed amount of tax per unit of a good sold, for example AED 2 per litre; it shifts the supply curve vertically upwards by that amount.',
+      en: 'A flat sum of tax levied on every unit of a good that is sold, for example AED 2 per litre; it shifts the supply curve vertically upwards by that amount.',
       ru: 'Фиксированная сумма налога на единицу проданного товара, например 2 AED за литр; налог сдвигает кривую предложения вертикально вверх на эту сумму.',
     },
     example: {
@@ -37,7 +40,7 @@ export const terms: Term[] = [
     },
     syllabus: '2.7',
     papers: ['P1', 'P2', 'P3'],
-    src: { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 2.7' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 4.3, p. 128' },
     sim: 'econ.specific-tax',
   },
   {
@@ -57,7 +60,7 @@ export const terms: Term[] = [
     },
     syllabus: '2.7',
     papers: ['P1', 'P2', 'P3'],
-    src: { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 2.7' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 4.3, p. 128' },
     sim: 'econ.ad-valorem-tax',
   },
   {
@@ -77,15 +80,15 @@ export const terms: Term[] = [
     },
     syllabus: '2.7',
     papers: ['P1', 'P2', 'P3'],
-    src: { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 2.7' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 4.3, p. 133' },
     sim: 'econ.tax-incidence',
   },
   {
     id: 'deadweight-loss',
     term: { en: 'deadweight loss', ru: 'чистые потери общества (deadweight loss)' },
     def: {
-      en: 'The loss of total surplus, consumer plus producer, that nobody receives, for example because a tax reduces the quantity traded below the efficient level.',
-      ru: 'Потеря общего излишка (потребительского плюс производительского), которую никто не получает, например из-за налога, сокращающего объём сделок ниже эффективного уровня.',
+      en: 'The loss of total surplus, consumer plus producer, that nobody receives because resources are misallocated; for example, a tax reduces the quantity traded below the efficient level.',
+      ru: 'Потеря общего излишка (потребительского плюс производительского), которую никто не получает, потому что ресурсы распределены неэффективно; например, налог сокращает объём сделок ниже эффективного уровня.',
     },
     example: {
       en: 'A tax of AED 4 per unit cuts the quantity from 40 to 30 units; the deadweight loss is 1/2 x 10 x 4 = AED 20.',
@@ -97,7 +100,7 @@ export const terms: Term[] = [
     },
     syllabus: '2.7',
     papers: ['P1', 'P2', 'P3'],
-    src: { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 2.7' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 4.2, p. 117' },
     sim: 'econ.specific-tax',
   },
   {
@@ -117,14 +120,14 @@ export const terms: Term[] = [
     },
     syllabus: '2.7',
     papers: ['P1', 'P2', 'P3'],
-    src: { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 2.7' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 4.4, p. 134' },
     sim: 'econ.subsidy',
   },
   {
     id: 'price-ceiling',
     term: { en: 'maximum price (price ceiling)', ru: 'максимальная цена (maximum price, price ceiling)' },
     def: {
-      en: 'A legal maximum price set below the equilibrium price; quantity demanded exceeds quantity supplied, so a shortage (excess demand) appears.',
+      en: 'A legal maximum price, placed beneath the equilibrium price; quantity demanded exceeds quantity supplied, so a shortage (excess demand) appears.',
       ru: 'Законодательно установленная максимальная цена ниже равновесной; величина спроса превышает величину предложения, поэтому возникает дефицит (избыточный спрос).',
     },
     example: {
@@ -137,7 +140,7 @@ export const terms: Term[] = [
     },
     syllabus: '2.7',
     papers: ['P1', 'P2', 'P3'],
-    src: { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 2.7' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 4.2, p. 115' },
     sim: 'econ.price-ceiling',
   },
   {
@@ -157,15 +160,15 @@ export const terms: Term[] = [
     },
     syllabus: '2.7',
     papers: ['P1', 'P2', 'P3'],
-    src: { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 2.7' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 4.2, p. 121' },
     sim: 'econ.price-floor',
   },
   {
     id: 'merit-good',
     term: { en: 'merit good', ru: 'мериторное благо (merit good)' },
     def: {
-      en: 'A good that the free market under-consumes, because consumers underestimate its benefits or it has positive externalities; government may subsidise or provide it.',
-      ru: 'Благо, которое свободный рынок потребляет недостаточно: потребители недооценивают его пользу или у него есть положительные внешние эффекты; государство может субсидировать его или обеспечивать его предоставление.',
+      en: 'A good that the free market underprovides, because consumers underestimate its benefits or it has positive externalities; government may subsidise or provide it.',
+      ru: 'Благо, которое свободный рынок предоставляет в недостаточном объёме: потребители недооценивают его пользу или у него есть положительные внешние эффекты; государство может субсидировать его или обеспечивать его предоставление.',
     },
     example: {
       en: 'Vaccination and education are merit goods: a subsidy lowers their price, so more people use them.',
@@ -177,14 +180,14 @@ export const terms: Term[] = [
     },
     syllabus: '2.7',
     papers: ['P1', 'P2', 'P3'],
-    src: { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 2.7' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 6.2, p. 179' },
   },
   {
     id: 'demerit-good',
     term: { en: 'demerit good', ru: 'демеритное благо (demerit good)' },
     def: {
-      en: 'A good that the free market over-consumes, because consumers underestimate its harm or it has negative externalities; government may tax or regulate it.',
-      ru: 'Благо, которое свободный рынок потребляет в избытке: потребители недооценивают его вред или у него есть отрицательные внешние эффекты; государство может облагать его налогом или регулировать.',
+      en: 'A good that the free market overprovides, because consumers underestimate its harm or it has negative externalities; government may tax or regulate it.',
+      ru: 'Благо, которое свободный рынок предоставляет в избытке: потребители недооценивают его вред или у него есть отрицательные внешние эффекты; государство может облагать его налогом или регулировать.',
     },
     example: {
       en: 'Cigarettes and sugary drinks are demerit goods; an excise duty on them raises their price and reduces consumption.',
@@ -196,6 +199,6 @@ export const terms: Term[] = [
     },
     syllabus: '2.7',
     papers: ['P1', 'P2', 'P3'],
-    src: { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 2.7' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 5.4, p. 166' },
   },
 ];

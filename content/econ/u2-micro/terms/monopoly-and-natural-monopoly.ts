@@ -1,5 +1,8 @@
 import type { Term } from '../../../../src/contract/types';
 
+// Sources: the textbook (chapter and page) for terms it defines; the subject guide (section 2.11) for price-discrimination.
+const book = 'Tragakes, Economics for the IB Diploma: Coursebook (Cambridge University Press, 3rd ed.)';
+
 export const terms: Term[] = [
   {
     id: 'monopoly',
@@ -18,15 +21,15 @@ export const terms: Term[] = [
     },
     syllabus: '2.11',
     papers: ['P1', 'P2', 'P3'],
-    src: { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 2.11' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 7.4, p. 215' },
     sim: 'econ.monopoly',
   },
   {
     id: 'market-power',
     term: { en: 'market power', ru: 'рыночная власть (market power)' },
     def: {
-      en: 'The ability of a firm to set its price above marginal cost, because it faces little competition, few close substitutes or high barriers to entry.',
-      ru: 'Способность фирмы устанавливать цену выше предельных издержек, потому что на её рынке мало конкуренции, мало близких заменителей или высокие барьеры для входа.',
+      en: "A firm's capacity to set its price above marginal cost, which is possible only if its demand curve slopes downwards, for example because it has little competition, few close substitutes or high barriers to entry.",
+      ru: 'Способность фирмы устанавливать цену выше предельных издержек; это возможно только при нисходящей кривой спроса, например когда на её рынке мало конкуренции, мало близких заменителей или высокие барьеры для входа.',
     },
     example: {
       en: 'The only supplier of a branded medicine can charge AED 40 per pack, although its marginal cost is AED 20 per pack.',
@@ -38,13 +41,13 @@ export const terms: Term[] = [
     },
     syllabus: '2.11',
     papers: ['P1', 'P2', 'P3'],
-    src: { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 2.11' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 7.4, p. 223' },
   },
   {
     id: 'barriers-to-entry',
     term: { en: 'barriers to entry', ru: 'барьеры для входа (barriers to entry)' },
     def: {
-      en: 'Factors that make it difficult or impossible for new firms to enter a market, such as legal protection, high start-up costs, control of a key resource or economies of scale.',
+      en: 'Factors that make entry into a market hard or impossible for newcomers, such as legal protection, high start-up costs, control of a key resource or economies of scale.',
       ru: 'Факторы, которые затрудняют или делают невозможным вход новых фирм на рынок, например законная защита, высокие стартовые затраты, контроль над ключевым ресурсом или экономия от масштаба.',
     },
     example: {
@@ -57,7 +60,7 @@ export const terms: Term[] = [
     },
     syllabus: '2.11',
     papers: ['P1', 'P2', 'P3'],
-    src: { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 2.11' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 7.1, p. 196' },
   },
   {
     id: 'marginal-revenue',
@@ -76,14 +79,14 @@ export const terms: Term[] = [
     },
     syllabus: '2.11',
     papers: ['P1', 'P2', 'P3'],
-    src: { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 2.11' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 7.2, p. 199' },
   },
   {
     id: 'natural-monopoly',
     term: { en: 'natural monopoly', ru: 'естественная монополия (natural monopoly)' },
     def: {
-      en: 'A market in which long-run average cost keeps falling over the relevant output range, so one firm can supply the whole market at a lower cost than two or more firms.',
-      ru: 'Рынок, на котором долгосрочные средние издержки падают на всём нужном диапазоне выпуска, поэтому одна фирма может обслужить весь рынок дешевле, чем две или больше фирм.',
+      en: 'A firm whose long-run average cost keeps falling over the relevant output range, so one firm can supply the whole market more cheaply than two or more firms could.',
+      ru: 'Фирма, у которой долгосрочные средние издержки падают на всём нужном диапазоне выпуска, поэтому одна фирма может обслужить весь рынок дешевле, чем две или больше фирм.',
     },
     example: {
       en: 'A city water network that costs AED 500 million to build serves all homes at a lower average cost than two competing networks would.',
@@ -95,7 +98,7 @@ export const terms: Term[] = [
     },
     syllabus: '2.11',
     papers: ['P1', 'P2', 'P3'],
-    src: { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 2.11' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 7.4, p. 219' },
     sim: 'econ.natural-monopoly',
   },
   {
@@ -115,7 +118,7 @@ export const terms: Term[] = [
     },
     syllabus: '2.11',
     papers: ['P1', 'P2', 'P3'],
-    src: { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 2.11' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 7.2, p. 204' },
   },
   {
     id: 'price-discrimination',
@@ -153,7 +156,7 @@ export const terms: Term[] = [
     },
     syllabus: '2.11',
     papers: ['P1', 'P2', 'P3'],
-    src: { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 2.11' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 7.4, p. 224' },
   },
   {
     id: 'marginal-cost-pricing',
@@ -172,7 +175,7 @@ export const terms: Term[] = [
     },
     syllabus: '2.11',
     papers: ['P1', 'P2', 'P3'],
-    src: { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 2.11' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 7.7, p. 244' },
   },
   {
     id: 'average-cost-pricing',
@@ -191,6 +194,6 @@ export const terms: Term[] = [
     },
     syllabus: '2.11',
     papers: ['P1', 'P2', 'P3'],
-    src: { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 2.11' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 7.7, p. 245' },
   },
 ];

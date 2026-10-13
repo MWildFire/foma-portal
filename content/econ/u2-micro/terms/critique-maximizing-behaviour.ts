@@ -1,5 +1,7 @@
 import type { SourceRef, Term } from '../../../../src/contract/types';
 
+// Sources: the textbook, with a page locator for each term it defines; the IB subject guide (2020) for loss aversion and present bias, which the book does not define.
+const book = 'Tragakes, Economics for the IB Diploma: Coursebook (Cambridge University Press, 3rd ed.)';
 const src: SourceRef = { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 2.4' };
 
 export const terms: Term[] = [
@@ -20,13 +22,13 @@ export const terms: Term[] = [
     },
     syllabus: '2.4',
     papers: ['P1', 'P2', 'P3'],
-    src,
+    src: { kind: 'textbook', title: book, locator: 'ch. 2.6, p. 73' },
   },
   {
     id: 'profit-maximization',
     term: { en: 'profit maximization', ru: 'максимизация прибыли (profit maximization)' },
     def: {
-      en: 'The assumption that firms choose the output and price that make the difference between total revenue and total cost as large as possible.',
+      en: 'The assumption that firms choose the output and price that make total revenue minus total cost as large as possible.',
       ru: 'Допущение, что фирмы выбирают объём и цену, при которых разница между общей выручкой и общими издержками максимальна.',
     },
     example: {
@@ -39,14 +41,14 @@ export const terms: Term[] = [
     },
     syllabus: '2.4',
     papers: ['P1', 'P2', 'P3'],
-    src,
+    src: { kind: 'textbook', title: book, locator: 'ch. 2.6, p. 79' },
   },
   {
     id: 'bounded-rationality',
     term: { en: 'bounded rationality', ru: 'ограниченная рациональность (bounded rationality)' },
     def: {
-      en: 'The idea that decisions are limited by incomplete information, limited time and limited ability to process it, so people choose reasonable rather than perfectly optimal options.',
-      ru: 'Идея, что решения ограничены неполной информацией, нехваткой времени и ограниченной способностью её обрабатывать, поэтому люди выбирают разумные, а не идеально оптимальные варианты.',
+      en: 'The idea that decisions are limited by incomplete information, limited time and limited ability to process it, and that searching for information is itself costly, so people choose reasonable rather than perfectly optimal options.',
+      ru: 'Идея, что решения ограничены неполной информацией, нехваткой времени и ограниченной способностью её обрабатывать, а поиск информации сам по себе затратен, поэтому люди выбирают разумные, а не идеально оптимальные варианты.',
     },
     example: {
       en: 'A shopper compares 3 of the 30 phone plans on offer, because checking all 30 would take too long.',
@@ -58,14 +60,14 @@ export const terms: Term[] = [
     },
     syllabus: '2.4',
     papers: ['P1', 'P2', 'P3'],
-    src,
+    src: { kind: 'textbook', title: book, locator: 'ch. 2.6, p. 74' },
   },
   {
     id: 'satisficing',
     term: { en: 'satisficing', ru: 'удовлетворительный выбор (satisficing)' },
     def: {
-      en: 'Choosing the first option that meets a minimum acceptable target, rather than searching for the best possible option.',
-      ru: 'Выбор первого варианта, который достигает минимально приемлемой цели, а не поиск наилучшего возможного варианта.',
+      en: 'Choosing the first option that meets a minimum acceptable target on several objectives, rather than searching for the best possible option on any one of them.',
+      ru: 'Выбор первого варианта, который достигает минимально приемлемой цели сразу по нескольким целям, а не поиск наилучшего возможного варианта по какой-либо одной из них.',
     },
     example: {
       en: 'A manager accepts the first supplier that delivers within 5 days at AED 500 or less per unit, without comparing the other 10 suppliers.',
@@ -77,14 +79,14 @@ export const terms: Term[] = [
     },
     syllabus: '2.4',
     papers: ['P1', 'P2', 'P3'],
-    src,
+    src: { kind: 'textbook', title: book, locator: 'ch. 2.6, p. 81' },
   },
   {
     id: 'anchoring-bias',
     term: { en: 'anchoring bias', ru: 'эффект якорения (anchoring bias)' },
     def: {
-      en: 'The tendency to rely too heavily on the first piece of information seen, the anchor, when making a judgement or a decision.',
-      ru: 'Склонность слишком сильно опираться на первую полученную информацию, то есть на якорь, при суждении или решении.',
+      en: 'The tendency to rely too heavily on the first piece of information seen, the anchor, even when it is irrelevant, when making a judgement or a decision.',
+      ru: 'Склонность слишком сильно опираться на первую полученную информацию, то есть на якорь, даже если она не относится к делу, при суждении или решении.',
     },
     example: {
       en: 'A jacket shown with a crossed-out price of AED 800 and a sale price of AED 400 looks cheap, even when similar jackets sell for AED 300 elsewhere.',
@@ -96,7 +98,7 @@ export const terms: Term[] = [
     },
     syllabus: '2.4',
     papers: ['P1', 'P2', 'P3'],
-    src,
+    src: { kind: 'textbook', title: book, locator: 'ch. 2.6, p. 73' },
   },
   {
     id: 'loss-aversion',
@@ -153,13 +155,13 @@ export const terms: Term[] = [
     },
     syllabus: '2.4',
     papers: ['P1', 'P2', 'P3'],
-    src,
+    src: { kind: 'textbook', title: book, locator: 'ch. 2.6, p. 79' },
   },
   {
     id: 'altruism',
     term: { en: 'altruism', ru: 'альтруизм (altruism)' },
     def: {
-      en: 'Concern for the welfare of other people that leads a person to give up some of their own utility in order to help them.',
+      en: 'Concern for the welfare of other people that leads a person to sacrifice part of their own utility in order to help them.',
       ru: 'Забота о благополучии других людей, из-за которой человек жертвует частью собственной полезности, чтобы помочь им.',
     },
     example: {
@@ -178,8 +180,8 @@ export const terms: Term[] = [
     id: 'nudge',
     term: { en: 'nudge', ru: 'подталкивание (nudge)' },
     def: {
-      en: 'A change in how choices are presented, such as making one option the default, that steers people towards a better outcome while keeping all options available.',
-      ru: 'Изменение способа подачи выбора, например когда один вариант становится вариантом по умолчанию; это подталкивает людей к лучшему результату и сохраняет все варианты.',
+      en: 'A change in how choices are presented, such as making one option the default, that steers people in a predictable way towards a better outcome, without financial incentives or sanctions and without limiting choice.',
+      ru: 'Изменение способа подачи выбора, например когда один вариант становится вариантом по умолчанию; это предсказуемым образом подталкивает людей к лучшему результату без финансовых стимулов и санкций и без ограничения выбора.',
     },
     example: {
       en: 'A pension plan enrols new employees automatically at 5% of salary and lets them opt out, which makes saving the easy choice.',
@@ -191,6 +193,6 @@ export const terms: Term[] = [
     },
     syllabus: '2.4',
     papers: ['P1', 'P2', 'P3'],
-    src,
+    src: { kind: 'textbook', title: book, locator: 'ch. 2.6, p. 75' },
   },
 ];

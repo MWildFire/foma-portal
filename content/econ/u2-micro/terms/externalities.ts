@@ -1,7 +1,7 @@
-import type { SourceRef, Term } from '../../../../src/contract/types';
+import type { Term } from '../../../../src/contract/types';
 
-// Externalities (IB DP Economics section 2.8). Definitions are in our own words; the source is the subject guide.
-const src: SourceRef = { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 2.8' };
+// Externalities (IB DP Economics section 2.8). Definitions are in our own words; the source is the textbook, with a page locator for each term.
+const book = 'Tragakes, Economics for the IB Diploma: Coursebook (Cambridge University Press, 3rd ed.)';
 
 export const terms: Term[] = [
   {
@@ -21,7 +21,7 @@ export const terms: Term[] = [
     },
     syllabus: '2.8',
     papers: ['P1', 'P2', 'P3'],
-    src,
+    src: { kind: 'textbook', title: book, locator: 'ch. 5.2, p. 148' },
     sim: 'econ.externality-negative-production',
   },
   {
@@ -41,7 +41,7 @@ export const terms: Term[] = [
     },
     syllabus: '2.8',
     papers: ['P1', 'P2', 'P3'],
-    src,
+    src: { kind: 'textbook', title: book, locator: 'ch. 5.2, p. 148' },
   },
   {
     id: 'external-benefit',
@@ -60,7 +60,7 @@ export const terms: Term[] = [
     },
     syllabus: '2.8',
     papers: ['P1', 'P2', 'P3'],
-    src,
+    src: { kind: 'textbook', title: book, locator: 'ch. 5.2, p. 148' },
   },
   {
     id: 'marginal-private-cost',
@@ -79,7 +79,7 @@ export const terms: Term[] = [
     },
     syllabus: '2.8',
     papers: ['P1', 'P2'],
-    src,
+    src: { kind: 'textbook', title: book, locator: 'ch. 5.2, p. 149' },
   },
   {
     id: 'marginal-social-cost',
@@ -98,7 +98,7 @@ export const terms: Term[] = [
     },
     syllabus: '2.8',
     papers: ['P1', 'P2'],
-    src,
+    src: { kind: 'textbook', title: book, locator: 'ch. 5.2, p. 149' },
     sim: 'econ.externality-negative-production',
   },
   {
@@ -118,7 +118,7 @@ export const terms: Term[] = [
     },
     syllabus: '2.8',
     papers: ['P1', 'P2'],
-    src,
+    src: { kind: 'textbook', title: book, locator: 'ch. 5.2, p. 149' },
   },
   {
     id: 'marginal-social-benefit',
@@ -137,14 +137,14 @@ export const terms: Term[] = [
     },
     syllabus: '2.8',
     papers: ['P1', 'P2'],
-    src,
+    src: { kind: 'textbook', title: book, locator: 'ch. 5.2, p. 149' },
     sim: 'econ.externality-positive-consumption',
   },
   {
     id: 'pigouvian-tax',
     term: { en: 'Pigouvian tax', ru: 'налог Пигу (Pigouvian tax)' },
     def: {
-      en: 'An indirect tax set equal to the external cost per unit, so that the producer or consumer pays for the external cost and the market quantity moves to the social optimum.',
+      en: 'An indirect tax whose size matches the external cost on each unit, so that the producer or consumer pays for the external cost and the market quantity moves to the social optimum.',
       ru: 'Косвенный налог, равный внешним издержкам на единицу: производитель или потребитель платит за внешний эффект, и рыночный объём сдвигается к общественному оптимуму.',
     },
     example: {
@@ -157,7 +157,7 @@ export const terms: Term[] = [
     },
     syllabus: '2.8',
     papers: ['P1', 'P2', 'P3'],
-    src,
+    src: { kind: 'textbook', title: book, locator: 'ch. 5.3, p. 153' },
     sim: 'econ.externality-negative-production',
   },
   {
@@ -177,7 +177,7 @@ export const terms: Term[] = [
     },
     syllabus: '2.8',
     papers: ['P1', 'P2', 'P3'],
-    src,
+    src: { kind: 'textbook', title: book, locator: 'ch. 5.3, p. 154' },
   },
   {
     id: 'property-rights',
@@ -196,6 +196,6 @@ export const terms: Term[] = [
     },
     syllabus: '2.8',
     papers: ['P1', 'P2', 'P3'],
-    src,
+    src: { kind: 'textbook', title: book, locator: 'ch. 9.1, p. 274' },
   },
 ];

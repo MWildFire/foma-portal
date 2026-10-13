@@ -1,5 +1,8 @@
 import type { Term } from '../../../../src/contract/types';
 
+// Sources: the textbook, with a page locator for each term it defines; the IB subject guide (2020) for principal-agent problem and market for lemons, which the book does not define.
+const book = 'Tragakes, Economics for the IB Diploma: Coursebook (Cambridge University Press, 3rd ed.)';
+
 export const terms: Term[] = [
   {
     id: 'asymmetric-information',
@@ -18,7 +21,7 @@ export const terms: Term[] = [
     },
     syllabus: '2.10',
     papers: ['P1', 'P2', 'P3'],
-    src: { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 2.10' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 6.4, p. 188' },
   },
   {
     id: 'adverse-selection',
@@ -37,7 +40,7 @@ export const terms: Term[] = [
     },
     syllabus: '2.10',
     papers: ['P1', 'P2', 'P3'],
-    src: { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 2.10' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 6.4, p. 188' },
   },
   {
     id: 'moral-hazard',
@@ -56,7 +59,7 @@ export const terms: Term[] = [
     },
     syllabus: '2.10',
     papers: ['P1', 'P2', 'P3'],
-    src: { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 2.10' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 6.4, p. 190' },
   },
   {
     id: 'principal-agent-problem',
@@ -94,7 +97,7 @@ export const terms: Term[] = [
     },
     syllabus: '2.10',
     papers: ['P1', 'P2', 'P3'],
-    src: { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 2.10' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 6.4, p. 189' },
   },
   {
     id: 'screening',
@@ -113,7 +116,7 @@ export const terms: Term[] = [
     },
     syllabus: '2.10',
     papers: ['P1', 'P2', 'P3'],
-    src: { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 2.10' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 6.4, p. 189' },
   },
   {
     id: 'market-for-lemons',
@@ -152,6 +155,6 @@ export const terms: Term[] = [
     },
     syllabus: '2.10',
     papers: ['P1', 'P2', 'P3'],
-    src: { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 2.10' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 6.4, p. 188' },
   },
 ];

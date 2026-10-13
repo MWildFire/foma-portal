@@ -1,11 +1,14 @@
 import type { Term } from '../../../../src/contract/types';
 
+// Sources: the textbook, with a page locator for each term it defines; the IB subject guide (2020) for equity-efficiency trade-off, which the book does not define.
+const book = 'Tragakes, Economics for the IB Diploma: Coursebook (Cambridge University Press, 3rd ed.)';
+
 export const terms: Term[] = [
   {
     id: 'equity',
     term: { en: 'equity', ru: 'справедливость (equity)' },
     def: {
-      en: 'Fairness in the distribution of income, wealth and opportunities, judged by what people receive rather than only by how efficiently resources are used.',
+      en: 'Fairness in how income, wealth and opportunities are shared out, judged by what people receive rather than only by how efficiently resources are used.',
       ru: 'Справедливость в распределении доходов, богатства и возможностей, которая оценивается по тому, что получают люди, а не только по эффективности использования ресурсов.',
     },
     example: {
@@ -18,7 +21,7 @@ export const terms: Term[] = [
     },
     syllabus: '2.12',
     papers: ['P1', 'P2', 'P3'],
-    src: { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 2.12' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 1.1, p. 4' },
   },
   {
     id: 'equity-efficiency-trade-off',
@@ -43,8 +46,8 @@ export const terms: Term[] = [
     id: 'horizontal-equity',
     term: { en: 'horizontal equity', ru: 'горизонтальная справедливость (horizontal equity)' },
     def: {
-      en: 'The principle that people in similar circumstances, such as similar incomes, should be treated in the same way, for example by paying the same tax. The IB guide (2020) does not name this term, so it is background rather than exam wording.',
-      ru: 'Принцип, по которому люди в одинаковом положении, например с одинаковым доходом, должны обращаться одинаково, например платить одинаковый налог. Гайд IB (2020) этот термин не называет: это справочное понятие, а не формулировка экзамена.',
+      en: 'The principle that people in similar circumstances, such as similar incomes, should be treated in the same way, for example by paying the same tax.',
+      ru: 'Принцип, по которому люди в одинаковом положении, например с одинаковым доходом, должны обращаться одинаково, например платить одинаковый налог.',
     },
     example: {
       en: 'Two employees who each earn AED 10000 a month should pay the same income tax, so that neither is treated more favourably.',
@@ -56,14 +59,14 @@ export const terms: Term[] = [
     },
     syllabus: '2.12',
     papers: ['P1', 'P2', 'P3'],
-    src: { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 2.12' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 12.5, p. 375' },
   },
   {
     id: 'vertical-equity',
     term: { en: 'vertical equity', ru: 'вертикальная справедливость (vertical equity)' },
     def: {
-      en: 'The principle that people in different circumstances, such as different incomes, should be treated differently, so that those with a greater ability to pay contribute more.',
-      ru: 'Принцип, по которому люди в разном положении, например с разными доходами, должны обращаться по-разному: те, кто может платить больше, вносят больший вклад.',
+      en: 'The principle that people in different circumstances, such as different incomes, should be treated differently and in proportion to those differences, so that those with a greater ability to pay contribute more.',
+      ru: 'Принцип, по которому люди в разном положении, например с разными доходами, должны обращаться по-разному и пропорционально этим различиям: те, кто может платить больше, вносят больший вклад.',
     },
     example: {
       en: 'A person earning AED 150000 a year pays a higher average tax rate than one earning AED 50000, because the tax schedule is progressive.',
@@ -75,7 +78,7 @@ export const terms: Term[] = [
     },
     syllabus: '2.12',
     papers: ['P1', 'P2', 'P3'],
-    src: { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 2.12' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 12.5, p. 375' },
   },
   {
     id: 'progressive-tax',
@@ -94,7 +97,7 @@ export const terms: Term[] = [
     },
     syllabus: '2.12',
     papers: ['P1', 'P2', 'P3'],
-    src: { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 2.12' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 12.5, p. 373' },
   },
   {
     id: 'proportional-tax',
@@ -113,7 +116,7 @@ export const terms: Term[] = [
     },
     syllabus: '2.12',
     papers: ['P1', 'P2', 'P3'],
-    src: { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 2.12' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 12.5, p. 373' },
   },
   {
     id: 'regressive-tax',
@@ -132,13 +135,13 @@ export const terms: Term[] = [
     },
     syllabus: '2.12',
     papers: ['P1', 'P2', 'P3'],
-    src: { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 2.12' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 12.5, p. 373' },
   },
   {
     id: 'average-tax-rate',
     term: { en: 'average tax rate', ru: 'средняя ставка налога (average tax rate)' },
     def: {
-      en: 'Total tax paid divided by income, usually written as a percentage or decimal; it is the basis for judging whether a tax is progressive, proportional or regressive.',
+      en: 'Tax paid, expressed as a share of total income, usually written as a percentage or decimal; it is the basis for classifying a tax as progressive, proportional or regressive.',
       ru: 'Общая уплаченная сумма налога, делённая на доход; выражается в процентах или десятичной дроби и служит основой для вывода о том, прогрессивный, пропорциональный или регрессивный налог.',
     },
     example: {
@@ -151,14 +154,14 @@ export const terms: Term[] = [
     },
     syllabus: '2.12',
     papers: ['P1', 'P2', 'P3'],
-    src: { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 2.12' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 12.5, p. 376' },
   },
   {
     id: 'transfer-payment',
     term: { en: 'transfer payment', ru: 'трансферт (transfer payment)' },
     def: {
-      en: 'A payment from government to households, such as pensions or unemployment benefit, for which no good or service is produced in return.',
-      ru: 'Платёж от государства домохозяйствам, например пенсия или пособие по безработице, за который не производится никакого товара или услуги взамен.',
+      en: 'A payment from government to households, funded by taxes and redistributing income, such as pensions or unemployment benefit, for which no good or service is produced in return.',
+      ru: 'Платёж от государства домохозяйствам, финансируемый за счёт налогов и перераспределяющий доход, например пенсия или пособие по безработице, за который не производится никакого товара или услуги взамен.',
     },
     example: {
       en: 'A worker who loses a job receives an unemployment benefit of AED 3000 a month, which supports spending while the worker looks for a new job.',
@@ -170,6 +173,6 @@ export const terms: Term[] = [
     },
     syllabus: '2.12',
     papers: ['P1', 'P2', 'P3'],
-    src: { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 2.12' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 12.5, p. 380' },
   },
 ];

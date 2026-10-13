@@ -1,5 +1,7 @@
 import type { SourceRef, Term } from '../../../../src/contract/types';
 
+// Sources: the textbook (chapter and page) where it defines the term; otherwise the subject guide (section 2.5).
+const book = 'Tragakes, Economics for the IB Diploma: Coursebook (Cambridge University Press, 3rd ed.)';
 // normal-good, inferior-good, substitute-goods and complementary-goods are defined in terms/demand.ts (taught first).
 const src: SourceRef = { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 2.5' };
 
@@ -8,7 +10,7 @@ export const terms: Term[] = [
     id: 'income-elasticity-of-demand',
     term: { en: 'income elasticity of demand', ru: 'доходная эластичность спроса (income elasticity of demand, YED)' },
     def: {
-      en: 'The responsiveness of quantity demanded to a change in income: the percentage change in quantity demanded divided by the percentage change in income.',
+      en: 'How strongly quantity demanded reacts to a change in income, measured as the ratio of the % change in quantity demanded to the % change in income.',
       ru: 'Чувствительность величины спроса к изменению дохода: процентное изменение величины спроса, делённое на процентное изменение дохода.',
     },
     example: {
@@ -21,7 +23,7 @@ export const terms: Term[] = [
     },
     syllabus: '2.5',
     papers: ['P1', 'P2', 'P3'],
-    src,
+    src: { kind: 'textbook', title: book, locator: 'ch. 3, p. 98' },
     sim: 'econ.yed',
   },
   {

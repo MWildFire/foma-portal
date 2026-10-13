@@ -1,12 +1,15 @@
 import type { Term } from '../../../../src/contract/types';
 
+// Sources: the textbook, with a page locator for each term.
+const book = 'Tragakes, Economics for the IB Diploma: Coursebook (Cambridge University Press, 3rd ed.)';
+
 export const terms: Term[] = [
   {
     id: 'price-elasticity-of-supply',
     term: { en: 'price elasticity of supply (PES)', ru: 'ценовая эластичность предложения (price elasticity of supply, PES)' },
     def: {
-      en: 'The responsiveness of quantity supplied to a change in price: the percentage change in quantity supplied divided by the percentage change in price. It is positive for a normal supply curve.',
-      ru: 'Чувствительность величины предложения к изменению цены: процентное изменение величины предложения, делённое на процентное изменение цены. Для обычной кривой предложения значение положительное.',
+      en: 'How strongly quantity supplied responds to a change in price, measured along a given supply curve: (% change in quantity supplied) / (% change in price). It is positive for a normal supply curve.',
+      ru: 'Чувствительность величины предложения к изменению цены, измеряемая вдоль заданной кривой предложения: процентное изменение величины предложения, делённое на процентное изменение цены. Для обычной кривой предложения значение положительное.',
     },
     example: {
       en: 'A 4% rise in price that raises quantity supplied by 8% gives PES = 8 / 4 = 2.0.',
@@ -18,7 +21,7 @@ export const terms: Term[] = [
     },
     syllabus: '2.6',
     papers: ['P1', 'P2', 'P3'],
-    src: { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 2.6' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 3.3, p. 104' },
     sim: 'econ.pes',
   },
   {
@@ -38,7 +41,7 @@ export const terms: Term[] = [
     },
     syllabus: '2.6',
     papers: ['P1', 'P2', 'P3'],
-    src: { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 2.6' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 3.3, p. 105' },
     sim: 'econ.pes',
   },
   {
@@ -58,7 +61,7 @@ export const terms: Term[] = [
     },
     syllabus: '2.6',
     papers: ['P1', 'P2', 'P3'],
-    src: { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 2.6' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 3.3, p. 105' },
   },
   {
     id: 'unit-elastic-supply',
@@ -77,7 +80,7 @@ export const terms: Term[] = [
     },
     syllabus: '2.6',
     papers: ['P1', 'P2', 'P3'],
-    src: { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 2.6' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 3.3, p. 105' },
     sim: 'econ.pes',
   },
   {
@@ -97,7 +100,7 @@ export const terms: Term[] = [
     },
     syllabus: '2.6',
     papers: ['P1', 'P2', 'P3'],
-    src: { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 2.6' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 3.3, p. 105' },
     sim: 'econ.pes',
   },
   {
@@ -117,15 +120,15 @@ export const terms: Term[] = [
     },
     syllabus: '2.6',
     papers: ['P1', 'P2', 'P3'],
-    src: { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 2.6' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 3.3, p. 105' },
     sim: 'econ.pes',
   },
   {
     id: 'factor-mobility',
     term: { en: 'mobility of factors of production', ru: 'мобильность факторов производства (mobility of factors of production)' },
     def: {
-      en: 'How easily land, labour and capital can move from producing one good to producing another; high mobility makes supply more elastic.',
-      ru: 'Насколько легко земля, труд и капитал могут перейти от производства одного товара к производству другого; высокая мобильность делает предложение более эластичным.',
+      en: 'How easily and quickly land, labour and capital can move from producing one good to producing another; high mobility makes supply more elastic.',
+      ru: 'Насколько легко и быстро земля, труд и капитал могут перейти от производства одного товара к производству другого; высокая мобильность делает предложение более эластичным.',
     },
     example: {
       en: 'Farmland that can switch between wheat and barley lets producers respond quickly when the price of wheat rises.',
@@ -137,7 +140,7 @@ export const terms: Term[] = [
     },
     syllabus: '2.6',
     papers: ['P1', 'P2', 'P3'],
-    src: { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 2.6' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 3.3, p. 107' },
   },
   {
     id: 'spare-capacity',
@@ -156,6 +159,6 @@ export const terms: Term[] = [
     },
     syllabus: '2.6',
     papers: ['P1', 'P2', 'P3'],
-    src: { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 2.6' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 9.4, p. 287' },
   },
 ];

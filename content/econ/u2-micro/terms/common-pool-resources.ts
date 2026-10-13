@@ -1,6 +1,7 @@
 import type { SourceRef, Term } from '../../../../src/contract/types';
 
-// Common pool resources (IB DP Economics section 2.8). Definitions are in our own words; the source is the subject guide.
+// Common pool resources (IB DP Economics section 2.8). Definitions are in our own words. Sources: the textbook, with a page locator for each term it defines; the IB subject guide (2020) for open-access equilibrium and socially optimal use, which the book does not define.
+const book = 'Tragakes, Economics for the IB Diploma: Coursebook (Cambridge University Press, 3rd ed.)';
 const src: SourceRef = { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 2.8' };
 
 export const terms: Term[] = [
@@ -8,8 +9,8 @@ export const terms: Term[] = [
     id: 'common-pool-resource',
     term: { en: 'common pool resource', ru: 'общий ресурс (common pool resource)' },
     def: {
-      en: 'A resource that is rivalrous and non-excludable, so each user can take from it freely and reduces the amount left for others.',
-      ru: 'Ресурс, которым один пользователь уменьшает запас для других, и доступ к которому трудно ограничить; каждый может брать его, не платя.',
+      en: 'A resource that is not owned by anyone, has no price and is available to anyone without payment or restriction; it is rivalrous and non-excludable, so each user reduces the amount left for others.',
+      ru: 'Ресурс, которым никто не владеет, который не имеет цены и доступен каждому без платы и ограничений; он является соперничающим и неисключаемым, поэтому каждый пользователь уменьшает запас, оставшийся другим.',
     },
     example: {
       en: 'The sustainable catch of a shared bay is 1200 tonnes a year, and any boat can fish there without a licence.',
@@ -21,7 +22,7 @@ export const terms: Term[] = [
     },
     syllabus: '2.8',
     papers: ['P1', 'P2', 'P3'],
-    src,
+    src: { kind: 'textbook', title: book, locator: 'ch. 5.1, p. 144' },
     sim: 'econ.cpr',
   },
   {
@@ -41,14 +42,14 @@ export const terms: Term[] = [
     },
     syllabus: '2.8',
     papers: ['P1', 'P2', 'P3'],
-    src,
+    src: { kind: 'textbook', title: book, locator: 'ch. 5.1, p. 144' },
   },
   {
     id: 'non-excludability',
     term: { en: 'non-excludability', ru: 'неисключаемость (non-excludability)' },
     def: {
-      en: 'The characteristic of a good for which it is impossible, or very costly, to prevent people who do not pay from using it.',
-      ru: 'Свойство блага, при котором невозможно или очень дорого не допустить к его использованию тех, кто за него не платит.',
+      en: 'The characteristic of a good for which it is impossible, or very costly, to prevent people who do not pay from using it, so it can be used without restriction and may be overused and depleted.',
+      ru: 'Свойство блага, при котором невозможно или очень дорого не допустить к его использованию тех, кто за него не платит; поэтому им можно пользоваться без ограничений, и ресурс может перегружаться и истощаться.',
     },
     example: {
       en: 'Anyone with a boat can fish in the open bay, and policing the whole bay would cost AED 200000 a year.',
@@ -60,14 +61,14 @@ export const terms: Term[] = [
     },
     syllabus: '2.8',
     papers: ['P1', 'P2', 'P3'],
-    src,
+    src: { kind: 'textbook', title: book, locator: 'ch. 5.1, p. 144' },
   },
   {
     id: 'tragedy-of-the-commons',
     term: { en: 'tragedy of the commons', ru: 'трагедия общин (tragedy of the commons)' },
     def: {
-      en: 'The overuse and depletion of a common pool resource because each user takes more than is socially optimal, since the cost of depletion is shared by all users.',
-      ru: 'Чрезмерное использование и истощение общего ресурса: каждый берёт больше оптимального, потому что издержки истощения делятся между всеми пользователями.',
+      en: 'The overuse and depletion of a common pool resource where its use is unrestricted, because each user takes more than is socially optimal, since the cost of depletion is shared by all users.',
+      ru: 'Чрезмерное использование и истощение общего ресурса при неограниченном доступе к нему: каждый берёт больше оптимального, потому что издержки истощения делятся между всеми пользователями.',
     },
     example: {
       en: 'A boat that adds 1 tonne of catch earns AED 12 for itself, while the loss of future catches is shared by all boats.',
@@ -79,7 +80,7 @@ export const terms: Term[] = [
     },
     syllabus: '2.8',
     papers: ['P1', 'P2', 'P3'],
-    src,
+    src: { kind: 'textbook', title: book, locator: 'ch. 5.1, p. 145' },
   },
   {
     id: 'open-access-equilibrium',
@@ -138,6 +139,6 @@ export const terms: Term[] = [
     },
     syllabus: '2.8',
     papers: ['P1', 'P2', 'P3'],
-    src,
+    src: { kind: 'textbook', title: book, locator: 'ch. 5.3, p. 158' },
   },
 ];

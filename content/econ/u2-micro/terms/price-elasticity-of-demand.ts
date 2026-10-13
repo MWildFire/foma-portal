@@ -1,5 +1,7 @@
 import type { SourceRef, Term } from '../../../../src/contract/types';
 
+// Sources: the textbook (chapter and page) for terms it defines; the subject guide (section 2.5) for percentage-change.
+const book = 'Tragakes, Economics for the IB Diploma: Coursebook (Cambridge University Press, 3rd ed.)';
 const src: SourceRef = { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 2.5' };
 
 export const terms: Term[] = [
@@ -7,7 +9,7 @@ export const terms: Term[] = [
     id: 'elasticity',
     term: { en: 'elasticity', ru: 'эластичность (elasticity)' },
     def: {
-      en: 'The responsiveness of one variable to a change in another, measured as the percentage change in the first divided by the percentage change in the second.',
+      en: "The responsiveness of one variable to a change in another, measured as the ratio of the first variable's % change to the second's % change.",
       ru: 'Чувствительность одной величины к изменению другой, измеряемая как процентное изменение первой, делённое на процентное изменение второй.',
     },
     example: {
@@ -20,13 +22,13 @@ export const terms: Term[] = [
     },
     syllabus: '2.5',
     papers: ['P1', 'P2', 'P3'],
-    src,
+    src: { kind: 'textbook', title: book, locator: 'ch. 3, p. 84' },
   },
   {
     id: 'price-elasticity-of-demand',
     term: { en: 'price elasticity of demand', ru: 'ценовая эластичность спроса (price elasticity of demand)' },
     def: {
-      en: 'The responsiveness of quantity demanded to a change in price: the percentage change in quantity demanded divided by the percentage change in price.',
+      en: 'How strongly quantity demanded reacts to a change in price, measured as the ratio of the % change in quantity demanded to the % change in price.',
       ru: 'Чувствительность величины спроса к изменению цены: процентное изменение величины спроса, делённое на процентное изменение цены.',
     },
     example: {
@@ -39,13 +41,13 @@ export const terms: Term[] = [
     },
     syllabus: '2.5',
     papers: ['P1', 'P2', 'P3'],
-    src,
+    src: { kind: 'textbook', title: book, locator: 'ch. 3.1, p. 85' },
   },
   {
     id: 'elastic-demand',
     term: { en: 'elastic demand', ru: 'эластичный спрос (elastic demand)' },
     def: {
-      en: 'Demand for which the absolute value of PED is greater than 1, so quantity demanded changes by a larger percentage than price.',
+      en: 'Demand whose PED has an absolute size above 1, so quantity demanded changes by a larger percentage than price.',
       ru: 'Спрос, у которого модуль PED больше 1, поэтому величина спроса меняется на больший процент, чем цена.',
     },
     example: {
@@ -58,14 +60,14 @@ export const terms: Term[] = [
     },
     syllabus: '2.5',
     papers: ['P1', 'P2', 'P3'],
-    src,
+    src: { kind: 'textbook', title: book, locator: 'ch. 3.1, p. 87' },
     sim: 'econ.ped-linear',
   },
   {
     id: 'inelastic-demand',
     term: { en: 'inelastic demand', ru: 'неэластичный спрос (inelastic demand)' },
     def: {
-      en: 'Demand for which the absolute value of PED is less than 1, so quantity demanded changes by a smaller percentage than price.',
+      en: 'Demand whose PED has an absolute size below 1, so quantity demanded changes by a smaller percentage than price.',
       ru: 'Спрос, у которого модуль PED меньше 1, поэтому величина спроса меняется на меньший процент, чем цена.',
     },
     example: {
@@ -78,14 +80,14 @@ export const terms: Term[] = [
     },
     syllabus: '2.5',
     papers: ['P1', 'P2', 'P3'],
-    src,
+    src: { kind: 'textbook', title: book, locator: 'ch. 3.1, p. 87' },
     sim: 'econ.ped-linear',
   },
   {
     id: 'unit-elastic-demand',
     term: { en: 'unit elastic demand', ru: 'спрос с единичной эластичностью (unit elastic demand)' },
     def: {
-      en: 'Demand for which the absolute value of PED is exactly 1, so the percentage change in quantity demanded equals the percentage change in price.',
+      en: 'Demand whose PED has an absolute size of exactly 1, so quantity demanded moves by the same percentage as price.',
       ru: 'Спрос, у которого модуль PED равен 1, поэтому процентное изменение величины спроса равно процентному изменению цены.',
     },
     example: {
@@ -98,7 +100,7 @@ export const terms: Term[] = [
     },
     syllabus: '2.5',
     papers: ['P1', 'P2', 'P3'],
-    src,
+    src: { kind: 'textbook', title: book, locator: 'ch. 3.1, p. 87' },
     sim: 'econ.ped-linear',
   },
   {
@@ -118,7 +120,7 @@ export const terms: Term[] = [
     },
     syllabus: '2.5',
     papers: ['P1', 'P2', 'P3'],
-    src,
+    src: { kind: 'textbook', title: book, locator: 'ch. 3.1, p. 92' },
     sim: 'econ.ped-linear',
   },
   {
@@ -157,7 +159,7 @@ export const terms: Term[] = [
     },
     syllabus: '2.5',
     papers: ['P1', 'P2', 'P3'],
-    src,
+    src: { kind: 'textbook', title: book, locator: 'ch. 3, p. 99' },
   },
   {
     id: 'luxury-good',
@@ -176,6 +178,6 @@ export const terms: Term[] = [
     },
     syllabus: '2.5',
     papers: ['P1', 'P2', 'P3'],
-    src,
+    src: { kind: 'textbook', title: book, locator: 'ch. 3, p. 99' },
   },
 ];

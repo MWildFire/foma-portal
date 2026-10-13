@@ -1,7 +1,7 @@
-import type { SourceRef, Term } from '../../../../src/contract/types';
+import type { Term } from '../../../../src/contract/types';
 
-// Competitive market equilibrium (IB DP Economics section 2.3). Definitions are in our own words.
-const src: SourceRef = { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 2.3' };
+// Competitive market equilibrium (IB DP Economics section 2.3). Definitions are in our own words; the source is the textbook, with a page locator for each term.
+const book = 'Tragakes, Economics for the IB Diploma: Coursebook (Cambridge University Press, 3rd ed.)';
 
 export const terms: Term[] = [
   {
@@ -22,13 +22,13 @@ export const terms: Term[] = [
     sim: 'econ.equilibrium',
     syllabus: '2.3',
     papers: ['P1', 'P2', 'P3'],
-    src,
+    src: { kind: 'textbook', title: book, locator: 'ch. 2.4, p. 59' },
   },
   {
     id: 'excess-demand',
     term: { en: 'excess demand (shortage)', ru: 'избыточный спрос (excess demand)' },
     def: {
-      en: 'A situation where quantity demanded is greater than quantity supplied, which happens at a price below equilibrium; the price tends to rise.',
+      en: 'A situation where quantity demanded exceeds quantity supplied, which happens at a price below equilibrium; the price tends to rise.',
       ru: 'Ситуация, когда величина спроса больше величины предложения (дефицит, shortage); это происходит при цене ниже равновесной, и цена имеет тенденцию расти.',
     },
     example: {
@@ -42,13 +42,13 @@ export const terms: Term[] = [
     sim: 'econ.equilibrium',
     syllabus: '2.3',
     papers: ['P1', 'P2', 'P3'],
-    src,
+    src: { kind: 'textbook', title: book, locator: 'ch. 2.4, p. 58' },
   },
   {
     id: 'excess-supply',
     term: { en: 'excess supply (surplus)', ru: 'избыточное предложение (excess supply)' },
     def: {
-      en: 'A situation where quantity supplied is greater than quantity demanded, which happens at a price above equilibrium; the price tends to fall.',
+      en: 'A situation where quantity supplied exceeds quantity demanded, which happens at a price above equilibrium; the price tends to fall.',
       ru: 'Ситуация, когда величина предложения больше величины спроса; это происходит при цене выше равновесной, и цена имеет тенденцию падать.',
     },
     example: {
@@ -62,14 +62,14 @@ export const terms: Term[] = [
     sim: 'econ.equilibrium',
     syllabus: '2.3',
     papers: ['P1', 'P2', 'P3'],
-    src,
+    src: { kind: 'textbook', title: book, locator: 'ch. 2.4, p. 58' },
   },
   {
     id: 'price-mechanism',
     term: { en: 'price mechanism', ru: 'ценовой механизм (price mechanism)' },
     def: {
-      en: 'The way changes in price signal scarcity and surplus and coordinate buyers and sellers, so that the market moves towards equilibrium without central direction.',
-      ru: 'Способ, которым изменения цены сигнализируют о дефиците или избытке и координируют покупателей и продавцов, поэтому рынок движется к равновесию без центрального управления.',
+      en: 'Prices that competitive markets set through supply and demand, acting as signals and incentives that allocate resources without central direction.',
+      ru: 'Цены, которые конкурентные рынки формируют через спрос и предложение, служа сигналами и стимулами, распределяют ресурсы без централизованного управления.',
     },
     example: {
       en: 'When a shortage pushes the price of bottled water up from AED 2.00 to AED 2.50, buyers reduce quantity demanded and producers supply more until the market clears.',
@@ -82,13 +82,13 @@ export const terms: Term[] = [
     sim: 'econ.equilibrium',
     syllabus: '2.3',
     papers: ['P1', 'P2', 'P3'],
-    src,
+    src: { kind: 'textbook', title: book, locator: 'ch. 2.5, p. 63' },
   },
   {
     id: 'consumer-surplus',
     term: { en: 'consumer surplus', ru: 'излишек потребителя (consumer surplus)' },
     def: {
-      en: 'The difference between the maximum price consumers are willing to pay and the price they actually pay, summed over the units bought; it is the area above price and below demand.',
+      en: 'The difference between the highest amount buyers would pay and the price they actually pay, summed over the units bought; it is the area above price and below demand.',
       ru: 'Разница между максимальной ценой, которую потребители готовы заплатить, и реально уплаченной ценой, сложенная по всем купленным единицам; на графике это площадь над ценой и под кривой спроса.',
     },
     example: {
@@ -102,7 +102,7 @@ export const terms: Term[] = [
     sim: 'econ.surplus',
     syllabus: '2.3',
     papers: ['P1', 'P2', 'P3'],
-    src,
+    src: { kind: 'textbook', title: book, locator: 'ch. 2.5, p. 67' },
   },
   {
     id: 'producer-surplus',
@@ -122,7 +122,7 @@ export const terms: Term[] = [
     sim: 'econ.surplus',
     syllabus: '2.3',
     papers: ['P1', 'P2', 'P3'],
-    src,
+    src: { kind: 'textbook', title: book, locator: 'ch. 2.5, p. 67' },
   },
   {
     id: 'perfect-competition',
@@ -142,7 +142,7 @@ export const terms: Term[] = [
     sim: 'econ.perfect-competition-sr',
     syllabus: '2.3',
     papers: ['P1', 'P2', 'P3'],
-    src,
+    src: { kind: 'textbook', title: book, locator: 'ch. 7.1, p. 197' },
   },
   {
     id: 'price-taker',
@@ -162,7 +162,7 @@ export const terms: Term[] = [
     sim: 'econ.perfect-competition-sr',
     syllabus: '2.3',
     papers: ['P1', 'P2', 'P3'],
-    src,
+    src: { kind: 'textbook', title: book, locator: 'ch. 7.3, p. 209' },
   },
   {
     id: 'supernormal-profit',
@@ -182,14 +182,14 @@ export const terms: Term[] = [
     sim: 'econ.perfect-competition-sr',
     syllabus: '2.3',
     papers: ['P1', 'P2', 'P3'],
-    src,
+    src: { kind: 'textbook', title: book, locator: 'ch. 7.3, p. 208' },
   },
   {
     id: 'normal-profit',
     term: { en: 'normal profit', ru: 'нормальная прибыль (normal profit)' },
     def: {
-      en: 'The minimum profit needed to keep a firm in its market: total revenue equals total cost, including opportunity cost, so economic profit is zero.',
-      ru: 'Минимальная прибыль, необходимая, чтобы фирма оставалась на рынке: выручка равна общим издержкам, включая альтернативные издержки, поэтому экономическая прибыль равна нулю.',
+      en: 'The minimum revenue a firm must receive to keep the business running rather than shut down: total revenue equals total cost, including opportunity cost, so economic profit is zero.',
+      ru: 'Минимальная выручка, которую фирма должна получать, чтобы продолжать работу, а не закрываться: выручка равна общим издержкам, включая альтернативные издержки, поэтому экономическая прибыль равна нулю.',
     },
     example: {
       en: 'A firm whose total cost is AED 3000, including AED 400 of income the owner could earn elsewhere, earns normal profit when its total revenue is AED 3000.',
@@ -202,6 +202,6 @@ export const terms: Term[] = [
     sim: 'econ.perfect-competition-lr',
     syllabus: '2.3',
     papers: ['P1', 'P2', 'P3'],
-    src,
+    src: { kind: 'textbook', title: book, locator: 'ch. 7.2, p. 207' },
   },
 ];

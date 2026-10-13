@@ -1,6 +1,8 @@
 import type { SourceRef, Term } from '../../../../src/contract/types';
 
-// Public goods (IB DP Economics section 2.9). Definitions are in our own words; the source is the subject guide.
+// Public goods (IB DP Economics section 2.9). Definitions are in our own words. Sources: the textbook (chapter and page)
+// for terms it defines; the subject guide (section 2.9) for vertical-summation, optimal-public-good-quantity and public-provision.
+const book = 'Tragakes, Economics for the IB Diploma: Coursebook (Cambridge University Press, 3rd ed.)';
 const src: SourceRef = { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 2.9' };
 
 export const terms: Term[] = [
@@ -8,7 +10,7 @@ export const terms: Term[] = [
     id: 'public-good',
     term: { en: 'public good', ru: 'общественное благо (public good)' },
     def: {
-      en: "A good that is non-rivalrous and non-excludable, so one person's use does not reduce the amount for others and people cannot be kept from using it.",
+      en: "A good with two features: one person's use does not reduce what is left for others (non-rivalrous), and no one can be excluded from using it (non-excludable).",
       ru: 'Благо, которое неконкурентно в потреблении и неисключаемо: его использование одним человеком не уменьшает объём для других, а тех, кто не платит, нельзя легко исключить.',
     },
     example: {
@@ -21,7 +23,7 @@ export const terms: Term[] = [
     },
     syllabus: '2.9',
     papers: ['P1', 'P2', 'P3'],
-    src,
+    src: { kind: 'textbook', title: book, locator: 'ch. 6.3, p. 184' },
     sim: 'econ.public-goods',
   },
   {
@@ -41,13 +43,13 @@ export const terms: Term[] = [
     },
     syllabus: '2.9',
     papers: ['P1', 'P2', 'P3'],
-    src,
+    src: { kind: 'textbook', title: book, locator: 'ch. 6.3, p. 185' },
   },
   {
     id: 'free-rider',
     term: { en: 'free rider', ru: 'безбилетник (free rider)' },
     def: {
-      en: 'A person who enjoys the benefit of a good without paying for it, because it is impossible or too costly to exclude them from using it.',
+      en: 'A person who gets the benefit of a good while paying nothing, because it is impossible or too costly to exclude them from using it.',
       ru: 'Человек, который получает выгоду от блага, не платя за него, потому что исключить его из использования невозможно или слишком дорого.',
     },
     example: {
@@ -60,7 +62,7 @@ export const terms: Term[] = [
     },
     syllabus: '2.9',
     papers: ['P1', 'P2', 'P3'],
-    src,
+    src: { kind: 'textbook', title: book, locator: 'ch. 6.3, p. 185' },
   },
   {
     id: 'free-rider-problem',
@@ -79,7 +81,7 @@ export const terms: Term[] = [
     },
     syllabus: '2.9',
     papers: ['P1', 'P2', 'P3'],
-    src,
+    src: { kind: 'textbook', title: book, locator: 'ch. 6.3, p. 185' },
   },
   {
     id: 'vertical-summation',
@@ -124,8 +126,8 @@ export const terms: Term[] = [
     id: 'quasi-public-good',
     term: { en: 'quasi-public good', ru: 'квазиобщественное благо (quasi-public good)' },
     def: {
-      en: 'A good that is partly non-rival or partly non-excludable, so it can be provided privately with some free riding or congestion, such as a toll road or a park.',
-      ru: 'Благо, которое частично неконкурентно или частично неисключаемо, поэтому его можно предоставлять частным образом, но с некоторым безбилетничеством или перегрузкой, например платная дорога или парк.',
+      en: "A good that combines features of both: non-rivalrous like a public good, but excludable like a private good, so it can be sold; also called an 'impure' public good, for example a toll road or a museum that charges an entrance fee.",
+      ru: 'Благо, которое неконкурентно в потреблении, как общественное благо, но исключаемо, как частное благо, поэтому его можно продавать; также называется «нечистым» общественным благом, например платная дорога или музей с платой за вход.',
     },
     example: {
       en: 'A toll road charging AED 5 per trip can exclude non-payers, but it becomes congested at peak times and is then partly rival.',
@@ -137,7 +139,7 @@ export const terms: Term[] = [
     },
     syllabus: '2.9',
     papers: ['P1', 'P2', 'P3'],
-    src,
+    src: { kind: 'textbook', title: book, locator: 'ch. 6.3, p. 186' },
   },
   {
     id: 'public-provision',

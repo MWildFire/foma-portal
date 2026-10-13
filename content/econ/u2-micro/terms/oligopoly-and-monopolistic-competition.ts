@@ -1,5 +1,8 @@
 import type { Term } from '../../../../src/contract/types';
 
+// Sources: the textbook (chapter and page) for terms it defines; the subject guide (section 2.11) for excess-capacity and dominant-strategy.
+const book = 'Tragakes, Economics for the IB Diploma: Coursebook (Cambridge University Press, 3rd ed.)';
+
 export const terms: Term[] = [
   {
     id: 'monopolistic-competition',
@@ -18,7 +21,7 @@ export const terms: Term[] = [
     },
     syllabus: '2.11',
     papers: ['P1', 'P2', 'P3'],
-    src: { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 2.11' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 7.1, p. 197' },
     sim: 'econ.monopolistic-competition',
   },
   {
@@ -38,7 +41,7 @@ export const terms: Term[] = [
     },
     syllabus: '2.11',
     papers: ['P1', 'P2', 'P3'],
-    src: { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 2.11' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 7.1, p. 196' },
   },
   {
     id: 'excess-capacity',
@@ -76,14 +79,14 @@ export const terms: Term[] = [
     },
     syllabus: '2.11',
     papers: ['P1', 'P2', 'P3'],
-    src: { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 2.11' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 7.6, p. 230' },
   },
   {
     id: 'interdependence',
     term: { en: 'interdependence', ru: 'взаимозависимость (interdependence)' },
     def: {
-      en: "The situation in which a firm's profit depends on the decisions of its rivals, so each firm must anticipate their reactions when choosing its price or output.",
-      ru: 'Ситуация, в которой прибыль фирмы зависит от решений её конкурентов, поэтому при выборе цены или выпуска каждая фирма должна предвидеть их реакцию.',
+      en: "The situation in which economic decision-makers affect and rely on one another: a firm's profit depends on its rivals' decisions, so each firm must anticipate their reactions when choosing its price or output.",
+      ru: 'Ситуация, в которой экономические субъекты, принимающие решения, влияют друг на друга и зависят друг от друга: прибыль фирмы зависит от решений её конкурентов, поэтому при выборе цены или выпуска каждая фирма должна предвидеть их реакцию.',
     },
     example: {
       en: 'If a petrol station cuts its price from AED 2.50 to AED 2.30 per litre, nearby stations must decide within days whether to match it, because their sales depend on the decision.',
@@ -95,7 +98,7 @@ export const terms: Term[] = [
     },
     syllabus: '2.11',
     papers: ['P1', 'P2', 'P3'],
-    src: { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 2.11' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 1.1, p. 5' },
   },
   {
     id: 'collusion',
@@ -114,7 +117,7 @@ export const terms: Term[] = [
     },
     syllabus: '2.11',
     papers: ['P1', 'P2', 'P3'],
-    src: { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 2.11' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 7.6, p. 231' },
   },
   {
     id: 'price-leadership',
@@ -133,7 +136,7 @@ export const terms: Term[] = [
     },
     syllabus: '2.11',
     papers: ['P1', 'P2', 'P3'],
-    src: { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 2.11' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 7.6, p. 234' },
   },
   {
     id: 'game-theory',
@@ -152,7 +155,7 @@ export const terms: Term[] = [
     },
     syllabus: '2.11',
     papers: ['P1', 'P2', 'P3'],
-    src: { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 2.11' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 7.6, p. 231' },
     sim: 'econ.oligopoly-game',
   },
   {
@@ -192,7 +195,7 @@ export const terms: Term[] = [
     },
     syllabus: '2.11',
     papers: ['P1', 'P2', 'P3'],
-    src: { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 2.11' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 7.6, p. 231' },
     sim: 'econ.oligopoly-game',
   },
 ];

@@ -1,14 +1,14 @@
-import type { SourceRef, Term } from '../../../../src/contract/types';
+import type { Term } from '../../../../src/contract/types';
 
-// Supply (IB DP Economics section 2.2). Definitions are in our own words; the source is the subject guide.
-const src: SourceRef = { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 2.2' };
+// Supply (IB DP Economics section 2.2). Definitions are in our own words. Sources: the textbook (chapter 2.3, page per term).
+const book = 'Tragakes, Economics for the IB Diploma: Coursebook (Cambridge University Press, 3rd ed.)';
 
 export const terms: Term[] = [
   {
     id: 'supply',
     term: { en: 'supply', ru: 'предложение (supply)' },
     def: {
-      en: 'The quantity of a good or service that producers are willing and able to sell at each price, in a given period of time.',
+      en: 'The quantity of a product or service that producers are prepared and able to sell at each price over a given period of time.',
       ru: 'Количество товара или услуги, которое производители готовы и могут продать по каждой цене за определённый период времени.',
     },
     example: {
@@ -21,14 +21,14 @@ export const terms: Term[] = [
     },
     syllabus: '2.2',
     papers: ['P1', 'P2', 'P3'],
-    src,
+    src: { kind: 'textbook', title: book, locator: 'ch. 2.3, p. 49' },
   },
   {
     id: 'law-of-supply',
     term: { en: 'law of supply', ru: 'закон предложения (law of supply)' },
     def: {
-      en: 'Ceteris paribus, price and quantity supplied are positively related: a rise in price increases quantity supplied and a fall reduces it.',
-      ru: 'При прочих равных (ceteris paribus) цена и величина предложения связаны прямой зависимостью: рост цены увеличивает величину предложения, а падение её уменьшает.',
+      en: 'Ceteris paribus, over a given time period, price and quantity supplied are positively related: a rise in price increases quantity supplied and a fall reduces it.',
+      ru: 'При прочих равных (ceteris paribus) за определённый период времени цена и величина предложения связаны прямой зависимостью: рост цены увеличивает величину предложения, а падение её уменьшает.',
     },
     example: {
       en: 'When the price of rice rises from AED 3 to AED 4 per kilogram, farmers supply 800 tonnes a year instead of 600 tonnes.',
@@ -41,13 +41,13 @@ export const terms: Term[] = [
     sim: 'econ.supply-shift',
     syllabus: '2.2',
     papers: ['P1', 'P2', 'P3'],
-    src,
+    src: { kind: 'textbook', title: book, locator: 'ch. 2.3, p. 50' },
   },
   {
     id: 'market-supply',
     term: { en: 'market supply', ru: 'рыночное предложение (market supply)' },
     def: {
-      en: 'The sum of the quantities supplied by all firms in a market at each price; on a graph it is the horizontal sum of the individual supply curves.',
+      en: 'The total quantity that all firms in a market supply at each price; on a graph it is the horizontal sum of the individual supply curves.',
       ru: 'Сумма величин предложения всех фирм на рынке при каждой цене; на графике это горизонтальная сумма индивидуальных кривых предложения.',
     },
     example: {
@@ -60,13 +60,13 @@ export const terms: Term[] = [
     },
     syllabus: '2.2',
     papers: ['P1', 'P2', 'P3'],
-    src,
+    src: { kind: 'textbook', title: book, locator: 'ch. 2.3, p. 51' },
   },
   {
     id: 'supply-curve',
     term: { en: 'supply curve', ru: 'кривая предложения (supply curve)' },
     def: {
-      en: 'A graph of the relationship between price and quantity supplied, with price on the vertical axis and quantity on the horizontal axis; it usually slopes upwards.',
+      en: 'A graph showing how quantity supplied varies with price: price is measured up the vertical axis, quantity across the horizontal axis; the curve usually slopes upwards.',
       ru: 'График зависимости величины предложения от цены: цена на вертикальной оси, количество на горизонтальной; обычно кривая идёт вверх.',
     },
     example: {
@@ -80,14 +80,14 @@ export const terms: Term[] = [
     sim: 'econ.supply-shift',
     syllabus: '2.2',
     papers: ['P1', 'P2', 'P3'],
-    src,
+    src: { kind: 'textbook', title: book, locator: 'ch. 2.3, p. 50' },
   },
   {
     id: 'cost-of-production',
     term: { en: 'cost of production', ru: 'издержки производства (cost of production)' },
     def: {
-      en: 'The total expense of the factors of production (labour, capital, land and raw materials) used to make a good; higher costs reduce supply at each price.',
-      ru: 'Совокупные расходы на факторы производства (factors of production): труд, капитал, землю и сырьё; рост издержек уменьшает предложение при каждой цене.',
+      en: 'The total expense of the inputs (factors of production) used to make a good, namely land, labour, capital and entrepreneurship; higher costs reduce supply at each price.',
+      ru: 'Совокупные расходы на факторы производства (factors of production): землю, труд, капитал и предпринимательскую способность; рост издержек уменьшает предложение при каждой цене.',
     },
     example: {
       en: 'When the price of flour rises from AED 2 to AED 3 per kilogram, the cost of making a loaf rises, so bakeries supply fewer loaves at each price.',
@@ -99,7 +99,7 @@ export const terms: Term[] = [
     },
     syllabus: '2.2',
     papers: ['P1', 'P2', 'P3'],
-    src,
+    src: { kind: 'textbook', title: book, locator: 'ch. 2.3, p. 52' },
   },
   {
     id: 'substitutes-in-production',
@@ -118,7 +118,7 @@ export const terms: Term[] = [
     },
     syllabus: '2.2',
     papers: ['P1', 'P2', 'P3'],
-    src,
+    src: { kind: 'textbook', title: book, locator: 'ch. 2.3, p. 52' },
   },
   {
     id: 'joint-supply',
@@ -137,13 +137,13 @@ export const terms: Term[] = [
     },
     syllabus: '2.2',
     papers: ['P1', 'P2', 'P3'],
-    src,
+    src: { kind: 'textbook', title: book, locator: 'ch. 2.3, p. 52' },
   },
   {
     id: 'movement-along-supply-curve',
     term: { en: 'movement along the supply curve', ru: 'движение вдоль кривой предложения (movement along the supply curve)' },
     def: {
-      en: 'A change in quantity supplied caused only by a change in the price of the good itself; producers move to another point on the same supply curve.',
+      en: "A change in quantity supplied that results only from the good's own price; producers move to another point on the same supply curve.",
       ru: 'Изменение величины предложения, вызванное только изменением цены самого товара: производители переходят в другую точку на той же кривой предложения.',
     },
     example: {
@@ -157,7 +157,7 @@ export const terms: Term[] = [
     sim: 'econ.supply-shift',
     syllabus: '2.2',
     papers: ['P1', 'P2', 'P3'],
-    src,
+    src: { kind: 'textbook', title: book, locator: 'ch. 2.3, p. 52' },
   },
   {
     id: 'shift-of-supply-curve',
@@ -177,6 +177,6 @@ export const terms: Term[] = [
     sim: 'econ.supply-shift',
     syllabus: '2.2',
     papers: ['P1', 'P2', 'P3'],
-    src,
+    src: { kind: 'textbook', title: book, locator: 'ch. 2.3, p. 52' },
   },
 ];

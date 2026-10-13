@@ -1,15 +1,15 @@
-import type { SourceRef, Term } from '../../../../src/contract/types';
+import type { Term } from '../../../../src/contract/types';
 
-// Demand (IB DP Economics section 2.1). Definitions are in our own words; the source is the subject guide.
-const src: SourceRef = { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 2.1' };
+// Demand (IB DP Economics section 2.1). Definitions are in our own words; the source is the textbook, with a page locator for each term.
+const book = 'Tragakes, Economics for the IB Diploma: Coursebook (Cambridge University Press, 3rd ed.)';
 
 export const terms: Term[] = [
   {
     id: 'demand',
     term: { en: 'demand', ru: 'спрос (demand)' },
     def: {
-      en: 'The quantity of a good or service that consumers are willing and able to buy at each price, in a given period of time.',
-      ru: 'Количество товара или услуги, которое потребители готовы и могут купить по каждой цене за определённый период времени.',
+      en: 'The quantity of goods or services that buyers are willing and able to purchase at each price during a given time period, ceteris paribus.',
+      ru: 'Количество товара или услуги, которое потребители готовы и могут купить по каждой цене за определённый период времени при прочих равных условиях (ceteris paribus).',
     },
     example: {
       en: 'At AED 6 per unit buyers want 120 units a week; at AED 4 per unit they want 160 units a week.',
@@ -21,14 +21,14 @@ export const terms: Term[] = [
     },
     syllabus: '2.1',
     papers: ['P1', 'P2', 'P3'],
-    src,
+    src: { kind: 'textbook', title: book, locator: 'ch. 2.2, p. 43' },
   },
   {
     id: 'law-of-demand',
     term: { en: 'law of demand', ru: 'закон спроса (law of demand)' },
     def: {
-      en: 'Ceteris paribus, price and quantity demanded are inversely related: a fall in price increases quantity demanded and a rise in price reduces it.',
-      ru: 'При прочих равных (ceteris paribus) цена и величина спроса связаны обратной зависимостью: падение цены увеличивает величину спроса, а рост цены её уменьшает.',
+      en: 'Ceteris paribus and over a given period of time, price and quantity demanded are inversely related: a fall in price increases quantity demanded and a rise in price reduces it.',
+      ru: 'При прочих равных (ceteris paribus) и за определённый период времени цена и величина спроса связаны обратной зависимостью: падение цены увеличивает величину спроса, а рост цены её уменьшает.',
     },
     example: {
       en: 'When the price of a cinema ticket falls from AED 40 to AED 30, quantity demanded rises from 500 to 600 tickets a week.',
@@ -41,14 +41,14 @@ export const terms: Term[] = [
     sim: 'econ.demand-shift',
     syllabus: '2.1',
     papers: ['P1', 'P2', 'P3'],
-    src,
+    src: { kind: 'textbook', title: book, locator: 'ch. 2.2, p. 44' },
   },
   {
     id: 'market-demand',
     term: { en: 'market demand', ru: 'рыночный спрос (market demand)' },
     def: {
-      en: 'The sum of the quantities demanded by all consumers in a market at each price; on a graph it is the horizontal sum of the individual demand curves.',
-      ru: 'Сумма величин спроса всех покупателей на рынке при каждой цене; на графике это горизонтальная сумма индивидуальных кривых спроса.',
+      en: 'The sum of the quantities that all buyers in a market demand at each price, in a given period of time, ceteris paribus; on a graph it is the horizontal sum of the individual demand curves.',
+      ru: 'Сумма величин спроса всех покупателей на рынке при каждой цене за определённый период времени при прочих равных условиях (ceteris paribus); на графике это горизонтальная сумма индивидуальных кривых спроса.',
     },
     example: {
       en: 'At AED 6, consumer A buys 4 units and consumer B buys 2 units, so market demand at AED 6 is 6 units.',
@@ -60,13 +60,13 @@ export const terms: Term[] = [
     },
     syllabus: '2.1',
     papers: ['P1', 'P2', 'P3'],
-    src,
+    src: { kind: 'textbook', title: book, locator: 'ch. 2.2, p. 44' },
   },
   {
     id: 'demand-curve',
     term: { en: 'demand curve', ru: 'кривая спроса (demand curve)' },
     def: {
-      en: 'A graph of the relationship between price and quantity demanded, with price on the vertical axis and quantity on the horizontal axis; it slopes downwards.',
+      en: 'A graph of quantity demanded against price: price runs up the Y (vertical) axis and quantity along the X (horizontal) axis; it slopes downwards.',
       ru: 'График зависимости величины спроса от цены: цена на вертикальной оси, количество на горизонтальной; кривая идёт вниз.',
     },
     example: {
@@ -80,7 +80,7 @@ export const terms: Term[] = [
     sim: 'econ.demand-shift',
     syllabus: '2.1',
     papers: ['P1', 'P2', 'P3'],
-    src,
+    src: { kind: 'textbook', title: book, locator: 'ch. 2.2, p. 44' },
   },
   {
     id: 'normal-good',
@@ -100,7 +100,7 @@ export const terms: Term[] = [
     sim: 'econ.yed',
     syllabus: '2.1',
     papers: ['P1', 'P2', 'P3'],
-    src,
+    src: { kind: 'textbook', title: book, locator: 'ch. 2.2, p. 45' },
   },
   {
     id: 'inferior-good',
@@ -120,7 +120,7 @@ export const terms: Term[] = [
     sim: 'econ.yed',
     syllabus: '2.1',
     papers: ['P1', 'P2', 'P3'],
-    src,
+    src: { kind: 'textbook', title: book, locator: 'ch. 2.2, p. 45' },
   },
   {
     id: 'substitute-goods',
@@ -140,7 +140,7 @@ export const terms: Term[] = [
     sim: 'econ.xed',
     syllabus: '2.1',
     papers: ['P1', 'P2', 'P3'],
-    src,
+    src: { kind: 'textbook', title: book, locator: 'ch. 2.2, p. 45' },
   },
   {
     id: 'complementary-goods',
@@ -160,13 +160,13 @@ export const terms: Term[] = [
     sim: 'econ.xed',
     syllabus: '2.1',
     papers: ['P1', 'P2', 'P3'],
-    src,
+    src: { kind: 'textbook', title: book, locator: 'ch. 2.2, p. 46' },
   },
   {
     id: 'movement-along-demand-curve',
     term: { en: 'movement along the demand curve', ru: 'движение вдоль кривой спроса (movement along the demand curve)' },
     def: {
-      en: 'A change in quantity demanded caused only by a change in the price of the good itself; buyers move to another point on the same demand curve.',
+      en: "A change in quantity demanded caused only by the good's own price; buyers move to another point on the same demand curve.",
       ru: 'Изменение величины спроса, вызванное только изменением цены самого товара: покупатели переходят в другую точку на той же кривой спроса.',
     },
     example: {
@@ -180,7 +180,7 @@ export const terms: Term[] = [
     sim: 'econ.demand-shift',
     syllabus: '2.1',
     papers: ['P1', 'P2', 'P3'],
-    src,
+    src: { kind: 'textbook', title: book, locator: 'ch. 2.2, p. 46' },
   },
   {
     id: 'shift-of-demand-curve',
@@ -200,6 +200,6 @@ export const terms: Term[] = [
     sim: 'econ.demand-shift',
     syllabus: '2.1',
     papers: ['P1', 'P2', 'P3'],
-    src,
+    src: { kind: 'textbook', title: book, locator: 'ch. 2.2, p. 46' },
   },
 ];
