@@ -53,6 +53,12 @@ export interface Connector {
   group: GroupKey;
 }
 
+// The gloss next to a connector. EN shows the English alone; RU shows the Russian with the English in brackets, as the
+// glossary does, so a Russian reader still sees the English term.
+export function meaningText(connector: Pick<Connector, 'en' | 'ru'>, lang: Lang): string {
+  return lang === 'en' ? connector.en : `${connector.ru} (${connector.en})`;
+}
+
 // The part of a term the sort needs (a FrTerm has these fields).
 export interface TermLike {
   id: string;

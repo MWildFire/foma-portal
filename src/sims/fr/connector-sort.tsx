@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import type { Lang } from '../../contract/types';
 import { terms } from '../../../content/fr/terms/connectors';
-import { GROUPS, buildRound, connectorsFrom, countRight, groupLabel, type Connector, type GroupKey } from './connector-logic';
+import { GROUPS, buildRound, connectorsFrom, countRight, groupLabel, meaningText, type Connector, type GroupKey } from './connector-logic';
 
 // The sort for p1-connectors. Each set has two connectors from every one of the nine functions, in a shuffled order.
 // The logic is in connector-logic.ts; the groups are fixed by the connector ids there.
@@ -78,7 +78,7 @@ export default function ConnectorSort({ lang }: { lang: Lang }) {
               <div>
                 <strong lang="fr">{c.fr}</strong>
                 <span style={{ marginLeft: 8, opacity: 0.8 }}>
-                  {c.en} · {c.ru}
+                  {meaningText(c, lang)}
                 </span>
               </div>
               <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: 8 }}>

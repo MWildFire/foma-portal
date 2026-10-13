@@ -2,7 +2,7 @@
 // Checks the pure logic of the connector sort against the real connector file (content/fr/terms/connectors.ts).
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { GROUPS, buildRound, connectorsFrom, countRight, groupLabel, groupOf } from '../src/sims/fr/connector-logic.ts';
+import { GROUPS, buildRound, connectorsFrom, countRight, groupLabel, groupOf, meaningText } from '../src/sims/fr/connector-logic.ts';
 import { terms } from '../content/fr/terms/connectors.ts';
 
 const id = n => `cn-${String(n).padStart(3, '0')}`;
@@ -86,4 +86,12 @@ test('groupLabel gives a distinct English and Russian name for each function', (
   assert.equal(groupLabel('cause', 'ru'), 'Причина и следствие');
   assert.equal(new Set(GROUPS.map(g => groupLabel(g.key, 'en'))).size, 9);
   assert.equal(new Set(GROUPS.map(g => groupLabel(g.key, 'ru'))).size, 9);
+});
+
+test('the gloss is English alone in EN, and Russian with the English in brackets in RU, for every connector', () => {
+  for (const c of connectorsFrom(terms)) {
+    assert.equal(meaningText(c, 'en'), c.en, c.id);
+    assert.doesNotMatch(meaningText(c, 'en'), /\p{Script=Cyrillic}/u, c.id);
+    assert.equal(meaningText(c, 'ru'), `${c.ru} (${c.en})`, c.id);
+  }
 });
