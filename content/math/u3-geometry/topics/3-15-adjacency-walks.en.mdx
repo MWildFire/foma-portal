@@ -16,7 +16,7 @@ For a strongly connected directed graph (every vertex can be reached from every 
 
 <Callout kind="define">Walk: a sequence of vertices in which each consecutive pair is joined by an edge; its length is the number of edges. The number of walks of length $k$ from $i$ to $j$ is the entry in row $i$, column $j$ of $A^k$.</Callout>
 
-<Callout kind="gdc">Enter the adjacency matrix as a matrix, then take a matrix power for $A^k$. Read the entry in the row of the start vertex and the column of the end vertex. For walks of length at most $k$, add the entries in that position of $A$, $A^2$, up to $A^k$.</Callout>
+<Callout kind="gdc">Create the adjacency matrix with the `templates` key and the matrix icon, store it as `A` with `ctrl+var`, and type `A^3` for $A^3$. Read the entry in the row of the start vertex and the column of the end vertex. For walks of length at most $k$, add that entry from $A$, $A^2$, up to $A^k$.</Callout>
 
 ## Worked example
 
