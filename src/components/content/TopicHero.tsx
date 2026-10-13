@@ -1,43 +1,48 @@
-import { ReactNode } from 'react';
+import type { ReactNode } from 'react';
 
 interface TopicHeroProps {
   title: string;
-  intro: string;
+  intro?: string;
   icon?: ReactNode;
+  /** Small line above the title: a topic code, a paper name. */
+  eyebrow?: ReactNode;
+  /** Chips or links under the title. */
+  children?: ReactNode;
 }
 
-export function TopicHero({ title, intro, icon }: TopicHeroProps) {
+// Page title block: one h1, an optional eyebrow, intro line and a row of chips.
+export function TopicHero({ title, intro, icon, eyebrow, children }: TopicHeroProps) {
   return (
-    <section className="mb-10">
+    <header className="mb-6">
       <div className="flex items-start gap-4">
         {icon ? (
-          <div className="hidden md:flex w-16 h-16 rounded-lg bg-bg-tertiary border border-border items-center justify-center text-accent-warm shrink-0">
+          <div className="hidden h-14 w-14 shrink-0 items-center justify-center rounded-lg border border-[var(--color-border)] bg-[var(--color-card)] text-[var(--color-accent)] md:flex">
             {icon}
           </div>
         ) : null}
         <div className="min-w-0 [overflow-wrap:anywhere]">
-          <h1 className="font-serif text-3xl md:text-4xl font-medium text-text-primary mb-3">
-            {title}
-          </h1>
-          <p className="text-text-secondary max-w-2xl leading-relaxed">{intro}</p>
+          {eyebrow ? <div className="mb-1 text-sm text-[var(--color-muted)]">{eyebrow}</div> : null}
+          <h1 className="text-2xl font-semibold leading-tight md:text-3xl">{title}</h1>
+          {intro ? <p className="mt-2 max-w-[60ch] text-[var(--color-muted)]">{intro}</p> : null}
+          {children ? <div className="mt-3">{children}</div> : null}
         </div>
       </div>
-    </section>
+    </header>
   );
 }
 
 interface SectionHeadingProps {
   children: ReactNode;
   description?: string;
+  id?: string;
 }
 
-export function SectionHeading({ children, description }: SectionHeadingProps) {
+// Page section title (h2) with an optional one-line description.
+export function SectionHeading({ children, description, id }: SectionHeadingProps) {
   return (
-    <div className="mt-12 mb-6">
-      <h2 className="font-serif text-2xl font-medium text-text-primary">{children}</h2>
-      {description ? (
-        <p className="mt-1 text-sm text-text-secondary">{description}</p>
-      ) : null}
+    <div className="mb-3 mt-10">
+      <h2 id={id} className="text-xl font-semibold">{children}</h2>
+      {description ? <p className="mt-1 text-sm text-[var(--color-muted)]">{description}</p> : null}
     </div>
   );
 }
