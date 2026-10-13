@@ -44,13 +44,15 @@ export const cases: CaseStudy[] = [
     lat: 25.2048,
     lng: 55.2708,
     facts: {
-      en: 'Since 31 January 2025 the Salik road toll in Dubai has varied by time of day: AED 6 per crossing on weekdays at peak times (06:00 to 10:00 and 16:00 to 20:00) and AED 4 per crossing at other times. Gates do not charge between 01:00 and 06:00, and public holidays and events can have their own timetable (Gulf News and The National, January 2025).',
-      ru: 'С 31 января 2025 года плата за проезд по платной дороге Salik в Дубае зависит от времени суток: AED 6 за проезд в будние дни в часы пик (с 06:00 до 10:00 и с 16:00 до 20:00) и AED 4 в остальное время. С 01:00 до 06:00 проезд бесплатный. В праздники и во время мероприятий действует отдельное расписание (Gulf News и The National, январь 2025 года).',
+      en: 'Since 31 January 2025 the Salik road toll in Dubai has varied by time of day. Gates do not charge between 01:00 and 06:00 on any day. On weekdays a crossing cost AED 6 at peak times (06:00 to 10:00 and 16:00 to 20:00) and AED 4 at other times; on Sundays it cost AED 4 at all other times (Salik annual report 2025). From 1 June 2026 a 5% VAT applies, so the prices became AED 6.30 at peak and AED 4.20 at other times (The National, 22 May 2026, reporting Salik\'s announcement). Public holidays and events can have their own timetable.',
+      ru: 'С 31 января 2025 года плата за проезд по платной дороге Salik в Дубае зависит от времени суток. С 01:00 до 06:00 проезд бесплатный каждый день. В будние дни проезд стоил AED 6 в часы пик (с 06:00 до 10:00 и с 16:00 до 20:00) и AED 4 в остальное время; по воскресеньям — AED 4 в остальное время (годовой отчёт Salik за 2025 год). С 1 июня 2026 года действует НДС 5%, поэтому цены стали AED 6,30 в пик и AED 4,20 в остальное время (The National, 22 мая 2026 года, со ссылкой на объявление Salik). В праздники и во время мероприятий действует отдельное расписание.',
     },
     usedFor: ['externalities'],
     src: [
       { kind: 'web', title: 'The National: new Salik peak charges come into effect (17 January 2025)', url: 'https://www.thenationalnews.com/news/uae/2025/01/17/dubais-new-salik-toll-gate-charges-come-into-effect-on-january-31/' },
       { kind: 'web', title: 'Gulf News: Dubai toll operator Salik to begin variable toll rates from January 31', url: 'https://gulfnews.com/business/markets/dubai-toll-operator-salik-to-begin-variable-toll-rates-from-january-31-1.500018018' },
+      { kind: 'web', title: 'Salik annual report 2025: operational review, variable toll pricing from 31 January 2025', url: 'https://ar2025.salik.ae/en/strategic-review/operational-review' },
+      { kind: 'web', title: 'The National: Dubai Salik and Parkin add 5 per cent VAT on road toll and parking fees (22 May 2026)', url: 'https://www.thenationalnews.com/news/uae/2026/05/22/dubai-road-toll-fees-to-rise-from-june-1-as-salik-imposes-tax-charges/' },
     ],
   },
   {
@@ -109,11 +111,14 @@ export const cases: CaseStudy[] = [
     scale: 'national',
     years: '2018-2025',
     facts: {
-      en: 'From 6 April 2018 the UK charged 18 pence per litre on drinks with 5g or more but less than 8g of total sugar per 100ml, and 24 pence per litre on drinks with 8g or more (GOV.UK). These rates applied until 31 March 2025, when they rose to 19.4 and 25.9 pence per litre (GOV.UK policy paper).',
+      en: 'From 6 April 2018 the UK charged 18 pence per litre on drinks with 5g or more but less than 8g of total sugar per 100ml, and 24 pence per litre on drinks with 8g or more (GOV.UK). These rates applied until 31 March 2025; from 1 April 2025 they rose to 19.4 and 25.9 pence per litre (GOV.UK policy paper).',
       ru: 'С 6 апреля 2018 года в Великобритании налог на сладкие напитки (Soft Drinks Industry Levy) составлял 18 пенсов за литр для напитков с содержанием сахара от 5 г до 8 г на 100 мл и 24 пенса за литр для напитков с содержанием сахара 8 г и более на 100 мл (GOV.UK). Эти ставки действовали до 31 марта 2025 года; с 1 апреля 2025 года они выросли до 19,4 и 25,9 пенса за литр (политический документ GOV.UK).',
     },
     usedFor: ['externalities'],
-    src: [{ kind: 'web', title: 'GOV.UK statistics: Soft Drinks Industry Levy, background and references', url: 'https://gov.uk/government/statistics/soft-drinks-industry-levy-statistics/soft-drinks-industry-levy-statistics-background-and-references' }],
+    src: [
+      { kind: 'web', title: 'GOV.UK statistics: Soft Drinks Industry Levy, background and references', url: 'https://gov.uk/government/statistics/soft-drinks-industry-levy-statistics/soft-drinks-industry-levy-statistics-background-and-references' },
+      { kind: 'web', title: 'GOV.UK policy paper: Soft Drinks Industry Levy uprating (£1.94 and £2.59 per 10 litres from 1 April 2025)', url: 'https://www.gov.uk/government/publications/increasing-the-rates-of-the-soft-drinks-industry-levy/soft-drinks-industry-levy-uprating' },
+    ],
   },
   {
     id: 'case-london-congestion-charge',
@@ -267,18 +272,18 @@ export const cases: CaseStudy[] = [
   {
     id: 'case-japan-yen-2022',
     subject: 'econ',
-    title: { en: 'Japan: current account surplus halves and goods trade deficit hits a record in 2022', ru: 'Япония: профицит текущего счёта вдвое меньше, рекордный дефицит по товарам в 2022 году' },
+    title: { en: 'Japan: current account surplus halves and goods trade turns to deficit in 2022', ru: 'Япония: профицит текущего счёта вдвое меньше, баланс товаров ушёл в дефицит в 2022 году' },
     place: 'Japan',
     scale: 'national',
     years: '2022',
     facts: {
-      en: 'Japan\'s current account surplus roughly halved in 2022, to about JPY 11.4 trillion, while the goods trade balance recorded a record deficit as higher energy import costs raised the value of imports (news reports from January and February 2023, citing government data).',
-      ru: 'Профицит текущего счёта (current account) Японии примерно вдвое сократился в 2022 году, до около JPY 11,4 трлн, а баланс торговли товарами (goods trade balance) зафиксировал рекордный дефицит: более дорогой импорт энергоресурсов увеличил стоимость импорта (сообщения новостных агентств за январь и февраль 2023 года со ссылкой на данные правительства Японии).',
+      en: 'Japan\'s current account surplus roughly halved in 2022, to JPY 11.44 trillion from JPY 21.47 trillion in 2021 (Ministry of Finance Japan, balance of payments, calendar years). Over the same period goods exports rose by about 20%, from JPY 82.4 trillion to JPY 98.9 trillion, while goods imports rose by about 42%, from JPY 80.6 trillion to JPY 114.4 trillion, so the goods balance moved from a surplus of JPY 1.76 trillion to a deficit of JPY 15.51 trillion (same source).',
+      ru: 'Профицит текущего счёта (current account) Японии примерно вдвое сократился в 2022 году: до JPY 11,44 трлн с JPY 21,47 трлн в 2021 году (Министерство финансов Японии, платёжный баланс по календарным годам). За тот же период экспорт товаров вырос примерно на 20%, с JPY 82,4 трлн до JPY 98,9 трлн, а импорт товаров — примерно на 42%, с JPY 80,6 трлн до JPY 114,4 трлн; баланс товаров (goods balance) сменился с профицита JPY 1,76 трлн на дефицит JPY 15,51 трлн (там же).',
     },
     usedFor: ['balance-of-payments', 'exchange-rates'],
     src: [
       { kind: 'web', title: 'Qatar News Agency: Japan\'s current account surplus halves in 2022 (8 February 2023)', url: 'https://www.qna.org.qa/en/News-Area/News/2023-02/08/0019-japan\'s-current-account-surplus-halves-in-2022' },
-      { kind: 'web', title: 'Boston Globe: Japan marks record trade deficit on soaring energy imports (19 January 2023)', url: 'https://www.bostonglobe.com/2023/01/19/business/japan-marks-record-trade-deficit-soaring-energy-imports' },
+      { kind: 'web', title: 'Ministry of Finance Japan: balance of payments, summary, annual figures (calendar year), data file', url: 'https://www.mof.go.jp/policy/international_policy/reference/balance_of_payments/bp_trend/bpnet/sbp/s-1/6s-1-1.csv' },
     ],
   },
 ];
