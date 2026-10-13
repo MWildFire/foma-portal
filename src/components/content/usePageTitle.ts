@@ -15,10 +15,11 @@ export function usePageTitle(title: string | null | undefined, brand: string): v
 
 // The router keeps the scroll position when the route changes, so a long list would open the next page
 // half way down. Call this with the route key to start at the top. On Back and Forward (POP) the browser
-// puts the student back where they were, so the page is left alone.
+// puts the student back where they were, so the page is left alone. A page that edits its own query with
+// replace keeps its key, so it stays where it is: only a change of key scrolls.
 export function useScrollToTop(key: string): void {
   const navigation = useNavigationType();
   useEffect(() => {
     if (navigation !== 'POP') window.scrollTo(0, 0);
-  }, [key, navigation]);
+  }, [key]);
 }
