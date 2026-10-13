@@ -10,7 +10,7 @@ const topic: TopicMeta = {
   order: 21,
   minutes: 35,
   priority: 2,
-  inMockScope: 'unknown',
+  inMockScope: 'yes',
   outcomes: [
     { en: 'I can define asymmetric information and give an example from a real market', ru: 'Могу определить асимметричную информацию и привести пример из реального рынка' },
     { en: 'I can explain adverse selection and moral hazard, and tell them apart', ru: 'Могу объяснить неблагоприятный отбор и моральный риск и отличить их друг от друга' },

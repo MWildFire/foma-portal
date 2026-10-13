@@ -9,7 +9,7 @@ const topic: TopicMeta = {
   order: 20,
   minutes: 35,
   priority: 1,
-  inMockScope: 'unknown',
+  inMockScope: 'yes',
   outcomes: [
     { en: 'I can define a public good and explain non-rivalry and non-excludability', ru: 'Могу дать определение общественному благу и объяснить неконкурентность в потреблении и неисключаемость' },
     { en: 'I can explain the free-rider problem and why the market under-provides a public good', ru: 'Могу объяснить проблему безбилетника и то, почему рынок предоставляет общественное благо в недостаточном объёме' },

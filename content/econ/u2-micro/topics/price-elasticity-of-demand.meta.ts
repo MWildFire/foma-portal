@@ -9,7 +9,7 @@ const topic: TopicMeta = {
   order: 14,
   minutes: 50,
   priority: 1,
-  inMockScope: 'unknown',
+  inMockScope: 'yes',
   outcomes: [
     { en: 'I can calculate percentage changes in price and quantity from a table', ru: 'Могу рассчитать процентные изменения цены и величины спроса по таблице' },
     { en: 'I can calculate PED, state its sign and say whether demand is elastic, inelastic or unit elastic', ru: 'Могу рассчитать PED, назвать его знак и определить, спрос эластичный, неэластичный или с единичной эластичностью' },

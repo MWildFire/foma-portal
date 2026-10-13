@@ -9,7 +9,7 @@ const topic: TopicMeta = {
   order: 15,
   minutes: 45,
   priority: 1,
-  inMockScope: 'unknown',
+  inMockScope: 'yes',
   outcomes: [
     { en: 'I can calculate YED from income and quantity data and say whether the good is normal or inferior', ru: 'Могу рассчитать YED по данным о доходе и величине спроса и определить, нормальный товар или товар низшей категории' },
     { en: 'I can calculate XED from price data and say whether two goods are substitutes or complements', ru: 'Могу рассчитать XED по данным о ценах и определить, являются ли два товара заменителями или взаимодополняющими' },

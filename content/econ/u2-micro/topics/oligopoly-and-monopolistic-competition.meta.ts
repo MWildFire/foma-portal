@@ -10,7 +10,7 @@ const topic: TopicMeta = {
   order: 23,
   minutes: 50,
   priority: 1,
-  inMockScope: 'unknown',
+  inMockScope: 'no',
   outcomes: [
     { en: 'I can explain the long-run equilibrium of monopolistic competition, with normal profit and excess capacity', ru: 'Могу объяснить долгосрочное равновесие монополистической конкуренции: нормальную прибыль и избыточные мощности' },
     { en: 'I can explain interdependence, collusion and price leadership in oligopoly', ru: 'Могу объяснить взаимозависимость, сговор и ценовое лидерство в олигополии' },

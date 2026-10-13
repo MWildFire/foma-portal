@@ -10,7 +10,7 @@ const topic: TopicMeta = {
   order: 13,
   minutes: 30,
   priority: 2,
-  inMockScope: 'unknown',
+  inMockScope: 'yes',
   outcomes: [
     { en: 'I can state the assumptions of rational, maximizing behaviour for consumers and firms', ru: 'Могу назвать допущения рационального максимизирующего поведения потребителей и фирм' },
     { en: 'I can explain bounded rationality and satisficing with an example', ru: 'Могу объяснить ограниченную рациональность и удовлетворительный выбор на примере' },

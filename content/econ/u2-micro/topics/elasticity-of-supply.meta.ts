@@ -9,7 +9,7 @@ const topic: TopicMeta = {
   order: 16,
   minutes: 35,
   priority: 1,
-  inMockScope: 'unknown',
+  inMockScope: 'yes',
   outcomes: [
     { en: 'I can define price elasticity of supply and calculate it from a table of prices and quantities', ru: 'Могу определить ценовую эластичность предложения и рассчитать её по таблице цен и величин' },
     { en: 'I can say whether supply is elastic, inelastic or unit elastic from the value of PES', ru: 'Могу по значению PES определить, эластично предложение, неэластично или имеет единичную эластичность' },

@@ -10,7 +10,7 @@ const topic: TopicMeta = {
   order: 22,
   minutes: 50,
   priority: 1,
-  inMockScope: 'unknown',
+  inMockScope: 'no',
   outcomes: [
     { en: 'I can explain why a monopolist sets output where MR = MC and reads the price from demand', ru: 'Могу объяснить, почему монополист выбирает выпуск при MR = MC и берёт цену с кривой спроса' },
     { en: 'I can calculate marginal revenue, profit and total revenue for a monopolist with linear demand', ru: 'Могу рассчитать предельный доход, прибыль и общую выручку монополиста при линейном спросе' },

@@ -9,7 +9,7 @@ const topic: TopicMeta = {
   order: 30,
   minutes: 45,
   priority: 1,
-  inMockScope: 'unknown',
+  inMockScope: 'yes',
   outcomes: [
     { en: 'I can explain the circular flow of income using injections and withdrawals', ru: 'Могу объяснить круговой поток доходов через инъекции и изъятия' },
     { en: 'I can state the income, expenditure and production approaches to GDP', ru: 'Могу назвать доходный, расходный и производственный методы расчёта ВВП' },

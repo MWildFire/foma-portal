@@ -9,7 +9,7 @@ const topic: TopicMeta = {
   order: 37,
   minutes: 40,
   priority: 1,
-  inMockScope: 'unknown',
+  inMockScope: 'yes',
   outcomes: [
     { en: 'I can distinguish market-based and interventionist supply-side policies, with one example each', ru: 'Могу различать рыночные и интервенционистские меры политики предложения, приводя по одному примеру каждого вида' },
     { en: 'I can explain how a supply-side policy shifts long-run aggregate supply to the right', ru: 'Могу объяснить, как мера политики предложения сдвигает долгосрочное совокупное предложение вправо' },

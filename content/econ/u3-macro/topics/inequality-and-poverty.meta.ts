@@ -9,7 +9,7 @@ const topic: TopicMeta = {
   order: 34,
   minutes: 40,
   priority: 2,
-  inMockScope: 'unknown',
+  inMockScope: 'yes',
   outcomes: [
     { en: 'I can explain income and wealth inequality and read a Lorenz curve', ru: 'Могу объяснить неравенство доходов и богатства и читать кривую Лоренца' },
     { en: 'I can calculate the Gini coefficient from areas A and B, before and after a policy', ru: 'Могу рассчитать коэффициент Джини по площадям A и B до и после политики' },

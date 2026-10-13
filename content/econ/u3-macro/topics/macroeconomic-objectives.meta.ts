@@ -9,7 +9,7 @@ const topic: TopicMeta = {
   order: 33,
   minutes: 60,
   priority: 1,
-  inMockScope: 'unknown',
+  inMockScope: 'yes',
   outcomes: [
     { en: 'I can define the CPI and calculate it from basket costs with a base year', ru: 'Могу определить ИПЦ и рассчитать его по стоимости набора с базовым годом' },
     { en: 'I can calculate the inflation rate and the unemployment rate', ru: 'Могу рассчитать темп инфляции и уровень безработицы' },

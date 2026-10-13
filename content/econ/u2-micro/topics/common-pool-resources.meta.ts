@@ -9,7 +9,7 @@ const topic: TopicMeta = {
   order: 19,
   minutes: 35,
   priority: 1,
-  inMockScope: 'unknown',
+  inMockScope: 'yes',
   outcomes: [
     { en: 'I can define a common pool resource and explain why it is rivalrous and non-excludable', ru: 'Могу дать определение общему ресурсу и объяснить, почему он соперничающий и неисключаемый' },
     { en: 'I can explain the tragedy of the commons under open access', ru: 'Могу объяснить трагедию общин при открытом доступе' },

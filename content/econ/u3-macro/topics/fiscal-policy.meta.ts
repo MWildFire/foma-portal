@@ -9,7 +9,7 @@ const topic: TopicMeta = {
   order: 36,
   minutes: 45,
   priority: 1,
-  inMockScope: 'unknown',
+  inMockScope: 'yes',
   outcomes: [
     { en: 'I can calculate the budget balance and say whether it is a surplus or a deficit', ru: 'Могу рассчитать бюджетный баланс и определить, профицит это или дефицит' },
     { en: 'I can distinguish discretionary fiscal policy from automatic stabilizers, with examples', ru: 'Могу отличать дискреционную фискальную политику от автоматических стабилизаторов, приводя примеры' },

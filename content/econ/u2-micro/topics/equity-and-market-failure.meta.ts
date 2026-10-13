@@ -10,7 +10,7 @@ const topic: TopicMeta = {
   order: 24,
   minutes: 40,
   priority: 2,
-  inMockScope: 'unknown',
+  inMockScope: 'yes',
   outcomes: [
     { en: 'I can explain why markets can produce unequal outcomes, and define horizontal and vertical equity', ru: 'Могу объяснить, почему рынки дают неравные результаты, и определить горизонтальную и вертикальную справедливость' },
     { en: 'I can classify taxes as progressive, proportional or regressive, using the average tax rate', ru: 'Могу классифицировать налоги как прогрессивные, пропорциональные или регрессивные по средней ставке' },

@@ -9,7 +9,7 @@ const topic: TopicMeta = {
   order: 1,
   minutes: 45,
   priority: 1,
-  inMockScope: 'unknown',
+  inMockScope: 'yes',
   outcomes: [
     { en: 'I can explain scarcity, choice and opportunity cost with a numerical example', ru: 'Могу объяснить ограниченность ресурсов, выбор и альтернативные издержки на числовом примере' },
     { en: 'I can name the four factors of production and give an example of each', ru: 'Могу назвать четыре фактора производства и привести пример каждого' },
