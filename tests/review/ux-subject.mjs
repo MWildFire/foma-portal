@@ -259,6 +259,8 @@ function pageState(subject) {
     const r = el.getBoundingClientRect();
     if (r.width === 0 || r.height === 0) continue;
     if (r.right <= vw + 1 && r.left >= -1) continue;
+    // Hidden or clipped by design: the MathML copy of a formula (screen readers only) and the map tiles of a case map.
+    if (el.closest('.katex-mathml, .leaflet-container')) continue;
     let p = el.parentElement;
     let inScroller = false;
     while (p && p !== document.body) {
@@ -757,8 +759,9 @@ async function topicChecks(ctx) {
   for (let i = 0; i < simCount; i += 1) {
     await reactionCheck(page, rec, sims.nth(i), simIds[i] ?? `sim #${i + 1}`, 'sims');
   }
-  await contentToggle(page, rec);
+  // Term labels are checked in the language the page opened in; the content toggle below switches it to English.
   await termChecks(page, rec, combo, 'topic');
+  await contentToggle(page, rec);
 }
 
 // Practice bank: every filter option with a count must show that many questions, the timed sets must apply, every
