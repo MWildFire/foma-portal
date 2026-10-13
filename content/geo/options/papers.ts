@@ -10,8 +10,8 @@ export const papers: PaperGuide[] = [
     minutes: 90,
     marks: 40,
     structure: {
-      en: 'Two options, 20 marks each. Each option has a structured question (10 marks, parts a, b and c) and one extended response (10 marks) chosen from two questions. Each option takes about 45 minutes.',
-      ru: 'Две опции по 20 баллов. В каждой опции есть структурированный вопрос (10 баллов, части a, b и c) и один развёрнутый ответ (10 баллов) на выбор из двух вопросов. Одна опция занимает около 45 минут.',
+      en: 'Two options, 20 marks each, about 45 minutes per option. Each option has a structured question (10 marks, several parts with marks in brackets) and one extended question chosen from two (10 marks each). In option G, every structured question starts from a map, graph, table or diagram. Across the 13 option G papers (May 2019 to November 2025), the extended questions use Examine 20 times in 26, Evaluate 3 times and To what extent 3 times.',
+      ru: 'Две опции по 20 баллов, около 45 минут на опцию. В каждой опции есть структурированный вопрос (10 баллов, несколько частей с баллами в скобках) и один развёрнутый вопрос на выбор из двух (по 10 баллов). В опции G каждый структурированный вопрос начинается с карты, графика, таблицы или схемы. В 13 пейперах опции G (с мая 2019 по ноябрь 2025) развёрнутые вопросы используют Examine в 20 случаях из 26, Evaluate — 3 раза и To what extent — 3 раза.',
     },
     strategy: {
       en: 'Give about 15 minutes to the structured question and about 30 minutes to the extended response. Read both extended questions first and pick the one you can answer with a named place you know well. Spend two or three minutes on a plan before writing.',
@@ -21,7 +21,7 @@ export const papers: PaperGuide[] = [
       en: '**Option G: extended answers.** The step-by-step method is on the page "Extended answers in Option G". Check every paragraph against three things: a named place, at least one figure with a year, and a judgement that answers the command term.',
       ru: '**Опция G: развёрнутые ответы.** Пошаговый метод описан на странице «Развёрнутые ответы по опции G». Проверяй каждый абзац по трём признакам: названное место, хотя бы одна цифра с годом и вывод, который отвечает на командное слово.',
     },
-    commandTerms: ['Describe', 'Explain', 'Suggest', 'Examine', 'Discuss', 'Evaluate', 'To what extent'],
+    commandTerms: ['State', 'Identify', 'Estimate', 'Determine', 'Outline', 'Explain', 'Suggest', 'Examine', 'Evaluate', 'To what extent'],
     timedSets: [
       {
         id: 'g-p1-option-g',
