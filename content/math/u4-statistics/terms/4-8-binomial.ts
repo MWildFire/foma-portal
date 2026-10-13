@@ -22,7 +22,7 @@ export const terms: Term[] = [
   },
   {
     id: 'binomial-conditions',
-    term: { en: 'conditions for a binomial model', ru: 'условия биномиальной модели (binomial conditions)' },
+    term: { en: 'conditions for a binomial model', ru: 'условия биномиальной модели (conditions for a binomial model)' },
     def: {
       en: 'A fixed number $n$ of trials, two outcomes (success or failure) in each trial, the same probability $p$ in every trial, and independent trials.',
       ru: 'Фиксированное число $n$ испытаний, два исхода в каждом испытании (успех или неудача), одинаковая вероятность $p$ в каждом испытании и независимость испытаний.',

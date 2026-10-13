@@ -45,7 +45,7 @@ export const terms: Term[] = [
     id: 'coefficient-of-determination',
     term: {
       en: 'coefficient of determination R²',
-      ru: 'коэффициент детерминации (coefficient of determination) R²',
+      ru: 'коэффициент детерминации R² (coefficient of determination R²)',
     },
     def: {
       en: 'The proportion of the variation in $y$ that the model explains: $R^2 = 1 - \\dfrac{\\text{SSR}}{\\text{SST}}$. Values closer to 1 mean a better fit.',

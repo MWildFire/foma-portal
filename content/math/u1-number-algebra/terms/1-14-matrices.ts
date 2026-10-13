@@ -25,7 +25,7 @@ export const terms: Term[] = [
   },
   {
     id: 'determinant-2x2',
-    term: { en: 'determinant of a 2 × 2 matrix', ru: 'определитель матрицы 2 × 2 (determinant)' },
+    term: { en: 'determinant of a 2 × 2 matrix', ru: 'определитель матрицы 2 × 2 (determinant of a 2 × 2 matrix)' },
     def: {
       en: 'For $A=\\begin{pmatrix} a & b \\\\ c & d \\end{pmatrix}$, the number $\\det A = ad - bc$. It is zero exactly when $A$ has no inverse.',
       ru: 'Для $A=\\begin{pmatrix} a & b \\\\ c & d \\end{pmatrix}$ число $\\det A = ad - bc$. Оно равно нулю тогда и только тогда, когда у $A$ нет обратной матрицы.',

@@ -10,7 +10,7 @@ const source = {
 export const terms: Term[] = [
   {
     id: 'graph-vertex-degree',
-    term: { en: 'degree of a vertex', ru: 'степень вершины (degree)' },
+    term: { en: 'degree of a vertex', ru: 'степень вершины (degree of a vertex)' },
     def: {
       en: 'The number of edges that meet a vertex, written $\\deg(v)$. In a simple graph each edge adds 1 to the degree of each of its two end vertices.',
       ru: 'Число рёбер, инцидентных вершине, записывается $\\deg(v)$. В простом графе каждое ребро добавляет 1 к степени каждого из двух своих концов.',

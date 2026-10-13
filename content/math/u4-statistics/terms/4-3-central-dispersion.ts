@@ -40,7 +40,7 @@ export const terms: Term[] = [
   },
   {
     id: 'interquartile-range',
-    term: { en: 'interquartile range (IQR)', ru: 'межквартильный размах (interquartile range)' },
+    term: { en: 'interquartile range (IQR)', ru: 'межквартильный размах (interquartile range (IQR))' },
     def: {
       en: 'The difference between the upper quartile and the lower quartile. It is the spread of the middle half of the data.',
       ru: 'Разность между верхним и нижним квартилями. Это разброс средней половины данных.',

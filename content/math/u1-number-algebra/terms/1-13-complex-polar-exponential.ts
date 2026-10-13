@@ -26,7 +26,7 @@ export const terms: Term[] = [
   },
   {
     id: 'complex-argument',
-    term: { en: 'argument of a complex number', ru: 'аргумент комплексного числа (argument)' },
+    term: { en: 'argument of a complex number', ru: 'аргумент комплексного числа (argument of a complex number)' },
     def: {
       en: 'The angle $\\theta = \\arg z$ from the positive real axis to the line from the origin to $z$, measured anticlockwise. The principal argument satisfies $-\\pi < \\theta \\le \\pi$.',
       ru: 'Угол $\\theta = \\arg z$ от положительной действительной оси до отрезка от начала координат к $z$, отсчитываемый против часовой стрелки. Главное значение удовлетворяет $-\\pi < \\theta \\le \\pi$.',
@@ -41,7 +41,7 @@ export const terms: Term[] = [
   },
   {
     id: 'exponential-form',
-    term: { en: 'exponential form of a complex number', ru: 'показательная форма комплексного числа (exponential form)' },
+    term: { en: 'exponential form of a complex number', ru: 'показательная форма комплексного числа (exponential form of a complex number)' },
     def: {
       en: 'The form $z = re^{i\\theta}$, where $r = |z|$ and $\\theta = \\arg z$ in radians. It follows from Euler’s relation $e^{i\\theta} = \\cos\\theta + i\\sin\\theta$.',
       ru: 'Форма $z = re^{i\\theta}$, где $r = |z|$, а $\\theta = \\arg z$ в радианах. Она следует из формулы Эйлера $e^{i\\theta} = \\cos\\theta + i\\sin\\theta$.',

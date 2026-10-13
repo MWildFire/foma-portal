@@ -26,7 +26,7 @@ export const terms: Term[] = [
   },
   {
     id: 'arc-length-in-radians',
-    term: { en: 'arc length in radians', ru: 'длина дуги в радианах (arc length)' },
+    term: { en: 'arc length in radians', ru: 'длина дуги в радианах (arc length in radians)' },
     def: {
       en: 'For a circle of radius $r$ and a central angle $\\theta$ in radians, the arc length is $s = r\\theta$.',
       ru: 'Для окружности радиуса $r$ и центрального угла $\\theta$ в радианах длина дуги равна $s = r\\theta$.',
@@ -37,7 +37,7 @@ export const terms: Term[] = [
   },
   {
     id: 'sector-area-in-radians',
-    term: { en: 'sector area in radians', ru: 'площадь сектора в радианах (sector area)' },
+    term: { en: 'sector area in radians', ru: 'площадь сектора в радианах (sector area in radians)' },
     def: {
       en: 'For a circle of radius $r$ and a central angle $\\theta$ in radians, the area of the sector is $A = \\tfrac{1}{2}r^{2}\\theta$.',
       ru: 'Для окружности радиуса $r$ и центрального угла $\\theta$ в радианах площадь сектора равна $A = \\tfrac{1}{2}r^{2}\\theta$.',

@@ -10,7 +10,7 @@ const source = {
 export const terms: Term[] = [
   {
     id: 'linear-transformation-rv',
-    term: { en: 'linear transformation of a random variable', ru: 'линейное преобразование случайной величины (linear transformation)' },
+    term: { en: 'linear transformation of a random variable', ru: 'линейное преобразование случайной величины (linear transformation of a random variable)' },
     def: {
       en: 'The new variable $Y = aX + b$, made by multiplying $X$ by a constant $a$ and adding a constant $b$. The mean becomes $aE(X) + b$ and the variance becomes $a^{2}\\operatorname{Var}(X)$, because $b$ shifts the values without changing their spread.',
       ru: 'Новая величина $Y = aX + b$, полученная умножением $X$ на константу $a$ и прибавлением константы $b$. Среднее становится равным $aE(X) + b$, дисперсия — $a^{2}\\operatorname{Var}(X)$, так как $b$ сдвигает значения, не меняя их разброс.',

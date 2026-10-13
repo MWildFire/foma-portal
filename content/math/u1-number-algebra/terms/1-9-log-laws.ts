@@ -58,7 +58,7 @@ export const terms: Term[] = [
     term: { en: 'power law of logarithms', ru: 'правило степени для логарифмов (power law of logarithms)' },
     def: {
       en: 'For $a>0$, $a\\neq 1$, $x>0$ and any real $m$: $\\log_a(x^{m})=m\\log_a x$. The exponent moves in front as a multiplier.',
-      ru: 'При $a>0$, $a\\neq 1$, $x>0$ и любом действительном $m$: $\\log_a(x^{m})=m\\log_a x$. Показатель выносится вперёд множителем.',
+      ru: 'При $a>0$, $a\\neq 1$, $x>0$ и любом действительном $m$: $\\log_a(x^{m})=m\\log_a x$. Показатель выносится перед логарифмом в качестве множителя.',
     },
     syllabus: '1.9',
     papers: ['P1', 'P2', 'P3'],

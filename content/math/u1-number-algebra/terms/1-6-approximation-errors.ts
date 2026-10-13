@@ -10,7 +10,7 @@ const source = {
 export const terms: Term[] = [
   {
     id: 'significant-figures',
-    term: { en: 'significant figures (s.f.)', ru: 'значащие цифры (significant figures)' },
+    term: { en: 'significant figures (s.f.)', ru: 'значащие цифры (significant figures (s.f.))' },
     def: {
       en: 'The digits of a number counted from its first non-zero digit. Rounding to n significant figures keeps the first n of these digits and rounds the rest, for example 0.0047 has two significant figures.',
       ru: 'Цифры числа, которые считаются от первой ненулевой цифры. Округление до n значащих цифр оставляет первые n таких цифр, например, у числа 0,0047 две значащие цифры.',
@@ -25,7 +25,7 @@ export const terms: Term[] = [
   },
   {
     id: 'bounds-of-rounded-value',
-    term: { en: 'upper and lower bounds', ru: 'верхняя и нижняя границы (bounds)' },
+    term: { en: 'upper and lower bounds', ru: 'верхняя и нижняя границы (upper and lower bounds)' },
     def: {
       en: 'The largest and smallest values that a rounded number could have before rounding. For a value rounded to a given place, they lie half a unit of that place above and below the stated value.',
       ru: 'Наибольшее и наименьшее значения, которые могло иметь округлённое число до округления. Для значения, округлённого до данного разряда, они лежат на половину единицы этого разряда выше и ниже указанного значения.',

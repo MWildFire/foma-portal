@@ -55,7 +55,7 @@ export const terms: Term[] = [
   },
   {
     id: 'sigma-notation-geometric',
-    term: { en: 'sigma notation for a geometric sum', ru: 'обозначение суммы через Σ для геометрической суммы (sigma notation)' },
+    term: { en: 'sigma notation for a geometric sum', ru: 'обозначение суммы через Σ для геометрической суммы (sigma notation for a geometric sum)' },
     def: {
       en: 'The compact form $\\sum_{k=1}^{n} u_1 r^{k-1}$ of a geometric sum, where the index $k$ runs from 1 to $n$ and $u_1 r^{k-1}$ is the $k$th term.',
       ru: 'Краткая запись геометрической суммы $\\sum_{k=1}^{n} u_1 r^{k-1}$, где индекс $k$ идёт от 1 до $n$, а $u_1 r^{k-1}$ — $k$-й член.',

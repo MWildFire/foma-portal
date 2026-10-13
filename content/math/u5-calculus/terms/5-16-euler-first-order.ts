@@ -22,7 +22,7 @@ export const terms: Term[] = [
   },
   {
     id: 'euler-step-length-first-order',
-    term: { en: 'step length h', ru: 'шаг h (step length)' },
+    term: { en: 'step length h', ru: 'шаг h (step length h)' },
     def: {
       en: 'The fixed increase in x at each step of Euler’s method. A smaller h usually gives a more accurate estimate, but more steps are needed to reach the same x.',
       ru: 'Фиксированное приращение x на каждом шаге метода Эйлера. Меньшее h обычно даёт более точную оценку, но для того же x нужно больше шагов.',
@@ -37,7 +37,7 @@ export const terms: Term[] = [
   },
   {
     id: 'euler-coupled-system',
-    term: { en: "Euler's method for a coupled system", ru: 'метод Эйлера для связанной системы (coupled system)' },
+    term: { en: "Euler's method for a coupled system", ru: 'метод Эйлера для связанной системы (Euler\'s method for a coupled system)' },
     def: {
       en: 'Euler’s method applied to $dx/dt = f_1(x, y, t)$ and $dy/dt = f_2(x, y, t)$ at the same time. Both new values are found from the values at the start of the step.',
       ru: 'Метод Эйлера, применённый одновременно к $dx/dt = f_1(x, y, t)$ и $dy/dt = f_2(x, y, t)$. Оба новых значения находятся по значениям в начале шага.',

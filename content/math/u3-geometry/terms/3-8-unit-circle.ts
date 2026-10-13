@@ -26,7 +26,7 @@ export const terms: Term[] = [
   },
   {
     id: 'quadrant-sign-rule',
-    term: { en: 'signs of sin, cos and tan by quadrant', ru: 'знаки sin, cos и tan по четвертям (quadrant sign rule)' },
+    term: { en: 'signs of sin, cos and tan by quadrant', ru: 'знаки sin, cos и tan по четвертям (signs of sin, cos and tan by quadrant)' },
     def: {
       en: 'In quadrant I all three ratios are positive. In quadrant II only sine is positive, in III only tangent, and in IV only cosine (remember All Students Take Calculus).',
       ru: 'В первой четверти положительны все три величины. Во второй положителен только синус, в третьей только тангенс, в четвёртой только косинус (мнемоника All Students Take Calculus).',
@@ -37,7 +37,7 @@ export const terms: Term[] = [
   },
   {
     id: 'ambiguous-case-sine-rule',
-    term: { en: 'ambiguous case of the sine rule', ru: 'неоднозначный случай теоремы синусов (ambiguous case)' },
+    term: { en: 'ambiguous case of the sine rule', ru: 'неоднозначный случай теоремы синусов (ambiguous case of the sine rule)' },
     def: {
       en: 'When two sides and an angle not between them are given, the sine rule fixes the sine of the other angle. That sine is shared by an angle $\\theta$ and by $180^\\circ - \\theta$, so there may be two triangles, one, or none.',
       ru: 'Если даны две стороны и угол, не заключённый между ними, теорема синусов задаёт синус другого угла. Этот синус общий для угла $\\theta$ и для $180^\\circ - \\theta$, поэтому возможны два треугольника, один или ни одного.',

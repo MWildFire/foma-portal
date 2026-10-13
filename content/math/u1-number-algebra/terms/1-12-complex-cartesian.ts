@@ -10,7 +10,7 @@ const source = {
 export const terms: Term[] = [
   {
     id: 'complex-cartesian-form',
-    term: { en: 'Cartesian form of a complex number', ru: 'декартова форма комплексного числа (Cartesian form)' },
+    term: { en: 'Cartesian form of a complex number', ru: 'декартова форма комплексного числа (Cartesian form of a complex number)' },
     def: {
       en: 'Writing a complex number as $z = a + bi$, where $a$ and $b$ are real and $i^{2} = -1$. The real part is $\\text{Re}\\,z = a$ and the imaginary part is $\\text{Im}\\,z = b$.',
       ru: 'Запись комплексного числа в виде $z = a + bi$, где $a$ и $b$ действительны и $i^{2} = -1$. Действительная часть равна $\\text{Re}\\,z = a$, мнимая часть равна $\\text{Im}\\,z = b$.',
@@ -56,7 +56,7 @@ export const terms: Term[] = [
   },
   {
     id: 'complex-modulus',
-    term: { en: 'modulus of a complex number', ru: 'модуль комплексного числа (modulus)' },
+    term: { en: 'modulus of a complex number', ru: 'модуль комплексного числа (modulus of a complex number)' },
     def: {
       en: 'The distance from the origin to $z$ on the Argand diagram: $|z| = \\sqrt{a^{2} + b^{2}}$ for $z = a + bi$. The modulus is never negative.',
       ru: 'Расстояние от начала координат до точки $z$ на диаграмме Аргана: $|z| = \\sqrt{a^{2} + b^{2}}$ для $z = a + bi$. Модуль никогда не бывает отрицательным.',

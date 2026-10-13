@@ -26,7 +26,7 @@ export const terms: Term[] = [
   },
   {
     id: 'trapezoidal-strip-width',
-    term: { en: 'strip width h', ru: 'ширина полоски h (strip width)' },
+    term: { en: 'strip width h', ru: 'ширина полоски h (strip width h)' },
     def: {
       en: 'The width of each of the $n$ equal strips, $h = \\dfrac{b-a}{n}$, on the interval from $a$ to $b$. The strips need $n + 1$ ordinates, at $x = a, a + h, \\dots, b$.',
       ru: 'Ширина каждой из $n$ равных полосок, $h = \\dfrac{b-a}{n}$, на отрезке от $a$ до $b$. Полоски требуют $n + 1$ ординат, в точках $x = a, a + h, \\dots, b$.',
@@ -41,7 +41,7 @@ export const terms: Term[] = [
   },
   {
     id: 'trapezoidal-error-sign',
-    term: { en: 'error of the trapezoidal estimate', ru: 'погрешность формулы трапеций (error)' },
+    term: { en: 'error of the trapezoidal estimate', ru: 'погрешность формулы трапеций (error of the trapezoidal estimate)' },
     def: {
       en: 'The error is $E = T_{n} - I$: the estimate minus the exact integral. If $f\'\'(x) > 0$ on the interval, the estimate is an overestimate; if $f\'\'(x) < 0$, it is an underestimate.',
       ru: 'Погрешность $E = T_{n} - I$: оценка минус точное значение интеграла. Если $f\'\'(x) > 0$ на отрезке, оценка завышена; если $f\'\'(x) < 0$, она занижена.',

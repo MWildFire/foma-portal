@@ -10,7 +10,7 @@ const source = {
 export const terms: Term[] = [
   {
     id: 'standard-quadratic-vertex',
-    term: { en: 'vertex of a quadratic model', ru: 'вершина квадратичной модели (vertex)' },
+    term: { en: 'vertex of a quadratic model', ru: 'вершина квадратичной модели (vertex of a quadratic model)' },
     def: {
       en: 'The turning point of a parabola: in vertex form $y = a(x - h)^2 + k$ it is $(h, k)$, a maximum when $a < 0$ and a minimum when $a > 0$.',
       ru: 'Точка поворота параболы: в виде $y = a(x - h)^2 + k$ это $(h, k)$, максимум при $a < 0$ и минимум при $a > 0$.',
@@ -25,7 +25,7 @@ export const terms: Term[] = [
   },
   {
     id: 'standard-exponential-asymptote',
-    term: { en: 'horizontal asymptote of an exponential model', ru: 'горизонтальная асимптота экспоненциальной модели (horizontal asymptote)' },
+    term: { en: 'horizontal asymptote of an exponential model', ru: 'горизонтальная асимптота экспоненциальной модели (horizontal asymptote of an exponential model)' },
     def: {
       en: 'For $y = k \\cdot a^{x} + c$ with $a > 0$ and $a \\neq 1$, the graph approaches the line $y = c$ as $x$ tends to infinity when $0 < a < 1$, and as $x$ tends to minus infinity when $a > 1$.',
       ru: 'Для $y = k \\cdot a^{x} + c$ при $a > 0$ и $a \\neq 1$ график приближается к прямой $y = c$ при $x$, стремящемся к бесконечности, если $0 < a < 1$, и при $x$, стремящемся к минус бесконечности, если $a > 1$.',
@@ -51,7 +51,7 @@ export const terms: Term[] = [
   },
   {
     id: 'standard-sinusoidal-amplitude',
-    term: { en: 'amplitude of a sinusoidal model', ru: 'амплитуда синусоидальной модели (amplitude)' },
+    term: { en: 'amplitude of a sinusoidal model', ru: 'амплитуда синусоидальной модели (amplitude of a sinusoidal model)' },
     def: {
       en: 'For $y = a\\sin(bx) + d$ or $y = a\\cos(bx) + d$ the amplitude is $|a|$, half the distance between the maximum and minimum values. The midline is $y = d$, and the period is $2\\pi/b$.',
       ru: 'Для $y = a\\sin(bx) + d$ или $y = a\\cos(bx) + d$ амплитуда равна $|a|$ — половине расстояния между наибольшим и наименьшим значениями. Средняя линия — $y = d$, а период равен $2\\pi/b$.',

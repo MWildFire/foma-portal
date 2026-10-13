@@ -10,7 +10,7 @@ const source = {
 export const terms: Term[] = [
   {
     id: 'function-graph-translation',
-    term: { en: 'translation of a graph', ru: 'параллельный перенос графика (translation)' },
+    term: { en: 'translation of a graph', ru: 'параллельный перенос графика (translation of a graph)' },
     def: {
       en: 'A transformation that moves every point of a graph by the same amount: $y = f(x - a) + b$ moves the graph $a$ units to the right and $b$ units up.',
       ru: 'Преобразование, которое сдвигает каждую точку графика на одну и ту же величину: $y = f(x - a) + b$ сдвигает график на $a$ единиц вправо и на $b$ единиц вверх.',
@@ -26,7 +26,7 @@ export const terms: Term[] = [
   },
   {
     id: 'function-graph-reflection',
-    term: { en: 'reflection of a graph', ru: 'отражение графика (reflection)' },
+    term: { en: 'reflection of a graph', ru: 'отражение графика (reflection of a graph)' },
     def: {
       en: 'A transformation that flips a graph over a line. $y = -f(x)$ reflects the graph in the $x$-axis, so every $y$-value changes sign; $y = f(-x)$ reflects it in the $y$-axis, so every $x$-value changes sign.',
       ru: 'Преобразование, которое отражает график относительно прямой. $y = -f(x)$ отражает график в оси $x$: каждое значение $y$ меняет знак; $y = f(-x)$ отражает его в оси $y$: каждое значение $x$ меняет знак.',
@@ -52,7 +52,7 @@ export const terms: Term[] = [
   },
   {
     id: 'function-graph-image-point',
-    term: { en: 'image of a point under a transformation', ru: 'образ точки при преобразовании (image of a point)' },
+    term: { en: 'image of a point under a transformation', ru: 'образ точки при преобразовании (image of a point under a transformation)' },
     def: {
       en: 'The point to which a point of the original graph is moved. For $y = p f(q(x - a)) + b$, the point $(x, y)$ of $y = f(x)$ maps to $\\left(a + \\frac{x}{q}, py + b\\right)$.',
       ru: 'Точка, в которую переходит точка исходного графика. Для $y = p f(q(x - a)) + b$ точка $(x, y)$ графика $y = f(x)$ переходит в точку $\\left(a + \\frac{x}{q}, py + b\\right)$.',

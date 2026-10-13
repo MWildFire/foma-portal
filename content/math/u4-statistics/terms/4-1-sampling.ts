@@ -40,7 +40,7 @@ export const terms: Term[] = [
   },
   {
     id: 'selection-bias',
-    term: { en: 'bias in sampling', ru: 'смещение выборки (bias)' },
+    term: { en: 'bias in sampling', ru: 'смещение выборки (bias in sampling)' },
     def: {
       en: 'A systematic tendency for a sample to differ from the population in one direction, so the estimates are consistently too high or too low. It comes from the way the sample is chosen, not from chance.',
       ru: 'Систематическое отклонение выборки от совокупности в одну сторону, из-за которого оценки стабильно завышены или занижены. Оно возникает из-за способа отбора, а не из-за случайности.',

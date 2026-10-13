@@ -25,7 +25,7 @@ export const terms: Term[] = [
   },
   {
     id: 'sketch-key-features',
-    term: { en: 'sketch of a graph', ru: 'эскиз графика (sketch)' },
+    term: { en: 'sketch of a graph', ru: 'эскиз графика (sketch of a graph)' },
     def: {
       en: 'A labelled diagram that shows the shape of a graph and its key features, such as intercepts, turning points and the ends of the domain. It need not be drawn to scale unless the question asks for it.',
       ru: 'Подписанный рисунок, показывающий форму графика и его ключевые точки: пересечения с осями, точки максимума и минимума и концы области определения. Не обязан быть в масштабе, если в задании этого не требуют.',
@@ -55,7 +55,7 @@ export const terms: Term[] = [
   },
   {
     id: 'graph-sum-difference',
-    term: { en: 'graph of a sum or difference of functions', ru: 'график суммы и разности функций (sum and difference of functions)' },
+    term: { en: 'graph of a sum or difference of functions', ru: 'график суммы и разности функций (graph of a sum or difference of functions)' },
     def: {
       en: 'The graph of $y = f(x) + g(x)$ is obtained by adding the heights of the graphs of $f$ and $g$ at each $x$; the graph of $y = f(x) - g(x)$ by subtracting them.',
       ru: 'График $y = f(x) + g(x)$ получается сложением высот графиков $f$ и $g$ при каждом $x$; график $y = f(x) - g(x)$ — вычитанием высот.',

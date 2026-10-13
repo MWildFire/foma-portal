@@ -10,7 +10,7 @@ const source = {
 export const terms: Term[] = [
   {
     id: 'null-hypothesis-h0',
-    term: { en: 'null hypothesis H0', ru: 'нулевая гипотеза H0 (null hypothesis)' },
+    term: { en: 'null hypothesis H0', ru: 'нулевая гипотеза H0 (null hypothesis H0)' },
     def: {
       en: 'The statement that the population shows no effect, no association or the claimed value. The test assumes H0 is true and asks how surprising the data would be if it were.',
       ru: 'Утверждение, что в генеральной совокупности нет эффекта, связи или заявленного значения. Тест считает H0 верной и оценивает, насколько неожиданными были бы данные в этом случае.',
@@ -25,7 +25,7 @@ export const terms: Term[] = [
   },
   {
     id: 'significance-level-alpha',
-    term: { en: 'significance level α', ru: 'уровень значимости α (significance level)' },
+    term: { en: 'significance level α', ru: 'уровень значимости α (significance level α)' },
     def: {
       en: 'The probability of rejecting H0 when H0 is true, chosen before the test is carried out. Common values are 0.05 and 0.01.',
       ru: 'Вероятность отклонить H0, если H0 верна; выбирается до проведения теста. Обычные значения: 0,05 и 0,01.',

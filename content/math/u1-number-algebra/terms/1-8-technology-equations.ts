@@ -25,7 +25,7 @@ export const terms: Term[] = [
   },
   {
     id: 'inconsistent-system',
-    term: { en: 'inconsistent system (no solution)', ru: 'несовместная система (inconsistent system)' },
+    term: { en: 'inconsistent system (no solution)', ru: 'несовместная система (inconsistent system (no solution))' },
     def: {
       en: 'A system of linear equations with no set of values that satisfies all of them, because the equations contradict each other.',
       ru: 'Система линейных уравнений, для которой нет набора значений, удовлетворяющего всем уравнениям, потому что уравнения противоречат друг другу.',

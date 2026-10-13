@@ -12,7 +12,7 @@ export const terms: Term[] = [
     id: 'pearson-r-coefficient',
     term: {
       en: 'Pearson\'s product-moment correlation coefficient r',
-      ru: 'коэффициент корреляции Пирсона (Pearson\'s product-moment correlation coefficient) r',
+      ru: 'коэффициент корреляции Пирсона r (Pearson\'s product-moment correlation coefficient r)',
     },
     def: {
       en: 'A number from −1 to 1 that measures the strength and direction of a linear relationship between two numerical variables. Values near ±1 mean the points lie close to a straight line; values near 0 mean no linear pattern.',

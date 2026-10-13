@@ -10,7 +10,7 @@ const source = {
 export const terms: Term[] = [
   {
     id: 'kinematics-position-vector',
-    term: { en: 'position vector r(t)', ru: 'вектор положения r(t) (position vector)' },
+    term: { en: 'position vector r(t)', ru: 'вектор положения r(t) (position vector r(t))' },
     def: {
       en: 'The vector from a fixed origin to a moving object at time t, written r(t). For constant velocity r(t) = r0 + tv, where r0 is the position at t = 0.',
       ru: 'Вектор от неподвижного начала координат до движущегося объекта в момент t, записывается r(t). При постоянной скорости r(t) = r0 + tv, где r0 — положение в момент t = 0.',

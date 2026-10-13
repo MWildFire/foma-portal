@@ -22,7 +22,7 @@ export const terms: Term[] = [
   },
   {
     id: 'equilibrium-point-2d',
-    term: { en: 'equilibrium point of a system', ru: 'точка равновесия системы (equilibrium point)' },
+    term: { en: 'equilibrium point of a system', ru: 'точка равновесия системы (equilibrium point of a system)' },
     def: {
       en: 'A point where $\\frac{dx}{dt} = 0$ and $\\frac{dy}{dt} = 0$ at the same time, so a state that starts there stays there. For a linear system with $D \\neq 0$, the origin is the only equilibrium point.',
       ru: 'Точка, в которой одновременно $\\frac{dx}{dt} = 0$ и $\\frac{dy}{dt} = 0$, поэтому состояние, начавшееся в ней, в ней и остаётся. Для линейной системы при $D \\neq 0$ начало координат — единственная точка равновесия.',
@@ -52,7 +52,7 @@ export const terms: Term[] = [
   },
   {
     id: 'centre-equilibrium-2d',
-    term: { en: 'centre of a linear system', ru: 'центр линейной системы (centre)' },
+    term: { en: 'centre of a linear system', ru: 'центр линейной системы (centre of a linear system)' },
     def: {
       en: 'An equilibrium point surrounded by closed orbits. It occurs when the trace is zero and the determinant is positive, so the eigenvalues are purely imaginary.',
       ru: 'Точка равновесия, окружённая замкнутыми траекториями. Она возникает, когда след равен нулю, а определитель положителен, поэтому собственные значения чисто мнимые.',

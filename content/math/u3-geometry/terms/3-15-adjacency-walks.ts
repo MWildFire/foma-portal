@@ -52,7 +52,7 @@ export const terms: Term[] = [
   },
   {
     id: 'transition-matrix-graph',
-    term: { en: 'transition matrix of a strongly connected graph', ru: 'матрица переходов сильно связного графа (transition matrix)' },
+    term: { en: 'transition matrix of a strongly connected graph', ru: 'матрица переходов сильно связного графа (transition matrix of a strongly connected graph)' },
     def: {
       en: 'In a strongly connected directed graph, each step leaves a vertex along an arc chosen with equal probability. The matrix of one-step probabilities is found by dividing each row of the adjacency matrix by its row sum, so every row adds to 1.',
       ru: 'В сильно связном ориентированном графе на каждом шаге из вершины выходит дуга, выбранная с равной вероятностью. Матрица вероятностей за один шаг получается делением каждой строки матрицы смежности на сумму её элементов, поэтому каждая строка даёт в сумме 1.',

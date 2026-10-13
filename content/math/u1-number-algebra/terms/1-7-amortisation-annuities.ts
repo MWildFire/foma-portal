@@ -10,7 +10,7 @@ const source = {
 export const terms: Term[] = [
   {
     id: 'amortisation-loan',
-    term: { en: 'amortisation (loan repayment)', ru: 'погашение долга (amortisation)' },
+    term: { en: 'amortisation (loan repayment)', ru: 'погашение долга (amortisation (loan repayment))' },
     def: {
       en: 'Repaying a loan with equal regular payments. Each payment covers the interest due for that period, and the rest reduces the balance until it reaches zero at the end of the term.',
       ru: 'Погашение кредита равными регулярными платежами. Каждый платёж покрывает проценты за период, а остальная часть уменьшает остаток до нуля к концу срока.',

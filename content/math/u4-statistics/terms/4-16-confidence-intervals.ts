@@ -55,7 +55,7 @@ export const terms: Term[] = [
   },
   {
     id: 't-distribution-df',
-    term: { en: 'Student t-distribution with n - 1 degrees of freedom', ru: 'распределение Стьюдента (t) с n − 1 степенями свободы (Student t-distribution)' },
+    term: { en: 'Student t-distribution with n - 1 degrees of freedom', ru: 'распределение Стьюдента (t) с n − 1 степенями свободы (Student t-distribution with n - 1 degrees of freedom)' },
     def: {
       en: 'The distribution used for the mean of a normal population when $\\sigma$ is unknown and is replaced by $s_{n-1}$. It has heavier tails than the normal distribution and approaches it as $n$ grows.',
       ru: 'Распределение, которое используют для среднего нормальной совокупности, когда $\\sigma$ неизвестна и заменяется на $s_{n-1}$. Его хвосты тяжелее, чем у нормального распределения; при росте $n$ оно приближается к нему.',

@@ -36,7 +36,7 @@ export const terms: Term[] = [
   },
   {
     id: 'circumcentre-of-triangle',
-    term: { en: 'circumcentre of a triangle', ru: 'центр описанной окружности треугольника (circumcentre)' },
+    term: { en: 'circumcentre of a triangle', ru: 'центр описанной окружности треугольника (circumcentre of a triangle)' },
     def: {
       en: 'The point where the three perpendicular bisectors of a triangle meet. It is equally far from the three vertices, so it is the centre of the circle through them.',
       ru: 'Точка пересечения трёх серединных перпендикуляров треугольника. Она равноудалена от трёх вершин и является центром окружности, проходящей через них.',

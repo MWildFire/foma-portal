@@ -10,7 +10,7 @@ const source = {
 export const terms: Term[] = [
   {
     id: 'tangent-to-curve',
-    term: { en: 'tangent to a curve', ru: 'касательная (tangent)' },
+    term: { en: 'tangent to a curve', ru: 'касательная (tangent to a curve)' },
     def: {
       en: 'The straight line that touches a curve at one given point and has the same gradient as the curve there, namely the derivative $f^{\\prime}(a)$ at that point.',
       ru: 'Прямая, которая касается кривой в данной точке и имеет в ней тот же угловой коэффициент, что и кривая, то есть производную $f^{\\prime}(a)$ в этой точке.',
@@ -25,7 +25,7 @@ export const terms: Term[] = [
   },
   {
     id: 'normal-to-curve',
-    term: { en: 'normal to a curve', ru: 'нормаль (normal)' },
+    term: { en: 'normal to a curve', ru: 'нормаль (normal to a curve)' },
     def: {
       en: 'The straight line through a point on a curve that is perpendicular to the tangent to the curve at that point.',
       ru: 'Прямая, проходящая через точку кривой перпендикулярно касательной к кривой в этой точке.',

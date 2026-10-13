@@ -25,7 +25,7 @@ export const terms: Term[] = [
   },
   {
     id: 'standard-form-mantissa',
-    term: { en: 'mantissa in standard form', ru: 'мантисса в стандартном виде (mantissa)' },
+    term: { en: 'mantissa in standard form', ru: 'мантисса в стандартном виде (mantissa in standard form)' },
     def: {
       en: 'The number $a$ in $a \\times 10^{k}$ when it is written in standard form. It is always at least 1 and less than 10, and it carries the significant digits.',
       ru: 'Число $a$ в записи $a \\times 10^{k}$. Оно всегда не меньше 1 и меньше 10 и содержит значащие цифры числа.',

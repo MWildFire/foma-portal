@@ -10,7 +10,7 @@ const source = {
 export const terms: Term[] = [
   {
     id: 'key-feature-x-intercept',
-    term: { en: 'x-intercept (zero)', ru: 'точка пересечения с осью x (x-intercept)' },
+    term: { en: 'x-intercept (zero)', ru: 'точка пересечения с осью x (x-intercept (zero))' },
     def: {
       en: 'A point where the graph crosses the x-axis, so y = 0; its x-coordinate is a zero of the function. The y-intercept is f(0), the value at x = 0.',
       ru: 'Точка, в которой график пересекает ось x, то есть y = 0; её абсцисса — нуль функции. Точка пересечения с осью y имеет ординату f(0).',
@@ -40,7 +40,7 @@ export const terms: Term[] = [
   },
   {
     id: 'key-feature-turning-point',
-    term: { en: 'maximum or minimum point (turning point)', ru: 'точка максимума или минимума (turning point)' },
+    term: { en: 'maximum or minimum point (turning point)', ru: 'точка максимума или минимума (maximum or minimum point (turning point))' },
     def: {
       en: 'A point where the graph changes from rising to falling (a maximum) or from falling to rising (a minimum). A local maximum is the highest point near it, while the greatest value is the highest point over the whole interval considered.',
       ru: 'Точка, в которой график меняется с возрастания на убывание (максимум) или с убывания на возрастание (минимум). Локальный максимум — самая высокая точка в своей окрестности, а наибольшее значение — самая высокая точка на всём рассматриваемом промежутке.',

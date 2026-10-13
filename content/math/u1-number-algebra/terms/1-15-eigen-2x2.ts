@@ -10,7 +10,7 @@ const source = {
 export const terms: Term[] = [
   {
     id: 'characteristic-polynomial-2x2',
-    term: { en: 'characteristic equation of a 2 × 2 matrix', ru: 'характеристическое уравнение матрицы 2 × 2 (characteristic equation)' },
+    term: { en: 'characteristic equation of a 2 × 2 matrix', ru: 'характеристическое уравнение матрицы 2 × 2 (characteristic equation of a 2 × 2 matrix)' },
     def: {
       en: 'The equation $\\det(A - \\lambda I) = 0$. For a $2 \\times 2$ matrix it reads $\\lambda^2 - (a+d)\\lambda + (ad - bc) = 0$, and its roots are the eigenvalues.',
       ru: 'Уравнение $\\det(A - \\lambda I) = 0$. Для матрицы $2 \\times 2$ оно имеет вид $\\lambda^2 - (a+d)\\lambda + (ad - bc) = 0$, а его корни — собственные значения.',
@@ -25,7 +25,7 @@ export const terms: Term[] = [
   },
   {
     id: 'eigenvalue-2x2',
-    term: { en: 'eigenvalue of a 2 × 2 matrix', ru: 'собственное значение (eigenvalue)' },
+    term: { en: 'eigenvalue of a 2 × 2 matrix', ru: 'собственное значение (eigenvalue of a 2 × 2 matrix)' },
     def: {
       en: 'A number $\\lambda$ for which $A\\mathbf{v} = \\lambda\\mathbf{v}$ has a non-zero solution $\\mathbf{v}$. For a $2 \\times 2$ matrix it is a root of the characteristic equation.',
       ru: 'Число $\\lambda$, для которого уравнение $A\\mathbf{v} = \\lambda\\mathbf{v}$ имеет ненулевое решение $\\mathbf{v}$. Для матрицы $2 \\times 2$ это корень характеристического уравнения.',
@@ -41,7 +41,7 @@ export const terms: Term[] = [
   },
   {
     id: 'eigenvector-2x2',
-    term: { en: 'eigenvector of a 2 × 2 matrix', ru: 'собственный вектор (eigenvector)' },
+    term: { en: 'eigenvector of a 2 × 2 matrix', ru: 'собственный вектор (eigenvector of a 2 × 2 matrix)' },
     def: {
       en: 'A non-zero vector $\\mathbf{v}$ with $A\\mathbf{v} = \\lambda\\mathbf{v}$. The matrix only stretches or shrinks it, and any non-zero multiple of $\\mathbf{v}$ is also an eigenvector.',
       ru: 'Ненулевой вектор $\\mathbf{v}$, для которого $A\\mathbf{v} = \\lambda\\mathbf{v}$. Матрица лишь растягивает или сжимает его, а любое ненулевое кратное $\\mathbf{v}$ тоже является собственным вектором.',
@@ -52,7 +52,7 @@ export const terms: Term[] = [
   },
   {
     id: 'diagonalisation-2x2',
-    term: { en: 'diagonalisation of a 2 × 2 matrix', ru: 'диагонализация матрицы 2 × 2 (diagonalisation)' },
+    term: { en: 'diagonalisation of a 2 × 2 matrix', ru: 'диагонализация матрицы 2 × 2 (diagonalisation of a 2 × 2 matrix)' },
     def: {
       en: 'Writing $A = PDP^{-1}$, where $D$ is diagonal with the eigenvalues on its diagonal and the columns of $P$ are eigenvectors. In this topic it is possible when there are two distinct real eigenvalues.',
       ru: 'Запись $A = PDP^{-1}$, где $D$ — диагональная матрица с собственными значениями на диагонали, а столбцы $P$ — собственные векторы. В этом разделе она возможна при двух различных вещественных собственных значениях.',

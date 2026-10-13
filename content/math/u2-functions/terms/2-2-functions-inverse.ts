@@ -25,7 +25,7 @@ export const terms: Term[] = [
   },
   {
     id: 'domain-and-range-of-function',
-    term: { en: 'domain and range of a function', ru: 'область определения (domain) и область значений (range)' },
+    term: { en: 'domain and range of a function', ru: 'область определения и область значений (domain and range of a function)' },
     def: {
       en: 'The domain is the set of inputs the function accepts, and the range is the set of outputs it actually produces. A context can make the domain smaller than the algebra alone allows.',
       ru: 'Область определения — множество входов, которые принимает функция, а область значений — множество выходов, которые она действительно даёт. Контекст может сузить область определения по сравнению с тем, что допускает одна только алгебра.',

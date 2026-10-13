@@ -21,7 +21,7 @@ export const terms: Term[] = [
   },
   {
     id: 'euler-second-order-step',
-    term: { en: 'Euler step for a second-order equation', ru: 'шаг Эйлера для уравнения второго порядка (Euler step)' },
+    term: { en: 'Euler step for a second-order equation', ru: 'шаг Эйлера для уравнения второго порядка (Euler step for a second-order equation)' },
     def: {
       en: 'Each new value of $x$ and $v$ is found from the values at the start of the step, so both variables are updated at the same time. $x$ changes by $h$ times $v$, and $v$ changes by $h$ times $f(x, v, t)$.',
       ru: 'Каждое новое значение $x$ и $v$ находят по значениям в начале шага, поэтому обе величины обновляются одновременно. $x$ меняется на $h$ умножить на $v$, а $v$ — на $h$ умножить на $f(x, v, t)$.',
@@ -36,7 +36,7 @@ export const terms: Term[] = [
   },
   {
     id: 'step-length-h-second-order',
-    term: { en: 'step length h', ru: 'длина шага h (step length)' },
+    term: { en: 'step length h', ru: 'длина шага h (step length h)' },
     def: {
       en: 'The fixed time increment in Euler\'s method, so that after $n$ steps the time is $t_n = nh$. A smaller $h$ gives a more accurate result over the same interval, but needs more steps.',
       ru: 'Фиксированный шаг по времени в методе Эйлера: после $n$ шагов время равно $t_n = nh$. Меньший $h$ даёт более точный результат на том же интервале, но требует больше шагов.',

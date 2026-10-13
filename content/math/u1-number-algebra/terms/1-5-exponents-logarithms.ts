@@ -40,7 +40,7 @@ export const terms: Term[] = [
   },
   {
     id: 'logarithm-base-e',
-    term: { en: 'natural logarithm (base e)', ru: 'натуральный логарифм (natural logarithm)' },
+    term: { en: 'natural logarithm (base e)', ru: 'натуральный логарифм (natural logarithm (base e))' },
     def: {
       en: 'For $x>0$, $\\ln x$ is the power to which the constant $e$ must be raised to give $x$: if $\\ln x=y$ then $e^{y}=x$.',
       ru: 'Для $x>0$ величина $\\ln x$ — это степень, в которую нужно возвести константу $e$, чтобы получить $x$: если $\\ln x=y$, то $e^{y}=x$.',

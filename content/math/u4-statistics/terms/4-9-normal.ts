@@ -26,7 +26,7 @@ export const terms: Term[] = [
   },
   {
     id: 'normal-standardised-score',
-    term: { en: 'standardised score z', ru: 'стандартизованная величина z (standardised score)' },
+    term: { en: 'standardised score z', ru: 'стандартизованная величина z (standardised score z)' },
     def: {
       en: 'The number of standard deviations by which a value lies away from the mean: $z = \\dfrac{x - \\mu}{\\sigma}$. Standardised values follow $Z \\sim N(0, 1)$.',
       ru: 'Число стандартных отклонений, на которое значение отстоит от среднего: $z = \\dfrac{x - \\mu}{\\sigma}$. Стандартизованные значения распределены как $Z \\sim N(0, 1)$.',

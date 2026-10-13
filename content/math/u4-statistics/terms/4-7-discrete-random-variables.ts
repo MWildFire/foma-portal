@@ -21,7 +21,7 @@ export const terms: Term[] = [
   },
   {
     id: 'discrete-probability-distribution',
-    term: { en: 'probability distribution of X', ru: 'распределение вероятностей величины X (probability distribution)' },
+    term: { en: 'probability distribution of X', ru: 'распределение вероятностей величины X (probability distribution of X)' },
     def: {
       en: 'A table or list giving every value $x$ of $X$ together with its probability $P(X = x)$. Each probability lies between 0 and 1, and the probabilities add to 1.',
       ru: 'Таблица или список, в которых для каждого значения $x$ величины $X$ указана вероятность $P(X = x)$. Каждая вероятность лежит от 0 до 1, а все вероятности в сумме дают 1.',
@@ -36,7 +36,7 @@ export const terms: Term[] = [
   },
   {
     id: 'expected-value-discrete',
-    term: { en: 'expected value E(X)', ru: 'математическое ожидание E(X) (expected value)' },
+    term: { en: 'expected value E(X)', ru: 'математическое ожидание E(X) (expected value E(X))' },
     def: {
       en: 'The long-run average value of $X$: $E(X) = \\sum x\\,P(X = x)$, the sum of each value multiplied by its probability. It need not be a value that $X$ can take.',
       ru: 'Среднее значение $X$ в длительной серии испытаний: $E(X) = \\sum x\\,P(X = x)$, сумма каждого значения, умноженного на его вероятность. Оно не обязательно совпадает со значением, которое может принять $X$.',

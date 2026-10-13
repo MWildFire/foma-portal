@@ -36,7 +36,7 @@ export const terms: Term[] = [
   },
   {
     id: 'central-limit-theorem',
-    term: { en: 'central limit theorem (CLT)', ru: 'центральная предельная теорема, ЦПТ (central limit theorem)' },
+    term: { en: 'central limit theorem (CLT)', ru: 'центральная предельная теорема, ЦПТ (central limit theorem (CLT))' },
     def: {
       en: 'For a large random sample of size $n$ from any population with mean $\\mu$ and variance $\\sigma^{2}$, the sample mean is approximately $N(\\mu, \\sigma^{2}/n)$, whatever the shape of the population.',
       ru: 'Для большой случайной выборки объёма $n$ из любой совокупности со средним $\\mu$ и дисперсией $\\sigma^{2}$ выборочное среднее приближённо распределено как $N(\\mu, \\sigma^{2}/n)$, какова бы ни была форма совокупности.',

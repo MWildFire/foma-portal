@@ -36,7 +36,7 @@ export const terms: Term[] = [
   },
   {
     id: 'vector-line-parameter',
-    term: { en: 'parameter λ', ru: 'параметр λ (parameter)' },
+    term: { en: 'parameter λ', ru: 'параметр λ (parameter λ)' },
     def: {
       en: 'The real number that selects a point on the line. At λ = 0 the point is a, and each increase of λ by 1 moves the point by b.',
       ru: 'Действительное число, которое выбирает точку на прямой. При λ = 0 точка совпадает с a, а увеличение λ на 1 сдвигает точку на вектор b.',

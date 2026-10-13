@@ -36,7 +36,7 @@ export const terms: Term[] = [
   },
   {
     id: 'sign-diagram-derivative',
-    term: { en: 'sign diagram for f′(x)', ru: 'диаграмма знаков f′(x) (sign diagram)' },
+    term: { en: 'sign diagram for f′(x)', ru: 'диаграмма знаков f′(x) (sign diagram for f′(x))' },
     def: {
       en: 'A number line on which the zeros of $f\'(x)$ are marked, and the sign of $f\'(x)$ is written in each section between them. It shows at a glance where $f$ is increasing and where it is decreasing.',
       ru: 'Числовая прямая, на которой отмечены нули $f\'(x)$ и записан знак $f\'(x)$ на каждом промежутке между ними. Она показывает, где $f$ возрастает, а где убывает.',

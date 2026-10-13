@@ -10,7 +10,7 @@ const source = {
 export const terms: Term[] = [
   {
     id: 'gradient-straight-line',
-    term: { en: 'gradient of a straight line', ru: 'угловой коэффициент прямой (gradient)' },
+    term: { en: 'gradient of a straight line', ru: 'угловой коэффициент прямой (gradient of a straight line)' },
     def: {
       en: 'The ratio of the change in y to the change in x between any two points of the line: $m = \\dfrac{y_2 - y_1}{x_2 - x_1}$. It gives both the steepness and the direction of the line.',
       ru: 'Отношение изменения y к изменению x между любыми двумя точками прямой: $m = \\dfrac{y_2 - y_1}{x_2 - x_1}$. Показывает и крутизну, и направление прямой.',

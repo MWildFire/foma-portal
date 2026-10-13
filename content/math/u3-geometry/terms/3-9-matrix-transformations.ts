@@ -21,7 +21,7 @@ export const terms: Term[] = [
   },
   {
     id: 'transform-determinant',
-    term: { en: 'determinant of a transformation matrix', ru: 'определитель матрицы преобразования (determinant)' },
+    term: { en: 'determinant of a transformation matrix', ru: 'определитель матрицы преобразования (determinant of a transformation matrix)' },
     def: {
       en: 'For $M = \\begin{pmatrix} a & b \\\\ c & d \\end{pmatrix}$, the determinant is $\\det M = ad - bc$. Its absolute value is the factor by which the transformation multiplies areas.',
       ru: 'Для $M = \\begin{pmatrix} a & b \\\\ c & d \\end{pmatrix}$ определитель равен $\\det M = ad - bc$. Его модуль — коэффициент, на который преобразование умножает площади.',

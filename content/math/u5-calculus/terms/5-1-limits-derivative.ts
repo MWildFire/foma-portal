@@ -25,7 +25,7 @@ export const terms: Term[] = [
   },
   {
     id: 'derivative-gradient-function',
-    term: { en: 'gradient function (derivative)', ru: 'функция градиента, производная (gradient function)' },
+    term: { en: 'gradient function (derivative)', ru: 'функция градиента, производная (gradient function (derivative))' },
     def: {
       en: 'The function $f\'(x)$ that gives the gradient of the curve $y = f(x)$ at every point $x$. It is the limit of the gradient of a chord as the width of the chord tends to zero.',
       ru: 'Функция $f\'(x)$, которая даёт градиент кривой $y = f(x)$ в каждой точке $x$. Это предел градиента хорды, когда ширина хорды стремится к нулю.',
@@ -37,7 +37,7 @@ export const terms: Term[] = [
   },
   {
     id: 'derivative-rate-of-change',
-    term: { en: 'derivative as a rate of change', ru: 'производная как скорость изменения (rate of change)' },
+    term: { en: 'derivative as a rate of change', ru: 'производная как скорость изменения (derivative as a rate of change)' },
     def: {
       en: 'The instantaneous rate of change of one quantity with respect to another. It is found as the limit of the average rate of change over an interval that shrinks to a point. Its units are the units of $y$ divided by the units of $x$.',
       ru: 'Мгновенная скорость изменения одной величины относительно другой. Находится как предел средней скорости изменения на промежутке, стягивающемся в точку. Её единицы равны единицам $y$, делённым на единицы $x$.',
