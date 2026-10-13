@@ -85,8 +85,8 @@ export const questions: Question[] = [
     marks: 2,
     command: 'Calculate',
     prompt: {
-      en: 'The consumer price index fell from 104.0 in 2024 to 101.5 in 2025 (2020 = 100). Calculate the inflation rate for 2025 and state whether prices are rising or falling. Give your answer to one decimal place.',
-      ru: 'Индекс потребительских цен снизился с 104,0 в 2024 году до 101,5 в 2025 году (2020 = 100). Рассчитайте темп инфляции за 2025 год и укажите, растут или падают цены. Ответ дайте с одним знаком после запятой.',
+      en: 'In country B, the consumer price index fell from 104.0 in 2024 to 101.5 in 2025 (2020 = 100). Calculate the inflation rate for 2025 and state whether prices are rising or falling. Give your answer to one decimal place.',
+      ru: 'В стране B индекс потребительских цен снизился с 104,0 в 2024 году до 101,5 в 2025 году (2020 = 100). Рассчитайте темп инфляции за 2025 год и укажите, растут или падают цены. Ответ дайте с одним знаком после запятой.',
     },
     markscheme: {
       en: '1 mark: change in CPI = 101.5 - 104.0 = -2.5 index points, so the inflation rate = -2.5 / 104.0 x 100 = -2.4%. 1 mark: the negative sign means the price level is falling (deflation): prices are falling in 2025.',

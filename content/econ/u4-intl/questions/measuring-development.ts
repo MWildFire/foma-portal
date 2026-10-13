@@ -28,8 +28,8 @@ export const questions: Question[] = [
     marks: 2,
     command: 'Calculate',
     prompt: {
-      en: 'Country A has a GNI per capita of USD 14516 and country B has a GNI per capita of USD 2350, both converted at PPP. How many times greater is the GNI per capita of country A than that of country B? Give your answer to one decimal place.',
-      ru: 'ВНД на душу населения страны A составляет 14516 USD, а страны B — 2350 USD; оба показателя пересчитаны по PPP. Во сколько раз ВНД на душу населения страны A больше, чем у страны B? Ответ дайте с одним знаком после запятой.',
+      en: 'Country A has a GNI per capita of USD 14516 and country B has a GNI per capita of USD 2350, both converted at PPP. Calculate how many times greater the GNI per capita of country A is than that of country B. Give your answer to one decimal place.',
+      ru: 'ВНД на душу населения страны A составляет 14516 USD, а страны B — 2350 USD; оба показателя пересчитаны по PPP. Рассчитайте, во сколько раз ВНД на душу населения страны A больше, чем у страны B. Ответ дайте с одним знаком после запятой.',
     },
     markscheme: {
       en: '1 mark: ratio = 14516 / 2350 = 6.18 (to two decimal places). 1 mark: country A has about 6.2 times the GNI per capita of country B.',

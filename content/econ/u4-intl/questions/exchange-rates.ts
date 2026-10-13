@@ -9,8 +9,8 @@ export const questions: Question[] = [
     marks: 2,
     command: 'Calculate',
     prompt: {
-      en: 'The Central Bank of the UAE keeps the dirham at 3.6725 AED per USD. How many AED are needed to buy USD 500? Give your answer to two decimal places.',
-      ru: 'Центральный банк ОАЭ поддерживает курс дирхама на уровне 3,6725 AED за USD. Сколько AED нужно, чтобы купить USD 500? Ответ дайте с двумя знаками после запятой.',
+      en: 'The Central Bank of the UAE keeps the dirham at 3.6725 AED per USD. Calculate how many AED are needed to buy USD 500. Give your answer to two decimal places.',
+      ru: 'Центральный банк ОАЭ поддерживает курс дирхама на уровне 3,6725 AED за USD. Рассчитайте, сколько AED нужно, чтобы купить USD 500. Ответ дайте с двумя знаками после запятой.',
     },
     markscheme: {
       en: '1 mark: AED amount = USD amount x exchange rate = 500 x 3.6725. 1 mark: AED 1836.25.',
@@ -47,8 +47,8 @@ export const questions: Question[] = [
     marks: 2,
     command: 'Calculate',
     prompt: {
-      en: 'Under a hypothetical floating rate of 3.30 AED per USD, how many AED does USD 500 buy? Give your answer to two decimal places.',
-      ru: 'При гипотетическом плавающем курсе 3,30 AED за USD сколько AED стоят USD 500? Ответ дайте с двумя знаками после запятой.',
+      en: 'Under a hypothetical floating rate of 3.30 AED per USD, calculate how many AED USD 500 buys. Give your answer to two decimal places.',
+      ru: 'При гипотетическом плавающем курсе 3,30 AED за USD рассчитайте, сколько AED стоят USD 500. Ответ дайте с двумя знаками после запятой.',
     },
     markscheme: {
       en: '1 mark: AED amount = 500 x 3.30. 1 mark: AED 1650.00, less than AED 1836.25 at 3.6725, because the dirham has appreciated.',
@@ -85,8 +85,8 @@ export const questions: Question[] = [
     marks: 2,
     command: 'Calculate',
     prompt: {
-      en: 'A student pays GBP 320 for a textbook. At a hypothetical rate of 4.70 AED per GBP, how many AED is this? Give your answer to two decimal places.',
-      ru: 'Студент платит GBP 320 за учебник. При гипотетическом курсе 4,70 AED за GBP сколько это в AED? Ответ дайте с двумя знаками после запятой.',
+      en: 'A student pays GBP 320 for a textbook. At a hypothetical rate of 4.70 AED per GBP, calculate how many AED this is. Give your answer to two decimal places.',
+      ru: 'Студент платит GBP 320 за учебник. При гипотетическом курсе 4,70 AED за GBP рассчитайте, сколько это в AED. Ответ дайте с двумя знаками после запятой.',
     },
     markscheme: {
       en: '1 mark: AED amount = GBP amount x rate = 320 x 4.70. 1 mark: AED 1504.00.',
