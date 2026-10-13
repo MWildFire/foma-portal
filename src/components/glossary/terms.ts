@@ -24,8 +24,19 @@ export function normalizeSearch(value: string): string {
   return value.toLowerCase().replace(/ё/g, 'е').replace(/\s+/g, ' ').trim();
 }
 
-const haystack = (term: TermLike): string =>
-  normalizeSearch([term.term.en, term.term.ru, term.def.en, term.def.ru, term.syllabus].join(' '));
+// French text without its accents, ligatures and curly apostrophes: "école" -> "ecole", "cœur" -> "coeur",
+// "l’école" -> "l'ecole".
+const foldFrench = (text: string): string =>
+  text.normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/œ/g, 'oe').replace(/æ/g, 'ae').replace(/[‘’]/g, "'");
+
+// What the search box looks in: the English and Russian terms and definitions and the syllabus code. The French term
+// and definition (only the French subject has them) are in it twice, as written and folded, so a student on an
+// English keyboard finds "école" by typing "ecole". Terms without French text are searched exactly as before.
+const haystack = (term: TermLike): string => {
+  const text = normalizeSearch([term.term.en, term.term.ru, term.def.en, term.def.ru, term.syllabus].join(' '));
+  const french = normalizeSearch([term.term.fr, term.def.fr].filter(Boolean).join(' '));
+  return french === '' ? text : `${text} ${french} ${foldFrench(french)}`;
+};
 
 export function filterTerms<T extends TermLike>(terms: readonly T[], filters: TermFilters): T[] {
   const words = normalizeSearch(filters.query).split(' ').filter(Boolean);

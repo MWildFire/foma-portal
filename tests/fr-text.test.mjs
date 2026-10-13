@@ -7,6 +7,7 @@ import { createElement } from 'react';
 import { renderToString } from 'react-dom/server';
 import { MemoryRouter, Route, Routes } from 'react-router-dom';
 import { frenchOf, pickText } from '../src/lib/text.ts';
+import { NO_TERM_FILTERS, filterTerms } from '../src/components/glossary/terms.ts';
 
 // The optional French text (`fr`) of an L object: the helper that picks it, the component that draws it, and every
 // place that shows it (questions, terms, flashcards, the glossary list, topic titles, the glossary search). Pages are
@@ -360,4 +361,61 @@ test('flashcards: the back keeps the example, the pitfall and the source for a F
   assert.match(html, /Example:<\/strong> He strolls\./);
   assert.match(html, /Common pitfall:<\/strong> Not &quot;se promener&quot;\./);
   assert.match(html, /Source:<\/strong>/);
+});
+
+// ---- search
+
+// A glossary term as the search sees it. The definition is the same for all of them, so only the terms are found.
+const searchable = (id, en, ru, fr, defFr) => ({
+  id,
+  term: L(en, ru, fr),
+  def: { en: 'A word from the unit.', ru: 'Слово из раздела.', ...(defFr === undefined ? {} : { fr: defFr }) },
+  syllabus: 'A1',
+  papers: ['P1'],
+});
+const SEARCH_TERMS = [
+  searchable('be', 'to be', 'быть', 'être'),
+  searchable('school', 'school', 'школа', 'l’école'),
+  searchable('heart', 'heart', 'сердце', 'le cœur'),
+  searchable('have', 'to have', 'иметь', 'avoir', 'Verbe auxiliaire très fréquent'),
+  searchable('table', 'table', 'стол'),
+  searchable('coffee', 'café', 'кофе'),
+  searchable('my', 'my', 'мой'),
+];
+const found = query => filterTerms(SEARCH_TERMS, { ...NO_TERM_FILTERS, query }).map(item => item.id);
+
+test('search: a term is found by its French text, and by its French definition when it has one', () => {
+  assert.deepEqual(found('être'), ['be']);
+  assert.deepEqual(found('ÊTRE'), ['be'], 'case is ignored');
+  assert.deepEqual(found('avoir'), ['have']);
+  assert.deepEqual(found('auxiliaire'), ['have']);
+  assert.deepEqual(found('avoir verbe'), ['have'], 'every word must be found, in any order, as before');
+  assert.deepEqual(found('avoir zebra'), []);
+});
+
+test('search: accents and ligatures in the French text are ignored, so "ecole" finds "école"', () => {
+  assert.deepEqual(found('etre'), ['be']);
+  assert.deepEqual(found('ecole'), ['school']);
+  assert.deepEqual(found('école'), ['school'], 'typing the accent works as well');
+  assert.deepEqual(found('coeur'), ['heart']);
+  assert.deepEqual(found('cœur'), ['heart']);
+  assert.deepEqual(found('tres frequent'), ['have']);
+  assert.deepEqual(found('l’école'), ['school'], 'a curly apostrophe, as an iPhone types it');
+  assert.deepEqual(found("l'ecole"), ['school'], 'a straight apostrophe finds it as well');
+});
+
+test('search: terms without French text are found exactly as before', () => {
+  assert.deepEqual(found('table'), ['table']);
+  assert.deepEqual(found('стол'), ['table']);
+  assert.deepEqual(found('to'), ['be', 'have'], 'English text still matches in the middle of a word list');
+  assert.deepEqual(found('cafe'), [], 'accents are not ignored in English text');
+  assert.deepEqual(found('café'), ['coffee']);
+  assert.deepEqual(found('мои'), [], 'nor in Russian text ("й" is not "и")');
+  assert.deepEqual(found('мой'), ['my']);
+});
+
+test('search: the paper filter and the empty search work with French terms too', () => {
+  assert.equal(filterTerms(SEARCH_TERMS, NO_TERM_FILTERS).length, SEARCH_TERMS.length);
+  assert.deepEqual(filterTerms(SEARCH_TERMS, { query: 'ecole', paper: 'P2' }).map(item => item.id), []);
+  assert.deepEqual(filterTerms(SEARCH_TERMS, { query: 'ecole', paper: 'P1' }).map(item => item.id), ['school']);
 });
