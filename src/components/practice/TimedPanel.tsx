@@ -1,4 +1,4 @@
-import { useId } from 'react';
+import { useId, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { Hourglass, TriangleAlert } from 'lucide-react';
@@ -7,6 +7,8 @@ import { PAPER_IDS, timerStorageKey, type TimedSetInfo } from '../../lib/practic
 import { pickText } from '../../lib/text';
 import { EXAMS } from '../../planner/data';
 import { Clock } from './Clock';
+import { ListeningPlayer } from './ListeningPlayer';
+import { NO_TRACKS, tracksForSet, type ListeningTrackRef } from './listening';
 import { readStoredTimer } from './timerStorage';
 import { noExtraTimeFor, setAllowanceMinutes } from './timing';
 import { FilterSelect } from './fields';
@@ -29,16 +31,19 @@ interface Props {
   missing: readonly string[];
   /** An empty id leaves timed mode. */
   onSelect: (id: string) => void;
+  /** The recordings of the listening sets. The set's own recordings are picked from these. */
+  tracks?: readonly ListeningTrackRef[];
 }
 
 // Timed mode: choose a set and run the clock. It returns the picker panel and, for a chosen set, the clock as a
 // second element. The clock sticks to the top of the screen while the student scrolls through the questions, so
 // the page must put both elements in the same container as the question list.
-export function TimedPanel({ subject, sets, active, requestedId, extraTime, lang, questionCount, missing, onSelect }: Props) {
+export function TimedPanel({ subject, sets, active, requestedId, extraTime, lang, questionCount, missing, onSelect, tracks = NO_TRACKS }: Props) {
   const { t } = useTranslation(['practice', 'subject', 'timing']);
   const headingId = useId();
   const allowed = active ? setAllowanceMinutes({ subject, set: active, exams: EXAMS, extraTime }) : 0;
   const noExtra = active ? noExtraTimeFor(subject, active.paper, active.part) : false;
+  const setTracks = useMemo(() => (active ? tracksForSet(active, tracks) : []), [active, tracks]);
   const papers = PAPER_IDS.filter(paper => sets.some(set => set.paper === paper));
 
   // Leaving timed mode throws the countdown away. If it is running (it is saved when it starts), ask first.
@@ -107,6 +112,8 @@ export function TimedPanel({ subject, sets, active, requestedId, extraTime, lang
                 <Link to={ROUTES.settings()} className="foma-link">{t('timed.extra.settings')}</Link>
               </p>
             )}
+
+            {active.part?.includes('listening') ? <ListeningPlayer key={active.id} tracks={setTracks} /> : null}
 
             {missing.length > 0 ? (
               <p className="study-banner" data-tone="amber" role="note">

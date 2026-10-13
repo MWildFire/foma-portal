@@ -1,5 +1,18 @@
 {
   "extra": {
     "none": "Extra time does not apply to listening. The set lasts {{base}} minutes."
+  },
+  "listening": {
+    "hint": "Each recording plays twice, with a pause between the plays, as in the exam. Repeat plays the current recording again from the start.",
+    "start": "Start",
+    "repeat": "Repeat",
+    "none": "No recordings are linked to this set yet.",
+    "status": {
+      "idle": "Press Start. Recordings in this set: {{total}}.",
+      "playing": "Recording {{track}} of {{total}}, play {{play}} of 2.",
+      "pause": "Pause. Next: recording {{track}} of {{total}}, play {{play}} of 2.",
+      "done": "The set is finished."
+    },
+    "error": "This recording could not be played. Press Start to try again."
   }
 }

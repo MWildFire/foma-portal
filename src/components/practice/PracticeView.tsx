@@ -30,6 +30,7 @@ import { TopicHero } from '../content/TopicHero';
 import { FilterBar } from './FilterBar';
 import { QuestionCard } from './QuestionCard';
 import { TimedPanel } from './TimedPanel';
+import { NO_TRACKS, type ListeningTrackRef } from './listening';
 import { StatGrid } from './fields';
 import { clearStoredTimer } from './timerStorage';
 import '../content/ui.css';
@@ -64,7 +65,7 @@ function QuestionList({ questions, offset = 0, progress, subject, ...rest }: Lis
 
 // #/s/:subject/practice. Questions of the subject with filters (paper, topic, command term), a mistake log ("to redo"
 // comes first) and timed mode for a set (?set=<id>). Filters and the chosen set live in the address.
-export function PracticeView({ pack }: { pack: SubjectPack }) {
+export function PracticeView({ pack, tracks = NO_TRACKS }: { pack: SubjectPack; tracks?: readonly ListeningTrackRef[] }) {
   const { t, i18n } = useTranslation(['practice', 'subject', 'common']);
   const lang = toLang(i18n.language);
   const subject = pack.meta.id;
@@ -171,6 +172,7 @@ export function PracticeView({ pack }: { pack: SubjectPack }) {
               questionCount={inSet?.found.length ?? 0}
               missing={inSet?.missing ?? []}
               onSelect={chooseSet}
+              tracks={tracks}
             />
 
             {active && inSet ? (

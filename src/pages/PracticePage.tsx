@@ -4,6 +4,7 @@ import { BreadcrumbsNav } from '../components/layout/BreadcrumbsNav';
 import { usePageTitle } from '../components/content/usePageTitle';
 import { useScrollToTopOnArrival } from '../components/practice/pageScroll';
 import { PracticeView } from '../components/practice/PracticeView';
+import { NO_TRACKS, type ListeningTrackRef } from '../components/practice/listening';
 import { SubjectBar } from '../components/subject/SubjectHeader';
 import { SubjectNotFound } from '../components/subject/SubjectNotFound';
 import { ROUTES } from '../config/routes';
@@ -11,7 +12,7 @@ import { getSubject } from '../content/registry';
 import { pickText } from '../lib/text';
 
 // #/s/:subject/practice (also ?set=<timed set id>, ?paper=, ?topic=, ?command=)
-export function PracticePage() {
+export function PracticePage({ tracks = NO_TRACKS }: { tracks?: readonly ListeningTrackRef[] }) {
   const { subject = '' } = useParams();
   const { t, i18n } = useTranslation(['practice', 'subject', 'common']);
   const pack = getSubject(subject);
@@ -27,7 +28,7 @@ export function PracticePage() {
       <BreadcrumbsNav crumbs={[{ label: subjectTitle, to: ROUTES.subject(subject) }, { label: t('title') }]} />
       <SubjectBar pack={pack} />
       {/* A new key per subject: the open markscheme and the redo list never carry over to another subject. */}
-      <PracticeView key={subject} pack={pack} />
+      <PracticeView key={subject} pack={pack} tracks={tracks} />
     </div>
   );
 }
