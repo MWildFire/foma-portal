@@ -75,15 +75,16 @@ function reviewQuestions(p) {
   say('no model answer:', list(qs.filter(q => !(q.model?.en)).map(q => q.id)));
 
   section('P1 passages: length, quotes and their check against the extract');
-  for (const q of passages) {
+  for (const q of passages.filter(x => norm(x.stimulus?.en))) {
     const stim = q.stimulus?.en ?? '';
     const ruStim = q.stimulus?.ru ?? '';
     const cited = [...quotesIn(q.model?.en), ...quotesIn(q.markscheme?.en), ...quotesIn(q.model?.ru), ...quotesIn(q.markscheme?.ru)];
     const missing = cited.filter(c => !norm(stim).includes(norm(c)));
     say(`${q.id}`, `| stimulus EN ${words(stim)} w`, `| RU ${words(ruStim)} w`, `| same as EN: ${norm(ruStim) === norm(stim)}`, `| quotes ${cited.length}`, `| not in extract: ${missing.length ? JSON.stringify(missing.map(m => short(m, 70))) : 'none'}`);
   }
-  const dupStim = passages.filter((q, i, a) => a.findIndex(x => norm(x.stimulus?.en) === norm(q.stimulus?.en)) !== i).map(q => q.id);
-  say('passages with duplicate text:', list(dupStim));
+  const withStim = passages.filter(q => norm(q.stimulus?.en));
+  const dupStim = withStim.filter((q, i, a) => a.findIndex(x => norm(x.stimulus?.en) === norm(q.stimulus?.en)) !== i).map(q => q.id);
+  say('passages with an extract:', withStim.length, '| with duplicate text:', list(dupStim));
 
   section('Check questions: quotes against their stimulus');
   for (const q of checks) {
@@ -132,6 +133,21 @@ function reviewPapers(p, exams) {
   for (const r of rows) say(JSON.stringify(r).slice(0, 220));
 }
 
+// Topic bodies may sit in nested folders (for example content/cs/theme-a/topics), so walk the subject folder.
+function findMdx(subject) {
+  const found = new Map();
+  const walk = (dir) => {
+    for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+      const full = path.join(dir, entry.name);
+      if (entry.isDirectory()) { walk(full); continue; }
+      const m = entry.name.match(/^(.+)\.(en|ru)\.mdx$/);
+      if (m) found.set(`${m[1]}.${m[2]}`, full);
+    }
+  };
+  walk(path.join(root, 'content', subject));
+  return found;
+}
+
 function reviewTopics(p) {
   section(`Topics (${p.topics.length}): MDX structure, components and references`);
   const qIds = new Set(p.questions.map(q => q.id));
@@ -139,12 +155,12 @@ function reviewTopics(p) {
   const simDir = path.join(root, 'src', 'sims', subject);
   const simFiles = fs.existsSync(simDir) ? fs.readdirSync(simDir).map(f => f.replace(/\.tsx?$/, '')) : [];
   const problems = [];
+  const mdxFiles = findMdx(subject);
   for (const t of p.topics) {
-    const dir = path.join(root, 'content', subject, 'topics');
     const bodies = {};
     for (const lang of ['en', 'ru']) {
-      const file = path.join(dir, `${t.id}.${lang}.mdx`);
-      if (!fs.existsSync(file)) { problems.push(`${t.id}: missing ${lang}.mdx`); continue; }
+      const file = mdxFiles.get(`${t.id}.${lang}`);
+      if (!file) { problems.push(`${t.id}: missing ${lang}.mdx`); continue; }
       bodies[lang] = fs.readFileSync(file, 'utf8');
     }
     for (const lang of ['en', 'ru']) {
