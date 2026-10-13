@@ -16,9 +16,7 @@
   },
   "access": {
     "title": "Access arrangements",
-    "none": "none",
     "extraTime": "25% extra time",
-    "separateRoom": "separate room (ACC2)",
     "change": "Change in Settings"
   },
   "status": {

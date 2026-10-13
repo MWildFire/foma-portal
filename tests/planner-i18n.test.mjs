@@ -27,6 +27,8 @@ const DYNAMIC = {
   'planner:kind.': ['recall', 'topic', 'practice', 'timed', 'paper', 'study'],
   'planner:part.': ['reading', 'listening'],
   'planner:rag.': ['red', 'amber', 'green'],
+  'access:room.summary.': ['ACC2', 'SpHal2', 'unknown'],
+  'access:room.options.': ['ACC2', 'SpHal2', 'unknown'],
 };
 
 const bundle = {};

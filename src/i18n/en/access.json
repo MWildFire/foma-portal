@@ -1,0 +1,25 @@
+{
+  "room": {
+    "label": "Exam room",
+    "hint": "The school tells you the room for each paper. Until it does, leave it on “Not sure yet”: the times of the main hall are shown.",
+    "options": {
+      "ACC2": "ACC2 (separate room)",
+      "SpHal2": "SpHal2 (main hall)",
+      "unknown": "Not sure yet"
+    },
+    "summary": {
+      "ACC2": "room ACC2",
+      "SpHal2": "room SpHal2",
+      "unknown": "room not confirmed yet"
+    }
+  },
+  "acc2": {
+    "heading": "ACC2 start times",
+    "intro": "In ACC2 each paper starts at the time below. Your end time is that start plus your length with extra time."
+  },
+  "clash": {
+    "title": "Possible clash",
+    "text": "{{date}}, {{hall}}: {{first}} ({{firstFrom}}–{{firstTo}}) overlaps with {{second}} (from {{secondFrom}}). Check the room and the start times with the school."
+  },
+  "noExtraTime": "No extra time for this paper."
+}

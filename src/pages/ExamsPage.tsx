@@ -11,10 +11,12 @@ import { ROUTES } from '../config/routes';
 import type { Lang } from '../contract/types';
 import { useExamCountdown } from '../hooks/useExamCountdown';
 import { useLocalProgress } from '../hooks/useLocalProgress';
-import { examEndMs, examStartClock, examStartMs, extendedMinutes } from '../planner/calendar';
+import { accessChoiceOf } from '../planner/access';
+import { examEndMs, examStartClock, examStartMs, hasExtraTime, sittingMinutes } from '../planner/calendar';
 import { EXAMS } from '../planner/data';
 import { dubaiToday } from '../planner/dates';
 import { capitalize, formatDate, formatTimeRange } from '../planner/format';
+import { hallClashes, hallOf } from '../planner/rooms';
 import type { ExamPaper } from '../planner/types';
 
 // The exam days in calendar order; papers inside a day keep the order of the file (by start time).
@@ -28,22 +30,28 @@ function byDay(papers: ExamPaper[]): { date: string; papers: ExamPaper[] }[] {
   return out;
 }
 
-// The mock exam calendar from data/exams.json, in Dubai time, with the room exactly as the school printed it.
+// The mock exam calendar from data/exams.json, in Dubai time. Times are the student's own: the ACC2 start with the
+// separate room, and the end includes the extra time (not for the French listening).
 export function ExamsPage() {
   const { t, i18n } = useTranslation('exams');
+  const { t: ta } = useTranslation('access');
   const { t: tc } = useTranslation();
   const { t: tp } = useTranslation('planner');
   const lang: Lang = i18n.language.startsWith('ru') ? 'ru' : 'en';
   usePageTitle(tc('nav.exams'), tc('brand'));
   useScrollToTop();
   const [state] = useLocalProgress();
-  const { extraTime, separateRoom } = state.settings.accessArrangements;
+  const { extraTime, separateRoom, room } = accessChoiceOf(state.settings.accessArrangements);
   const { now, next } = useExamCountdown(extraTime, separateRoom);
   const infos = useMemo(() => subjectInfos(lang), [lang]);
   const days = useMemo(() => byDay(EXAMS.papers), []);
+  // Overlapping windows in one hall, worked out from the schedule (the warning is shown only when there is one).
+  const clashes = useMemo(() => hallClashes(EXAMS, room, extraTime), [room, extraTime]);
   const today = dubaiToday(now);
   const first = EXAMS.papers[0];
   const last = EXAMS.papers[EXAMS.papers.length - 1];
+
+  const paperName = (exam: ExamPaper): string => `${subjectInfo(infos, exam.subject).name}, ${paperLabel(tp, exam.paper, exam.part)}`;
 
   return (
     <section className="space-y-5">
@@ -62,14 +70,33 @@ export function ExamsPage() {
       <div role="note" className={`${CARD} p-3 text-sm`}>
         <p className="m-0">
           <span className="font-medium">{t('access.title')}: </span>
-          {extraTime || separateRoom
-            ? [extraTime ? t('access.extraTime') : null, separateRoom ? t('access.separateRoom') : null].filter(Boolean).join(' · ')
-            : t('access.none')}
+          {[extraTime ? t('access.extraTime') : null, ta(`room.summary.${room}`)].filter(Boolean).join(' · ')}
         </p>
         <Link to={ROUTES.settings()} className="inline-flex min-h-[44px] items-center font-medium">
           {t('access.change')}
         </Link>
       </div>
+
+      {clashes.length > 0 && (
+        <section aria-labelledby="exam-clashes" role="note" className={`${CARD} space-y-2 p-3`} data-tone="amber">
+          <h2 id="exam-clashes" className="text-base font-semibold">{ta('clash.title')}</h2>
+          <ul className="m-0 list-none space-y-2 p-0 text-sm">
+            {clashes.map(clash => (
+              <li key={`${clash.first.exam.id}-${clash.second.exam.id}`} className="break-words">
+                {ta('clash.text', {
+                  date: formatDate(clash.date, lang, 'day'),
+                  hall: clash.hall,
+                  first: paperName(clash.first.exam),
+                  firstFrom: clash.first.start,
+                  firstTo: clash.first.end,
+                  second: paperName(clash.second.exam),
+                  secondFrom: clash.second.start,
+                })}
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
 
       {days.length === 0 && (
         <div className={`${CARD} p-4`}>
@@ -92,12 +119,12 @@ export function ExamsPage() {
               const running = !finished && startMs <= now;
               const isNext = !finished && !running && next?.exam.id === exam.id;
               const info = subjectInfo(infos, exam.subject);
-              const longer = extendedMinutes(EXAMS, exam.minutes);
+              const length = sittingMinutes(EXAMS, exam, extraTime);
               const ownStart = examStartClock(exam, separateRoom);
               return (
                 <li key={exam.id} className={`${card(isNext || running)} p-3`}>
                   <div className="flex flex-wrap items-start justify-between gap-x-3 gap-y-1">
-                    <p className="m-0 text-lg font-semibold tabular-nums">{formatTimeRange(exam.start, exam.minutes)}</p>
+                    <p className="m-0 text-lg font-semibold tabular-nums">{formatTimeRange(ownStart, length)}</p>
                     {finished && (
                       <Chip>
                         <CircleCheck size={12} aria-hidden /> {t('status.finished')}
@@ -121,7 +148,7 @@ export function ExamsPage() {
                     <dt className={MUTED}>{t('fields.duration')}</dt>
                     <dd className="m-0">{formatMinutes(tp, exam.minutes)}</dd>
                     <dt className={MUTED}>{t('fields.room')}</dt>
-                    <dd className="m-0 break-words">{exam.room}</dd>
+                    <dd className="m-0 break-words">{room === 'unknown' ? exam.room : hallOf(exam, room)}</dd>
                     {separateRoom && (
                       <>
                         <dt className={MUTED}>{t('fields.separateRoom')}</dt>
@@ -134,7 +161,9 @@ export function ExamsPage() {
                       <>
                         <dt className={MUTED}>{t('fields.extraTime')}</dt>
                         <dd className="m-0 break-words tabular-nums">
-                          {t('extraTimeValue', { time: formatMinutes(tp, longer), range: formatTimeRange(ownStart, longer) })}
+                          {hasExtraTime(EXAMS, exam)
+                            ? t('extraTimeValue', { time: formatMinutes(tp, length), range: formatTimeRange(ownStart, length) })
+                            : ta('noExtraTime')}
                         </dd>
                       </>
                     )}

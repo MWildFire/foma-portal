@@ -1,7 +1,8 @@
 import { AlertCircle, CircleCheck, ClipboardCopy, RotateCcw, Upload } from 'lucide-react';
 import { useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
 import { useTranslation } from 'react-i18next';
-import { formatMinutes } from '../components/planner/labels';
+import { formatMinutes, paperLabel } from '../components/planner/labels';
+import { subjectInfo, subjectInfos } from '../components/planner/subjects';
 import { usePageTitle, useScrollToTop } from '../components/planner/usePageTitle';
 import { usePlan } from '../components/planner/usePlan';
 import { Btn, CARD, MUTED } from '../components/planner/ui';
@@ -9,8 +10,11 @@ import { LanguageToggle } from '../components/ui/LanguageToggle';
 import type { Lang } from '../contract/types';
 import { UPDATE_EVENT, WEEKDAYS, type GlobalState, type Weekday } from '../lib/storage';
 import { applyProgress, collectProgress, encodeProgress } from '../lib/transfer';
-import { setAccessArrangement, setDailyLoad } from '../planner/actions';
-import { capitalize, formatInstant, weekdayName } from '../planner/format';
+import { EXAM_ROOMS, accessChoiceOf } from '../planner/access';
+import { setAccessArrangement, setDailyLoad, setExamRoom } from '../planner/actions';
+import { examStartClock } from '../planner/calendar';
+import { EXAMS } from '../planner/data';
+import { capitalize, formatDate, formatInstant, weekdayName } from '../planner/format';
 import { DEFAULT_DAILY_LOAD, parseLoadInput } from '../planner/loads';
 import { checkImport, progressKeys } from '../planner/progress-code';
 
@@ -50,36 +54,68 @@ function Success({ children }: { children: ReactNode }) {
 // ---------------------------------------------------------------------------------------------
 
 function AccessSection({ state, update }: { state: GlobalState; update: Update }) {
-  const { t } = useTranslation('settings');
-  const { extraTime, separateRoom } = state.settings.accessArrangements;
-  const rows: { key: 'extraTime' | 'separateRoom'; checked: boolean }[] = [
-    { key: 'extraTime', checked: extraTime },
-    { key: 'separateRoom', checked: separateRoom },
-  ];
+  const { t, i18n } = useTranslation('settings');
+  const { t: ta } = useTranslation('access');
+  const { t: tp } = useTranslation('planner');
+  const lang: Lang = i18n.language.startsWith('ru') ? 'ru' : 'en';
+  const { extraTime, room } = accessChoiceOf(state.settings.accessArrangements);
+  const infos = useMemo(() => subjectInfos(lang), [lang]);
   return (
     <Section id="settings-access" title={t('access.title')}>
       <p className={`mt-1 text-sm ${MUTED}`}>{t('access.intro')}</p>
-      <div className="mt-2 space-y-1">
-        {rows.map(row => (
-          <label key={row.key} className="flex min-h-[44px] cursor-pointer items-start gap-3 py-2">
-            <input
-              type="checkbox"
-              checked={row.checked}
-              onChange={event => {
-                const value = event.target.checked;
-                update(current => setAccessArrangement(current, row.key, value));
-              }}
-              className="mt-1 h-5 w-5 shrink-0 accent-[var(--color-accent)]"
-            />
-            <span className="min-w-0">
-              <span className="block font-medium">{row.key === 'extraTime' ? t('access.extraTime.label') : t('access.separateRoom.label')}</span>
-              <span className={`block text-sm ${MUTED}`}>
-                {row.key === 'extraTime' ? t('access.extraTime.hint') : t('access.separateRoom.hint')}
-              </span>
-            </span>
-          </label>
-        ))}
-      </div>
+
+      <label className="mt-2 flex min-h-[44px] cursor-pointer items-start gap-3 py-2">
+        <input
+          type="checkbox"
+          checked={extraTime}
+          onChange={event => {
+            const value = event.target.checked;
+            update(current => setAccessArrangement(current, 'extraTime', value));
+          }}
+          className="mt-1 h-5 w-5 shrink-0 accent-[var(--color-accent)]"
+        />
+        <span className="min-w-0">
+          <span className="block font-medium">{t('access.extraTime.label')}</span>
+          <span className={`block text-sm ${MUTED}`}>{t('access.extraTime.hint')}</span>
+        </span>
+      </label>
+
+      <fieldset className="mt-3 min-w-0 border-0 p-0">
+        <legend className="font-medium">{ta('room.label')}</legend>
+        <p className={`mt-1 text-sm ${MUTED}`}>{ta('room.hint')}</p>
+        <div className="mt-1 space-y-1">
+          {EXAM_ROOMS.map(option => (
+            <label key={option} className="flex min-h-[44px] cursor-pointer items-center gap-3 py-2">
+              <input
+                type="radio"
+                name="exam-room"
+                value={option}
+                checked={room === option}
+                onChange={() => update(current => setExamRoom(current, option))}
+                className="h-5 w-5 shrink-0 accent-[var(--color-accent)]"
+              />
+              <span>{ta(`room.options.${option}`)}</span>
+            </label>
+          ))}
+        </div>
+      </fieldset>
+
+      {room === 'ACC2' && (
+        <div className="mt-4">
+          <h3 className="text-sm font-semibold">{ta('acc2.heading')}</h3>
+          <p className={`mt-1 text-sm ${MUTED}`}>{ta('acc2.intro')}</p>
+          <ul className="m-0 mt-2 list-none space-y-1 p-0 text-sm">
+            {EXAMS.papers.map(exam => (
+              <li key={exam.id} className="flex flex-wrap justify-between gap-x-3">
+                <span className="min-w-0 break-words">
+                  {formatDate(exam.date, lang, 'day')}, {subjectInfo(infos, exam.subject).name}, {paperLabel(tp, exam.paper, exam.part)}
+                </span>
+                <span className="font-medium tabular-nums">{examStartClock(exam, true)}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
     </Section>
   );
 }

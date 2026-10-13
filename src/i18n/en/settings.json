@@ -10,10 +10,6 @@
     "extraTime": {
       "label": "25% extra time",
       "hint": "Timed papers in the plan and exam end times get 25% more time."
-    },
-    "separateRoom": {
-      "label": "Separate room (ACC2)",
-      "hint": "The Today page shows when your next exam starts in ACC2."
     }
   },
   "load": {

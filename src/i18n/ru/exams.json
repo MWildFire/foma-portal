@@ -16,9 +16,7 @@
   },
   "access": {
     "title": "Особые условия (access arrangements)",
-    "none": "нет",
     "extraTime": "+25% времени",
-    "separateRoom": "отдельная аудитория (ACC2)",
     "change": "Изменить в настройках"
   },
   "status": {
