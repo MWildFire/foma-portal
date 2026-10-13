@@ -1,0 +1,73 @@
+import type { TopicMeta } from '../../../../src/contract/types';
+
+const topic: TopicMeta = {
+  id: 'a2-flooding',
+  subject: 'geo',
+  code: 'A.2',
+  title: { en: 'Flooding and flood mitigation', ru: 'Наводнения и их смягчение' },
+  papers: ['P1'],
+  option: 'A',
+  order: 22,
+  minutes: 45,
+  priority: 1,
+  inMockScope: 'yes',
+  outcomes: [
+    {
+      en: 'I can describe flash, river and coastal floods and their natural and human causes, with examples',
+      ru: 'Умею описывать внезапные, речные и прибрежные наводнения и их природные и антропогенные причины, приводя примеры',
+    },
+    {
+      en: 'I can read a storm hydrograph and explain how urbanisation changes the lag time and the peak discharge',
+      ru: 'Умею читать штормовой гидрограф и объяснять, как урбанизация меняет время запаздывания и пиковый расход',
+    },
+    {
+      en: 'I can calculate the lag time and the percentage change in peak discharge from hydrograph data',
+      ru: 'Умею рассчитывать время запаздывания и процентное изменение пикового расхода по данным гидрографа',
+    },
+    {
+      en: 'I can explain flood prediction and warning, and compare hard and soft engineering with examples',
+      ru: 'Умею объяснять прогноз и предупреждение о наводнениях и сравнивать жёсткие и мягкие инженерные меры на примерах',
+    },
+    {
+      en: 'I can separate mitigation from adaptation and weigh the costs, benefits and trade-offs of a dated flood scheme',
+      ru: 'Умею отличать смягчение последствий от адаптации и взвешивать издержки, выгоды и компромиссы схемы защиты на датированном примере',
+    },
+  ],
+  termIds: [
+    'a-flash-flood',
+    'a-river-flood',
+    'a-coastal-flood',
+    'a-storm-surge',
+    'a-saturated-soil',
+    'a-impermeable-surface',
+    'a-surface-runoff',
+    'a-infiltration',
+    'a-floodplain',
+    'a-channelisation',
+    'a-storm-hydrograph',
+    'a-lag-time',
+    'a-peak-discharge',
+    'a-levee',
+    'a-flood-relief-channel',
+    'a-flood-storage',
+    'a-hard-engineering',
+    'a-soft-engineering',
+    'a-floodplain-zoning',
+    'a-flood-warning',
+    'a-flood-mitigation',
+    'a-flood-adaptation',
+  ],
+  sims: ['geo.opt-a-hydrograph'],
+  questionIds: ['a2-sq1', 'a2-sq2', 'a2-sq3', 'a2-eq1', 'a2-eq2'],
+  caseIds: ['a-netherlands-room-river', 'a-boscastle-flash-2004', 'a-pakistan-floods-2022'],
+  sources: [
+    { kind: 'ib-guide', title: 'Geography guide (2017), Option A: Freshwater', locator: 'A.2' },
+    { kind: 'thinkib', title: 'ThinkIB, Option A: Floods and Flood Mitigation (page 43867)', locator: 'Flood Mitigation Strategies; Flood Prediction; Hydrographs and Floods' },
+  ],
+  links: [
+    { title: 'ThinkIB task: Flood Mitigation Strategies, reading (18 Sep 2026)', url: 'https://student.thinkib.net/geography/task/1335192/flood-mitigation-strategies' },
+    { title: 'ThinkIB task: Flood Mitigation Strategies (21 Sep 2026)', url: 'https://student.thinkib.net/geography/task/1336856/flood-mitigation-strategies' },
+  ],
+};
+
+export default topic;

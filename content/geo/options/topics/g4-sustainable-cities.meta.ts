@@ -58,7 +58,13 @@ const topic: TopicMeta = {
   questionIds: ['g4-sq1', 'g4-sq2', 'g4-sq3', 'g4-eq1', 'g4-eq2'],
   caseIds: ['g-curitiba-brt', 'g-copenhagen-cycling', 'g-vauban-freiburg', 'g-masdar-city'],
   sims: ['geo.opt-g-transport'],
-  sources: [{ kind: 'ib-guide', title: 'Geography guide (2017), Option G: Urban environments', locator: 'G.4' }],
+  sources: [
+    { kind: 'ib-guide', title: 'Geography guide (2017), Option G: Urban environments', locator: 'G.4' },
+    { kind: 'thinkib', title: 'ThinkIB, Option G: Urban Environments (pages 37521, 37639, 37641, 37654, 37666)', locator: 'Sustainable Urban Systems; Urban Growth; Resilient Cities; Ecocity Design and Environmental Strategies; Smart Cities' },
+  ],
+  links: [
+    { title: 'ThinkIB task: Resilient Cities (23 Jan 2026)', url: 'https://student.thinkib.net/geography/task/1158376/resilient-cities' },
+  ],
 };
 
 export default topic;

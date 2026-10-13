@@ -1,0 +1,76 @@
+import type { TopicMeta } from '../../../../src/contract/types';
+
+const topic: TopicMeta = {
+  id: 'a1-drainage-basins',
+  subject: 'geo',
+  code: 'A.1',
+  title: { en: 'Drainage basin hydrology and geomorphology', ru: 'Гидрология и геоморфология речного бассейна' },
+  papers: ['P1'],
+  option: 'A',
+  order: 21,
+  minutes: 45,
+  priority: 1,
+  inMockScope: 'yes',
+  outcomes: [
+    {
+      en: 'I can name the inputs, outputs, stores and flows of a drainage basin as an open system, and calculate a water balance from precipitation, discharge and evapotranspiration',
+      ru: 'Умею называть входы, выходы, запасы и потоки речного бассейна как открытой системы и рассчитывать водный баланс по осадкам, стоку и испарению',
+    },
+    {
+      en: 'I can describe a storm hydrograph, with its rising and falling limbs, lag time, peak discharge and base flow',
+      ru: 'Умею описывать паводковый гидрограф: восходящую и нисходящую ветви, время запаздывания, пиковый расход и базисный сток',
+    },
+    {
+      en: 'I can explain how slope, drainage density, rock permeability, soil, vegetation, land use, basin shape and size change the shape of a hydrograph',
+      ru: 'Умею объяснять, как уклон, густота речной сети, проницаемость породы, почва, растительность, землепользование, форма и размер бассейна меняют форму гидрографа',
+    },
+    {
+      en: 'I can explain how erosion, transport and deposition change along the long profile of a river, and how gradient, discharge and load affect them',
+      ru: 'Умею объяснять, как эрозия, перенос и отложение наносов меняются вдоль продольного профиля реки и как на них влияют уклон, расход и наносы',
+    },
+    {
+      en: 'I can classify river regimes and explain how climate and the basin shape them, using the Rhine, Mekong and Amazon with dated figures',
+      ru: 'Умею классифицировать речные режимы и объяснять, как их формируют климат и бассейн, опираясь на Рейн, Меконг и Амазонку с датированными цифрами',
+    },
+    {
+      en: 'I can use the storm in the UAE in April 2024 as an example of intense rain on dry wadi catchments that caused flash floods, with a dated figure and a source',
+      ru: 'Умею использовать ливень в ОАЭ в апреле 2024 года как пример сильного дождя над сухими водосборами вади, который вызвал стремительные паводки, приводя цифру с датой и источником',
+    },
+  ],
+  termIds: [
+    'a-drainage-basin',
+    'a-watershed',
+    'a-open-system',
+    'a-water-balance',
+    'a-evapotranspiration',
+    'a-infiltration',
+    'a-percolation',
+    'a-throughflow',
+    'a-overland-flow',
+    'a-groundwater-flow',
+    'a-storm-hydrograph',
+    'a-rising-limb',
+    'a-falling-limb',
+    'a-lag-time',
+    'a-peak-discharge',
+    'a-base-flow',
+    'a-storm-flow',
+    'a-drainage-density',
+    'a-long-profile',
+    'a-river-regime',
+    'a-river-gradient',
+    'a-river-erosion',
+    'a-river-transport',
+    'a-deposition',
+  ],
+  sims: ['geo.opt-a-basin'],
+  questionIds: ['a1-sq1', 'a1-sq2', 'a1-sq3', 'a1-eq1', 'a1-eq2'],
+  caseIds: ['a-rhine-basin', 'a-mekong-basin', 'a-amazon-basin', 'a-uae-wadi-floods-2024'],
+  sources: [
+    { kind: 'ib-guide', title: 'Geography guide (2017), Option A: Freshwater', locator: 'A.1' },
+    { kind: 'thinkib', title: 'ThinkIB, Option A: Drainage Basin Hydrology and Geomorphology (page 43412)', locator: 'The Water Budget; River Processes; Upper, Middle and Lower Course Landforms' },
+  ],
+  links: [],
+};
+
+export default topic;

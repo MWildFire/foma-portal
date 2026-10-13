@@ -1,0 +1,99 @@
+## Big idea
+
+A drainage basin turns rain into river flow, and what happens in between decides how fast and how hard the river responds. The same storm can give a gentle rise in discharge in one basin and a sharp flood in another. Learn the basin as a system first: its inputs, outputs, stores and flows. The storm hydrograph and the long profile of the river both follow from that.
+
+## Explanation
+
+<Term id="a-drainage-basin"/> is all the land from which a river and its tributaries collect water. Its edge is a <Term id="a-watershed"/>, a line of higher ground. The basin is an <Term id="a-open-system"/>: energy from the Sun drives the water cycle, and water and sediment cross its boundary.
+
+<Callout kind="define">Drainage basin: the area of land from which a river and all its tributaries collect water, bounded by a watershed.</Callout>
+
+**Inputs, outputs, stores and flows.** The main input is precipitation. The outputs are <Term id="a-evapotranspiration"/> to the atmosphere, discharge at the outlet, and groundwater that leaves beneath the watershed. Water is held in stores: surface water and snow, soil moisture, groundwater in rock, and water in the channel. Flows move water between the stores and towards the outlet. <Term id="a-infiltration"/> takes water into the soil, <Term id="a-percolation"/> carries it down to the water table, <Term id="a-throughflow"/> moves it sideways through the soil, <Term id="a-overland-flow"/> carries it across the surface when the ground cannot take it in, and <Term id="a-groundwater-flow"/> feeds the river slowly from below. Channel flow then carries the water to the outlet.
+
+**The water balance.** Over a period, inputs and outputs are linked by the <Term id="a-water-balance"/>: $P = Q + E + \Delta S$, where P is precipitation, Q is discharge, E is evapotranspiration and ΔS is the change in storage. ΔS is positive when the stores gain water and negative when they lose it. Some textbooks write the same idea as $P = Q + E \pm \Delta S$. Over a full year the stores often change little, so the rain that falls leaves almost entirely as discharge and evapotranspiration.
+
+**The storm hydrograph.** A <Term id="a-storm-hydrograph"/> plots discharge at the outlet against time after one storm. Its main features are the <Term id="a-rising-limb"/>; the <Term id="a-peak-discharge"/>, which is a flow in cubic metres per second; the <Term id="a-falling-limb"/>; the <Term id="a-lag-time"/> between the rainfall peak and the discharge peak; and the <Term id="a-base-flow"/> before the storm. The water above the base flow is the <Term id="a-storm-flow"/>, which comes mostly from overland flow and throughflow. Base flow comes from groundwater and keeps the river flowing between storms.
+
+<Callout kind="tip">Name the features precisely. Lag time is a time in hours, peak discharge is a flow in cubic metres per second, and base flow is the level before the storm.</Callout>
+
+**Basin characteristics control the response.** The same rain gives a different hydrograph in different basins:
+- Slope: steep slopes move water over the surface faster, which shortens the lag time and raises the peak.
+- Drainage density: a high <Term id="a-drainage-density"/> means that water meets a channel after a short journey, so the response is quicker.
+- Rock permeability and soil: permeable rock and deep soil allow infiltration and percolation, store water and release it slowly. Impermeable rock and compacted soil send more water overland, which gives a sharper peak.
+- Vegetation and land use: forest intercepts rain and encourages infiltration, which lowers and delays the peak. Roads, roofs and car parks are impermeable and send storm water quickly into drains and channels, which raises and sharpens it.
+- Basin shape and size: a compact, roughly round basin brings water from all parts to the outlet at about the same time, so the peak is high and the lag short. An elongated basin spreads the arrival of water over a longer period, giving a lower, later peak. A large basin has longer travel times, so its response is spread out more than that of a small basin.
+
+The storm itself matters too: its intensity and duration, and how wet the soil already is. Dry soil absorbs more rain than wet soil.
+
+**Long profile and channel processes.** The <Term id="a-long-profile"/> of a river shows its height falling from source to mouth. The <Term id="a-river-gradient"/> is steep in the upper course and gentle in the lower course. Discharge grows downstream as tributaries join, so the river carries more water in the lower course, where the gradient is gentler. The river wears away its bed and banks by <Term id="a-river-erosion"/>, moves its load by <Term id="a-river-transport"/> and drops it by <Term id="a-deposition"/>. Three variables control these processes:
+- Gradient gives the river energy. A steeper gradient lets it erode more and move larger particles.
+- Discharge gives the river volume. A higher discharge can move more load and erode more.
+- Load supplies the tools for abrasion. A river carrying coarse material wears its bed faster than one with little load.
+
+**River regimes.** A <Term id="a-river-regime"/> is the pattern of discharge through the year. It reflects the timing of rain and snowmelt and the basin’s stores. Common types are nival (snowmelt), glacial (ice melt), pluvial (rain), equatorial (rain all year) and monsoon (seasonal rain). Real rivers often mix types. Four cases show these ideas: the Rhine, where Alpine snow stores winter precipitation; the Mekong, where the monsoon drives the flood pulse of Tonle Sap; the Amazon, with rain across the year; and the UAE in April 2024, a storm over dry wadi catchments.
+
+<Case id="a-rhine-basin"/>
+
+<Case id="a-mekong-basin"/>
+
+<Case id="a-amazon-basin"/>
+
+<Case id="a-uae-wadi-floods-2024"/>
+
+<CaseMap ids="a-rhine-basin,a-mekong-basin,a-amazon-basin,a-uae-wadi-floods-2024"/>
+
+## Worked example
+
+<Steps>
+<Step>Water balance of an illustrative basin: precipitation 1,000 mm, discharge 350 mm, evapotranspiration 600 mm. Rearrange the balance: $\Delta S = P - Q - E = 1{,}000 - 350 - 600 = +50$ mm.</Step>
+<Step>The sign is positive, so storage gained 50 mm over the year. The water went into the stores, for example into groundwater.</Step>
+<Step>Share of the rain that left as discharge: $\frac{350}{1{,}000} \times 100 = 35\%$.</Step>
+</Steps>
+
+<Steps>
+<Step>Storm hydrograph: rainfall peaks at 12:00 and discharge peaks at 16:00, so the lag time is $16 - 12 = 4$ hours.</Step>
+<Step>The pre-storm base flow is 5 m³/s and the peak is 15 m³/s. The increase at the peak is $\frac{15 - 5}{5} \times 100 = 200\%$, so the peak is three times the base flow.</Step>
+</Steps>
+
+<Steps>
+<Step>Drainage density is total channel length divided by basin area. A basin of 60 km² with 180 km of stream channels has a drainage density of $\frac{180}{60} = 3$ km per km².</Step>
+<Step>A value of 3 km per km² means that, on average, any point on the land is a short distance from a channel, so water reaches the river quickly.</Step>
+</Steps>
+
+## Visual
+
+<Sim id="geo.opt-a-basin"/>
+
+The simulation shows the annual water balance of a drainage basin: precipitation comes in, and evapotranspiration, discharge and the change in storage account for it. Change one input at a time and check that the balance still holds. The groundwater share splits discharge into base flow and quick flow. That is the link to the storm hydrograph in section A.2.
+
+## How it is examined
+
+Questions on this topic can give a hydrograph, a water balance table or a river profile and ask you to read it. Read the axes and their units before you answer. In calculations, write the formula, the figures and the unit. "Describe" asks what the graph or flow shows, in order. "Explain" needs a reason and its development, for example: throughflow is slower than overland flow, so the falling limb is longer. "Examine" and "To what extent" belong to the extended questions: plan the answer, weigh the factors and reach a judgement.
+
+<Callout kind="exam">Marks go to named flows and stores, to calculations with working and units, and to developed explanations that link a flow or a characteristic to a feature of the graph. Case examples earn marks when they have a date, a figure and a source.</Callout>
+
+## Common mistakes
+
+- Treating the basin as closed, and forgetting evapotranspiration and groundwater that leaves beneath the watershed.
+- Confusing throughflow (sideways in the soil), percolation (downwards) and overland flow (across the surface).
+- Giving the peak as a time, or the lag time as a flow. Peak discharge is in m³/s; lag time is in hours.
+- Saying that steep slopes always cause floods. A slope speeds up runoff, but without rain it does nothing, and permeable ground can absorb much of a storm.
+- Describing the long profile as a map, or saying that deposition happens because discharge rises. Deposition happens where the flow slows and loses energy.
+
+## Check yourself
+
+<Question id="a1-sq1"/>
+
+<Question id="a1-sq2"/>
+
+<Question id="a1-eq1"/>
+
+## Summary
+
+- A drainage basin is an open system: rain comes in, and water leaves as discharge, evapotranspiration and groundwater, linked by $P = Q + E + \Delta S$.
+- A storm hydrograph has a rising limb, a peak discharge, a lag time, a falling limb and a base flow; storm flow sits above the base flow.
+- Overland flow and throughflow give quick responses; groundwater flow sustains the base flow between storms.
+- Slope, drainage density, permeability, soil, vegetation, land use, shape and size decide how sharp the hydrograph is.
+- Along the long profile, gradient, discharge and load control erosion, transport and deposition.
+- The river regime comes from climate, modified by the basin’s stores: monsoon in the Mekong, snow in the Rhine, rain across the year in the Amazon.
+- Support every answer with a dated figure and a source, for example 254.8 mm of rain in 24 hours at Khatm al-Shakla on 16 April 2024.

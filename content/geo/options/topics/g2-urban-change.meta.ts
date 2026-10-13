@@ -58,7 +58,10 @@ const topic: TopicMeta = {
   sims: ['geo.opt-g-bidrent'],
   questionIds: ['g2-sq1', 'g2-sq2', 'g2-sq3', 'g2-eq1', 'g2-eq2'],
   caseIds: ['g-detroit-decline', 'g-london-docklands', 'g-shenzhen-growth', 'g-medellin-metrocable'],
-  sources: [{ kind: 'ib-guide', title: 'Geography guide (2017), Option G: Urban environments', locator: 'G.2' }],
+  sources: [
+    { kind: 'ib-guide', title: 'Geography guide (2017), Option G: Urban environments', locator: 'G.2' },
+    { kind: 'thinkib', title: 'ThinkIB, Option G: Urban Environments (pages 37518, 37556, 37580)', locator: 'Changing Urban Systems; Urbanization; Urban System Growth and Lagos' },
+  ],
 };
 
 export default topic;
