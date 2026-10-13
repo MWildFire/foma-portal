@@ -5,13 +5,13 @@ import { useTranslation } from 'react-i18next';
 import { formatMinutes, paperLabel } from '../components/planner/labels';
 import { subjectInfo, subjectInfos } from '../components/planner/subjects';
 import { usePageTitle, useScrollToTop } from '../components/planner/usePageTitle';
-import { CARD, Chip, MUTED } from '../components/planner/ui';
+import { CARD, Chip, MUTED, card } from '../components/planner/ui';
 import { ExamCountdown } from '../components/progress/ExamCountdown';
 import { ROUTES } from '../config/routes';
 import type { Lang } from '../contract/types';
 import { useExamCountdown } from '../hooks/useExamCountdown';
 import { useLocalProgress } from '../hooks/useLocalProgress';
-import { examEndMs, examStartMs, extendedMinutes } from '../planner/calendar';
+import { examEndMs, examStartClock, examStartMs, extendedMinutes } from '../planner/calendar';
 import { EXAMS } from '../planner/data';
 import { dubaiToday } from '../planner/dates';
 import { capitalize, formatDate, formatTimeRange } from '../planner/format';
@@ -38,7 +38,7 @@ export function ExamsPage() {
   useScrollToTop();
   const [state] = useLocalProgress();
   const { extraTime, separateRoom } = state.settings.accessArrangements;
-  const { now, next } = useExamCountdown(extraTime);
+  const { now, next } = useExamCountdown(extraTime, separateRoom);
   const infos = useMemo(() => subjectInfos(lang), [lang]);
   const days = useMemo(() => byDay(EXAMS.papers), []);
   const today = dubaiToday(now);
@@ -85,16 +85,17 @@ export function ExamsPage() {
           </h2>
           <ul className="m-0 list-none space-y-2 p-0">
             {day.papers.map(exam => {
-              const startMs = examStartMs(exam);
-              const endMs = examEndMs(exam, EXAMS, extraTime);
+              // Status by the student's own sitting, the same one the countdown uses.
+              const startMs = examStartMs(exam, separateRoom);
+              const endMs = examEndMs(exam, EXAMS, extraTime, separateRoom);
               const finished = endMs <= now;
               const running = !finished && startMs <= now;
               const isNext = !finished && !running && next?.exam.id === exam.id;
               const info = subjectInfo(infos, exam.subject);
               const longer = extendedMinutes(EXAMS, exam.minutes);
-              const ownStart = separateRoom && exam.acc2Start ? exam.acc2Start : exam.start;
+              const ownStart = examStartClock(exam, separateRoom);
               return (
-                <li key={exam.id} className={`${CARD} p-3 ${isNext || running ? 'border-[var(--color-accent)]' : ''}`}>
+                <li key={exam.id} className={`${card(isNext || running)} p-3`}>
                   <div className="flex flex-wrap items-start justify-between gap-x-3 gap-y-1">
                     <p className="m-0 text-lg font-semibold tabular-nums">{formatTimeRange(exam.start, exam.minutes)}</p>
                     {finished && (

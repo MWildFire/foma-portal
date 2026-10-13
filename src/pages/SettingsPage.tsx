@@ -1,5 +1,5 @@
 import { AlertCircle, CircleCheck, ClipboardCopy, RotateCcw, Upload } from 'lucide-react';
-import { useMemo, useRef, useState, type ReactNode } from 'react';
+import { useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
 import { useTranslation } from 'react-i18next';
 import { formatMinutes } from '../components/planner/labels';
 import { usePageTitle, useScrollToTop } from '../components/planner/usePageTitle';
@@ -10,9 +10,9 @@ import type { Lang } from '../contract/types';
 import { UPDATE_EVENT, WEEKDAYS, type GlobalState, type Weekday } from '../lib/storage';
 import { applyProgress, collectProgress, encodeProgress } from '../lib/transfer';
 import { setAccessArrangement, setDailyLoad } from '../planner/actions';
-import { formatInstant, weekdayName } from '../planner/format';
-import { DEFAULT_DAILY_LOAD, effectiveLoad, parseLoadInput } from '../planner/loads';
-import { checkImport } from '../planner/progress-code';
+import { capitalize, formatInstant, weekdayName } from '../planner/format';
+import { DEFAULT_DAILY_LOAD, parseLoadInput } from '../planner/loads';
+import { checkImport, progressKeys } from '../planner/progress-code';
 
 type Update = (updater: (state: GlobalState) => GlobalState) => void;
 
@@ -88,11 +88,10 @@ function AccessSection({ state, update }: { state: GlobalState; update: Update }
 // Daily load per weekday
 // ---------------------------------------------------------------------------------------------
 
-function LoadRow({ day, lang, value, overridden, onSave, onReset }: {
+function LoadRow({ day, lang, override, onSave, onReset }: {
   day: Weekday;
   lang: Lang;
-  value: number;
-  overridden: boolean;
+  override: number | undefined;   // the student's own minutes for this weekday; undefined = as in the schedule
   onSave: (minutes: number) => void;
   onReset: () => void;
 }) {
@@ -100,23 +99,25 @@ function LoadRow({ day, lang, value, overridden, onSave, onReset }: {
   const { t: tp } = useTranslation('planner');
   const [draft, setDraft] = useState<string | null>(null);
   const id = `load-${day}`;
-  const name = weekdayName(day, lang);
+  const name = capitalize(weekdayName(day, lang));
+  const usual = tp('minutes', { n: DEFAULT_DAILY_LOAD[day] });
+  const overridden = override !== undefined;
   const invalid = draft !== null && draft.trim() !== '' && parseLoadInput(draft) === null;
   const described = [`${id}-hint`, invalid ? `${id}-error` : ''].filter(Boolean).join(' ');
 
   return (
     <li className="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 border-t border-[var(--color-border)] py-3 first:border-t-0">
       <div className="min-w-[8rem] flex-1">
-        <label htmlFor={id} className="font-medium first-letter:uppercase">
+        <label htmlFor={id} className="font-medium">
           {name}
         </label>
         <p id={`${id}-hint`} className={`m-0 text-sm ${MUTED}`}>
-          {overridden
-            ? t('load.custom', { time: tp('minutes', { n: DEFAULT_DAILY_LOAD[day] }) })
-            : t('load.default', { time: tp('minutes', { n: DEFAULT_DAILY_LOAD[day] }) })}
+          {overridden ? t('load.custom', { time: usual }) : t('load.default', { time: usual })}
         </p>
       </div>
       <div className="flex flex-wrap items-center gap-2">
+        {/* An empty box means "as in the schedule". The usual load is only a placeholder, because some days of the
+            schedule differ from it, so the box never shows a number the plan is not using. */}
         <input
           id={id}
           type="number"
@@ -124,7 +125,8 @@ function LoadRow({ day, lang, value, overridden, onSave, onReset }: {
           min={0}
           max={600}
           step={5}
-          value={draft ?? String(value)}
+          value={draft ?? (overridden ? String(override) : '')}
+          placeholder={String(DEFAULT_DAILY_LOAD[day])}
           aria-invalid={invalid}
           aria-describedby={described}
           onChange={event => {
@@ -134,8 +136,14 @@ function LoadRow({ day, lang, value, overridden, onSave, onReset }: {
             if (minutes !== null) onSave(minutes);
           }}
           onBlur={() => {
-            // A valid or empty entry shows the saved value again; a wrong one stays, with its message, until it is fixed.
-            if (draft === null || draft.trim() === '' || parseLoadInput(draft) !== null) setDraft(null);
+            if (draft === null) return;
+            // Emptied: back to the schedule. Valid: already saved. Wrong: it stays, with its message, until it is fixed.
+            if (draft.trim() === '') {
+              if (overridden) onReset();
+              setDraft(null);
+            } else if (parseLoadInput(draft) !== null) {
+              setDraft(null);
+            }
           }}
           className={`${INPUT} min-h-[44px] w-24 px-2 text-base tabular-nums`}
         />
@@ -174,8 +182,7 @@ function LoadSection({ state, update, lang, planned }: { state: GlobalState; upd
             key={day}
             day={day}
             lang={lang}
-            value={effectiveLoad(overrides, day)}
-            overridden={overrides[day] !== undefined}
+            override={overrides[day]}
             onSave={minutes => update(current => setDailyLoad(current, day, minutes))}
             onReset={() => update(current => setDailyLoad(current, day, null))}
           />
@@ -221,6 +228,11 @@ function TransferSection({ state, lang }: { state: GlobalState; lang: Lang }) {
   const [input, setInput] = useState('');
   const [confirming, setConfirming] = useState(false);
   const [result, setResult] = useState<ImportResult>(null);
+  const importAreaRef = useRef<HTMLTextAreaElement>(null);
+  const importButtonRef = useRef<HTMLButtonElement>(null);
+  const yesRef = useRef<HTMLButtonElement>(null);
+  // Where keyboard focus goes once the buttons have changed: the button that replaced the one just pressed.
+  const focusNext = useRef<'yes' | 'import' | 'field' | null>(null);
 
   // A fresh code whenever the progress (or the language) changes: both are read back from storage, which may be
   // blocked, so this can fail. `state` and the language are listed only to trigger the refresh.
@@ -228,11 +240,22 @@ function TransferSection({ state, lang }: { state: GlobalState; lang: Lang }) {
     try {
       const data = collectProgress(window.localStorage);
       const at = new Date().toISOString();
-      return { text: encodeProgress(data, at), items: Object.keys(data).length };
+      return { text: encodeProgress(data, at), hasProgress: progressKeys(data).length > 0 };
     } catch {
       return null;
     }
   }, [state, i18n.language]);
+
+  // "Copied" belongs to one code; a new code (after any change) has not been copied yet.
+  useEffect(() => setCopy(null), [code?.text]);
+
+  useEffect(() => {
+    const target = focusNext.current;
+    focusNext.current = null;
+    if (target === 'yes') yesRef.current?.focus();
+    else if (target === 'import') importButtonRef.current?.focus();
+    else if (target === 'field') importAreaRef.current?.focus();
+  }, [confirming, result]);
 
   const check = useMemo(() => (input.trim() === '' ? null : checkImport(input)), [input]);
 
@@ -251,8 +274,10 @@ function TransferSection({ state, lang }: { state: GlobalState; lang: Lang }) {
       if (language === 'en' || language === 'ru') void i18n.changeLanguage(language);
       setResult({ ok: true, items });
       setInput('');
+      focusNext.current = 'field';
     } catch {
       setResult({ ok: false });
+      focusNext.current = 'import';
     }
     setConfirming(false);
   };
@@ -272,7 +297,7 @@ function TransferSection({ state, lang }: { state: GlobalState; lang: Lang }) {
       {code ? (
         <>
           <label htmlFor="progress-code" className="mt-1 block text-sm">
-            {code.items > 0 ? t('transfer.export.label') : t('transfer.export.nothing')}
+            {code.hasProgress ? t('transfer.export.label') : t('transfer.export.nothing')}
           </label>
           <textarea
             id="progress-code"
@@ -305,6 +330,7 @@ function TransferSection({ state, lang }: { state: GlobalState; lang: Lang }) {
       </label>
       <textarea
         id="progress-import"
+        ref={importAreaRef}
         rows={4}
         value={input}
         spellCheck={false}
@@ -331,16 +357,33 @@ function TransferSection({ state, lang }: { state: GlobalState; lang: Lang }) {
       </div>
       <div className="mt-2 flex flex-wrap gap-2">
         {!confirming ? (
-          <Btn onClick={() => setConfirming(true)} disabled={!check || !check.ok}>
+          <Btn
+            ref={importButtonRef}
+            disabled={!check || !check.ok}
+            onClick={() => {
+              focusNext.current = 'yes';
+              setConfirming(true);
+            }}
+          >
             <Upload size={16} aria-hidden /> {t('transfer.import.button')}
           </Btn>
         ) : (
           <>
-            <p className="m-0 w-full text-sm font-medium">{t('transfer.import.confirm')}</p>
-            <Btn variant="primary" onClick={onImport}>
+            {/* The question is read out with the focused "Yes" button, so it cannot be missed. */}
+            <p id="progress-import-confirm" className="m-0 w-full text-sm font-medium">
+              {t('transfer.import.confirm')}
+            </p>
+            <Btn ref={yesRef} variant="primary" aria-describedby="progress-import-confirm" onClick={onImport}>
               {t('transfer.import.yes')}
             </Btn>
-            <Btn onClick={() => setConfirming(false)}>{t('transfer.import.cancel')}</Btn>
+            <Btn
+              onClick={() => {
+                focusNext.current = 'import';
+                setConfirming(false);
+              }}
+            >
+              {t('transfer.import.cancel')}
+            </Btn>
           </>
         )}
       </div>

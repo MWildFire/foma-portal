@@ -1,4 +1,4 @@
-import { Info } from 'lucide-react';
+import { CircleCheck, Info } from 'lucide-react';
 import { useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
@@ -9,7 +9,7 @@ import { studyTimer, useStudyTimer } from '../components/planner/timerStore';
 import { subjectInfo, subjectInfos } from '../components/planner/subjects';
 import { usePageTitle, useScrollToTop } from '../components/planner/usePageTitle';
 import { usePlan } from '../components/planner/usePlan';
-import { CARD, MUTED } from '../components/planner/ui';
+import { CARD, CARD_ACCENT, MUTED } from '../components/planner/ui';
 import { formatMinutes, paperLabel } from '../components/planner/labels';
 import { ExamCountdown } from '../components/progress/ExamCountdown';
 import { ROUTES } from '../config/routes';
@@ -35,7 +35,8 @@ export function TodayPage() {
   const { plan, state, update, today, lang } = usePlan();
   usePageTitle(tc('nav.today'), tc('brand'));
   useScrollToTop();
-  const { next } = useExamCountdown(state.settings.accessArrangements.extraTime);
+  const { extraTime, separateRoom } = state.settings.accessArrangements;
+  const { next } = useExamCountdown(extraTime, separateRoom);
   const timer = useStudyTimer();
   const infos = useMemo(() => subjectInfos(lang), [lang]);
 
@@ -84,7 +85,7 @@ export function TodayPage() {
     return [...minutes].map(([subject, total]) => `${subjectInfo(infos, subject).name} ${formatMinutes(tp, total)}`).join(' · ');
   }, [plan, infos, tp]);
   const hasTimed = day?.blocks.some(b => b.kind === 'timed') ?? false;
-  const { extraTime, separateRoom } = state.settings.accessArrangements;
+  const allDone = day !== null && day.minutes > 0 && day.doneMinutes >= day.minutes;
 
   return (
     <section className="space-y-5">
@@ -95,12 +96,9 @@ export function TodayPage() {
 
       <ExamCountdown next={next} lang={lang} infos={infos} />
 
-      {separateRoom && next && (
-        <Note>
-          {next.exam.acc2Start
-            ? t('notes.separateRoom', { time: next.exam.acc2Start, hall: next.exam.start })
-            : t('notes.separateRoomUnknown', { time: next.exam.start, room: next.exam.room })}
-        </Note>
+      {/* With an ACC2 time the countdown above already starts there; without one the student has to ask. */}
+      {separateRoom && next && !next.exam.acc2Start && (
+        <Note>{t('notes.separateRoomUnknown', { time: next.exam.start, room: next.exam.room })}</Note>
       )}
 
       <TimerPanel />
@@ -135,7 +133,8 @@ export function TodayPage() {
             {day.focus && (
               <p className="text-sm">
                 <span className="font-medium">{t('focus')}: </span>
-                {day.focus}
+                {/* The focus of the day comes from data/plan-quotas.json, which is written in English. */}
+                <span lang="en">{day.focus}</span>
               </p>
             )}
             {day.minutes > 0 && (
@@ -149,6 +148,12 @@ export function TodayPage() {
                 <p className={`text-sm ${MUTED}`}>
                   {t('progress', { done: formatMinutes(tp, day.doneMinutes), total: formatMinutes(tp, day.minutes) })}
                 </p>
+              </div>
+            )}
+            {allDone && (
+              <div role="status" className={`${CARD_ACCENT} flex items-start gap-2 p-3 text-sm`}>
+                <CircleCheck size={18} aria-hidden className="mt-0.5 shrink-0 text-[var(--color-accent)]" />
+                <p className="m-0 font-medium">{t('notes.allDone')}</p>
               </div>
             )}
             {day.kind === 'exam' && groups.length > 0 && <Note>{t('notes.exam')}</Note>}

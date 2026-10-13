@@ -48,8 +48,9 @@ export function BlockCard({ block, lang, showDetail = true, timerRunning, onStar
       </div>
     );
   } else {
+    // A practice block of a topic without questions yet leads to the topic page, so it says so.
     const label =
-      block.kind === 'practice' ? tp('openPractice')
+      block.kind === 'practice' ? (block.hasQuestions ? tp('openPractice') : tp('openTopic'))
         : block.kind === 'timed' || block.kind === 'paper' ? tp('openPaper')
           : block.kind === 'study' ? tp('openSubject')
             : tp('openTopic');
@@ -82,27 +83,27 @@ export function BlockCard({ block, lang, showDetail = true, timerRunning, onStar
             )}
           </div>
           <h3 className="break-words text-base font-semibold leading-snug">{text.title}</h3>
-          {showDetail && text.detail && <p className={`mt-0.5 break-words text-sm ${MUTED}`}>{text.detail}</p>}
+          {showDetail && text.detail && (
+            // A timed paper's note comes from data/plan-quotas.json, which is written in English.
+            <p lang={block.kind === 'timed' ? 'en' : undefined} className={`mt-0.5 break-words text-sm ${MUTED}`}>
+              {text.detail}
+            </p>
+          )}
           {materials}
         </div>
         <div className="flex w-full flex-wrap gap-2 sm:w-auto">
-          {done ? (
-            <Btn variant="quiet" onClick={() => onToggleDone(block)}>
-              <Undo2 size={16} aria-hidden /> {t('block.undo')}
+          {/* Done and Undo are one button that changes its label, so keyboard focus stays on it. A running timer
+              marks Start as unavailable without taking it out of the tab order. */}
+          {!done && (
+            <Btn aria-disabled={timerRunning || undefined} onClick={() => !timerRunning && onStart(block, text.title)}>
+              <Play size={16} aria-hidden /> {timerRunning ? t('block.running') : t('block.start')}
               {context}
             </Btn>
-          ) : (
-            <>
-              <Btn onClick={() => onStart(block, text.title)} disabled={timerRunning}>
-                <Play size={16} aria-hidden /> {timerRunning ? t('block.running') : t('block.start')}
-                {context}
-              </Btn>
-              <Btn variant="primary" onClick={() => onToggleDone(block)}>
-                <Check size={16} aria-hidden /> {t('block.done')}
-                {context}
-              </Btn>
-            </>
           )}
+          <Btn variant={done ? 'quiet' : 'primary'} onClick={() => onToggleDone(block)}>
+            {done ? <Undo2 size={16} aria-hidden /> : <Check size={16} aria-hidden />} {done ? t('block.undo') : t('block.done')}
+            {context}
+          </Btn>
         </div>
       </div>
       {block.kind === 'topic' && block.last && done && block.subject && block.topicId && (

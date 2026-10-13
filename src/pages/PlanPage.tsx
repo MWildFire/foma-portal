@@ -6,7 +6,7 @@ import { describeBlock, formatMinutes, paperLabel } from '../components/planner/
 import { subjectInfo, subjectInfos, type SubjectInfo } from '../components/planner/subjects';
 import { usePageTitle, useScrollToTop } from '../components/planner/usePageTitle';
 import { usePlan } from '../components/planner/usePlan';
-import { Btn, CARD, Chip, MUTED } from '../components/planner/ui';
+import { Btn, CARD, CARD_ACCENT, Chip, MUTED, card } from '../components/planner/ui';
 import { ROUTES } from '../config/routes';
 import type { Lang, SubjectId } from '../contract/types';
 import { capitalize, formatDate, formatTimeRange } from '../planner/format';
@@ -62,9 +62,14 @@ function BlockRow({ block, lang }: { block: PlanBlock; lang: Lang }) {
         <Link to={block.route} className="break-words font-medium">
           {text.title}
         </Link>
-        {detail && <p className={`break-words text-sm ${MUTED}`}>{detail}</p>}
+        {detail && (
+          // A timed paper's note comes from data/plan-quotas.json, which is written in English.
+          <p lang={block.kind === 'timed' ? 'en' : undefined} className={`break-words text-sm ${MUTED}`}>
+            {detail}
+          </p>
+        )}
       </div>
-      <p className="flex shrink-0 flex-wrap items-center gap-x-3 text-sm">
+      <p className="flex flex-wrap items-center gap-x-3 text-sm">
         <span className="tabular-nums">{formatMinutes(tp, block.minutes)}</span>
         <BlockStatus block={block} lang={lang} />
       </p>
@@ -96,7 +101,7 @@ function DayBody({ day, lang, infos }: { day: PlanDay; lang: Lang; infos: Infos 
       {day.focus && (
         <p className="break-words text-sm">
           <span className="font-medium">{t('day.focus')}: </span>
-          {day.focus}
+          <span lang="en">{day.focus}</span>
         </p>
       )}
       {day.kind === 'rest' && <p className={`text-sm ${MUTED}`}>{t('day.restText')}</p>}
@@ -241,7 +246,7 @@ export function PlanPage() {
           )}
 
           {plan.unplaced.length > 0 && (
-            <div role="note" className={`${CARD} flex items-start gap-2 border-[var(--color-accent)] p-3 text-sm`}>
+            <div role="note" className={`${CARD_ACCENT} flex items-start gap-2 p-3 text-sm`}>
               <AlertTriangle size={18} aria-hidden className="mt-0.5 shrink-0 text-[var(--color-accent)]" />
               <div className="min-w-0">
                 <p className="m-0 font-medium">{t('unplaced.title')}</p>
@@ -282,7 +287,7 @@ export function PlanPage() {
                   <details
                     open={isOpen}
                     onToggle={event => toggle(day.date, event.currentTarget.open)}
-                    className={`${CARD} group ${day.isToday ? 'border-[var(--color-accent)]' : ''}`}
+                    className={`${card(day.isToday)} group`}
                   >
                     <summary className="flex min-h-[44px] cursor-pointer list-none items-start gap-3 p-3 sm:px-4 [&::-webkit-details-marker]:hidden">
                       <DaySummary day={day} lang={lang} infos={infos} />

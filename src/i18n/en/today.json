@@ -8,10 +8,10 @@
   },
   "notes": {
     "exam": "Exam day: only the evening is planned, after your exam.",
-    "eve": "Tomorrow: {{papers}}. Today is only for these papers, no new topics.",
+    "eve": "Tomorrow: {{papers}}. In these subjects today is exam prep only, no new topics.",
     "moved": "{{time}} of unfinished work has moved here from earlier days.",
     "extraTime": "Timed papers include your 25% extra time.",
-    "separateRoom": "Separate room (ACC2): your next exam starts there at {{time}} (main hall: {{hall}}).",
+    "allDone": "Everything planned for today is done. Well done!",
     "separateRoomUnknown": "Separate room (ACC2): the schedule gives no separate start for your next exam ({{time}}, room {{room}}). Check with the exams office."
   },
   "empty": {

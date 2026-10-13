@@ -11,7 +11,8 @@
     "room": "Зал: {{room}}",
     "untilStart": "до начала",
     "untilEnd": "до конца",
-    "extraTime": "С дополнительными 25% времени: {{time}}."
+    "extraTime": "С дополнительными 25% времени: {{time}}.",
+    "separateRoom": "В отдельной аудитории (ACC2) начало в {{time}}, в основном зале — в {{hall}}."
   },
   "access": {
     "title": "Особые условия (access arrangements)",

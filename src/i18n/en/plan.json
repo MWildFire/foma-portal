@@ -4,7 +4,7 @@
     "planned": "Planned from today: {{time}}.",
     "doneToday": "Done today: {{time}}.",
     "beforeStart": "The plan starts on {{date}}.",
-    "howItWorks": "The plan is recalculated every time you open the portal. Work you did not finish moves to the next day that has time for that subject, and a day can grow by at most 15%. On the day before an exam you only prepare that paper. After its last exam a subject leaves the plan."
+    "howItWorks": "The plan is recalculated every time you open the portal. Work you did not finish moves to the next day that has time for that subject, and a day can grow by at most 15%. On the day before an exam, that subject gets only preparation for the paper, no new topics. After its last exam a subject leaves the plan."
   },
   "debt": {
     "title": "Catching up: {{time}} from earlier days",

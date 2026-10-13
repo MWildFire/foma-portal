@@ -18,9 +18,9 @@
   },
   "load": {
     "title": "Study time per day",
-    "intro": "Minutes of study for each weekday, including the 15 min recall. Without your own number, each day keeps the time from the study schedule (normally Mon–Thu 150, Fri 120, Sat–Sun 270 min). Your number replaces that time on every ordinary day of that weekday; timed papers keep their full length. Exam days always keep their evening time from the schedule. 0 makes it a rest day.",
-    "default": "Default: {{time}}",
-    "custom": "Your setting (default {{time}})",
+    "intro": "Minutes of study for each weekday, including the 15 min recall. An empty box keeps the time from the study schedule (usually Mon–Thu 150, Fri 120, Sat–Sun 270 min; a few days differ). A number replaces that time on every ordinary day of that weekday; timed papers keep their full length. Exam days always keep their evening time from the schedule. 0 makes it a rest day.",
+    "default": "As in the schedule (usually {{time}})",
+    "custom": "Your setting (the schedule usually has {{time}})",
     "unit": "min",
     "reset": "Reset to default",
     "invalid": "Enter whole minutes from 0 to 600.",

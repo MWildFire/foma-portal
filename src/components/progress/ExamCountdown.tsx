@@ -15,6 +15,7 @@ interface Props {
 }
 
 // Countdown to the nearest exam, with the time and the room from data/exams.json (Dubai time, room as written there).
+// The time is the student's own: the ACC2 start with a separate room, 25% longer with extra time.
 export function ExamCountdown({ next, lang, infos, headingLevel = 'h2' }: Props) {
   const { t } = useTranslation('exams');
   const { t: tp } = useTranslation('planner');
@@ -42,8 +43,11 @@ export function ExamCountdown({ next, lang, infos, headingLevel = 'h2' }: Props)
       </p>
       <Heading className="mt-1 break-words text-lg font-semibold leading-snug">{name}</Heading>
       <p className="mt-1 text-sm">
-        {capitalize(formatDate(exam.date, lang, 'long'))}, {formatTimeRange(exam.start, length)} · {t('dubaiTime')}
+        {capitalize(formatDate(exam.date, lang, 'long'))}, {formatTimeRange(next.start, length)} · {t('dubaiTime')}
       </p>
+      {next.start !== exam.start && (
+        <p className={`text-sm ${MUTED}`}>{t('countdown.separateRoom', { time: next.start, hall: exam.start })}</p>
+      )}
       {length !== exam.minutes && <p className={`text-sm ${MUTED}`}>{t('countdown.extraTime', { time: formatMinutes(tp, length) })}</p>}
       <p className="text-sm">{t('countdown.room', { room: exam.room })}</p>
       <p

@@ -46,23 +46,17 @@ export function RecallSection({ block, recall, infos, activeSubjects, timerRunni
           <p className={`mt-1 text-sm ${MUTED}`}>{t('recall.intro', { n: block.minutes })}</p>
         </div>
         <div className="flex w-full flex-wrap gap-2 sm:w-auto">
-          {done ? (
-            <Btn variant="quiet" onClick={() => onToggleDone(block)}>
-              <Undo2 size={16} aria-hidden /> {t('block.undo')}
+          {/* One Done/Undo button that changes its label keeps keyboard focus; see BlockCard. */}
+          {!done && (
+            <Btn aria-disabled={timerRunning || undefined} onClick={() => !timerRunning && onStart(block, tp('recallTitle'))}>
+              <Play size={16} aria-hidden /> {timerRunning ? t('block.running') : t('block.start')}
               <span className="sr-only">: {tp('recallTitle')}</span>
             </Btn>
-          ) : (
-            <>
-              <Btn onClick={() => onStart(block, tp('recallTitle'))} disabled={timerRunning}>
-                <Play size={16} aria-hidden /> {timerRunning ? t('block.running') : t('block.start')}
-                <span className="sr-only">: {tp('recallTitle')}</span>
-              </Btn>
-              <Btn variant="primary" onClick={() => onToggleDone(block)}>
-                <Check size={16} aria-hidden /> {t('block.done')}
-                <span className="sr-only">: {tp('recallTitle')}</span>
-              </Btn>
-            </>
           )}
+          <Btn variant={done ? 'quiet' : 'primary'} onClick={() => onToggleDone(block)}>
+            {done ? <Undo2 size={16} aria-hidden /> : <Check size={16} aria-hidden />} {done ? t('block.undo') : t('block.done')}
+            <span className="sr-only">: {tp('recallTitle')}</span>
+          </Btn>
         </div>
       </div>
 

@@ -11,7 +11,8 @@
     "room": "Room: {{room}}",
     "untilStart": "until it starts",
     "untilEnd": "until it ends",
-    "extraTime": "With your 25% extra time: {{time}}."
+    "extraTime": "With your 25% extra time: {{time}}.",
+    "separateRoom": "Separate room (ACC2) starts at {{time}}; the main hall at {{hall}}."
   },
   "access": {
     "title": "Access arrangements",
