@@ -1,6 +1,7 @@
 import { BookOpen, Calculator, Sigma, TriangleAlert } from 'lucide-react';
-import type { Formula, Lang } from '../../contract/types';
+import type { Formula, L, Lang } from '../../contract/types';
 import { pickText } from '../../lib/text';
+import { termLabelRu } from '../../lib/topic-text';
 import { InlineText } from '../content/RichText';
 import { Tex, texToHtml } from '../content/Tex';
 import { useLangT } from '../content/useLangT';
@@ -10,6 +11,12 @@ interface Props {
   formula: Formula;
   /** Language of the name, text and labels. Without it, the UI language. */
   lang?: Lang;
+}
+
+// The name of a formula is labelled like a term: "Ценовая эластичность спроса (Price elasticity of demand, PED)" in
+// Russian, the English name in English.
+function formulaName(name: L, lang: Lang): string {
+  return lang === 'ru' ? termLabelRu(name) : name.en;
 }
 
 // A formula: the KaTeX rendering, name, what it means, when to use it, a booklet badge, units, an example and
@@ -24,7 +31,7 @@ export function FormulaCard({ formula, lang }: Props) {
         {t('formula.kind')}
       </p>
       <div className="foma-formula__head">
-        <p className="foma-formula__name">{pickText(formula.name, lng)}</p>
+        <p className="foma-formula__name">{formulaName(formula.name, lng)}</p>
         {formula.inBooklet === true ? (
           <span className="foma-chip" data-tone="blue">
             <BookOpen size={14} aria-hidden="true" />

@@ -97,6 +97,7 @@ before(async () => {
   const sourceList = await server.ssrLoadModule('/src/components/content/SourceList.tsx');
   loaded.SourceList = sourceList.SourceList;
   loaded.SourceItem = sourceList.SourceItem;
+  loaded.FormulaCard = (await server.ssrLoadModule('/src/components/ui/Formula.tsx')).FormulaCard;
 });
 
 after(async () => {
@@ -308,4 +309,19 @@ test('an own-notes source is not drawn by a source list or a source item, in any
   assert.ok(!list.includes('Internal note') && !list.includes('Own notes'), 'the own-notes row is not drawn');
   assert.equal(await draw(createElement(loaded.SourceItem, { source: own, lang: 'en' }), '/'), '', 'a source item for own notes draws nothing');
   assert.equal(await draw(createElement(loaded.SourceList, { sources: [own] }), '/'), '', 'with only own notes the list draws nothing');
+});
+
+// ---- a formula name: labelled like a term in Russian, the English name in English
+
+test('a formula name: the Russian term with the English name once in brackets in RU, the English name in EN', async () => {
+  const formula = {
+    id: 'ped', tex: 'x = 1', syllabus: '2.2',
+    name: L('Price elasticity of demand (PED)', 'Ценовая эластичность спроса (PED)'),
+    meaning: L('How far demand responds to a price change.', 'На сколько спрос реагирует на изменение цены.'),
+    when: L('When a price changes.', 'Когда меняется цена.'),
+  };
+  const ru = await draw(createElement(loaded.FormulaCard, { formula, lang: 'ru' }), '/');
+  assert.match(ru, /<p class="foma-formula__name">Ценовая эластичность спроса \(Price elasticity of demand, PED\)<\/p>/);
+  const en = await draw(createElement(loaded.FormulaCard, { formula, lang: 'en' }), '/');
+  assert.match(en, /<p class="foma-formula__name">Price elasticity of demand \(PED\)<\/p>/);
 });
