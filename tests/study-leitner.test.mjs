@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { ANSWERS, BOXES, INTERVAL_DAYS, NEW_PER_SESSION, addDays, clampBox, deckKeyAction, deckStats, dueQueue, isDue, nextBox, review, termKey } from '../src/lib/leitner.ts';
+import { ANSWERS, BOXES, INTERVAL_DAYS, NEW_PER_SESSION, addDays, clampBox, deckKeyAction, deckStats, dueQueue, isDue, nextBox, review, sessionView, termKey } from '../src/lib/leitner.ts';
 import { normalizeState } from '../src/lib/storage.ts';
 
 const TODAY = '2026-10-13';
@@ -132,9 +132,9 @@ test('a session takes at most 10 new cards, however many terms are new; all due 
   const items = Array.from({ length: 214 }, (_, index) => ({ id: `t${index}` }));
   assert.equal(dueQueue('geo', items, {}, TODAY).length, 10);
   assert.deepEqual(dueQueue('geo', items, {}, TODAY).map(item => item.id), items.slice(0, 10).map(item => item.id));
-  assert.equal(dueQueue('geo', items, {}, TODAY, 25).length, 25);
-  assert.equal(dueQueue('geo', items, {}, TODAY, 0).length, 0);
-  assert.equal(dueQueue('geo', items, {}, TODAY, -3).length, 0);
+  assert.equal(dueQueue('geo', items, {}, TODAY, { newLimit: 25 }).length, 25);
+  assert.equal(dueQueue('geo', items, {}, TODAY, { newLimit: 0 }).length, 0);
+  assert.equal(dueQueue('geo', items, {}, TODAY, { newLimit: -3 }).length, 0);
   const progress = Object.fromEntries(items.slice(0, 15).map(item => [`geo/${item.id}`, { box: 1, due: '2026-10-01' }]));
   const queue = dueQueue('geo', items, progress, TODAY).map(item => item.id);
   assert.equal(queue.length, 15 + 10, 'every due card plus 10 new ones');
@@ -161,6 +161,37 @@ test('the queue is empty when nothing is due, and for an empty pack', () => {
 
 test('the queue skips a repeated id', () => {
   assert.deepEqual(dueQueue('geo', [{ id: 'a' }, { id: 'a' }], {}, TODAY).map(item => item.id), ['a']);
+});
+
+test('a second batch leaves out the cards of the session before it counts the 10 new ones, even if a save failed', () => {
+  const items = Array.from({ length: 40 }, (_, index) => ({ id: `t${String(index).padStart(2, '0')}` }));
+  const first = dueQueue('geo', items, {}, TODAY);
+  assert.deepEqual(first.map(item => item.id), items.slice(0, 10).map(item => item.id));
+  // Normal case: the ten cards were answered and are scheduled for later.
+  const saved = Object.fromEntries(first.map(item => [`geo/${item.id}`, { box: 1, due: '2026-10-14' }]));
+  const have = new Set(first.map(item => item.id));
+  assert.deepEqual(dueQueue('geo', items, saved, TODAY, { exclude: have }).map(item => item.id), items.slice(10, 20).map(item => item.id));
+  // Storage blocked: nothing was kept, so the ten cards still look new. They must not eat the limit.
+  assert.deepEqual(dueQueue('geo', items, {}, TODAY, { exclude: have }).map(item => item.id), items.slice(10, 20).map(item => item.id));
+  // A due card that is not in the session yet comes too.
+  const withDue = { ...saved, 'geo/t35': { box: 2, due: '2026-10-01' } };
+  assert.deepEqual(dueQueue('geo', items, withDue, TODAY, { exclude: have }).map(item => item.id), ['t35', ...items.slice(10, 20).map(item => item.id)]);
+  assert.deepEqual(dueQueue('geo', items, {}, TODAY, { exclude: new Set(items.map(item => item.id)) }), []);
+});
+
+test('the session view gives the current card, the position and the total', () => {
+  const byId = new Map(['a', 'b', 'c', 'd'].map(id => [id, { id }]));
+  const view = (session, answered) => {
+    const { queue, current, total, position } = sessionView(session, answered, byId);
+    return { queue: queue.map(item => item.id), current: current?.id, total, position };
+  };
+  assert.deepEqual(view(['a', 'b', 'c'], []), { queue: ['a', 'b', 'c'], current: 'a', total: 3, position: 1 });
+  assert.deepEqual(view(['a', 'b', 'c'], ['a']), { queue: ['b', 'c'], current: 'b', total: 3, position: 2 });
+  assert.deepEqual(view(['a', 'b', 'c'], ['a', 'b', 'c']), { queue: [], current: undefined, total: 3, position: 3 });
+  // "More new cards": the session grows, the old answers stay, the count goes on.
+  assert.deepEqual(view(['a', 'b', 'c', 'd'], ['a', 'b', 'c']), { queue: ['d'], current: 'd', total: 4, position: 4 });
+  assert.deepEqual(view([], []), { queue: [], current: undefined, total: 0, position: 0 });
+  assert.deepEqual(view(['zz', 'a'], []).queue, ['a'], 'an id that is not in the pack is skipped');
 });
 
 test('answering a card takes it out of the queue for today', () => {

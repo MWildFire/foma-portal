@@ -104,16 +104,19 @@ export function deckStats(subject: string, termIds: readonly string[], progress:
 
 // The cards of a study session, in the order to show them: every card that is due (the longest overdue first,
 // weaker boxes first on the same day), then new cards in the order of the pack, at most `newLimit` of them.
+// `exclude` names cards to leave out before anything is counted (the cards already in the session, when a second
+// batch is asked for), so they cannot use up the limit of new cards.
 export function dueQueue<T extends { id: string }>(
   subject: string,
   items: readonly T[],
   progress: ProgressMap,
   today: string,
-  newLimit: number = NEW_PER_SESSION,
+  options: { newLimit?: number; exclude?: ReadonlySet<string> } = {},
 ): T[] {
+  const newLimit = options.newLimit ?? NEW_PER_SESSION;
   const scheduled: { item: T; due: string; box: Box }[] = [];
   const fresh: T[] = [];
-  const seen = new Set<string>();
+  const seen = new Set<string>(options.exclude ?? []);
   for (const item of items) {
     if (seen.has(item.id)) continue;
     seen.add(item.id);
@@ -123,6 +126,23 @@ export function dueQueue<T extends { id: string }>(
   }
   scheduled.sort((a, b) => (a.due < b.due ? -1 : a.due > b.due ? 1 : a.box - b.box));
   return [...scheduled.map(entry => entry.item), ...fresh.slice(0, Math.max(0, newLimit))];
+}
+
+// What the flashcard page shows from the session: `session` is the list of card ids fixed when the deck opened
+// (and extended by "more new cards"), `answered` the ids answered since. The current card is the first one not
+// answered; "Card 3 of 15" is `position` of `total`.
+export function sessionView<T extends { id: string }>(
+  session: readonly string[],
+  answered: readonly string[],
+  byId: ReadonlyMap<string, T>,
+): { queue: T[]; current: T | undefined; total: number; position: number } {
+  const gone = new Set(answered);
+  const queue: T[] = [];
+  for (const id of session) {
+    const item = byId.get(id);
+    if (item && !gone.has(id)) queue.push(item);
+  }
+  return { queue, current: queue[0], total: session.length, position: Math.min(session.length, answered.length + 1) };
 }
 
 // The keyboard on the flashcards: Space shows the definition; 1, 2 and 3 give the answer (in the order of ANSWERS,

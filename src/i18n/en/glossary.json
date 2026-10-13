@@ -59,6 +59,6 @@
     "answeredToday": "Cards answered now: {{n}}",
     "next": "The next card is due on {{date}}.",
     "toGlossary": "Open the glossary",
-    "moreNew": "Study {{n}} more new cards"
+    "moreNew": "Study more new cards ({{n}})"
   }
 }

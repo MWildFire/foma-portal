@@ -2,7 +2,7 @@ import { useCallback, useEffect, useId, useMemo, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next';
 import { BookMarked, CircleCheck, CircleHelp, CircleX, type LucideIcon } from 'lucide-react';
 import type { Lang, Term } from '../../contract/types';
-import { ANSWERS, NEW_PER_SESSION, deckKeyAction, dueQueue, type Answer } from '../../lib/leitner';
+import { ANSWERS, NEW_PER_SESSION, deckKeyAction, dueQueue, sessionView, type Answer } from '../../lib/leitner';
 import type { GlobalState } from '../../lib/storage';
 import { pickText } from '../../lib/text';
 import { InlineText } from '../content/RichText';
@@ -55,20 +55,11 @@ export function FlashcardDeck({ subject, terms, progress, today, lang, nextDue, 
   const progressId = useId();
 
   const byId = useMemo(() => new Map(terms.map(term => [term.id, term] as const)), [terms]);
-  const queue = useMemo(() => {
-    const gone = new Set(answered);
-    return session.flatMap(id => (gone.has(id) || !byId.has(id) ? [] : [byId.get(id) as Term]));
-  }, [session, answered, byId]);
-
-  const current = queue[0];
-  const total = session.length;
+  const { current, total, position } = useMemo(() => sessionView(session, answered, byId), [session, answered, byId]);
 
   // Another batch: the cards that are due now and not yet in this session, and up to NEW_PER_SESSION new ones.
   const addMore = useCallback((): void => {
-    setSession(list => {
-      const have = new Set(list);
-      return [...list, ...dueQueue(subject, terms, progress, today).filter(term => !have.has(term.id)).map(term => term.id)];
-    });
+    setSession(list => [...list, ...dueQueue(subject, terms, progress, today, { exclude: new Set(list) }).map(term => term.id)]);
   }, [subject, terms, progress, today]);
 
   // When the button that was pressed disappears, the focus would fall back to the top of the page. So if the button
@@ -106,11 +97,12 @@ export function FlashcardDeck({ subject, terms, progress, today, lang, nextDue, 
     return () => window.removeEventListener('keydown', onKeyDown);
   }, [current, revealed, answer, reveal]);
 
-  // Coming from the "Flashcards" switch with the keyboard: the switch is still focused, and Space would only press it
-  // again. Put the focus on the first card. A page that opens on the flashcards keeps its focus where it is.
+  // Coming from the "Flashcards" switch or the "Start the flashcards" button with the keyboard: the control that was
+  // pressed is still focused (or just gone), and Space would only press it again. Put the focus on the first card. A
+  // page that opens on the flashcards keeps its focus where it is.
   useEffect(() => {
     const active = document.activeElement;
-    if (active instanceof HTMLElement && active.closest('.gl-modes')) revealButton.current?.focus({ preventScroll: true });
+    if (active instanceof HTMLElement && active.closest('.gl-modes, .gl-due')) revealButton.current?.focus({ preventScroll: true });
   }, []);
 
   // The last card was answered: the button that was pressed is gone, so the focus goes to the "done" panel.
@@ -159,7 +151,7 @@ export function FlashcardDeck({ subject, terms, progress, today, lang, nextDue, 
   return (
     <section className="gl-deck" aria-label={t('cards.heading')}>
       <div className="gl-deck__progress">
-        <p id={progressId} className="gl-deck__count">{t('cards.progress', { n: answered.length + 1, total })}</p>
+        <p id={progressId} className="gl-deck__count">{t('cards.progress', { n: position, total })}</p>
         <progress className="gl-deck__bar" max={total} value={answered.length} aria-labelledby={progressId} />
       </div>
       <p role="status" className="study-status gl-deck__saved">
