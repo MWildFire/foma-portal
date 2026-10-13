@@ -229,8 +229,8 @@ test('practice, timed mode: ?set= opens the set with its questions in order, tim
 test('practice, timed mode: extra time adds 25% and says so', async () => {
   const state = { settings: { accessArrangements: { extraTime: true } } };
   const html = await view('PracticeView', { pack: pack() }, '/s/geo/practice?set=set-a', { state });
-  assert.match(html, /57:00/);
-  assert.match(html, /Extra time is on: 45 min \+ 25% \(\+12 min\) = 57 min/);
+  assert.match(html, /56:00/); // the school table: 45 minutes is 56 with extra time
+  assert.match(html, /Extra time is on: 45 min \+ 25% \(\+11 min\) = 56 min/);
   assert.ok(!html.includes('45:00'));
 });
 
@@ -295,7 +295,7 @@ test('practice in Russian', async () => {
   assert.match(html, /Практика/);
   assert.match(html, /Условие q4/);
   assert.match(html, /Дополнительное время включено/);
-  assert.match(html, /57:00/);
+  assert.match(html, /56:00/);
 });
 
 // ---- glossary and flashcards

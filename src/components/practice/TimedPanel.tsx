@@ -3,10 +3,12 @@ import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { Hourglass, TriangleAlert } from 'lucide-react';
 import { ROUTES } from '../../config/routes';
-import { PAPER_IDS, allowedMinutes, extraMinutes, timerStorageKey, type TimedSetInfo } from '../../lib/practice';
+import { PAPER_IDS, timerStorageKey, type TimedSetInfo } from '../../lib/practice';
 import { pickText } from '../../lib/text';
+import { EXAMS } from '../../planner/data';
 import { Clock } from './Clock';
 import { readStoredTimer } from './timerStorage';
+import { noExtraTimeFor, setAllowanceMinutes } from './timing';
 import { FilterSelect } from './fields';
 import '../content/ui.css';
 import './fields.css';
@@ -33,9 +35,10 @@ interface Props {
 // second element. The clock sticks to the top of the screen while the student scrolls through the questions, so
 // the page must put both elements in the same container as the question list.
 export function TimedPanel({ subject, sets, active, requestedId, extraTime, lang, questionCount, missing, onSelect }: Props) {
-  const { t } = useTranslation(['practice', 'subject']);
+  const { t } = useTranslation(['practice', 'subject', 'timing']);
   const headingId = useId();
-  const allowed = active ? allowedMinutes(active.minutes, extraTime) : 0;
+  const allowed = active ? setAllowanceMinutes({ subject, set: active, exams: EXAMS, extraTime }) : 0;
+  const noExtra = active ? noExtraTimeFor(subject, active.paper, active.part) : false;
   const papers = PAPER_IDS.filter(paper => sets.some(set => set.paper === paper));
 
   // Leaving timed mode throws the countdown away. If it is running (it is saved when it starts), ask first.
@@ -91,10 +94,12 @@ export function TimedPanel({ subject, sets, active, requestedId, extraTime, lang
               <span className="foma-chip">{t('timed.minutes', { n: active.minutes })}</span>
             </div>
 
-            {extraTime ? (
+            {noExtra ? (
+              <p className="study-muted">{t('extra.none', { ns: 'timing', base: active.minutes })}</p>
+            ) : extraTime ? (
               <p className="study-banner" data-tone="blue">
                 <Hourglass size={18} aria-hidden="true" />
-                <span>{t('timed.extra.on', { base: active.minutes, extra: extraMinutes(active.minutes, true), total: allowed })}</span>
+                <span>{t('timed.extra.on', { base: active.minutes, extra: allowed - active.minutes, total: allowed })}</span>
               </p>
             ) : (
               <p className="study-muted">
