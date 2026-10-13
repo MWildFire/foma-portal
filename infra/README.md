@@ -52,9 +52,14 @@ terraform output name_servers   # four NS for the registrar
 Only [redacted] changes DNS: Spaceship -> Nameservers -> Custom -> paste the four NS.
 
 ## Step 2 - real domain, after delegation
-Run only when `dig NS fomalearningportal.academy +short` lists the four Route 53 servers. In this order:
+Run only when `dig NS fomalearningportal.academy +short` lists the four Route 53 servers. Also check
+that no other CloudFront distribution in the account uses the two names, and that the zone holds only
+its NS and SOA records. In this order:
 1. In `variables.tf` set the default of `custom_domain_enabled` to `true`.
-2. `terraform plan` (expect the certificate, its validation, the A/AAAA records and the distribution aliases).
+2. `terraform plan`. Expect 8 additions (the certificate and its validation, two validation CNAMEs,
+   four alias records) and 3 updates: the distribution (aliases, certificate, minimum TLS 1.2) and
+   two policies (the site bucket policy and the deploy role policy). The two policies show as updated
+   only because they read the distribution ARN during apply. Their content stays the same.
 3. `terraform apply`, and only then commit `variables.tf`.
 
 Never remove the flag or set it back to `false` and run a plain `terraform apply`: it deletes the
