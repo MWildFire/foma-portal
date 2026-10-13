@@ -1,0 +1,11 @@
+node_modules/
+dist/
+.claude/worktrees/
+infra/.terraform/
+infra/*.tfvars
+*.tfstate
+*.tfstate.*
+.env
+.env.*
+sources
+.DS_Store
