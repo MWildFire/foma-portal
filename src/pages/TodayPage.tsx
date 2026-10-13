@@ -150,12 +150,15 @@ export function TodayPage() {
                 </p>
               </div>
             )}
-            {allDone && (
-              <div role="status" className={`${CARD_ACCENT} flex items-start gap-2 p-3 text-sm`}>
-                <CircleCheck size={18} aria-hidden className="mt-0.5 shrink-0 text-[var(--color-accent)]" />
-                <p className="m-0 font-medium">{t('notes.allDone')}</p>
-              </div>
-            )}
+            {/* The live region is always there, so its message is announced when the last block is ticked off. */}
+            <div role="status" aria-live="polite">
+              {allDone && (
+                <div className={`${CARD_ACCENT} flex items-start gap-2 p-3 text-sm`}>
+                  <CircleCheck size={18} aria-hidden className="mt-0.5 shrink-0 text-[var(--color-accent)]" />
+                  <p className="m-0 font-medium">{t('notes.allDone')}</p>
+                </div>
+              )}
+            </div>
             {day.kind === 'exam' && groups.length > 0 && <Note>{t('notes.exam')}</Note>}
             {day.eveOf.length > 0 && (
               <Note>

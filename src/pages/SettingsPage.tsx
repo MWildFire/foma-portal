@@ -98,11 +98,13 @@ function LoadRow({ day, lang, override, onSave, onReset }: {
   const { t } = useTranslation('settings');
   const { t: tp } = useTranslation('planner');
   const [draft, setDraft] = useState<string | null>(null);
+  // A number box reports '' for text it cannot read ("-", "e", letters in some browsers); that is not "emptied".
+  const [unreadable, setUnreadable] = useState(false);
   const id = `load-${day}`;
   const name = capitalize(weekdayName(day, lang));
   const usual = tp('minutes', { n: DEFAULT_DAILY_LOAD[day] });
   const overridden = override !== undefined;
-  const invalid = draft !== null && draft.trim() !== '' && parseLoadInput(draft) === null;
+  const invalid = unreadable || (draft !== null && draft.trim() !== '' && parseLoadInput(draft) === null);
   const described = [`${id}-hint`, invalid ? `${id}-error` : ''].filter(Boolean).join(' ');
 
   return (
@@ -130,13 +132,15 @@ function LoadRow({ day, lang, override, onSave, onReset }: {
           aria-invalid={invalid}
           aria-describedby={described}
           onChange={event => {
-            const text = event.target.value;
-            setDraft(text);
-            const minutes = parseLoadInput(text);
+            const box = event.target;
+            const bad = box.validity?.badInput ?? false;
+            setUnreadable(bad);
+            setDraft(box.value);
+            const minutes = bad ? null : parseLoadInput(box.value);
             if (minutes !== null) onSave(minutes);
           }}
           onBlur={() => {
-            if (draft === null) return;
+            if (draft === null || unreadable) return;
             // Emptied: back to the schedule. Valid: already saved. Wrong: it stays, with its message, until it is fixed.
             if (draft.trim() === '') {
               if (overridden) onReset();
@@ -150,9 +154,10 @@ function LoadRow({ day, lang, override, onSave, onReset }: {
         <span className="text-sm">{t('load.unit')}</span>
         <Btn
           variant="quiet"
-          disabled={!overridden && draft === null}
+          disabled={!overridden && draft === null && !unreadable}
           onClick={() => {
             setDraft(null);
+            setUnreadable(false);
             onReset();
           }}
         >
@@ -267,12 +272,13 @@ function TransferSection({ state, lang }: { state: GlobalState; lang: Lang }) {
   const onImport = () => {
     if (!check || !check.ok) return;
     try {
-      const items = applyProgress(window.localStorage, check.pack);
+      applyProgress(window.localStorage, check.pack);
       // Every page that shows progress reloads it (useLocalProgress listens to this event).
       window.dispatchEvent(new Event(UPDATE_EVENT));
       const language = check.pack.data['foma-lang'];
       if (language === 'en' || language === 'ru') void i18n.changeLanguage(language);
-      setResult({ ok: true, items });
+      // Count as the check above did (without the language key), so the number does not change after the import.
+      setResult({ ok: true, items: check.items });
       setInput('');
       focusNext.current = 'field';
     } catch {
