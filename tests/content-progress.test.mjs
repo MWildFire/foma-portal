@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { dubaiDate, percent, questionKey, subjectProgress, topicKey } from '../src/lib/topic-progress.ts';
+import { chooseRag, dateOnly, dubaiDate, percent, questionKey, subjectProgress, toggleDone, topicKey } from '../src/lib/topic-progress.ts';
 
 test('progress keys are subject/id', () => {
   assert.equal(topicKey('geo', 'core-1-1'), 'geo/core-1-1');
@@ -43,4 +43,30 @@ test('the Dubai date moves to the next day four hours before UTC midnight', () =
   assert.equal(dubaiDate(new Date('2026-10-13T20:00:00Z')), '2026-10-14');
   assert.equal(dubaiDate(new Date('2026-12-31T21:30:00Z')), '2027-01-01');
   assert.match(dubaiDate(), /^\d{4}-\d{2}-\d{2}$/);
+});
+
+test('"I finished this topic" sets the date and clears it on the second press', () => {
+  const first = toggleDone({ rag: 'amber' }, '2026-10-13');
+  assert.deepEqual(first, { rag: 'amber', done: '2026-10-13' });
+  assert.deepEqual(toggleDone(first, '2026-10-14'), { rag: 'amber' });
+  assert.deepEqual(toggleDone(undefined, '2026-10-13'), { done: '2026-10-13' });
+});
+
+test('confidence is set, changed, and cleared by choosing the same colour again', () => {
+  assert.deepEqual(chooseRag(undefined, 'red'), { rag: 'red' });
+  assert.deepEqual(chooseRag({ done: '2026-10-13', rag: 'red' }, 'green'), { done: '2026-10-13', rag: 'green' });
+  assert.deepEqual(chooseRag({ done: '2026-10-13', rag: 'green' }, 'green'), { done: '2026-10-13' });
+});
+
+test('the progress helpers do not change their input', () => {
+  const record = Object.freeze({ done: '2026-10-13', rag: 'red' });
+  toggleDone(record, '2026-10-14');
+  chooseRag(record, 'green');
+  assert.deepEqual(record, { done: '2026-10-13', rag: 'red' });
+});
+
+test('a stored date is shown as YYYY-MM-DD', () => {
+  assert.equal(dateOnly('2026-10-13'), '2026-10-13');
+  assert.equal(dateOnly('2026-10-13T08:15:00.000Z'), '2026-10-13');
+  assert.equal(dateOnly('yesterday'), 'yesterday');
 });

@@ -1,0 +1,65 @@
+/* Subject pages: accent colour per subject, progress bar, topic rows. Base tokens are in src/index.css. */
+
+/* meta.color names the subject colour (content/<s>/meta.ts). The accent is decoration only (a dot, the bar fill):
+   what it marks is always also written as text. */
+[data-subject-color] { --subject-accent: var(--color-accent); }
+[data-subject-color="teal"] { --subject-accent: #0f766e; }
+[data-subject-color="indigo"] { --subject-accent: #4338ca; }
+[data-subject-color="amber"] { --subject-accent: #b45309; }
+[data-subject-color="violet"] { --subject-accent: #6d28d9; }
+[data-subject-color="rose"] { --subject-accent: #be123c; }
+[data-subject-color="sky"] { --subject-accent: #0369a1; }
+[data-subject-color="slate"] { --subject-accent: #475569; }
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) [data-subject-color="teal"] { --subject-accent: #5eead4; }
+  :root:not([data-theme="light"]) [data-subject-color="indigo"] { --subject-accent: #a5b4fc; }
+  :root:not([data-theme="light"]) [data-subject-color="amber"] { --subject-accent: #fbbf24; }
+  :root:not([data-theme="light"]) [data-subject-color="violet"] { --subject-accent: #c4b5fd; }
+  :root:not([data-theme="light"]) [data-subject-color="rose"] { --subject-accent: #fda4af; }
+  :root:not([data-theme="light"]) [data-subject-color="sky"] { --subject-accent: #7dd3fc; }
+  :root:not([data-theme="light"]) [data-subject-color="slate"] { --subject-accent: #cbd5e1; }
+}
+
+:root[data-theme="dark"] [data-subject-color="teal"] { --subject-accent: #5eead4; }
+:root[data-theme="dark"] [data-subject-color="indigo"] { --subject-accent: #a5b4fc; }
+:root[data-theme="dark"] [data-subject-color="amber"] { --subject-accent: #fbbf24; }
+:root[data-theme="dark"] [data-subject-color="violet"] { --subject-accent: #c4b5fd; }
+:root[data-theme="dark"] [data-subject-color="rose"] { --subject-accent: #fda4af; }
+:root[data-theme="dark"] [data-subject-color="sky"] { --subject-accent: #7dd3fc; }
+:root[data-theme="dark"] [data-subject-color="slate"] { --subject-accent: #cbd5e1; }
+
+.foma-subject-dot {
+  flex: none;
+  width: 0.875rem;
+  height: 0.875rem;
+  border-radius: 50%;
+  background: var(--subject-accent, var(--color-accent));
+}
+
+/* Progress bar: the number is always written next to it. */
+.foma-bar {
+  height: 0.75rem;
+  overflow: hidden;
+  border-radius: 999px;
+  background: var(--color-border);
+}
+
+.foma-bar > span {
+  display: block;
+  height: 100%;
+  border-radius: 999px;
+  background: var(--subject-accent, var(--color-accent));
+}
+
+/* Topic code, in the list and above a topic title. */
+.foma-code-label {
+  color: var(--color-muted);
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 0.8125rem;
+}
+
+/* A link that looks like a button (papers and tools, back links). */
+a.foma-btn {
+  text-decoration: none;
+}
