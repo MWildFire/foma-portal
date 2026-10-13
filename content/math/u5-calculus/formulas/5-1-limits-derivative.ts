@@ -4,7 +4,7 @@ export const formulas: Formula[] = [
   {
     id: 'derivative-limit-definition',
     tex: "f'(x)=\\lim_{h\\to 0}\\dfrac{f(x+h)-f(x)}{h}",
-    name: { en: 'Derivative as a limit', ru: 'Производная как предел' },
+    name: { en: 'Derivative as a limit', ru: 'Производная как предел (Derivative as a limit)' },
     meaning: {
       en: 'The gradient function is the limit of the gradient of the chord from x to x + h as h tends to zero.',
       ru: 'Функция градиента есть предел градиента хорды от x до x + h при стремлении h к нулю.',
@@ -19,7 +19,7 @@ export const formulas: Formula[] = [
   {
     id: 'chord-gradient',
     tex: '\\dfrac{f(x+h)-f(x)}{h}',
-    name: { en: 'Gradient of a chord', ru: 'Градиент хорды' },
+    name: { en: 'Gradient of a chord', ru: 'Градиент хорды (Gradient of a chord)' },
     meaning: {
       en: 'The average rate of change of f between x and x + h. It equals the gradient of the line joining the two points on the curve.',
       ru: 'Средняя скорость изменения f между x и x + h. Равна градиенту прямой, соединяющей две точки кривой.',

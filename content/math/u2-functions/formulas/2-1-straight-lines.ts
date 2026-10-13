@@ -4,7 +4,7 @@ export const formulas: Formula[] = [
   {
     id: 'line-gradient-two-points',
     tex: 'm=\\dfrac{y_2-y_1}{x_2-x_1},\\quad x_2\\neq x_1',
-    name: { en: 'Gradient through two points', ru: 'Угловой коэффициент по двум точкам' },
+    name: { en: 'Gradient through two points', ru: 'Угловой коэффициент по двум точкам (Gradient through two points)' },
     meaning: {
       en: 'The gradient m of the line through (x1, y1) and (x2, y2): rise over run.',
       ru: 'Угловой коэффициент m прямой, проходящей через (x1, y1) и (x2, y2): подъём над горизонтальным смещением.',
@@ -23,7 +23,7 @@ export const formulas: Formula[] = [
   {
     id: 'line-gradient-intercept',
     tex: 'y=mx+c',
-    name: { en: 'Gradient–intercept form', ru: 'Уравнение в виде y = mx + c' },
+    name: { en: 'Gradient–intercept form', ru: 'Уравнение в виде y = mx + c (Gradient–intercept form)' },
     meaning: {
       en: 'The straight line with gradient m that crosses the y-axis at (0, c).',
       ru: 'Прямая с угловым коэффициентом m, которая пересекает ось y в точке (0, c).',
@@ -38,7 +38,7 @@ export const formulas: Formula[] = [
   {
     id: 'line-point-gradient',
     tex: 'y-y_1=m(x-x_1)',
-    name: { en: 'Point–gradient form', ru: 'Уравнение через точку и угловой коэффициент' },
+    name: { en: 'Point–gradient form', ru: 'Уравнение через точку и угловой коэффициент (Point–gradient form)' },
     meaning: {
       en: 'The straight line with gradient m that passes through the point (x1, y1).',
       ru: 'Прямая с угловым коэффициентом m, которая проходит через точку (x1, y1).',
@@ -53,7 +53,7 @@ export const formulas: Formula[] = [
   {
     id: 'line-perpendicular-gradients',
     tex: 'm_1\\times m_2=-1',
-    name: { en: 'Perpendicular and parallel lines', ru: 'Перпендикулярные и параллельные прямые' },
+    name: { en: 'Perpendicular and parallel lines', ru: 'Перпендикулярные и параллельные прямые (Perpendicular and parallel lines)' },
     meaning: {
       en: 'Two non-vertical lines are perpendicular exactly when the product of their gradients is -1. Parallel lines have equal gradients, m1 = m2.',
       ru: 'Две невертикальные прямые перпендикулярны тогда и только тогда, когда произведение их угловых коэффициентов равно -1. Параллельные прямые имеют равные угловые коэффициенты, m1 = m2.',

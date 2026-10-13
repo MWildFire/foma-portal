@@ -6,7 +6,7 @@ export const formulas: Formula[] = [
     tex: '\\mathrm{SSR}=\\sum (y_i-\\hat{y}_i)^{2}',
     name: {
       en: 'Sum of squared residuals',
-      ru: 'сумма квадратов остатков',
+      ru: 'сумма квадратов остатков (Sum of squared residuals)',
     },
     meaning: {
       en: 'The total squared misfit between the observed values $y_i$ and the predicted values $\\hat{y}_i$. Least squares makes it as small as possible.',
@@ -28,7 +28,7 @@ export const formulas: Formula[] = [
     tex: 'R^{2}=1-\\dfrac{\\sum (y_i-\\hat{y}_i)^{2}}{\\sum (y_i-\\bar{y})^{2}}',
     name: {
       en: 'Coefficient of determination',
-      ru: 'коэффициент детерминации',
+      ru: 'коэффициент детерминации (Coefficient of determination)',
     },
     meaning: {
       en: 'The share of the variation in y that the model explains: one minus the unexplained variation divided by the total variation.',
@@ -50,7 +50,7 @@ export const formulas: Formula[] = [
     tex: 'y=a+b\\ln x',
     name: {
       en: 'Logarithmic regression model',
-      ru: 'логарифмическая регрессионная модель',
+      ru: 'логарифмическая регрессионная модель (Logarithmic regression model)',
     },
     meaning: {
       en: 'A least-squares curve that is linear in $\\ln x$. The GDC finds a and b by fitting y against ln x.',

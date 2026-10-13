@@ -4,7 +4,7 @@ export const formulas: Formula[] = [
   {
     id: 'integral-power-rule',
     tex: '\\int x^{n}\\,dx=\\dfrac{x^{n+1}}{n+1}+C,\\quad n\\neq -1',
-    name: { en: 'Integral of a power of x', ru: 'Интеграл степени x' },
+    name: { en: 'Integral of a power of x', ru: 'Интеграл степени x (Integral of a power of x)' },
     meaning: {
       en: 'The indefinite integral of x^n is x^(n+1)/(n+1) plus the constant C, for any rational n except n = -1.',
       ru: 'Неопределённый интеграл от x^n равен x^(n+1)/(n+1) плюс постоянная C, для любого рационального n, кроме n = -1.',
@@ -23,7 +23,7 @@ export const formulas: Formula[] = [
   {
     id: 'integral-substitution-rule',
     tex: '\\int f(g(x))\\,g\'(x)\\,dx=\\int f(u)\\,du,\\quad u=g(x)',
-    name: { en: 'Substitution rule', ru: 'Правило подстановки' },
+    name: { en: 'Substitution rule', ru: 'Правило подстановки (Substitution rule)' },
     meaning: {
       en: 'When the integrand is f(g(x)) times g\'(x), replace g(x) by u and g\'(x) dx by du.',
       ru: 'Если подынтегральная функция равна f(g(x)), умноженной на g\'(x), заменяйте g(x) на u, а g\'(x) dx на du.',
@@ -38,7 +38,7 @@ export const formulas: Formula[] = [
   {
     id: 'definite-integral-substitution',
     tex: '\\int_{a}^{b} f(g(x))\\,g\'(x)\\,dx=\\int_{g(a)}^{g(b)} f(u)\\,du',
-    name: { en: 'Substitution in a definite integral', ru: 'Подстановка в определённом интеграле' },
+    name: { en: 'Substitution in a definite integral', ru: 'Подстановка в определённом интеграле (Substitution in a definite integral)' },
     meaning: {
       en: 'The limits a and b become g(a) and g(b), the values of u at the original limits.',
       ru: 'Пределы a и b заменяются на g(a) и g(b), то есть на значения u при исходных пределах.',

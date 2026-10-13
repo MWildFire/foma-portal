@@ -4,7 +4,7 @@ export const formulas: Formula[] = [
   {
     id: 'kinematics-constant-velocity',
     tex: '\\mathbf{r}(t)=\\mathbf{r}_0+t\\,\\mathbf{v}',
-    name: { en: 'Position with constant velocity', ru: 'Положение при постоянной скорости' },
+    name: { en: 'Position with constant velocity', ru: 'Положение при постоянной скорости (Position with constant velocity)' },
     meaning: {
       en: 'r0 is the position at t = 0 and v is the constant velocity vector. The path is a straight line through r0.',
       ru: 'r0 — положение в момент t = 0, v — постоянный вектор скорости. Путь — прямая линия через точку r0.',
@@ -23,7 +23,7 @@ export const formulas: Formula[] = [
   {
     id: 'kinematics-velocity-derivative',
     tex: '\\mathbf{v}(t)=\\dfrac{d\\mathbf{r}}{dt}=\\left(\\dfrac{dx}{dt},\\,\\dfrac{dy}{dt}\\right)',
-    name: { en: 'Velocity from the position vector', ru: 'Скорость по вектору положения' },
+    name: { en: 'Velocity from the position vector', ru: 'Скорость по вектору положения (Velocity from the position vector)' },
     meaning: {
       en: 'The velocity vector is the derivative of the position vector, found by differentiating each component with respect to t.',
       ru: 'Вектор скорости — производная вектора положения, найденная дифференцированием каждой компоненты по t.',
@@ -38,7 +38,7 @@ export const formulas: Formula[] = [
   {
     id: 'kinematics-speed-magnitude',
     tex: '|\\mathbf{v}|=\\sqrt{v_1^2+v_2^2+v_3^2}',
-    name: { en: 'Speed as the magnitude of velocity', ru: 'Скорость как модуль вектора скорости' },
+    name: { en: 'Speed as the magnitude of velocity', ru: 'Скорость как модуль вектора скорости (Speed as the magnitude of velocity)' },
     meaning: {
       en: 'The speed is the length of the velocity vector. In two dimensions drop the v3 term.',
       ru: 'Скорость равна длине вектора скорости. На плоскости слагаемое v3 не учитывается.',

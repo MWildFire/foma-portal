@@ -4,7 +4,7 @@ export const formulas: Formula[] = [
   {
     id: 'inverse-composition-identity',
     tex: 'f^{-1}(f(x))=x',
-    name: { en: 'Inverse identity', ru: 'Тождество для обратной функции' },
+    name: { en: 'Inverse identity', ru: 'Тождество для обратной функции (Inverse identity)' },
     meaning: {
       en: 'Applying f and then its inverse returns the original input x, for every x in the domain of f.',
       ru: 'Применение f, а затем обратной функции возвращает исходный вход x, для любого x из области определения f.',
@@ -19,7 +19,7 @@ export const formulas: Formula[] = [
   {
     id: 'inverse-linear-function',
     tex: 'f(x)=ax+b\\ \\Rightarrow\\ f^{-1}(x)=\\dfrac{x-b}{a},\\quad a\\neq 0',
-    name: { en: 'Inverse of a linear function', ru: 'Обратная функция линейной функции' },
+    name: { en: 'Inverse of a linear function', ru: 'Обратная функция линейной функции (Inverse of a linear function)' },
     meaning: {
       en: 'The inverse of f(x) = ax + b undoes the addition of b and the multiplication by a.',
       ru: 'Обратная функция к f(x) = ax + b отменяет прибавление b и умножение на a.',
@@ -38,7 +38,7 @@ export const formulas: Formula[] = [
   {
     id: 'inverse-exponential-log',
     tex: 'f(x)=e^{x}\\ \\Rightarrow\\ f^{-1}(x)=\\ln x,\\quad x>0',
-    name: { en: 'Inverse of the exponential function', ru: 'Обратная функция к показательной функции' },
+    name: { en: 'Inverse of the exponential function', ru: 'Обратная функция к показательной функции (Inverse of the exponential function)' },
     meaning: {
       en: 'The natural logarithm reverses the exponential function e^x.',
       ru: 'Натуральный логарифм обращает показательную функцию e^x.',

@@ -4,7 +4,7 @@ export const formulas: Formula[] = [
   {
     id: 'vector-length-3d',
     tex: '|\\mathbf{v}|=\\sqrt{v_1^{2}+v_2^{2}+v_3^{2}}',
-    name: { en: 'Magnitude of a vector', ru: 'Длина (модуль) вектора' },
+    name: { en: 'Magnitude of a vector', ru: 'Длина (модуль) вектора (Magnitude of a vector)' },
     meaning: {
       en: 'The length of v = v1 i + v2 j + v3 k. In two dimensions, omit the v3 term.',
       ru: 'Длина вектора v = v1 i + v2 j + v3 k. В двумерном случае слагаемое v3 опускается.',
@@ -23,7 +23,7 @@ export const formulas: Formula[] = [
   {
     id: 'vector-ab-points',
     tex: '\\overrightarrow{AB}=\\mathbf{b}-\\mathbf{a}',
-    name: { en: 'Vector from A to B', ru: 'Вектор от A к B' },
+    name: { en: 'Vector from A to B', ru: 'Вектор от A к B (Vector from A to B)' },
     meaning: {
       en: 'The vector AB is the position vector of B minus the position vector of A.',
       ru: 'Вектор AB равен радиус-вектору точки B минус радиус-вектор точки A.',
@@ -42,7 +42,7 @@ export const formulas: Formula[] = [
   {
     id: 'unit-vector-normalise',
     tex: '\\hat{\\mathbf{v}}=\\dfrac{\\mathbf{v}}{|\\mathbf{v}|}',
-    name: { en: 'Unit vector in the direction of v', ru: 'Единичный вектор в направлении v' },
+    name: { en: 'Unit vector in the direction of v', ru: 'Единичный вектор в направлении v (Unit vector in the direction of v)' },
     meaning: {
       en: 'Dividing a non-zero vector by its magnitude gives a vector of length 1 in the same direction.',
       ru: 'Деление ненулевого вектора на его длину даёт вектор длины 1 того же направления.',
@@ -61,7 +61,7 @@ export const formulas: Formula[] = [
   {
     id: 'midpoint-position-vector',
     tex: '\\mathbf{m}=\\dfrac{\\mathbf{a}+\\mathbf{b}}{2}',
-    name: { en: 'Position vector of a midpoint', ru: 'Радиус-вектор середины отрезка' },
+    name: { en: 'Position vector of a midpoint', ru: 'Радиус-вектор середины отрезка (Position vector of a midpoint)' },
     meaning: {
       en: 'The midpoint of AB has position vector equal to the average of the position vectors a and b.',
       ru: 'Радиус-вектор середины отрезка AB равен среднему арифметическому радиус-векторов a и b.',

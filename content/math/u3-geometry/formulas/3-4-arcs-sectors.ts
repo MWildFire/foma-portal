@@ -4,7 +4,7 @@ export const formulas: Formula[] = [
   {
     id: 'arc-length-degrees',
     tex: 'l=\\dfrac{\\theta}{360}\\times 2\\pi r',
-    name: { en: 'Arc length (angle in degrees)', ru: 'Длина дуги (угол в градусах)' },
+    name: { en: 'Arc length (angle in degrees)', ru: 'Длина дуги (угол в градусах) (Arc length (angle in degrees))' },
     meaning: {
       en: 'l is the arc length, r the radius and theta the central angle in degrees.',
       ru: 'l — длина дуги, r — радиус, θ — центральный угол в градусах.',
@@ -23,7 +23,7 @@ export const formulas: Formula[] = [
   {
     id: 'sector-area-degrees',
     tex: 'A=\\dfrac{\\theta}{360}\\times \\pi r^{2}',
-    name: { en: 'Area of a sector (angle in degrees)', ru: 'Площадь сектора (угол в градусах)' },
+    name: { en: 'Area of a sector (angle in degrees)', ru: 'Площадь сектора (угол в градусах) (Area of a sector (angle in degrees))' },
     meaning: {
       en: 'A is the area of the sector, r the radius and theta the central angle in degrees.',
       ru: 'A — площадь сектора, r — радиус, θ — центральный угол в градусах.',
@@ -42,7 +42,7 @@ export const formulas: Formula[] = [
   {
     id: 'arc-length-radians',
     tex: 'l=r\\theta',
-    name: { en: 'Arc length (angle in radians)', ru: 'Длина дуги (угол в радианах)' },
+    name: { en: 'Arc length (angle in radians)', ru: 'Длина дуги (угол в радианах) (Arc length (angle in radians))' },
     meaning: {
       en: 'l is the arc length, r the radius and theta the central angle in radians.',
       ru: 'l — длина дуги, r — радиус, θ — центральный угол в радианах.',
@@ -61,7 +61,7 @@ export const formulas: Formula[] = [
   {
     id: 'sector-area-radians',
     tex: 'A=\\tfrac{1}{2}r^{2}\\theta',
-    name: { en: 'Area of a sector (angle in radians)', ru: 'Площадь сектора (угол в радианах)' },
+    name: { en: 'Area of a sector (angle in radians)', ru: 'Площадь сектора (угол в радианах) (Area of a sector (angle in radians))' },
     meaning: {
       en: 'A is the area of the sector, r the radius and theta the central angle in radians.',
       ru: 'A — площадь сектора, r — радиус, θ — центральный угол в радианах.',

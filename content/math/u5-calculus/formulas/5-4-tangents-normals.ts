@@ -4,7 +4,7 @@ export const formulas: Formula[] = [
   {
     id: 'gradient-function-power-term',
     tex: '\\dfrac{d}{dx}\\left(a x^{n}\\right)=a n x^{n-1},\\quad n \\text{ an integer}',
-    name: { en: 'Gradient function of a power term', ru: 'Функция градиента степенного члена' },
+    name: { en: 'Gradient function of a power term', ru: 'Функция градиента степенного члена (Gradient function of a power term)' },
     meaning: {
       en: 'The derivative of a x^n is a n x^(n-1). Substitute x = a to get the gradient of the curve at that point.',
       ru: 'Производная a x^n равна a n x^(n-1). Подставьте x = a, чтобы получить угловой коэффициент кривой в этой точке.',
@@ -23,7 +23,7 @@ export const formulas: Formula[] = [
   {
     id: 'tangent-equation',
     tex: 'y-f(a)=f^{\\prime}(a)\\,(x-a)',
-    name: { en: 'Equation of the tangent at (a, f(a))', ru: 'Уравнение касательной в точке (a, f(a))' },
+    name: { en: 'Equation of the tangent at (a, f(a))', ru: 'Уравнение касательной в точке (a, f(a)) (Equation of the tangent at (a, f(a)))' },
     meaning: {
       en: 'The line through the point (a, f(a)) whose gradient is the derivative of f at x = a.',
       ru: 'Прямая через точку (a, f(a)), угловой коэффициент которой равен производной f в точке x = a.',
@@ -38,7 +38,7 @@ export const formulas: Formula[] = [
   {
     id: 'normal-gradient',
     tex: 'm_{\\text{N}}=-\\dfrac{1}{f^{\\prime}(a)},\\quad f^{\\prime}(a)\\neq 0',
-    name: { en: 'Gradient of the normal', ru: 'Угловой коэффициент нормали' },
+    name: { en: 'Gradient of the normal', ru: 'Угловой коэффициент нормали (Gradient of the normal)' },
     meaning: {
       en: 'The normal is perpendicular to the tangent, so the product of the two gradients is -1.',
       ru: 'Нормаль перпендикулярна касательной, поэтому произведение их угловых коэффициентов равно -1.',
@@ -53,7 +53,7 @@ export const formulas: Formula[] = [
   {
     id: 'normal-equation',
     tex: 'y-f(a)=-\\dfrac{1}{f^{\\prime}(a)}\\,(x-a)',
-    name: { en: 'Equation of the normal at (a, f(a))', ru: 'Уравнение нормали в точке (a, f(a))' },
+    name: { en: 'Equation of the normal at (a, f(a))', ru: 'Уравнение нормали в точке (a, f(a)) (Equation of the normal at (a, f(a)))' },
     meaning: {
       en: 'The line through the point (a, f(a)) that is perpendicular to the tangent there.',
       ru: 'Прямая через точку (a, f(a)), перпендикулярная касательной в этой точке.',

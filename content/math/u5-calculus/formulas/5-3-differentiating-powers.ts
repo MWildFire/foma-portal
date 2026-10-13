@@ -4,7 +4,7 @@ export const formulas: Formula[] = [
   {
     id: 'derivative-power-formula',
     tex: '\\dfrac{\\mathrm{d}}{\\mathrm{d}x}\\left(ax^{n}\\right)=anx^{n-1},\\quad n\\in\\mathbb{Z}',
-    name: { en: 'Derivative of a power of x', ru: 'Производная степени x' },
+    name: { en: 'Derivative of a power of x', ru: 'Производная степени x (Derivative of a power of x)' },
     meaning: {
       en: 'For an integer n, the derivative of a x^n is a n x^(n-1): the power comes down as a multiplier and the new power is one less.',
       ru: 'Для целого n производная от a x^n равна a n x^(n-1): показатель выносится множителем, а новый показатель на единицу меньше.',
@@ -23,7 +23,7 @@ export const formulas: Formula[] = [
   {
     id: 'derivative-sum-formula',
     tex: '\\dfrac{\\mathrm{d}}{\\mathrm{d}x}(u+v)=\\dfrac{\\mathrm{d}u}{\\mathrm{d}x}+\\dfrac{\\mathrm{d}v}{\\mathrm{d}x}',
-    name: { en: 'Derivative of a sum', ru: 'Производная суммы' },
+    name: { en: 'Derivative of a sum', ru: 'Производная суммы (Derivative of a sum)' },
     meaning: {
       en: 'The derivative of a sum is the sum of the derivatives, so a sum of power terms is differentiated term by term.',
       ru: 'Производная суммы равна сумме производных, поэтому сумму степенных членов дифференцируют почленно.',

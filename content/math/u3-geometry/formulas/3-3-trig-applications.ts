@@ -4,7 +4,7 @@ export const formulas: Formula[] = [
   {
     id: 'pythagoras-theorem',
     tex: 'c^{2}=a^{2}+b^{2}',
-    name: { en: 'Pythagoras theorem', ru: 'Теорема Пифагора' },
+    name: { en: 'Pythagoras theorem', ru: 'Теорема Пифагора (Pythagoras theorem)' },
     meaning: {
       en: 'In a right-angled triangle, the square of the hypotenuse c equals the sum of the squares of the two other sides a and b.',
       ru: 'В прямоугольном треугольнике квадрат гипотенузы c равен сумме квадратов катетов a и b.',
@@ -23,7 +23,7 @@ export const formulas: Formula[] = [
   {
     id: 'elevation-depression-tan',
     tex: '\\tan\\theta=\\dfrac{h}{d}',
-    name: { en: 'Tangent of an angle of elevation or depression', ru: 'Тангенс угла возвышения или понижения' },
+    name: { en: 'Tangent of an angle of elevation or depression', ru: 'Тангенс угла возвышения или понижения (Tangent of an angle of elevation or depression)' },
     meaning: {
       en: 'theta is the angle of elevation or depression, h is the vertical height difference and d is the horizontal distance.',
       ru: 'θ — угол возвышения или понижения, h — разность высот (вертикальный катет), d — горизонтальное расстояние.',

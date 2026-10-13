@@ -4,7 +4,7 @@ export const formulas: Formula[] = [
   {
     id: 'df-estimated-parameters',
     tex: '\\nu=k-1-p',
-    name: { en: 'Degrees of freedom when parameters are estimated', ru: 'Степени свободы при оценённых параметрах' },
+    name: { en: 'Degrees of freedom when parameters are estimated', ru: 'Степени свободы при оценённых параметрах (Degrees of freedom when parameters are estimated)' },
     meaning: {
       en: 'k is the number of classes used in the test and p is the number of parameters estimated from the sample. The 1 is subtracted because the total frequency is fixed.',
       ru: 'k — число классов в тесте, p — число параметров, оценённых по выборке. Единица вычитается, потому что сумма частот фиксирована.',
@@ -23,7 +23,7 @@ export const formulas: Formula[] = [
   {
     id: 'expected-fitted-poisson',
     tex: 'E_i=n\\,\\dfrac{e^{-\\bar{x}}\\,\\bar{x}^{\\,x_i}}{x_i!}',
-    name: { en: 'Expected frequency under a fitted Poisson model', ru: 'Ожидаемая частота для подобранной модели Пуассона' },
+    name: { en: 'Expected frequency under a fitted Poisson model', ru: 'Ожидаемая частота для подобранной модели Пуассона (Expected frequency under a fitted Poisson model)' },
     meaning: {
       en: 'Expected number of observations with x_i events when the Poisson mean is estimated by the sample mean.',
       ru: 'Ожидаемое число наблюдений с x_i событиями, когда среднее распределения Пуассона оценено выборочным средним.',
@@ -42,7 +42,7 @@ export const formulas: Formula[] = [
   {
     id: 'expected-fitted-normal',
     tex: 'E_i=n\\,P(a_i<X\\le b_i),\\quad X\\sim N(\\bar{x},\\,s^{2})',
-    name: { en: 'Expected frequency under a fitted normal model', ru: 'Ожидаемая частота для подобранной нормальной модели' },
+    name: { en: 'Expected frequency under a fitted normal model', ru: 'Ожидаемая частота для подобранной нормальной модели (Expected frequency under a fitted normal model)' },
     meaning: {
       en: 'Expected number of observations in the class from a_i to b_i, when the variable is modelled as normal with the sample mean and the sample variance.',
       ru: 'Ожидаемое число наблюдений в классе от a_i до b_i, когда величина моделируется нормальным распределением с выборочными средним и дисперсией.',
@@ -61,7 +61,7 @@ export const formulas: Formula[] = [
   {
     id: 'z-score-class-boundary',
     tex: 'z=\\dfrac{x-\\mu}{\\sigma}',
-    name: { en: 'Standardised score of a class boundary', ru: 'Стандартизация границы класса' },
+    name: { en: 'Standardised score of a class boundary', ru: 'Стандартизация границы класса (Standardised score of a class boundary)' },
     meaning: {
       en: 'Converts a class boundary x into a z-score, so that the normal probability of the class can be read from the standard normal distribution.',
       ru: 'Переводит границу x класса в z-оценку, чтобы вероятность попадания в класс находилась по стандартному нормальному распределению.',

@@ -4,7 +4,7 @@ export const formulas: Formula[] = [
   {
     id: 'log-power-linear',
     tex: '\\log y=\\log a+b\\log x',
-    name: { en: 'Linearised power model', ru: 'Линеаризованная степенная модель' },
+    name: { en: 'Linearised power model', ru: 'Линеаризованная степенная модель (Linearised power model)' },
     meaning: {
       en: 'If $y=ax^{b}$, then $\\log y$ is a linear function of $\\log x$ with gradient $b$ and intercept $\\log a$.',
       ru: 'Если $y=ax^{b}$, то $\\log y$ — линейная функция от $\\log x$ с угловым коэффициентом $b$ и отрезком $\\log a$.',
@@ -23,7 +23,7 @@ export const formulas: Formula[] = [
   {
     id: 'log-exponential-linear',
     tex: '\\ln y=\\ln a+x\\ln b',
-    name: { en: 'Linearised exponential model', ru: 'Линеаризованная показательная модель' },
+    name: { en: 'Linearised exponential model', ru: 'Линеаризованная показательная модель (Linearised exponential model)' },
     meaning: {
       en: 'If $y=ab^{x}$, then $\\ln y$ is a linear function of $x$ with gradient $\\ln b$ and intercept $\\ln a$.',
       ru: 'Если $y=ab^{x}$, то $\\ln y$ — линейная функция от $x$ с угловым коэффициентом $\\ln b$ и отрезком $\\ln a$.',
@@ -42,7 +42,7 @@ export const formulas: Formula[] = [
   {
     id: 'log-laws-linearisation',
     tex: '\\log(xy)=\\log x+\\log y,\\qquad \\log\\left(x^{m}\\right)=m\\log x',
-    name: { en: 'Laws of logarithms used in linearisation', ru: 'Законы логарифмов при линеаризации' },
+    name: { en: 'Laws of logarithms used in linearisation', ru: 'Законы логарифмов при линеаризации (Laws of logarithms used in linearisation)' },
     meaning: {
       en: 'A logarithm turns a product into a sum and a power into a multiple, which is why power and exponential models become straight lines.',
       ru: 'Логарифм превращает произведение в сумму, а степень в множитель, поэтому степенные и показательные модели становятся прямыми.',

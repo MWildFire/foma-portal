@@ -4,7 +4,7 @@ export const formulas: Formula[] = [
   {
     id: 'geometric-nth-term',
     tex: 'u_n=u_1 r^{\\,n-1}',
-    name: { en: 'nth term of a geometric sequence', ru: 'n-й член геометрической последовательности' },
+    name: { en: 'nth term of a geometric sequence', ru: 'n-й член геометрической последовательности (nth term of a geometric sequence)' },
     meaning: {
       en: 'The nth term is the first term multiplied by $r$ a total of (n − 1) times.',
       ru: 'n-й член равен первому члену, умноженному на $r$ в степени (n − 1).',
@@ -23,7 +23,7 @@ export const formulas: Formula[] = [
   {
     id: 'geometric-sum',
     tex: 'S_n=\\dfrac{u_1(r^{n}-1)}{r-1}=\\dfrac{u_1(1-r^{n})}{1-r},\\quad r\\ne 1',
-    name: { en: 'Sum of the first n terms of a geometric series', ru: 'Сумма первых n членов геометрического ряда' },
+    name: { en: 'Sum of the first n terms of a geometric series', ru: 'Сумма первых n членов геометрического ряда (Sum of the first n terms of a geometric series)' },
     meaning: {
       en: 'The sum is the first term times (1 − r^n), divided by (1 − r), for r not equal to 1.',
       ru: 'Сумма равна первому члену, умноженному на (1 − r^n) и делённому на (1 − r), при r не равном 1.',
@@ -42,7 +42,7 @@ export const formulas: Formula[] = [
   {
     id: 'geometric-common-ratio',
     tex: 'r=\\dfrac{u_{n+1}}{u_n}',
-    name: { en: 'Common ratio', ru: 'Знаменатель геометрической последовательности' },
+    name: { en: 'Common ratio', ru: 'Знаменатель геометрической последовательности (Common ratio)' },
     meaning: {
       en: 'Each term is r times the previous term, so dividing a term by the term before it gives r.',
       ru: 'Каждый член в r раз больше предыдущего, поэтому деление члена на предыдущий даёт r.',

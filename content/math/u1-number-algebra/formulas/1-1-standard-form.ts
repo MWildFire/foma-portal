@@ -4,7 +4,7 @@ export const formulas: Formula[] = [
   {
     id: 'standard-form-representation',
     tex: 'x=a\\times 10^{k},\\quad 1\\le a<10,\\ k\\in\\mathbb{Z}',
-    name: { en: 'Standard form', ru: 'Стандартный вид' },
+    name: { en: 'Standard form', ru: 'Стандартный вид (Standard form)' },
     meaning: {
       en: 'Any positive number can be written as a number $a$ between 1 and 10 times an integer power of ten.',
       ru: 'Любое положительное число можно записать как число $a$ от 1 до 10, умноженное на целую степень десяти.',
@@ -23,7 +23,7 @@ export const formulas: Formula[] = [
   {
     id: 'standard-form-product-quotient',
     tex: '(a_1\\times 10^{m})\\times(a_2\\times 10^{n})=(a_1a_2)\\times 10^{m+n}',
-    name: { en: 'Multiplying in standard form', ru: 'Умножение в стандартном виде' },
+    name: { en: 'Multiplying in standard form', ru: 'Умножение в стандартном виде (Multiplying in standard form)' },
     meaning: {
       en: 'Multiply the numbers $a_1$ and $a_2$ and add the powers of ten. If $a_1a_2 \\ge 10$, divide by 10 and add 1 to the power.',
       ru: 'Перемножьте числа $a_1$ и $a_2$ и сложите степени десяти. Если $a_1a_2 \\ge 10$, разделите на 10 и прибавьте 1 к степени.',

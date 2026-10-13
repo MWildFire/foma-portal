@@ -4,7 +4,7 @@ export const formulas: Formula[] = [
   {
     id: 'radian-degree-conversion',
     tex: '\\theta_{\\text{rad}}=\\theta_{\\text{deg}}\\times\\dfrac{\\pi}{180}',
-    name: { en: 'Degrees to radians', ru: 'Перевод градусов в радианы' },
+    name: { en: 'Degrees to radians', ru: 'Перевод градусов в радианы (Degrees to radians)' },
     meaning: {
       en: 'Multiply an angle in degrees by pi/180 to get radians. To go back, multiply radians by 180/pi.',
       ru: 'Чтобы перевести угол из градусов в радианы, умножьте его на π/180. Обратно: радианы умножьте на 180/π.',
@@ -23,7 +23,7 @@ export const formulas: Formula[] = [
   {
     id: 'radian-arc-length',
     tex: 's=r\\theta',
-    name: { en: 'Arc length with the angle in radians', ru: 'Длина дуги при угле в радианах' },
+    name: { en: 'Arc length with the angle in radians', ru: 'Длина дуги при угле в радианах (Arc length with the angle in radians)' },
     meaning: {
       en: 's is the arc length, r the radius and theta the central angle in radians.',
       ru: 's — длина дуги, r — радиус, θ — центральный угол в радианах.',
@@ -42,7 +42,7 @@ export const formulas: Formula[] = [
   {
     id: 'radian-sector-area',
     tex: 'A=\\dfrac{1}{2}r^{2}\\theta',
-    name: { en: 'Area of a sector with the angle in radians', ru: 'Площадь сектора при угле в радианах' },
+    name: { en: 'Area of a sector with the angle in radians', ru: 'Площадь сектора при угле в радианах (Area of a sector with the angle in radians)' },
     meaning: {
       en: 'A is the area of the sector bounded by two radii and an arc, with theta in radians.',
       ru: 'A — площадь сектора, ограниченного двумя радиусами и дугой; θ задан в радианах.',

@@ -6,7 +6,7 @@ export const formulas: Formula[] = [
     tex: 'r=\\dfrac{\\sum (x_i-\\bar{x})(y_i-\\bar{y})}{\\sqrt{\\sum (x_i-\\bar{x})^{2}\\,\\sum (y_i-\\bar{y})^{2}}}',
     name: {
       en: 'Pearson\'s product-moment correlation coefficient',
-      ru: 'коэффициент корреляции Пирсона (product-moment correlation coefficient)',
+      ru: 'коэффициент корреляции Пирсона (Pearson\'s product-moment correlation coefficient)',
     },
     meaning: {
       en: 'Strength and direction of the linear relationship between x and y. It always lies between −1 and 1.',
@@ -28,7 +28,7 @@ export const formulas: Formula[] = [
     tex: 'y=ax+b,\\quad a=r\\,\\dfrac{s_y}{s_x},\\quad b=\\bar{y}-a\\bar{x}',
     name: {
       en: 'Regression line of y on x: gradient and intercept',
-      ru: 'линия регрессии y на x: угловой коэффициент и свободный член',
+      ru: 'линия регрессии y на x: угловой коэффициент и свободный член (Regression line of y on x: gradient and intercept)',
     },
     meaning: {
       en: 'a is the gradient and b the intercept; $s_x$ and $s_y$ are the standard deviations of x and y.',
@@ -50,7 +50,7 @@ export const formulas: Formula[] = [
     tex: '\\bar{y}=a\\bar{x}+b',
     name: {
       en: 'The regression line passes through the mean point',
-      ru: 'линия регрессии проходит через точку средних',
+      ru: 'линия регрессии проходит через точку средних (The regression line passes through the mean point)',
     },
     meaning: {
       en: 'Putting x equal to the mean of x gives the mean of y, so the line passes through $(\\bar{x}, \\bar{y})$.',

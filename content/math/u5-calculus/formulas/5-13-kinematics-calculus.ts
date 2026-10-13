@@ -4,7 +4,7 @@ export const formulas: Formula[] = [
   {
     id: 'calc-kinematics-derivatives',
     tex: 'v=\\dfrac{ds}{dt},\\quad a=\\dfrac{dv}{dt}=\\dfrac{d^{2}s}{dt^{2}}',
-    name: { en: 'Velocity and acceleration by differentiation', ru: 'Скорость и ускорение дифференцированием' },
+    name: { en: 'Velocity and acceleration by differentiation', ru: 'Скорость и ускорение дифференцированием (Velocity and acceleration by differentiation)' },
     meaning: {
       en: 'Velocity is the derivative of displacement with respect to time; acceleration is the derivative of velocity.',
       ru: 'Скорость — производная перемещения по времени; ускорение — производная скорости.',
@@ -23,7 +23,7 @@ export const formulas: Formula[] = [
   {
     id: 'calc-kinematics-integrals',
     tex: 's=\\int v\\,dt,\\qquad v=\\int a\\,dt',
-    name: { en: 'Displacement and velocity by integration', ru: 'Перемещение и скорость интегрированием' },
+    name: { en: 'Displacement and velocity by integration', ru: 'Перемещение и скорость интегрированием (Displacement and velocity by integration)' },
     meaning: {
       en: 'Integrating velocity gives displacement, and integrating acceleration gives velocity, each up to an added constant.',
       ru: 'Интеграл скорости даёт перемещение, интеграл ускорения даёт скорость, каждый с точностью до постоянной.',
@@ -38,7 +38,7 @@ export const formulas: Formula[] = [
   {
     id: 'calc-kinematics-power-integral',
     tex: '\\int t^{n}\\,dt=\\dfrac{t^{n+1}}{n+1}+C,\\qquad n\\neq -1',
-    name: { en: 'Integral of a power', ru: 'Интеграл степенной функции' },
+    name: { en: 'Integral of a power', ru: 'Интеграл степенной функции (Integral of a power)' },
     meaning: {
       en: 'Raise the power by one, divide by the new power, and add the constant of integration.',
       ru: 'Увеличить показатель на единицу, разделить на новый показатель и прибавить постоянную интегрирования.',
@@ -57,7 +57,7 @@ export const formulas: Formula[] = [
   {
     id: 'calc-kinematics-total-distance',
     tex: 'd=\\int_{t_{1}}^{t_{2}}|v|\\,dt',
-    name: { en: 'Distance travelled', ru: 'Пройденный путь' },
+    name: { en: 'Distance travelled', ru: 'Пройденный путь (Distance travelled)' },
     meaning: {
       en: 'Total path length between t1 and t2: the integral of the speed, which is the modulus of the velocity.',
       ru: 'Полная длина пути между t1 и t2: интеграл от модуля скорости, то есть от |v|.',

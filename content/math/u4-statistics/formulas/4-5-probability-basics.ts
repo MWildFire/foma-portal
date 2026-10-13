@@ -4,7 +4,7 @@ export const formulas: Formula[] = [
   {
     id: 'classical-probability-formula',
     tex: 'P(A)=\\dfrac{n(A)}{n(U)}',
-    name: { en: 'Probability of an event (equally likely outcomes)', ru: 'Вероятность события (равновероятные исходы)' },
+    name: { en: 'Probability of an event (equally likely outcomes)', ru: 'Вероятность события (равновероятные исходы) (Probability of an event (equally likely outcomes))' },
     meaning: {
       en: 'The probability of event A is the number of outcomes in A divided by the number of outcomes in the sample space U.',
       ru: 'Вероятность события A равна числу исходов в A, делённому на число исходов в пространстве выборки U.',
@@ -23,7 +23,7 @@ export const formulas: Formula[] = [
   {
     id: 'complementary-probability-formula',
     tex: 'P(A^{\\prime})=1-P(A)',
-    name: { en: 'Complementary event', ru: 'Противоположное событие' },
+    name: { en: 'Complementary event', ru: 'Противоположное событие (Complementary event)' },
     meaning: {
       en: 'The probability that A does not occur is one minus the probability that A occurs.',
       ru: 'Вероятность того, что A не происходит, равна единице минус вероятность того, что A происходит.',
@@ -38,7 +38,7 @@ export const formulas: Formula[] = [
   {
     id: 'expected-occurrences-formula',
     tex: 'E=n\\,P(A)',
-    name: { en: 'Expected number of occurrences', ru: 'Ожидаемое число появлений' },
+    name: { en: 'Expected number of occurrences', ru: 'Ожидаемое число появлений (Expected number of occurrences)' },
     meaning: {
       en: 'The expected number of times A occurs in n trials, where P(A) is the probability of A in one trial.',
       ru: 'Ожидаемое число появлений события A в n испытаниях, где P(A) — вероятность A в одном испытании.',

@@ -4,7 +4,7 @@ export const formulas: Formula[] = [
   {
     id: 'handshaking-degree-sum',
     tex: '\\sum_{v}\\deg(v)=2\\,|E|',
-    name: { en: 'Handshaking lemma', ru: 'Лемма о рукопожатиях' },
+    name: { en: 'Handshaking lemma', ru: 'Лемма о рукопожатиях (Handshaking lemma)' },
     meaning: {
       en: 'The degrees of all vertices add up to twice the number of edges, so the number of odd-degree vertices is even.',
       ru: 'Сумма степеней всех вершин равна удвоенному числу рёбер, поэтому число вершин нечётной степени чётно.',
@@ -23,7 +23,7 @@ export const formulas: Formula[] = [
   {
     id: 'spanning-tree-edge-count',
     tex: '|E_{T}|=n-1',
-    name: { en: 'Edges of a spanning tree', ru: 'Число рёбер остовного дерева' },
+    name: { en: 'Edges of a spanning tree', ru: 'Число рёбер остовного дерева (Edges of a spanning tree)' },
     meaning: {
       en: 'A spanning tree of a graph with n vertices has exactly n - 1 edges.',
       ru: 'Остовное дерево графа с n вершинами имеет ровно n - 1 ребро.',
@@ -38,7 +38,7 @@ export const formulas: Formula[] = [
   {
     id: 'postman-route-length',
     tex: 'L=\\sum_{e}w(e)+\\min_{\\text{pairings}}\\sum_{i}d(u_i,v_i)',
-    name: { en: 'Length of a Chinese postman route', ru: 'Длина маршрута китайского почтальона' },
+    name: { en: 'Length of a Chinese postman route', ru: 'Длина маршрута китайского почтальона (Length of a Chinese postman route)' },
     meaning: {
       en: 'The total weight of all edges plus the least total of shortest-route lengths d(u_i, v_i) over the pairings of the odd vertices. The second term is zero when there are no odd vertices.',
       ru: 'Суммарный вес всех рёбер плюс наименьшая сумма длин кратчайших маршрутов d(u_i, v_i) по всем разбиениям нечётных вершин на пары. Второе слагаемое равно нулю, если нечётных вершин нет.',
@@ -57,7 +57,7 @@ export const formulas: Formula[] = [
   {
     id: 'deleted-vertex-bound',
     tex: 'L=w\\bigl(\\text{MST}(G-v)\\bigr)+w_{1}+w_{2}',
-    name: { en: 'Deleted-vertex lower bound', ru: 'Нижняя оценка удалением вершины' },
+    name: { en: 'Deleted-vertex lower bound', ru: 'Нижняя оценка удалением вершины (Deleted-vertex lower bound)' },
     meaning: {
       en: 'The weight of a minimum spanning tree of the graph without vertex v, plus the two least weights of edges from v. In a complete graph this is a lower bound for the travelling salesman minimum.',
       ru: 'Вес минимального остовного дерева графа без вершины v плюс два наименьших веса рёбер из v. В полном графе это нижняя оценка минимума задачи коммивояжёра.',

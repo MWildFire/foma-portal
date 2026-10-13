@@ -4,7 +4,7 @@ export const formulas: Formula[] = [
   {
     id: 'half-life-formula',
     tex: 'T=\\dfrac{\\ln 2}{k}',
-    name: { en: 'Half-life of exponential decay', ru: 'Период полураспада при экспоненциальном убывании' },
+    name: { en: 'Half-life of exponential decay', ru: 'Период полураспада при экспоненциальном убывании (Half-life of exponential decay)' },
     meaning: {
       en: 'For $N=N_0e^{-kt}$ with $k>0$, the time $T$ for the amount to halve.',
       ru: 'Для $N=N_0e^{-kt}$ при $k>0$ — время $T$, за которое величина уменьшается вдвое.',
@@ -23,7 +23,7 @@ export const formulas: Formula[] = [
   {
     id: 'logistic-formula',
     tex: 'y=\\dfrac{L}{1+Ce^{-kx}}',
-    name: { en: 'Logistic model', ru: 'Логистическая модель' },
+    name: { en: 'Logistic model', ru: 'Логистическая модель (Logistic model)' },
     meaning: {
       en: '$L$ is the upper limit, the starting value is $\\dfrac{L}{1+C}$, and $k$ sets the steepness of the S-shape.',
       ru: '$L$ — верхний предел, начальное значение равно $\\dfrac{L}{1+C}$, а $k$ задаёт крутизну S-образной кривой.',
@@ -42,7 +42,7 @@ export const formulas: Formula[] = [
   {
     id: 'logistic-key-features',
     tex: 'x=\\dfrac{\\ln C}{k},\\quad y=\\dfrac{L}{2},\\quad \\text{greatest growth rate}=\\dfrac{kL}{4}',
-    name: { en: 'Inflection point and greatest growth rate of the logistic model', ru: 'Точка перегиба и наибольшая скорость роста логистической модели' },
+    name: { en: 'Inflection point and greatest growth rate of the logistic model', ru: 'Точка перегиба и наибольшая скорость роста логистической модели (Inflection point and greatest growth rate of the logistic model)' },
     meaning: {
       en: 'The inflection point is where growth changes from speeding up to slowing down. There the value is $L/2$ and the growth rate is greatest.',
       ru: 'Точка перегиба — где рост переходит от ускорения к замедлению. Там $y=L/2$, а скорость роста наибольшая.',
@@ -61,7 +61,7 @@ export const formulas: Formula[] = [
   {
     id: 'sinusoid-period',
     tex: 'P=\\dfrac{2\\pi}{b}',
-    name: { en: 'Period of a sinusoidal model', ru: 'Период синусоидальной модели' },
+    name: { en: 'Period of a sinusoidal model', ru: 'Период синусоидальной модели (Period of a sinusoidal model)' },
     meaning: {
       en: 'For $y=a\\sin(b(x-c))+d$ the period is $2\\pi/b$, the amplitude is $|a|$ and the principal axis is $y=d$.',
       ru: 'Для $y=a\\sin(b(x-c))+d$ период равен $2\\pi/b$, амплитуда равна $|a|$, а ось колебаний — $y=d$.',

@@ -4,7 +4,7 @@ export const formulas: Formula[] = [
   {
     id: 'second-derivative-notation',
     tex: 'f\'\'(x)=\\dfrac{d}{dx}\\left(f\'(x)\\right)=\\dfrac{d^{2}y}{dx^{2}}',
-    name: { en: 'Second derivative', ru: 'Вторая производная' },
+    name: { en: 'Second derivative', ru: 'Вторая производная (Second derivative)' },
     meaning: {
       en: 'The second derivative is the derivative of f\'(x). When y = f(x) it is written d^2 y / dx^2.',
       ru: 'Вторая производная есть производная от f\'(x). При y = f(x) её записывают как d^2 y / dx^2.',
@@ -19,7 +19,7 @@ export const formulas: Formula[] = [
   {
     id: 'second-derivative-test-rule',
     tex: 'f\'(a)=0,\\quad f\'\'(a)>0\\Rightarrow\\text{local minimum},\\quad f\'\'(a)<0\\Rightarrow\\text{local maximum}',
-    name: { en: 'Second derivative test', ru: 'Признак второй производной' },
+    name: { en: 'Second derivative test', ru: 'Признак второй производной (Second derivative test)' },
     meaning: {
       en: 'At a stationary point x = a, where f\'(a) = 0, the sign of f\'\'(a) gives the type of point. A zero value gives no conclusion.',
       ru: 'В стационарной точке x = a, где f\'(a) = 0, знак f\'\'(a) задаёт тип точки. Нулевое значение ничего не решает.',
@@ -34,7 +34,7 @@ export const formulas: Formula[] = [
   {
     id: 'second-derivative-power',
     tex: '\\dfrac{d^{2}}{dx^{2}}\\left(x^{n}\\right)=n(n-1)\\,x^{n-2}',
-    name: { en: 'Second derivative of a power', ru: 'Вторая производная степенной функции' },
+    name: { en: 'Second derivative of a power', ru: 'Вторая производная степенной функции (Second derivative of a power)' },
     meaning: {
       en: 'Differentiate a power of x twice: the power falls by two and the coefficient is multiplied by n(n-1).',
       ru: 'Дифференцируйте степень x дважды: показатель уменьшается на два, а коэффициент умножается на n(n-1).',

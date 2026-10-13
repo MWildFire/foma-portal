@@ -4,7 +4,7 @@ export const formulas: Formula[] = [
   {
     id: 'arithmetic-nth-term',
     tex: 'u_n=u_1+(n-1)d',
-    name: { en: 'nth term of an arithmetic sequence', ru: 'n-й член арифметической последовательности' },
+    name: { en: 'nth term of an arithmetic sequence', ru: 'n-й член арифметической последовательности (nth term of an arithmetic sequence)' },
     meaning: {
       en: 'The nth term is the first term plus (n − 1) common differences.',
       ru: 'n-й член равен первому члену плюс (n − 1) разностей d.',
@@ -23,7 +23,7 @@ export const formulas: Formula[] = [
   {
     id: 'arithmetic-sum',
     tex: 'S_n=\\dfrac{n}{2}\\,(2u_1+(n-1)d)=\\dfrac{n}{2}\\,(u_1+u_n)',
-    name: { en: 'Sum of the first n terms of an arithmetic series', ru: 'Сумма первых n членов арифметического ряда' },
+    name: { en: 'Sum of the first n terms of an arithmetic series', ru: 'Сумма первых n членов арифметического ряда (Sum of the first n terms of an arithmetic series)' },
     meaning: {
       en: 'The sum is the number of terms divided by 2, times the sum of the first and last terms.',
       ru: 'Сумма равна половине числа членов, умноженной на сумму первого и последнего членов.',
@@ -42,7 +42,7 @@ export const formulas: Formula[] = [
   {
     id: 'arithmetic-common-difference',
     tex: 'd=u_{n+1}-u_n',
-    name: { en: 'Common difference', ru: 'Разность арифметической последовательности' },
+    name: { en: 'Common difference', ru: 'Разность арифметической последовательности (Common difference)' },
     meaning: {
       en: 'The same constant is added at each step, so subtracting any term from the next one gives d.',
       ru: 'На каждом шаге прибавляется одно и то же число, поэтому разность любого члена и следующего за ним равна d.',

@@ -6,7 +6,7 @@ export const formulas: Formula[] = [
     tex: 'r_s=1-\\dfrac{6\\sum d_i^{2}}{n(n^{2}-1)}',
     name: {
       en: 'Spearman\'s rank correlation coefficient (d-formula)',
-      ru: 'коэффициент ранговой корреляции Спирмена (формула через d)',
+      ru: 'коэффициент ранговой корреляции Спирмена (формула через d) (Spearman\'s rank correlation coefficient (d-formula))',
     },
     meaning: {
       en: 'The difference $d_i$ is the gap between the two ranks of item i, and n is the number of items. Use it only when no two ranks are tied.',
@@ -28,7 +28,7 @@ export const formulas: Formula[] = [
     tex: 'r_s=\\dfrac{\\sum (R_i-\\bar{R})(S_i-\\bar{S})}{\\sqrt{\\sum (R_i-\\bar{R})^{2}\\,\\sum (S_i-\\bar{S})^{2}}}',
     name: {
       en: 'Spearman\'s r_s as Pearson\'s r applied to ranks',
-      ru: 'r_s как коэффициент Пирсона, применённый к рангам',
+      ru: 'r_s как коэффициент Пирсона, применённый к рангам (Spearman\'s r_s as Pearson\'s r applied to ranks)',
     },
     meaning: {
       en: 'R_i and S_i are the ranks of item i on the two variables, and $\\bar{R}$ and $\\bar{S}$ are the mean ranks.',

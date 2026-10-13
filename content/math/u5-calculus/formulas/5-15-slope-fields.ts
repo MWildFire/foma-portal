@@ -4,7 +4,7 @@ export const formulas: Formula[] = [
   {
     id: 'slope-field-de',
     tex: '\\dfrac{dy}{dx}=f(x,y)',
-    name: { en: 'First-order differential equation', ru: 'Дифференциальное уравнение первого порядка' },
+    name: { en: 'First-order differential equation', ru: 'Дифференциальное уравнение первого порядка (First-order differential equation)' },
     meaning: {
       en: 'The gradient of the solution curve through the point (x, y) is f(x, y).',
       ru: 'Наклон кривой решения, проходящей через точку (x, y), равен f(x, y).',
@@ -23,7 +23,7 @@ export const formulas: Formula[] = [
   {
     id: 'isocline-equation',
     tex: 'f(x,y)=k',
-    name: { en: 'Isocline', ru: 'Изоклина' },
+    name: { en: 'Isocline', ru: 'Изоклина (Isocline)' },
     meaning: {
       en: 'Every point on this curve has the same gradient k.',
       ru: 'Все точки этой кривой имеют один и тот же наклон k.',
@@ -38,7 +38,7 @@ export const formulas: Formula[] = [
   {
     id: 'tangent-line-at-point',
     tex: 'y-y_0=f(x_0,y_0)\\,(x-x_0)',
-    name: { en: 'Tangent to a solution curve', ru: 'Касательная к кривой решения' },
+    name: { en: 'Tangent to a solution curve', ru: 'Касательная к кривой решения (Tangent to a solution curve)' },
     meaning: {
       en: 'The tangent at the point (x0, y0) of a solution curve has the gradient given by the field at that point.',
       ru: 'Касательная в точке (x0, y0) кривой решения имеет наклон, заданный полем в этой точке.',

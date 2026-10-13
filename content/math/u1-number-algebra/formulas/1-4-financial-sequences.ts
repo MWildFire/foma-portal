@@ -4,7 +4,7 @@ export const formulas: Formula[] = [
   {
     id: 'compound-interest-periods',
     tex: 'FV=PV\\left(1+\\dfrac{r}{100k}\\right)^{kn}',
-    name: { en: 'Compound interest', ru: 'Сложные проценты' },
+    name: { en: 'Compound interest', ru: 'Сложные проценты (Compound interest)' },
     meaning: {
       en: 'The value after $n$ years of a principal $PV$ invested at $r\\%$ a year, with interest added $k$ times a year. Use $k = 1$ for annual compounding and $k = 12$ for monthly compounding.',
       ru: 'Стоимость через $n$ лет вклада $PV$ под $r\\%$ годовых при $k$ начислениях процентов в год. Для ежегодного начисления $k = 1$, для ежемесячного $k = 12$.',
@@ -23,7 +23,7 @@ export const formulas: Formula[] = [
   {
     id: 'reducing-balance-value',
     tex: 'V_n=V_0\\left(1-\\dfrac{r}{100}\\right)^{n}',
-    name: { en: 'Reducing-balance depreciation', ru: 'Амортизация по остаточной стоимости' },
+    name: { en: 'Reducing-balance depreciation', ru: 'Амортизация по остаточной стоимости (Reducing-balance depreciation)' },
     meaning: {
       en: 'The value after $n$ years is $V_n$, where $V_0$ is the value at the start and $r\\%$ is the percentage lost each year.',
       ru: 'Стоимость через $n$ лет равна $V_n$, где $V_0$ — стоимость на начало, а $r\\%$ — процент, теряемый каждый год.',
@@ -42,7 +42,7 @@ export const formulas: Formula[] = [
   {
     id: 'depreciation-rate',
     tex: 'r=100\\left(1-\\left(\\dfrac{V_n}{V_0}\\right)^{\\frac{1}{n}}\\right)',
-    name: { en: 'Annual percentage depreciation rate', ru: 'Годовая процентная ставка амортизации' },
+    name: { en: 'Annual percentage depreciation rate', ru: 'Годовая процентная ставка амортизации (Annual percentage depreciation rate)' },
     meaning: {
       en: 'The fixed percentage $r$ lost each year, found from the starting value $V_0$ and the value $V_n$ after $n$ years.',
       ru: 'Фиксированный процент $r$, теряемый каждый год, найденный по стоимости на начало $V_0$ и стоимости $V_n$ через $n$ лет.',

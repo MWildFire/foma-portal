@@ -4,7 +4,7 @@ export const formulas: Formula[] = [
   {
     id: 'revolution-area-x-axis',
     tex: 'A=\\int_{a}^{b} y\\,dx',
-    name: { en: 'Area between a curve and the x-axis', ru: 'Площадь между кривой и осью x' },
+    name: { en: 'Area between a curve and the x-axis', ru: 'Площадь между кривой и осью x (Area between a curve and the x-axis)' },
     meaning: {
       en: 'Area between the curve y = f(x), the x-axis and the lines x = a and x = b, when y is not negative on [a, b].',
       ru: 'Площадь между кривой y = f(x), осью x и прямыми x = a и x = b, если y не отрицательно на отрезке [a, b].',
@@ -23,7 +23,7 @@ export const formulas: Formula[] = [
   {
     id: 'revolution-volume-x-axis',
     tex: 'V=\\pi\\int_{a}^{b} y^{2}\\,dx',
-    name: { en: 'Volume of revolution about the x-axis', ru: 'Объём тела вращения вокруг оси x' },
+    name: { en: 'Volume of revolution about the x-axis', ru: 'Объём тела вращения вокруг оси x (Volume of revolution about the x-axis)' },
     meaning: {
       en: 'Volume of the solid formed when the region between y = f(x), the x-axis and the lines x = a and x = b is rotated through 360 degrees about the x-axis.',
       ru: 'Объём тела, которое образуется, когда область между кривой y = f(x), осью x и прямыми x = a и x = b поворачивается на 360 градусов вокруг оси x.',
@@ -42,7 +42,7 @@ export const formulas: Formula[] = [
   {
     id: 'revolution-volume-y-axis',
     tex: 'V=\\pi\\int_{c}^{d} x^{2}\\,dy',
-    name: { en: 'Volume of revolution about the y-axis', ru: 'Объём тела вращения вокруг оси y' },
+    name: { en: 'Volume of revolution about the y-axis', ru: 'Объём тела вращения вокруг оси y (Volume of revolution about the y-axis)' },
     meaning: {
       en: 'Volume of the solid formed when the region between x = g(y), the y-axis and the lines y = c and y = d is rotated through 360 degrees about the y-axis.',
       ru: 'Объём тела, которое образуется, когда область между кривой x = g(y), осью y и прямыми y = c и y = d поворачивается на 360 градусов вокруг оси y.',
@@ -61,7 +61,7 @@ export const formulas: Formula[] = [
   {
     id: 'revolution-area-y-axis',
     tex: 'A=\\int_{c}^{d} x\\,dy',
-    name: { en: 'Area between a curve and the y-axis', ru: 'Площадь между кривой и осью y' },
+    name: { en: 'Area between a curve and the y-axis', ru: 'Площадь между кривой и осью y (Area between a curve and the y-axis)' },
     meaning: {
       en: 'Area between the curve x = g(y), with x not negative, the y-axis and the lines y = c and y = d.',
       ru: 'Площадь между кривой x = g(y), при x не отрицательном, осью y и прямыми y = c и y = d.',

@@ -4,7 +4,7 @@ export const formulas: Formula[] = [
   {
     id: 'linear-system-three-unknowns',
     tex: '\\begin{cases}a_{1}x+b_{1}y+c_{1}z=d_{1}\\\\a_{2}x+b_{2}y+c_{2}z=d_{2}\\\\a_{3}x+b_{3}y+c_{3}z=d_{3}\\end{cases}',
-    name: { en: 'System of three linear equations', ru: 'Система трёх линейных уравнений' },
+    name: { en: 'System of three linear equations', ru: 'Система трёх линейных уравнений (System of three linear equations)' },
     meaning: {
       en: 'Three linear equations in the unknowns x, y and z. A solution gives values of x, y and z that satisfy all three equations at once.',
       ru: 'Три линейных уравнения с неизвестными x, y и z. Решение — значения x, y и z, которые одновременно удовлетворяют всем трём уравнениям.',
@@ -19,7 +19,7 @@ export const formulas: Formula[] = [
   {
     id: 'polynomial-degree-roots',
     tex: 'p(x)=a_{n}x^{n}+a_{n-1}x^{n-1}+\\cdots+a_{1}x+a_{0}=0,\\qquad a_{n}\\neq 0',
-    name: { en: 'Polynomial equation of degree n', ru: 'Многочленное уравнение степени n' },
+    name: { en: 'Polynomial equation of degree n', ru: 'Многочленное уравнение степени n (Polynomial equation of degree n)' },
     meaning: {
       en: 'A polynomial equation of degree n has at most n real roots. These are the x-intercepts of the graph of $y=p(x)$.',
       ru: 'Многочленное уравнение степени n имеет не более n действительных корней. Это точки пересечения графика $y=p(x)$ с осью x.',
@@ -34,7 +34,7 @@ export const formulas: Formula[] = [
   {
     id: 'quadratic-formula-roots',
     tex: 'x=\\dfrac{-b\\pm\\sqrt{b^{2}-4ac}}{2a},\\qquad a\\neq 0',
-    name: { en: 'Quadratic formula', ru: 'Формула корней квадратного уравнения' },
+    name: { en: 'Quadratic formula', ru: 'Формула корней квадратного уравнения (Quadratic formula)' },
     meaning: {
       en: 'The roots of $ax^{2}+bx+c=0$. When $b^{2}-4ac$ is negative, the roots are not real.',
       ru: 'Корни уравнения $ax^{2}+bx+c=0$. Если $b^{2}-4ac$ отрицательно, корни не действительные.',

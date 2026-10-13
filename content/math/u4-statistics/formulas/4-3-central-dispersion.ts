@@ -4,7 +4,7 @@ export const formulas: Formula[] = [
   {
     id: 'grouped-mean-estimate',
     tex: '\\bar{x}\\approx\\dfrac{\\sum f\\,x}{\\sum f}',
-    name: { en: 'Estimated mean from grouped data', ru: 'Оценка среднего по сгруппированным данным' },
+    name: { en: 'Estimated mean from grouped data', ru: 'Оценка среднего по сгруппированным данным (Estimated mean from grouped data)' },
     meaning: {
       en: 'x is the midpoint of a class and f is its frequency. The result estimates the mean, because the exact values inside each class are not known.',
       ru: 'x — середина класса, f — его частота. Результат оценивает среднее, потому что точные значения внутри класса неизвестны.',
@@ -63,7 +63,7 @@ export const formulas: Formula[] = [
     tex: 'y=ax+b:\\quad \\bar{y}=a\\bar{x}+b,\\quad \\sigma_y=|a|\\,\\sigma_x',
     name: {
       en: 'Effect of a linear change on the mean and standard deviation',
-      ru: 'Влияние линейного преобразования на среднее и стандартное отклонение',
+      ru: 'Влияние линейного преобразования на среднее и стандартное отклонение (Effect of a linear change on the mean and standard deviation)',
     },
     meaning: {
       en: 'Each value x is replaced by y = ax + b. The mean changes in the same way. The standard deviation is multiplied by |a| and is not changed by b.',

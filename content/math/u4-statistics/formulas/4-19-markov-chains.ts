@@ -4,7 +4,7 @@ export const formulas: Formula[] = [
   {
     id: 'markov-state-after-n-steps',
     tex: 'S_{n+1}=T\\,S_{n},\\qquad S_{n}=T^{n}\\,S_{0}',
-    name: { en: 'State after n steps', ru: 'Состояние после n шагов' },
+    name: { en: 'State after n steps', ru: 'Состояние после n шагов (State after n steps)' },
     meaning: {
       en: 'S_n is the column of state probabilities after n steps, S_0 the initial state matrix and T the transition matrix (columns sum to 1).',
       ru: 'S_n — столбец вероятностей состояний после n шагов, S_0 — начальная матрица состояний, T — матрица переходов (суммы столбцов равны 1).',
@@ -23,7 +23,7 @@ export const formulas: Formula[] = [
   {
     id: 'markov-regular-condition',
     tex: 'T^{k}\\,\\text{has only positive entries for some integer }k\\ge 1',
-    name: { en: 'Regularity condition', ru: 'Условие регулярности' },
+    name: { en: 'Regularity condition', ru: 'Условие регулярности (Regularity condition)' },
     meaning: {
       en: 'A chain is regular if some power T^k, with k at least 1, has only positive entries.',
       ru: 'Цепь регулярна, если некоторая степень T^k при k не меньше 1 имеет только положительные элементы.',
@@ -38,7 +38,7 @@ export const formulas: Formula[] = [
   {
     id: 'markov-steady-state-equation',
     tex: 'TS=S,\\qquad \\sum_{i} s_{i}=1',
-    name: { en: 'Steady state equations', ru: 'Уравнения установившегося распределения' },
+    name: { en: 'Steady state equations', ru: 'Уравнения установившегося распределения (Steady state equations)' },
     meaning: {
       en: 'The steady state column S satisfies TS = S, and its entries s_i sum to 1.',
       ru: 'Столбец установившегося распределения S удовлетворяет TS = S, а его элементы s_i в сумме дают 1.',

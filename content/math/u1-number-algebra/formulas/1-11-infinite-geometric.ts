@@ -4,7 +4,7 @@ export const formulas: Formula[] = [
   {
     id: 'geometric-sum-to-infinity',
     tex: 'S_{\\infty}=\\dfrac{u_{1}}{1-r},\\qquad |r|<1',
-    name: { en: 'Sum to infinity of a geometric sequence', ru: 'Сумма бесконечной геометрической прогрессии' },
+    name: { en: 'Sum to infinity of a geometric sequence', ru: 'Сумма бесконечной геометрической прогрессии (Sum to infinity of a geometric sequence)' },
     meaning: {
       en: 'The limit of the partial sums, where u1 is the first term and r the common ratio.',
       ru: 'Предел частичных сумм; u1 — первый член, r — знаменатель прогрессии.',
@@ -23,7 +23,7 @@ export const formulas: Formula[] = [
   {
     id: 'geometric-partial-sum-formula',
     tex: 'S_{n}=\\dfrac{u_{1}\\left(1-r^{n}\\right)}{1-r},\\qquad r\\neq 1',
-    name: { en: 'Sum of the first n terms of a geometric sequence', ru: 'Сумма первых n членов геометрической прогрессии' },
+    name: { en: 'Sum of the first n terms of a geometric sequence', ru: 'Сумма первых n членов геометрической прогрессии (Sum of the first n terms of a geometric sequence)' },
     meaning: {
       en: 'The sum of the first n terms, with u1 the first term and r the common ratio.',
       ru: 'Сумма первых n членов; u1 — первый член, r — знаменатель прогрессии.',
@@ -42,7 +42,7 @@ export const formulas: Formula[] = [
   {
     id: 'geometric-tail-remainder',
     tex: 'S_{\\infty}-S_{n}=\\dfrac{u_{1}\\,r^{n}}{1-r},\\qquad |r|<1',
-    name: { en: 'Remainder after n terms of a convergent geometric series', ru: 'Остаток сходящейся геометрической прогрессии после n членов' },
+    name: { en: 'Remainder after n terms of a convergent geometric series', ru: 'Остаток сходящейся геометрической прогрессии после n членов (Remainder after n terms of a convergent geometric series)' },
     meaning: {
       en: 'The amount still to be added after the first n terms.',
       ru: 'Сумма, которую ещё нужно добавить после первых n членов.',

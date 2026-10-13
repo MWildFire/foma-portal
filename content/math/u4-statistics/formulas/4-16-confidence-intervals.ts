@@ -4,7 +4,7 @@ export const formulas: Formula[] = [
   {
     id: 'ci-mean-z-known-sigma',
     tex: '\\bar{x}\\pm z^{*}\\dfrac{\\sigma}{\\sqrt{n}}',
-    name: { en: 'Confidence interval for μ, σ known (z case)', ru: 'Доверительный интервал для μ при известной σ (z-случай)' },
+    name: { en: 'Confidence interval for μ, σ known (z case)', ru: 'Доверительный интервал для μ при известной σ (z-случай) (Confidence interval for μ, σ known (z case))' },
     meaning: {
       en: 'The sample mean plus or minus $z^{*}$ standard errors, where $z^{*}$ is the critical value for the confidence level.',
       ru: 'Выборочное среднее плюс-минус $z^{*}$ стандартных ошибок, где $z^{*}$ — критическое значение для уровня доверия.',
@@ -23,7 +23,7 @@ export const formulas: Formula[] = [
   {
     id: 'ci-mean-t-unknown-sigma',
     tex: '\\bar{x}\\pm t^{*}\\dfrac{s_{n-1}}{\\sqrt{n}},\\qquad \\nu=n-1',
-    name: { en: 'Confidence interval for μ, σ unknown (t case)', ru: 'Доверительный интервал для μ при неизвестной σ (t-случай)' },
+    name: { en: 'Confidence interval for μ, σ unknown (t case)', ru: 'Доверительный интервал для μ при неизвестной σ (t-случай) (Confidence interval for μ, σ unknown (t case))' },
     meaning: {
       en: 'The sample mean plus or minus $t^{*}$ estimated standard errors, where $t^{*}$ has $\\nu = n - 1$ degrees of freedom.',
       ru: 'Выборочное среднее плюс-минус $t^{*}$ оценённых стандартных ошибок, где $t^{*}$ имеет $\\nu = n - 1$ степеней свободы.',
@@ -42,7 +42,7 @@ export const formulas: Formula[] = [
   {
     id: 'sample-size-margin-error',
     tex: 'n\\geq\\left(\\dfrac{z^{*}\\sigma}{E}\\right)^{2}',
-    name: { en: 'Sample size for a given margin of error', ru: 'Объём выборки для заданной погрешности' },
+    name: { en: 'Sample size for a given margin of error', ru: 'Объём выборки для заданной погрешности (Sample size for a given margin of error)' },
     meaning: {
       en: 'The smallest sample size n for which the margin of error is at most E, when σ is known.',
       ru: 'Наименьший объём выборки n, при котором погрешность не превышает E, если σ известна.',

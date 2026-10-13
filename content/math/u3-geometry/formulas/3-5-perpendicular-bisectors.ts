@@ -4,7 +4,7 @@ export const formulas: Formula[] = [
   {
     id: 'segment-midpoint-formula',
     tex: '\\left(\\dfrac{x_1+x_2}{2},\\ \\dfrac{y_1+y_2}{2}\\right)',
-    name: { en: 'Midpoint of a segment', ru: 'Середина отрезка' },
+    name: { en: 'Midpoint of a segment', ru: 'Середина отрезка (Midpoint of a segment)' },
     meaning: {
       en: 'The point halfway between (x1, y1) and (x2, y2): the average of the x-coordinates and the average of the y-coordinates.',
       ru: 'Точка посередине между (x1; y1) и (x2; y2): среднее арифметическое абсцисс и среднее арифметическое ординат.',
@@ -23,7 +23,7 @@ export const formulas: Formula[] = [
   {
     id: 'perpendicular-gradient-formula',
     tex: 'm_{\\perp}=-\\dfrac{1}{m}=-\\dfrac{x_2-x_1}{y_2-y_1}',
-    name: { en: 'Gradient of the perpendicular bisector', ru: 'Угловой коэффициент серединного перпендикуляра' },
+    name: { en: 'Gradient of the perpendicular bisector', ru: 'Угловой коэффициент серединного перпендикуляра (Gradient of the perpendicular bisector)' },
     meaning: {
       en: 'If the segment has gradient m, its perpendicular bisector has gradient minus 1 over m, where m = (y2 - y1)/(x2 - x1).',
       ru: 'Если у отрезка угловой коэффициент m, у серединного перпендикуляра он равен минус 1/m, где m = (y2 - y1)/(x2 - x1).',
@@ -42,7 +42,7 @@ export const formulas: Formula[] = [
   {
     id: 'perpendicular-bisector-equation-formula',
     tex: '(x_2-x_1)\\,x+(y_2-y_1)\\,y=\\dfrac{x_2^{2}+y_2^{2}-x_1^{2}-y_1^{2}}{2}',
-    name: { en: 'Perpendicular bisector of a segment (general form)', ru: 'Серединный перпендикуляр отрезка (общий вид)' },
+    name: { en: 'Perpendicular bisector of a segment (general form)', ru: 'Серединный перпендикуляр отрезка (общий вид) (Perpendicular bisector of a segment (general form))' },
     meaning: {
       en: 'Every point (x, y) on the perpendicular bisector of the segment from (x1, y1) to (x2, y2) satisfies this equation. It comes from setting the distances to the two ends equal.',
       ru: 'Каждая точка (x; y) серединного перпендикуляра отрезка от (x1; y1) до (x2; y2) удовлетворяет этому уравнению. Оно получается из равенства расстояний до концов отрезка.',

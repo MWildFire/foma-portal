@@ -4,7 +4,7 @@ export const formulas: Formula[] = [
   {
     id: 'model-residual-formula',
     tex: 'e_i=y_i-\\hat{y}_i',
-    name: { en: 'Residual', ru: 'Остаток' },
+    name: { en: 'Residual', ru: 'Остаток (Residual)' },
     meaning: {
       en: 'The observed value y_i minus the predicted value (y-hat) for the i-th data point.',
       ru: 'Наблюдаемое значение y_i минус предсказанное значение (y с крышкой) для i-го наблюдения.',
@@ -19,7 +19,7 @@ export const formulas: Formula[] = [
   {
     id: 'model-least-squares-sum',
     tex: 'S=\\sum_{i=1}^{n}\\left(y_i-\\hat{y}_i\\right)^2',
-    name: { en: 'Sum of squared residuals', ru: 'Сумма квадратов остатков' },
+    name: { en: 'Sum of squared residuals', ru: 'Сумма квадратов остатков (Sum of squared residuals)' },
     meaning: {
       en: 'Least-squares regression chooses the parameters that make S as small as possible.',
       ru: 'Регрессия по методу наименьших квадратов выбирает параметры, при которых S минимально.',
@@ -34,7 +34,7 @@ export const formulas: Formula[] = [
   {
     id: 'model-regression-slope',
     tex: 'm=\\dfrac{\\sum_{i=1}^{n}(x_i-\\bar{x})(y_i-\\bar{y})}{\\sum_{i=1}^{n}(x_i-\\bar{x})^2}',
-    name: { en: 'Slope of the least-squares line', ru: 'Угловой коэффициент прямой наименьших квадратов' },
+    name: { en: 'Slope of the least-squares line', ru: 'Угловой коэффициент прямой наименьших квадратов (Slope of the least-squares line)' },
     meaning: {
       en: 'For the line y = mx + c fitted by least squares, the intercept is c = (mean of y) - m times (mean of x).',
       ru: 'Для прямой y = mx + c, подогнанной по методу наименьших квадратов, точка пересечения с осью y равна c = среднее y минус m умножить на среднее x.',

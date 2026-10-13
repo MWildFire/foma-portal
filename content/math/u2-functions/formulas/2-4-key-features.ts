@@ -4,7 +4,7 @@ export const formulas: Formula[] = [
   {
     id: 'key-feature-vertical-asymptote',
     tex: 'x=-\\dfrac{d}{c}',
-    name: { en: 'Vertical asymptote of a rational function', ru: 'Вертикальная асимптота рациональной функции' },
+    name: { en: 'Vertical asymptote of a rational function', ru: 'Вертикальная асимптота рациональной функции (Vertical asymptote of a rational function)' },
     meaning: {
       en: 'For f(x) = (ax + b)/(cx + d), the line x = -d/c is a vertical asymptote, unless the numerator is also zero at that x-value.',
       ru: 'Для f(x) = (ax + b)/(cx + d) прямая x = -d/c является вертикальной асимптотой, если в этой точке числитель не равен нулю.',
@@ -19,7 +19,7 @@ export const formulas: Formula[] = [
   {
     id: 'key-feature-horizontal-asymptote',
     tex: 'y=\\dfrac{a}{c}',
-    name: { en: 'Horizontal asymptote of a rational function', ru: 'Горизонтальная асимптота рациональной функции' },
+    name: { en: 'Horizontal asymptote of a rational function', ru: 'Горизонтальная асимптота рациональной функции (Horizontal asymptote of a rational function)' },
     meaning: {
       en: 'For f(x) = (ax + b)/(cx + d) with c ≠ 0, f(x) approaches a/c as x tends to plus or minus infinity, so y = a/c is a horizontal asymptote.',
       ru: 'Для f(x) = (ax + b)/(cx + d) при c ≠ 0 значение f(x) стремится к a/c, когда x стремится к плюс или минус бесконечности; поэтому y = a/c — горизонтальная асимптота.',
@@ -34,7 +34,7 @@ export const formulas: Formula[] = [
   {
     id: 'key-feature-intersection-condition',
     tex: 'f(x)=g(x)',
-    name: { en: 'Points of intersection of two graphs', ru: 'Точки пересечения двух графиков' },
+    name: { en: 'Points of intersection of two graphs', ru: 'Точки пересечения двух графиков (Points of intersection of two graphs)' },
     meaning: {
       en: 'The x-coordinates of the intersection points solve f(x) = g(x). The y-coordinate is f(x) at each solution.',
       ru: 'Абсциссы точек пересечения — решения уравнения f(x) = g(x); ордината — значение f(x) в каждом решении.',

@@ -4,7 +4,7 @@ export const formulas: Formula[] = [
   {
     id: 'function-graph-general-form',
     tex: 'y=p\\,f\\bigl(q(x-a)\\bigr)+b',
-    name: { en: 'General transformation of y = f(x)', ru: 'Общее преобразование графика y = f(x)' },
+    name: { en: 'General transformation of y = f(x)', ru: 'Общее преобразование графика y = f(x) (General transformation of y = f(x))' },
     meaning: {
       en: 'Horizontal stretch by factor 1/q and translation by a to the right; vertical stretch by factor p and translation by b up.',
       ru: 'Горизонтальное растяжение с коэффициентом 1/q и сдвиг на a вправо; вертикальное растяжение с коэффициентом p и сдвиг на b вверх.',
@@ -23,7 +23,7 @@ export const formulas: Formula[] = [
   {
     id: 'function-graph-image-rule',
     tex: '(x,\\,y)\\longmapsto\\left(a+\\dfrac{x}{q},\\;py+b\\right)',
-    name: { en: 'Image of a point', ru: 'Образ точки' },
+    name: { en: 'Image of a point', ru: 'Образ точки (Image of a point)' },
     meaning: {
       en: 'A point (x, y) of y = f(x) moves to the point with x-coordinate a + x/q and y-coordinate py + b on y = p f(q(x - a)) + b.',
       ru: 'Точка (x, y) графика y = f(x) переходит в точку с x-координатой a + x/q и y-координатой py + b на графике y = p f(q(x - a)) + b.',
@@ -38,7 +38,7 @@ export const formulas: Formula[] = [
   {
     id: 'function-graph-reflection-rules',
     tex: 'y=-f(x)\\quad\\text{and}\\quad y=f(-x)',
-    name: { en: 'Reflections in the axes', ru: 'Отражения в осях' },
+    name: { en: 'Reflections in the axes', ru: 'Отражения в осях (Reflections in the axes)' },
     meaning: {
       en: 'y = -f(x) reflects the graph in the x-axis; y = f(-x) reflects it in the y-axis.',
       ru: 'y = -f(x) отражает график в оси x; y = f(-x) отражает его в оси y.',

@@ -4,7 +4,7 @@ export const formulas: Formula[] = [
   {
     id: 'complex-division',
     tex: '\\dfrac{a+bi}{c+di}=\\dfrac{(a+bi)(c-di)}{c^{2}+d^{2}}',
-    name: { en: 'Division of complex numbers', ru: 'Деление комплексных чисел' },
+    name: { en: 'Division of complex numbers', ru: 'Деление комплексных чисел (Division of complex numbers)' },
     meaning: {
       en: 'Divides by multiplying the top and the bottom by the conjugate of the denominator, so that the denominator becomes real.',
       ru: 'Деление выполняется умножением числителя и знаменателя на сопряжённое число знаменателя, поэтому знаменатель становится действительным.',
@@ -23,7 +23,7 @@ export const formulas: Formula[] = [
   {
     id: 'complex-modulus-formula',
     tex: '|z|=\\sqrt{a^{2}+b^{2}},\\quad z=a+bi',
-    name: { en: 'Modulus of a complex number', ru: 'Модуль комплексного числа' },
+    name: { en: 'Modulus of a complex number', ru: 'Модуль комплексного числа (Modulus of a complex number)' },
     meaning: {
       en: 'The distance from the origin to the point (a, b) on the Argand diagram.',
       ru: 'Расстояние от начала координат до точки (a, b) на диаграмме Аргана.',
@@ -42,7 +42,7 @@ export const formulas: Formula[] = [
   {
     id: 'complex-quadratic-roots',
     tex: 'z=\\dfrac{-b\\pm i\\sqrt{4ac-b^{2}}}{2a}',
-    name: { en: 'Complex roots of a quadratic', ru: 'Комплексные корни квадратного уравнения' },
+    name: { en: 'Complex roots of a quadratic', ru: 'Комплексные корни квадратного уравнения (Complex roots of a quadratic)' },
     meaning: {
       en: 'The two roots of az^2 + bz + c = 0 when the discriminant b^2 - 4ac is negative. They are complex conjugates of each other.',
       ru: 'Два корня уравнения az^2 + bz + c = 0, когда дискриминант b^2 - 4ac отрицателен. Они являются сопряжёнными комплексными числами.',

@@ -4,7 +4,7 @@ export const formulas: Formula[] = [
   {
     id: 'binomial-pmf',
     tex: 'P(X=r)=\\binom{n}{r}p^{r}(1-p)^{n-r},\\quad r=0,1,\\dots,n',
-    name: { en: 'Binomial probability', ru: 'Вероятность по биномиальному распределению' },
+    name: { en: 'Binomial probability', ru: 'Вероятность по биномиальному распределению (Binomial probability)' },
     meaning: {
       en: 'Probability of exactly r successes in n trials, where p is the probability of success in one trial.',
       ru: 'Вероятность ровно r успехов в n испытаниях, где p — вероятность успеха в одном испытании.',
@@ -23,7 +23,7 @@ export const formulas: Formula[] = [
   {
     id: 'binomial-mean-variance',
     tex: 'E(X)=np,\\qquad \\operatorname{Var}(X)=np(1-p)',
-    name: { en: 'Mean and variance of a binomial variable', ru: 'Среднее и дисперсия биномиальной величины' },
+    name: { en: 'Mean and variance of a binomial variable', ru: 'Среднее и дисперсия биномиальной величины (Mean and variance of a binomial variable)' },
     meaning: {
       en: 'For X ~ B(n, p) the mean is np and the variance is np(1 − p).',
       ru: 'Для X ~ B(n, p) среднее равно np, а дисперсия равна np(1 − p).',
@@ -42,7 +42,7 @@ export const formulas: Formula[] = [
   {
     id: 'binomial-tail-complement',
     tex: 'P(X\\ge k)=1-P(X\\le k-1)',
-    name: { en: 'Complement for a tail probability', ru: 'Дополнение для вероятности «хвоста»' },
+    name: { en: 'Complement for a tail probability', ru: 'Дополнение для вероятности «хвоста» (Complement for a tail probability)' },
     meaning: {
       en: 'The probability of at least k successes is one minus the probability of at most k − 1 successes.',
       ru: 'Вероятность не менее k успехов равна единице минус вероятность не более k − 1 успехов.',

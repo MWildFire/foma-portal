@@ -4,7 +4,7 @@ export const formulas: Formula[] = [
   {
     id: 'derivative-power-rule',
     tex: '\\dfrac{d}{dx}\\left(x^{n}\\right)=n\\,x^{n-1},\\quad n\\in\\mathbb{Q}',
-    name: { en: 'Power rule', ru: 'Правило степени' },
+    name: { en: 'Power rule', ru: 'Правило степени (Power rule)' },
     meaning: {
       en: 'The derivative of x to a rational power n.',
       ru: 'Производная x в рациональной степени n.',
@@ -23,7 +23,7 @@ export const formulas: Formula[] = [
   {
     id: 'derivative-standard-functions',
     tex: '\\begin{aligned}\\frac{d}{dx}\\sin x&=\\cos x\\\\\\frac{d}{dx}\\cos x&=-\\sin x\\\\\\frac{d}{dx}\\tan x&=\\sec^{2}x=\\frac{1}{\\cos^{2}x}\\\\\\frac{d}{dx}e^{x}&=e^{x}\\\\\\frac{d}{dx}\\ln x&=\\frac{1}{x}\\end{aligned}',
-    name: { en: 'Derivatives of standard functions', ru: 'Производные стандартных функций' },
+    name: { en: 'Derivatives of standard functions', ru: 'Производные стандартных функций (Derivatives of standard functions)' },
     meaning: {
       en: 'Gradients of sin x, cos x, tan x, e^x and ln x (angles in radians).',
       ru: 'Производные sin x, cos x, tan x, e^x и ln x (углы в радианах).',
@@ -38,7 +38,7 @@ export const formulas: Formula[] = [
   {
     id: 'chain-rule-formula',
     tex: '\\frac{dy}{dx}=\\frac{dy}{du}\\cdot\\frac{du}{dx}',
-    name: { en: 'Chain rule', ru: 'Правило цепочки' },
+    name: { en: 'Chain rule', ru: 'Правило цепочки (Chain rule)' },
     meaning: {
       en: 'For y as a function of u, and u as a function of x, dy/dx is the product of the two rates of change.',
       ru: 'Если y зависит от u, а u от x, то dy/dx равна произведению двух скоростей изменения.',
@@ -57,7 +57,7 @@ export const formulas: Formula[] = [
   {
     id: 'product-quotient-formulas',
     tex: '\\frac{d}{dx}(uv)=u\\frac{dv}{dx}+v\\frac{du}{dx},\\qquad\\frac{d}{dx}\\left(\\frac{u}{v}\\right)=\\frac{v\\frac{du}{dx}-u\\frac{dv}{dx}}{v^{2}}',
-    name: { en: 'Product and quotient rules', ru: 'Правила произведения и частного' },
+    name: { en: 'Product and quotient rules', ru: 'Правила произведения и частного (Product and quotient rules)' },
     meaning: {
       en: 'Derivatives of a product uv and of a quotient u/v of two functions of x.',
       ru: 'Производные произведения uv и частного u/v двух функций от x.',

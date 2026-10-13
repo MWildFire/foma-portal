@@ -4,7 +4,7 @@ export const formulas: Formula[] = [
   {
     id: 'poisson-pmf',
     tex: 'P(X=x)=\\dfrac{e^{-m}\\,m^{x}}{x!},\\quad x=0,1,2,\\dots',
-    name: { en: 'Poisson probability', ru: 'Вероятность по распределению Пуассона' },
+    name: { en: 'Poisson probability', ru: 'Вероятность по распределению Пуассона (Poisson probability)' },
     meaning: {
       en: 'Probability of exactly x events in the interval when the mean number of events is m.',
       ru: 'Вероятность ровно x событий в интервале, если среднее число событий равно m.',
@@ -23,7 +23,7 @@ export const formulas: Formula[] = [
   {
     id: 'poisson-mean-variance',
     tex: 'E(X)=\\operatorname{Var}(X)=m',
-    name: { en: 'Mean and variance of a Poisson variable', ru: 'Среднее и дисперсия величины Пуассона' },
+    name: { en: 'Mean and variance of a Poisson variable', ru: 'Среднее и дисперсия величины Пуассона (Mean and variance of a Poisson variable)' },
     meaning: {
       en: 'For X ~ Po(m) the mean and the variance both equal m.',
       ru: 'Для X ~ Po(m) среднее и дисперсия равны m.',
@@ -38,7 +38,7 @@ export const formulas: Formula[] = [
   {
     id: 'poisson-additive',
     tex: 'X+Y\\sim\\text{Po}(m_1+m_2)',
-    name: { en: 'Sum of independent Poisson variables', ru: 'Сумма независимых величин Пуассона' },
+    name: { en: 'Sum of independent Poisson variables', ru: 'Сумма независимых величин Пуассона (Sum of independent Poisson variables)' },
     meaning: {
       en: 'If X ~ Po(m1) and Y ~ Po(m2) are independent, their sum is Poisson with the added means.',
       ru: 'Если X ~ Po(m1) и Y ~ Po(m2) независимы, их сумма имеет распределение Пуассона со средним, равным сумме средних.',

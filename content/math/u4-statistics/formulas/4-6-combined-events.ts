@@ -4,7 +4,7 @@ export const formulas: Formula[] = [
   {
     id: 'addition-rule-two-events',
     tex: 'P(A\\cup B)=P(A)+P(B)-P(A\\cap B)',
-    name: { en: 'Addition rule for two events', ru: 'Правило сложения для двух событий' },
+    name: { en: 'Addition rule for two events', ru: 'Правило сложения для двух событий (Addition rule for two events)' },
     meaning: {
       en: 'The probability that A or B or both occur. The overlap is subtracted so that it is counted once.',
       ru: 'Вероятность того, что произойдёт A, B или оба события. Пересечение вычитается, чтобы учесть его один раз.',
@@ -19,7 +19,7 @@ export const formulas: Formula[] = [
   {
     id: 'conditional-probability-formula',
     tex: 'P(A\\mid B)=\\dfrac{P(A\\cap B)}{P(B)}',
-    name: { en: 'Conditional probability', ru: 'Условная вероятность' },
+    name: { en: 'Conditional probability', ru: 'Условная вероятность (Conditional probability)' },
     meaning: {
       en: 'The probability of A given that B has occurred.',
       ru: 'Вероятность события A при условии, что событие B произошло.',
@@ -38,7 +38,7 @@ export const formulas: Formula[] = [
   {
     id: 'independence-product-rule',
     tex: 'P(A\\cap B)=P(A)\\,P(B)',
-    name: { en: 'Test for independent events', ru: 'Проверка независимых событий' },
+    name: { en: 'Test for independent events', ru: 'Проверка независимых событий (Test for independent events)' },
     meaning: {
       en: 'For independent events, the probability that both occur is the product of their probabilities.',
       ru: 'Для независимых событий вероятность того, что произойдут оба, равна произведению их вероятностей.',
@@ -53,7 +53,7 @@ export const formulas: Formula[] = [
   {
     id: 'multiplication-rule-tree',
     tex: 'P(A\\cap B)=P(B)\\,P(A\\mid B)',
-    name: { en: 'Multiplication rule (tree diagram)', ru: 'Правило умножения (дерево вероятностей)' },
+    name: { en: 'Multiplication rule (tree diagram)', ru: 'Правило умножения (дерево вероятностей) (Multiplication rule (tree diagram))' },
     meaning: {
       en: 'Along a branch of a tree diagram, the probability of both events is the first probability times the conditional probability of the second.',
       ru: 'По ветви дерева вероятностей вероятность обоих событий равна первой вероятности, умноженной на условную вероятность второго события.',

@@ -4,7 +4,7 @@ export const formulas: Formula[] = [
   {
     id: 'distance-3d-points',
     tex: 'AB=\\sqrt{(x_2-x_1)^2+(y_2-y_1)^2+(z_2-z_1)^2}',
-    name: { en: 'Distance between two points in 3D', ru: 'Расстояние между двумя точками в 3D' },
+    name: { en: 'Distance between two points in 3D', ru: 'Расстояние между двумя точками в 3D (Distance between two points in 3D)' },
     meaning: {
       en: 'The length of the segment AB, where A has coordinates (x1, y1, z1) and B has coordinates (x2, y2, z2).',
       ru: 'Длина отрезка AB, где A имеет координаты (x1, y1, z1), а B имеет координаты (x2, y2, z2).',
@@ -23,7 +23,7 @@ export const formulas: Formula[] = [
   {
     id: 'pyramid-volume',
     tex: 'V=\\dfrac{1}{3}Ah',
-    name: { en: 'Volume of a pyramid', ru: 'Объём пирамиды' },
+    name: { en: 'Volume of a pyramid', ru: 'Объём пирамиды (Volume of a pyramid)' },
     meaning: {
       en: 'A is the base area and h is the perpendicular height from the apex to the base.',
       ru: 'A — площадь основания, h — перпендикулярная высота от вершины до основания.',
@@ -42,7 +42,7 @@ export const formulas: Formula[] = [
   {
     id: 'cone-volume',
     tex: 'V=\\dfrac{1}{3}\\pi r^{2}h',
-    name: { en: 'Volume of a cone', ru: 'Объём конуса' },
+    name: { en: 'Volume of a cone', ru: 'Объём конуса (Volume of a cone)' },
     meaning: {
       en: 'r is the base radius and h is the perpendicular height of the cone.',
       ru: 'r — радиус основания, h — перпендикулярная высота конуса.',
@@ -61,7 +61,7 @@ export const formulas: Formula[] = [
   {
     id: 'sphere-volume',
     tex: 'V=\\dfrac{4}{3}\\pi r^{3}',
-    name: { en: 'Volume of a sphere', ru: 'Объём шара' },
+    name: { en: 'Volume of a sphere', ru: 'Объём шара (Volume of a sphere)' },
     meaning: {
       en: 'r is the radius. The surface area of the same sphere is 4 pi r^2.',
       ru: 'r — радиус шара. Площадь поверхности того же шара равна 4πr².',

@@ -4,7 +4,7 @@ export const formulas: Formula[] = [
   {
     id: 'annuity-payment',
     tex: 'M=\\dfrac{PV\\,i}{1-(1+i)^{-N}}',
-    name: { en: 'Loan repayment (equal instalment)', ru: 'Платёж по кредиту (равный платёж)' },
+    name: { en: 'Loan repayment (equal instalment)', ru: 'Платёж по кредиту (равный платёж) (Loan repayment (equal instalment))' },
     meaning: {
       en: '$M$ is the equal payment per period that repays a loan $PV$ over $N$ periods, at interest rate $i$ per period.',
       ru: '$M$ — равный платёж за период, который погашает кредит $PV$ за $N$ периодов при ставке $i$ за период.',
@@ -23,7 +23,7 @@ export const formulas: Formula[] = [
   {
     id: 'annuity-future-value',
     tex: 'FV=M\\,\\dfrac{(1+i)^{N}-1}{i}',
-    name: { en: 'Future value of regular deposits', ru: 'Будущая стоимость регулярных взносов' },
+    name: { en: 'Future value of regular deposits', ru: 'Будущая стоимость регулярных взносов (Future value of regular deposits)' },
     meaning: {
       en: '$FV$ is the value after $N$ periods of equal deposits $M$ made at the end of each period, with interest $i$ per period.',
       ru: '$FV$ — стоимость через $N$ периодов при равных взносах $M$ в конце каждого периода и ставке $i$ за период.',
@@ -42,7 +42,7 @@ export const formulas: Formula[] = [
   {
     id: 'outstanding-balance-formula',
     tex: 'B_j=PV\\,(1+i)^{j}-M\\,\\dfrac{(1+i)^{j}-1}{i}',
-    name: { en: 'Balance after j payments', ru: 'Остаток долга после j платежей' },
+    name: { en: 'Balance after j payments', ru: 'Остаток долга после j платежей (Balance after j payments)' },
     meaning: {
       en: '$B_j$ is the balance after $j$ equal payments $M$ on a loan $PV$, at interest rate $i$ per period.',
       ru: '$B_j$ — остаток долга после $j$ равных платежей $M$ по кредиту $PV$ при ставке $i$ за период.',

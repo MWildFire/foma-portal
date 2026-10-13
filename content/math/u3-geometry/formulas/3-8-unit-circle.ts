@@ -4,7 +4,7 @@ export const formulas: Formula[] = [
   {
     id: 'unit-circle-point',
     tex: '(\\cos\\theta,\\ \\sin\\theta)',
-    name: { en: 'Point on the unit circle', ru: 'Точка на единичной окружности' },
+    name: { en: 'Point on the unit circle', ru: 'Точка на единичной окружности (Point on the unit circle)' },
     meaning: {
       en: 'The point where the ray at angle theta from the positive x-axis meets the unit circle has x-coordinate cos theta and y-coordinate sin theta.',
       ru: 'Точка пересечения луча под углом θ от положительной полуоси x с единичной окружностью имеет абсциссу cos θ и ординату sin θ.',
@@ -23,7 +23,7 @@ export const formulas: Formula[] = [
   {
     id: 'pythagorean-identity',
     tex: '\\sin^{2}\\theta+\\cos^{2}\\theta=1',
-    name: { en: 'Pythagorean identity', ru: 'Тождество sin²θ + cos²θ = 1' },
+    name: { en: 'Pythagorean identity', ru: 'Тождество sin²θ + cos²θ = 1 (Pythagorean identity)' },
     meaning: {
       en: 'For every angle theta, sin squared theta plus cos squared theta equals 1. It is the equation x² + y² = 1 of the unit circle.',
       ru: 'Для любого угла θ сумма квадрата синуса и квадрата косинуса равна 1. Это уравнение x² + y² = 1 единичной окружности.',
@@ -42,7 +42,7 @@ export const formulas: Formula[] = [
   {
     id: 'tan-identity',
     tex: '\\tan\\theta=\\dfrac{\\sin\\theta}{\\cos\\theta}',
-    name: { en: 'Tangent as sine over cosine', ru: 'Тангенс как отношение синуса к косинусу' },
+    name: { en: 'Tangent as sine over cosine', ru: 'Тангенс как отношение синуса к косинусу (Tangent as sine over cosine)' },
     meaning: {
       en: 'tan theta is sin theta divided by cos theta. It is undefined where cos theta = 0, that is at 90 and 270 degrees.',
       ru: 'tan θ равен sin θ, делённому на cos θ. Он не определён там, где cos θ = 0, то есть при 90° и 270°.',
@@ -61,7 +61,7 @@ export const formulas: Formula[] = [
   {
     id: 'sine-rule-ambiguous-case',
     tex: '\\dfrac{a}{\\sin A}=\\dfrac{b}{\\sin B}',
-    name: { en: 'Sine rule (ambiguous case)', ru: 'Теорема синусов (неоднозначный случай)' },
+    name: { en: 'Sine rule (ambiguous case)', ru: 'Теорема синусов (неоднозначный случай) (Sine rule (ambiguous case))' },
     meaning: {
       en: 'Each side divided by the sine of its opposite angle gives the same value. Solving for sin B can give two angles, B and 180 degrees minus B.',
       ru: 'Отношение каждой стороны к синусу противолежащего угла одинаково. При нахождении sin B получаются два угла: B и 180° - B.',

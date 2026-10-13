@@ -4,7 +4,7 @@ export const formulas: Formula[] = [
   {
     id: 'complex-polar-form',
     tex: 'z=r(\\cos\\theta+i\\sin\\theta)=r\\,\\text{cis}\\,\\theta',
-    name: { en: 'Modulus–argument form', ru: 'Модульно-аргументная форма' },
+    name: { en: 'Modulus–argument form', ru: 'Модульно-аргументная форма (Modulus–argument form)' },
     meaning: {
       en: 'Writes z with modulus r and argument θ. Here cis θ means cos θ + i sin θ.',
       ru: 'Записывает z через модуль r и аргумент θ. Здесь cis θ означает cos θ + i sin θ.',
@@ -23,7 +23,7 @@ export const formulas: Formula[] = [
   {
     id: 'complex-exponential-form',
     tex: 'z=r\\,e^{i\\theta}',
-    name: { en: 'Exponential form', ru: 'Показательная форма' },
+    name: { en: 'Exponential form', ru: 'Показательная форма (Exponential form)' },
     meaning: {
       en: 'Writes z with modulus r and argument θ, with θ in radians, as r times e to the power iθ.',
       ru: 'Записывает z с модулем r и аргументом θ (в радианах) как r умножить на e в степени iθ.',
@@ -42,7 +42,7 @@ export const formulas: Formula[] = [
   {
     id: 'complex-de-moivre',
     tex: '(r\\,\\text{cis}\\,\\theta)^{n}=r^{n}\\,\\text{cis}\\,(n\\theta)',
-    name: { en: 'de Moivre’s theorem', ru: 'Теорема Муавра' },
+    name: { en: 'de Moivre’s theorem', ru: 'Теорема Муавра (de Moivre’s theorem)' },
     meaning: {
       en: 'For an integer n, the power raises the modulus to the power n and multiplies the argument by n.',
       ru: 'Для целого n степень возводит модуль в степень n, а аргумент умножает на n.',
@@ -61,7 +61,7 @@ export const formulas: Formula[] = [
   {
     id: 'sinusoid-sum-equal-frequency',
     tex: 'a\\cos\\omega t+b\\sin\\omega t=R\\cos(\\omega t-\\varphi),\\quad R=\\sqrt{a^{2}+b^{2}}',
-    name: { en: 'Sum of sinusoids of the same frequency', ru: 'Сумма синусоид одинаковой частоты' },
+    name: { en: 'Sum of sinusoids of the same frequency', ru: 'Сумма синусоид одинаковой частоты (Sum of sinusoids of the same frequency)' },
     meaning: {
       en: 'The sum is one sinusoid with amplitude R and phase φ, where R cos φ = a and R sin φ = b.',
       ru: 'Сумма — одна синусоида с амплитудой R и фазой φ, где R cos φ = a и R sin φ = b.',

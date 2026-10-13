@@ -4,7 +4,7 @@ export const formulas: Formula[] = [
   {
     id: 'trapezoidal-estimate',
     tex: '\\int_{a}^{b} y\\,dx\\approx\\dfrac{h}{2}\\left[y_{0}+2\\left(y_{1}+y_{2}+\\dots+y_{n-1}\\right)+y_{n}\\right],\\quad h=\\dfrac{b-a}{n}',
-    name: { en: 'Trapezoidal rule', ru: 'Формула трапеций' },
+    name: { en: 'Trapezoidal rule', ru: 'Формула трапеций (Trapezoidal rule)' },
     meaning: {
       en: 'Estimate of the area under y = f(x) from x = a to x = b, using n strips of width h.',
       ru: 'Оценка площади под графиком y = f(x) от x = a до x = b при n полосках ширины h.',
@@ -19,7 +19,7 @@ export const formulas: Formula[] = [
   {
     id: 'trapezium-strip-area',
     tex: 'A_{k}=\\dfrac{h}{2}\\left(y_{k-1}+y_{k}\\right)',
-    name: { en: 'Area of one strip', ru: 'Площадь одной полоски' },
+    name: { en: 'Area of one strip', ru: 'Площадь одной полоски (Area of one strip)' },
     meaning: {
       en: 'Area of the k-th trapezium: its parallel sides are the ordinates at the two ends of the strip, and its width is h.',
       ru: 'Площадь k-й трапеции: параллельные стороны — ординаты на концах полоски, ширина — h.',
@@ -34,7 +34,7 @@ export const formulas: Formula[] = [
   {
     id: 'trapezoidal-error-formula',
     tex: 'E=T_{n}-\\displaystyle\\int_{a}^{b} f(x)\\,dx',
-    name: { en: 'Error of the trapezoidal estimate', ru: 'Погрешность оценки по формуле трапеций' },
+    name: { en: 'Error of the trapezoidal estimate', ru: 'Погрешность оценки по формуле трапеций (Error of the trapezoidal estimate)' },
     meaning: {
       en: 'The estimate minus the exact value: E > 0 means an overestimate, E < 0 means an underestimate.',
       ru: 'Оценка минус точное значение: E > 0 означает завышенную оценку, E < 0 — заниженную.',

@@ -4,7 +4,7 @@ export const formulas: Formula[] = [
   {
     id: 'increasing-test-derivative',
     tex: "f'(x)>0 \\Rightarrow f \\text{ is increasing}",
-    name: { en: 'Increasing test', ru: 'Признак возрастания' },
+    name: { en: 'Increasing test', ru: 'Признак возрастания (Increasing test)' },
     meaning: {
       en: 'If the gradient is positive for every x in an interval, then f is increasing on that interval.',
       ru: 'Если градиент положителен при всех x промежутка, то f возрастает на этом промежутке.',
@@ -19,7 +19,7 @@ export const formulas: Formula[] = [
   {
     id: 'decreasing-test-derivative',
     tex: "f'(x)<0 \\Rightarrow f \\text{ is decreasing}",
-    name: { en: 'Decreasing test', ru: 'Признак убывания' },
+    name: { en: 'Decreasing test', ru: 'Признак убывания (Decreasing test)' },
     meaning: {
       en: 'If the gradient is negative for every x in an interval, then f is decreasing on that interval.',
       ru: 'Если градиент отрицателен при всех x промежутка, то f убывает на этом промежутке.',

@@ -4,7 +4,7 @@ export const formulas: Formula[] = [
   {
     id: 'chi-squared-statistic',
     tex: '\\chi^{2}=\\sum\\dfrac{(O-E)^{2}}{E}',
-    name: { en: 'Chi-squared test statistic', ru: 'Статистика χ² (chi-squared statistic)' },
+    name: { en: 'Chi-squared test statistic', ru: 'Статистика χ² (Chi-squared test statistic)' },
     meaning: {
       en: 'Sum over all cells of (observed − expected) squared, divided by the expected frequency. Large values show that the data differ from what H0 predicts.',
       ru: 'Сумма по всем ячейкам величины (наблюдаемое − ожидаемое)², делённой на ожидаемую частоту. Большие значения означают, что данные расходятся с предсказанием H0.',
@@ -23,7 +23,7 @@ export const formulas: Formula[] = [
   {
     id: 'expected-frequency-independence',
     tex: 'E_{ij}=\\dfrac{R_i\\,C_j}{N}',
-    name: { en: 'Expected frequency under independence', ru: 'Ожидаемая частота при независимости' },
+    name: { en: 'Expected frequency under independence', ru: 'Ожидаемая частота при независимости (Expected frequency under independence)' },
     meaning: {
       en: 'Expected count in row i and column j if the two classifications are independent: row total times column total, divided by the grand total N.',
       ru: 'Ожидаемое число в строке i и столбце j, если классификации независимы: сумма строки умножить на сумму столбца и разделить на общий итог N.',
@@ -42,7 +42,7 @@ export const formulas: Formula[] = [
   {
     id: 'df-contingency-table',
     tex: '\\nu=(r-1)(c-1)',
-    name: { en: 'Degrees of freedom for a contingency table', ru: 'Степени свободы таблицы сопряжённости' },
+    name: { en: 'Degrees of freedom for a contingency table', ru: 'Степени свободы таблицы сопряжённости (Degrees of freedom for a contingency table)' },
     meaning: {
       en: 'For a table with r rows and c columns. The row and column totals fix the remaining cell values.',
       ru: 'Для таблицы из r строк и c столбцов. Итоги по строкам и столбцам фиксируют значения остальных ячеек.',
@@ -61,7 +61,7 @@ export const formulas: Formula[] = [
   {
     id: 't-statistic-one-sample',
     tex: 't=\\dfrac{\\bar{x}-\\mu_{0}}{s/\\sqrt{n}},\\quad \\nu=n-1',
-    name: { en: 'One-sample t statistic', ru: 'Статистика t для одной выборки' },
+    name: { en: 'One-sample t statistic', ru: 'Статистика t для одной выборки (One-sample t statistic)' },
     meaning: {
       en: 'Distance of the sample mean from the hypothesised mean μ0, measured in estimated standard errors, when the population standard deviation is unknown.',
       ru: 'Расстояние выборочного среднего от гипотетического среднего μ0 в оценённых стандартных ошибках, когда стандартное отклонение генеральной совокупности неизвестно.',

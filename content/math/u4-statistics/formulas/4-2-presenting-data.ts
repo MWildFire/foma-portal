@@ -25,7 +25,7 @@ export const formulas: Formula[] = [
     tex: '\\dfrac{n}{4},\\quad \\dfrac{n}{2},\\quad \\dfrac{3n}{4}',
     name: {
       en: 'Cumulative frequencies for the quartiles and median',
-      ru: 'Накопленные частоты для квартилей и медианы',
+      ru: 'Накопленные частоты для квартилей и медианы (Cumulative frequencies for the quartiles and median)',
     },
     meaning: {
       en: 'On a cumulative frequency graph, read the lower quartile at n/4, the median at n/2 and the upper quartile at 3n/4, where n is the total frequency.',

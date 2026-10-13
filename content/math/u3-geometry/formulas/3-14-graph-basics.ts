@@ -4,7 +4,7 @@ export const formulas: Formula[] = [
   {
     id: 'graph-handshaking',
     tex: '\\sum_{v}\\deg(v)=2\\,|E|',
-    name: { en: 'Sum of degrees (handshaking result)', ru: 'Сумма степеней (лемма о рукопожатиях)' },
+    name: { en: 'Sum of degrees (handshaking result)', ru: 'Сумма степеней (лемма о рукопожатиях) (Sum of degrees (handshaking result))' },
     meaning: {
       en: 'The sum of the degrees of all vertices equals twice the number of edges, because every edge has two ends.',
       ru: 'Сумма степеней всех вершин равна удвоенному числу рёбер, потому что у каждого ребра два конца.',
@@ -23,7 +23,7 @@ export const formulas: Formula[] = [
   {
     id: 'graph-complete-edges',
     tex: '|E(K_n)|=\\dfrac{n(n-1)}{2}',
-    name: { en: 'Edges of a complete graph', ru: 'Число рёбер полного графа' },
+    name: { en: 'Edges of a complete graph', ru: 'Число рёбер полного графа (Edges of a complete graph)' },
     meaning: {
       en: 'A complete graph on n vertices has one edge for each pair of vertices, so n(n - 1)/2 edges.',
       ru: 'Полный граф на n вершинах имеет по одному ребру на каждую пару вершин, то есть n(n − 1)/2 рёбер.',
@@ -42,7 +42,7 @@ export const formulas: Formula[] = [
   {
     id: 'graph-directed-degrees',
     tex: '\\sum_{v}\\deg^{+}(v)=\\sum_{v}\\deg^{-}(v)=|E|',
-    name: { en: 'Totals of out-degrees and in-degrees', ru: 'Суммы полустепеней исхода и захода' },
+    name: { en: 'Totals of out-degrees and in-degrees', ru: 'Суммы полустепеней исхода и захода (Totals of out-degrees and in-degrees)' },
     meaning: {
       en: 'In a directed graph the total of the out-degrees and the total of the in-degrees are both equal to the number of arcs.',
       ru: 'В ориентированном графе сумма полустепеней исхода и сумма полустепеней захода равны числу дуг.',
@@ -61,7 +61,7 @@ export const formulas: Formula[] = [
   {
     id: 'graph-tree-edges',
     tex: '|E|=|V|-1',
-    name: { en: 'Edges of a tree', ru: 'Число рёбер дерева' },
+    name: { en: 'Edges of a tree', ru: 'Число рёбер дерева (Edges of a tree)' },
     meaning: {
       en: 'A tree with V vertices has exactly V - 1 edges.',
       ru: 'Дерево с V вершинами имеет ровно V − 1 ребро.',

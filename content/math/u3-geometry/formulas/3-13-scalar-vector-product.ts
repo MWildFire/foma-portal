@@ -4,7 +4,7 @@ export const formulas: Formula[] = [
   {
     id: 'scalar-product-angle',
     tex: '\\mathbf{v}\\cdot\\mathbf{w}=|\\mathbf{v}|\\,|\\mathbf{w}|\\cos\\theta',
-    name: { en: 'Scalar product and the angle between vectors', ru: 'Скалярное произведение и угол между векторами' },
+    name: { en: 'Scalar product and the angle between vectors', ru: 'Скалярное произведение и угол между векторами (Scalar product and the angle between vectors)' },
     meaning: {
       en: 'The scalar product of v and w equals the product of their magnitudes and the cosine of the angle between them.',
       ru: 'Скалярное произведение v и w равно произведению их модулей на косинус угла между ними.',
@@ -19,7 +19,7 @@ export const formulas: Formula[] = [
   {
     id: 'scalar-product-components',
     tex: '\\mathbf{v}\\cdot\\mathbf{w}=v_1w_1+v_2w_2+v_3w_3',
-    name: { en: 'Scalar product in components', ru: 'Скалярное произведение в координатах' },
+    name: { en: 'Scalar product in components', ru: 'Скалярное произведение в координатах (Scalar product in components)' },
     meaning: {
       en: 'Multiply the matching components and add the results. On the plane use only the first two components.',
       ru: 'Перемножьте соответствующие компоненты и сложите результаты. На плоскости используются только первые две компоненты.',
@@ -38,7 +38,7 @@ export const formulas: Formula[] = [
   {
     id: 'vector-product-magnitude',
     tex: '|\\mathbf{v}\\times\\mathbf{w}|=|\\mathbf{v}|\\,|\\mathbf{w}|\\sin\\theta',
-    name: { en: 'Magnitude of the vector product', ru: 'Длина векторного произведения' },
+    name: { en: 'Magnitude of the vector product', ru: 'Длина векторного произведения (Magnitude of the vector product)' },
     meaning: {
       en: 'The magnitude of v × w is the area of the parallelogram spanned by v and w. The triangle with those sides has half this area.',
       ru: 'Длина v × w равна площади параллелограмма, построенного на v и w. Треугольник с этими сторонами имеет половину этой площади.',
@@ -53,7 +53,7 @@ export const formulas: Formula[] = [
   {
     id: 'vector-product-components',
     tex: '\\mathbf{v}\\times\\mathbf{w}=(v_2w_3-v_3w_2,\\;v_3w_1-v_1w_3,\\;v_1w_2-v_2w_1)',
-    name: { en: 'Vector product in components', ru: 'Векторное произведение в координатах' },
+    name: { en: 'Vector product in components', ru: 'Векторное произведение в координатах (Vector product in components)' },
     meaning: {
       en: 'Each component is a difference of two products of components of v and w. The result is perpendicular to both v and w.',
       ru: 'Каждая компонента — разность двух произведений компонент v и w. Результат перпендикулярен и v, и w.',

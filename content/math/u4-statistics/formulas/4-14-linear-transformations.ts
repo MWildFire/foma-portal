@@ -4,7 +4,7 @@ export const formulas: Formula[] = [
   {
     id: 'linear-transform-mean-variance',
     tex: 'E(aX+b)=aE(X)+b,\\quad \\operatorname{Var}(aX+b)=a^{2}\\operatorname{Var}(X)',
-    name: { en: 'Mean and variance of aX + b', ru: 'Среднее и дисперсия величины aX + b' },
+    name: { en: 'Mean and variance of aX + b', ru: 'Среднее и дисперсия величины aX + b (Mean and variance of aX + b)' },
     meaning: {
       en: 'The mean of $aX + b$ is $a$ times the mean of $X$, plus $b$. Its variance is $a^{2}$ times the variance of $X$; the constant $b$ does not change the variance.',
       ru: 'Среднее $aX + b$ равно $a$, умноженному на среднее $X$, плюс $b$. Дисперсия равна $a^{2}$, умноженному на дисперсию $X$; константа $b$ дисперсию не меняет.',
@@ -23,7 +23,7 @@ export const formulas: Formula[] = [
   {
     id: 'linear-combination-mean',
     tex: 'E\\left(a_{1}X_{1}+\\cdots+a_{n}X_{n}\\right)=a_{1}E(X_{1})+\\cdots+a_{n}E(X_{n})',
-    name: { en: 'Mean of a linear combination', ru: 'Среднее линейной комбинации' },
+    name: { en: 'Mean of a linear combination', ru: 'Среднее линейной комбинации (Mean of a linear combination)' },
     meaning: {
       en: 'The mean of a weighted sum is the same weighted sum of the means.',
       ru: 'Среднее взвешенной суммы равно такой же взвешенной сумме средних.',
@@ -42,7 +42,7 @@ export const formulas: Formula[] = [
   {
     id: 'linear-combination-variance',
     tex: '\\operatorname{Var}\\left(a_{1}X_{1}+\\cdots+a_{n}X_{n}\\right)=a_{1}^{2}\\operatorname{Var}(X_{1})+\\cdots+a_{n}^{2}\\operatorname{Var}(X_{n})',
-    name: { en: 'Variance of a linear combination of independent variables', ru: 'Дисперсия линейной комбинации независимых величин' },
+    name: { en: 'Variance of a linear combination of independent variables', ru: 'Дисперсия линейной комбинации независимых величин (Variance of a linear combination of independent variables)' },
     meaning: {
       en: 'Each variance is multiplied by the square of its coefficient, and the results are added.',
       ru: 'Каждая дисперсия умножается на квадрат своего коэффициента, после чего результаты складываются.',
@@ -61,7 +61,7 @@ export const formulas: Formula[] = [
   {
     id: 'sample-variance-n-minus-1',
     tex: 's_{n-1}^{2}=\\dfrac{\\sum_{i=1}^{n}\\left(x_{i}-\\bar{x}\\right)^{2}}{n-1},\\qquad E\\left(s_{n-1}^{2}\\right)=\\sigma^{2}',
-    name: { en: 'Sample variance with divisor n - 1', ru: 'Выборочная дисперсия с делителем n − 1' },
+    name: { en: 'Sample variance with divisor n - 1', ru: 'Выборочная дисперсия с делителем n − 1 (Sample variance with divisor n - 1)' },
     meaning: {
       en: 'The sum of squared deviations from the sample mean, divided by $n - 1$. Its expected value is the population variance $\\sigma^{2}$.',
       ru: 'Сумма квадратов отклонений от выборочного среднего, делённая на $n - 1$. Её математическое ожидание равно дисперсии генеральной совокупности $\\sigma^{2}$.',

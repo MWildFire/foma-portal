@@ -4,7 +4,7 @@ export const formulas: Formula[] = [
   {
     id: 'transform-image-point',
     tex: '\\begin{pmatrix}x^{\\prime}\\\\y^{\\prime}\\end{pmatrix}=\\begin{pmatrix}a&b\\\\c&d\\end{pmatrix}\\begin{pmatrix}x\\\\y\\end{pmatrix}',
-    name: { en: 'Image of a point under a matrix', ru: 'Образ точки при преобразовании матрицей' },
+    name: { en: 'Image of a point under a matrix', ru: 'Образ точки при преобразовании матрицей (Image of a point under a matrix)' },
     meaning: {
       en: 'The image (x′, y′) of the point (x, y) under the transformation with matrix M = [[a, b], [c, d]].',
       ru: 'Образ (x′, y′) точки (x, y) при преобразовании с матрицей M = [[a, b], [c, d]].',
@@ -23,7 +23,7 @@ export const formulas: Formula[] = [
   {
     id: 'transform-det-2x2',
     tex: '\\det\\mathbf{M}=ad-bc',
-    name: { en: 'Determinant of a 2 × 2 matrix', ru: 'Определитель матрицы 2 × 2' },
+    name: { en: 'Determinant of a 2 × 2 matrix', ru: 'Определитель матрицы 2 × 2 (Determinant of a 2 × 2 matrix)' },
     meaning: {
       en: 'For M = [[a, b], [c, d]], the area scale factor of the transformation with its sign. The sign shows whether orientation is kept.',
       ru: 'Для M = [[a, b], [c, d]] — коэффициент изменения площади с учётом знака. Знак показывает, сохраняется ли ориентация.',
@@ -42,7 +42,7 @@ export const formulas: Formula[] = [
   {
     id: 'transform-area-scale',
     tex: 'A^{\\prime}=|\\det\\mathbf{M}|\\,A',
-    name: { en: 'Area of the image under a transformation', ru: 'Площадь образа при преобразовании' },
+    name: { en: 'Area of the image under a transformation', ru: 'Площадь образа при преобразовании (Area of the image under a transformation)' },
     meaning: {
       en: 'A′ is the area of the image of a shape of area A under the transformation with matrix M.',
       ru: 'A′ — площадь образа фигуры площади A при преобразовании с матрицей M.',
@@ -61,7 +61,7 @@ export const formulas: Formula[] = [
   {
     id: 'transform-rotation-matrix',
     tex: '\\mathbf{R}_{\\theta}=\\begin{pmatrix}\\cos\\theta&-\\sin\\theta\\\\\\sin\\theta&\\cos\\theta\\end{pmatrix}',
-    name: { en: 'Anticlockwise rotation about the origin', ru: 'Поворот против часовой стрелки вокруг начала координат' },
+    name: { en: 'Anticlockwise rotation about the origin', ru: 'Поворот против часовой стрелки вокруг начала координат (Anticlockwise rotation about the origin)' },
     meaning: {
       en: 'Rotates every point anticlockwise through the angle θ about the origin. Its determinant is 1.',
       ru: 'Поворачивает каждую точку против часовой стрелки на угол θ вокруг начала координат. Определитель равен 1.',

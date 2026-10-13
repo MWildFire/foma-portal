@@ -4,7 +4,7 @@ export const formulas: Formula[] = [
   {
     id: 'char-poly-2x2',
     tex: '\\det(A-\\lambda I)=\\lambda^{2}-(a+d)\\lambda+(ad-bc)=0',
-    name: { en: 'Characteristic equation of a 2 × 2 matrix', ru: 'Характеристическое уравнение матрицы 2 × 2' },
+    name: { en: 'Characteristic equation of a 2 × 2 matrix', ru: 'Характеристическое уравнение матрицы 2 × 2 (Characteristic equation of a 2 × 2 matrix)' },
     meaning: {
       en: 'The coefficient of lambda is minus the trace a + d, and the constant term is the determinant ad - bc.',
       ru: 'Коэффициент при lambda равен минус следу матрицы a + d, а свободный член равен определителю ad − bc.',
@@ -23,7 +23,7 @@ export const formulas: Formula[] = [
   {
     id: 'eigenvalues-2x2-formula',
     tex: '\\lambda=\\dfrac{(a+d)\\pm\\sqrt{(a+d)^{2}-4(ad-bc)}}{2}',
-    name: { en: 'Eigenvalues of a 2 × 2 matrix', ru: 'Собственные значения матрицы 2 × 2' },
+    name: { en: 'Eigenvalues of a 2 × 2 matrix', ru: 'Собственные значения матрицы 2 × 2 (Eigenvalues of a 2 × 2 matrix)' },
     meaning: {
       en: 'The two roots of the characteristic equation, from the quadratic formula. The expression under the square root is the discriminant.',
       ru: 'Два корня характеристического уравнения, найденные по формуле корней квадратного уравнения. Выражение под корнем — дискриминант.',
@@ -38,7 +38,7 @@ export const formulas: Formula[] = [
   {
     id: 'eigen-equation',
     tex: 'A\\mathbf{v}=\\lambda\\mathbf{v},\\quad \\mathbf{v}\\neq\\mathbf{0}',
-    name: { en: 'Eigenvalue equation', ru: 'Уравнение на собственные значения' },
+    name: { en: 'Eigenvalue equation', ru: 'Уравнение на собственные значения (Eigenvalue equation)' },
     meaning: {
       en: 'The matrix A maps the non-zero vector v to a multiple of itself, with factor lambda.',
       ru: 'Матрица A переводит ненулевой вектор v в его кратное с множителем λ.',
@@ -53,7 +53,7 @@ export const formulas: Formula[] = [
   {
     id: 'matrix-power-diagonal',
     tex: 'A^{n}=PD^{n}P^{-1},\\quad D^{n}=\\begin{pmatrix}\\lambda_1^{n} & 0\\\\ 0 & \\lambda_2^{n}\\end{pmatrix}',
-    name: { en: 'Power of a diagonalisable matrix', ru: 'Степень диагонализуемой матрицы' },
+    name: { en: 'Power of a diagonalisable matrix', ru: 'Степень диагонализуемой матрицы (Power of a diagonalisable matrix)' },
     meaning: {
       en: 'Raise each eigenvalue to the power n to get D^n, then multiply by P on the left and by P^(-1) on the right.',
       ru: 'Возведите каждое собственное значение в степень n, получите D^n, затем умножьте слева на P и справа на P^(-1).',

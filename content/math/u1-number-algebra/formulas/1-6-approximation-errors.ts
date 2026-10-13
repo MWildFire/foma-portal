@@ -4,7 +4,7 @@ export const formulas: Formula[] = [
   {
     id: 'rounding-bounds',
     tex: 'a-\\tfrac{1}{2}\\times 10^{-d}\\le x<a+\\tfrac{1}{2}\\times 10^{-d}',
-    name: { en: 'Bounds of a rounded value', ru: 'Границы округлённого значения' },
+    name: { en: 'Bounds of a rounded value', ru: 'Границы округлённого значения (Bounds of a rounded value)' },
     meaning: {
       en: '$a$ is the value rounded to $d$ decimal places and $x$ is the exact value. The exact value lies in this interval, and the upper bound is not included.',
       ru: '$a$ — значение, округлённое до $d$ знаков после запятой, $x$ — точное значение. Точное значение лежит в этом промежутке; верхняя граница в него не входит.',
@@ -23,7 +23,7 @@ export const formulas: Formula[] = [
   {
     id: 'percentage-error-formula',
     tex: '\\text{Percentage error}=\\dfrac{|\\text{approximate}-\\text{exact}|}{|\\text{exact}|}\\times 100\\%',
-    name: { en: 'Percentage error', ru: 'Процентная погрешность' },
+    name: { en: 'Percentage error', ru: 'Процентная погрешность (Percentage error)' },
     meaning: {
       en: 'The size of the error as a percentage of the exact value.',
       ru: 'Размер погрешности в процентах от точного значения.',

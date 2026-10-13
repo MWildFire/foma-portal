@@ -4,7 +4,7 @@ export const formulas: Formula[] = [
   {
     id: 'stationary-point-condition',
     tex: 'f\'(x)=0',
-    name: { en: 'Stationary point condition', ru: 'Условие стационарной точки' },
+    name: { en: 'Stationary point condition', ru: 'Условие стационарной точки (Stationary point condition)' },
     meaning: {
       en: 'At a stationary point the gradient of $f$ is zero, so $f\'(x)=0$ there.',
       ru: 'В стационарной точке градиент функции $f$ равен нулю, то есть $f\'(x)=0$.',
@@ -19,7 +19,7 @@ export const formulas: Formula[] = [
   {
     id: 'stationary-power-derivative',
     tex: '\\dfrac{d}{dx}\\left(a x^{n}\\right)=a n x^{n-1}',
-    name: { en: 'Derivative of a power term', ru: 'Производная степенного слагаемого' },
+    name: { en: 'Derivative of a power term', ru: 'Производная степенного слагаемого (Derivative of a power term)' },
     meaning: {
       en: 'For an integer $n$, the derivative of $a x^{n}$ is $a n x^{n-1}$. A polynomial is differentiated term by term.',
       ru: 'Для целого $n$ производная $a x^{n}$ равна $a n x^{n-1}$. Многочлен дифференцируется почленно.',
@@ -38,7 +38,7 @@ export const formulas: Formula[] = [
   {
     id: 'stationary-quadratic-roots',
     tex: 'x=\\dfrac{-b\\pm\\sqrt{b^{2}-4ac}}{2a}',
-    name: { en: 'Quadratic formula', ru: 'Формула корней квадратного уравнения' },
+    name: { en: 'Quadratic formula', ru: 'Формула корней квадратного уравнения (Quadratic formula)' },
     meaning: {
       en: 'The two solutions of $ax^{2}+bx+c=0$, where $a \\neq 0$ and $b^{2}-4ac \\geq 0$.',
       ru: 'Два решения уравнения $ax^{2}+bx+c=0$ при $a \\neq 0$ и $b^{2}-4ac \\geq 0$.',

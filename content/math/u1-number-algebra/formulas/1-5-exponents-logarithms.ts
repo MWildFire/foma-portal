@@ -4,7 +4,7 @@ export const formulas: Formula[] = [
   {
     id: 'exponent-product-quotient-power',
     tex: 'a^{m}\\times a^{n}=a^{m+n},\\qquad \\dfrac{a^{m}}{a^{n}}=a^{m-n},\\qquad \\left(a^{m}\\right)^{n}=a^{mn}',
-    name: { en: 'Laws of integer exponents', ru: 'Законы степеней с целым показателем' },
+    name: { en: 'Laws of integer exponents', ru: 'Законы степеней с целым показателем (Laws of integer exponents)' },
     meaning: {
       en: 'Powers of the same base multiply by adding the exponents, divide by subtracting the exponents, and raise to a power by multiplying the exponents.',
       ru: 'Степени с одним основанием перемножаются сложением показателей, делятся вычитанием показателей и возводятся в степень умножением показателей.',
@@ -23,7 +23,7 @@ export const formulas: Formula[] = [
   {
     id: 'exponent-zero-negative',
     tex: 'a^{0}=1,\\qquad a^{-n}=\\dfrac{1}{a^{n}},\\qquad a\\neq 0',
-    name: { en: 'Zero and negative integer exponents', ru: 'Нулевой и отрицательный целые показатели' },
+    name: { en: 'Zero and negative integer exponents', ru: 'Нулевой и отрицательный целые показатели (Zero and negative integer exponents)' },
     meaning: {
       en: 'A non-zero number to the power 0 is 1. A negative exponent gives the reciprocal of the power with the positive exponent.',
       ru: 'Ненулевое число в нулевой степени равно 1. Отрицательный показатель даёт обратную величину степени с положительным показателем.',
@@ -42,7 +42,7 @@ export const formulas: Formula[] = [
   {
     id: 'log-inverse-10-e',
     tex: '10^{\\log_{10}x}=x,\\qquad e^{\\ln x}=x,\\qquad x>0',
-    name: { en: 'Logarithm as the inverse of a power', ru: 'Логарифм как обратная операция к степени' },
+    name: { en: 'Logarithm as the inverse of a power', ru: 'Логарифм как обратная операция к степени (Logarithm as the inverse of a power)' },
     meaning: {
       en: 'A logarithm undoes its power: $10^{\\log_{10}x}=x$ and $e^{\\ln x}=x$. Taking $\\log_{10}$ of a power of 10 returns the exponent, and $\\ln$ does the same for a power of e.',
       ru: 'Логарифм отменяет свою степень: $10^{\\log_{10}x}=x$ и $e^{\\ln x}=x$. Логарифм по основанию 10 от степени 10 возвращает показатель, а $\\ln$ делает то же для степени e.',

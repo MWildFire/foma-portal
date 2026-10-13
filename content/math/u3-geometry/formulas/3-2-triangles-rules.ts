@@ -4,7 +4,7 @@ export const formulas: Formula[] = [
   {
     id: 'triangle-sine-rule',
     tex: '\\dfrac{a}{\\sin A}=\\dfrac{b}{\\sin B}=\\dfrac{c}{\\sin C}',
-    name: { en: 'Sine rule', ru: 'Теорема синусов' },
+    name: { en: 'Sine rule', ru: 'Теорема синусов (Sine rule)' },
     meaning: {
       en: 'In any triangle, each side divided by the sine of its opposite angle has the same value for all three sides.',
       ru: 'В любом треугольнике отношение каждой стороны к синусу противолежащего угла одно и то же для всех трёх сторон.',
@@ -23,7 +23,7 @@ export const formulas: Formula[] = [
   {
     id: 'triangle-cosine-rule',
     tex: 'a^{2}=b^{2}+c^{2}-2bc\\cos A,\\qquad \\cos A=\\dfrac{b^{2}+c^{2}-a^{2}}{2bc}',
-    name: { en: 'Cosine rule', ru: 'Теорема косинусов' },
+    name: { en: 'Cosine rule', ru: 'Теорема косинусов (Cosine rule)' },
     meaning: {
       en: 'The square of side a equals the sum of the squares of sides b and c, minus twice their product times the cosine of the angle A between them.',
       ru: 'Квадрат стороны a равен сумме квадратов сторон b и c минус удвоенное произведение этих сторон на косинус угла A между ними.',
@@ -42,7 +42,7 @@ export const formulas: Formula[] = [
   {
     id: 'triangle-area-sine',
     tex: '\\text{Area}=\\dfrac{1}{2}ab\\sin C',
-    name: { en: 'Area of a triangle', ru: 'Площадь треугольника' },
+    name: { en: 'Area of a triangle', ru: 'Площадь треугольника (Area of a triangle)' },
     meaning: {
       en: 'a and b are two sides of the triangle, and C is the angle between them (the included angle).',
       ru: 'a и b — две стороны треугольника, C — угол между ними (включённый угол).',
@@ -61,7 +61,7 @@ export const formulas: Formula[] = [
   {
     id: 'soh-cah-toa-ratios',
     tex: '\\sin\\theta=\\dfrac{\\text{opp}}{\\text{hyp}},\\quad\\cos\\theta=\\dfrac{\\text{adj}}{\\text{hyp}},\\quad\\tan\\theta=\\dfrac{\\text{opp}}{\\text{adj}}',
-    name: { en: 'SOH CAH TOA ratios', ru: 'Отношения SOH CAH TOA' },
+    name: { en: 'SOH CAH TOA ratios', ru: 'Отношения SOH CAH TOA (SOH CAH TOA ratios)' },
     meaning: {
       en: 'The sine, cosine and tangent of an angle theta in a right-angled triangle, as ratios of the opposite side, the adjacent side and the hypotenuse.',
       ru: 'Синус, косинус и тангенс угла θ в прямоугольном треугольнике как отношения противолежащего катета, прилежащего катета и гипотенузы.',

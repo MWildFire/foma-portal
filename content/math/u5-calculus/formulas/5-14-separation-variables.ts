@@ -4,7 +4,7 @@ export const formulas: Formula[] = [
   {
     id: 'de-separated-form',
     tex: 'g(y)\\,dy=f(x)\\,dx\\quad\\Rightarrow\\quad\\int g(y)\\,dy=\\int f(x)\\,dx',
-    name: { en: 'Separated form', ru: 'Разделённая форма уравнения' },
+    name: { en: 'Separated form', ru: 'Разделённая форма уравнения (Separated form)' },
     meaning: {
       en: 'Once the variables are separated, each side is integrated with respect to its own variable, and one constant is added.',
       ru: 'После разделения переменных каждая часть интегрируется по своей переменной, и добавляется одна постоянная.',
@@ -19,7 +19,7 @@ export const formulas: Formula[] = [
   {
     id: 'de-log-integral',
     tex: '\\int\\dfrac{dy}{y}=\\ln|y|+C',
-    name: { en: 'Integral of 1 over y', ru: 'Интеграл от 1/y' },
+    name: { en: 'Integral of 1 over y', ru: 'Интеграл от 1/y (Integral of 1 over y)' },
     meaning: {
       en: 'Integrating 1 over y gives the natural logarithm of the absolute value of y, plus a constant.',
       ru: 'Интеграл от 1/y даёт натуральный логарифм модуля y плюс постоянную.',
@@ -38,7 +38,7 @@ export const formulas: Formula[] = [
   {
     id: 'de-relaxation-solution',
     tex: 'y=L+(y_{0}-L)\\,e^{-kt}',
-    name: { en: 'Solution of a limit or cooling model', ru: 'Решение модели предела или охлаждения' },
+    name: { en: 'Solution of a limit or cooling model', ru: 'Решение модели предела или охлаждения (Solution of a limit or cooling model)' },
     meaning: {
       en: 'For dy/dt = -k(y - L) with y(0) = y0, the solution approaches the limit L as t grows.',
       ru: 'Для dy/dt = -k(y - L) при y(0) = y0 решение приближается к пределу L при росте t.',

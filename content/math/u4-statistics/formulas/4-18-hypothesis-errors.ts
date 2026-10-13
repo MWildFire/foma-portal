@@ -4,7 +4,7 @@ export const formulas: Formula[] = [
   {
     id: 'population-mean-t-statistic',
     tex: 't=\\dfrac{\\bar{x}-\\mu_{0}}{s/\\sqrt{n}},\\quad \\nu=n-1',
-    name: { en: 't-statistic for a population mean', ru: 'статистика t для среднего генеральной совокупности' },
+    name: { en: 't-statistic for a population mean', ru: 'статистика t для среднего генеральной совокупности (t-statistic for a population mean)' },
     meaning: {
       en: 'Standardised difference between the sample mean and the hypothesised mean mu0, with n - 1 degrees of freedom.',
       ru: 'Стандартизованная разность между выборочным средним и гипотетическим средним μ0; число степеней свободы n − 1.',
@@ -23,7 +23,7 @@ export const formulas: Formula[] = [
   {
     id: 'correlation-t-statistic',
     tex: 't=\\dfrac{r\\sqrt{n-2}}{\\sqrt{1-r^{2}}},\\quad \\nu=n-2',
-    name: { en: 't-statistic for the population correlation', ru: 'статистика t для коэффициента корреляции генеральной совокупности' },
+    name: { en: 't-statistic for the population correlation', ru: 'статистика t для коэффициента корреляции генеральной совокупности (t-statistic for the population correlation)' },
     meaning: {
       en: 'Test statistic for H0: rho = 0, from the sample correlation coefficient r of n pairs, with n - 2 degrees of freedom.',
       ru: 'Статистика для H0: ρ = 0 по выборочному коэффициенту корреляции r из n пар; число степеней свободы n − 2.',
@@ -42,7 +42,7 @@ export const formulas: Formula[] = [
   {
     id: 'poisson-total-count-test',
     tex: 'T=X_{1}+X_{2}+\\cdots+X_{n}\\sim\\text{Po}(n\\,m_{0})\\quad\\text{under } H_{0}: m=m_{0}',
-    name: { en: 'Total of n Poisson counts under H0', ru: 'Сумма n подсчётов Пуассона при H0' },
+    name: { en: 'Total of n Poisson counts under H0', ru: 'Сумма n подсчётов Пуассона при H0 (Total of n Poisson counts under H0)' },
     meaning: {
       en: 'For independent counts X1 to Xn, each with mean m0 under H0, the total T is Poisson with mean n m0.',
       ru: 'Для независимых подсчётов X1, …, Xn, каждый со средним m0 при H0, их сумма T имеет распределение Пуассона со средним n m0.',

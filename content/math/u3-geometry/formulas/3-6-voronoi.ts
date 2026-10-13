@@ -4,7 +4,7 @@ export const formulas: Formula[] = [
   {
     id: 'voronoi-nearest-site-rule',
     tex: 'd(P,S_i)\\le d(P,S_j)\\quad \\text{for every } j\\ne i',
-    name: { en: 'Point in the cell of a site', ru: 'Точка в ячейке опорного пункта' },
+    name: { en: 'Point in the cell of a site', ru: 'Точка в ячейке опорного пункта (Point in the cell of a site)' },
     meaning: {
       en: 'The point P belongs to the cell of site S_i when its distance to S_i is no more than its distance to every other site S_j.',
       ru: 'Точка P относится к ячейке пункта S_i, если её расстояние до S_i не больше расстояния до любого другого пункта S_j.',
@@ -23,7 +23,7 @@ export const formulas: Formula[] = [
   {
     id: 'site-distance-formula',
     tex: 'd(P,S)=\\sqrt{(x-a)^{2}+(y-b)^{2}}',
-    name: { en: 'Distance from a point to a site', ru: 'Расстояние от точки до пункта' },
+    name: { en: 'Distance from a point to a site', ru: 'Расстояние от точки до пункта (Distance from a point to a site)' },
     meaning: {
       en: 'The straight-line distance from the point P(x, y) to the site S(a, b).',
       ru: 'Прямое расстояние от точки P(x; y) до пункта S(a; b).',
@@ -42,7 +42,7 @@ export const formulas: Formula[] = [
   {
     id: 'voronoi-edge-equation',
     tex: '(x_2-x_1)\\,x+(y_2-y_1)\\,y=\\dfrac{x_2^{2}+y_2^{2}-x_1^{2}-y_1^{2}}{2}',
-    name: { en: 'Edge between two sites', ru: 'Ребро между двумя пунктами' },
+    name: { en: 'Edge between two sites', ru: 'Ребро между двумя пунктами (Edge between two sites)' },
     meaning: {
       en: 'The Voronoi edge between sites (x1, y1) and (x2, y2) lies on this line, which is the perpendicular bisector of the segment joining them.',
       ru: 'Ребро диаграммы между пунктами (x1; y1) и (x2; y2) лежит на этой прямой — серединном перпендикуляре отрезка, соединяющего их.',
@@ -61,7 +61,7 @@ export const formulas: Formula[] = [
   {
     id: 'nearest-neighbour-estimate',
     tex: '\\hat{f}(P)=f(S_k),\\quad d(P,S_k)=\\min_{i}\\, d(P,S_i)',
-    name: { en: 'Nearest-neighbour estimate', ru: 'Оценка по ближайшему соседу' },
+    name: { en: 'Nearest-neighbour estimate', ru: 'Оценка по ближайшему соседу (Nearest-neighbour estimate)' },
     meaning: {
       en: 'The estimated value at P is the measured value f(S_k) at the site S_k nearest to P.',
       ru: 'Оценочное значение в точке P равно измеренному значению f(S_k) в ближайшем к P пункте S_k.',
