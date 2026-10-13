@@ -1,0 +1,64 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Colour and type tokens. Dark mode follows the system unless data-theme is set to "light". */
+:root {
+  --color-bg: #f7f6f3;
+  --color-card: #ffffff;
+  --color-fg: #1d1f24;
+  --color-muted: #5b616e;
+  --color-border: #d9d6cf;
+  --color-accent: #2f5d8a;
+  --font-ui: 'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-reading: 'Literata', Georgia, serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --color-bg: #15171c;
+    --color-card: #1e2128;
+    --color-fg: #eceae4;
+    --color-muted: #a3a8b3;
+    --color-border: #343944;
+    --color-accent: #8db4e2;
+  }
+}
+
+:root[data-theme="dark"] {
+  --color-bg: #15171c;
+  --color-card: #1e2128;
+  --color-fg: #eceae4;
+  --color-muted: #a3a8b3;
+  --color-border: #343944;
+  --color-accent: #8db4e2;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-fg);
+  font-family: var(--font-ui);
+  font-size: 17px;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+a {
+  color: var(--color-accent);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+/* Long formulas scroll inside their box on a 320 px screen instead of widening the page. */
+.katex-display {
+  overflow-x: auto;
+  overflow-y: hidden;
+}

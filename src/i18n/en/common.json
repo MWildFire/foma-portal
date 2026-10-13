@@ -1,0 +1,24 @@
+{
+  "brand": "Foma Learning Portal",
+  "nav": {
+    "main": "Main navigation",
+    "today": "Today",
+    "plan": "Plan",
+    "exams": "Exams",
+    "subjects": "Subjects",
+    "glossary": "Glossary",
+    "formulas": "Formulas",
+    "practice": "Practice",
+    "paper": "Paper guide",
+    "sims": "Simulations",
+    "report": "Report",
+    "settings": "Settings"
+  },
+  "pages": {
+    "comingSoon": "This page is being built.",
+    "notFound": "Page not found"
+  },
+  "footer": {
+    "note": "Private study portal for one student. Not indexed by search engines."
+  }
+}
