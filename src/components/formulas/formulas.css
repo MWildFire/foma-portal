@@ -1,0 +1,21 @@
+/* Formulas page. The cards themselves are drawn by src/components/ui/Formula.tsx (styles in content/ui.css). */
+
+.fm-list {
+  display: grid;
+  gap: 0.25rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.fm-list > li {
+  min-width: 0;
+}
+
+/* FormulaCard has its own top and bottom margin; the topic links sit right under the card. */
+.fm-topics {
+  margin: -0.5rem 0 0.75rem;
+  padding: 0 0.25rem;
+  font-size: 0.875rem;
+  overflow-wrap: anywhere;
+}

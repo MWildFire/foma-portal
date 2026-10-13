@@ -1,0 +1,16 @@
+{
+  "title": "Formulas",
+  "intro": "The formulas of this subject. A formula marked “In the formula booklet” is given to you in the exam; learn the others by heart.",
+  "empty": {
+    "title": "No formulas yet",
+    "body": "The formulas for this subject are still being written."
+  },
+  "filter": {
+    "label": "Filter",
+    "booklet": "Booklet only"
+  },
+  "count": "Showing {{shown}} of {{total}} formulas",
+  "bookletCount": "In the formula booklet: {{n}}",
+  "noBooklet": "No formula from the booklet in this subject yet. Switch the filter off to see all formulas.",
+  "usedIn": "Used in topics"
+}
