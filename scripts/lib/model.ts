@@ -52,6 +52,21 @@ export interface PaperGuide {
   timedSets?: TimedSet[];
 }
 
+// A past paper the portal links to (PastPaperRef in src/contract/types.ts). Read defensively, like the rest.
+export interface PastPaperRef {
+  id: string;
+  subject?: string;
+  paper?: string;
+  part?: string;
+  session?: string;
+  level?: string;
+  files?: { kind?: string; url?: string }[];
+  minutes?: number;
+  marks?: number;
+  items?: { q?: string; marks?: number; topicIds?: string[] }[];
+  guide?: LText;
+}
+
 export interface SubjectMeta { id: string }
 
 // What content/<s>/index.ts produces (SubjectPack in src/contract/pack.ts), reduced to what the rules read.
@@ -64,10 +79,11 @@ export interface Pack {
   questions: Question[];
   cases: CaseStudy[];
   papers: PaperGuide[];
+  pastPapers: PastPaperRef[];
 }
 
-export type Collection = 'syllabus' | 'topics' | 'terms' | 'formulas' | 'questions' | 'cases' | 'papers';
-const COLLECTIONS: Collection[] = ['syllabus', 'topics', 'terms', 'formulas', 'questions', 'cases', 'papers'];
+export type Collection = 'syllabus' | 'topics' | 'terms' | 'formulas' | 'questions' | 'cases' | 'papers' | 'pastPapers';
+const COLLECTIONS: Collection[] = ['syllabus', 'topics', 'terms', 'formulas', 'questions', 'cases', 'papers', 'pastPapers'];
 
 export function hasOwn(object: object, key: string): boolean {
   return Object.prototype.hasOwnProperty.call(object, key);

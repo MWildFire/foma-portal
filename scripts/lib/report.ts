@@ -18,6 +18,7 @@ export type Rule =
   | 'question'
   | 'duration'
   | 'timed-set'
+  | 'past-paper'
   | 'sims'
   | 'stats'
   | 'internal';

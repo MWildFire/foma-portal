@@ -47,3 +47,16 @@ export interface PaperGuide {
   structure: L; strategy: L; criteria?: L; commandTerms?: string[];
   timedSets: { id: string; title: L; questionIds: string[]; minutes: number }[];
 }
+// A past IB paper the portal links to (content/<s>/**/pastpapers.ts, export const pastPapers). Links and our own guide
+// only: question text, resource booklets and markschemes are never copied here.
+export interface PastPaperRef {
+  id: string;                    // 'geo-p2-m24-tz1'
+  subject: SubjectId; paper: PaperId; part?: string;  // part: 'reading' | 'listening' | 'option-G'
+  session: string;               // 'M24' | 'N23'
+  level: 'SL' | 'HL' | 'SLHL'; tz?: string;
+  files: { kind: 'questions' | 'resources' | 'markscheme' | 'audio'; url: string }[];   // url: https://ibdocs.re/... only
+  minutes: number;               // time of this paper in data/exams.json (the school's mock); +25% is added by the portal
+  marks: number;
+  items: { q: string; marks: number; topicIds: string[]; command?: string; option?: string; inMockScope?: boolean }[];
+  guide?: L;                     // our own write-up: how to answer, what earns marks, where marks are lost
+}

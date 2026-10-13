@@ -1,5 +1,5 @@
 import type { ComponentType } from 'react';
-import type { CaseStudy, Formula, L, Lang, PaperGuide, Question, SimId, SubjectId, SyllabusItem, Term, TopicMeta } from './types';
+import type { CaseStudy, Formula, L, Lang, PaperGuide, PastPaperRef, Question, SimId, SubjectId, SyllabusItem, Term, TopicMeta } from './types';
 
 // Subject folder metadata: content/<s>/meta.ts
 export interface SubjectMeta { id: SubjectId; title: L; level: string; color: string; }
@@ -22,5 +22,6 @@ export interface SubjectPack {
   questions: Question[];
   cases: CaseStudy[];
   papers: PaperGuide[];
+  pastPapers: PastPaperRef[];                     // content/<s>/**/pastpapers.ts; links and own guides only
   sims: Partial<Record<SimId, () => Promise<{ default: SimComponent }>>>;
 }

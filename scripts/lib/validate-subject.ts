@@ -5,6 +5,7 @@ import { analyzeMdx } from './mdx.ts';
 import { LANGS, textOf, type Pack } from './model.ts';
 import type { Report } from './report.ts';
 import { checkFormulas, checkIds, checkPapers, checkQuestions, checkRefs, checkSources, checkTexts, findDuplicates, idSets } from './rules-data.ts';
+import { checkPastPapers } from './rules-past-papers.ts';
 import { checkExports, checkPlaceholders } from './rules-files.ts';
 import { checkMdxDoc, checkParity, checkSimUsage, checkTopicFiles, type MdxCtx, type TopicDoc } from './rules-mdx.ts';
 import { computeStats, isEmptySubject, statsLine, statsWarnings } from './stats.ts';
@@ -55,6 +56,7 @@ export function validateSubject(r: Report, input: SubjectInput): void {
   guard('sources', () => checkSources(r, data));
   guard('questions', () => checkQuestions(r, data));
   guard('papers', () => checkPapers(r, data));
+  guard('past papers', () => checkPastPapers(r, data));
   guard('formulas', () => checkFormulas(r, data));
   guard('texts', () => checkTexts(r, data));
 
