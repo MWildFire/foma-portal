@@ -53,6 +53,12 @@ export const papers: PaperGuide[] = [
         questionIds: ['p1-essay', 'p1-social-post', 'p1-review'],
         minutes: 75,
       },
+      {
+        id: 'fr-p1-set-5',
+        title: { en: 'Set 5: instructions (theme 3), proposal (theme 4), article (theme 5)', ru: 'Набор 5: инструкция (тема 3), предложение (тема 4), статья (тема 5)' },
+        questionIds: ['p1-instructions', 'p1-proposal', 'p1-article'],
+        minutes: 75,
+      },
     ],
   },
   {
@@ -101,7 +107,7 @@ export const papers: PaperGuide[] = [
       en: 'Read the ten questions for a recording before it plays and mark the key words. Answer in the order the speakers talk, and write first the answers you are sure of. A Note answer is usually one word or a number, spelled correctly. A State answer is a short phrase of one to three words, in the language the question asks for. Keep about 5 minutes at the end to check the spelling of every answer.',
       ru: 'Прочитайте десять вопросов к записи до того, как она начнётся, и отметьте ключевые слова. Отвечайте в том порядке, в котором говорят участники, и сначала записывайте то, в чём уверены. Ответ Note обычно состоит из одного слова или числа, написанного правильно. Ответ State — короткая фраза из одного–трёх слов на том языке, который указан в вопросе. В конце оставьте около 5 минут на проверку орфографии каждого ответа.',
     },
-    commandTerms: ['Identify', 'State', 'Note'],
+    commandTerms: ['Identify', 'State', 'Note', 'Match'],
     timedSets: [
       {
         id: 'fr-p2l-set-1',
