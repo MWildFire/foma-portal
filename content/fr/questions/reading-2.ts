@@ -2,7 +2,7 @@ import type { FrQuestion } from '../types';
 
 // Reading items (Paper 2) for reading passages R4 to R6 (content/fr/reading/). Each passage has 10 items:
 // 3 vrai / faux / non mentionné with a quotation, 2 "which word" items, 2 matching items (who says, A to C),
-// 2 gap fills and 1 short answer. Every answer is an exact word, a letter, or vrai / faux / non mentionné.
+// 2 gap fills and 1 quoted item. Every answer is an exact word, a letter, or vrai / faux / non mentionné.
 // topicIds point to the topic reading-strategy.
 export const questions: FrQuestion[] = [
   // ---- R4: a timetable for students who work (T4, B2) ----
@@ -20,8 +20,8 @@ export const questions: FrQuestion[] = [
       fr: "Écrivez vrai, faux ou non mentionné. Si la réponse est vrai ou faux, citez la phrase du texte qui le prouve. Le lycée a changé son emploi du temps parce que les parents l'ont demandé.",
     },
     markscheme: {
-      en: "Answer: non mentionné. The article never says who asked for the change. Paragraph 1 gives only the aim: « L'objectif est de permettre aux élèves qui travaillent en dehors des cours de suivre leur scolarité sans s'épuiser ».",
-      ru: "Ответ: non mentionné. В статье не сказано, кто попросил об изменении. В абзаце 1 дана только цель: « L'objectif est de permettre aux élèves qui travaillent en dehors des cours de suivre leur scolarité sans s'épuiser ».",
+      en: "Answer: non mentionné. The article never says who asked for the change. Paragraph A gives only the aim: « L'objectif est de permettre aux élèves qui travaillent en dehors des cours de suivre leur scolarité sans s'épuiser ».",
+      ru: "Ответ: non mentionné. В статье не сказано, кто попросил об изменении. В абзаце A дана только цель: « L'objectif est de permettre aux élèves qui travaillent en dehors des cours de suivre leur scolarité sans s'épuiser ».",
     },
     answer: 'non mentionné',
     origin: 'original',
@@ -40,8 +40,8 @@ export const questions: FrQuestion[] = [
       fr: "Écrivez vrai, faux ou non mentionné. Si la réponse est vrai ou faux, citez la phrase du texte qui le prouve. Les premiers cours du mardi commencent plus tard qu'avant.",
     },
     markscheme: {
-      en: "Answer: vrai. Paragraph 2: « les cours commencent désormais à neuf heures et demie, au lieu de huit heures, le mardi et le jeudi ». The lessons now start at half past nine instead of eight.",
-      ru: "Ответ: vrai. Абзац 2: « les cours commencent désormais à neuf heures et demie, au lieu de huit heures, le mardi et le jeudi ». Теперь уроки начинаются в половине десятого вместо восьми.",
+      en: "Answer: vrai. Paragraph B: « les cours commencent désormais à neuf heures et demie, au lieu de huit heures, le mardi et le jeudi ». The lessons now start at half past nine instead of eight.",
+      ru: "Ответ: vrai. Абзац B: « les cours commencent désormais à neuf heures et demie, au lieu de huit heures, le mardi et le jeudi ». Теперь уроки начинаются в половине десятого вместо восьми.",
     },
     answer: 'vrai',
     origin: 'original',
@@ -60,8 +60,8 @@ export const questions: FrQuestion[] = [
       fr: "Écrivez vrai, faux ou non mentionné. Si la réponse est vrai ou faux, citez la phrase du texte qui le prouve. Tous les élèves ont l'après-midi du vendredi libre, sans aucune condition.",
     },
     markscheme: {
-      en: "Answer: faux. Paragraph 2: « Le vendredi après-midi est libre pour ceux qui le demandent, à condition de rattraper le contenu sur la plateforme en ligne du lycée ». Only students who ask, and who catch up online, have the free afternoon.",
-      ru: "Ответ: faux. Абзац 2: « Le vendredi après-midi est libre pour ceux qui le demandent, à condition de rattraper le contenu sur la plateforme en ligne du lycée ». Освобождение от занятий в пятницу после обеда получают только те, кто об этом просит, и при условии, что они наверстают материал онлайн.",
+      en: "Answer: faux. Paragraph B: « Le vendredi après-midi est libre pour ceux qui le demandent, à condition de rattraper le contenu sur la plateforme en ligne du lycée ». Only students who ask, and who catch up online, have the free afternoon.",
+      ru: "Ответ: faux. Абзац B: « Le vendredi après-midi est libre pour ceux qui le demandent, à condition de rattraper le contenu sur la plateforme en ligne du lycée ». Освобождение от занятий в пятницу после обеда получают только те, кто об этом просит, и при условии, что они наверстают материал онлайн.",
     },
     answer: 'faux',
     origin: 'original',
@@ -80,8 +80,8 @@ export const questions: FrQuestion[] = [
       fr: "Quel verbe du texte signifie « faire plus tard ce qu'on n'a pas fait à temps » ? Écrivez le verbe tel qu'il apparaît dans le texte.",
     },
     markscheme: {
-      en: "Answer: rattraper (to catch up). Paragraph 2: « à condition de rattraper le contenu sur la plateforme en ligne du lycée ».",
-      ru: "Ответ: rattraper (наверстать). Абзац 2: « à condition de rattraper le contenu sur la plateforme en ligne du lycée ».",
+      en: "Answer: rattraper (to catch up). Paragraph B: « à condition de rattraper le contenu sur la plateforme en ligne du lycée ».",
+      ru: "Ответ: rattraper (наверстать). Абзац B: « à condition de rattraper le contenu sur la plateforme en ligne du lycée ».",
     },
     answer: 'rattraper',
     origin: 'original',
@@ -100,8 +100,8 @@ export const questions: FrQuestion[] = [
       fr: "Qui dit qu'il ou elle se sent beaucoup plus calme depuis le changement ?\nA) Inès\nB) Mathis\nC) M. Denis",
     },
     markscheme: {
-      en: "Answer: A. Paragraph 3 (Inès): « Maintenant, je fais mes devoirs avant d'aller au travail, et je suis beaucoup plus calme ». Mathis finds the early start hard, and M. Denis worries about lost lessons (paragraph 4).",
-      ru: "Ответ: A. Абзац 3 (Inès): « Maintenant, je fais mes devoirs avant d'aller au travail, et je suis beaucoup plus calme ». Для Mathis трудно вставать рано, а M. Denis беспокоится о потерянных уроках (абзац 4).",
+      en: "Answer: A. Paragraph C (Inès): « Maintenant, je fais mes devoirs avant d'aller au travail, et je suis beaucoup plus calme ». Mathis finds the early start hard, and M. Denis worries about lost lessons (paragraph D).",
+      ru: "Ответ: A. Абзац C (Inès): « Maintenant, je fais mes devoirs avant d'aller au travail, et je suis beaucoup plus calme ». Для Mathis трудно вставать рано, а M. Denis беспокоится о потерянных уроках (абзац D).",
     },
     answer: 'A',
     origin: 'original',
@@ -120,8 +120,8 @@ export const questions: FrQuestion[] = [
       fr: "Qui regrette qu'on n'ait pas consulté les élèves avant de décider ?\nA) Inès\nB) Mathis\nC) Mme Roux",
     },
     markscheme: {
-      en: "Answer: B. Paragraph 3 (Mathis): « je pense qu'on aurait dû consulter les élèves avant de décider ».",
-      ru: "Ответ: B. Абзац 3 (Mathis): « je pense qu'on aurait dû consulter les élèves avant de décider ».",
+      en: "Answer: B. Paragraph C (Mathis): « je pense qu'on aurait dû consulter les élèves avant de décider ».",
+      ru: "Ответ: B. Абзац C (Mathis): « je pense qu'on aurait dû consulter les élèves avant de décider ».",
     },
     answer: 'B',
     origin: 'original',
@@ -140,8 +140,8 @@ export const questions: FrQuestion[] = [
       fr: "Complétez la phrase avec un mot de l'article : Selon Mme Roux, les ……… ont diminué de moitié depuis la rentrée.",
     },
     markscheme: {
-      en: "Answer: absences. Paragraph 4: « Mme Roux, responsable des études, affirme que les absences ont diminué de moitié depuis la rentrée ».",
-      ru: "Ответ: absences (пропуски занятий). Абзац 4: « Mme Roux, responsable des études, affirme que les absences ont diminué de moitié depuis la rentrée ».",
+      en: "Answer: absences. Paragraph D: « Mme Roux, responsable des études, affirme que les absences ont diminué de moitié depuis la rentrée ».",
+      ru: "Ответ: absences (пропуски занятий). Абзац D: « Mme Roux, responsable des études, affirme que les absences ont diminué de moitié depuis la rentrée ».",
     },
     answer: 'absences',
     origin: 'original',
@@ -160,8 +160,8 @@ export const questions: FrQuestion[] = [
       fr: "Citez le verbe qui montre l'inquiétude de M. Denis.",
     },
     markscheme: {
-      en: "Answer: craint (fears). Paragraph 4: « M. Denis, professeur de mathématiques, craint en revanche que les élèves perdent des heures de cours précieuses ».",
-      ru: "Ответ: craint (опасается). Абзац 4: « M. Denis, professeur de mathématiques, craint en revanche que les élèves perdent des heures de cours précieuses ».",
+      en: "Answer: craint (fears). Paragraph D: « M. Denis, professeur de mathématiques, craint en revanche que les élèves perdent des heures de cours précieuses ».",
+      ru: "Ответ: craint (опасается). Абзац D: « M. Denis, professeur de mathématiques, craint en revanche que les élèves perdent des heures de cours précieuses ».",
     },
     answer: 'craint',
     origin: 'original',
@@ -180,8 +180,8 @@ export const questions: FrQuestion[] = [
       fr: "Complétez la phrase avec un mot de l'article : La direction a promis une ……… auprès des élèves et de leurs familles.",
     },
     markscheme: {
-      en: "Answer: enquête (survey). Paragraph 5: « la direction a promis une enquête auprès des élèves et de leurs familles ».",
-      ru: "Ответ: enquête (опрос). Абзац 5: « la direction a promis une enquête auprès des élèves et de leurs familles ».",
+      en: "Answer: enquête (survey). Paragraph E: « la direction a promis une enquête auprès des élèves et de leurs familles ».",
+      ru: "Ответ: enquête (опрос). Абзац E: « la direction a promis une enquête auprès des élèves et de leurs familles ».",
     },
     answer: 'enquête',
     origin: 'original',
@@ -200,8 +200,8 @@ export const questions: FrQuestion[] = [
       fr: "Quel mot du texte signifie « aller au-delà de » ? Écrivez le mot tel qu'il apparaît dans le texte.",
     },
     markscheme: {
-      en: "Answer: dépasse (goes beyond). Paragraph 5: « un débat qui dépasse largement les murs du lycée ».",
-      ru: "Ответ: dépasse (выходит за пределы). Абзац 5: « un débat qui dépasse largement les murs du lycée ».",
+      en: "Answer: dépasse (goes beyond). Paragraph E: « un débat qui dépasse largement les murs du lycée ».",
+      ru: "Ответ: dépasse (выходит за пределы). Абзац E: « un débat qui dépasse largement les murs du lycée ».",
     },
     answer: 'dépasse',
     origin: 'original',
@@ -222,8 +222,8 @@ export const questions: FrQuestion[] = [
       fr: "Écrivez vrai, faux ou non mentionné. Si la réponse est vrai ou faux, citez la phrase du texte qui le prouve. Le maire trouvait la situation acceptable.",
     },
     markscheme: {
-      en: "Answer: faux. Paragraph 1: « un chiffre que le maire jugeait inacceptable ». He judged the figure unacceptable.",
-      ru: "Ответ: faux. Абзац 1: « un chiffre que le maire jugeait inacceptable ». Он считал эту цифру недопустимой.",
+      en: "Answer: faux. Paragraph A: « un chiffre que le maire jugeait inacceptable ». He judged the figure unacceptable.",
+      ru: "Ответ: faux. Абзац A: « un chiffre que le maire jugeait inacceptable ». Он считал эту цифру недопустимой.",
     },
     answer: 'faux',
     origin: 'original',
@@ -242,8 +242,8 @@ export const questions: FrQuestion[] = [
       fr: "Écrivez vrai, faux ou non mentionné. Si la réponse est vrai ou faux, citez la phrase du texte qui le prouve. La quantité de déchets plastiques a diminué de plus de moitié.",
     },
     markscheme: {
-      en: "Answer: vrai. Paragraph 1: « la quantité a diminué de plus de moitié ».",
-      ru: "Ответ: vrai. Абзац 1: « la quantité a diminué de plus de moitié ».",
+      en: "Answer: vrai. Paragraph A: « la quantité a diminué de plus de moitié ».",
+      ru: "Ответ: vrai. Абзац A: « la quantité a diminué de plus de moitié ».",
     },
     answer: 'vrai',
     origin: 'original',
@@ -262,8 +262,8 @@ export const questions: FrQuestion[] = [
       fr: "Citez les mots du texte qui indiquent ce que les clients peuvent apporter à la place des sachets en plastique.",
     },
     markscheme: {
-      en: "Answer: leurs propres boîtes (their own boxes). Paragraph 2: « les clients peuvent apporter leurs propres boîtes ».",
-      ru: "Ответ: leurs propres boîtes (свои коробки). Абзац 2: « les clients peuvent apporter leurs propres boîtes ».",
+      en: "Answer: leurs propres boîtes (their own boxes). Paragraph B: « les clients peuvent apporter leurs propres boîtes ».",
+      ru: "Ответ: leurs propres boîtes (свои коробки). Абзац B: « les clients peuvent apporter leurs propres boîtes ».",
     },
     answer: 'leurs propres boîtes',
     origin: 'original',
@@ -282,8 +282,8 @@ export const questions: FrQuestion[] = [
       fr: "Qui a proposé des sacs en tissu ?\nA) le boulanger\nB) une couturière du village\nC) le conseil municipal",
     },
     markscheme: {
-      en: "Answer: B. Paragraph 2: « Une couturière du village a également proposé des sacs en tissu ».",
-      ru: "Ответ: B. Абзац 2: « Une couturière du village a également proposé des sacs en tissu ».",
+      en: "Answer: B. Paragraph B: « Une couturière du village a également proposé des sacs en tissu ».",
+      ru: "Ответ: B. Абзац B: « Une couturière du village a également proposé des sacs en tissu ».",
     },
     answer: 'B',
     origin: 'original',
@@ -302,8 +302,8 @@ export const questions: FrQuestion[] = [
       fr: "Qui a conçu l'affiche qui expliquait le projet aux parents ?\nA) le maire\nB) les enfants\nC) les commerçants",
     },
     markscheme: {
-      en: "Answer: B. Paragraph 3: « Les enfants ont même conçu une affiche pour expliquer le projet aux parents ».",
-      ru: "Ответ: B. Абзац 3: « Les enfants ont même conçu une affiche pour expliquer le projet aux parents ».",
+      en: "Answer: B. Paragraph C: « Les enfants ont même conçu une affiche pour expliquer le projet aux parents ».",
+      ru: "Ответ: B. Абзац C: « Les enfants ont même conçu une affiche pour expliquer le projet aux parents ».",
     },
     answer: 'B',
     origin: 'original',
@@ -322,8 +322,8 @@ export const questions: FrQuestion[] = [
       fr: "Complétez la phrase avec un mot de l'article : Les repas sont désormais servis dans de la vaisselle ……….",
     },
     markscheme: {
-      en: "Answer: réutilisable (reusable). Paragraph 3: « Les repas sont désormais servis dans de la vaisselle réutilisable ».",
-      ru: "Ответ: réutilisable (многоразовая). Абзац 3: « Les repas sont désormais servis dans de la vaisselle réutilisable ».",
+      en: "Answer: réutilisable (reusable). Paragraph C: « Les repas sont désormais servis dans de la vaisselle réutilisable ».",
+      ru: "Ответ: réutilisable (многоразовая). Абзац C: « Les repas sont désormais servis dans de la vaisselle réutilisable ».",
     },
     answer: 'réutilisable',
     origin: 'original',
@@ -342,8 +342,8 @@ export const questions: FrQuestion[] = [
       fr: "Complétez la phrase avec un mot de l'article : Une fois par ………, des volontaires ramassent les déchets dans les champs.",
     },
     markscheme: {
-      en: "Answer: mois (month). Paragraph 4: « Une fois par mois, des volontaires ramassent les déchets dans les champs ».",
-      ru: "Ответ: mois (месяц). Абзац 4: « Une fois par mois, des volontaires ramassent les déchets dans les champs ».",
+      en: "Answer: mois (month). Paragraph D: « Une fois par mois, des volontaires ramassent les déchets dans les champs ».",
+      ru: "Ответ: mois (месяц). Абзац D: « Une fois par mois, des volontaires ramassent les déchets dans les champs ».",
     },
     answer: 'mois',
     origin: 'original',
@@ -362,8 +362,8 @@ export const questions: FrQuestion[] = [
       fr: "Quel verbe du texte signifie « prendre les objets qui traînent par terre » ? Écrivez le verbe tel qu'il apparaît dans le texte.",
     },
     markscheme: {
-      en: "Answer: ramassent (they pick up). Paragraph 4: « des volontaires ramassent les déchets dans les champs ».",
-      ru: "Ответ: ramassent (подбирают). Абзац 4: « des volontaires ramassent les déchets dans les champs ».",
+      en: "Answer: ramassent (they pick up). Paragraph D: « des volontaires ramassent les déchets dans les champs ».",
+      ru: "Ответ: ramassent (подбирают). Абзац D: « des volontaires ramassent les déchets dans les champs ».",
     },
     answer: 'ramassent',
     origin: 'original',
@@ -382,8 +382,8 @@ export const questions: FrQuestion[] = [
       fr: "Quel verbe du texte signifie « parvenir à (un but) » ? Écrivez le verbe tel qu'il apparaît dans le texte.",
     },
     markscheme: {
-      en: "Answer: atteindre (to reach) (in the text: d'atteindre). Paragraph 5: « il faudra du temps avant d'atteindre l'objectif zéro plastique ».",
-      ru: "Ответ: atteindre (достичь). Абзац 5: « il faudra du temps avant d'atteindre l'objectif zéro plastique ».",
+      en: "Answer: atteindre (to reach) (in the text: d'atteindre). Paragraph E: « il faudra du temps avant d'atteindre l'objectif zéro plastique ».",
+      ru: "Ответ: atteindre (достичь). Абзац E: « il faudra du temps avant d'atteindre l'objectif zéro plastique ».",
     },
     answer: 'atteindre',
     origin: 'original',
@@ -402,8 +402,8 @@ export const questions: FrQuestion[] = [
       fr: "Écrivez vrai, faux ou non mentionné. Si la réponse est vrai ou faux, citez la phrase du texte qui le prouve. L'État a financé une partie des premières mesures du village.",
     },
     markscheme: {
-      en: "Answer: non mentionné. The article never mentions state funding. Paragraph 5 says only that the municipal council is still studying financial aid: « le conseil municipal étudie donc une aide financière ».",
-      ru: "Ответ: non mentionné. О государственном финансировании в статье не говорится. В абзаце 5 сказано только, что муниципальный совет пока изучает финансовую помощь: « le conseil municipal étudie donc une aide financière ».",
+      en: "Answer: non mentionné. The article never mentions state funding. Paragraph E says only that the municipal council is still studying financial aid: « le conseil municipal étudie donc une aide financière ».",
+      ru: "Ответ: non mentionné. О государственном финансировании в статье не говорится. В абзаце E сказано только, что муниципальный совет пока изучает финансовую помощь: « le conseil municipal étudie donc une aide financière ».",
     },
     answer: 'non mentionné',
     origin: 'original',
@@ -424,8 +424,8 @@ export const questions: FrQuestion[] = [
       fr: "Écrivez vrai, faux ou non mentionné. Si la réponse est vrai ou faux, citez la phrase du texte qui le prouve. La ville a construit une nouvelle gare cette année.",
     },
     markscheme: {
-      en: "Answer: non mentionné. The article never says that a station was built. Paragraph 1 says only that the new lines link the outskirts with the centre and the station: « Elles relient les quartiers de la périphérie au centre-ville et à la gare ». Paragraph 4 mentions only roadworks (travaux) near the station, not a new building.",
-      ru: "Ответ: non mentionné. В статье не говорится, что вокзал построили. В абзаце 1 сказано только, что новые линии соединяют окраины с центром и с вокзалом: « Elles relient les quartiers de la périphérie au centre-ville et à la gare ». В абзаце 4 говорится только о дорожных работах у вокзала, а не о новом здании.",
+      en: "Answer: non mentionné. The article never says that a station was built. Paragraph A says only that the new lines link the outskirts with the centre and the station: « Elles relient les quartiers de la périphérie au centre-ville et à la gare ». Paragraph D mentions only roadworks (travaux) near the station, not a new building.",
+      ru: "Ответ: non mentionné. В статье не говорится, что вокзал построили. В абзаце A сказано только, что новые линии соединяют окраины с центром и с вокзалом: « Elles relient les quartiers de la périphérie au centre-ville et à la gare ». В абзаце D говорится только о дорожных работах у вокзала, а не о новом здании.",
     },
     answer: 'non mentionné',
     origin: 'original',
@@ -444,8 +444,8 @@ export const questions: FrQuestion[] = [
       fr: "Écrivez vrai, faux ou non mentionné. Si la réponse est vrai ou faux, citez la phrase du texte qui le prouve. Les trois nouvelles lignes de bus ont été mises en service en septembre.",
     },
     markscheme: {
-      en: "Answer: vrai. Paragraph 1: « En septembre, la ville de Vallonne a mis en service trois nouvelles lignes de bus ».",
-      ru: "Ответ: vrai. Абзац 1: « En septembre, la ville de Vallonne a mis en service trois nouvelles lignes de bus ».",
+      en: "Answer: vrai. Paragraph A: « En septembre, la ville de Vallonne a mis en service trois nouvelles lignes de bus ».",
+      ru: "Ответ: vrai. Абзац A: « En septembre, la ville de Vallonne a mis en service trois nouvelles lignes de bus ».",
     },
     answer: 'vrai',
     origin: 'original',
@@ -464,8 +464,8 @@ export const questions: FrQuestion[] = [
       fr: "Écrivez vrai, faux ou non mentionné. Si la réponse est vrai ou faux, citez la phrase du texte qui le prouve. La ligne 7 passe toutes les quinze minutes entre sept et neuf heures du matin.",
     },
     markscheme: {
-      en: "Answer: faux. Paragraph 2: « les bus passent toutes les dix minutes entre sept et neuf heures du matin ». The buses run every ten minutes, not every fifteen.",
-      ru: "Ответ: faux. Абзац 2: « les bus passent toutes les dix minutes entre sept et neuf heures du matin ». Автобусы ходят каждые десять минут, а не каждые пятнадцать.",
+      en: "Answer: faux. Paragraph B: « les bus passent toutes les dix minutes entre sept et neuf heures du matin ». The buses run every ten minutes, not every fifteen.",
+      ru: "Ответ: faux. Абзац B: « les bus passent toutes les dix minutes entre sept et neuf heures du matin ». Автобусы ходят каждые десять минут, а не каждые пятнадцать.",
     },
     answer: 'faux',
     origin: 'original',
@@ -484,8 +484,8 @@ export const questions: FrQuestion[] = [
       fr: "Quel mot du texte signifie « utilisée par beaucoup de personnes » ? Écrivez le mot tel qu'il apparaît dans le texte.",
     },
     markscheme: {
-      en: "Answer: fréquentée (busy, heavily used). Paragraph 2: « La ligne 7 est la plus fréquentée ».",
-      ru: "Ответ: fréquentée (многолюдная, востребованная). Абзац 2: « La ligne 7 est la plus fréquentée ».",
+      en: "Answer: fréquentée (busy, heavily used). Paragraph B: « La ligne 7 est la plus fréquentée ».",
+      ru: "Ответ: fréquentée (многолюдная, востребованная). Абзац B: « La ligne 7 est la plus fréquentée ».",
     },
     answer: 'fréquentée',
     origin: 'original',
@@ -504,8 +504,8 @@ export const questions: FrQuestion[] = [
       fr: "Qui dit que la ligne 9 s'arrête trop tôt le soir ?\nA) Marie\nB) Ahmed\nC) le propriétaire de la librairie",
     },
     markscheme: {
-      en: "Answer: B. Paragraph 3 (Ahmed): « la ligne 9 s'arrête trop tôt le soir ».",
-      ru: "Ответ: B. Абзац 3 (Ahmed): « la ligne 9 s'arrête trop tôt le soir ».",
+      en: "Answer: B. Paragraph C (Ahmed): « la ligne 9 s'arrête trop tôt le soir ».",
+      ru: "Ответ: B. Абзац C (Ahmed): « la ligne 9 s'arrête trop tôt le soir ».",
     },
     answer: 'B',
     origin: 'original',
@@ -524,8 +524,8 @@ export const questions: FrQuestion[] = [
       fr: "Qui n'a plus besoin d'attendre longtemps le bus ?\nA) Marie\nB) Ahmed\nC) le propriétaire de la librairie",
     },
     markscheme: {
-      en: "Answer: A. Paragraph 3 (Marie): « Avant, il fallait attendre une demi-heure pour prendre le bus. Maintenant, j'arrive au travail en vingt minutes, sans voiture. »",
-      ru: "Ответ: A. Абзац 3 (Marie): « Avant, il fallait attendre une demi-heure pour prendre le bus. Maintenant, j'arrive au travail en vingt minutes, sans voiture. »",
+      en: "Answer: A. Paragraph C (Marie): « Avant, il fallait attendre une demi-heure pour prendre le bus. Maintenant, j'arrive au travail en vingt minutes, sans voiture. »",
+      ru: "Ответ: A. Абзац C (Marie): « Avant, il fallait attendre une demi-heure pour prendre le bus. Maintenant, j'arrive au travail en vingt minutes, sans voiture. »",
     },
     answer: 'A',
     origin: 'original',
@@ -544,8 +544,8 @@ export const questions: FrQuestion[] = [
       fr: "Complétez la phrase avec un mot de l'article : Les rues autour de la gare sont restées ……… trois mois.",
     },
     markscheme: {
-      en: "Answer: fermées (closed). Paragraph 4: « les rues autour de la gare sont restées fermées trois mois ».",
-      ru: "Ответ: fermées (закрыты). Абзац 4: « les rues autour de la gare sont restées fermées trois mois ».",
+      en: "Answer: fermées (closed). Paragraph D: « les rues autour de la gare sont restées fermées trois mois ».",
+      ru: "Ответ: fermées (закрыты). Абзац D: « les rues autour de la gare sont restées fermées trois mois ».",
     },
     answer: 'fermées',
     origin: 'original',
@@ -564,8 +564,8 @@ export const questions: FrQuestion[] = [
       fr: "Quel mot du texte signifie « réparations ou constructions dans la rue » ? Écrivez le mot tel qu'il apparaît dans le texte.",
     },
     markscheme: {
-      en: "Answer: travaux (roadworks). Paragraph 4: « Pendant les travaux ».",
-      ru: "Ответ: travaux (дорожные работы). Абзац 4: « Pendant les travaux ».",
+      en: "Answer: travaux (roadworks). Paragraph D: « Pendant les travaux ».",
+      ru: "Ответ: travaux (дорожные работы). Абзац D: « Pendant les travaux ».",
     },
     answer: 'travaux',
     origin: 'original',
@@ -584,8 +584,8 @@ export const questions: FrQuestion[] = [
       fr: "Complétez la phrase avec un mot de l'article : Si la demande augmente, elle ……… des bus le soir.",
     },
     markscheme: {
-      en: "Answer: ajoutera (will add). Paragraph 5: « Si la demande augmente, elle ajoutera des bus le soir ».",
-      ru: "Ответ: ajoutera (добавит). Абзац 5: « Si la demande augmente, elle ajoutera des bus le soir ».",
+      en: "Answer: ajoutera (will add). Paragraph E: « Si la demande augmente, elle ajoutera des bus le soir ».",
+      ru: "Ответ: ajoutera (добавит). Абзац E: « Si la demande augmente, elle ajoutera des bus le soir ».",
     },
     answer: 'ajoutera',
     origin: 'original',
@@ -604,8 +604,8 @@ export const questions: FrQuestion[] = [
       fr: "Citez les mots du texte qui indiquent quand la mairie publiera son bilan.",
     },
     markscheme: {
-      en: "Answer: dans six mois (in six months). Paragraph 5: « La mairie publiera un bilan dans six mois ».",
-      ru: "Ответ: dans six mois (через шесть месяцев). Абзац 5: « La mairie publiera un bilan dans six mois ».",
+      en: "Answer: dans six mois (in six months). Paragraph E: « La mairie publiera un bilan dans six mois ».",
+      ru: "Ответ: dans six mois (через шесть месяцев). Абзац E: « La mairie publiera un bilan dans six mois ».",
     },
     answer: 'dans six mois',
     origin: 'original',

@@ -53,6 +53,12 @@ test('a French answer matches in any accent, capital or spacing, and nothing els
   assert.ok(!frenchMatches('panne', ''));
 });
 
+test("a leading elision such as d' is ignored when the key word has none", () => {
+  assert.ok(frenchMatches('atteindre', "d'atteindre"));
+  assert.ok(frenchMatches('atteindre', 'D’Atteindre'));
+  assert.ok(!frenchMatches('atteindre', 'atteindrai'));
+});
+
 test('vrai, faux and non mentionné are checked as words, without accents', () => {
   assert.equal(answerKind(item('non mentionné')), 'truefalse');
   assert.ok(checkAnswer(item('non mentionné'), 'non mentionne'));
@@ -78,7 +84,9 @@ test('an English answer needs its key words, in any order, with small variations
   assert.ok(!englishMatches('sore eyes', 'eyes hurt'));
   assert.ok(englishMatches('attract', 'they attracting tourists'));
   assert.ok(englishMatches('Munich', 'munich'));
-  assert.ok(englishMatches('Munich', 'Munick'));
+  assert.ok(englishMatches('Munich', 'Munich'));
+  assert.ok(!englishMatches('Munich', 'Munch'));
+  assert.ok(!englishMatches('Munich', 'Munick'));
   assert.ok(!englishMatches('Munich', 'Hamburg'));
 });
 
@@ -90,6 +98,7 @@ test('number words and digits are the same answer, and years must match exactly'
   assert.ok(!englishMatches('1932', '1933'));
   assert.ok(englishMatches('almost two hours', 'nearly 2 hours'));
   assert.ok(!englishMatches('almost two hours', 'two hours'));
+  assert.ok(!englishMatches('almost two hours', 'almost two tours'));
 });
 
 test('every passage lists ten items, and every item has an answer key that accepts itself', () => {

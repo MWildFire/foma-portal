@@ -3,7 +3,7 @@ import type { L } from '../../contract/types';
 // Pure logic for the reading practice (Paper 2). The component reads the passages and items at build time and passes
 // them in, so scripts/fr-reading-logic.test.mjs can check this file with node:test.
 // French answers are compared without accents, capitals, apostrophe variants or final punctuation. English short answers
-// pass when every key word of the answer is in the student's words (any order, small variations; see sameWord).
+// pass when every key word of the answer is in the student's words (any order, common endings; see sameWord).
 
 // What the logic reads from a passage (content/fr/reading/*.ts) and from an item (content/fr/questions/reading-*.ts).
 export interface PassageLike {
@@ -87,9 +87,14 @@ export function checkAnswer(item: ItemLike, typed: string): boolean {
   }
 }
 
+// A leading elision (d', l', qu') in the typed text is ignored when the key word has no apostrophe: "d'atteindre" is "atteindre".
+const ELISION = /^(?:d|l|qu|n|s|j|m|t)'\s*/;
+
 export function frenchMatches(expected: string, typed: string): boolean {
   const wanted = normaliseFrench(expected);
-  return wanted !== '' && wanted === normaliseFrench(typed);
+  if (wanted === '') return false;
+  const given = normaliseFrench(typed);
+  return given === wanted || (!wanted.includes("'") && given.replace(ELISION, '') === wanted);
 }
 
 // Every key word of the expected phrase must be in the typed answer. The order does not matter and extra words are fine.
@@ -174,26 +179,13 @@ function canonical(word: string): string {
   return SAME_WORD.find(group => group.includes(word))?.[0] ?? word;
 }
 
-// Two words match when they are equal, when one is the other with a common ending (eye / eyes, attract / attracting),
-// or when a word of five letters or more has one typing slip. Digits must match exactly.
+// Two words match when they are equal, or when one is the other with a common ending (eye / eyes, attract / attracting).
+// Digits must match exactly.
 function sameWord(key: string, given: string): boolean {
   if (key === given) return true;
   if (/\d/.test(key) || /\d/.test(given)) return false;
   const [short, long] = key.length <= given.length ? [key, given] : [given, key];
-  if (short.length >= 3 && ENDINGS.some(ending => short + ending === long)) return true;
-  return short.length >= 5 && editDistance(key, given) <= 1;
-}
-
-function editDistance(a: string, b: string): number {
-  let row = Array.from({ length: b.length + 1 }, (_, j) => j);
-  for (let i = 1; i <= a.length; i += 1) {
-    const next = [i];
-    for (let j = 1; j <= b.length; j += 1) {
-      next[j] = Math.min(row[j] + 1, next[j - 1] + 1, row[j - 1] + (a[i - 1] === b[j - 1] ? 0 : 1));
-    }
-    row = next;
-  }
-  return row[b.length];
+  return short.length >= 3 && ENDINGS.some(ending => short + ending === long);
 }
 
 function isRecord(value: unknown): value is Record<string, unknown> {

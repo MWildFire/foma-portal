@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import type { Lang } from '../../contract/types';
 import {
   TIMED_LIMIT_MS,
@@ -22,6 +22,18 @@ const ITEMS = collectItems(import.meta.glob<{ questions?: unknown }>('../../../c
 const ITEM_BY_ID = new Map(ITEMS.map((item): [string, ItemLike] => [item.id, item]));
 const SETS = timedSets(PASSAGES);
 const LETTERS = ['A', 'B', 'C', 'D', 'E'];
+// The theme codes of the passages (T1 to T5) and their labels.
+const THEMES: Record<Lang, Record<string, string>> = {
+  en: {
+    T1: 'Theme 1: Identities', T2: 'Theme 2: Experiences', T3: 'Theme 3: Human ingenuity',
+    T4: 'Theme 4: Social organization', T5: 'Theme 5: Sharing the planet',
+  },
+  ru: {
+    T1: 'Тема 1: Идентичность (Identities)', T2: 'Тема 2: Опыт и впечатления (Experiences)',
+    T3: 'Тема 3: Человеческая изобретательность (Human ingenuity)',
+    T4: 'Тема 4: Общественная организация (Social organization)', T5: 'Тема 5: Общая планета (Sharing the planet)',
+  },
+};
 
 const itemsOf = (passage: PassageLike): ItemLike[] => passage.questionIds.flatMap(id => ITEM_BY_ID.get(id) ?? []);
 const shortCode = (passage: PassageLike): string => passage.id.slice(0, 2).toUpperCase();
@@ -102,17 +114,18 @@ export default function ReadingPractice({ lang }: { lang: Lang }) {
   // The texts on the selector, the texts that are marked together, and the text on screen (falls back to the first one).
   const tabs = mode === 'practice' ? PASSAGES : (SETS[setIndex] ?? []);
   const passage = tabs.find(p => p.id === passageId) ?? tabs[0];
-  const scope: PassageLike[] = mode === 'practice' ? (passage ? [passage] : []) : tabs;
+  const scope = useMemo<PassageLike[]>(() => (mode === 'practice' ? (passage ? [passage] : []) : tabs), [mode, passage, tabs]);
   const scopeItems = scope.flatMap(itemsOf);
   const shown = passage ? itemsOf(passage) : [];
   const marked = passage !== undefined && checked[passage.id] === true;
   const score = scoreOf(scopeItems, answers);
   const remaining = timer ? TIMED_LIMIT_MS - ((timer.end ?? now) - timer.start) : TIMED_LIMIT_MS;
+  const canStart = timer === null && !scope.some(p => checked[p.id] === true);
 
-  const markScope = (): void => {
+  const markScope = useCallback((): void => {
     setChecked(prev => ({ ...prev, ...Object.fromEntries(scope.map(p => [p.id, true])) }));
     setTimer(prev => (prev && !prev.end ? { ...prev, end: Date.now() } : prev));
-  };
+  }, [scope]);
 
   // The countdown ticks twice a second; when the time is up the set is marked once, as if Check had been pressed.
   useEffect(() => {
@@ -123,10 +136,11 @@ export default function ReadingPractice({ lang }: { lang: Lang }) {
 
   useEffect(() => {
     if (timer && !timer.end && now - timer.start >= TIMED_LIMIT_MS) markScope();
-  }, [now, timer]);
+  }, [now, timer, markScope]);
 
   const chooseMode = (next: 'practice' | 'timed'): void => {
     setMode(next);
+    setAnswers({});
     setChecked({});
     setTimer(null);
   };
@@ -139,6 +153,7 @@ export default function ReadingPractice({ lang }: { lang: Lang }) {
   };
 
   const startTimer = (): void => {
+    if (!canStart) return;
     const start = Date.now();
     setNow(start);
     setTimer({ start });
@@ -179,9 +194,9 @@ export default function ReadingPractice({ lang }: { lang: Lang }) {
           <span>
             {copy.left}: <strong>{formatTime(remaining)}</strong>
           </span>
-          {timer ? null : (
+          {canStart ? (
             <button type="button" onClick={startTimer} style={button}>{copy.start}</button>
-          )}
+          ) : null}
           {timer && remaining <= 0 ? <span>{copy.over}</span> : null}
         </div>
       ) : null}
@@ -193,7 +208,7 @@ export default function ReadingPractice({ lang }: { lang: Lang }) {
       {passage ? (
         <article style={{ display: 'grid', gap: 8, lineHeight: 1.6 }}>
           <h3 style={{ margin: 0 }}>{passage.title[lang]}</h3>
-          <small>{passage.theme} · {passage.level}</small>
+          <small>{THEMES[lang][passage.theme] ?? passage.theme} · {passage.level}</small>
           <div lang="fr" style={{ display: 'grid', gap: 8 }}>
             {passage.paragraphs.map((text, index) => (
               <p key={index} style={{ margin: 0 }}>
