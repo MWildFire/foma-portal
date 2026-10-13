@@ -1,7 +1,7 @@
 import type { FrTerm } from '../types';
 
 // Grammar C (units G6 and G7): relative pronouns, logical and sequence connectors, concession, comparatives,
-// superlatives, negation and agreement of the past participle. 16 grammar points, ids gr-… (kebab-case).
+// superlatives, negation and agreement of the past participle. 15 grammar points, ids gr-… (kebab-case).
 export const terms: FrTerm[] = [
   // ---- relative pronouns (G6) ----
   {
