@@ -1,0 +1,237 @@
+import { useState } from 'react';
+import type { Lang } from '../../contract/types';
+
+// Illustrative teaching model of one storm on a small basin, not data and not a flood forecast.
+// (1) NRCS curve-number method: runoff depth Q (mm) from the storm rainfall P (mm).
+// (2) TR-55 lag equation: lag time (h) from the flow-path length, the retention S and the slope.
+// (3) Triangular hydrograph: time to peak and an indicative peak discharge (m³/s).
+// The rural comparison is the same basin, storm and soil with 0% urban (impermeable) surface.
+type Moisture = 'low' | 'medium' | 'high';
+
+interface Outcome { cn: number; runoff: number; lag: number; tp: number; peak: number; tb: number }
+
+const CN_URBAN = 98;   // impervious surfaces: roofs, roads and paved yards
+const CN_RURAL = 70;   // pervious land at average moisture: a typical mixed rural value (teaching assumption)
+
+// Curve number of the pervious (rural) land for dry (AMC I), average (AMC II) and wet (AMC III) soil before the storm.
+const ruralCn = (moisture: Moisture): number => {
+  if (moisture === 'low') return (4.2 * CN_RURAL) / (10 - 0.058 * CN_RURAL);
+  if (moisture === 'high') return (23 * CN_RURAL) / (10 + 0.13 * CN_RURAL);
+  return CN_RURAL;
+};
+
+function respond(rain: number, hours: number, urban: number, area: number, slopeDeg: number, moisture: Moisture): Outcome {
+  const cn = (1 - urban) * ruralCn(moisture) + urban * CN_URBAN;   // area-weighted curve number
+  const s = 25400 / cn - 254;                                       // maximum retention S, mm
+  const ia = 0.2 * s;                                               // initial abstraction, mm
+  const runoff = rain > ia ? ((rain - ia) ** 2) / (rain + 0.8 * s) : 0;   // runoff depth Q, mm
+  const sInches = 1000 / cn - 10;                                   // the same S in inches
+  const lengthFt = 1.4 * Math.sqrt(area) * 3280.84;                 // flow path L = 1.4 × √A (km), in feet
+  const slopePct = 100 * Math.tan((slopeDeg * Math.PI) / 180);      // slope Y, percent
+  const lag = (lengthFt ** 0.8 * (sInches + 1) ** 0.7) / (1900 * Math.sqrt(slopePct));  // lag time, h
+  const tp = hours / 2 + lag;                                       // time from the start of the storm to the peak, h
+  const peak = (0.208 * area * runoff) / tp;                        // indicative peak discharge, m³/s
+  return { cn, runoff, lag, tp, peak, tb: 2.67 * tp };              // triangle base time = 2.67 × Tp
+}
+
+// Plot area inside a 320 × 200 viewBox.
+const LEFT = 40;
+const RIGHT = 300;
+const TOP = 18;
+const BOTTOM = 150;
+
+export default function OptAHydrographSim({ lang }: { lang: Lang }) {
+  const ru = lang === 'ru';
+  const [rain, setRain] = useState(50);          // storm rainfall, mm
+  const [hours, setHours] = useState(6);         // storm duration, h
+  const [urbanPct, setUrbanPct] = useState(30);  // urban (impermeable) surface, %
+  const [area, setArea] = useState(25);          // basin area, km²
+  const [slope, setSlope] = useState(4);         // mean slope, degrees
+  const [moisture, setMoisture] = useState<Moisture>('medium');
+
+  const basin = respond(rain, hours, urbanPct / 100, area, slope, moisture);
+  const rural = respond(rain, hours, 0, area, slope, moisture);
+
+  const fmt = (value: number, digits = 1): string => {
+    const text = value.toFixed(digits);
+    return ru ? text.replace('.', ',') : text;
+  };
+  const lagChange = Math.round(((basin.lag - rural.lag) / rural.lag) * 100);
+  const peakRatio = rural.peak > 0 ? basin.peak / rural.peak : null;
+  const unitFlow = ru ? 'м³/с' : 'm³/s';
+  const unitH = ru ? 'ч' : 'h';
+
+  const controls: { key: string; min: number; max: number; step: number; value: number; set: (v: number) => void; digits: number; en: string; ru: string }[] = [
+    { key: 'rain', min: 10, max: 150, step: 5, value: rain, set: setRain, digits: 0, en: 'Storm rainfall (mm)', ru: 'Осадки за ливень (мм)' },
+    { key: 'hours', min: 1, max: 12, step: 1, value: hours, set: setHours, digits: 0, en: 'Storm duration (h)', ru: 'Продолжительность ливня (ч)' },
+    { key: 'urban', min: 0, max: 100, step: 5, value: urbanPct, set: setUrbanPct, digits: 0, en: 'Urban (impermeable) surface (%)', ru: 'Городская, водонепроницаемая поверхность (%)' },
+    { key: 'area', min: 5, max: 60, step: 1, value: area, set: setArea, digits: 0, en: 'Basin area (km²)', ru: 'Площадь бассейна (км²)' },
+    { key: 'slope', min: 0.5, max: 15, step: 0.5, value: slope, set: setSlope, digits: 1, en: 'Mean slope (°)', ru: 'Средний уклон (°)' },
+  ];
+
+  // Chart scales: time on the x axis, discharge on the y axis.
+  const xMax = Math.max(4, Math.ceil(Math.max(basin.tb, rural.tb) / 2) * 2);
+  const yMax = Math.max(1, 1.4 * Math.max(basin.peak, rural.peak));
+  const xOf = (t: number): number => LEFT + (t / xMax) * (RIGHT - LEFT);
+  const yOf = (q: number): number => BOTTOM - (q / yMax) * (BOTTOM - TOP);
+  const triangle = (r: Outcome): string => `${xOf(0)},${yOf(0)} ${xOf(r.tp)},${yOf(r.peak)} ${xOf(r.tb)},${yOf(0)}`;
+  const ticks = Array.from({ length: xMax / 2 + 1 }, (_, i) => i * 2);
+  const centre = hours / 2;      // the middle of the rain: the lag starts here
+  const yBasinLag = TOP + 14;    // lag markers sit above both curves
+  const yRuralLag = TOP + 26;
+
+  const lagMarker = (y: number, r: Outcome, dashed: boolean) => (
+    <g>
+      <line x1={xOf(centre)} y1={y} x2={xOf(r.tp)} y2={y} stroke="currentColor" strokeWidth={1.2} strokeDasharray={dashed ? '3 2' : undefined} />
+      <line x1={xOf(centre)} y1={y - 3} x2={xOf(centre)} y2={y + 3} stroke="currentColor" strokeWidth={1.2} />
+      <line x1={xOf(r.tp)} y1={y - 3} x2={xOf(r.tp)} y2={y + 3} stroke="currentColor" strokeWidth={1.2} />
+      <text x={xOf(r.tp) + 4} y={y + 3} fontSize="9" fill="currentColor">{`${ru ? 'запаздывание' : 'lag'} ${fmt(r.lag, 2)} ${unitH}`}</text>
+    </g>
+  );
+
+  const peakMarker = (r: Outcome) => (
+    <g>
+      <circle cx={xOf(r.tp)} cy={yOf(r.peak)} r={3} fill="currentColor" />
+      <text x={xOf(r.tp) + 6} y={yOf(r.peak) + 3} fontSize="10" fill="currentColor">{`${fmt(r.peak, 1)} ${unitFlow}`}</text>
+    </g>
+  );
+
+  const outputRows = [
+    { en: 'Curve number CN', ru: 'Номер кривой стока CN', a: fmt(basin.cn, 0), b: fmt(rural.cn, 0) },
+    { en: 'Runoff depth from the storm (mm)', ru: 'Глубина стока от ливня (мм)', a: fmt(basin.runoff, 1), b: fmt(rural.runoff, 1) },
+    { en: 'Lag time, from peak rainfall (middle of the storm) to peak discharge (h)', ru: 'Запаздывание от пика осадков (середина ливня) до пика расхода (ч)', a: fmt(basin.lag, 2), b: fmt(rural.lag, 2) },
+    { en: 'Time to peak from the start (h)', ru: 'Время до пика от начала ливня (ч)', a: fmt(basin.tp, 1), b: fmt(rural.tp, 1) },
+    { en: 'Peak discharge, indicative (m³/s)', ru: 'Пиковый расход, ориентировочно (м³/с)', a: fmt(basin.peak, 1), b: fmt(rural.peak, 1) },
+  ];
+
+  return (
+    <div style={{ maxWidth: '100%', boxSizing: 'border-box' }}>
+      <p style={{ margin: '0 0 8px', fontWeight: 600 }}>
+        {ru ? 'Учебная модель, не реальные данные и не прогноз паводков.' : 'Teaching model, not real data and not a flood forecast.'}
+      </p>
+
+      <div>
+        {controls.map(control => (
+          <label key={control.key} style={{ display: 'block', marginBottom: 10 }}>
+            <span style={{ display: 'flex', justifyContent: 'space-between', gap: 8, fontSize: 14 }}>
+              <span>{ru ? control.ru : control.en}</span>
+              <strong>{fmt(control.value, control.digits)}</strong>
+            </span>
+            <input
+              type="range"
+              min={control.min}
+              max={control.max}
+              step={control.step}
+              value={control.value}
+              onChange={event => control.set(Number(event.target.value))}
+              style={{ width: '100%' }}
+            />
+          </label>
+        ))}
+        <label style={{ display: 'block', marginBottom: 10 }}>
+          <span style={{ display: 'block', fontSize: 14, marginBottom: 4 }}>
+            {ru ? 'Насыщенность почвы до ливня' : 'Antecedent soil saturation'}
+          </span>
+          <select value={moisture} onChange={event => setMoisture(event.target.value as Moisture)} style={{ width: '100%' }}>
+            <option value="low">{ru ? 'Низкая (сухая почва)' : 'Low (dry soil)'}</option>
+            <option value="medium">{ru ? 'Средняя' : 'Medium (average)'}</option>
+            <option value="high">{ru ? 'Высокая (влажная почва)' : 'High (wet soil)'}</option>
+          </select>
+        </label>
+      </div>
+
+      <svg
+        viewBox="0 0 320 200"
+        width="100%"
+        role="img"
+        aria-label={ru ? 'Гидрографы ливня для бассейна и сельского сравнения' : 'Storm hydrographs for the basin and the rural comparison'}
+        style={{ display: 'block', maxWidth: 420, marginTop: 10 }}
+      >
+        {/* the storm: rain falls evenly from 0 to the duration */}
+        <rect x={xOf(0)} y={TOP} width={xOf(hours) - xOf(0)} height={6} fill="currentColor" opacity={0.3} />
+        <text x={xOf(hours) + 4} y={TOP + 6} fontSize="10" fill="currentColor">
+          {ru ? `${fmt(rain, 0)} мм за ${fmt(hours, 0)} ч` : `${fmt(rain, 0)} mm in ${fmt(hours, 0)} h`}
+        </text>
+        <line x1={xOf(centre)} y1={TOP} x2={xOf(centre)} y2={BOTTOM} stroke="currentColor" strokeWidth={1} strokeDasharray="1 3" opacity={0.7} />
+        {/* the two hydrographs: the rural comparison (dashed) and the basin (solid) */}
+        <polyline points={triangle(rural)} fill="none" stroke="currentColor" strokeWidth={1.5} strokeDasharray="6 4" opacity={0.7} strokeLinejoin="round" />
+        <polyline points={triangle(basin)} fill="none" stroke="currentColor" strokeWidth={2.5} strokeLinejoin="round" />
+        {lagMarker(yBasinLag, basin, false)}
+        {lagMarker(yRuralLag, rural, true)}
+        {peakMarker(basin)}
+        {peakMarker(rural)}
+        {/* axes */}
+        <line x1={LEFT} y1={BOTTOM} x2={RIGHT} y2={BOTTOM} stroke="currentColor" strokeWidth={1} opacity={0.5} />
+        <line x1={LEFT} y1={TOP} x2={LEFT} y2={BOTTOM} stroke="currentColor" strokeWidth={1} opacity={0.5} />
+        {ticks.map(t => (
+          <g key={t}>
+            <line x1={xOf(t)} y1={BOTTOM} x2={xOf(t)} y2={BOTTOM + 3} stroke="currentColor" opacity={0.5} />
+            <text x={xOf(t)} y={BOTTOM + 13} fontSize="10" textAnchor="middle" fill="currentColor">{fmt(t, 0)}</text>
+          </g>
+        ))}
+        <text x={RIGHT} y={BOTTOM + 26} fontSize="10" textAnchor="end" fill="currentColor">
+          {ru ? 'часы от начала ливня' : 'hours from the start of the storm'}
+        </text>
+        <text x={LEFT - 6} y={BOTTOM + 4} fontSize="10" textAnchor="end" fill="currentColor">0</text>
+        <text x={LEFT - 6} y={TOP + 8} fontSize="10" textAnchor="end" fill="currentColor">{fmt(yMax, 0)}</text>
+        <text x={LEFT - 6} y={TOP - 6} fontSize="10" textAnchor="end" fill="currentColor">{unitFlow}</text>
+      </svg>
+
+      <p style={{ margin: '6px 0 0', fontSize: 13, lineHeight: 1.5 }}>
+        {ru
+          ? 'Сплошная линия — ваш бассейн. Пунктир — тот же бассейн без городской поверхности (0 %) при том же ливне: сельское сравнение. Точечная линия — середина ливня, от неё отсчитывается запаздывание.'
+          : 'Solid line: your basin. Dashed line: the same basin with 0% urban surface under the same storm (the rural comparison). Dotted line: the middle of the storm, where the lag starts.'}
+      </p>
+
+      <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 13, marginTop: 10 }}>
+        <thead>
+          <tr style={{ borderBottom: '1px solid rgba(127,127,127,0.4)' }}>
+            <th style={{ textAlign: 'left', padding: '4px 6px 4px 0', fontWeight: 600 }}>{ru ? 'Показатель' : 'Output'}</th>
+            <th style={{ textAlign: 'right', padding: '4px 6px', fontWeight: 600 }}>
+              {ru ? `Ваш бассейн (${urbanPct} %)` : `Your basin (${urbanPct}% urban)`}
+            </th>
+            <th style={{ textAlign: 'right', padding: '4px 0', fontWeight: 600 }}>{ru ? 'Сельское (0 %)' : 'Rural (0%)'}</th>
+          </tr>
+        </thead>
+        <tbody>
+          {outputRows.map(row => (
+            <tr key={row.en} style={{ borderBottom: '1px solid rgba(127,127,127,0.25)' }}>
+              <td style={{ padding: '4px 6px 4px 0' }}>{ru ? row.ru : row.en}</td>
+              <td style={{ padding: '4px 6px', textAlign: 'right' }}><strong>{row.a}</strong></td>
+              <td style={{ padding: '4px 0', textAlign: 'right' }}>{row.b}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+
+      <p style={{ margin: '8px 0 0', fontSize: 15 }}>
+        {ru ? 'Относительно сельского сравнения: запаздывание ' : 'Compared with the rural case: lag '}
+        <strong>{`${lagChange > 0 ? '+' : ''}${lagChange}%`}</strong>
+        {ru ? ', пиковый расход ' : ', peak '}
+        <strong>{peakRatio === null ? '—' : `×${fmt(peakRatio, 1)}`}</strong>
+        .
+      </p>
+
+      {basin.runoff === 0 ? (
+        <p style={{ margin: '6px 0 0', fontSize: 13, fontWeight: 600 }}>
+          {ru
+            ? 'Сток с вашего бассейна нулевой: почва впитывает весь ливень, поэтому гидрограф плоский.'
+            : 'No runoff from your basin: the soil takes in the whole storm, so the hydrograph is flat.'}
+        </p>
+      ) : null}
+
+      <p style={{ margin: '12px 0 0', fontSize: 13, lineHeight: 1.5 }}>
+        <strong>{ru ? 'На что обратить внимание. ' : 'What to notice. '}</strong>
+        {ru
+          ? 'Городская доля — главный рычаг. При 0 % это сельское сравнение. При 100 % номер кривой стока растёт примерно с 70 до 98: большая часть ливня стекает, пик становится во много раз выше, время запаздывания сокращается, восходящая ветвь становится круче, а пик наступает раньше. В теме A.2 это изменение нужно описать и объяснить. Таблица даёт цифры для расчётных частей: процентный рост пикового расхода и долю осадков, ушедшую в сток.'
+          : 'The urban share is the main lever. At 0% this is the rural comparison. At 100% the curve number rises from about 70 to 98: most of the storm runs off, the peak becomes many times higher, the lag time shortens, and the rising limb steepens so the peak comes sooner. This is the change that A.2 asks you to describe and explain. The table gives the figures for the calculation parts: the percentage increase in peak discharge and the share of the rain that became runoff.'}
+      </p>
+
+      <p style={{ margin: '10px 0 0', fontSize: 13, lineHeight: 1.5 }}>
+        {ru
+          ? 'Формулы. Номер кривой стока бассейна: CN = (1 − доля городской поверхности) × CN_сел + доля × 98, где CN_сел = 70 при средней влажности; при сухой и влажной почве CN_сел становится CN_I = 4,2·CN ÷ (10 − 0,058·CN) и CN_III = 23·CN ÷ (10 + 0,13·CN). Запас S = 25 400 ÷ CN − 254 мм; сток Q = (P − 0,2·S)² ÷ (P + 0,8·S), если P > 0,2·S. Запаздывание (TR-55): lag = L^0,8 × (S_дюйм + 1)^0,7 ÷ (1 900 × √Y) часов, где L — длина пути в футах (L = 1,4 √A км), S_дюйм = 1 000 ÷ CN − 10, Y = 100 × tg(уклон) в процентах. Время до пика Tp = D/2 + lag, где D — продолжительность ливня. Пиковый расход = 0,208 × A × Q ÷ Tp м³/с (A в км², Q в мм, Tp в часах); гидрограф — треугольник с основанием 2,67 × Tp. Запаздывание отсчитывается от середины ливня (D/2). Ограничения: один ливень с равномерными осадками, один бассейн без деления на части; CN_сел = 70 — типичное значение, а не измерение. Модель годится для сравнения случаев, но не для прогноза паводка.'
+          : 'Formulas. Curve number of the basin: CN = (1 − urban share) × CN_rural + urban share × 98, where CN_rural = 70 at average moisture; for dry and wet soil CN_rural becomes CN_I = 4.2·CN ÷ (10 − 0.058·CN) and CN_III = 23·CN ÷ (10 + 0.13·CN). Retention S = 25,400 ÷ CN − 254 mm; runoff Q = (P − 0.2·S)² ÷ (P + 0.8·S) when P > 0.2·S. Lag (TR-55): lag = L^0.8 × (S_in + 1)^0.7 ÷ (1,900 × √Y) hours, where L is the flow path in feet (L = 1.4 √A km), S_in = 1,000 ÷ CN − 10 in inches, and Y = 100 × tan(slope) in percent. Time to peak Tp = D/2 + lag, where D is the storm duration. Peak = 0.208 × A × Q ÷ Tp m³/s (A in km², Q in mm, Tp in hours); the hydrograph is a triangle with base 2.67 × Tp. The lag is counted from the middle of the storm (D/2). Limits: one storm with even rain, one lumped basin, and CN_rural = 70 is a typical value, not a measurement. Use the model to compare cases, not to forecast a flood.'}
+      </p>
+    </div>
+  );
+}
