@@ -19,7 +19,7 @@ const topic: TopicMeta = {
   ],
   termIds: ['focalisation', 'omniscient-narrator', 'unreliable-narrator', 'imagery', 'symbol', 'audience'],
   questionIds: ['chk-concept-representation-1', 'chk-concept-representation-2'],
-  sources: [{ kind: 'own', title: 'Own wording for this portal, based on the key concepts of the IB English A: Literature course' }],
+  sources: [{ kind: 'own', title: 'Own wording' }],
 };
 
 export default topic;

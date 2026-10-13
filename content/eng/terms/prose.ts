@@ -10,7 +10,7 @@ export const terms: Term[] = [
     },
     syllabus: 'F.PRO',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: 'Own wording; check against the course textbook (chapter and page to be added)' },
+    src: { kind: 'own', title: 'Own wording' },
     example: {
       en: 'The narrator remembers the winter when the river froze, though she was only seven at the time.',
       ru: 'Рассказчица вспоминает зиму, когда замёрзла река, хотя тогда ей было всего семь лет.',
@@ -29,7 +29,7 @@ export const terms: Term[] = [
     },
     syllabus: 'F.PRO',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: 'Own wording; check against the course textbook (chapter and page to be added)' },
+    src: { kind: 'own', title: 'Own wording' },
     example: {
       en: 'I did not know then that the letter in the drawer would change the whole summer.',
       ru: 'Тогда мне ещё не было ясно, что письмо в ящике стола изменит всё лето.',
@@ -44,7 +44,7 @@ export const terms: Term[] = [
     },
     syllabus: 'F.PRO',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: 'Own wording; check against the course textbook (chapter and page to be added)' },
+    src: { kind: 'own', title: 'Own wording' },
     example: {
       en: 'She locked the door and walked slowly back to the kitchen, where the kettle had already gone cold.',
       ru: 'Она заперла дверь и медленно вернулась на кухню, где чайник уже остыл.',
@@ -59,7 +59,7 @@ export const terms: Term[] = [
     },
     syllabus: 'F.PRO',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: 'Own wording; check against the course textbook (chapter and page to be added)' },
+    src: { kind: 'own', title: 'Own wording' },
     example: {
       en: 'Mara had already decided to leave, though she would not say so, and her mother, in the next room, was privately afraid of exactly that.',
       ru: 'Мара уже решила уехать, хотя и не сказала бы об этом, а её мать в соседней комнате втайне боялась именно этого.',
@@ -78,7 +78,7 @@ export const terms: Term[] = [
     },
     syllabus: 'F.PRO',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: 'Own wording; check against the course textbook (chapter and page to be added)' },
+    src: { kind: 'own', title: 'Own wording' },
     example: {
       en: 'Everyone loved the party, the narrator insisted, although Julia left early and nobody mentioned the broken window.',
       ru: 'Всем понравилась вечеринка, настаивал рассказчик, хотя Юлия ушла рано, а о разбитом окне никто не упомянул.',
@@ -97,7 +97,7 @@ export const terms: Term[] = [
     },
     syllabus: 'F.PRO',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: 'Own wording; check against the course textbook (chapter and page to be added)' },
+    src: { kind: 'own', title: 'Own wording' },
     example: {
       en: 'Through the eyes of Tom, the new teacher looked tired and oddly small.',
       ru: 'Глазами Тома новая учительница выглядела усталой и странно маленькой.',
@@ -112,7 +112,7 @@ export const terms: Term[] = [
     },
     syllabus: 'F.PRO',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: 'Own wording; check against the course textbook (chapter and page to be added)' },
+    src: { kind: 'own', title: 'Own wording' },
     example: {
       en: 'Late again, of course, and why did Ruth always make everyone wait for her?',
       ru: 'Опять опоздала, разумеется, и почему Рут всегда заставляет всех ждать её?',
@@ -131,7 +131,7 @@ export const terms: Term[] = [
     },
     syllabus: 'F.PRO',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: 'Own wording; check against the course textbook (chapter and page to be added)' },
+    src: { kind: 'own', title: 'Own wording' },
     example: {
       en: 'Cold tea and rain on the glass, the voice on the stairs, the bread, the bill, the voice again, and the list I never finished.',
       ru: 'Холодный чай и дождь по стеклу, голос на лестнице, хлеб, счёт, тот же голос снова и недописанный список.',
@@ -146,7 +146,7 @@ export const terms: Term[] = [
     },
     syllabus: 'F.PRO',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: 'Own wording; check against the course textbook (chapter and page to be added)' },
+    src: { kind: 'own', title: 'Own wording' },
     example: {
       en: 'I must call the bank tomorrow, because the card is nearly empty and nobody else in this house will do it.',
       ru: 'Завтра нужно позвонить в банк, потому что карта почти пуста, а больше в этом доме этим никто не займётся.',
@@ -165,7 +165,7 @@ export const terms: Term[] = [
     },
     syllabus: 'F.PRO',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: 'Own wording; check against the course textbook (chapter and page to be added)' },
+    src: { kind: 'own', title: 'Own wording' },
     example: {
       en: 'Harold was a generous man who never forgot a kindness done to him.',
       ru: 'Гарольд был щедрым человеком, который никогда не забывал оказанной ему доброты.',
@@ -180,7 +180,7 @@ export const terms: Term[] = [
     },
     syllabus: 'F.PRO',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: 'Own wording; check against the course textbook (chapter and page to be added)' },
+    src: { kind: 'own', title: 'Own wording' },
     example: {
       en: 'Harold gave his last loaf to a stranger at the gate, then counted the coins in his pocket twice.',
       ru: 'Гарольд отдал последний хлеб незнакомцу у ворот, а потом дважды пересчитал монеты в кармане.',
@@ -195,7 +195,7 @@ export const terms: Term[] = [
     },
     syllabus: 'F.PRO',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: 'Own wording; check against the course textbook (chapter and page to be added)' },
+    src: { kind: 'own', title: 'Own wording' },
     example: {
       en: 'The protagonist, a quiet clerk, keeps a secret that slowly ruins his marriage.',
       ru: 'Протагонист, тихий служащий, хранит тайну, которая медленно губит его брак.',
@@ -214,7 +214,7 @@ export const terms: Term[] = [
     },
     syllabus: 'F.PRO',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: 'Own wording; check against the course textbook (chapter and page to be added)' },
+    src: { kind: 'own', title: 'Own wording' },
     example: {
       en: 'The antagonist is the town itself, which refuses to forget the past of the family.',
       ru: 'Антагонист — сам город, который отказывается забыть прошлое этой семьи.',
@@ -229,7 +229,7 @@ export const terms: Term[] = [
     },
     syllabus: 'F.PRO',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: 'Own wording; check against the course textbook (chapter and page to be added)' },
+    src: { kind: 'own', title: 'Own wording' },
     example: {
       en: 'Ellen is loud and careless, which makes her quiet sister seem even more careful and controlled.',
       ru: 'Эллен шумная и беспечная, и поэтому её тихая сестра кажется ещё более осторожной и собранной.',
@@ -244,7 +244,7 @@ export const terms: Term[] = [
     },
     syllabus: 'F.PRO',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: 'Own wording; check against the course textbook (chapter and page to be added)' },
+    src: { kind: 'own', title: 'Own wording' },
     example: {
       en: 'The story is set in a mining town in 1920, where coal dust settles on every kitchen table.',
       ru: 'История разворачивается в шахтёрском городке в 1920 году, где угольная пыль оседает на каждом кухонном столе.',
@@ -259,7 +259,7 @@ export const terms: Term[] = [
     },
     syllabus: 'F.PRO',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: 'Own wording; check against the course textbook (chapter and page to be added)' },
+    src: { kind: 'own', title: 'Own wording' },
     example: {
       en: 'The story opens with a funeral, then goes back ten years to show why the two brothers stopped speaking.',
       ru: 'История начинается с похорон, а потом возвращается на десять лет назад, чтобы показать, почему два брата перестали разговаривать.',
@@ -274,7 +274,7 @@ export const terms: Term[] = [
     },
     syllabus: 'F.PRO',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: 'Own wording; check against the course textbook (chapter and page to be added)' },
+    src: { kind: 'own', title: 'Own wording' },
     example: {
       en: 'Two sisters live in a house by the harbour, and everyone in the town already knows about the debts of their father.',
       ru: 'Две сестры живут в доме у гавани, и все в городе уже знают о долгах их отца.',
@@ -289,7 +289,7 @@ export const terms: Term[] = [
     },
     syllabus: 'F.PRO',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: 'Own wording; check against the course textbook (chapter and page to be added)' },
+    src: { kind: 'own', title: 'Own wording' },
     example: {
       en: 'On the bridge, the two brothers finally shout the truth, and nothing in the family can stay the same.',
       ru: 'На мосту братья наконец кричат правду, и ничто в семье уже не может остаться прежним.',
@@ -308,7 +308,7 @@ export const terms: Term[] = [
     },
     syllabus: 'F.PRO',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: 'Own wording; check against the course textbook (chapter and page to be added)' },
+    src: { kind: 'own', title: 'Own wording' },
     example: {
       en: 'After the trial, the brothers meet on the bridge again, sell the old house and agree to live apart, but peacefully.',
       ru: 'После суда братья снова встречаются на мосту, продают старый дом и решают жить порознь, но мирно.',
@@ -323,7 +323,7 @@ export const terms: Term[] = [
     },
     syllabus: 'F.PRO',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: 'Own wording; check against the course textbook (chapter and page to be added)' },
+    src: { kind: 'own', title: 'Own wording' },
     example: {
       en: 'The present-day story pauses while she remembers the night of the storm, when her father left the house for good.',
       ru: 'Рассказ о настоящем на время останавливается: она вспоминает ночь бури, когда её отец навсегда ушёл из дома.',
@@ -338,7 +338,7 @@ export const terms: Term[] = [
     },
     syllabus: 'F.PRO',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: 'Own wording; check against the course textbook (chapter and page to be added)' },
+    src: { kind: 'own', title: 'Own wording' },
     example: {
       en: 'A group of travellers waits out a storm at an inn, and each of them tells a story that the others will judge.',
       ru: 'Группа путешественников пережидает бурю в трактире, и каждый рассказывает историю, которую потом оценят остальные.',
@@ -353,7 +353,7 @@ export const terms: Term[] = [
     },
     syllabus: 'F.PRO',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: 'Own wording; check against the course textbook (chapter and page to be added)' },
+    src: { kind: 'own', title: 'Own wording' },
     example: {
       en: 'Standing in the empty kitchen, she suddenly understood that her mother had never been happy in that house.',
       ru: 'Стоя на пустой кухне, она вдруг поняла, что её мать никогда не была счастлива в этом доме.',
@@ -368,7 +368,7 @@ export const terms: Term[] = [
     },
     syllabus: 'F.PRO',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: 'Own wording; check against the course textbook (chapter and page to be added)' },
+    src: { kind: 'own', title: 'Own wording' },
     example: {
       en: 'The sky above the funeral wept all morning, as though it, too, had lost someone.',
       ru: 'Небо над похоронами плакало всё утро, будто и оно тоже кого-то потеряло.',
@@ -387,7 +387,7 @@ export const terms: Term[] = [
     },
     syllabus: 'F.PRO',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: 'Own wording; check against the course textbook (chapter and page to be added)' },
+    src: { kind: 'own', title: 'Own wording' },
     example: {
       en: 'Nobody gonna fix that roof before winter, so we just make do with what we got.',
       ru: 'Никто эту крышу до зимы чинить не будет, так что как-нибудь перебьёмся тем, что есть.',

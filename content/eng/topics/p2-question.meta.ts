@@ -19,7 +19,7 @@ const topic: TopicMeta = {
   ],
   termIds: ['theme', 'motif', 'literary-device', 'tone', 'symbol', 'connotation', 'argument', 'purpose', 'juxtaposition'],
   questionIds: ['p2-q01', 'p2-q02', 'p2-q03', 'p2-q04', 'p2-q05', 'chk-p2-question-1', 'chk-p2-question-2'],
-  sources: [{ kind: 'own', title: 'Own wording for this portal; Paper 2 format from the course brief (105 minutes, 25 marks)' }],
+  sources: [{ kind: 'own', title: 'Own wording' }],
 };
 
 export default topic;

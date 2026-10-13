@@ -18,7 +18,7 @@ const topic: TopicMeta = {
   ],
   termIds: ['defamiliarisation', 'literary-device', 'allusion', 'motif', 'symbol', 'paradox', 'oxymoron'],
   questionIds: ['chk-concept-creativity-1', 'chk-concept-creativity-2'],
-  sources: [{ kind: 'own', title: 'Written for this portal from the key concept list of the IB English A: Literature course' }],
+  sources: [{ kind: 'own', title: 'Own wording' }],
 };
 
 export default topic;

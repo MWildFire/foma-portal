@@ -17,9 +17,9 @@ const topic: TopicMeta = {
     { en: 'I can build a short quotation into my own sentence so that the grammar works', ru: 'Могу вплести короткую цитату в своё предложение так, чтобы работала грамматика' },
     { en: 'I can use terms exactly: a simile is not a metaphor, and irony is not sarcasm', ru: 'Могу употреблять термины точно: сравнение — не метафора, а ирония — не сарказм' },
   ],
-  termIds: ['denotation', 'connotation', 'diction', 'register', 'syntax', 'hyperbole', 'understatement', 'euphemism'],
+  termIds: ['denotation', 'connotation', 'diction', 'register', 'syntax', 'hyperbole', 'understatement', 'euphemism', 'assonance', 'caesura', 'rhythm'],
   questionIds: ['chk-p1-language-1', 'chk-p1-language-2'],
-  sources: [{ kind: 'own', title: 'Written for this portal; criterion D (language) of Paper 1, 0–5 marks' }],
+  sources: [{ kind: 'own', title: 'Own wording' }],
 };
 
 export default topic;

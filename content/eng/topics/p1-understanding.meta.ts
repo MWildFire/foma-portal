@@ -19,7 +19,7 @@ const topic: TopicMeta = {
   ],
   termIds: ['lyric-persona', 'tone', 'mood', 'theme', 'connotation', 'denotation', 'verbal-irony', 'subtext'],
   questionIds: ['p1-dickinson-fly', 'chk-p1-understanding-1', 'chk-p1-understanding-2'],
-  sources: [{ kind: 'own', title: 'Written for this portal; criterion A (understanding and interpretation) of Paper 1, 0–5 marks' }],
+  sources: [{ kind: 'own', title: 'Own wording' }],
 };
 
 export default topic;

@@ -19,7 +19,7 @@ const topic: TopicMeta = {
   ],
   termIds: ['antithesis', 'anaphora', 'rhetorical-question', 'exposition', 'climax', 'denouement'],
   questionIds: ['chk-p1-focus-1', 'chk-p1-focus-2'],
-  sources: [{ kind: 'own', title: 'Written for this portal; criterion C (focus and organisation) of Paper 1, 0–5 marks' }],
+  sources: [{ kind: 'own', title: 'Own wording' }],
 };
 
 export default topic;

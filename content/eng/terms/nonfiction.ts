@@ -10,7 +10,7 @@ export const terms: Term[] = [
     },
     syllabus: 'F.NFI',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: 'Own wording; check against the course textbook (chapter and page to be added)' },
+    src: { kind: 'own', title: 'Own wording' },
     example: {
       en: 'As a doctor who has worked in rural clinics for twenty years, I know how hard it is to ask for help.',
       ru: 'Как врач, который двадцать лет работает в сельских клиниках, я знаю, как трудно просить о помощи.',
@@ -25,7 +25,7 @@ export const terms: Term[] = [
     },
     syllabus: 'F.NFI',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: 'Own wording; check against the course textbook (chapter and page to be added)' },
+    src: { kind: 'own', title: 'Own wording' },
     example: {
       en: 'Picture the child who waits at the school gate every afternoon, watching the other children leave with their parents.',
       ru: 'Представьте ребёнка, который каждый день после уроков ждёт у школьных ворот и смотрит, как остальные уходят с родителями.',
@@ -40,7 +40,7 @@ export const terms: Term[] = [
     },
     syllabus: 'F.NFI',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: 'Own wording; check against the course textbook (chapter and page to be added)' },
+    src: { kind: 'own', title: 'Own wording' },
     example: {
       en: 'Only 12 per cent of the applicants passed the test, so the exam is far harder than the advert claims.',
       ru: 'Лишь 12 процентов кандидатов сдали тест, поэтому экзамен намного сложнее, чем утверждает реклама.',
@@ -59,7 +59,7 @@ export const terms: Term[] = [
     },
     syllabus: 'F.NFI',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: 'Own wording; check against the course textbook (chapter and page to be added)' },
+    src: { kind: 'own', title: 'Own wording' },
     example: {
       en: 'Who would trust a government that cannot even keep its own schools open?',
       ru: 'Кто станет доверять правительству, которое не может даже сохранить открытыми собственные школы?',
@@ -78,7 +78,7 @@ export const terms: Term[] = [
     },
     syllabus: 'F.NFI',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: 'Own wording; check against the course textbook (chapter and page to be added)' },
+    src: { kind: 'own', title: 'Own wording' },
     example: {
       en: 'We have seen the empty shelves, we have heard the empty promises, and we have felt the empty pockets of this city.',
       ru: 'Мы видели пустые полки, мы слышали пустые обещания, мы ощущали пустые карманы этого города.',
@@ -93,7 +93,7 @@ export const terms: Term[] = [
     },
     syllabus: 'F.NFI',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: 'Own wording; check against the course textbook (chapter and page to be added)' },
+    src: { kind: 'own', title: 'Own wording' },
     example: {
       en: 'The mayor insists the plan is fair, the council confirms that the plan is fair, and the newspaper repeats that the plan is fair.',
       ru: 'Мэр настаивает, что план справедлив, совет подтверждает, что план справедлив, а газета повторяет, что план справедлив.',
@@ -108,7 +108,7 @@ export const terms: Term[] = [
     },
     syllabus: 'F.NFI',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: 'Own wording; check against the course textbook (chapter and page to be added)' },
+    src: { kind: 'own', title: 'Own wording' },
     example: {
       en: 'The government spends freely on speeches, but it counts every penny that goes to the schools.',
       ru: 'Правительство щедро тратит на речи, но считает каждую копейку, которая уходит на школы.',
@@ -123,7 +123,7 @@ export const terms: Term[] = [
     },
     syllabus: 'F.NFI',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: 'Own wording; check against the course textbook (chapter and page to be added)' },
+    src: { kind: 'own', title: 'Own wording' },
     example: {
       en: 'We need schools that teach, hospitals that heal, and roads that connect.',
       ru: 'Нам нужны школы, которые учат, больницы, которые лечат, и дороги, которые соединяют.',
@@ -138,7 +138,7 @@ export const terms: Term[] = [
     },
     syllabus: 'F.NFI',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: 'Own wording; check against the course textbook (chapter and page to be added)' },
+    src: { kind: 'own', title: 'Own wording' },
     example: {
       en: 'We walked and walked and walked, and the road and the rain and the silence went on and on.',
       ru: 'Мы шли и шли и шли, и дорога, и дождь, и тишина тянулись и тянулись.',
@@ -153,7 +153,7 @@ export const terms: Term[] = [
     },
     syllabus: 'F.NFI',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: 'Own wording; check against the course textbook (chapter and page to be added)' },
+    src: { kind: 'own', title: 'Own wording' },
     example: {
       en: 'Run, hide, wait, breathe, run again.',
       ru: 'Беги, прячься, жди, дыши, снова беги.',
@@ -172,7 +172,7 @@ export const terms: Term[] = [
     },
     syllabus: 'F.NFI',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: 'Own wording; check against the course textbook (chapter and page to be added)' },
+    src: { kind: 'own', title: 'Own wording' },
     example: {
       en: 'Some people study to live, and others live to study.',
       ru: 'Одни учатся, чтобы жить, а другие живут, чтобы учиться.',
@@ -187,7 +187,7 @@ export const terms: Term[] = [
     },
     syllabus: 'F.NFI',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: 'Own wording; check against the course textbook (chapter and page to be added)' },
+    src: { kind: 'own', title: 'Own wording' },
     example: {
       en: 'My friends, you have been told that this town is finished, but the two of us know better.',
       ru: 'Друзья мои, вам говорили, что наш город обречён, но мы-то с вами знаем лучше.',
@@ -202,7 +202,7 @@ export const terms: Term[] = [
     },
     syllabus: 'F.NFI',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: 'Own wording; check against the course textbook (chapter and page to be added)' },
+    src: { kind: 'own', title: 'Own wording' },
     example: {
       en: 'Written for parents of seven-year-olds, the leaflet uses short sentences and avoids technical words.',
       ru: 'Написанная для родителей семилетних детей листовка использует короткие предложения и избегает технических терминов.',
@@ -221,7 +221,7 @@ export const terms: Term[] = [
     },
     syllabus: 'F.NFI',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: 'Own wording; check against the course textbook (chapter and page to be added)' },
+    src: { kind: 'own', title: 'Own wording' },
     example: {
       en: 'The speech is meant less to inform the voters than to make them angry enough to go out and vote.',
       ru: 'Эта речь нужна не столько для того, чтобы информировать избирателей, сколько для того, чтобы разозлить их и заставить пойти голосовать.',
@@ -240,7 +240,7 @@ export const terms: Term[] = [
     },
     syllabus: 'F.NFI',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: 'Own wording; check against the course textbook (chapter and page to be added)' },
+    src: { kind: 'own', title: 'Own wording' },
     example: {
       en: 'The minister, who has never read a school report, promises to improve every school in the country personally by Friday.',
       ru: 'Министр, который ни разу не читал школьных отчётов, обещает лично улучшить все школы страны к пятнице.',
@@ -255,7 +255,7 @@ export const terms: Term[] = [
     },
     syllabus: 'F.NFI',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: 'Own wording; check against the course textbook (chapter and page to be added)' },
+    src: { kind: 'own', title: 'Own wording' },
     example: {
       en: 'The speaker says "our town" eleven times, so that every listener feels part of one community.',
       ru: 'Оратор одиннадцать раз говорит «наш город», чтобы каждый слушатель чувствовал себя частью одного сообщества.',
@@ -270,7 +270,7 @@ export const terms: Term[] = [
     },
     syllabus: 'F.NFI',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: 'Own wording; check against the course textbook (chapter and page to be added)' },
+    src: { kind: 'own', title: 'Own wording' },
     example: {
       en: 'Libraries should stay open late, because students who cannot study at home lose a chance that no amount of money can buy back.',
       ru: 'Библиотеки должны работать допоздна, потому что ученики, которые не могут заниматься дома, теряют шанс, который не вернуть ни за какие деньги.',
@@ -285,7 +285,7 @@ export const terms: Term[] = [
     },
     syllabus: 'F.NFI',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: 'Own wording; check against the course textbook (chapter and page to be added)' },
+    src: { kind: 'own', title: 'Own wording' },
     example: {
       en: 'Last winter my neighbour, a retired teacher, walked three kilometres to bring us a single bag of rice.',
       ru: 'Прошлой зимой мой сосед, учитель на пенсии, прошёл три километра, чтобы принести нам один мешок риса.',

@@ -19,7 +19,7 @@ const topic: TopicMeta = {
   ],
   termIds: ['epiphany', 'reversal', 'volta', 'climax', 'denouement', 'pace'],
   questionIds: ['chk-concept-transformation-1', 'chk-concept-transformation-2'],
-  sources: [{ kind: 'own', title: 'Own wording for this portal, based on the key concepts of the IB English A: Literature course' }],
+  sources: [{ kind: 'own', title: 'Own wording' }],
 };
 
 export default topic;

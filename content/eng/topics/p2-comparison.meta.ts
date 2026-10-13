@@ -19,7 +19,7 @@ const topic: TopicMeta = {
   termIds: ['theme', 'juxtaposition', 'irony', 'symbol', 'mood', 'tone', 'personification', 'pathetic-fallacy'],
   questionIds: ['p2-q06', 'p2-q07', 'p2-q08', 'p2-q09', 'p2-q10', 'p2-q11', 'p2-q12', 'p2-q13', 'p2-q14', 'p2-q15', 'p1-dickinson-fly', 'p1-hardy-thrush', 'chk-p2-comparison-1', 'chk-p2-comparison-2'],
   sims: ['eng.thesis'],
-  sources: [{ kind: 'own', title: 'Own wording for this portal; Paper 2 format from the course brief (105 minutes, 25 marks)' }],
+  sources: [{ kind: 'own', title: 'Own wording' }],
 };
 
 export default topic;

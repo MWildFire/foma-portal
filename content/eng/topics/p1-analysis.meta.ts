@@ -20,7 +20,7 @@ const topic: TopicMeta = {
   termIds: ['simile', 'metaphor', 'juxtaposition', 'syntax', 'diction', 'connotation', 'imagery', 'tone', 'pace', 'foreshadowing', 'symbol'],
   questionIds: ['p1-dickinson-fly', 'p1-joyce-araby', 'chk-p1-analysis-1', 'chk-p1-analysis-2'],
   sims: ['eng.annotate'],
-  sources: [{ kind: 'own', title: 'Written for this portal; criterion B (analysis and evaluation) of Paper 1, 0–5 marks' }],
+  sources: [{ kind: 'own', title: 'Own wording' }],
 };
 
 export default topic;

@@ -4,7 +4,7 @@ const topic: TopicMeta = {
   id: 'p1-method',
   subject: 'eng',
   code: 'P1.M',
-  title: { en: 'Method: a guided analysis in 75 minutes', ru: 'Метод: направленный анализ за 75 минут' },
+  title: { en: 'Method: a guided analysis in 94 minutes (75 + 25%)', ru: 'Метод: направленный анализ за 94 минуты (75 + 25%)' },
   papers: ['P1'],
   order: 1,
   minutes: 45,
@@ -15,11 +15,11 @@ const topic: TopicMeta = {
     { en: 'I can annotate an unseen extract for techniques and for shifts in meaning', ru: 'Могу разметить незнакомый отрывок: приёмы и смены смысла' },
     { en: 'I can write a one-sentence thesis that answers the question and makes a claim about effect', ru: 'Могу написать тезис в одном предложении: он отвечает на вопрос и утверждает что-то об эффекте' },
     { en: 'I can plan three or four paragraphs and keep each one linked to the question', ru: 'Могу составить план из трёх–четырёх абзацев, связанных с вопросом' },
-    { en: 'I can divide 75 minutes between reading, planning, writing and checking', ru: 'Могу разделить 75 минут между чтением, планом, письмом и проверкой' },
+    { en: 'I can divide 94 minutes between reading, planning, writing and checking', ru: 'Могу разделить 94 минуты между чтением, планом, письмом и проверкой' },
   ],
   termIds: ['imagery', 'simile', 'anticlimax', 'enjambment', 'onomatopoeia', 'personification', 'tone'],
   questionIds: ['p1-dickinson-fly', 'chk-p1-method-1', 'chk-p1-method-2'],
-  sources: [{ kind: 'own', title: 'Method written for this portal; exam format from the G12 mock schedule (Paper 1: 75 minutes, 20 marks)' }],
+  sources: [{ kind: 'own', title: 'Own wording' }],
 };
 
 export default topic;

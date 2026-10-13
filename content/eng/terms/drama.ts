@@ -10,7 +10,7 @@ export const terms: Term[] = [
     },
     syllabus: 'F.DRA',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: 'Own wording; check against the course textbook (chapter and page to be added)' },
+    src: { kind: 'own', title: 'Own wording' },
     example: {
       en: '(She turns away from the window, and her hands shake while her voice stays calm.)',
       ru: '(Она отворачивается от окна, и её руки дрожат, хотя голос остаётся спокойным.)',
@@ -25,7 +25,7 @@ export const terms: Term[] = [
     },
     syllabus: 'F.DRA',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: 'Own wording; check against the course textbook (chapter and page to be added)' },
+    src: { kind: 'own', title: 'Own wording' },
     example: {
       en: 'Alone in the kitchen, Mara tears up the letter and says to herself, "Nobody will ever know what I did."',
       ru: 'Оставшись одна на кухне, Мара рвёт письмо и говорит сама себе: «Никто никогда не узнает, что я сделала».',
@@ -44,7 +44,7 @@ export const terms: Term[] = [
     },
     syllabus: 'F.DRA',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: 'Own wording; check against the course textbook (chapter and page to be added)' },
+    src: { kind: 'own', title: 'Own wording' },
     example: {
       en: '(Aside, to the audience) Let him talk; he will sign everything tomorrow.',
       ru: '(В сторону, зрителям) Пусть говорит: завтра он всё подпишет.',
@@ -59,7 +59,7 @@ export const terms: Term[] = [
     },
     syllabus: 'F.DRA',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: 'Own wording; check against the course textbook (chapter and page to be added)' },
+    src: { kind: 'own', title: 'Own wording' },
     example: {
       en: 'The audience has just seen Ben hide the letter in his coat, but Ruth cheerfully asks, "Has anything happened today?"',
       ru: 'Зрители только что видели, как Бен спрятал письмо в пальто, а Рут весело спрашивает: «Сегодня ничего не случилось?»',
@@ -78,7 +78,7 @@ export const terms: Term[] = [
     },
     syllabus: 'F.DRA',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: 'Own wording; check against the course textbook (chapter and page to be added)' },
+    src: { kind: 'own', title: 'Own wording' },
     example: {
       en: 'MARK: "The kettle is on, if you want some tea." (He does not look up, and he folds the same tea towel for the fourth time.)',
       ru: 'МАРК: «Чайник на плите, если хочешь чаю.» (Он не поднимает глаз и в четвёртый раз складывает одно и то же полотенце.)',
@@ -97,7 +97,7 @@ export const terms: Term[] = [
     },
     syllabus: 'F.DRA',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: 'Own wording; check against the course textbook (chapter and page to be added)' },
+    src: { kind: 'own', title: 'Own wording' },
     example: {
       en: 'The father sits alone in the dark corner, while the children stand in a single pool of light by the door.',
       ru: 'Отец сидит один в тёмном углу, а дети стоят в круге света у двери.',
@@ -112,7 +112,7 @@ export const terms: Term[] = [
     },
     syllabus: 'F.DRA',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: 'Own wording; check against the course textbook (chapter and page to be added)' },
+    src: { kind: 'own', title: 'Own wording' },
     example: {
       en: 'Five townspeople enter the square, singing about the drought and warning the king not to ignore the gods.',
       ru: 'Пятеро горожан выходят на площадь, поют о засухе и предупреждают царя, чтобы тот не пренебрегал волей богов.',
@@ -127,7 +127,7 @@ export const terms: Term[] = [
     },
     syllabus: 'F.DRA',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: 'Own wording; check against the course textbook (chapter and page to be added)' },
+    src: { kind: 'own', title: 'Own wording' },
     example: {
       en: 'Proud and certain of his own judgement, the mayor ignores every warning, and in the final scene he stands alone among the ruins of the city he meant to save.',
       ru: 'Гордый и уверенный в собственном суждении мэр игнорирует каждое предупреждение, и в финальной сцене он стоит один среди руин города, который хотел спасти.',
@@ -146,7 +146,7 @@ export const terms: Term[] = [
     },
     syllabus: 'F.DRA',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: 'Own wording; check against the course textbook (chapter and page to be added)' },
+    src: { kind: 'own', title: 'Own wording' },
     example: {
       en: 'After a week of misunderstandings, the two families agree to forget their quarrel, and the play ends with a wedding and a joke about the mayor’s hat.',
       ru: 'После недели недоразумений две семьи решают забыть свою ссору, и пьеса заканчивается свадьбой и шуткой о шляпе мэра.',
@@ -161,7 +161,7 @@ export const terms: Term[] = [
     },
     syllabus: 'F.DRA',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: 'Own wording; check against the course textbook (chapter and page to be added)' },
+    src: { kind: 'own', title: 'Own wording' },
     example: {
       en: 'In a drawing room, two suitors argue about the rules of good manners, and every insult is delivered with perfect politeness.',
       ru: 'В гостиной два поклонника спорят о правилах хорошего тона, и каждое оскорбление произносится с безупречной вежливостью.',
@@ -176,7 +176,7 @@ export const terms: Term[] = [
     },
     syllabus: 'F.DRA',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: 'Own wording; check against the course textbook (chapter and page to be added)' },
+    src: { kind: 'own', title: 'Own wording' },
     example: {
       en: 'A husband hides under the table, his wife hides in the cupboard, and the lodger, dressed as a bishop, falls through the window.',
       ru: 'Муж прячется под столом, жена — в шкафу, а квартирант, переодетый епископом, вваливается в окно.',
@@ -191,7 +191,7 @@ export const terms: Term[] = [
     },
     syllabus: 'F.DRA',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: 'Own wording; check against the course textbook (chapter and page to be added)' },
+    src: { kind: 'own', title: 'Own wording' },
     example: {
       en: 'By the final scene the whole theatre is in tears, and when the lights come up, the audience sits in a silence that feels like relief.',
       ru: 'К финальной сцене весь зал плачет, а когда зажигается свет, зрители сидят в тишине, которая похожа на облегчение.',
@@ -210,7 +210,7 @@ export const terms: Term[] = [
     },
     syllabus: 'F.DRA',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: 'Own wording; check against the course textbook (chapter and page to be added)' },
+    src: { kind: 'own', title: 'Own wording' },
     example: {
       en: 'As soon as the king signs the pardon, a servant arrives with the news that the prisoner is his own son.',
       ru: 'Как только король подписывает помилование, слуга приносит весть о том, что узник — его собственный сын.',
@@ -225,7 +225,7 @@ export const terms: Term[] = [
     },
     syllabus: 'F.DRA',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: 'Own wording; check against the course textbook (chapter and page to be added)' },
+    src: { kind: 'own', title: 'Own wording' },
     example: {
       en: 'NINA: Where were you last night? / TOM: Out walking. / NINA: Out walking where? / TOM: Out walking.',
       ru: 'НИНА: Где ты был вчера вечером? / ТОМ: Гулял. / НИНА: Где именно? / ТОМ: Гулял.',
@@ -240,7 +240,7 @@ export const terms: Term[] = [
     },
     syllabus: 'F.DRA',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: 'Own wording; check against the course textbook (chapter and page to be added)' },
+    src: { kind: 'own', title: 'Own wording' },
     example: {
       en: 'Halfway through the play, the narrator turns to the audience and says, "You have seen this story before, so you already know who dies."',
       ru: 'На середине пьесы рассказчик поворачивается к залу и говорит: «Вы уже видели эту историю, так что сами знаете, кто умрёт».',
@@ -255,7 +255,7 @@ export const terms: Term[] = [
     },
     syllabus: 'F.DRA',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: 'Own wording; check against the course textbook (chapter and page to be added)' },
+    src: { kind: 'own', title: 'Own wording' },
     example: {
       en: 'A woman climbs a staircase that leads back into the room she has just left, announcing each step as if it were a long journey.',
       ru: 'Женщина поднимается по лестнице, которая ведёт обратно в комнату, которую она только что покинула, и объявляет каждую ступеньку так, будто это долгое путешествие.',
@@ -274,7 +274,7 @@ export const terms: Term[] = [
     },
     syllabus: 'F.DRA',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: 'Own wording; check against the course textbook (chapter and page to be added)' },
+    src: { kind: 'own', title: 'Own wording' },
     example: {
       en: 'With the army at the gates and no way out, a stranger rides in with a bag of gold, pays every debt, and the play ends in celebration.',
       ru: 'Когда армия стоит у ворот и выхода нет, в город въезжает незнакомец с мешком золота, расплачивается по всем долгам, и пьеса заканчивается праздником.',

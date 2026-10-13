@@ -18,7 +18,7 @@ const topic: TopicMeta = {
   ],
   termIds: ['symbol', 'motif', 'juxtaposition', 'setting', 'vernacular', 'chorus'],
   questionIds: ['chk-concept-culture-1', 'chk-concept-culture-2'],
-  sources: [{ kind: 'own', title: 'Key concept notes written for this portal; concept code C.CU from the portal syllabus' }],
+  sources: [{ kind: 'own', title: 'Own wording' }],
 };
 
 export default topic;

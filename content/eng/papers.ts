@@ -2,6 +2,7 @@ import type { PaperGuide } from '../../src/contract/types';
 
 // Paper guides for the school mock. Durations must match data/exams.json (eng-p1 75 min, eng-p2 105 min).
 // Timed sets reuse the practice passages (Paper 1) and the prompts of the P2 bank (Paper 2) by id.
+// Timed sets keep the standard minutes: the app adds the 25% access time when the setting is on.
 export const papers: PaperGuide[] = [
   {
     subject: 'eng',
@@ -14,8 +15,8 @@ export const papers: PaperGuide[] = [
       ru: 'Два незнакомых отрывка разных форм (например, поэзия и проза или драма и нон-фикшн), у каждого — направляющий вопрос. Выберите один отрывок и ответьте на его вопрос. Четыре критерия, каждый оценивается от 0 до 5: понимание и интерпретация, анализ и оценка, фокус и организация, язык.',
     },
     strategy: {
-      en: 'About 10 minutes: read the guiding questions, read both extracts for sense, choose one. 5 minutes: annotate it. 10 minutes: write the thesis and the plan. 45 minutes: write the response. 5 minutes: check the quotations, the links to the question and the time. Plan before you write: a response without a thesis cannot reach the top band of criterion B.',
-      ru: 'Около 10 минут: прочитать направляющие вопросы, прочитать оба отрывка ради смысла, выбрать один. 5 минут: разметить его. 10 минут: написать тезис и план. 45 минут: написать ответ. 5 минут: проверить цитаты, связи с вопросом и время. Сначала план: ответ без тезиса не может попасть в высшую группу критерия B.',
+      en: 'With your 25% access time the paper is 94 minutes. About 10 minutes: read the guiding questions, read both extracts for sense, choose one. 5 minutes: annotate it. 10 minutes: write the thesis and the plan. 64 minutes: write the response (45 without access time; the 19 extra minutes all go to writing). 5 minutes: check the quotations, the links to the question and the time. Plan before you write: a response without a thesis cannot reach the top band of criterion B.',
+      ru: 'С доп. временем (25%) пейпер длится 94 минуты. Около 10 минут: прочитать направляющие вопросы, прочитать оба отрывка ради смысла, выбрать один. 5 минут: разметить его. 10 минут: написать тезис и план. 64 минуты: написать ответ (45 без доп. времени; 19 дополнительных минут — все на письмо). 5 минут: проверить цитаты, связи с вопросом и время. Сначала план: ответ без тезиса не может попасть в высшую группу критерия B.',
     },
     criteria: {
       en: 'A understanding and interpretation (0–5) · B analysis and evaluation (0–5) · C focus and organisation (0–5) · D language (0–5). Total 20.',
@@ -25,37 +26,37 @@ export const papers: PaperGuide[] = [
     timedSets: [
       {
         id: 'p1-set-poetry-prose',
-        title: { en: 'Full paper: poetry and prose extracts, 75 minutes', ru: 'Весь пейпер: стихотворение и проза, 75 минут' },
+        title: { en: 'Full paper: poetry and prose extracts', ru: 'Весь пейпер: стихотворение и проза' },
         questionIds: ['p1-dickinson-fly', 'p1-joyce-araby'],
         minutes: 75,
       },
       {
         id: 'p1-set-drama-nonfiction',
-        title: { en: 'Full paper: drama and speech extracts, 75 minutes', ru: 'Весь пейпер: драма и речь, 75 минут' },
+        title: { en: 'Full paper: drama and speech extracts', ru: 'Весь пейпер: драма и речь' },
         questionIds: ['p1-wilde-earnest', 'p1-douglass-fourth'],
         minutes: 75,
       },
       {
         id: 'p1-set-poetry-prose-2',
-        title: { en: 'Full paper: poetry and prose extracts (second set), 75 minutes', ru: 'Весь пейпер: стихотворение и проза (второй набор), 75 минут' },
+        title: { en: 'Full paper: poetry and prose extracts (second set)', ru: 'Весь пейпер: стихотворение и проза (второй набор)' },
         questionIds: ['p1-hardy-thrush', 'p1-mansfield-garden'],
         minutes: 75,
       },
       {
         id: 'p1-set-drama-nonfiction-2',
-        title: { en: 'Full paper: drama and non-fiction extracts (second set), 75 minutes', ru: 'Весь пейпер: драма и нон-фикшн (второй набор), 75 минут' },
+        title: { en: 'Full paper: drama and non-fiction extracts (second set)', ru: 'Весь пейпер: драма и нон-фикшн (второй набор)' },
         questionIds: ['p1-ibsen-doll', 'p1-wollstonecraft-rights'],
         minutes: 75,
       },
       {
         id: 'p1-one-extract-45',
-        title: { en: 'One extract, 45 minutes (practice)', ru: 'Один отрывок, 45 минут (тренировка)' },
+        title: { en: 'One extract (practice)', ru: 'Один отрывок (тренировка)' },
         questionIds: ['p1-keats-nightingale'],
         minutes: 45,
       },
       {
         id: 'p1-one-extract-30',
-        title: { en: 'One short poem, 30 minutes (quick practice)', ru: 'Одно короткое стихотворение, 30 минут (быстрая тренировка)' },
+        title: { en: 'One short poem (quick practice)', ru: 'Одно короткое стихотворение (быстрая тренировка)' },
         questionIds: ['p1-owen-dulce'],
         minutes: 30,
       },
@@ -72,8 +73,8 @@ export const papers: PaperGuide[] = [
       ru: 'Одно эссе, которое сравнивает два изученных произведения (не те, что использовались для Individual Oral). Выберите один из четырёх общих вопросов. Пять критериев, каждый оценивается от 0 до 5: A понимание задания и обоих произведений; B1 авторские решения; B2 сравнение; C фокус и организация; D язык.',
     },
     strategy: {
-      en: '10 minutes: read the prompt, choose the two works, write a thesis and three comparison points. 80 minutes: write, with one comparison point per paragraph and a comparison in every paragraph. 10 minutes: check the thesis, the quotations and the conclusion. Do not write a summary of either work: each paragraph compares the choices the two writers make.',
-      ru: '10 минут: прочитать задание, выбрать два произведения, написать тезис и три пункта сравнения. 80 минут: писать, один пункт сравнения на абзац и сравнение в каждом абзаце. 10 минут: проверить тезис, цитаты и вывод. Не пишите пересказ ни одного из произведений: каждый абзац сравнивает решения двух авторов.',
+      en: 'With your 25% access time the paper is 131 minutes. 10 minutes: read the prompt, choose the two works, write a thesis and three comparison points. 106 minutes: write, with one comparison point per paragraph and a comparison in every paragraph (80 without access time; the 26 extra minutes all go to writing). 10 minutes: check the thesis, the quotations and the conclusion. 5 minutes: spare. Do not write a summary of either work: each paragraph compares the choices the two writers make.',
+      ru: 'С доп. временем (25%) пейпер длится 131 минуту. 10 минут: прочитать задание, выбрать два произведения, написать тезис и три пункта сравнения. 106 минут: писать, один пункт сравнения на абзац и сравнение в каждом абзаце (80 без доп. времени; 26 дополнительных минут — все на письмо). 10 минут: проверить тезис, цитаты и вывод. 5 минут — запас. Не пишите пересказ ни одного из произведений: каждый абзац сравнивает решения двух авторов.',
     },
     criteria: {
       en: 'A (0–5) · B1 (0–5) · B2 (0–5) · C (0–5) · D (0–5). Total 25. Check the current criteria against your teacher\'s materials.',
@@ -83,19 +84,19 @@ export const papers: PaperGuide[] = [
     timedSets: [
       {
         id: 'p2-full',
-        title: { en: 'Full paper: one essay, 105 minutes', ru: 'Весь пейпер: одно эссе, 105 минут' },
+        title: { en: 'Full paper: one essay', ru: 'Весь пейпер: одно эссе' },
         questionIds: ['p2-q01', 'p2-q02', 'p2-q03', 'p2-q04'],
         minutes: 105,
       },
       {
         id: 'p2-essay-80',
-        title: { en: 'Writing only, 80 minutes (plan already done)', ru: 'Только письмо, 80 минут (план уже готов)' },
+        title: { en: 'Writing only (plan already done)', ru: 'Только письмо (план уже готов)' },
         questionIds: ['p2-q05'],
         minutes: 80,
       },
       {
         id: 'p2-plan-10',
-        title: { en: 'Planning only, 10 minutes', ru: 'Только план, 10 минут' },
+        title: { en: 'Planning only', ru: 'Только план' },
         questionIds: ['p2-q06'],
         minutes: 10,
       },

@@ -16,9 +16,9 @@ const topic: TopicMeta = {
     { en: 'I can explain what a rhetorical question, anaphora or antithesis does to the listener', ru: 'Могу объяснить, что риторический вопрос, анафора или антитеза делают со слушателем' },
     { en: 'I can trace how an argument is built and point to the place where it turns', ru: 'Могу проследить, как построен аргумент, и указать место, где он меняет направление' },
   ],
-  termIds: ['ethos', 'pathos', 'logos', 'rhetorical-question', 'anaphora', 'antithesis', 'tricolon', 'direct-address', 'audience', 'purpose', 'rhetoric', 'argument'],
+  termIds: ['ethos', 'pathos', 'logos', 'rhetorical-question', 'anaphora', 'antithesis', 'tricolon', 'direct-address', 'audience', 'purpose', 'rhetoric', 'argument', 'epistrophe', 'polysyndeton', 'asyndeton', 'chiasmus', 'satire', 'anecdote'],
   questionIds: ['p1-douglass-fourth', 'p1-wollstonecraft-rights', 'chk-form-nonfiction-1', 'chk-form-nonfiction-2'],
-  sources: [{ kind: 'own', title: 'Method written for this portal; rhetoric terms follow the course terminology, checked against the course textbook' }],
+  sources: [{ kind: 'own', title: 'Own wording' }],
 };
 
 export default topic;

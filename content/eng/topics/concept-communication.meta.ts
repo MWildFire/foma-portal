@@ -18,7 +18,7 @@ const topic: TopicMeta = {
   ],
   termIds: ['subtext', 'soliloquy', 'aside', 'apostrophe', 'direct-address', 'audience', 'dramatic-irony'],
   questionIds: ['chk-concept-communication-1', 'chk-concept-communication-2'],
-  sources: [{ kind: 'own', title: 'Written for this portal from the key concept list of the IB English A: Literature course' }],
+  sources: [{ kind: 'own', title: 'Own wording' }],
 };
 
 export default topic;

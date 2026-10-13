@@ -16,9 +16,9 @@ const topic: TopicMeta = {
     { en: 'I can explain the connotation of a word and how it differs from its denotation', ru: 'Могу объяснить коннотацию слова и её отличие от денотации' },
     { en: 'I can trace how juxtaposition, a motif or foreshadowing shapes what the reader expects', ru: 'Могу проследить, как сопоставление, мотив или предзнаменование меняют ожидания читателя' },
   ],
-  termIds: ['tone', 'mood', 'imagery', 'symbol', 'metaphor', 'simile', 'personification', 'verbal-irony', 'situational-irony', 'understatement', 'diction', 'connotation', 'denotation', 'foreshadowing'],
+  termIds: ['tone', 'mood', 'imagery', 'symbol', 'metaphor', 'simile', 'personification', 'verbal-irony', 'situational-irony', 'understatement', 'diction', 'connotation', 'denotation', 'foreshadowing', 'symbolism', 'allegory', 'suspense'],
   questionIds: ['chk-techniques-general-1', 'chk-techniques-general-2'],
-  sources: [{ kind: 'own', title: 'Method written for this portal; general techniques follow the course terminology, checked against the course textbook' }],
+  sources: [{ kind: 'own', title: 'Own wording' }],
 };
 
 export default topic;

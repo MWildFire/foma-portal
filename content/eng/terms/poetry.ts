@@ -10,7 +10,7 @@ export const terms: Term[] = [
     },
     syllabus: 'F.POE',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: 'Own wording; check against the course textbook (chapter and page to be added)' },
+    src: { kind: 'own', title: 'Own wording' },
     example: {
       en: 'the DAY be-GINS, the NIGHT de-SCENDS (capitals mark the stressed syllables)',
       ru: 'день начинается, ночь спускается (в английском примере ударные слоги написаны заглавными буквами)',
@@ -29,7 +29,7 @@ export const terms: Term[] = [
     },
     syllabus: 'F.POE',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: 'Own wording; check against the course textbook (chapter and page to be added)' },
+    src: { kind: 'own', title: 'Own wording' },
     example: {
       en: 'a BIRD a-WAKES and SINGS a-LOUD',
       ru: 'птица просыпается и поёт во весь голос',
@@ -48,7 +48,7 @@ export const terms: Term[] = [
     },
     syllabus: 'F.POE',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: 'Own wording; check against the course textbook (chapter and page to be added)' },
+    src: { kind: 'own', title: 'Own wording' },
     example: {
       en: 'DARK the PATH and BARE the TREE',
       ru: 'тёмная тропа и голое дерево',
@@ -63,7 +63,7 @@ export const terms: Term[] = [
     },
     syllabus: 'F.POE',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: 'Own wording; check against the course textbook (chapter and page to be added)' },
+    src: { kind: 'own', title: 'Own wording' },
     example: {
       en: 'as a SHIP glides a-WAY from the SHORE',
       ru: 'как корабль скользит прочь от берега',
@@ -78,7 +78,7 @@ export const terms: Term[] = [
     },
     syllabus: 'F.POE',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: 'Own wording; check against the course textbook (chapter and page to be added)' },
+    src: { kind: 'own', title: 'Own wording' },
     example: {
       en: 'PER-fect-ly STILL is the SEA',
       ru: 'совершенно неподвижно море',
@@ -93,7 +93,7 @@ export const terms: Term[] = [
     },
     syllabus: 'F.POE',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: 'Own wording; check against the course textbook (chapter and page to be added)' },
+    src: { kind: 'own', title: 'Own wording' },
     example: {
       en: 'the SOFT wind SIGHS a-CROSS the QUI-et BAY',
       ru: 'нежный ветер вздыхает над тихим заливом',
@@ -108,7 +108,7 @@ export const terms: Term[] = [
     },
     syllabus: 'F.POE',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: 'Own wording; check against the course textbook (chapter and page to be added)' },
+    src: { kind: 'own', title: 'Own wording' },
     example: {
       en: 'the STARS came OUT, and NONE of THEM would SPEAK',
       ru: 'звёзды вышли, и ни одна из них не захотела говорить',
@@ -123,7 +123,7 @@ export const terms: Term[] = [
     },
     syllabus: 'F.POE',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: 'Own wording; check against the course textbook (chapter and page to be added)' },
+    src: { kind: 'own', title: 'Own wording' },
     example: {
       en: 'The rain came in without knocking / and sat down at our table, wet and tired.',
       ru: 'Дождь вошёл, не постучав, / и сел за наш стол, мокрый и усталый.',
@@ -138,7 +138,7 @@ export const terms: Term[] = [
     },
     syllabus: 'F.POE',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: 'Own wording; check against the course textbook (chapter and page to be added)' },
+    src: { kind: 'own', title: 'Own wording' },
     example: {
       en: 'Slow, slow, the long tide breathes in and out.',
       ru: 'Медленно, медленно, длинный прилив вдыхает и выдыхает.',
@@ -153,7 +153,7 @@ export const terms: Term[] = [
     },
     syllabus: 'F.POE',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: 'Own wording; check against the course textbook (chapter and page to be added)' },
+    src: { kind: 'own', title: 'Own wording' },
     example: {
       en: 'The lamp is lit. / The night is cold. / The door stays shut. / The dog waits by the fire.',
       ru: 'Лампа зажжена. / Ночь холодна. / Дверь заперта. / Собака ждёт у огня.',
@@ -172,7 +172,7 @@ export const terms: Term[] = [
     },
     syllabus: 'F.POE',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: 'Own wording; check against the course textbook (chapter and page to be added)' },
+    src: { kind: 'own', title: 'Own wording' },
     example: {
       en: 'The sea is wide, the night is long, / and every bird has stopped its song.',
       ru: 'Море широко, ночь длинна, / и каждая птица перестала петь.',
@@ -187,7 +187,7 @@ export const terms: Term[] = [
     },
     syllabus: 'F.POE',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: 'Own wording; check against the course textbook (chapter and page to be added)' },
+    src: { kind: 'own', title: 'Own wording' },
     example: {
       en: 'The road runs down beyond the hill, / and I have walked the whole night / to find the door that stands so still / and wait for the first light.',
       ru: 'Дорога уходит вниз за холм, / и я шёл всю ночь, / чтобы найти дверь, которая стоит так неподвижно, / и ждать первого света.',
@@ -202,7 +202,7 @@ export const terms: Term[] = [
     },
     syllabus: 'F.POE',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: 'Own wording; check against the course textbook (chapter and page to be added)' },
+    src: { kind: 'own', title: 'Own wording' },
     example: {
       en: 'The octave describes the storm; the sestet asks what the storm has taken.',
       ru: 'Октава описывает бурю; секстет спрашивает, что буря отняла.',
@@ -217,7 +217,7 @@ export const terms: Term[] = [
     },
     syllabus: 'F.POE',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: 'Own wording; check against the course textbook (chapter and page to be added)' },
+    src: { kind: 'own', title: 'Own wording' },
     example: {
       en: 'Fourteen lines of iambic pentameter, rhymed ABAB CDCD EFEF GG, form a Shakespearean sonnet.',
       ru: 'Четырнадцать строк ямбического пентаметра с рифмовкой АБАБ ВГВГ ДЕДЕ ЖЖ образуют шекспировский сонет.',
@@ -236,7 +236,7 @@ export const terms: Term[] = [
     },
     syllabus: 'F.POE',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: 'Own wording; check against the course textbook (chapter and page to be added)' },
+    src: { kind: 'own', title: 'Own wording' },
     example: {
       en: 'O harbour light, that guards the dark, I honour you.',
       ru: 'О, портовый огонь, что стережёт тьму, я чту тебя.',
@@ -251,7 +251,7 @@ export const terms: Term[] = [
     },
     syllabus: 'F.POE',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: 'Own wording; check against the course textbook (chapter and page to be added)' },
+    src: { kind: 'own', title: 'Own wording' },
     example: {
       en: 'The house is quiet where the singing used to be.',
       ru: 'В доме тихо там, где раньше звучала песня.',
@@ -266,7 +266,7 @@ export const terms: Term[] = [
     },
     syllabus: 'F.POE',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: 'Own wording; check against the course textbook (chapter and page to be added)' },
+    src: { kind: 'own', title: 'Own wording' },
     example: {
       en: 'The miller rode before the dawn / across the frost to market town; / he never reached the market square, / and nobody saw him ride back down.',
       ru: 'Мельник выехал до рассвета / по морозу на рынок в город; / он не дошёл до рыночной площади, / и никто не видел, как он вернулся.',
@@ -281,7 +281,7 @@ export const terms: Term[] = [
     },
     syllabus: 'F.POE',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: 'Own wording; check against the course textbook (chapter and page to be added)' },
+    src: { kind: 'own', title: 'Own wording' },
     example: {
       en: 'I wait for morning and its light / and count the hours of the night.',
       ru: 'Я жду утра и его света / и считаю часы ночи.',
@@ -296,7 +296,7 @@ export const terms: Term[] = [
     },
     syllabus: 'F.POE',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: 'Own wording; check against the course textbook (chapter and page to be added)' },
+    src: { kind: 'own', title: 'Own wording' },
     example: {
       en: 'Lines 1 and 3 rhyme, and lines 2 and 4 rhyme: the rhyme scheme is ABAB.',
       ru: 'Строки 1 и 3 рифмуются, и строки 2 и 4 рифмуются: схема рифмовки АБАБ.',
@@ -315,7 +315,7 @@ export const terms: Term[] = [
     },
     syllabus: 'F.POE',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: 'Own wording; check against the course textbook (chapter and page to be added)' },
+    src: { kind: 'own', title: 'Own wording' },
     example: {
       en: 'I could not leave, I could not move, / and kept the ache of my old love.',
       ru: 'Я не мог уйти, не мог сдвинуться с места, / и хранил боль старой любви.',
@@ -330,7 +330,7 @@ export const terms: Term[] = [
     },
     syllabus: 'F.POE',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: 'Own wording; check against the course textbook (chapter and page to be added)' },
+    src: { kind: 'own', title: 'Own wording' },
     example: {
       en: 'I sing to bring the spring again.',
       ru: 'Я пою, чтобы весна вернулась.',
@@ -345,7 +345,7 @@ export const terms: Term[] = [
     },
     syllabus: 'F.POE',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: 'Own wording; check against the course textbook (chapter and page to be added)' },
+    src: { kind: 'own', title: 'Own wording' },
     example: {
       en: 'Late in the lake, the grey light fades.',
       ru: 'Поздно на озере гаснет серый свет.',
@@ -364,7 +364,7 @@ export const terms: Term[] = [
     },
     syllabus: 'F.POE',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: 'Own wording; check against the course textbook (chapter and page to be added)' },
+    src: { kind: 'own', title: 'Own wording' },
     example: {
       en: 'Silver spray sweeps the sand.',
       ru: 'Серебристые брызги скользят по песку.',
@@ -379,7 +379,7 @@ export const terms: Term[] = [
     },
     syllabus: 'F.POE',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: 'Own wording; check against the course textbook (chapter and page to be added)' },
+    src: { kind: 'own', title: 'Own wording' },
     example: {
       en: 'The bees buzz, the waves hiss, and the old gate creaks.',
       ru: 'Пчёлы жужжат, волны шипят, и старая калитка скрипит.',
@@ -394,7 +394,7 @@ export const terms: Term[] = [
     },
     syllabus: 'F.POE',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: 'Own wording; check against the course textbook (chapter and page to be added)' },
+    src: { kind: 'own', title: 'Own wording' },
     example: {
       en: 'The gulls waited on the pier / for boats that never came back home.',
       ru: 'Чайки ждали на причале / лодок, которые так и не вернулись домой.',
@@ -413,7 +413,7 @@ export const terms: Term[] = [
     },
     syllabus: 'F.POE',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: 'Own wording; check against the course textbook (chapter and page to be added)' },
+    src: { kind: 'own', title: 'Own wording' },
     example: {
       en: 'I held my breath — the sea went still.',
       ru: 'Дыхание затаилось — море замерло.',
@@ -428,7 +428,7 @@ export const terms: Term[] = [
     },
     syllabus: 'F.POE',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: 'Own wording; check against the course textbook (chapter and page to be added)' },
+    src: { kind: 'own', title: 'Own wording' },
     example: {
       en: 'Eight lines of grief, then the turn: "But still the tide comes back to shore."',
       ru: 'Восемь строк скорби, а затем поворот: «Но всё же прилив возвращается к берегу».',
@@ -447,7 +447,7 @@ export const terms: Term[] = [
     },
     syllabus: 'F.POE',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: 'Own wording; check against the course textbook (chapter and page to be added)' },
+    src: { kind: 'own', title: 'Own wording' },
     example: {
       en: 'Each stanza ends with the same line: "Come home, the lamps are lit."',
       ru: 'Каждая строфа заканчивается одной и той же строкой: «Возвращайся домой, лампы зажжены».',
@@ -462,7 +462,7 @@ export const terms: Term[] = [
     },
     syllabus: 'F.POE',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: 'Own wording; check against the course textbook (chapter and page to be added)' },
+    src: { kind: 'own', title: 'Own wording' },
     example: {
       en: 'O sea, you took my father; now I speak to you.',
       ru: 'О море, ты забрало моего отца; теперь я обращаюсь к тебе.',
@@ -481,7 +481,7 @@ export const terms: Term[] = [
     },
     syllabus: 'F.POE',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: 'Own wording; check against the course textbook (chapter and page to be added)' },
+    src: { kind: 'own', title: 'Own wording' },
     example: {
       en: 'I have kept your coat on the hook for eleven winters.',
       ru: 'Одиннадцать зим я храню твоё пальто на крючке.',
@@ -500,7 +500,7 @@ export const terms: Term[] = [
     },
     syllabus: 'F.POE',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: 'Own wording; check against the course textbook (chapter and page to be added)' },
+    src: { kind: 'own', title: 'Own wording' },
     example: {
       en: 'Sit down, Harold, and listen while I count the years I wasted.',
       ru: 'Садись, Гарольд, и слушай, как я считаю годы, растраченные впустую.',
@@ -515,7 +515,7 @@ export const terms: Term[] = [
     },
     syllabus: 'F.POE',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: 'Own wording; check against the course textbook (chapter and page to be added)' },
+    src: { kind: 'own', title: 'Own wording' },
     example: {
       en: 'My heart is a clock that you wound once and then left in the rain to rust.',
       ru: 'Моё сердце — часы, которые однажды завели и оставили ржаветь под дождём.',
@@ -534,7 +534,7 @@ export const terms: Term[] = [
     },
     syllabus: 'F.POE',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: 'Own wording; check against the course textbook (chapter and page to be added)' },
+    src: { kind: 'own', title: 'Own wording' },
     example: {
       en: 'I sit alone, and every feeling turns into a song.',
       ru: 'Я сижу один, и каждое чувство превращается в песню.',

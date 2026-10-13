@@ -10,7 +10,7 @@ export const terms: Term[] = [
     },
     syllabus: 'F.GEN',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: 'Own wording; check against the course textbook (chapter and page to be added)' },
+    src: { kind: 'own', title: 'Own wording' },
     example: {
       en: 'Her letter kept a cold, formal tone, even as it begged for forgiveness.',
       ru: 'Её письмо сохраняло холодный, официальный тон, даже когда умоляло о прощении.',
@@ -29,7 +29,7 @@ export const terms: Term[] = [
     },
     syllabus: 'F.GEN',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: 'Own wording; check against the course textbook (chapter and page to be added)' },
+    src: { kind: 'own', title: 'Own wording' },
     example: {
       en: 'Rain on the tin roof and a dead streetlamp made the whole night feel heavy and lonely.',
       ru: 'Дождь по жестяной крыше и неработающий фонарь делали всю ночь тяжёлой и одинокой.',
@@ -44,7 +44,7 @@ export const terms: Term[] = [
     },
     syllabus: 'F.GEN',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: 'Own wording; check against the course textbook (chapter and page to be added)' },
+    src: { kind: 'own', title: 'Own wording' },
     example: {
       en: 'The kitchen smelled of burnt toast and wet wool, and the radio crackled in the corner.',
       ru: 'Кухня пахла подгоревшим тостом и мокрой шерстью, а в углу потрескивало радио.',
@@ -59,7 +59,7 @@ export const terms: Term[] = [
     },
     syllabus: 'F.GEN',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: 'Own wording; check against the course textbook (chapter and page to be added)' },
+    src: { kind: 'own', title: 'Own wording' },
     example: {
       en: 'The dripping tap appears in every chapter, marking the slow decay of the family.',
       ru: 'Капающий кран появляется в каждой главе, отмечая медленный упадок семьи.',
@@ -74,7 +74,7 @@ export const terms: Term[] = [
     },
     syllabus: 'F.GEN',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: 'Own wording; check against the course textbook (chapter and page to be added)' },
+    src: { kind: 'own', title: 'Own wording' },
     example: {
       en: 'The single white dove above the grave stood for a peace the village had not found.',
       ru: 'Одинокий белый голубь над могилой символизировал мир, которого деревня так и не обрела.',
@@ -93,7 +93,7 @@ export const terms: Term[] = [
     },
     syllabus: 'F.GEN',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: 'Own wording; check against the course textbook (chapter and page to be added)' },
+    src: { kind: 'own', title: 'Own wording' },
     example: {
       en: 'The closed windows, the locked gate and the unlit hall together suggest a family that has shut out the world.',
       ru: 'Закрытые окна, запертые ворота и неосвещённый зал вместе говорят о семье, которая отгородилась от мира.',
@@ -108,7 +108,7 @@ export const terms: Term[] = [
     },
     syllabus: 'F.GEN',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: 'Own wording; check against the course textbook (chapter and page to be added)' },
+    src: { kind: 'own', title: 'Own wording' },
     example: {
       en: 'The classroom was a beehive of whispers before the bell rang.',
       ru: 'Класс был ульем шёпота, пока не прозвенел звонок.',
@@ -127,7 +127,7 @@ export const terms: Term[] = [
     },
     syllabus: 'F.GEN',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: 'Own wording; check against the course textbook (chapter and page to be added)' },
+    src: { kind: 'own', title: 'Own wording' },
     example: {
       en: 'The river lay as still as a sheet of glass beneath the bridge.',
       ru: 'Река под мостом лежала неподвижно, как лист стекла.',
@@ -142,7 +142,7 @@ export const terms: Term[] = [
     },
     syllabus: 'F.GEN',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: 'Own wording; check against the course textbook (chapter and page to be added)' },
+    src: { kind: 'own', title: 'Own wording' },
     example: {
       en: 'The wind pushed impatiently at the door, eager to be let in.',
       ru: 'Ветер нетерпеливо толкался в дверь, рвясь войти.',
@@ -157,7 +157,7 @@ export const terms: Term[] = [
     },
     syllabus: 'F.GEN',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: 'Own wording; check against the course textbook (chapter and page to be added)' },
+    src: { kind: 'own', title: 'Own wording' },
     example: {
       en: 'The ballroom glittered with laughter, while the cellar below held only silence and damp.',
       ru: 'Бальный зал сверкал смехом, а подвал внизу хранил лишь тишину и сырость.',
@@ -172,7 +172,7 @@ export const terms: Term[] = [
     },
     syllabus: 'F.GEN',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: 'Own wording; check against the course textbook (chapter and page to be added)' },
+    src: { kind: 'own', title: 'Own wording' },
     example: {
       en: 'The host praised the burnt dinner as a triumph while his guests quietly reached for their coats.',
       ru: 'Хозяин хвалил подгоревший ужин как триумф, пока гости тихо тянулись к своим пальто.',
@@ -187,7 +187,7 @@ export const terms: Term[] = [
     },
     syllabus: 'F.GEN',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: 'Own wording; check against the course textbook (chapter and page to be added)' },
+    src: { kind: 'own', title: 'Own wording' },
     example: {
       en: '"Lovely weather for a picnic," she said, as the rain soaked through the blanket.',
       ru: '«Какая чудесная погода для пикника», — сказала она, пока дождь промочил плед насквозь.',
@@ -206,7 +206,7 @@ export const terms: Term[] = [
     },
     syllabus: 'F.GEN',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: 'Own wording; check against the course textbook (chapter and page to be added)' },
+    src: { kind: 'own', title: 'Own wording' },
     example: {
       en: 'The locksmith spent the whole evening locked out of his own house.',
       ru: 'Слесарь весь вечер не мог попасть в собственный дом.',
@@ -225,7 +225,7 @@ export const terms: Term[] = [
     },
     syllabus: 'F.GEN',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: 'Own wording; check against the course textbook (chapter and page to be added)' },
+    src: { kind: 'own', title: 'Own wording' },
     example: {
       en: 'The queue for the new phone reached the moon and came back.',
       ru: 'Очередь за новым телефоном дошла до Луны и вернулась обратно.',
@@ -240,7 +240,7 @@ export const terms: Term[] = [
     },
     syllabus: 'F.GEN',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: 'Own wording; check against the course textbook (chapter and page to be added)' },
+    src: { kind: 'own', title: 'Own wording' },
     example: {
       en: 'After the flood took the bridge and half the village, the mayor called it a bit of a nuisance.',
       ru: 'После того как наводнение смыло мост и половину деревни, мэр назвал случившееся небольшим неудобством.',
@@ -259,7 +259,7 @@ export const terms: Term[] = [
     },
     syllabus: 'F.GEN',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: 'Own wording; check against the course textbook (chapter and page to be added)' },
+    src: { kind: 'own', title: 'Own wording' },
     example: {
       en: 'The firm described the mass dismissals as a workforce realignment.',
       ru: 'Фирма назвала массовые увольнения «перестройкой кадрового состава».',
@@ -274,7 +274,7 @@ export const terms: Term[] = [
     },
     syllabus: 'F.GEN',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: 'Own wording; check against the course textbook (chapter and page to be added)' },
+    src: { kind: 'own', title: 'Own wording' },
     example: {
       en: 'The clock in the hall had stopped, and nobody thought to wind it.',
       ru: 'Часы в холле остановились, и никто не подумал их завести.',
@@ -289,7 +289,7 @@ export const terms: Term[] = [
     },
     syllabus: 'F.GEN',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: 'Own wording; check against the course textbook (chapter and page to be added)' },
+    src: { kind: 'own', title: 'Own wording' },
     example: {
       en: 'He was a Narcissus of the boardroom, admiring his reflection in every glass wall.',
       ru: 'Он был Нарциссом из зала заседаний, любуясь своим отражением в каждой стеклянной стене.',
@@ -304,7 +304,7 @@ export const terms: Term[] = [
     },
     syllabus: 'F.GEN',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: 'Own wording; check against the course textbook (chapter and page to be added)' },
+    src: { kind: 'own', title: 'Own wording' },
     example: {
       en: 'The narrator chose the blunt word "slaughter" where a gentler writer would have said "loss".',
       ru: 'Рассказчик выбрал резкое слово «резня» там, где более мягкий автор написал бы «потеря».',
@@ -319,7 +319,7 @@ export const terms: Term[] = [
     },
     syllabus: 'F.GEN',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: 'Own wording; check against the course textbook (chapter and page to be added)' },
+    src: { kind: 'own', title: 'Own wording' },
     example: {
       en: 'He ran past the gate, past the church, past the shuttered shop, and he did not stop.',
       ru: 'Он бежал мимо ворот, мимо церкви, мимо магазина с закрытыми ставнями и не остановился.',
@@ -334,7 +334,7 @@ export const terms: Term[] = [
     },
     syllabus: 'F.GEN',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: 'Own wording; check against the course textbook (chapter and page to be added)' },
+    src: { kind: 'own', title: 'Own wording' },
     example: {
       en: 'The letter opened with "Dear Sir or Madam" and closed with a stiff "Yours faithfully".',
       ru: 'Письмо открывалось словами «Уважаемый господин или госпожа» и заканчивалось сухим «С уважением».',
@@ -349,7 +349,7 @@ export const terms: Term[] = [
     },
     syllabus: 'F.GEN',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: 'Own wording; check against the course textbook (chapter and page to be added)' },
+    src: { kind: 'own', title: 'Own wording' },
     example: {
       en: 'Calling the old house quaint, rather than shabby, gives it an affectionate glow.',
       ru: 'Назвав старый дом «живописным», а не «обшарпанным», автор придал ему нежный отблеск.',
@@ -368,7 +368,7 @@ export const terms: Term[] = [
     },
     syllabus: 'F.GEN',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: 'Own wording; check against the course textbook (chapter and page to be added)' },
+    src: { kind: 'own', title: 'Own wording' },
     example: {
       en: 'The word "snake" denotes a legless reptile, though readers often hear danger in it.',
       ru: 'Слово «змея» обозначает безногое пресмыкающееся, хотя читатели часто слышат в нём опасность.',
@@ -383,7 +383,7 @@ export const terms: Term[] = [
     },
     syllabus: 'F.GEN',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: 'Own wording; check against the course textbook (chapter and page to be added)' },
+    src: { kind: 'own', title: 'Own wording' },
     example: {
       en: 'The only way to escape the room was to stop trying to leave it.',
       ru: 'Единственный способ выйти из комнаты — перестать пытаться из неё выйти.',
@@ -402,7 +402,7 @@ export const terms: Term[] = [
     },
     syllabus: 'F.GEN',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: 'Own wording; check against the course textbook (chapter and page to be added)' },
+    src: { kind: 'own', title: 'Own wording' },
     example: {
       en: 'The soldiers marched on in a deafening silence.',
       ru: 'Солдаты шли дальше в оглушительной тишине.',
@@ -417,7 +417,7 @@ export const terms: Term[] = [
     },
     syllabus: 'F.GEN',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: 'Own wording; check against the course textbook (chapter and page to be added)' },
+    src: { kind: 'own', title: 'Own wording' },
     example: {
       en: 'In the story, a village whose wells all run dry stands for a country that has forgotten how to share.',
       ru: 'В рассказе деревня, в которой пересыхают все колодцы, обозначает страну, которая разучилась делиться.',
@@ -436,7 +436,7 @@ export const terms: Term[] = [
     },
     syllabus: 'F.GEN',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: 'Own wording; check against the course textbook (chapter and page to be added)' },
+    src: { kind: 'own', title: 'Own wording' },
     example: {
       en: 'The subject of the novel is war, but its theme is that victory can cost a nation its conscience.',
       ru: 'Предметом романа является война, но его тема — в том, что победа может стоить стране её совести.',
@@ -455,7 +455,7 @@ export const terms: Term[] = [
     },
     syllabus: 'F.GEN',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: 'Own wording; check against the course textbook (chapter and page to be added)' },
+    src: { kind: 'own', title: 'Own wording' },
     example: {
       en: 'The narrator describes a handshake as a strange ritual in which two strangers weigh each other up.',
       ru: 'Рассказчик описывает рукопожатие как странный ритуал, в котором два незнакомца оценивают друг друга.',
@@ -470,7 +470,7 @@ export const terms: Term[] = [
     },
     syllabus: 'F.GEN',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: 'Own wording; check against the course textbook (chapter and page to be added)' },
+    src: { kind: 'own', title: 'Own wording' },
     example: {
       en: 'The duel that had built up all night ended with a sneeze and a polite apology.',
       ru: 'Дуэль, к которой всю ночь нагнетали напряжение, закончилась чихом и вежливым извинением.',
@@ -485,7 +485,7 @@ export const terms: Term[] = [
     },
     syllabus: 'F.GEN',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: 'Own wording; check against the course textbook (chapter and page to be added)' },
+    src: { kind: 'own', title: 'Own wording' },
     example: {
       en: 'Footsteps stopped outside the door, and the handle began to turn very slowly.',
       ru: 'Шаги остановились за дверью, и ручка начала очень медленно поворачиваться.',
@@ -500,7 +500,7 @@ export const terms: Term[] = [
     },
     syllabus: 'F.GEN',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: 'Own wording; check against the course textbook (chapter and page to be added)' },
+    src: { kind: 'own', title: 'Own wording' },
     example: {
       en: 'The writer repeats the word "never" three times, which slows the reader down.',
       ru: 'Автор трижды повторяет слово «никогда», и это замедляет чтение.',
@@ -519,7 +519,7 @@ export const terms: Term[] = [
     },
     syllabus: 'F.GEN',
     papers: ['P1', 'P2'],
-    src: { kind: 'own', title: 'Own wording; check against the course textbook (chapter and page to be added)' },
+    src: { kind: 'own', title: 'Own wording' },
     example: {
       en: 'The chase is told in short, clipped sentences, while the wedding unfolds in long, lazy ones.',
       ru: 'Погоня рассказана короткими, рваными предложениями, а свадьба разворачивается длинными, неспешными фразами.',

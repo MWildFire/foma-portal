@@ -18,7 +18,7 @@ const topic: TopicMeta = {
   ],
   termIds: ['diction', 'connotation', 'register', 'understatement', 'syntax'],
   questionIds: ['p2-q16', 'p2-q17', 'p2-q18', 'p2-q19', 'p2-q20', 'chk-p2-language-1', 'chk-p2-language-2'],
-  sources: [{ kind: 'own', title: 'Language rules for Paper 2 written for this portal; criterion D from the owner brief (language, 0–5)' }],
+  sources: [{ kind: 'own', title: 'Own wording' }],
 };
 
 export default topic;

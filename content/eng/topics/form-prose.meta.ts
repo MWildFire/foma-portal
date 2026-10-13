@@ -17,9 +17,9 @@ const topic: TopicMeta = {
     { en: 'I can describe the structure of a short story: exposition, climax, denouement and flashback', ru: 'Могу описать структуру рассказа: экспозиция, кульминация, развязка и ретроспекция' },
     { en: 'I can explain how a setting or a description of nature contrasts with, or mirrors, a character\'s mood', ru: 'Могу объяснить, как обстановка или описание природы контрастирует с настроением героя или отражает его' },
   ],
-  termIds: ['narrator', 'first-person-narration', 'third-person-narration', 'omniscient-narrator', 'unreliable-narrator', 'focalisation', 'free-indirect-discourse', 'stream-of-consciousness', 'interior-monologue', 'direct-characterisation', 'indirect-characterisation', 'exposition', 'setting', 'pathetic-fallacy'],
+  termIds: ['narrator', 'first-person-narration', 'third-person-narration', 'omniscient-narrator', 'unreliable-narrator', 'focalisation', 'free-indirect-discourse', 'stream-of-consciousness', 'interior-monologue', 'direct-characterisation', 'indirect-characterisation', 'exposition', 'setting', 'pathetic-fallacy', 'plot', 'flashback', 'frame-narrative', 'antagonist'],
   questionIds: ['p1-chekhov-lady', 'p1-joyce-araby', 'p1-mansfield-garden', 'p1-chopin-hour', 'chk-form-prose-1', 'chk-form-prose-2'],
-  sources: [{ kind: 'own', title: 'Own wording; check against the course textbook (chapter and page to be added)' }],
+  sources: [{ kind: 'own', title: 'Own wording' }],
 };
 
 export default topic;

@@ -18,7 +18,7 @@ const topic: TopicMeta = {
   ],
   termIds: ['rhetorical-question', 'antithesis', 'climax', 'argument', 'purpose'],
   questionIds: ['p2-q11', 'p2-q12', 'p2-q13', 'p2-q14', 'p2-q15', 'p2-q16', 'p2-q17', 'p2-q18', 'p2-q19', 'p2-q20', 'chk-p2-organisation-1', 'chk-p2-organisation-2'],
-  sources: [{ kind: 'own', title: 'Organisation rules for Paper 2 written for this portal; criterion C from the owner brief (focus and organisation, 0–5)' }],
+  sources: [{ kind: 'own', title: 'Own wording' }],
 };
 
 export default topic;

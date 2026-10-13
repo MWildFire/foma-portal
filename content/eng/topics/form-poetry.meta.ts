@@ -17,9 +17,9 @@ const topic: TopicMeta = {
     { en: 'I can say who speaks in a poem and how the voice changes the mood', ru: 'Могу сказать, кто говорит в стихотворении, и как голос меняет настроение' },
     { en: 'I can link a sound device to a meaning, not only name it', ru: 'Могу связать звуковой приём со смыслом, а не только назвать его' },
   ],
-  termIds: ['alliteration', 'onomatopoeia', 'metre', 'iamb', 'enjambment', 'stanza', 'rhyme-scheme', 'quatrain', 'couplet', 'sonnet', 'volta', 'ballad', 'conceit', 'lyric-persona'],
+  termIds: ['alliteration', 'onomatopoeia', 'metre', 'iamb', 'enjambment', 'stanza', 'rhyme-scheme', 'quatrain', 'couplet', 'sonnet', 'volta', 'ballad', 'conceit', 'lyric-persona', 'ode', 'elegy', 'lyric', 'dramatic-monologue', 'sestet', 'free-verse', 'blank-verse', 'rhyme', 'slant-rhyme', 'internal-rhyme', 'refrain'],
   questionIds: ['p1-dickinson-fly', 'p1-keats-nightingale', 'p1-hardy-thrush', 'p1-owen-dulce', 'p1-hopkins-pied', 'chk-form-poetry-1', 'chk-form-poetry-2'],
-  sources: [{ kind: 'own', title: 'Own wording; check against the course textbook (chapter and page to be added)' }],
+  sources: [{ kind: 'own', title: 'Own wording' }],
 };
 
 export default topic;

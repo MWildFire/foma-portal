@@ -20,7 +20,7 @@ const topic: TopicMeta = {
   termIds: ['narrator', 'focalisation', 'theme', 'juxtaposition', 'motif', 'tone'],
   sims: ['eng.p2-timer'],
   questionIds: ['p2-q01', 'p2-q02', 'p2-q03', 'p2-q04', 'p2-q05', 'chk-p2-planning-1', 'chk-p2-planning-2'],
-  sources: [{ kind: 'own', title: 'Method written for this portal; Paper 2 timing from the G12 mock schedule (105 minutes, 25 marks)' }],
+  sources: [{ kind: 'own', title: 'Own wording' }],
 };
 
 export default topic;

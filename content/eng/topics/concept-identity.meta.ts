@@ -18,7 +18,7 @@ const topic: TopicMeta = {
   ],
   termIds: ['narrator', 'first-person-narration', 'lyric-persona', 'protagonist', 'interior-monologue', 'foil'],
   questionIds: ['chk-concept-identity-1', 'chk-concept-identity-2'],
-  sources: [{ kind: 'own', title: 'Key concept notes written for this portal; concept code C.ID from the portal syllabus' }],
+  sources: [{ kind: 'own', title: 'Own wording' }],
 };
 
 export default topic;

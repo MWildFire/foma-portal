@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import type { Lang } from '../../contract/types';
 
-// Paper 2 timing: 10 minutes to plan, 80 to write, 10 to check. That is 100 of the 105 minutes; 5 are spare.
+// Paper 2 timing with the 25% access time (131 minutes): 10 to plan, 106 to write, 10 to check. That is 126 of the 131 minutes; 5 are spare.
 const PHASES = [
   {
     minutes: 10,
@@ -9,7 +9,7 @@ const PHASES = [
     ru: { name: 'План', tips: ['Прочитайте задание дважды и подчеркните ключевые слова.', 'Выберите два произведения и объясните, почему каждое подходит к заданию.', 'Напишите тезис и три пункта сравнения.'] },
   },
   {
-    minutes: 80,
+    minutes: 106,
     en: { name: 'Write', tips: ['One comparison point per paragraph.', 'In every paragraph, compare the choices of the two writers.', 'Keep the last 10 minutes for checking.'] },
     ru: { name: 'Письмо', tips: ['Один пункт сравнения на абзац.', 'В каждом абзаце сравнивайте решения двух авторов.', 'Последние 10 минут оставьте на проверку.'] },
   },
@@ -29,7 +29,7 @@ const LABELS = {
     reset: 'Reset this stage',
     spare: 'Spare: 5 minutes for a slow start or a longer check.',
     done: 'Time for this stage is up. Move on to the next one.',
-    total: 'Total: 105 minutes',
+    total: 'Total: 131 minutes (105 + 25% access time)',
     stage: 'Stage',
   },
   ru: {
@@ -40,7 +40,7 @@ const LABELS = {
     reset: 'Сбросить этап',
     spare: 'Запас: 5 минут на медленный старт или более долгую проверку.',
     done: 'Время этапа вышло. Переходите к следующему.',
-    total: 'Всего: 105 минут',
+    total: 'Всего: 131 минута (105 + 25% доп. времени)',
     stage: 'Этап',
   },
 };

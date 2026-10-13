@@ -18,7 +18,7 @@ const topic: TopicMeta = {
   ],
   termIds: ['narrator', 'first-person-narration', 'omniscient-narrator', 'unreliable-narrator', 'focalisation', 'free-indirect-discourse', 'lyric-persona'],
   questionIds: ['chk-concept-perspective-1', 'chk-concept-perspective-2'],
-  sources: [{ kind: 'own', title: 'Written for this portal from the key concept list of the IB English A: Literature course' }],
+  sources: [{ kind: 'own', title: 'Own wording' }],
 };
 
 export default topic;
