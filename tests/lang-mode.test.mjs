@@ -93,6 +93,10 @@ before(async () => {
   loaded.TermCard = (await server.ssrLoadModule('/src/components/ui/TermCard.tsx')).TermCard;
   loaded.Sim = (await server.ssrLoadModule('/src/components/mdx/Sim.tsx')).Sim;
   loaded.TopicContextProvider = (await server.ssrLoadModule('/src/components/mdx/context.tsx')).TopicContextProvider;
+  loaded.GlossaryEntry = (await server.ssrLoadModule('/src/components/glossary/GlossaryEntry.tsx')).GlossaryEntry;
+  const sourceList = await server.ssrLoadModule('/src/components/content/SourceList.tsx');
+  loaded.SourceList = sourceList.SourceList;
+  loaded.SourceItem = sourceList.SourceItem;
 });
 
 after(async () => {
@@ -271,4 +275,25 @@ test('a simulation gets the language of the body it sits in, not the UI language
   }, createElement(loaded.Sim, { id: 'econ.echo' })));
   assert.match(await drawSim('en', 'ru'), /sim-lang:en/, 'an English body with the UI in Russian: English simulation');
   assert.match(await drawSim('ru', 'en'), /sim-lang:ru/, 'a Russian body with the UI in English: Russian simulation');
+});
+
+// ---- the English text with the UI in Russian: no Russian on a term card or in a glossary entry; no own-notes rows
+
+test('an English term card and glossary entry have no Russian, even with the UI in Russian', async () => {
+  const card = await draw(createElement(loaded.TermCard, { term: term('demand', EXAMPLE), lang: 'en' }), '/', { lang: 'ru' });
+  assert.ok(card.includes(EN_DEF) && card.includes('A price rise cuts demand.'));
+  assert.ok(!CYRILLIC.test(card), 'the card follows the body language, not the UI language');
+  const entry = await draw(createElement(loaded.GlossaryEntry, { term: term('demand', EXAMPLE), mode: 'en', subject: 'econ', topics: [] }), '/', { lang: 'ru' });
+  assert.ok(entry.includes(EN_DEF) && entry.includes('A price rise cuts demand.'));
+  assert.ok(!CYRILLIC.test(entry), 'the entry follows the mode, not the UI language');
+});
+
+test('an own-notes source is not drawn by a source list or a source item, in any language', async () => {
+  const own = { kind: 'own', title: 'Internal note for the reviewer' };
+  const textbook = { kind: 'textbook', title: 'Course book', locator: 'ch. 2, p. 40' };
+  const list = await draw(createElement(loaded.SourceList, { sources: [own, textbook], lang: 'en' }), '/', { lang: 'ru' });
+  assert.ok(list.includes('Course book'), 'a textbook source is still shown');
+  assert.ok(!list.includes('Internal note') && !list.includes('Own notes'), 'the own-notes row is not drawn');
+  assert.equal(await draw(createElement(loaded.SourceItem, { source: own, lang: 'en' }), '/'), '', 'a source item for own notes draws nothing');
+  assert.equal(await draw(createElement(loaded.SourceList, { sources: [own] }), '/'), '', 'with only own notes the list draws nothing');
 });

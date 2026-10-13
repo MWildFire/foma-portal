@@ -4,11 +4,13 @@ import { ContentLink } from './ContentLink';
 import { useLangT } from './useLangT';
 import './ui.css';
 
-// One source: kind tag, title, locator ("ch. 2.8, p. 113"). A link is shown only for a public page.
-// Spans only, so it fits inside a sentence as well as inside a list item.
+// One source: kind tag, title, locator ("ch. 2.8, p. 113"). A link is shown only for a public page. An own-notes
+// source is not drawn at all, whichever list or line it sits in. Spans only, so it fits inside a sentence as well as
+// inside a list item.
 export function SourceItem({ source, lang }: { source: SourceRef; lang?: Lang }) {
   const { t, lang: lng } = useLangT(lang);
   const url = publicUrl(source.url);
+  if (!showsSource(source)) return null;
   return (
     <>
       <span className="foma-tag">{t(`source.kind.${source.kind}`)}</span>{' '}
