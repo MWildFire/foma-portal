@@ -22,6 +22,10 @@ jobs:
     timeout-minutes: 20
     permissions:
       contents: read
+    env:
+      # Every subject is one module graph for the build: Node's default heap (about 2 GB) ran out in `vite build`
+      # on the runner (7 GB). 5 GB leaves room for the runner's other processes.
+      NODE_OPTIONS: --max-old-space-size=5120
     steps:
       - name: Check out
         uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
