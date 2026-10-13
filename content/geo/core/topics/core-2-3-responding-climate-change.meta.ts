@@ -46,6 +46,10 @@ const topic: TopicMeta = {
     { kind: 'web', title: 'Ember, Yearly Electricity Data (Global), file updated 6 October 2026 (Figure 1 and Section B)', url: 'https://ember-energy.org/data/yearly-electricity-data/' },
     { kind: 'web', title: 'Our World in Data, annual CO2 emissions by country, based on Global Carbon Project data (Section A question 2)', url: 'https://ourworldindata.org/grapher/annual-co2-emissions-per-country' },
   ],
+  links: [
+    { title: 'ThinkIB task: Chapter 6b, Contrasting Vulnerability, Detailed Examples', url: 'https://student.thinkib.net/geography/task/1277895/chapter-6b-contrasting-vulnerability-detailed-examples' },
+    { title: 'ThinkIB task: Chapter 6e, Technology and Geo-Engineering', url: 'https://student.thinkib.net/geography/task/1284864/chapter-6e-technology-and-geo-engineering' },
+  ],
 };
 
 export default topic;

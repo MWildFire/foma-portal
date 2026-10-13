@@ -44,6 +44,19 @@ const topic: TopicMeta = {
     { kind: 'web', title: 'World Bank, Groundswell press release (13 September 2021)', url: 'https://www.worldbank.org/en/news/press-release/2021/09/13/climate-change-could-force-216-million-people-to-migrate-within-their-own-countries-by-2050' },
     { kind: 'web', title: 'GCF, funding proposal FP015 (2015), Tuvalu Coastal Adaptation Project, page 10', url: 'https://www.greenclimate.fund/sites/default/files/document/funding-proposal-fp015-undp-tuvalu.pdf' },
   ],
+  links: [
+    { title: 'ThinkIB task: Chapter 5a, Effects on Water Stored as Ice and Sea Levels', url: 'https://student.thinkib.net/geography/task/1255568/chapter-5a-effects-on-water-stored-as-ice-and-sea-levels' },
+    { title: 'ThinkIB task: Chapter 5b, The Effects on Carbon Stores', url: 'https://student.thinkib.net/geography/task/1255569/chapter-5b-the-effects-on-carbon-stores' },
+    { title: 'ThinkIB task: Chapter 5c, Effects on Extreme Weather Events', url: 'https://student.thinkib.net/geography/task/1255570/chapter-5c-effects-on-extreme-weather-events' },
+    { title: 'ThinkIB task: Chapter 5d, Effects on Biomes, Habitats and Animal Migration', url: 'https://student.thinkib.net/geography/task/1260150/chapter-5d-effects-on-biomes-habitats-and-animal-migration' },
+    { title: 'ThinkIB task: Chapter 5e, Effects on Agriculture', url: 'https://student.thinkib.net/geography/task/1273604/chapter-5e-effects-on-agriculture' },
+    { title: 'ThinkIB task: Chapter 5f, Impacts on Health and Migration', url: 'https://student.thinkib.net/geography/task/1273610/chapter-5f-impacts-on-health-and-migration' },
+    { title: 'ThinkIB task: Chapter 5g, Impacts Ocean Transport Routes', url: 'https://student.thinkib.net/geography/task/1273612/chapter-5g-impacts-ocean-transport-routes' },
+    { title: 'ThinkIB task: Revision Page on Effects of Climate Change on Environments', url: 'https://student.thinkib.net/geography/task/1273605/revision-page-on-effects-of-climate-change-on-environments' },
+    { title: 'ThinkIB task: Revision Quiz, Agriculture and Soils', url: 'https://student.thinkib.net/geography/task/1273606/revision-quiz-agriculture-and-soils' },
+    { title: 'ThinkIB task: Revision Quiz on Biomes and Animal Migration', url: 'https://student.thinkib.net/geography/task/1273607/revision-quiz-on-biomes-and-animal-migration' },
+    { title: 'ThinkIB task: Climate Change and Health Impacts', url: 'https://student.thinkib.net/geography/task/1273611/climate-change-and-health-impacts' },
+  ],
 };
 
 export default topic;
