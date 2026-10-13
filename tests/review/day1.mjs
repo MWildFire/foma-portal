@@ -14,15 +14,35 @@
 // Network policy: only the local preview is reachable; every other request is aborted and its host is listed.
 //
 // Usage:  node tests/review/day1.mjs
-// Env:    BASE_URL  preview origin (default http://127.0.0.1:4173)
-//         OUT       folder for day1.json (default: UX_OUT, else the current folder)
+//         BASE_URL=https://fomalearningportal.academy node tests/review/day1.mjs   (live site, Basic Auth)
+// Env:    BASE_URL     preview origin (default http://127.0.0.1:4173), or the live origin
+//         SITE_USER    Basic Auth login for the live site (default dmitry), with SITE_PASS
+//         SITE_PASS    Basic Auth password; without it the login is read from the credentials file
+//         LOGIN        login to take from the credentials file (default dmitry)
+//         CREDENTIALS  credentials file (default ~/.foma-portal/credentials.txt); the password is never printed
+//         OUT          folder for day1.json (default: UX_OUT, else the current folder)
 import { chromium } from 'playwright';
-import { mkdirSync, writeFileSync } from 'node:fs';
+import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
+import { homedir } from 'node:os';
 import { join } from 'node:path';
 
 const BASE = process.env.BASE_URL ?? 'http://127.0.0.1:4173';
 const OUT = process.env.OUT ?? process.env.UX_OUT ?? '.';
 const ORIGIN = new URL(BASE).origin;
+// The live site sits behind Basic Auth. SITE_USER / SITE_PASS win when set; otherwise the login is read from the
+// credentials file at run time. The password is never printed: reports and logs must not contain it.
+const LIVE = !/^https?:\/\/(127\.0\.0\.1|localhost)(:|\/|$)/.test(BASE);
+const HTTP_CREDENTIALS = LIVE ? siteLogin() : null;
+function siteLogin() {
+  if (process.env.SITE_PASS) return { username: process.env.SITE_USER ?? 'dmitry', password: process.env.SITE_PASS };
+  const user = process.env.LOGIN ?? 'dmitry';
+  const file = process.env.CREDENTIALS ?? join(homedir(), '.foma-portal', 'credentials.txt');
+  for (const line of readFileSync(file, 'utf8').split('\n')) {
+    const m = line.match(/^\s*([^:=\s]+)\s*[:=]\s*(.+?)\s*$/);
+    if (m && m[1] === user) return { username: user, password: m[2] };
+  }
+  throw new Error(`no login "${user}" in the credentials file`);
+}
 const DATES = ['2026-10-14', '2026-10-15'];
 const LANGS = ['en', 'ru'];
 const WIDTHS = [390, 1280];
@@ -97,6 +117,7 @@ for (const date of DATES) {
     for (const width of WIDTHS) {
       const label = `${date} ${lang} ${width}`;
       const context = await browser.newContext({
+        ...(HTTP_CREDENTIALS ? { httpCredentials: HTTP_CREDENTIALS } : {}),
         viewport: { width, height: 900 },
         isMobile: width < 500,
         hasTouch: width < 500,
