@@ -937,9 +937,12 @@ async function examChecks(page, rec, combo) {
       problem(rec, 'time', `${row.id}: no extra-time row with extra time on (expected ${longer} min, ends ${extraEnd})`, { phase: mode });
       continue;
     }
-    const last = endTimes(shown.extra[0]).pop();
-    if (last !== extraEnd) {
-      problem(rec, 'time', `${row.id}: extra time shows an end of ${last ?? 'nothing'}, accessMinutes gives ${longer} min, end ${extraEnd}`, {
+    // The extended end is shown next to the printed end (decision 7): take it from the extra-time value when the row
+    // has one, otherwise from the item text.
+    const fromRow = endTimes(shown.extra[0] ?? '');
+    const ends = fromRow.length > 0 ? fromRow : endTimes(shown.text);
+    if (!ends.includes(extraEnd)) {
+      problem(rec, 'time', `${row.id}: extra time shows no end of ${extraEnd} (accessMinutes gives ${longer} min); shown ends: ${ends.join(', ') || 'none'}`, {
         phase: mode,
       });
     }
@@ -1083,7 +1086,7 @@ async function runCombo(browser, combo, runs) {
   const cur = { rec: null };
   // Language and access settings are written before the app starts, so every page of this run opens the same way.
   const state = JSON.stringify({
-    version: 1,
+    version: 2,
     topics: {},
     terms: {},
     questions: {},

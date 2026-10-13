@@ -49,7 +49,7 @@ const WIDTHS = [390, 1280];
 const NOT_FOUND = /not found|There is no |Something went wrong|не найден|Нет такой|Что-то пошло не так/i;
 const CYRILLIC = /[а-яёА-ЯЁ]/g;
 const STATE = JSON.stringify({
-  version: 1, topics: {}, terms: {}, questions: {}, blocks: {},
+  version: 2, topics: {}, terms: {}, questions: {}, blocks: {},
   settings: { accessArrangements: { extraTime: true, separateRoom: false }, dailyLoadMinutes: {} },
 });
 // Fixed checks. `action` is the button that starts the timer; `expect` is what the page shows after it.

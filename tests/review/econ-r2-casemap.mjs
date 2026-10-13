@@ -39,7 +39,7 @@ const SCENARIOS = [
 ];
 // The same settings shape as the harness writes (tests/review/ux-subject.mjs), so the app opens the same way.
 const STATE = JSON.stringify({
-  version: 1,
+  version: 2,
   topics: {},
   terms: {},
   questions: {},
