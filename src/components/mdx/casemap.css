@@ -1,0 +1,22 @@
+/* Loaded together with Leaflet, only when a topic shows a map. */
+
+.foma-map {
+  width: 100%;
+  height: 18rem;
+  isolation: isolate;
+  border: 1px solid var(--color-border);
+  border-radius: 0.5rem;
+  font-family: var(--font-ui);
+}
+
+/* Round pin: a dark centre with a white ring and an outer ring, readable on any map tile. */
+.foma-pin span {
+  display: block;
+  box-sizing: border-box;
+  width: 24px;
+  height: 24px;
+  border: 4px solid #ffffff;
+  border-radius: 50%;
+  background: #1b4b86;
+  box-shadow: 0 0 0 2px #1b4b86, 0 1px 4px rgba(0, 0, 0, 0.4);
+}

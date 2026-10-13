@@ -1,0 +1,140 @@
+{
+  "contentLang": {
+    "label": "Text language",
+    "en": "EN",
+    "ru": "RU",
+    "both": "EN + RU"
+  },
+  "link": {
+    "newTab": "opens in a new tab",
+    "openNewTab": "Open in new tab",
+    "cannotEmbed": "This page cannot be embedded. Use the link above to open it in a new tab."
+  },
+  "source": {
+    "kind": {
+      "textbook": "Textbook",
+      "ib-guide": "IB guide",
+      "thinkib": "ThinkIB",
+      "school": "School",
+      "web": "Web",
+      "own": "Own notes"
+    }
+  },
+  "term": {
+    "kind": "Term",
+    "example": "Example",
+    "pitfall": "Common pitfall",
+    "source": "Source"
+  },
+  "formula": {
+    "kind": "Formula",
+    "inBooklet": "In the formula booklet",
+    "notInBooklet": "Not in the booklet: learn it",
+    "cannotRender": "This formula could not be displayed.",
+    "meaning": "Meaning",
+    "when": "When to use it",
+    "units": "Units",
+    "example": "Example",
+    "gdc": "GDC"
+  },
+  "case": {
+    "kind": "Case study",
+    "place": "Place: {{place}}",
+    "scale": "Scale: {{scale}}",
+    "years": "Years: {{years}}",
+    "sources": "Sources",
+    "scales": {
+      "local": "local",
+      "national": "national",
+      "regional": "regional",
+      "global": "global"
+    }
+  },
+  "caseMap": {
+    "label": "Map of the case studies",
+    "loading": "Loading the map...",
+    "noCoordinates": "No coordinates, so not on the map: {{titles}}"
+  },
+  "callout": {
+    "exam": "In the exam",
+    "mistake": "Common mistake",
+    "tip": "Tip",
+    "gdc": "GDC",
+    "define": "Definition",
+    "note": "Note"
+  },
+  "reveal": {
+    "show": "Show"
+  },
+  "question": {
+    "label": "Question",
+    "command": "Command term: {{term}}",
+    "marks": "Marks: {{n}}",
+    "last": "Last rating: {{rating}}, {{date}}",
+    "stimulus": "Source material",
+    "hints": "Hints",
+    "show": "Show the answer",
+    "hide": "Hide the answer",
+    "markscheme": "Markscheme",
+    "model": "Model answer",
+    "rate": "How did you do? Compare your answer with the markscheme and rate it.",
+    "saved": "Saved: {{rating}}",
+    "rating": {
+      "right": "Right",
+      "partial": "Partly right",
+      "wrong": "Wrong"
+    }
+  },
+  "sim": {
+    "label": "Simulation: {{id}}",
+    "loading": "Loading the simulation..."
+  },
+  "table": {
+    "label": "Table"
+  },
+  "warn": {
+    "outside": "{{name}} works only inside a topic page.",
+    "noId": "(no id given)",
+    "term": "Term not found: {{id}}",
+    "formula": "Formula not found: {{id}}",
+    "question": "Question not found: {{id}}",
+    "sim": "Simulation not found: {{id}}",
+    "case": "Case study not found: {{id}}",
+    "caseMapIds": "The map needs a list of case ids.",
+    "figure": "Figure not found: {{src}}"
+  },
+  "error": {
+    "load": "This part of the page could not be loaded.",
+    "reload": "Reload the page"
+  },
+  "page": {
+    "loading": "Loading the topic...",
+    "code": "Topic {{code}}",
+    "outcomes": "After this topic you can",
+    "sources": "Sources",
+    "links": "Further reading",
+    "progress": "Your progress",
+    "bodyLabel": {
+      "en": "English version",
+      "ru": "Russian version"
+    },
+    "notFound": {
+      "title": "Topic not found",
+      "body": "This subject has no topic at this address.",
+      "back": "Back to the topics"
+    }
+  },
+  "body": {
+    "missing": {
+      "en": "The English version of this topic is not ready yet.",
+      "ru": "The Russian version of this topic is not ready yet.",
+      "both": "This topic is not ready yet."
+    },
+    "switch": {
+      "en": "Show the English version",
+      "ru": "Show the Russian version"
+    },
+    "meanwhile": "Meanwhile, read these pages:",
+    "noLinks": "There are no reading links for this topic yet."
+  }
+}

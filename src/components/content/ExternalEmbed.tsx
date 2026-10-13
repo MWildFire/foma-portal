@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { ExternalLink, Globe } from 'lucide-react';
+import { useLangT } from './useLangT';
 
 interface Props {
   url: string;
@@ -8,24 +9,26 @@ interface Props {
   height?: string;
 }
 
+// A public web page inside the portal. The link above it always works, even if the site refuses to be embedded.
 export function ExternalEmbed({ url, title, fallbackText, height = '500px' }: Props) {
+  const { t } = useLangT();
   const [failed, setFailed] = useState(false);
 
   return (
-    <div className="bg-bg-secondary border border-border rounded-lg overflow-hidden shadow-card">
-      <div className="flex items-center justify-between px-4 py-2.5 border-b border-border bg-bg-tertiary/40">
-        <div className="flex items-center gap-2 text-sm text-text-secondary">
-          <Globe size={14} />
-          <span>{title}</span>
+    <div className="overflow-hidden rounded-lg border border-[var(--color-border)] bg-[var(--color-card)]">
+      <div className="flex items-center justify-between gap-3 border-b border-[var(--color-border)] px-4 py-2.5">
+        <div className="flex min-w-0 items-center gap-2 text-sm text-[var(--color-muted)]">
+          <Globe size={14} aria-hidden="true" />
+          <span className="[overflow-wrap:anywhere]">{title}</span>
         </div>
         <a
           href={url}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-1.5 text-xs text-accent-warm hover:underline"
+          className="inline-flex shrink-0 items-center gap-1.5 text-xs"
         >
-          <ExternalLink size={12} />
-          Open in new tab
+          <ExternalLink size={12} aria-hidden="true" />
+          {t('link.openNewTab')}
         </a>
       </div>
       {!failed ? (
@@ -38,9 +41,7 @@ export function ExternalEmbed({ url, title, fallbackText, height = '500px' }: Pr
         />
       ) : (
         <div className="p-6 text-center">
-          <p className="text-sm text-text-secondary mb-3">
-            {fallbackText ?? "This page can't be embedded. Use the link above to open in a new tab."}
-          </p>
+          <p className="mb-3 text-sm text-[var(--color-muted)]">{fallbackText ?? t('link.cannotEmbed')}</p>
         </div>
       )}
     </div>

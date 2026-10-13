@@ -1,0 +1,75 @@
+{
+  "notFound": {
+    "title": "Subject not found",
+    "body": "There is no subject at this address.",
+    "back": "Go to Today"
+  },
+  "header": {
+    "level": "Level: {{level}}"
+  },
+  "bar": {
+    "label": "Subject pages",
+    "topics": "Topics",
+    "paper": "{{paper}} guide"
+  },
+  "paperNames": {
+    "P1": "Paper 1",
+    "P2": "Paper 2",
+    "P3": "Paper 3"
+  },
+  "progress": {
+    "heading": "Progress",
+    "empty": "There are no topics yet, so there is no progress to show.",
+    "doneOf": "Topics done: {{done}} of {{total}}",
+    "barLabel": "Topics marked as done",
+    "confidence": "Confidence after each topic",
+    "red": "Red",
+    "amber": "Amber",
+    "green": "Green",
+    "unrated": "Not rated"
+  },
+  "tools": {
+    "heading": "Papers and tools",
+    "paperGuide": "{{paper}} guide: {{title}}"
+  },
+  "topics": {
+    "heading": "Topics",
+    "empty": "No topics here yet. The material for this subject is being written.",
+    "done": "Done on {{date}}",
+    "notDone": "Not done yet",
+    "rag": {
+      "red": "Confidence: red",
+      "amber": "Confidence: amber",
+      "green": "Confidence: green"
+    },
+    "notReady": {
+      "en": "The English version is not ready yet.",
+      "ru": "The Russian version is not ready yet.",
+      "both": "This topic is not ready yet."
+    },
+    "meanwhile": "Meanwhile, read:"
+  },
+  "chips": {
+    "priority": "Priority {{n}}",
+    "minutes": "{{n}} min",
+    "mock": {
+      "yes": "In the mock exam",
+      "no": "Not in the mock",
+      "unknown": "Mock scope unclear"
+    },
+    "papers": "Papers: {{papers}}",
+    "hl": "HL only",
+    "option": "Option: {{name}}"
+  },
+  "topicProgress": {
+    "finished": "I finished this topic",
+    "doneOn": "Marked as done on {{date}}.",
+    "notDone": "Not marked as done yet.",
+    "confidence": "How confident are you with this topic?",
+    "rag": {
+      "red": "Red: not yet",
+      "amber": "Amber: getting there",
+      "green": "Green: confident"
+    }
+  }
+}
