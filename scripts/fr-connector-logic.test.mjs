@@ -10,7 +10,7 @@ const id = n => `cn-${String(n).padStart(3, '0')}`;
 test('groupOf puts the borders of each id range in the right function', () => {
   const expected = [
     [1, 'addition'], [6, 'addition'], [7, 'cause'], [14, 'cause'], [15, 'opposition'], [22, 'opposition'],
-    [23, 'time'], [30, 'time'], [31, 'examples'], [36, 'examples'], [37, 'opinion'], [44, 'opinion'],
+    [23, 'time'], [30, 'time'], [31, 'examples'], [36, 'examples'], [37, 'opinion'], [43, 'opinion'],
     [45, 'summary'], [50, 'summary'], [51, 'emphasis'], [54, 'emphasis'], [55, 'comparison'], [60, 'comparison'],
   ];
   for (const [n, key] of expected) assert.equal(groupOf(id(n)), key, id(n));
@@ -22,7 +22,7 @@ test('groupOf returns undefined for ids outside cn-001 to cn-060 and for other i
   }
 });
 
-test('the nine groups cover cn-001 to cn-060 once each, with the sizes of the file header', () => {
+test('the nine groups cover cn-001 to cn-060 once each, with the group sizes (cn-044 moved to opposition)', () => {
   const sizes = {};
   for (let n = 1; n <= 60; n += 1) {
     const key = groupOf(id(n));
@@ -30,7 +30,7 @@ test('the nine groups cover cn-001 to cn-060 once each, with the sizes of the fi
     sizes[key] = (sizes[key] ?? 0) + 1;
   }
   assert.equal(GROUPS.length, 9);
-  assert.deepEqual(GROUPS.map(g => sizes[g.key]), [6, 8, 8, 8, 6, 8, 6, 4, 6]);
+  assert.deepEqual(GROUPS.map(g => sizes[g.key]), [6, 8, 9, 8, 6, 7, 6, 4, 6]); // cn-044 'certes' sorts with opposition
 });
 
 test('the connector file gives 60 connectors, each with a French form, both glosses and its group', () => {

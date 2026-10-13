@@ -25,7 +25,12 @@ export const GROUPS: readonly GroupDef[] = [
   { key: 'comparison', from: 55, to: 60, label: { en: 'Comparison', ru: 'Сравнение' } },
 ];
 
+// "certes" (cn-044) admits a point before a contrasting one, as in the topic's « certes… mais », so it sorts with
+// opposition, not with the opinion range it falls in by number.
+const OVERRIDES: Readonly<Record<string, GroupKey>> = { 'cn-044': 'opposition' };
+
 export function groupOf(id: string): GroupKey | undefined {
+  if (OVERRIDES[id]) return OVERRIDES[id];
   const match = /^cn-(\d{3})$/.exec(id);
   if (!match) return undefined;
   const n = Number(match[1]);
