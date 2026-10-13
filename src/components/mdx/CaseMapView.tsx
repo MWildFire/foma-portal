@@ -31,11 +31,14 @@ function Fit({ cases }: { cases: MappableCase[] }) {
 export default function CaseMapView({ cases, lang, label }: { cases: MappableCase[]; lang: Lang; label: string }) {
   return (
     <div role="region" aria-label={label}>
+      {/* No zoom animation. Leaflet ends a zoom animation in a 250 ms timer; a quick switch of the text language removes
+          the map inside that window, and the timer then runs on the removed map ("_leaflet_pos" of undefined). */}
       <MapContainer
         className="foma-map"
         center={[cases[0].lat, cases[0].lng]}
         zoom={SINGLE_ZOOM[cases[0].scale]}
         scrollWheelZoom={false}
+        zoomAnimation={false}
       >
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
