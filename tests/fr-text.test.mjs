@@ -159,9 +159,11 @@ test('FrenchText, one line: its own element with lang="fr" and the French text',
   assert.equal(html, '<span lang="fr" class="foma-fr">être</span>');
 });
 
-test('FrenchText, one line: extra classes are added to the element, and the text is plain (no Markdown)', async () => {
+test('FrenchText, one line: extra classes are added to the element, and inline Markdown is read like the English text', async () => {
   const html = await view('FrenchText', { text: L('a', 'б', 'le *mot*'), className: 'foma-term__label' });
-  assert.equal(html, '<span lang="fr" class="foma-fr foma-term__label">le *mot*</span>');
+  assert.equal(html, '<span lang="fr" class="foma-fr foma-term__label">le <em>mot</em></span>');
+  const plain = await view('FrenchText', { text: L('a', 'б', 'le mot') });
+  assert.equal(plain, '<span lang="fr" class="foma-fr">le mot</span>', 'plain text is the same markup as before');
   const escaped = await view('FrenchText', { text: L('a', 'б', "l'été <b>") });
   assert.equal(frenchParts(escaped)[0], "l&#x27;été &lt;b&gt;", 'React escapes it; no markup gets in');
 });
@@ -418,4 +420,30 @@ test('search: the paper filter and the empty search work with French terms too',
   assert.equal(filterTerms(SEARCH_TERMS, NO_TERM_FILTERS).length, SEARCH_TERMS.length);
   assert.deepEqual(filterTerms(SEARCH_TERMS, { query: 'ecole', paper: 'P2' }).map(item => item.id), []);
   assert.deepEqual(filterTerms(SEARCH_TERMS, { query: 'ecole', paper: 'P1' }).map(item => item.id), ['school']);
+});
+
+// ---- the French example of a term
+
+test('term card: a French example is a line of its own above the English one, and reads inline Markdown', async () => {
+  const html = await view('TermCard', { term: term('etre', { example: L('I am tired.', 'Я устал.', 'Je suis **fatigué**.') }) });
+  assert.deepEqual(frenchParts(html), ['Je suis fatigué.']);
+  assert.ok(inOrder(html, 'Je suis', 'I am tired.'), 'the French example comes first');
+  assert.ok(html.includes('<strong>fatigué</strong>'), 'bold works in the French example, as in the English one');
+});
+
+test('term card: an example without French text is drawn as before', async () => {
+  const html = await view('TermCard', { term: term('etre', { example: L('I am tired.', 'Я устал.') }) });
+  assert.ok(!html.includes('lang="fr"'));
+  assert.ok(html.includes('I am tired.'));
+});
+
+test('glossary list and flashcard back: the French example comes first, as a block of its own', async () => {
+  const withExample = term('etre', { term: L('to be', 'быть', 'être'), example: L('I am tired.', 'Я устал.', 'Je suis fatigué.') });
+  const list = await view('GlossaryView', { pack: pack({ terms: [withExample] }) }, '/s/fr/terms');
+  assert.ok(frenchParts(list).includes('Je suis fatigué.'));
+  assert.ok(inOrder(list, 'Je suis fatigué.', 'I am tired.'));
+  assert.match(list, /<div lang="fr" class="foma-fr foma-fr--rich"><div class="rich-text[^"]*"><p [^>]*>Je suis fatigué\.<\/p><\/div><\/div>/);
+  const back = await view('CardBack', { term: withExample, lang: 'en' });
+  assert.ok(frenchParts(back).includes('Je suis fatigué.'));
+  assert.ok(inOrder(back, 'Je suis fatigué.', 'I am tired.'));
 });

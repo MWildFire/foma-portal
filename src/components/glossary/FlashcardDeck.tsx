@@ -7,6 +7,7 @@ import type { GlobalState } from '../../lib/storage';
 import { frenchOf, pickText } from '../../lib/text';
 import { InlineText } from '../content/RichText';
 import { SourceItem } from '../content/SourceList';
+import { FrenchText } from '../ui/FrenchText';
 import '../content/ui.css';
 import '../practice/fields.css';
 import './glossary.css';
@@ -57,6 +58,7 @@ export function CardBack({ term, lang }: { term: Term; lang: Lang }) {
         {russian ? <><strong>{russian}</strong>{' — '}</> : null}
         <InlineText text={term.def.ru} />
       </p>
+      <FrenchText text={term.example} rich />
       {term.example ? (
         <p className="gl-entry__extra" lang={lang}><strong>{t('entry.example')}:</strong> <InlineText text={pickText(term.example, lang)} /></p>
       ) : null}

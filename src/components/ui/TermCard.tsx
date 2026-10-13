@@ -15,8 +15,9 @@ interface Props {
 }
 
 // A term: "EN term (RU term)", the English definition first (the exam is in English), the Russian one below,
-// then example, pitfall and source. A French term (the French subject) is a line of its own above the label.
-// It is built from spans only, so it is valid inside a paragraph too.
+// then example, pitfall and source. A French term (the French subject) is a line of its own above the label, and a
+// French example is a line of its own above the English one. It is built from spans only, so it is valid inside a
+// paragraph too.
 export function TermCard({ term, lang }: Props) {
   const { t, lang: lng } = useLangT(lang);
   return (
@@ -33,6 +34,7 @@ export function TermCard({ term, lang }: Props) {
       <span className="foma-term__def" lang="ru">
         <span className="foma-tag">RU</span> <InlineText text={term.def.ru} />
       </span>
+      <FrenchText text={term.example} className="foma-term__extra" />
       {term.example ? (
         <span className="foma-term__extra" lang={lng}>
           <strong>{t('term.example')}:</strong> <InlineText text={pickText(term.example, lng)} />

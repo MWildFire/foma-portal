@@ -55,6 +55,7 @@ export const GlossaryEntry = memo(function GlossaryEntry({ term, lang, subject, 
         <InlineText text={term.def.ru} />
       </p>
 
+      <FrenchText text={term.example} rich />
       {term.example ? (
         <p className="gl-entry__extra" lang={lang}>
           <strong>{t('entry.example')}:</strong> <InlineText text={pickText(term.example, lang)} />
