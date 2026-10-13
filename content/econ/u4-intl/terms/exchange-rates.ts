@@ -140,7 +140,7 @@ export const terms: Term[] = [
   },
   {
     id: 'managed-exchange-rate',
-    term: { en: 'managed exchange rate', ru: 'управляемый плавающий курс (managed float)' },
+    term: { en: 'managed exchange rate', ru: 'управляемый плавающий курс (managed exchange rate, managed float)' },
     def: {
       en: 'A floating rate that is mainly set by the market, but where the central bank buys or sells currency from time to time to influence its value.',
       ru: 'Плавающий курс, который в основном задаёт рынок, но центральный банк время от времени покупает или продаёт валюту, чтобы влиять на её стоимость.',

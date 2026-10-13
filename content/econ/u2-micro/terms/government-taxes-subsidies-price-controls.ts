@@ -122,7 +122,7 @@ export const terms: Term[] = [
   },
   {
     id: 'price-ceiling',
-    term: { en: 'maximum price (price ceiling)', ru: 'максимальная цена (price ceiling)' },
+    term: { en: 'maximum price (price ceiling)', ru: 'максимальная цена (maximum price, price ceiling)' },
     def: {
       en: 'A legal maximum price set below the equilibrium price; quantity demanded exceeds quantity supplied, so a shortage (excess demand) appears.',
       ru: 'Законодательно установленная максимальная цена ниже равновесной; величина спроса превышает величину предложения, поэтому возникает дефицит (избыточный спрос).',
@@ -142,7 +142,7 @@ export const terms: Term[] = [
   },
   {
     id: 'price-floor',
-    term: { en: 'minimum price (price floor)', ru: 'минимальная цена (price floor)' },
+    term: { en: 'minimum price (price floor)', ru: 'минимальная цена (minimum price, price floor)' },
     def: {
       en: 'A legal minimum price set above the equilibrium price; quantity supplied exceeds quantity demanded, so a surplus (excess supply) appears.',
       ru: 'Законодательно установленная минимальная цена выше равновесной; величина предложения превышает величину спроса, поэтому возникает избыток (избыточное предложение).',

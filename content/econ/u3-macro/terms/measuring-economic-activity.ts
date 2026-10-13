@@ -63,7 +63,7 @@ export const terms: Term[] = [
   },
   {
     id: 'gdp',
-    term: { en: 'gross domestic product (GDP)', ru: 'валовой внутренний продукт (ВВП, GDP)' },
+    term: { en: 'gross domestic product (GDP)', ru: 'валовой внутренний продукт, ВВП (gross domestic product, GDP)' },
     def: {
       en: 'The total market value of final goods and services produced within a country in one year.',
       ru: 'Совокупная рыночная стоимость конечных товаров и услуг, произведённых на территории страны за год.',

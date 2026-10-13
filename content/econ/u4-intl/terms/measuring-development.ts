@@ -24,7 +24,7 @@ export const terms: Term[] = [
   },
   {
     id: 'gross-national-income',
-    term: { en: 'gross national income (GNI)', ru: 'валовой национальный доход (ВНД, gross national income)' },
+    term: { en: 'gross national income (GNI)', ru: 'валовой национальный доход, ВНД (gross national income, GNI)' },
     def: {
       en: 'The total income earned by the residents of a country, wherever they earn it: GDP plus net income received from abroad.',
       ru: 'Совокупный доход резидентов страны, где бы они его ни получали: ВВП плюс чистый доход, полученный из-за границы.',

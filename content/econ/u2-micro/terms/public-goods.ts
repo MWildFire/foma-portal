@@ -103,7 +103,7 @@ export const terms: Term[] = [
   },
   {
     id: 'optimal-public-good-quantity',
-    term: { en: 'optimal quantity of a public good', ru: 'оптимальный объём общественного блага (optimal quantity)' },
+    term: { en: 'optimal quantity of a public good', ru: 'оптимальный объём общественного блага (optimal quantity of a public good)' },
     def: {
       en: 'The quantity of a public good at which the total marginal benefit of all users equals the marginal cost of providing it.',
       ru: 'Объём общественного блага, при котором суммарная предельная выгода всех пользователей равна предельным издержкам его предоставления.',

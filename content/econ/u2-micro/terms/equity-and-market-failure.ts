@@ -43,8 +43,8 @@ export const terms: Term[] = [
     id: 'horizontal-equity',
     term: { en: 'horizontal equity', ru: 'горизонтальная справедливость (horizontal equity)' },
     def: {
-      en: 'The principle that people in similar circumstances, such as similar incomes, should be treated in the same way, for example by paying the same tax.',
-      ru: 'Принцип, по которому люди в одинаковом положении, например с одинаковым доходом, должны обращаться одинаково, например платить одинаковый налог.',
+      en: 'The principle that people in similar circumstances, such as similar incomes, should be treated in the same way, for example by paying the same tax. The IB guide (2020) does not name this term, so it is background rather than exam wording.',
+      ru: 'Принцип, по которому люди в одинаковом положении, например с одинаковым доходом, должны обращаться одинаково, например платить одинаковый налог. Гайд IB (2020) этот термин не называет: это справочное понятие, а не формулировка экзамена.',
     },
     example: {
       en: 'Two employees who each earn AED 10000 a month should pay the same income tax, so that neither is treated more favourably.',

@@ -26,7 +26,7 @@ export const terms: Term[] = [
   },
   {
     id: 'rivalry',
-    term: { en: 'rivalry in consumption', ru: 'соперничество в потреблении (rivalry)' },
+    term: { en: 'rivalry in consumption', ru: 'соперничество в потреблении (rivalry in consumption)' },
     def: {
       en: "A good is rivalrous when one person's use reduces the amount available for others, so the good is used up or congested.",
       ru: 'Благо является соперничающим, если использование одним человеком уменьшает объём, доступный другим; такое благо расходуется или перегружается.',

@@ -32,6 +32,10 @@ export const terms: Term[] = [
       en: 'A 10% rise in price that raises quantity supplied by 25% gives PES = 2.5, so supply is elastic.',
       ru: 'Рост цены на 10%, который увеличивает величину предложения на 25%, даёт PES = 2,5: предложение эластичное.',
     },
+    pitfall: {
+      en: 'Elastic is about percentage changes, not units: a large change in quantity can still be inelastic if the price changes by a larger percentage.',
+      ru: 'Эластичность — это про процентные изменения, а не про единицы: большое изменение величины предложения может быть неэластичным, если цена меняется в процентах ещё сильнее.',
+    },
     syllabus: '2.6',
     papers: ['P1', 'P2', 'P3'],
     src: { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 2.6' },
@@ -67,6 +71,10 @@ export const terms: Term[] = [
       en: 'A 10% rise in price raises quantity supplied by 10%, so PES = 10 / 10 = 1.00.',
       ru: 'Рост цены на 10% увеличивает величину предложения на 10%, поэтому PES = 10 / 10 = 1,00.',
     },
+    pitfall: {
+      en: 'Unit elastic is not a 45-degree line: the slope depends on units, while PES = 1 only means that the percentage changes in price and quantity are equal.',
+      ru: 'Единичная эластичность — это не прямая под углом 45 градусов: наклон зависит от единиц, а PES = 1 означает лишь, что процентные изменения цены и величины предложения равны.',
+    },
     syllabus: '2.6',
     papers: ['P1', 'P2', 'P3'],
     src: { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 2.6' },
@@ -82,6 +90,10 @@ export const terms: Term[] = [
     example: {
       en: 'A small firm that can sell any quantity at the market price of AED 20 faces a horizontal supply curve at AED 20.',
       ru: 'Небольшая фирма, которая может продать любое количество по рыночной цене 20 AED, сталкивается с горизонтальной кривой предложения на уровне 20 AED.',
+    },
+    pitfall: {
+      en: 'Perfectly elastic does not mean an infinite quantity at every price: the curve is horizontal at one price, and at any lower price nothing is supplied.',
+      ru: 'Абсолютно эластичное предложение не означает бесконечный объём при любой цене: кривая горизонтальна на одном уровне цены, а при более низкой цене ничего не поставляется.',
     },
     syllabus: '2.6',
     papers: ['P1', 'P2', 'P3'],
@@ -99,6 +111,10 @@ export const terms: Term[] = [
       en: 'The supply of one original painting by an artist who has died is fixed at one work, however high the price.',
       ru: 'Предложение одной оригинальной картины умершего художника фиксировано: это одна работа, какой бы высокой ни была цена.',
     },
+    pitfall: {
+      en: 'Do not confuse the two limits: perfectly inelastic supply is vertical (PES = 0, quantity fixed), while perfectly elastic supply is horizontal (PES = infinity, price fixed).',
+      ru: 'Не путайте два предела: абсолютно неэластичное предложение вертикально (PES = 0, величина фиксирована), а абсолютно эластичное — горизонтально (PES = ∞, цена фиксирована).',
+    },
     syllabus: '2.6',
     papers: ['P1', 'P2', 'P3'],
     src: { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 2.6' },
@@ -115,6 +131,10 @@ export const terms: Term[] = [
       en: 'Farmland that can switch between wheat and barley lets producers respond quickly when the price of wheat rises.',
       ru: 'Пахотная земля, которую можно переключать между пшеницей и ячменём, позволяет производителям быстро реагировать на рост цены пшеницы.',
     },
+    pitfall: {
+      en: 'Mobility here means moving resources between products, not migration between countries: the question is how easily the same inputs can make a different good.',
+      ru: 'Здесь мобильность означает переход ресурсов от одного товара к другому, а не миграцию между странами: важно, насколько легко те же ресурсы можно использовать для другого товара.',
+    },
     syllabus: '2.6',
     papers: ['P1', 'P2', 'P3'],
     src: { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 2.6' },
@@ -129,6 +149,10 @@ export const terms: Term[] = [
     example: {
       en: 'A bakery that runs only one shift a day can add a second shift quickly when the price of bread rises, so its supply is elastic.',
       ru: 'Пекарня, которая работает одну смену в день, может быстро добавить вторую смену при росте цены хлеба, поэтому её предложение эластично.',
+    },
+    pitfall: {
+      en: 'Spare capacity is machines and shifts that already exist but are not used, not spare stock of finished goods; it lets supply respond quickly, mainly in the short run.',
+      ru: 'Избыточные мощности — это уже имеющиеся, но незагруженные станки и смены, а не запасы готовой продукции; они помогают предложению быстро реагировать, в основном в краткосрочном периоде.',
     },
     syllabus: '2.6',
     papers: ['P1', 'P2', 'P3'],
