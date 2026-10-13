@@ -1,8 +1,9 @@
 import type { Term } from '../../../../src/contract/types';
 
 // Core 1.2 (changing populations and places). Definitions are written in our own words from the key elements
-// of the Geography guide (2017) core 1.2; no textbook locator yet (PACK.md for geo was not available).
-const SRC = { kind: 'own' as const, title: 'Geography guide (2017), core 1.2' };
+// of the subtopic, in line with the Geography guide (2017). The ThinkIB eBook has no page numbers, so the locator
+// names the eBook sections that cover the subtopic.
+const src = { kind: 'thinkib' as const, title: 'ThinkIB Geography eBook', locator: 'Paper 2 › Unit 1 › 2a–2e' };
 
 export const terms: Term[] = [
   {
@@ -14,7 +15,7 @@ export const terms: Term[] = [
     },
     syllabus: 'core-1.2',
     papers: ['P2'],
-    src: SRC,
+    src,
     pitfall: {
       en: 'Urbanisation is a share, so it can rise even when the total population falls.',
       ru: 'Урбанизация — это доля, поэтому она может расти, даже если общая численность населения падает.',
@@ -29,7 +30,7 @@ export const terms: Term[] = [
     },
     syllabus: 'core-1.2',
     papers: ['P2'],
-    src: SRC,
+    src,
     pitfall: {
       en: 'Urban growth is a number of people; urbanisation is a share of the population.',
       ru: 'Городской рост — это число людей, а урбанизация — доля населения.',
@@ -44,7 +45,7 @@ export const terms: Term[] = [
     },
     syllabus: 'core-1.2',
     papers: ['P2'],
-    src: SRC,
+    src,
     pitfall: {
       en: 'A megacity is defined by population size, not by wealth or by being a capital.',
       ru: 'Мегаполис определяется численностью населения, а не богатством и не статусом столицы.',
@@ -59,7 +60,7 @@ export const terms: Term[] = [
     },
     syllabus: 'core-1.2',
     papers: ['P2'],
-    src: SRC,
+    src,
   },
   {
     id: 'core-rural-urban-migration',
@@ -70,7 +71,7 @@ export const terms: Term[] = [
     },
     syllabus: 'core-1.2',
     papers: ['P2'],
-    src: SRC,
+    src,
   },
   {
     id: 'core-push-factor',
@@ -81,7 +82,7 @@ export const terms: Term[] = [
     },
     syllabus: 'core-1.2',
     papers: ['P2'],
-    src: SRC,
+    src,
     pitfall: {
       en: 'A push factor belongs to the place of origin; do not describe it as an attraction of the destination.',
       ru: 'Фактор выталкивания относится к месту выезда; не описывайте его как притяжение места назначения.',
@@ -97,7 +98,7 @@ export const terms: Term[] = [
     },
     syllabus: 'core-1.2',
     papers: ['P2'],
-    src: SRC,
+    src,
     sim: 'geo.core-push-pull',
   },
   {
@@ -109,7 +110,7 @@ export const terms: Term[] = [
     },
     syllabus: 'core-1.2',
     papers: ['P2'],
-    src: SRC,
+    src,
   },
   {
     id: 'core-counter-urbanisation',
@@ -120,7 +121,7 @@ export const terms: Term[] = [
     },
     syllabus: 'core-1.2',
     papers: ['P2'],
-    src: SRC,
+    src,
     pitfall: {
       en: 'Counter-urbanisation is a movement out of cities; it is not the same as rural depopulation.',
       ru: 'Контрурбанизация — это переезд из городов; она не то же самое, что сельское обезлюдение.',
@@ -135,7 +136,7 @@ export const terms: Term[] = [
     },
     syllabus: 'core-1.2',
     papers: ['P2'],
-    src: SRC,
+    src,
   },
   {
     id: 'core-international-migration',
@@ -146,7 +147,7 @@ export const terms: Term[] = [
     },
     syllabus: 'core-1.2',
     papers: ['P2'],
-    src: SRC,
+    src,
   },
   {
     id: 'core-voluntary-migration',
@@ -157,7 +158,7 @@ export const terms: Term[] = [
     },
     syllabus: 'core-1.2',
     papers: ['P2'],
-    src: SRC,
+    src,
   },
   {
     id: 'core-forced-migration',
@@ -168,7 +169,7 @@ export const terms: Term[] = [
     },
     syllabus: 'core-1.2',
     papers: ['P2'],
-    src: SRC,
+    src,
   },
   {
     id: 'core-remittances',
@@ -179,7 +180,7 @@ export const terms: Term[] = [
     },
     syllabus: 'core-1.2',
     papers: ['P2'],
-    src: SRC,
+    src,
   },
   {
     id: 'core-brain-drain',
@@ -190,6 +191,6 @@ export const terms: Term[] = [
     },
     syllabus: 'core-1.2',
     papers: ['P2'],
-    src: SRC,
+    src,
   },
 ];

@@ -1,8 +1,9 @@
 import type { Term } from '../../../../src/contract/types';
 
 // Core 1.3 (challenges and opportunities). Definitions are written in our own words from the key elements of the
-// Geography guide (2017) core 1.3; no textbook locator yet (PACK.md for geo was not available).
-const SRC = { kind: 'own' as const, title: 'Geography guide (2017), core 1.3' };
+// subtopic, in line with the Geography guide (2017). The ThinkIB eBook has no page numbers; the locator names chapter 3
+// of Unit 1, because its section list has not been exported yet.
+const src = { kind: 'thinkib' as const, title: 'ThinkIB Geography eBook', locator: 'Paper 2 › Unit 1 › ch. 3' };
 const DEPENDENCY_SIM = 'geo.core-dependency-ratio' as const;
 
 export const terms: Term[] = [
@@ -15,7 +16,7 @@ export const terms: Term[] = [
     },
     syllabus: 'core-1.3',
     papers: ['P2'],
-    src: SRC,
+    src,
     pitfall: {
       en: 'Ageing describes the age structure. A population can age while its total size stays the same or even grows.',
       ru: 'Старение — это изменение возрастной структуры. Население может стареть, даже если его общая численность остаётся прежней или растёт.',
@@ -30,7 +31,7 @@ export const terms: Term[] = [
     },
     syllabus: 'core-1.3',
     papers: ['P2'],
-    src: SRC,
+    src,
     pitfall: {
       en: 'The working-age group is not the same as the labour force, because some people aged 15 to 64 are students, carers or not seeking work.',
       ru: 'Население трудоспособного возраста — не то же самое, что рабочая сила: часть людей в возрасте 15–64 лет учится, ухаживает за детьми или не ищет работу.',
@@ -45,7 +46,7 @@ export const terms: Term[] = [
     },
     syllabus: 'core-1.3',
     papers: ['P2'],
-    src: SRC,
+    src,
     sim: DEPENDENCY_SIM,
     pitfall: {
       en: 'Divide by the 15 to 64 group only, never by the whole population.',
@@ -61,7 +62,7 @@ export const terms: Term[] = [
     },
     syllabus: 'core-1.3',
     papers: ['P2'],
-    src: SRC,
+    src,
     sim: DEPENDENCY_SIM,
   },
   {
@@ -73,7 +74,7 @@ export const terms: Term[] = [
     },
     syllabus: 'core-1.3',
     papers: ['P2'],
-    src: SRC,
+    src,
     sim: DEPENDENCY_SIM,
     pitfall: {
       en: 'It counts age groups only, so it does not show how many older people are working or who pays their pensions.',
@@ -89,7 +90,7 @@ export const terms: Term[] = [
     },
     syllabus: 'core-1.3',
     papers: ['P2'],
-    src: SRC,
+    src,
     pitfall: {
       en: 'A youth bulge describes the age structure; it is not the same as a high birth rate today, and it can exist while birth rates are falling.',
       ru: 'Волна молодёжи описывает возрастную структуру; это не то же самое, что высокая рождаемость сегодня, и она может сохраняться при падающей рождаемости.',
@@ -104,7 +105,7 @@ export const terms: Term[] = [
     },
     syllabus: 'core-1.3',
     papers: ['P2'],
-    src: SRC,
+    src,
     pitfall: {
       en: 'The dividend is temporary: it fades when the working-age share stops rising and the older share keeps growing.',
       ru: 'Дивиденд временный: он ослабевает, когда доля трудоспособного населения перестаёт расти, а доля пожилых продолжает расти.',
@@ -119,7 +120,7 @@ export const terms: Term[] = [
     },
     syllabus: 'core-1.3',
     papers: ['P2'],
-    src: SRC,
+    src,
     pitfall: {
       en: 'It is not the same as the actual total fertility rate, and the calculation assumes no net migration.',
       ru: 'Это не фактический суммарный коэффициент рождаемости, а расчёт предполагает отсутствие чистой миграции.',
@@ -134,7 +135,7 @@ export const terms: Term[] = [
     },
     syllabus: 'core-1.3',
     papers: ['P2'],
-    src: SRC,
+    src,
     pitfall: {
       en: 'Incentives can bring births forward rather than add children, so the long-run effect may be much smaller than the short-run rise.',
       ru: 'Стимулы могут сдвигать рождения на более ранние сроки, а не добавлять детей, поэтому долгосрочный эффект может быть намного меньше краткосрочного роста.',
@@ -149,7 +150,7 @@ export const terms: Term[] = [
     },
     syllabus: 'core-1.3',
     papers: ['P2'],
-    src: SRC,
+    src,
     pitfall: {
       en: 'Fertility was already falling before China’s one-child limit began in 1980, so the policy is only one of several causes of the fall.',
       ru: 'Рождаемость в Китае уже снижалась до введения ограничения «одного ребёнка» в 1980 году, поэтому политика — лишь одна из причин снижения.',
@@ -164,7 +165,7 @@ export const terms: Term[] = [
     },
     syllabus: 'core-1.3',
     papers: ['P2'],
-    src: SRC,
+    src,
     pitfall: {
       en: 'Brain gain is not automatic: many skilled migrants never return, so the gain depends on policies and on links with the home country.',
       ru: 'Приток мозгов не возникает автоматически: многие квалифицированные мигранты так и не возвращаются, поэтому выгода зависит от политики и связей с родиной.',
@@ -179,7 +180,7 @@ export const terms: Term[] = [
     },
     syllabus: 'core-1.3',
     papers: ['P2'],
-    src: SRC,
+    src,
   },
   {
     id: 'core-silver-economy',
@@ -190,7 +191,7 @@ export const terms: Term[] = [
     },
     syllabus: 'core-1.3',
     papers: ['P2'],
-    src: SRC,
+    src,
     pitfall: {
       en: 'The silver economy is an opportunity for firms and workers, but older people with low incomes may not be able to spend.',
       ru: 'Серебряная экономика — возможность для фирм и работников, но пожилые люди с низкими доходами могут не иметь средств на покупки.',
@@ -205,7 +206,7 @@ export const terms: Term[] = [
     },
     syllabus: 'core-1.3',
     papers: ['P2'],
-    src: SRC,
+    src,
     pitfall: {
       en: 'Ageing lowers the number of contributors for each pensioner, so the system comes under pressure unless contributions rise, benefits fall or the retirement age rises.',
       ru: 'Старение снижает число плательщиков взносов на одного пенсионера, поэтому система испытывает давление, если взносы не растут, выплаты не снижаются или пенсионный возраст не повышается.',
@@ -220,7 +221,7 @@ export const terms: Term[] = [
     },
     syllabus: 'core-1.3',
     papers: ['P2'],
-    src: SRC,
+    src,
     pitfall: {
       en: 'Long-term care is different from hospital treatment; it is usually given at home or in a care home.',
       ru: 'Долгосрочный уход отличается от больничного лечения; обычно его получают дома или в доме престарелых.',

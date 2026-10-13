@@ -1,9 +1,9 @@
 import type { SourceRef, Term } from '../../../../src/contract/types';
 
 // Syllabus core 3.2 (impacts of changing trends in resource consumption). Definitions are in our own words, from the Geography guide (2017), core 3.2.
-// No textbook is available yet, so the source has no locator (PLAN.md section 7).
+// The ThinkIB eBook has no page numbers, so the locator names the eBook sections that cover the subtopic.
 // Two concepts that other topics already define are not repeated here: resource security (core-3-1) and water security (core-2-2).
-const src: SourceRef = { kind: 'own', title: 'Geography guide (2017), core 3.2' };
+const src: SourceRef = { kind: 'thinkib', title: 'ThinkIB Geography eBook', locator: 'Paper 2 › Unit 3 › 8a–8c' };
 
 export const terms: Term[] = [
   {

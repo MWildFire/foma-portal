@@ -1,8 +1,9 @@
 import type { Term } from '../../../../src/contract/types';
 
 // Core 2.2 (consequences of global climate change). Definitions are written in our own words from the key elements
-// of the Geography guide (2017) core 2.2; no textbook locator yet (PACK.md for geo was not available).
-const SRC = { kind: 'own' as const, title: 'Geography guide (2017), core 2.2' };
+// of the subtopic, in line with the Geography guide (2017). The ThinkIB eBook has no page numbers, so the locator
+// names the eBook sections that cover the subtopic.
+const src = { kind: 'thinkib' as const, title: 'ThinkIB Geography eBook', locator: 'Paper 2 › Unit 2 › 5a–5g' };
 
 export const terms: Term[] = [
   {
@@ -14,7 +15,7 @@ export const terms: Term[] = [
     },
     syllabus: 'core-2.2',
     papers: ['P2'],
-    src: SRC,
+    src,
     pitfall: {
       en: 'Sea-level rise is a global average. The change at one coast can be larger or smaller because the land sinks or rises and because of ocean currents.',
       ru: 'Подъём уровня моря — это среднее значение по всей планете. Изменение у конкретного берега может быть больше или меньше из-за оседания или поднятия суши и океанических течений.',
@@ -29,7 +30,7 @@ export const terms: Term[] = [
     },
     syllabus: 'core-2.2',
     papers: ['P2'],
-    src: SRC,
+    src,
     pitfall: {
       en: 'Sea ice already floats in the sea, so its melting barely changes sea level. The rise comes from land ice.',
       ru: 'Морской лёд уже плавает в море, поэтому его таяние почти не меняет уровень моря. Подъём вызывает наземный лёд.',
@@ -44,7 +45,7 @@ export const terms: Term[] = [
     },
     syllabus: 'core-2.2',
     papers: ['P2'],
-    src: SRC,
+    src,
     pitfall: {
       en: 'A heatwave is measured against local normal temperatures, so 35 °C can be normal in one place and extreme in another.',
       ru: 'Тепловая волна определяется относительно местной нормы, поэтому 35 °C могут быть обычной погодой в одном месте и экстремальной — в другом.',
@@ -59,7 +60,7 @@ export const terms: Term[] = [
     },
     syllabus: 'core-2.2',
     papers: ['P2'],
-    src: SRC,
+    src,
     pitfall: {
       en: 'Drought is a shortage of water measured against the local normal. A naturally dry place is not in drought just because it is dry.',
       ru: 'Засуха — это нехватка воды относительно местной нормы. Природно сухое место не находится в засухе только потому, что оно сухое.',
@@ -74,7 +75,7 @@ export const terms: Term[] = [
     },
     syllabus: 'core-2.2',
     papers: ['P2'],
-    src: SRC,
+    src,
     pitfall: {
       en: 'The cause is heavy rain, but a flash flood is defined by its speed. A slow river flood after a distant storm is not a flash flood.',
       ru: 'Причина — сильный дождь, но внезапное наводнение определяется скоростью. Медленный речной паводок после далёкого шторма — это не внезапное наводнение.',
@@ -89,7 +90,7 @@ export const terms: Term[] = [
     },
     syllabus: 'core-2.2',
     papers: ['P2'],
-    src: SRC,
+    src,
     pitfall: {
       en: 'Acidification means pH falls, but seawater stays alkaline (pH above 7). It is a change in degree, not a change into acid.',
       ru: 'Подкисление означает падение pH, но морская вода остаётся щелочной (pH выше 7). Это изменение степени, а не превращение в кислоту.',
@@ -104,7 +105,7 @@ export const terms: Term[] = [
     },
     syllabus: 'core-2.2',
     papers: ['P2'],
-    src: SRC,
+    src,
     pitfall: {
       en: 'A shift in range is not the same as extinction. Species may move, but not fast enough, or not at all if no suitable habitat exists.',
       ru: 'Смещение ареала — это не то же самое, что вымирание. Виды могут переместиться, но не успеть или не сделать этого, если подходящей среды обитания нет.',
@@ -119,7 +120,7 @@ export const terms: Term[] = [
     },
     syllabus: 'core-2.2',
     papers: ['P2'],
-    src: SRC,
+    src,
     pitfall: {
       en: 'A tipping point is a threshold in the system, not a fixed year on the calendar, and scientists cannot always say exactly where it lies.',
       ru: 'Точка необратимости — это порог в системе, а не фиксированный год в календаре, и учёные не всегда могут точно сказать, где он находится.',
@@ -134,7 +135,7 @@ export const terms: Term[] = [
     },
     syllabus: 'core-2.2',
     papers: ['P2'],
-    src: SRC,
+    src,
     pitfall: {
       en: 'Food security is about access and use as well as supply. A country can produce enough food and still have households that cannot afford it.',
       ru: 'Продовольственная безопасность — это доступ к пище и её использование, а не только производство. Страна может производить достаточно еды, а домохозяйства всё равно не смогут её купить.',
@@ -149,7 +150,7 @@ export const terms: Term[] = [
     },
     syllabus: 'core-2.2',
     papers: ['P2'],
-    src: SRC,
+    src,
     pitfall: {
       en: 'Water security is not the same as having a lot of water. Salty or polluted water can make a supply insecure even when it is plentiful.',
       ru: 'Водная безопасность — это не просто большой объём воды. Солёная или загрязнённая вода делает запасы небезопасными, даже если их много.',
@@ -164,7 +165,7 @@ export const terms: Term[] = [
     },
     syllabus: 'core-2.2',
     papers: ['P2'],
-    src: SRC,
+    src,
     pitfall: {
       en: 'Salt water can move inland in the dry season, when river flow is low, not only during floods.',
       ru: 'Солёная вода может продвигаться вглубь суши в сухой сезон, когда сток рек низкий, а не только во время наводнений.',
@@ -179,7 +180,7 @@ export const terms: Term[] = [
     },
     syllabus: 'core-2.2',
     papers: ['P2'],
-    src: SRC,
+    src,
     pitfall: {
       en: 'Displacement is forced, unlike voluntary migration for work or study. People who leave before a disaster can still count as displaced.',
       ru: 'Вынужденное перемещение происходит против воли людей, в отличие от добровольной миграции ради работы или учёбы. Люди, уехавшие до катастрофы, тоже могут считаться перемещёнными.',
@@ -194,7 +195,7 @@ export const terms: Term[] = [
     },
     syllabus: 'core-2.2',
     papers: ['P2'],
-    src: SRC,
+    src,
     pitfall: {
       en: 'Vulnerability is not the same as exposure. A place can be exposed to a flood but have low vulnerability if it is well protected and its people can cope.',
       ru: 'Уязвимость — это не то же самое, что подверженность. Место может находиться в зоне наводнения, но иметь низкую уязвимость, если оно хорошо защищено и люди способны справиться.',
@@ -209,7 +210,7 @@ export const terms: Term[] = [
     },
     syllabus: 'core-2.2',
     papers: ['P2'],
-    src: SRC,
+    src,
     pitfall: {
       en: 'Resilience is about absorbing a shock and recovering. It is not the same as being protected from the hazard in the first place.',
       ru: 'Устойчивость — это способность выдержать удар и восстановиться. Это не то же самое, что защищённость от опасности изначально.',
@@ -224,7 +225,7 @@ export const terms: Term[] = [
     },
     syllabus: 'core-2.2',
     papers: ['P2'],
-    src: SRC,
+    src,
     pitfall: {
       en: 'Adaptive capacity is a potential, not an action. A rich country can have high capacity and still act slowly.',
       ru: 'Адаптационный потенциал — это возможность, а не действие. Богатая страна может обладать высоким потенциалом и всё же действовать медленно.',

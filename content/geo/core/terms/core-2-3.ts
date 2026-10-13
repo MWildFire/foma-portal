@@ -1,9 +1,9 @@
 import type { SourceRef, Term } from '../../../../src/contract/types';
 
 // Syllabus core 2.3 (responding to global climate change). Definitions are in our own words, following the IPCC AR6
-// and SROCC glossaries and the Geography guide (2017), core 2.3. No textbook is available yet, so the source has no locator
-// (PLAN.md section 7).
-const src: SourceRef = { kind: 'own', title: 'Geography guide (2017), core 2.3' };
+// and SROCC glossaries and the Geography guide (2017), core 2.3. The ThinkIB eBook has no page numbers, so the locator
+// names chapter 6 of Unit 2 (sections 6a–6g).
+const src: SourceRef = { kind: 'thinkib', title: 'ThinkIB Geography eBook', locator: 'Paper 2 › Unit 2 › ch. 6 (6a–6g)' };
 
 export const terms: Term[] = [
   {
@@ -100,8 +100,8 @@ export const terms: Term[] = [
     id: 'core-afforestation',
     term: { en: 'afforestation', ru: 'облесение (afforestation)' },
     def: {
-      en: 'Creating forest on land that has historically had no forest, such as former farmland or grassland; the growing trees absorb CO2 and store carbon.',
-      ru: 'Создание леса на земле, которая исторически не была покрыта лесом, например на бывших пашнях или пастбищах; растущие деревья поглощают CO2 и накапливают углерод.',
+      en: 'Human-induced creation of forest on land that has had no forest for at least 50 years, for example by planting or seeding trees on former farmland or grassland; the growing trees absorb CO2 and store carbon.',
+      ru: 'Создание леса человеком на земле, которая не была покрыта лесом не менее 50 лет, например посадкой или посевом деревьев на бывших пашнях и пастбищах; растущие деревья поглощают CO2 и накапливают углерод.',
     },
     syllabus: 'core-2.3',
     papers: ['P2'],

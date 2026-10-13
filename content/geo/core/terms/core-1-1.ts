@@ -1,8 +1,9 @@
 import type { Term } from '../../../../src/contract/types';
 
 // Topic core-1.1 (population and economic development). Definitions are our own wording of the key elements of the
-// Geography guide (2017) core 1.1; no textbook locator is available yet (no PACK), so the source kind is 'own'.
-const own = { kind: 'own' as const, title: 'Geography guide (2017), core 1.1' };
+// subtopic, in line with the Geography guide (2017). The ThinkIB eBook has no page numbers, so the locator names the
+// eBook sections that cover the subtopic.
+const src = { kind: 'thinkib' as const, title: 'ThinkIB Geography eBook', locator: 'Paper 2 › Unit 1 › 1a–1e' };
 
 export const terms: Term[] = [
   {
@@ -14,7 +15,7 @@ export const terms: Term[] = [
     },
     syllabus: 'core-1.1',
     papers: ['P2'],
-    src: own,
+    src,
     pitfall: {
       en: 'Natural increase is not the total population change: migration also changes the size of a population.',
       ru: 'Естественный прирост — это не общее изменение населения: размер населения меняет и миграция.',
@@ -33,7 +34,7 @@ export const terms: Term[] = [
     },
     syllabus: 'core-1.1',
     papers: ['P2'],
-    src: own,
+    src,
     pitfall: {
       en: 'It divides by the whole population, not by women of childbearing age; that is why it is called crude.',
       ru: 'Делится на всё население, а не на женщин репродуктивного возраста; поэтому коэффициент назван «общим».',
@@ -48,7 +49,7 @@ export const terms: Term[] = [
     },
     syllabus: 'core-1.1',
     papers: ['P2'],
-    src: own,
+    src,
     pitfall: {
       en: 'A low crude death rate does not always mean a young population: an ageing population can have a higher rate even with good health care.',
       ru: 'Низкий общий коэффициент смертности не всегда означает молодое население: у стареющего населения он может быть выше даже при хорошей медицине.',
@@ -63,7 +64,7 @@ export const terms: Term[] = [
     },
     syllabus: 'core-1.1',
     papers: ['P2'],
-    src: own,
+    src,
     pitfall: {
       en: 'TFR is a rate per woman, not a count of births, and it is not the average family size of the women alive today.',
       ru: 'TFR — это показатель на одну женщину, а не число рождений, и это не средний размер семьи нынешних женщин.',
@@ -78,7 +79,7 @@ export const terms: Term[] = [
     },
     syllabus: 'core-1.1',
     papers: ['P2'],
-    src: own,
+    src,
     pitfall: {
       en: 'The model describes a general pattern: countries move through the stages at different speeds, and not every country follows it exactly.',
       ru: 'Модель описывает общую закономерность: страны проходят стадии с разной скоростью, и не каждая следует ей точно.',
@@ -94,7 +95,7 @@ export const terms: Term[] = [
     },
     syllabus: 'core-1.1',
     papers: ['P2'],
-    src: own,
+    src,
     pitfall: {
       en: 'Read the bars from the base upwards: a wide base means many children, not many old people.',
       ru: 'Читайте столбцы снизу вверх: широкое основание означает много детей, а не много пожилых людей.',
@@ -110,7 +111,7 @@ export const terms: Term[] = [
     },
     syllabus: 'core-1.1',
     papers: ['P2'],
-    src: own,
+    src,
     pitfall: {
       en: 'The ratio counts both ends of the age range: a high figure can come from many children or from many older people.',
       ru: 'В коэффициенте учитываются обе крайние возрастные группы: высокое значение может быть вызвано как большим числом детей, так и большим числом пожилых людей.',
@@ -125,7 +126,7 @@ export const terms: Term[] = [
     },
     syllabus: 'core-1.1',
     papers: ['P2'],
-    src: own,
+    src,
     pitfall: {
       en: 'The base is live births, not the total population.',
       ru: 'Базой служат живорождения, а не всё население.',
@@ -140,7 +141,7 @@ export const terms: Term[] = [
     },
     syllabus: 'core-1.1',
     papers: ['P2'],
-    src: own,
+    src,
   },
   {
     id: 'core-human-development-index',
@@ -151,7 +152,7 @@ export const terms: Term[] = [
     },
     syllabus: 'core-1.1',
     papers: ['P2'],
-    src: own,
+    src,
     pitfall: {
       en: 'The HDI is an average for the whole country, so it hides differences between regions and social groups.',
       ru: 'ИРЧП — среднее значение по всей стране, поэтому он скрывает различия между регионами и социальными группами.',
@@ -166,7 +167,7 @@ export const terms: Term[] = [
     },
     syllabus: 'core-1.1',
     papers: ['P2'],
-    src: own,
+    src,
     pitfall: {
       en: 'GNI counts the income of a country’s residents wherever they work; GDP counts the output produced inside its borders.',
       ru: 'ВНД учитывает доходы резидентов страны независимо от места работы; ВВП учитывает производство внутри её границ.',
@@ -185,7 +186,7 @@ export const terms: Term[] = [
     },
     syllabus: 'core-1.1',
     papers: ['P2'],
-    src: own,
+    src,
     pitfall: {
       en: 'Malthus argued that growth would be checked; he did not say that every society would starve.',
       ru: 'Мальтус утверждал, что рост будет ограничен; он не говорил, что каждое общество обречено на голод.',
@@ -201,7 +202,7 @@ export const terms: Term[] = [
     },
     syllabus: 'core-1.1',
     papers: ['P2'],
-    src: own,
+    src,
     pitfall: {
       en: 'Boserup is about how farmers respond to population pressure; she did not claim that food supply always keeps up.',
       ru: 'Бозеруп говорит о том, как фермеры реагируют на давление населения; она не утверждала, что производство продовольствия всегда успевает за ростом.',
@@ -217,7 +218,7 @@ export const terms: Term[] = [
     },
     syllabus: 'core-1.1',
     papers: ['P2'],
-    src: own,
+    src,
     pitfall: {
       en: 'Preventive checks are chosen by people, such as marrying later; positive checks are imposed by crisis.',
       ru: 'Превентивные факторы выбирают сами люди, например позже вступают в брак; положительные навязывает кризис.',
@@ -232,7 +233,7 @@ export const terms: Term[] = [
     },
     syllabus: 'core-1.1',
     papers: ['P2'],
-    src: own,
+    src,
     pitfall: {
       en: 'Carrying capacity depends on technology and trade as well as on land, so it is not a fixed number.',
       ru: 'Несущая способность зависит от технологий и торговли, а не только от земли, поэтому это не фиксированное число.',

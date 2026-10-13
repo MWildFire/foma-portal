@@ -1,9 +1,9 @@
 import type { SourceRef, Term } from '../../../../src/contract/types';
 
 // Syllabus core 3.3 (resource stewardship). Definitions are in our own words, from the Geography guide (2017), core 3.3.
-// No textbook is available yet, so the source has no locator (PLAN.md section 7).
+// The ThinkIB eBook has no page numbers, so the locator names the eBook sections that cover the subtopic.
 // Concepts already defined in units 1 to 3.2 (renewable and non-renewable resources, resource security, water stress) are not repeated here.
-const src: SourceRef = { kind: 'own', title: 'Geography guide (2017), core 3.3' };
+const src: SourceRef = { kind: 'thinkib', title: 'ThinkIB Geography eBook', locator: 'Paper 2 › Unit 3 › 9a–9e' };
 
 export const terms: Term[] = [
   {

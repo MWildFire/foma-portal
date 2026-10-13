@@ -1,8 +1,8 @@
 import type { SourceRef, Term } from '../../../../src/contract/types';
 
 // Syllabus core 3.1 (global trends in consumption). Definitions are in our own words, from the Geography guide (2017), core 3.1.
-// No textbook is available yet, so the source has no locator (PLAN.md section 7).
-const src: SourceRef = { kind: 'own', title: 'Geography guide (2017), core 3.1' };
+// The ThinkIB eBook has no page numbers, so the locator names the eBook sections that cover the subtopic.
+const src: SourceRef = { kind: 'thinkib', title: 'ThinkIB Geography eBook', locator: 'Paper 2 › Unit 3 › 7a–7e' };
 
 export const terms: Term[] = [
   {
@@ -48,7 +48,7 @@ export const terms: Term[] = [
   },
   {
     id: 'core-reserve',
-    term: { en: 'reserve', ru: 'запас (reserve)' },
+    term: { en: 'reserve', ru: 'запасы (reserve)' },
     def: {
       en: 'The part of a known resource that can be extracted economically and technically at present, given current prices, technology and legal conditions.',
       ru: 'Часть известного ресурса, которую можно экономически выгодно и технически извлечь в настоящее время при действующих ценах, технологиях и правовых условиях.',
