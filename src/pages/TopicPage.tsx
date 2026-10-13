@@ -3,7 +3,7 @@ import { Link, useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { MDXProvider } from '@mdx-js/react';
 import type { SubjectPack } from '../contract/pack';
-import type { Lang, TopicMeta } from '../contract/types';
+import type { L, Lang, TopicMeta } from '../contract/types';
 import { BreadcrumbsNav } from '../components/layout/BreadcrumbsNav';
 import { ContentLangSwitch } from '../components/content/ContentLangSwitch';
 import { InlineText } from '../components/content/RichText';
@@ -21,9 +21,9 @@ import { TopicProgressControls } from '../components/subject/TopicProgressContro
 import { FrenchText } from '../components/ui/FrenchText';
 import { ROUTES } from '../config/routes';
 import { getSubject } from '../content/registry';
-import { pickText } from '../lib/text';
+import { pickText, textsIn } from '../lib/text';
 import { langsOf, toLang, type ContentLang } from '../lib/topic-lang';
-import { publicUrl } from '../lib/topic-text';
+import { publicUrl, showsSource } from '../lib/topic-text';
 import '../components/content/ui.css';
 import '../components/subject/subject.css';
 
@@ -94,9 +94,11 @@ export function TopicPage() {
   const base = useId();
   const pack = getSubject(subject);
   const topic = pack?.topics.find(item => item.id === topicId);
+  // Topic text follows the content-language mode (EN, RU or both), not the interface language.
+  const shownText = (text: L): string => textsIn(text, contentLang).map(item => item.text).join(' / ') || pickText(text, uiLang);
 
   usePageTitle(
-    topic ? pickText(topic.title, uiLang) : t('page.notFound.title'),
+    topic ? shownText(topic.title) : t('page.notFound.title'),
     pack ? `${pickText(pack.meta.title, uiLang)} | ${t('brand', { ns: 'common' })}` : t('brand', { ns: 'common' }),
   );
   useScrollToTop(`${subject}/${topicId}`);
@@ -129,13 +131,17 @@ export function TopicPage() {
     return bodies?.[other] && !wanted.includes(other) ? other : null;
   };
 
+  // Sources marked as the author's own notes are not shown; with none left, the sources section is not drawn either.
+  const shownSources = topic.sources.filter(showsSource);
+  const publicLinks = (topic.links ?? []).filter(link => publicUrl(link.url) !== null);
+
   return (
     <div data-subject-color={pack.meta.color} className={dual ? '' : 'max-w-3xl'}>
-      <BreadcrumbsNav crumbs={[{ label: subjectTitle, to: ROUTES.subject(subject) }, { label: pickText(topic.title, uiLang) }]} />
+      <BreadcrumbsNav crumbs={[{ label: subjectTitle, to: ROUTES.subject(subject) }, { label: shownText(topic.title) }]} />
       <SubjectBar pack={pack} />
 
       <TopicHero
-        title={<><FrenchText text={topic.title} />{pickText(topic.title, uiLang)}</>}
+        title={<><FrenchText text={topic.title} />{shownText(topic.title)}</>}
         eyebrow={<span className="foma-code-label">{t('page.code', { code: topic.code })}</span>}
       >
         <TopicChips topic={topic} />
@@ -150,7 +156,7 @@ export function TopicPage() {
           <h2 id={`${base}-outcomes`} className="mb-2 text-base font-semibold">{t('page.outcomes')}</h2>
           <ul className="m-0 list-disc space-y-1 pl-6">
             {topic.outcomes.map((outcome, index) => (
-              <li key={index}><InlineText text={pickText(outcome, uiLang)} /></li>
+              <li key={index}><InlineText text={shownText(outcome)} /></li>
             ))}
           </ul>
         </section>
@@ -176,16 +182,18 @@ export function TopicPage() {
         <TopicProgressControls subject={subject} topicId={topic.id} />
       </section>
 
-      <section aria-labelledby={`${base}-sources`}>
-        <SectionHeading id={`${base}-sources`}>{t('page.sources')}</SectionHeading>
-        <SourceList sources={topic.sources} lang={uiLang} />
-        {(topic.links ?? []).some(link => publicUrl(link.url) !== null) ? (
-          <>
-            <h3 className="mb-2 mt-5 text-base font-semibold">{t('page.links')}</h3>
-            <LinkList links={topic.links ?? []} lang={uiLang} />
-          </>
-        ) : null}
-      </section>
+      {shownSources.length > 0 || publicLinks.length > 0 ? (
+        <section aria-labelledby={`${base}-sources`}>
+          <SectionHeading id={`${base}-sources`}>{t('page.sources')}</SectionHeading>
+          <SourceList sources={topic.sources} lang={uiLang} />
+          {publicLinks.length > 0 ? (
+            <>
+              <h3 className="mb-2 mt-5 text-base font-semibold">{t('page.links')}</h3>
+              <LinkList links={topic.links ?? []} lang={uiLang} />
+            </>
+          ) : null}
+        </section>
+      ) : null}
     </div>
   );
 }
