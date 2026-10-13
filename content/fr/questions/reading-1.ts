@@ -15,9 +15,9 @@ export const questions: FrQuestion[] = [
     marks: 1,
     command: 'Identify',
     prompt: {
-      en: "Write vrai, faux or non mentionné, and quote the sentence from the text that proves it. The recipe comes from Italy.",
-      ru: "Напишите vrai, faux или non mentionné и приведите фразу из текста, которая это доказывает. Рецепт родом из Италии.",
-      fr: "Écrivez vrai, faux ou non mentionné, et citez la phrase du texte qui le prouve. La recette vient d'Italie.",
+      en: "Write vrai, faux or non mentionné. For vrai or faux, quote the sentence from the text that proves it. The recipe comes from Italy.",
+      ru: "Напишите vrai, faux или non mentionné. Если ответ vrai или faux, приведите фразу из текста, которая это доказывает. Рецепт родом из Италии.",
+      fr: "Écrivez vrai, faux ou non mentionné. Si la réponse est vrai ou faux, citez la phrase du texte qui le prouve. La recette vient d'Italie.",
     },
     markscheme: {
       en: "Answer: vrai. Paragraph C: « Cette recette ne vient pas de chez nous, mais d'Italie. » The text says that the recipe comes from Italy.",
@@ -35,9 +35,9 @@ export const questions: FrQuestion[] = [
     marks: 1,
     command: 'Identify',
     prompt: {
-      en: "Write vrai, faux or non mentionné, and quote the sentence from the text that proves it. Rosa left Italy when she was thirty.",
-      ru: "Напишите vrai, faux или non mentionné и приведите фразу из текста, которая это доказывает. Роза уехала из Италии в тридцать лет.",
-      fr: "Écrivez vrai, faux ou non mentionné, et citez la phrase du texte qui le prouve. Rosa a quitté l'Italie à trente ans.",
+      en: "Write vrai, faux or non mentionné. For vrai or faux, quote the sentence from the text that proves it. Rosa left Italy when she was thirty.",
+      ru: "Напишите vrai, faux или non mentionné. Если ответ vrai или faux, приведите фразу из текста, которая это доказывает. Роза уехала из Италии в тридцать лет.",
+      fr: "Écrivez vrai, faux ou non mentionné. Si la réponse est vrai ou faux, citez la phrase du texte qui le prouve. Rosa a quitté l'Italie à trente ans.",
     },
     markscheme: {
       en: "Answer: faux. Paragraph C: « Elle a quitté son pays à vingt ans, en 1932, avec une seule valise » She left at twenty, not at thirty.",
@@ -55,13 +55,13 @@ export const questions: FrQuestion[] = [
     marks: 1,
     command: 'Identify',
     prompt: {
-      en: "Write vrai, faux or non mentionné, and quote the sentence from the text that proves it. Antoine has already made this cake for his friends.",
-      ru: "Напишите vrai, faux или non mentionné и приведите фразу из текста, которая это доказывает. Антуан уже готовил этот торт для своих друзей.",
-      fr: "Écrivez vrai, faux ou non mentionné, et citez la phrase du texte qui le prouve. Antoine a déjà préparé ce gâteau pour ses amis.",
+      en: "Write vrai, faux or non mentionné. For vrai or faux, quote the sentence from the text that proves it. Antoine has a brother.",
+      ru: "Напишите vrai, faux или non mentionné. Если ответ vrai или faux, приведите фразу из текста, которая это доказывает. У Антуана есть брат.",
+      fr: "Écrivez vrai, faux ou non mentionné. Si la réponse est vrai ou faux, citez la phrase du texte qui le prouve. Antoine a un frère.",
     },
     markscheme: {
-      en: "Answer: non mentionné. The text does not say whether Antoine has made the cake before. Paragraph E only asks him to make it: « Alors, fais ce gâteau pour tes amis et raconte-leur d'où il vient. »",
-      ru: "Ответ: non mentionné. В тексте не сказано, готовил ли Антуан торт раньше. В абзаце E бабушка только просит его испечь торт: « Alors, fais ce gâteau pour tes amis et raconte-leur d'où il vient. »",
+      en: "Answer: non mentionné. No brother or sister is mentioned. Paragraph A: « Mon cher Antoine, tu m'as demandé la recette du gâteau au citron ».",
+      ru: "Ответ: non mentionné. Ни брат, ни сестра не упоминаются. Абзац A: « Mon cher Antoine, tu m'as demandé la recette du gâteau au citron ».",
     },
     answer: 'non mentionné',
     origin: 'original',
@@ -95,15 +95,15 @@ export const questions: FrQuestion[] = [
     marks: 1,
     command: 'State',
     prompt: {
-      en: "Answer in English. What did Rosa often tell her daughter about recipes?",
-      ru: "Ответьте по-английски. Что часто говорила Роза дочери о рецептах?",
-      fr: "Répondez en anglais. Que disait souvent Rosa à sa fille au sujet des recettes ?",
+      en: "Answer in English. What did Rosa compare recipes to?",
+      ru: "Ответьте по-английски. С чем Роза сравнивала рецепты?",
+      fr: "Répondez en anglais. À quoi Rosa comparait-elle les recettes ?",
     },
     markscheme: {
-      en: "Answer: recipes travel like people (key words: like people); they change a little at each stage but stay recognisable. Paragraph D: « Ma mère me disait toujours que les recettes voyagent comme les gens : elles changent un peu à chaque étape, mais elles restent reconnaissables. »",
-      ru: "Ответ: рецепты путешествуют, как люди (ключевые слова: like people); на каждом этапе они немного меняются, но остаются узнаваемыми. Абзац D: « Ma mère me disait toujours que les recettes voyagent comme les gens : elles changent un peu à chaque étape, mais elles restent reconnaissables. »",
+      en: "Answer: people. Rosa compared recipes to people: they change a little at each stage but stay recognisable. Paragraph D: « Ma mère me disait toujours que les recettes voyagent comme les gens : elles changent un peu à chaque étape, mais elles restent reconnaissables. »",
+      ru: "Ответ: people (люди). Роза сравнивала рецепты с людьми: на каждом этапе они немного меняются, но остаются узнаваемыми. Абзац D: « Ma mère me disait toujours que les recettes voyagent comme les gens : elles changent un peu à chaque étape, mais elles restent reconnaissables. »",
     },
-    answer: 'like people',
+    answer: 'people',
     origin: 'original',
   },
   {
@@ -217,9 +217,9 @@ export const questions: FrQuestion[] = [
     marks: 1,
     command: 'Identify',
     prompt: {
-      en: "Write vrai, faux or non mentionné, and quote the sentence from the text that proves it. The train was delayed by three hours in Munich because of a signalling failure.",
-      ru: "Напишите vrai, faux или non mentionné и приведите фразу из текста, которая это доказывает. Поезд задержали на три часа в Мюнхене из-за неисправности сигнализации.",
-      fr: "Écrivez vrai, faux ou non mentionné, et citez la phrase du texte qui le prouve. Le train a été retardé de trois heures à Munich à cause d'une panne de signalisation.",
+      en: "Write vrai, faux or non mentionné. For vrai or faux, quote the sentence from the text that proves it. The train was delayed by three hours in Munich because of a signalling failure.",
+      ru: "Напишите vrai, faux или non mentionné. Если ответ vrai или faux, приведите фразу из текста, которая это доказывает. Поезд задержали на три часа в Мюнхене из-за неисправности сигнализации.",
+      fr: "Écrivez vrai, faux ou non mentionné. Si la réponse est vrai ou faux, citez la phrase du texte qui le prouve. Le train a été retardé de trois heures à Munich à cause d'une panne de signalisation.",
     },
     markscheme: {
       en: "Answer: vrai. Paragraph B: « Le premier incident a eu lieu à Munich : une panne de signalisation a retardé le train de trois heures. » The signalling failure delayed the train by three hours.",
@@ -237,9 +237,9 @@ export const questions: FrQuestion[] = [
     marks: 1,
     command: 'Identify',
     prompt: {
-      en: "Write vrai, faux or non mentionné, and quote the sentence from the text that proves it. The narrator took the plane to Sofia.",
-      ru: "Напишите vrai, faux или non mentionné и приведите фразу из текста, которая это доказывает. Рассказчица полетела в Софию на самолёте.",
-      fr: "Écrivez vrai, faux ou non mentionné, et citez la phrase du texte qui le prouve. La narratrice a pris l'avion pour aller à Sofia.",
+      en: "Write vrai, faux or non mentionné. For vrai or faux, quote the sentence from the text that proves it. The narrator took the plane to Sofia.",
+      ru: "Напишите vrai, faux или non mentionné. Если ответ vrai или faux, приведите фразу из текста, которая это доказывает. Рассказчица полетела в Софию на самолёте.",
+      fr: "Écrivez vrai, faux ou non mentionné. Si la réponse est vrai ou faux, citez la phrase du texte qui le prouve. La narratrice a pris l'avion pour aller à Sofia.",
     },
     markscheme: {
       en: "Answer: faux. Paragraph A: she chose the train, not the plane: « Le billet d'avion coûtait moins cher, mais je voulais voir plusieurs pays sans passer par un aéroport. »",
@@ -257,13 +257,13 @@ export const questions: FrQuestion[] = [
     marks: 1,
     command: 'Identify',
     prompt: {
-      en: "Write vrai, faux or non mentionné, and quote the sentence from the text that proves it. The narrator speaks Hungarian.",
-      ru: "Напишите vrai, faux или non mentionné и приведите фразу из текста, которая это доказывает. Рассказчица говорит по-венгерски.",
-      fr: "Écrivez vrai, faux ou non mentionné, et citez la phrase du texte qui le prouve. La narratrice parle hongrois.",
+      en: "Write vrai, faux or non mentionné. For vrai or faux, quote the sentence from the text that proves it. The old man was travelling with his wife.",
+      ru: "Напишите vrai, faux или non mentionné. Если ответ vrai или faux, приведите фразу из текста, которая это доказывает. Пожилой мужчина ехал со своей женой.",
+      fr: "Écrivez vrai, faux ou non mentionné. Si la réponse est vrai ou faux, citez la phrase du texte qui le prouve. Le vieux monsieur voyageait avec sa femme.",
     },
     markscheme: {
-      en: "Answer: non mentionné. The text never says that she speaks Hungarian. Paragraph C says only how they understood each other: « nous nous sommes compris grâce à la musique et à quelques mots d'allemand ».",
-      ru: "Ответ: non mentionné. В тексте нигде не сказано, что она говорит по-венгерски. В абзаце C сказано только, как они понимали друг друга: « nous nous sommes compris grâce à la musique et à quelques mots d'allemand ».",
+      en: "Answer: non mentionné. The text does not say who travelled with him. Paragraph C: « Un vieux monsieur hongrois, qui jouait du violon dans son wagon, m'a proposé de partager son repas. »",
+      ru: "Ответ: non mentionné. В тексте не сказано, с кем он ехал. Абзац C: « Un vieux monsieur hongrois, qui jouait du violon dans son wagon, m'a proposé de partager son repas. »",
     },
     answer: 'non mentionné',
     origin: 'original',
@@ -302,8 +302,8 @@ export const questions: FrQuestion[] = [
       fr: "Répondez en anglais. Combien de temps a duré le contrôle des passeports ?",
     },
     markscheme: {
-      en: "Answer: almost two hours (presque deux heures). Paragraph D: « Le contrôle des passeports a duré presque deux heures ».",
-      ru: "Ответ: almost two hours (почти два часа). Абзац D: « Le contrôle des passeports a duré presque deux heures ».",
+      en: "Answer: almost two hours (accept: nearly two hours) (presque deux heures). Paragraph D: « Le contrôle des passeports a duré presque deux heures ».",
+      ru: "Ответ: almost two hours (accept: nearly two hours) (почти два часа). Абзац D: « Le contrôle des passeports a duré presque deux heures ».",
     },
     answer: 'almost two hours',
     origin: 'original',
@@ -419,9 +419,9 @@ export const questions: FrQuestion[] = [
     marks: 1,
     command: 'Identify',
     prompt: {
-      en: "Write vrai, faux or non mentionné, and quote the sentence from the text that proves it. Mathis's first model was made of cardboard.",
-      ru: "Напишите vrai, faux или non mentionné и приведите фразу из текста, которая это доказывает. Первая модель Матиса была сделана из картона.",
-      fr: "Écrivez vrai, faux ou non mentionné, et citez la phrase du texte qui le prouve. Le premier modèle de Mathis était fabriqué en carton.",
+      en: "Write vrai, faux or non mentionné. For vrai or faux, quote the sentence from the text that proves it. Mathis's first model was made of cardboard.",
+      ru: "Напишите vrai, faux или non mentionné. Если ответ vrai или faux, приведите фразу из текста, которая это доказывает. Первая модель Матиса была сделана из картона.",
+      fr: "Écrivez vrai, faux ou non mentionné. Si la réponse est vrai ou faux, citez la phrase du texte qui le prouve. Le premier modèle de Mathis était fabriqué en carton.",
     },
     markscheme: {
       en: "Answer: vrai. Paragraph C: « Son premier modèle était en carton, et il utilisait une lampe de poche trouvée dans un tiroir. »",
@@ -439,9 +439,9 @@ export const questions: FrQuestion[] = [
     marks: 1,
     command: 'Identify',
     prompt: {
-      en: "Write vrai, faux or non mentionné, and quote the sentence from the text that proves it. Lirelle costs more than one hundred euros.",
-      ru: "Напишите vrai, faux или non mentionné и приведите фразу из текста, которая это доказывает. Лирель стоит больше ста евро.",
-      fr: "Écrivez vrai, faux ou non mentionné, et citez la phrase du texte qui le prouve. Lirelle coûte plus de cent euros.",
+      en: "Write vrai, faux or non mentionné. For vrai or faux, quote the sentence from the text that proves it. Lirelle costs more than one hundred euros.",
+      ru: "Напишите vrai, faux или non mentionné. Если ответ vrai или faux, приведите фразу из текста, которая это доказывает. Лирель стоит больше ста евро.",
+      fr: "Écrivez vrai, faux ou non mentionné. Si la réponse est vrai ou faux, citez la phrase du texte qui le prouve. Lirelle coûte plus de cent euros.",
     },
     markscheme: {
       en: "Answer: faux. Paragraph E: « Aujourd'hui, le prix final est de vingt-cinq euros, et l'appareil est déjà utilisé dans quelques classes. » The final price is twenty-five euros.",
@@ -459,9 +459,9 @@ export const questions: FrQuestion[] = [
     marks: 1,
     command: 'Identify',
     prompt: {
-      en: "Write vrai, faux or non mentionné, and quote the sentence from the text that proves it. Mathis has received a prize for his invention.",
-      ru: "Напишите vrai, faux или non mentionné и приведите фразу из текста, которая это доказывает. Матис получил награду за своё изобретение.",
-      fr: "Écrivez vrai, faux ou non mentionné, et citez la phrase du texte qui le prouve. Mathis a reçu une récompense pour son invention.",
+      en: "Write vrai, faux or non mentionné. For vrai or faux, quote the sentence from the text that proves it. Mathis has received a prize for his invention.",
+      ru: "Напишите vrai, faux или non mentionné. Если ответ vrai или faux, приведите фразу из текста, которая это доказывает. Матис получил награду за своё изобретение.",
+      fr: "Écrivez vrai, faux ou non mentionné. Si la réponse est vrai ou faux, citez la phrase du texte qui le prouve. Mathis a reçu une récompense pour son invention.",
     },
     markscheme: {
       en: "Answer: non mentionné. The text does not mention any prize. Paragraph E only says what he is doing now: « Pour l'instant, Mathis travaille avec une association de parents d'élèves. »",
@@ -484,8 +484,8 @@ export const questions: FrQuestion[] = [
       fr: "Répondez en anglais. Combien d'enfants ont donné des conseils pour améliorer l'appareil ?",
     },
     markscheme: {
-      en: "Answer: twelve (twelve children, together with their teachers). Paragraph D: « en s'appuyant sur les conseils de douze enfants et de leurs enseignants ».",
-      ru: "Ответ: twelve (двенадцать детей вместе с учителями). Абзац D: « en s'appuyant sur les conseils de douze enfants et de leurs enseignants ».",
+      en: "Answer: twelve (accept: 12) (twelve children, together with their teachers). Paragraph D: « en s'appuyant sur les conseils de douze enfants et de leurs enseignants ».",
+      ru: "Ответ: twelve (accept: 12) (двенадцать детей вместе с учителями). Абзац D: « en s'appuyant sur les conseils de douze enfants et de leurs enseignants ».",
     },
     answer: 'twelve',
     origin: 'original',
@@ -504,8 +504,8 @@ export const questions: FrQuestion[] = [
       fr: "Répondez en anglais. De quoi plusieurs enfants se plaignaient-ils pendant les premiers tests ?",
     },
     markscheme: {
-      en: "Answer: sore eyes (eye pain; the light was too strong). Paragraph D: « plusieurs enfants se plaignaient d'avoir mal aux yeux ».",
-      ru: "Ответ: sore eyes (боль в глазах; свет был слишком сильным). Абзац D: « plusieurs enfants se plaignaient d'avoir mal aux yeux ».",
+      en: "Answer: sore eyes (eye pain). 'The light was too strong' is the device problem, not the complaint. Paragraph D: « plusieurs enfants se plaignaient d'avoir mal aux yeux ».",
+      ru: "Ответ: sore eyes (боль в глазах). Слишком сильный свет — это проблема устройства, а не жалоба. Абзац D: « plusieurs enfants se plaignaient d'avoir mal aux yeux ».",
     },
     answer: 'sore eyes',
     origin: 'original',
@@ -600,7 +600,7 @@ export const questions: FrQuestion[] = [
     command: 'Quote',
     prompt: {
       en: "Which word in the text means 'not heavy, easy to carry'? Write the French word exactly as it appears in the text.",
-      ru: "Какое слово из текста означает «не тяжёлое, легко переносится»? Напишите французское слово точно так, как оно написано в тексте.",
+      ru: "Какое слово из текста означает «лёгкое, удобное для переноски»? Напишите французское слово точно так, как оно написано в тексте.",
       fr: "Quel mot du texte signifie « qui ne pèse pas beaucoup, facile à porter » ? Écrivez le mot exactement comme dans le texte.",
     },
     markscheme: {

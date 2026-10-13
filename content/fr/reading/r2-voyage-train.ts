@@ -6,7 +6,7 @@ import type { ReadingPassage } from '../types';
 export const passage: ReadingPassage = {
   id: 'r2-voyage-train',
   theme: 'T2',
-  title: { en: 'Thirty-two hours by train', ru: 'Тридцать два часа в поезде' },
+  title: { en: 'Two and a half days by train', ru: 'Двое с половиной суток в поезде' },
   level: 'B2',
   paragraphs: [
     "Quand j'ai annoncé à mes amis que j'irais à Sofia en train, ils m'ont prise pour une folle. Le billet d'avion coûtait moins cher, mais je voulais voir plusieurs pays sans passer par un aéroport. Le départ était prévu à sept heures du matin, le 12 octobre, depuis la gare de l'Est, à Paris.",
