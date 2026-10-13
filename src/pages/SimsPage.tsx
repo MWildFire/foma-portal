@@ -1,11 +1,19 @@
+import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
+import { usePageTitle, useScrollToTop } from '../components/content/usePageTitle';
+import { SimsView } from '../components/sims/SimsView';
+import { getSubject, listSubjects } from '../content/registry';
 
+// #/sims. The example subject is added to the packs here, and the gallery hides it unless ?include=example.
 export function SimsPage() {
-  const { t } = useTranslation();
-  return (
-    <section>
-      <h1 className="text-2xl font-semibold">{t('nav.sims')}</h1>
-      <p className="mt-2 text-[var(--color-muted)]">{t('pages.comingSoon')}</p>
-    </section>
-  );
+  const { t } = useTranslation(['sims', 'common']);
+  const packs = useMemo(() => {
+    const example = getSubject('_example');
+    return example ? [...listSubjects(), example] : listSubjects();
+  }, []);
+
+  usePageTitle(t('title'), t('brand', { ns: 'common' }));
+  useScrollToTop('sims');
+
+  return <SimsView packs={packs} />;
 }

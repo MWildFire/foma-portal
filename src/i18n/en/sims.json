@@ -1,0 +1,21 @@
+{
+  "title": "Simulations",
+  "intro": "Interactive models you can play with. Open one to see it. Each simulation links to the topics that use it.",
+  "empty": {
+    "title": "No simulations yet",
+    "body": "They will appear here as the subjects are written."
+  },
+  "count": "Simulations: {{n}}",
+  "open": "Open",
+  "opened": "Open now",
+  "close": "Close the simulation",
+  "topics": "Used in topics",
+  "noTopics": "Not linked to a topic yet.",
+  "notFound": "There is no simulation “{{id}}”. Choose one from the list.",
+  "viewer": {
+    "title": "Simulation: {{id}}"
+  },
+  "loading": "Loading the simulation...",
+  "error": "This simulation could not be loaded.",
+  "reload": "Reload the page"
+}
