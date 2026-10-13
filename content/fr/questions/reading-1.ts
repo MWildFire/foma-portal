@@ -2,14 +2,14 @@ import type { FrQuestion } from '../types';
 
 // Reading items (Paper 2) for reading passages R1 to R3 (content/fr/reading/). Each passage has 10 items:
 // 3 vrai / faux / non mentionné with a quotation, 2 short answers in English, 2 matching items (paragraphs A to E)
-// and 3 vocabulary items (the French word exactly as it appears in the text). topicIds stay empty until the topic
-// reading-strategy exists (Task 20 sets them).
+// and 3 vocabulary items (the French word exactly as it appears in the text). topicIds point to the topic
+// reading-strategy (set after that topic was added).
 export const questions: FrQuestion[] = [
   // ---- R1: a letter about a family recipe (T1, B1) ----
   {
     id: 'r1-q01',
     subject: 'fr',
-    topicIds: [],
+    topicIds: ['reading-strategy'],
     paper: 'P2',
     section: 'r1',
     marks: 1,
@@ -29,7 +29,7 @@ export const questions: FrQuestion[] = [
   {
     id: 'r1-q02',
     subject: 'fr',
-    topicIds: [],
+    topicIds: ['reading-strategy'],
     paper: 'P2',
     section: 'r1',
     marks: 1,
@@ -49,7 +49,7 @@ export const questions: FrQuestion[] = [
   {
     id: 'r1-q03',
     subject: 'fr',
-    topicIds: [],
+    topicIds: ['reading-strategy'],
     paper: 'P2',
     section: 'r1',
     marks: 1,
@@ -69,7 +69,7 @@ export const questions: FrQuestion[] = [
   {
     id: 'r1-q04',
     subject: 'fr',
-    topicIds: [],
+    topicIds: ['reading-strategy'],
     paper: 'P2',
     section: 'r1',
     marks: 1,
@@ -89,7 +89,7 @@ export const questions: FrQuestion[] = [
   {
     id: 'r1-q05',
     subject: 'fr',
-    topicIds: [],
+    topicIds: ['reading-strategy'],
     paper: 'P2',
     section: 'r1',
     marks: 1,
@@ -109,7 +109,7 @@ export const questions: FrQuestion[] = [
   {
     id: 'r1-q06',
     subject: 'fr',
-    topicIds: [],
+    topicIds: ['reading-strategy'],
     paper: 'P2',
     section: 'r1',
     marks: 1,
@@ -129,7 +129,7 @@ export const questions: FrQuestion[] = [
   {
     id: 'r1-q07',
     subject: 'fr',
-    topicIds: [],
+    topicIds: ['reading-strategy'],
     paper: 'P2',
     section: 'r1',
     marks: 1,
@@ -149,7 +149,7 @@ export const questions: FrQuestion[] = [
   {
     id: 'r1-q08',
     subject: 'fr',
-    topicIds: [],
+    topicIds: ['reading-strategy'],
     paper: 'P2',
     section: 'r1',
     marks: 1,
@@ -169,7 +169,7 @@ export const questions: FrQuestion[] = [
   {
     id: 'r1-q09',
     subject: 'fr',
-    topicIds: [],
+    topicIds: ['reading-strategy'],
     paper: 'P2',
     section: 'r1',
     marks: 1,
@@ -189,7 +189,7 @@ export const questions: FrQuestion[] = [
   {
     id: 'r1-q10',
     subject: 'fr',
-    topicIds: [],
+    topicIds: ['reading-strategy'],
     paper: 'P2',
     section: 'r1',
     marks: 1,
@@ -211,7 +211,7 @@ export const questions: FrQuestion[] = [
   {
     id: 'r2-q01',
     subject: 'fr',
-    topicIds: [],
+    topicIds: ['reading-strategy'],
     paper: 'P2',
     section: 'r2',
     marks: 1,
@@ -231,7 +231,7 @@ export const questions: FrQuestion[] = [
   {
     id: 'r2-q02',
     subject: 'fr',
-    topicIds: [],
+    topicIds: ['reading-strategy'],
     paper: 'P2',
     section: 'r2',
     marks: 1,
@@ -251,7 +251,7 @@ export const questions: FrQuestion[] = [
   {
     id: 'r2-q03',
     subject: 'fr',
-    topicIds: [],
+    topicIds: ['reading-strategy'],
     paper: 'P2',
     section: 'r2',
     marks: 1,
@@ -271,7 +271,7 @@ export const questions: FrQuestion[] = [
   {
     id: 'r2-q04',
     subject: 'fr',
-    topicIds: [],
+    topicIds: ['reading-strategy'],
     paper: 'P2',
     section: 'r2',
     marks: 1,
@@ -291,7 +291,7 @@ export const questions: FrQuestion[] = [
   {
     id: 'r2-q05',
     subject: 'fr',
-    topicIds: [],
+    topicIds: ['reading-strategy'],
     paper: 'P2',
     section: 'r2',
     marks: 1,
@@ -311,7 +311,7 @@ export const questions: FrQuestion[] = [
   {
     id: 'r2-q06',
     subject: 'fr',
-    topicIds: [],
+    topicIds: ['reading-strategy'],
     paper: 'P2',
     section: 'r2',
     marks: 1,
@@ -331,7 +331,7 @@ export const questions: FrQuestion[] = [
   {
     id: 'r2-q07',
     subject: 'fr',
-    topicIds: [],
+    topicIds: ['reading-strategy'],
     paper: 'P2',
     section: 'r2',
     marks: 1,
@@ -351,7 +351,7 @@ export const questions: FrQuestion[] = [
   {
     id: 'r2-q08',
     subject: 'fr',
-    topicIds: [],
+    topicIds: ['reading-strategy'],
     paper: 'P2',
     section: 'r2',
     marks: 1,
@@ -371,7 +371,7 @@ export const questions: FrQuestion[] = [
   {
     id: 'r2-q09',
     subject: 'fr',
-    topicIds: [],
+    topicIds: ['reading-strategy'],
     paper: 'P2',
     section: 'r2',
     marks: 1,
@@ -391,7 +391,7 @@ export const questions: FrQuestion[] = [
   {
     id: 'r2-q10',
     subject: 'fr',
-    topicIds: [],
+    topicIds: ['reading-strategy'],
     paper: 'P2',
     section: 'r2',
     marks: 1,
@@ -413,7 +413,7 @@ export const questions: FrQuestion[] = [
   {
     id: 'r3-q01',
     subject: 'fr',
-    topicIds: [],
+    topicIds: ['reading-strategy'],
     paper: 'P2',
     section: 'r3',
     marks: 1,
@@ -433,7 +433,7 @@ export const questions: FrQuestion[] = [
   {
     id: 'r3-q02',
     subject: 'fr',
-    topicIds: [],
+    topicIds: ['reading-strategy'],
     paper: 'P2',
     section: 'r3',
     marks: 1,
@@ -453,7 +453,7 @@ export const questions: FrQuestion[] = [
   {
     id: 'r3-q03',
     subject: 'fr',
-    topicIds: [],
+    topicIds: ['reading-strategy'],
     paper: 'P2',
     section: 'r3',
     marks: 1,
@@ -473,7 +473,7 @@ export const questions: FrQuestion[] = [
   {
     id: 'r3-q04',
     subject: 'fr',
-    topicIds: [],
+    topicIds: ['reading-strategy'],
     paper: 'P2',
     section: 'r3',
     marks: 1,
@@ -493,7 +493,7 @@ export const questions: FrQuestion[] = [
   {
     id: 'r3-q05',
     subject: 'fr',
-    topicIds: [],
+    topicIds: ['reading-strategy'],
     paper: 'P2',
     section: 'r3',
     marks: 1,
@@ -513,7 +513,7 @@ export const questions: FrQuestion[] = [
   {
     id: 'r3-q06',
     subject: 'fr',
-    topicIds: [],
+    topicIds: ['reading-strategy'],
     paper: 'P2',
     section: 'r3',
     marks: 1,
@@ -533,7 +533,7 @@ export const questions: FrQuestion[] = [
   {
     id: 'r3-q07',
     subject: 'fr',
-    topicIds: [],
+    topicIds: ['reading-strategy'],
     paper: 'P2',
     section: 'r3',
     marks: 1,
@@ -553,7 +553,7 @@ export const questions: FrQuestion[] = [
   {
     id: 'r3-q08',
     subject: 'fr',
-    topicIds: [],
+    topicIds: ['reading-strategy'],
     paper: 'P2',
     section: 'r3',
     marks: 1,
@@ -573,7 +573,7 @@ export const questions: FrQuestion[] = [
   {
     id: 'r3-q09',
     subject: 'fr',
-    topicIds: [],
+    topicIds: ['reading-strategy'],
     paper: 'P2',
     section: 'r3',
     marks: 1,
@@ -593,7 +593,7 @@ export const questions: FrQuestion[] = [
   {
     id: 'r3-q10',
     subject: 'fr',
-    topicIds: [],
+    topicIds: ['reading-strategy'],
     paper: 'P2',
     section: 'r3',
     marks: 1,
