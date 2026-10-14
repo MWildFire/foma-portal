@@ -57,6 +57,7 @@ const topic: TopicMeta = {
     'a-flood-warning',
     'a-flood-mitigation',
     'a-flood-adaptation',
+    'a-deforestation',
   ],
   sims: ['geo.opt-a-hydrograph'],
   questionIds: ['a2-sq1', 'a2-sq2', 'a2-sq3', 'a2-eq1', 'a2-eq2'],

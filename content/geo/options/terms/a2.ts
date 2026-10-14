@@ -143,8 +143,8 @@ export const terms: Term[] = [
     id: 'a-hard-engineering',
     term: { en: 'hard engineering', ru: 'жёсткие инженерные меры (hard engineering)' },
     def: {
-      en: 'Flood management that uses concrete, steel and earth structures to control the flow of water, such as dams, levees, flood walls, barriers and channel modification.',
-      ru: 'Управление паводками с помощью бетонных, стальных и земляных сооружений, которые регулируют течение воды: плотин, дамб, защитных стен, барьеров и изменения русла.',
+      en: 'Flood management that uses concrete, steel and earth structures to control the flow of water, such as dams, levees, flood walls, barriers and channel modification. The IB guide also counts afforestation (tree planting) as a structural measure, even though it uses living trees rather than concrete.',
+      ru: 'Управление паводками с помощью бетонных, стальных и земляных сооружений, которые регулируют течение воды: плотин, дамб, защитных стен, барьеров и изменения русла. Гайд IB относит к структурным мерам также лесонасаждение (посадку деревьев), хотя оно использует живые деревья, а не бетон.',
     },
     syllabus: 'A.2',
     papers: ['P1'],
@@ -184,8 +184,8 @@ export const terms: Term[] = [
     id: 'a-flood-warning',
     term: { en: 'flood prediction and warning', ru: 'прогноз и предупреждение о наводнениях (flood prediction and warning)' },
     def: {
-      en: 'Systems that use rainfall and river-level data, forecasts and monitoring to predict a flood and warn people in time to move possessions, evacuate or prepare.',
-      ru: 'Системы, которые используют данные об осадках и уровнях рек, прогнозы и наблюдения, чтобы заранее предсказать наводнение и вовремя предупредить людей: они успевают перенести имущество, эвакуироваться или подготовиться.',
+      en: 'Systems that use rainfall and river-level data, forecasts and monitoring to predict a flood and warn people in time to move possessions, evacuate or prepare. Forecasts are never certain, and climate modelling adds uncertainty about how often floods will occur in future.',
+      ru: 'Системы, которые используют данные об осадках и уровнях рек, прогнозы и наблюдения, чтобы заранее предсказать наводнение и вовремя предупредить людей: они успевают перенести имущество, эвакуироваться или подготовиться. Прогнозы никогда не бывают абсолютно точными, а климатическое моделирование добавляет неопределённость в то, как часто паводки будут случаться в будущем.',
     },
     syllabus: 'A.2',
     papers: ['P1'],
@@ -199,8 +199,8 @@ export const terms: Term[] = [
     id: 'a-flood-mitigation',
     term: { en: 'flood mitigation', ru: 'смягчение последствий наводнений (flood mitigation)' },
     def: {
-      en: 'Measures that reduce the size or the chance of a flood, such as a dam, a levee, a relief channel or flood storage upstream. Compare with adaptation.',
-      ru: 'Меры, которые уменьшают размер или вероятность наводнения: плотина, дамба обвалования, разгрузочный канал или аккумуляция воды выше по течению. Сравните с адаптацией.',
+      en: 'Measures to tackle flooding fall into two groups. Structural measures reduce the size or the chance of a flood, such as dams, levees, relief channels, channel modification and afforestation. Planning, such as insurance, flood preparation and warning technology, helps to limit the losses. Compare with adaptation.',
+      ru: 'Меры борьбы с наводнениями делятся на две группы. Структурные меры уменьшают размер или вероятность паводка: плотины, дамбы обвалования, разгрузочные каналы, изменение русла и лесонасаждение. Планирование, например страхование, подготовка и технологии предупреждения, помогает ограничить убытки. Сравните с адаптацией.',
     },
     syllabus: 'A.2',
     papers: ['P1'],
@@ -210,15 +210,30 @@ export const terms: Term[] = [
     id: 'a-flood-adaptation',
     term: { en: 'flood adaptation', ru: 'адаптация к наводнениям (flood adaptation)' },
     def: {
-      en: 'Changes that help people and places live with flood risk, such as raised floors, flood-resistant materials, insurance, evacuation plans and careful land-use planning.',
-      ru: 'Изменения, которые помогают людям и территориям жить с риском наводнений: приподнятые полы, устойчивые к воде материалы, страхование, планы эвакуации и продуманное планирование землепользования.',
+      en: 'Changes that help people and places live with flood risk without reducing the flood itself, such as raised floors, flood-resistant materials, evacuation plans and careful land-use planning. The guide’s Option D counts insurance as adaptation; in Option A it is part of mitigation.',
+      ru: 'Изменения, которые помогают людям и территориям жить с риском наводнений, не уменьшая сам паводок: приподнятые полы, устойчивые к воде материалы, планы эвакуации и продуманное планирование землепользования. Гайд IB в опции D относит страхование к адаптации, а в опции A — к смягчению.',
     },
     syllabus: 'A.2',
     papers: ['P1'],
     src: SRC,
     pitfall: {
-      en: 'Adaptation does not make the flood smaller. Raised floors and insurance reduce the harm, not the water level.',
-      ru: 'Адаптация не уменьшает сам паводок. Приподнятые полы и страхование уменьшают ущерб, но не уровень воды.',
+      en: 'Adaptation does not make the flood smaller. Raised floors reduce the harm, not the water level.',
+      ru: 'Адаптация не уменьшает сам паводок. Приподнятые полы уменьшают ущерб, но не уровень воды.',
+    },
+  },
+  {
+    id: 'a-deforestation',
+    term: { en: 'deforestation', ru: 'вырубка лесов (deforestation)' },
+    def: {
+      en: 'The removal of forest cover from a drainage basin. Without trees, less rain is held in the canopy, the soil is more easily compacted and less water soaks in, so more water runs off, the peak discharge rises and the lag time shortens.',
+      ru: 'Удаление лесного покрова с территории речного бассейна. Без деревьев меньше дождя задерживается кронами, почва легче уплотняется и хуже впитывает воду, поэтому больше воды стекает по поверхности, пиковый расход растёт, а время запаздывания сокращается.',
+    },
+    syllabus: 'A.2',
+    papers: ['P1'],
+    src: SRC,
+    pitfall: {
+      en: 'The effect is clearest for moderate storms. In very large storms the ground is already saturated, so the difference between forest and cleared land is smaller.',
+      ru: 'Эффект заметнее всего при умеренных ливнях. При очень сильных ливнях почва уже насыщена водой, поэтому разница между лесом и вырубкой меньше.',
     },
   },
 ];
