@@ -2,7 +2,7 @@ import type { Term } from '../../../../src/contract/types';
 
 // Option A, A.2: definitions in our own words, aligned with the key elements of the programme (guide 2017).
 // Locators point to the ThinkIB eBook section of this unit (section level; page locators come from the S1 map).
-const SRC = { kind: 'thinkib' as const, title: 'Option A: Floods and Flood Mitigation (page 43867)', locator: 'Flood Mitigation Strategies; Flood Prediction; Hydrographs and Floods' };
+const SRC = { kind: 'thinkib' as const, title: 'Option A: Floods and Flood Mitigation (page 43867)', locator: 'Flood Mitigation Strategies; Flood Prediction; Hydrographs and Floods; guide p. 28' };
 
 export const terms: Term[] = [
   {
@@ -46,8 +46,8 @@ export const terms: Term[] = [
     papers: ['P1'],
     src: SRC,
     example: {
-      en: 'A third of the Netherlands is situated below sea level, so coastal flood risk is a national concern (Delta Programme).',
-      ru: 'Треть территории Нидерландов расположена ниже уровня моря, поэтому риск прибрежных наводнений — задача всей страны (Delta Programme).',
+      en: 'Large parts of the Netherlands lie below sea level, so coastal flood risk is a national concern (Delta Programme).',
+      ru: 'Большие части территории Нидерландов лежат ниже уровня моря, поэтому риск прибрежных наводнений — задача всей страны (Delta Programme).',
     },
   },
   {
@@ -113,8 +113,8 @@ export const terms: Term[] = [
     papers: ['P1'],
     src: SRC,
     example: {
-      en: 'In Deventer on the IJssel, channels were dug to improve the flow of the river at high water (Rijkswaterstaat).',
-      ru: 'В Девентере на реке IJssel прокопали каналы, чтобы улучшить сток реки в период высокой воды (Rijkswaterstaat).',
+      en: 'Dutch Room for the River measures lowered some floodplains so that they could hold more flood water (Rijkswaterstaat).',
+      ru: 'Меры программы Room for the River в Нидерландах понизили часть пойм, чтобы они могли вмещать больше паводковой воды (Rijkswaterstaat).',
     },
   },
   {
@@ -188,8 +188,8 @@ export const terms: Term[] = [
     id: 'a-soft-engineering',
     term: { en: 'soft engineering', ru: 'мягкие инженерные меры (soft engineering)' },
     def: {
-      en: 'Flood management that works with natural processes and people’s behaviour rather than relying mainly on large structures. Examples include afforestation, floodplain zoning, building design, insurance and preparedness.',
-      ru: 'Управление паводками, которое опирается на природные процессы и поведение людей, а не в первую очередь на крупные сооружения. Примеры: облесение, зонирование пойм, проектирование зданий, страхование и подготовка.',
+      en: 'Flood management that works with natural processes and people’s behaviour rather than relying mainly on large structures. Examples include floodplain zoning, building design, insurance, preparedness and flood warnings.',
+      ru: 'Управление паводками, которое опирается на природные процессы и поведение людей, а не в первую очередь на крупные сооружения. Примеры: зонирование пойм, проектирование зданий, страхование, подготовка и предупреждения о наводнениях.',
     },
     syllabus: 'A.2',
     papers: ['P1'],
