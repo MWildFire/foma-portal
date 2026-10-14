@@ -14,7 +14,7 @@ export const formulas: Formula[] = [
       ru: 'Запись прямой на плоскости или в пространстве по одной точке и одному направлению.',
     },
     syllabus: '3.11',
-    inBooklet: false,
+    inBooklet: true,
     example: {
       en: 'Through A(2, -1, 4) with direction (3, 4, -6): r = (2, -1, 4) + λ(3, 4, -6).',
       ru: 'Через точку A(2, -1, 4) с направлением (3, 4, -6): r = (2, -1, 4) + λ(3, 4, -6).',
@@ -33,7 +33,7 @@ export const formulas: Formula[] = [
       ru: 'Проверка, лежит ли точка на прямой, или поиск точки пересечения прямой с плоскостью, например z = 0.',
     },
     syllabus: '3.11',
-    inBooklet: false,
+    inBooklet: true,
   },
   {
     id: 'vector-line-two-points',

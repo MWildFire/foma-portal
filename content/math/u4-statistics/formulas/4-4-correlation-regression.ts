@@ -39,7 +39,7 @@ export const formulas: Formula[] = [
       ru: 'Нахождение линии регрессии вручную по сводным статистикам (r, средним и стандартным отклонениям).',
     },
     syllabus: '4.4',
-    inBooklet: true, // not checked against the IB formula booklet
+    inBooklet: false,
     example: {
       en: 'For the plant data: a = 1.55 and b = 1.90, so y = 1.55x + 1.90.',
       ru: 'Для данных о растениях: a = 1,55 и b = 1,90, то есть y = 1,55x + 1,90.',

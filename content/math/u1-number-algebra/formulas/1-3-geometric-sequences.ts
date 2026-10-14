@@ -14,7 +14,7 @@ export const formulas: Formula[] = [
       ru: 'Поиск конкретного члена или числа шагов, нужных для достижения заданного значения.',
     },
     syllabus: '1.3',
-    inBooklet: true, // not checked against the IB formula booklet
+    inBooklet: true,
     example: {
       en: 'With u_1 = 8 and r = 0.5, the 4th term is u_4 = 8 × 0.5^3 = 1.',
       ru: 'При u_1 = 8 и r = 0.5 четвёртый член равен u_4 = 8 × 0.5^3 = 1.',
@@ -33,7 +33,7 @@ export const formulas: Formula[] = [
       ru: 'Суммирование n членов геометрической последовательности, например общего итога за несколько периодов.',
     },
     syllabus: '1.3',
-    inBooklet: true, // not checked against the IB formula booklet
+    inBooklet: true,
     example: {
       en: 'With u_1 = 8 and r = 0.5, S_4 = 8 × (1 − 0.5^4) / (1 − 0.5) = 15.',
       ru: 'При u_1 = 8 и r = 0.5 имеем S_4 = 8 × (1 − 0.5^4) / (1 − 0.5) = 15.',

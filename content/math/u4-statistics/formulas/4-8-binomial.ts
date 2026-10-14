@@ -14,7 +14,7 @@ export const formulas: Formula[] = [
       ru: 'Фиксированное число независимых испытаний, каждое с двумя исходами и одинаковой вероятностью успеха.',
     },
     syllabus: '4.8',
-    inBooklet: true, // not checked against the IB formula booklet
+    inBooklet: false,
     example: {
       en: 'With n = 10 and p = 0.7: P(X = 8) = C(10, 8) × 0.7^8 × 0.3^2 = 0.233 to 3 decimal places.',
       ru: 'При n = 10 и p = 0.7: P(X = 8) = C(10, 8) × 0.7^8 × 0.3^2 = 0,233 с точностью до 3 знаков.',
@@ -33,7 +33,7 @@ export const formulas: Formula[] = [
       ru: 'Описание ожидаемого числа успехов и разброса подсчёта.',
     },
     syllabus: '4.8',
-    inBooklet: false,
+    inBooklet: true,
     example: {
       en: 'With n = 10 and p = 0.7: the mean is 7 and the variance is 2.1.',
       ru: 'При n = 10 и p = 0.7: среднее равно 7, а дисперсия равна 2,1.',

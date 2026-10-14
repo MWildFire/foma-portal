@@ -33,7 +33,7 @@ export const formulas: Formula[] = [
       ru: 'Рост, который сначала медленный, затем ускоряется и выходит на предел.',
     },
     syllabus: '2.9',
-    inBooklet: false,
+    inBooklet: true,
     example: {
       en: 'With L = 100, C = 4 and k = 0.5: y(0) = 100 / (1 + 4) = 20.',
       ru: 'При L = 100, C = 4 и k = 0,5: y(0) = 100 / (1 + 4) = 20.',

@@ -14,7 +14,7 @@ export const formulas: Formula[] = [
       ru: 'Вклад или долг, который растёт за счёт сложных процентов; $r$ — номинальная годовая ставка.',
     },
     syllabus: '1.4',
-    inBooklet: true, // not checked against the IB formula booklet
+    inBooklet: true,
     example: {
       en: 'With PV = 20000, r = 3.5, n = 5 and k = 1: FV = 20000 x 1.035^5 = 23753.73, to 2 decimal places.',
       ru: 'При PV = 20000, r = 3,5, n = 5 и k = 1: FV = 20000 × 1,035^5 = 23753,73 с точностью до 2 знаков.',

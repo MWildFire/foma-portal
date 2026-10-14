@@ -14,7 +14,7 @@ export const formulas: Formula[] = [
       ru: 'Интегрирование степени x, включая отрицательные и дробные степени, например x^(-3) или x^(1/2).',
     },
     syllabus: '5.11',
-    inBooklet: false,
+    inBooklet: true,
     example: {
       en: 'The integral of x^3 is x^4/4 + C. For n = -1 use the integral of 1/x, which is ln|x| + C.',
       ru: 'Интеграл от x^3 равен x^4/4 + C. При n = -1 используется интеграл от 1/x, равный ln|x| + C.',

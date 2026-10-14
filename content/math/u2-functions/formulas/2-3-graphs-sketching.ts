@@ -14,7 +14,7 @@ export const formulas: Formula[] = [
       ru: 'Построение эскиза параболы или поиск точки максимума или минимума.',
     },
     syllabus: '2.3',
-    inBooklet: false,
+    inBooklet: true,
     example: {
       en: 'For y = x^2 - 2x + 2: x = 2/2 = 1, so the minimum point is (1, 1).',
       ru: 'Для y = x^2 - 2x + 2: x = 2/2 = 1, значит, точка минимума равна (1, 1).',

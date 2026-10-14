@@ -14,7 +14,7 @@ export const formulas: Formula[] = [
       ru: 'Любой серединный перпендикуляр проходит через середину своего отрезка, поэтому её находят первой.',
     },
     syllabus: '3.5',
-    inBooklet: false,
+    inBooklet: true,
     example: {
       en: 'A(2, 1) and B(8, 5) give the midpoint (5, 3).',
       ru: 'Для A(2; 1) и B(8; 5) середина — (5; 3).',

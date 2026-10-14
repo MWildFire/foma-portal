@@ -14,7 +14,7 @@ export const formulas: Formula[] = [
       ru: 'Дифференцирование любой степени x, в том числе дробной и отрицательной.',
     },
     syllabus: '5.9',
-    inBooklet: true, // not checked against the IB formula booklet
+    inBooklet: true,
     example: {
       en: 'For x to the power -1: d/dx (x^(-1)) = -x^(-2); at x = 2 this gives -0.25.',
       ru: 'Для x в степени -1: d/dx (x^(-1)) = -x^(-2); при x = 2 это равно -0,25.',
@@ -33,7 +33,7 @@ export const formulas: Formula[] = [
       ru: 'Дифференцирование этих функций отдельно или внутри правила цепочки.',
     },
     syllabus: '5.9',
-    inBooklet: true, // not checked against the IB formula booklet
+    inBooklet: true,
   },
   {
     id: 'chain-rule-formula',
@@ -48,7 +48,7 @@ export const formulas: Formula[] = [
       ru: 'Дифференцирование сложной функции и связанных скоростей, когда все величины зависят от времени.',
     },
     syllabus: '5.9',
-    inBooklet: false,
+    inBooklet: true,
     example: {
       en: 'For y = (2x + 1)^5, the derivative at x = 1 is 810.',
       ru: 'Для y = (2x + 1)^5 производная при x = 1 равна 810.',
@@ -67,7 +67,7 @@ export const formulas: Formula[] = [
       ru: 'Дифференцирование произведения или частного функций, например x^2 ln x.',
     },
     syllabus: '5.9',
-    inBooklet: false,
+    inBooklet: true,
     example: {
       en: 'For y = x^2 ln x, dy/dx = 2x ln x + x; at x = 2 this is 4.77 (to 2 decimal places).',
       ru: 'Для y = x^2 ln x имеем dy/dx = 2x ln x + x; при x = 2 это 4,77 (с точностью до 2 знаков).',

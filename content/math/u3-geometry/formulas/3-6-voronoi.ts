@@ -33,7 +33,7 @@ export const formulas: Formula[] = [
       ru: 'Сравнение расстояний до пунктов или нахождение радиуса вершины диаграммы.',
     },
     syllabus: '3.6',
-    inBooklet: false,
+    inBooklet: true,
     example: {
       en: 'P(5, 4) and B(7, 2): d = sqrt((5-7)^2 + (4-2)^2) = sqrt(8) = 2.83.',
       ru: 'P(5; 4) и B(7; 2): d = √((5−7)² + (4−2)²) = √8 = 2,83.',

@@ -29,7 +29,7 @@ export const formulas: Formula[] = [
       ru: 'Нахождение функции градиента многочлена перед решением $f\'(x)=0$.',
     },
     syllabus: '5.6',
-    inBooklet: true, // not checked against the IB formula booklet
+    inBooklet: true,
     example: {
       en: 'For f(x) = x^3 - 6x^2 + 9x + 1, the gradient is 3x^2 - 12x + 9.',
       ru: 'Для f(x) = x^3 - 6x^2 + 9x + 1 градиент равен 3x^2 - 12x + 9.',
@@ -48,6 +48,6 @@ export const formulas: Formula[] = [
       ru: 'Решение квадратного уравнения $f\'(x)=0$, когда множители не очевидны.',
     },
     syllabus: '5.6',
-    inBooklet: true, // not checked against the IB formula booklet
+    inBooklet: true,
   },
 ];

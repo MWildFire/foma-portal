@@ -14,7 +14,7 @@ export const formulas: Formula[] = [
       ru: 'Поиск длины вектора или расстояния между двумя точками.',
     },
     syllabus: '3.10',
-    inBooklet: false,
+    inBooklet: true,
     example: {
       en: 'For AB = (4, 3, -6): |AB| = sqrt(16 + 9 + 36) = sqrt(61) = 7.810 to 3 decimal places.',
       ru: 'Для AB = (4, 3, -6): |AB| = sqrt(16 + 9 + 36) = sqrt(61) = 7,810 с точностью до 3 знаков.',

@@ -29,7 +29,7 @@ export const formulas: Formula[] = [
       ru: 'Когда в разделённом уравнении слева стоит 1/y; для выражения y берут экспоненту.',
     },
     syllabus: '5.14',
-    inBooklet: false,
+    inBooklet: true,
     example: {
       en: 'dy/y = 2x dx gives ln|y| = x^2 + C, so y = A e^(x^2).',
       ru: 'dy/y = 2x dx даёт ln|y| = x^2 + C, откуда y = A e^(x^2).',

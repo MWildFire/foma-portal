@@ -14,7 +14,7 @@ export const formulas: Formula[] = [
       ru: 'Поиск среднего значения случайного исхода в длительной серии испытаний, например среднего выигрыша в игре.',
     },
     syllabus: '4.7',
-    inBooklet: false,
+    inBooklet: true,
   },
   {
     id: 'probability-distribution-sum',

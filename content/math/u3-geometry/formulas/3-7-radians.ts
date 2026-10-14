@@ -33,7 +33,7 @@ export const formulas: Formula[] = [
       ru: 'Дуга окружности стягивает центральный угол, известный в радианах.',
     },
     syllabus: '3.7',
-    inBooklet: false,
+    inBooklet: true,
     example: {
       en: 'For r = 12 cm and theta = pi/3: s = 12 × pi/3 = 4pi = 12.566 cm (to 3 decimal places).',
       ru: 'При r = 12 см и θ = π/3: s = 12 × π/3 = 4π = 12,566 см (с точностью до 3 знаков после запятой).',
@@ -52,7 +52,7 @@ export const formulas: Formula[] = [
       ru: 'Угол сектора известен в радианах. Если он дан в градусах, сначала переведите его в радианы.',
     },
     syllabus: '3.7',
-    inBooklet: false,
+    inBooklet: true,
     example: {
       en: 'For r = 12 cm and theta = pi/3: A = 1/2 × 144 × pi/3 = 24pi = 75.398 cm² (to 3 decimal places).',
       ru: 'При r = 12 см и θ = π/3: A = ½ × 144 × π/3 = 24π = 75,398 см² (с точностью до 3 знаков после запятой).',

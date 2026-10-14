@@ -14,7 +14,7 @@ export const formulas: Formula[] = [
       ru: 'Сгруппированные данные, в которых отдельные значения не даны.',
     },
     syllabus: '4.3',
-    inBooklet: false,
+    inBooklet: true,
     example: {
       en: 'Midpoints 5 and 15 with frequencies 4 and 6: (4 x 5 + 6 x 15) / 10 = 11.',
       ru: 'Середины 5 и 15 с частотами 4 и 6: (4 × 5 + 6 × 15) / 10 = 11.',
@@ -52,7 +52,7 @@ export const formulas: Formula[] = [
       ru: 'Сравнение разброса, когда данные содержат выбросы или несимметричны.',
     },
     syllabus: '4.3',
-    inBooklet: false,
+    inBooklet: true,
     example: {
       en: 'Q1 = 7 and Q3 = 14.5 give IQR = 14.5 - 7 = 7.5.',
       ru: 'Q1 = 7 и Q3 = 14,5 дают IQR = 14,5 − 7 = 7,5.',

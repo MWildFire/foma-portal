@@ -14,7 +14,7 @@ export const formulas: Formula[] = [
       ru: 'Запись градиента целевой функции перед поиском его нулей.',
     },
     syllabus: '5.7',
-    inBooklet: true, // not checked against the IB formula booklet
+    inBooklet: true,
     example: {
       en: 'For V(x) = 4x^3 - 100x^2 + 600x, the gradient is 12x^2 - 200x + 600.',
       ru: 'Для V(x) = 4x^3 - 100x^2 + 600x градиент равен 12x^2 - 200x + 600.',

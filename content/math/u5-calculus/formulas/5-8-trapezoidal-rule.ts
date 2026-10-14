@@ -14,7 +14,7 @@ export const formulas: Formula[] = [
       ru: 'Интеграл нельзя найти интегрированием, или дана только таблица значений функции.',
     },
     syllabus: '5.8',
-    inBooklet: false,
+    inBooklet: true,
   },
   {
     id: 'trapezium-strip-area',

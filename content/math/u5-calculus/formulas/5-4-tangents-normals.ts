@@ -14,7 +14,7 @@ export const formulas: Formula[] = [
       ru: 'Поиск углового коэффициента многочлена в заданной точке перед записью касательной или нормали.',
     },
     syllabus: '5.4',
-    inBooklet: true, // not checked against the IB formula booklet
+    inBooklet: true,
     example: {
       en: 'For f(x) = x^3 - 2x + 1 the gradient function is 3x^2 - 2, so the gradient at x = 2 is 10.',
       ru: 'Для f(x) = x^3 - 2x + 1 функция градиента равна 3x^2 - 2, поэтому угловой коэффициент при x = 2 равен 10.',

@@ -14,7 +14,7 @@ export const formulas: Formula[] = [
       ru: 'Нахождение угла между двумя векторами или проверка их перпендикулярности.',
     },
     syllabus: '3.13',
-    inBooklet: true, // not checked against the IB formula booklet
+    inBooklet: true,
   },
   {
     id: 'scalar-product-components',
@@ -29,7 +29,7 @@ export const formulas: Formula[] = [
       ru: 'Вычисление скалярного произведения, если векторы заданы своими компонентами.',
     },
     syllabus: '3.13',
-    inBooklet: true, // not checked against the IB formula booklet
+    inBooklet: true,
     example: {
       en: 'For (3, 0, 4) and (1, 2, 2): 3(1) + 0(2) + 4(2) = 11.',
       ru: 'Для (3, 0, 4) и (1, 2, 2): 3(1) + 0(2) + 4(2) = 11.',
@@ -48,7 +48,7 @@ export const formulas: Formula[] = [
       ru: 'Нахождение площади параллелограмма или треугольника, построенного на двух векторах из общей точки.',
     },
     syllabus: '3.13',
-    inBooklet: false,
+    inBooklet: true,
   },
   {
     id: 'vector-product-components',
@@ -63,7 +63,7 @@ export const formulas: Formula[] = [
       ru: 'Вычисление векторного произведения двух векторов, заданных компонентами.',
     },
     syllabus: '3.13',
-    inBooklet: false,
+    inBooklet: true,
     example: {
       en: 'For (3, 0, 4) and (1, 2, 2): (-8, -2, 6).',
       ru: 'Для (3, 0, 4) и (1, 2, 2): (-8, -2, 6).',

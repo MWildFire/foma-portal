@@ -48,6 +48,6 @@ export const formulas: Formula[] = [
       ru: 'Нахождение быстроты движения по компонентам вектора скорости.',
     },
     syllabus: '3.12',
-    inBooklet: false,
+    inBooklet: true,
   },
 ];

@@ -33,7 +33,7 @@ export const formulas: Formula[] = [
       ru: 'Нахождение sin θ по cos θ (или наоборот) и проверка значений.',
     },
     syllabus: '3.8',
-    inBooklet: true, // not checked against the IB formula booklet
+    inBooklet: true,
     example: {
       en: 'If cos theta = 0.5, then sin squared theta = 1 - 0.25 = 0.75.',
       ru: 'Если cos θ = 0,5, то sin²θ = 1 - 0,25 = 0,75.',
@@ -52,7 +52,7 @@ export const formulas: Formula[] = [
       ru: 'Нахождение tan θ по sin θ и cos θ или проверка значения тангенса на единичной окружности.',
     },
     syllabus: '3.8',
-    inBooklet: true, // not checked against the IB formula booklet
+    inBooklet: true,
     example: {
       en: 'For theta = 120 degrees: tan theta = 0.866 / (-0.500) = -1.732 (to 3 decimal places).',
       ru: 'Для θ = 120°: tan θ = 0,866 / (-0,500) = -1,732 (с точностью до 3 знаков после запятой).',
@@ -71,7 +71,7 @@ export const formulas: Formula[] = [
       ru: 'Известны две стороны и угол, не заключённый между ними (SSA), и другой угол находят по его синусу.',
     },
     syllabus: '3.8',
-    inBooklet: true, // not checked against the IB formula booklet
+    inBooklet: true,
     example: {
       en: 'For a = 8, b = 10 and A = 40 degrees: sin B = 10 sin 40 / 8 = 0.803 (to 3 decimal places).',
       ru: 'При a = 8, b = 10 и A = 40°: sin B = 10 sin 40° / 8 = 0,803 (с точностью до 3 знаков после запятой).',

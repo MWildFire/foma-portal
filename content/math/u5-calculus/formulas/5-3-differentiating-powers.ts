@@ -14,7 +14,7 @@ export const formulas: Formula[] = [
       ru: 'Дифференцирование любого члена вида a x^n с целым n, включая отрицательные степени.',
     },
     syllabus: '5.3',
-    inBooklet: true, // not checked against the IB formula booklet
+    inBooklet: true,
     example: {
       en: 'For y = 3x^4 - 2x^(-1): dy/dx = 12x^3 + 2x^(-2).',
       ru: 'Для y = 3x^4 - 2x^(-1): dy/dx = 12x^3 + 2x^(-2).',

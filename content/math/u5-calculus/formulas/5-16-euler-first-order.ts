@@ -14,7 +14,7 @@ export const formulas: Formula[] = [
       ru: 'Каждый шаг метода Эйлера для уравнения первого порядка при фиксированном шаге h.',
     },
     syllabus: '5.16',
-    inBooklet: true, // not checked against the IB formula booklet
+    inBooklet: true,
     example: {
       en: 'With dy/dx = x - y, y(0) = 1 and h = 0.2: y1 = 1 + 0.2 x (0 - 1) = 0.8.',
       ru: 'При dy/dx = x - y, y(0) = 1 и h = 0,2: y1 = 1 + 0,2 × (0 - 1) = 0,8.',
@@ -33,7 +33,7 @@ export const formulas: Formula[] = [
       ru: 'Численное решение систем dx/dt = f1(x, y, t) и dy/dt = f2(x, y, t).',
     },
     syllabus: '5.16',
-    inBooklet: false,
+    inBooklet: true,
     example: {
       en: 'With dx/dt = y, dy/dt = t - x, x(0) = 1, y(0) = 0 and h = 0.5: x1 = 1, y1 = -0.5, t1 = 0.5.',
       ru: 'При dx/dt = y, dy/dt = t - x, x(0) = 1, y(0) = 0 и h = 0,5: x1 = 1, y1 = -0,5, t1 = 0,5.',

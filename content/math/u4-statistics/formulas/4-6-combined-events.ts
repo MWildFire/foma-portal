@@ -14,7 +14,7 @@ export const formulas: Formula[] = [
       ru: 'Составные события, которые могут пересекаться. Для несовместных событий последнее слагаемое равно нулю.',
     },
     syllabus: '4.6',
-    inBooklet: false,
+    inBooklet: true,
   },
   {
     id: 'conditional-probability-formula',
@@ -29,7 +29,7 @@ export const formulas: Formula[] = [
       ru: 'В вопросе стоят слова «при условии», «зная, что» или «если», либо исходы ограничиваются событием B.',
     },
     syllabus: '4.6',
-    inBooklet: false,
+    inBooklet: true,
     example: {
       en: 'Of 24 students who study German, 12 also study French, so P(French | German) = 12/24 = 0.500.',
       ru: 'Из 24 учеников, изучающих немецкий, 12 изучают также французский, поэтому P(французский | немецкий) = 12/24 = 0,500.',
@@ -48,7 +48,7 @@ export const formulas: Formula[] = [
       ru: 'Проверка, независимы ли два события, или нахождение вероятности того, что произойдут оба, когда независимость дана.',
     },
     syllabus: '4.6',
-    inBooklet: false,
+    inBooklet: true,
   },
   {
     id: 'multiplication-rule-tree',
@@ -63,6 +63,6 @@ export const formulas: Formula[] = [
       ru: 'Двухэтапные опыты, например вытаскивание двух фишек одна за другой без возвращения.',
     },
     syllabus: '4.6',
-    inBooklet: false,
+    inBooklet: true,
   },
 ];

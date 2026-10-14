@@ -14,7 +14,7 @@ export const formulas: Formula[] = [
       ru: 'Известны координаты двух точек прямой.',
     },
     syllabus: '2.1',
-    inBooklet: false,
+    inBooklet: true,
     example: {
       en: 'For (-3, 4) and (5, -2): m = (-2 - 4)/(5 - (-3)) = -0.75.',
       ru: 'Для точек (-3, 4) и (5, -2): m = (-2 - 4)/(5 - (-3)) = -0,75.',
@@ -33,7 +33,7 @@ export const formulas: Formula[] = [
       ru: 'Известны угловой коэффициент и пересечение с осью y либо они считываются из уравнения.',
     },
     syllabus: '2.1',
-    inBooklet: false,
+    inBooklet: true,
   },
   {
     id: 'line-point-gradient',
@@ -48,7 +48,7 @@ export const formulas: Formula[] = [
       ru: 'Известны точка на прямой и её угловой коэффициент.',
     },
     syllabus: '2.1',
-    inBooklet: false,
+    inBooklet: true,
   },
   {
     id: 'line-perpendicular-gradients',

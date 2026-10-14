@@ -14,7 +14,7 @@ export const formulas: Formula[] = [
       ru: 'Смена единиц (например, минут в часы) или прибавление фиксированной суммы к каждому значению случайной величины.',
     },
     syllabus: '4.14',
-    inBooklet: false,
+    inBooklet: true,
     example: {
       en: 'If E(T) = 35.5 and Var(T) = 49 for a time in minutes, and H = T/60, then E(H) = 35.5/60 = 0.592 and Var(H) = 49/3600 = 0.0136.',
       ru: 'Если E(T) = 35,5 и Var(T) = 49 для времени в минутах и H = T/60, то E(H) = 35,5/60 = 0,592 и Var(H) = 49/3600 = 0,0136.',
@@ -33,7 +33,7 @@ export const formulas: Formula[] = [
       ru: 'Любая линейная комбинация случайных величин, независимо от того, независимы ли они.',
     },
     syllabus: '4.14',
-    inBooklet: false,
+    inBooklet: true,
     example: {
       en: 'E(2X - 3Y) = 2(5.4) - 3(2.1) = 4.5 when E(X) = 5.4 and E(Y) = 2.1.',
       ru: 'E(2X - 3Y) = 2(5,4) - 3(2,1) = 4,5 при E(X) = 5,4 и E(Y) = 2,1.',
@@ -52,7 +52,7 @@ export const formulas: Formula[] = [
       ru: 'Только для независимых величин, например для сумм и разностей независимых измерений.',
     },
     syllabus: '4.14',
-    inBooklet: false,
+    inBooklet: true,
     example: {
       en: 'For independent X and Y with variances 0.36 and 0.49: Var(2X - 3Y) = 4(0.36) + 9(0.49) = 5.85.',
       ru: 'Для независимых X и Y с дисперсиями 0,36 и 0,49: Var(2X - 3Y) = 4(0,36) + 9(0,49) = 5,85.',
@@ -71,7 +71,7 @@ export const formulas: Formula[] = [
       ru: 'Оценка дисперсии генеральной совокупности по случайной выборке, когда среднее совокупности также оценивается выборочным средним.',
     },
     syllabus: '4.14',
-    inBooklet: false,
+    inBooklet: true,
     example: {
       en: 'For the sample 499, 503, 500, 498: the sample mean is 500 and s(n-1)^2 = 14/3 = 4.67.',
       ru: 'Для выборки 499, 503, 500, 498: выборочное среднее равно 500, а s(n-1)^2 = 14/3 = 4,67.',

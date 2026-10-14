@@ -14,7 +14,7 @@ export const formulas: Formula[] = [
       ru: 'Два положения заданы координатами в трёхмерной модели.',
     },
     syllabus: '3.1',
-    inBooklet: false,
+    inBooklet: true,
     example: {
       en: 'A(2, -1, 5) and B(4, 1, 8): AB squared = 4 + 4 + 9 = 17, so AB = 4.12 (3 significant figures).',
       ru: 'A(2, -1, 5) и B(4, 1, 8): AB² = 4 + 4 + 9 = 17, поэтому AB = 4,12 (с точностью до 3 значащих цифр).',
@@ -33,7 +33,7 @@ export const formulas: Formula[] = [
       ru: 'Любая пирамида. Берите перпендикулярную высоту, а не апофему грани.',
     },
     syllabus: '3.1',
-    inBooklet: false,
+    inBooklet: true,
     example: {
       en: 'Square base of side 6 and height 4: V = (1/3) x 36 x 4 = 48.',
       ru: 'Квадратное основание со стороной 6 и высота 4: V = (1/3) × 36 × 4 = 48.',
@@ -52,7 +52,7 @@ export const formulas: Formula[] = [
       ru: 'Прямые круговые конусы, в том числе конусная часть составного тела.',
     },
     syllabus: '3.1',
-    inBooklet: false,
+    inBooklet: true,
     example: {
       en: 'r = 6 and h = 8: V = (1/3) pi x 36 x 8 = 96 pi.',
       ru: 'r = 6 и h = 8: V = (1/3)π × 36 × 8 = 96π.',
@@ -71,7 +71,7 @@ export const formulas: Formula[] = [
       ru: 'Шары. Объём полушара равен половине этого значения.',
     },
     syllabus: '3.1',
-    inBooklet: false,
+    inBooklet: true,
     example: {
       en: 'r = 3: V = (4/3) pi x 27 = 36 pi.',
       ru: 'Радиус r = 3: V = (4/3)π × 27 = 36π.',

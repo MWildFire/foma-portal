@@ -14,7 +14,7 @@ export const formulas: Formula[] = [
       ru: 'Область лежит по одну сторону от оси x, а границы заданы значениями x.',
     },
     syllabus: '5.12',
-    inBooklet: false,
+    inBooklet: true,
     example: {
       en: 'For y = 4 - x^2 on [0, 2]: A = 16/3 = 5.33 to 3 significant figures.',
       ru: 'Для y = 4 - x^2 на отрезке [0, 2]: A = 16/3 = 5,33 с точностью до 3 значащих цифр.',
@@ -33,7 +33,7 @@ export const formulas: Formula[] = [
       ru: 'Ось вращения — ось x, кривая записана как y через x, а границы заданы значениями x (метод дисков).',
     },
     syllabus: '5.12',
-    inBooklet: false,
+    inBooklet: true,
     example: {
       en: 'For y = 4 - x^2 on [0, 2]: V = 256 pi / 15 = 53.6 to 3 significant figures.',
       ru: 'Для y = 4 - x^2 на отрезке [0, 2]: V = 256π / 15 = 53,6 с точностью до 3 значащих цифр.',
@@ -52,7 +52,7 @@ export const formulas: Formula[] = [
       ru: 'Ось вращения — ось y: сначала запишите кривую как x через y, а границы берите по y.',
     },
     syllabus: '5.12',
-    inBooklet: false,
+    inBooklet: true,
     example: {
       en: 'For x = sqrt(4 - y) on [0, 4]: V = 8 pi = 25.1 to 3 significant figures.',
       ru: 'Для x = √(4 − y) на отрезке [0, 4]: V = 8π = 25,1 с точностью до 3 значащих цифр.',
@@ -71,7 +71,7 @@ export const formulas: Formula[] = [
       ru: 'Область лежит по одну сторону от оси y, а границы заданы значениями y.',
     },
     syllabus: '5.12',
-    inBooklet: false,
+    inBooklet: true,
     example: {
       en: 'For x = sqrt(4 - y) on [0, 4]: A = 16/3 = 5.33 to 3 significant figures.',
       ru: 'Для x = √(4 − y) на отрезке [0, 4]: A = 16/3 = 5,33 с точностью до 3 значащих цифр.',

@@ -14,7 +14,7 @@ export const formulas: Formula[] = [
       ru: 'Проверка, существует ли обратная матрица для матрицы 2 × 2, и её вычисление вручную.',
     },
     syllabus: '1.14',
-    inBooklet: false,
+    inBooklet: true,
     example: {
       en: 'For A = [[2, 1], [1, 1]]: det A = 2 x 1 - 1 x 1 = 1, so A has an inverse.',
       ru: 'Для A = [[2, 1], [1, 1]]: det A = 2 × 1 − 1 × 1 = 1, значит обратная матрица существует.',
@@ -33,7 +33,7 @@ export const formulas: Formula[] = [
       ru: 'Нахождение обратной матрицы 2 × 2, если её определитель не равен нулю.',
     },
     syllabus: '1.14',
-    inBooklet: false,
+    inBooklet: true,
     example: {
       en: 'For A = [[2, 1], [1, 1]], det A = 1, so A^(-1) = [[1, -1], [-1, 2]].',
       ru: 'Для A = [[2, 1], [1, 1]] определитель равен 1, поэтому A^(-1) = [[1, -1], [-1, 2]].',

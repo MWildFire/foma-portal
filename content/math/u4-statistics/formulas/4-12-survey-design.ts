@@ -71,7 +71,7 @@ export const formulas: Formula[] = [
       ru: 'Нахождение нормальной вероятности класса вручную или проверка результата калькулятора.',
     },
     syllabus: '4.12',
-    inBooklet: true, // not checked against the IB formula booklet
+    inBooklet: false,
     example: {
       en: 'With mean 165 and standard deviation 7, the boundary 158 gives z = (158 − 165) / 7 = −1.',
       ru: 'При среднем 165 и стандартном отклонении 7 граница 158 даёт z = (158 − 165) / 7 = −1.',

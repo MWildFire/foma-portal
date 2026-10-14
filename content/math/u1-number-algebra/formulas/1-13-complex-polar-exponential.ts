@@ -14,7 +14,7 @@ export const formulas: Formula[] = [
       ru: 'Умножение, деление и возведение комплексных чисел в степень, а также чтение геометрии с диаграммы Аргана.',
     },
     syllabus: '1.13',
-    inBooklet: false,
+    inBooklet: true,
     example: {
       en: 'For z = 2 cis 25 degrees: |z| = 2 and arg z = 25 degrees.',
       ru: 'Для z = 2 cis 25°: |z| = 2 и arg z = 25°.',
@@ -33,7 +33,7 @@ export const formulas: Formula[] = [
       ru: 'Произведения, частные и степени становятся простыми степенями e.',
     },
     syllabus: '1.13',
-    inBooklet: false,
+    inBooklet: true,
     example: {
       en: 'For z = -2 + 2i: z = 2 sqrt(2) e^(3 pi i / 4), with the angle in radians.',
       ru: 'Для z = -2 + 2i: z = 2 sqrt(2) e^(3 pi i / 4), угол в радианах.',

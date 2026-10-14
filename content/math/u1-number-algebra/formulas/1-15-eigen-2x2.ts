@@ -63,6 +63,6 @@ export const formulas: Formula[] = [
       ru: 'Нахождение $A^n$ при большом n, например после n шагов модели.',
     },
     syllabus: '1.15',
-    inBooklet: false,
+    inBooklet: true,
   },
 ];

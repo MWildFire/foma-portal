@@ -14,7 +14,7 @@ export const formulas: Formula[] = [
       ru: 'Известны сторона и противолежащий ей угол, а также ещё один угол или сторона.',
     },
     syllabus: '3.2',
-    inBooklet: true, // not checked against the IB formula booklet
+    inBooklet: true,
     example: {
       en: 'With p = 6, P = 35 and Q = 70 (degrees): q = 6 sin 70 / sin 35 = 9.83 to 3 significant figures.',
       ru: 'При p = 6, P = 35° и Q = 70°: q = 6 sin 70° / sin 35° = 9,83 (с точностью до 3 значащих цифр).',
@@ -33,7 +33,7 @@ export const formulas: Formula[] = [
       ru: 'Известны две стороны и угол между ними (находим третью сторону) или все три стороны (находим угол).',
     },
     syllabus: '3.2',
-    inBooklet: true, // not checked against the IB formula booklet
+    inBooklet: true,
     example: {
       en: 'With b = 10, c = 6 and A = 55 degrees: a squared = 136 - 120 cos 55 = 67.17, so a = 8.20 (3 significant figures).',
       ru: 'При b = 10, c = 6 и A = 55°: a² = 136 - 120 cos 55° = 67,17, поэтому a = 8,20 (с точностью до 3 значащих цифр).',
@@ -52,7 +52,7 @@ export const formulas: Formula[] = [
       ru: 'Известны две стороны и угол между ними, нужна площадь. Высота не нужна.',
     },
     syllabus: '3.2',
-    inBooklet: true, // not checked against the IB formula booklet
+    inBooklet: true,
     example: {
       en: 'With a = 4, b = 7 and C = 50 degrees: area = 0.5 x 4 x 7 x sin 50 = 10.7 (1 decimal place).',
       ru: 'При a = 4, b = 7 и C = 50°: площадь = 0,5 × 4 × 7 × sin 50° = 10,7 (с одним знаком после запятой).',

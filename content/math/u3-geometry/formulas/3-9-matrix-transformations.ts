@@ -33,7 +33,7 @@ export const formulas: Formula[] = [
       ru: 'Поиск коэффициента изменения площади или проверка, обратима ли матрица (det M не равен 0).',
     },
     syllabus: '3.9',
-    inBooklet: false,
+    inBooklet: true,
     example: {
       en: 'For M = [[2, -1], [1, 1]]: det M = 2(1) - (-1)(1) = 3.',
       ru: 'Для M = [[2, -1], [1, 1]]: det M = 2(1) - (-1)(1) = 3.',
@@ -71,6 +71,6 @@ export const formulas: Formula[] = [
       ru: 'Повороты вокруг начала координат. Используйте единицы угла (градусы или радианы), как в условии.',
     },
     syllabus: '3.9',
-    inBooklet: false,
+    inBooklet: true,
   },
 ];

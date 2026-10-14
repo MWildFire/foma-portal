@@ -14,7 +14,7 @@ export const formulas: Formula[] = [
       ru: 'Объединение суммы логарифмов в один логарифм или разложение произведения внутри логарифма (a > 0, a ≠ 1, x, y > 0).',
     },
     syllabus: '1.9',
-    inBooklet: false,
+    inBooklet: true,
     example: {
       en: 'log2(12) = log2(3) + log2(4), because 3 x 4 = 12.',
       ru: 'log2(12) = log2(3) + log2(4), так как 3 × 4 = 12.',
@@ -33,7 +33,7 @@ export const formulas: Formula[] = [
       ru: 'Разложение частного внутри логарифма или объединение разности логарифмов (a > 0, a ≠ 1, x, y > 0).',
     },
     syllabus: '1.9',
-    inBooklet: false,
+    inBooklet: true,
     example: {
       en: 'log2(24) - log2(3) = log2(8) = 3, because 24 / 3 = 8.',
       ru: 'log2(24) - log2(3) = log2(8) = 3, так как 24 / 3 = 8.',
@@ -52,7 +52,7 @@ export const formulas: Formula[] = [
       ru: 'Внесение коэффициента в логарифм или вынесение его из логарифма, а также решение показательных уравнений (x > 0, a > 0, a ≠ 1).',
     },
     syllabus: '1.9',
-    inBooklet: false,
+    inBooklet: true,
     example: {
       en: 'log2(8^2) = 2 log2(8) = 2 x 3 = 6, which is not (log2 8)^2 = 9.',
       ru: 'log2(8^2) = 2 log2(8) = 2 × 3 = 6, что не равно (log2 8)^2 = 9.',

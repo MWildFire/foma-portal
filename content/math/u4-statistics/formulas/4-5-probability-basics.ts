@@ -14,7 +14,7 @@ export const formulas: Formula[] = [
       ru: 'Все исходы в U равновероятны, поэтому вероятность можно найти подсчётом.',
     },
     syllabus: '4.5',
-    inBooklet: false,
+    inBooklet: true,
     example: {
       en: 'A spinner has 8 equal sectors. Two of them are 3 and 6, so P(multiple of 3) = 2/8 = 0.250.',
       ru: 'У спиннера 8 одинаковых секторов. Два из них — 3 и 6, поэтому P(кратно 3) = 2/8 = 0,250.',
@@ -33,7 +33,7 @@ export const formulas: Formula[] = [
       ru: 'Когда событие A′ проще подсчитать или когда P(A) проще найти через противоположное событие.',
     },
     syllabus: '4.5',
-    inBooklet: false,
+    inBooklet: true,
   },
   {
     id: 'expected-occurrences-formula',

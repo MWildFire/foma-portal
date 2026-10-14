@@ -44,7 +44,7 @@ export const formulas: Formula[] = [
       ru: 'Точное решение квадратного уравнения или проверка корня, найденного с помощью технологии.',
     },
     syllabus: '1.8',
-    inBooklet: false,
+    inBooklet: true,
     example: {
       en: 'Example: for x^2 - 5x + 2 = 0, a = 1, b = -5 and c = 2, so x = (5 ± √17)/2.',
       ru: 'Пример: для x^2 - 5x + 2 = 0 имеем a = 1, b = -5, c = 2, поэтому x = (5 ± √17)/2.',
