@@ -207,6 +207,16 @@ SIGN_CUE = re.compile(r'\b(rises?|rose|falls?|fell|increases?|decreases?|minus s
 DERIVED = re.compile(r'derived:\s*(-?\d+(?:\.\d+)?)\s*([-+x/])\s*(-?\d+(?:\.\d+)?)')
 
 
+# A fall in the prompt is written as a positive number ("fall in investment of AED 20"); the argument carries the minus sign.
+FALL_CUE = re.compile(r'\b(falls?|fell|fallen|decreases?|decreased|drops?|dropped|reduces?|reduced)\b', re.IGNORECASE)
+
+
+def expected_number(quoted, argument):
+    if argument < 0 and FALL_CUE.search(quoted):
+        return -argument
+    return argument
+
+
 def check_roles(entry, texts, where, failures):
     # Each argument must be tied to the text it comes from. The role is a quote from the prompt or guide that ends with
     # the argument's number, e.g. "from AED 4.00" for the old price. The quote must occur in the text, so an argument
@@ -237,7 +247,7 @@ def check_roles(entry, texts, where, failures):
         if not found:
             failures.append(f"{where}: {name}: role {key} quote \"{quote}\" has no number")
             ok = False
-        elif abs(found[-1] - float(args[key])) > 1e-9:
+        elif abs(found[-1] - expected_number(quoted, float(args[key]))) > 1e-9:
             failures.append(f"{where}: {name}: role {key} quote \"{quote}\" ends with {found[-1]:g}, but {key} = {args[key]}")
             ok = False
         elif not any(quoted in haystack for haystack in haystacks):

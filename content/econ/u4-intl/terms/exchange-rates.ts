@@ -65,8 +65,8 @@ export const terms: Term[] = [
     id: 'appreciation',
     term: { en: 'appreciation', ru: 'удорожание валюты (appreciation)' },
     def: {
-      en: 'A rise in the value of a currency against another currency, under a floating exchange rate, set by market forces. One unit of it buys more units of the other currency.',
-      ru: 'Рост стоимости валюты по отношению к другой валюте при плавающем курсе, который задают рыночные силы. Одна единица валюты покупает больше единиц другой валюты.',
+      en: 'A strengthening of one currency against another when the exchange rate floats and market demand and supply set it. Each unit of the currency now buys more of the other one.',
+      ru: 'Укрепление одной валюты по отношению к другой при плавающем курсе, который формируют спрос и предложение на рынке. Каждая единица валюты теперь покупает больше единиц другой валюты.',
     },
     syllabus: '4.5',
     papers: ['P1', 'P2', 'P3'],
@@ -85,8 +85,8 @@ export const terms: Term[] = [
     id: 'depreciation',
     term: { en: 'depreciation', ru: 'удешевление валюты (depreciation)' },
     def: {
-      en: 'A fall in the value of a currency against another currency, under a floating exchange rate, set by market forces. One unit of it buys fewer units of the other currency.',
-      ru: 'Падение стоимости валюты по отношению к другой валюте при плавающем курсе, который задают рыночные силы. Одна единица валюты покупает меньше единиц другой валюты.',
+      en: 'A decline in the value of one currency against another when the exchange rate floats and market demand and supply set it. Each unit of the currency now buys less of the other one.',
+      ru: 'Снижение стоимости одной валюты по отношению к другой при плавающем курсе, который формируют спрос и предложение на рынке. Каждая единица валюты теперь покупает меньше единиц другой валюты.',
     },
     syllabus: '4.5',
     papers: ['P1', 'P2', 'P3'],

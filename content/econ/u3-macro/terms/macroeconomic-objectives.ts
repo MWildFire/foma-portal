@@ -86,8 +86,8 @@ export const terms: Term[] = [
     id: 'unemployment',
     term: { en: 'unemployment', ru: 'безработица (unemployment)' },
     def: {
-      en: 'People of working age who are without a job, are available to work and are actively seeking work.',
-      ru: 'Люди трудоспособного возраста, которые не имеют работы, готовы приступить к ней и активно ищут работу.',
+      en: 'Working-age people who have no job, could start work straight away, and are actively looking for one.',
+      ru: 'Люди трудоспособного возраста, у которых нет работы, которые могут начать работать сразу и активно ищут её.',
     },
     example: {
       en: 'Of the 2000 thousand people in the labour force, 120 thousand are unemployed, so the rate is 6.0%.',

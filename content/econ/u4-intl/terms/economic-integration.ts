@@ -63,7 +63,7 @@ export const terms: Term[] = [
   },
   {
     id: 'common-external-tariff',
-    term: { en: 'common external tariff', ru: 'общий внешний тариф (common external tariff)' },
+    term: { en: 'common external tariff (common external policy)', ru: 'общий внешний тариф (common external tariff, common external policy)' },
     def: {
       en: 'The same tariff that all members of a customs union apply to imports from non-member countries; trade among members stays tariff-free.',
       ru: 'Одинаковая пошлина, которую все участники таможенного союза применяют к импорту из стран, не входящих в союз; торговля между участниками остаётся беспошлинной.',

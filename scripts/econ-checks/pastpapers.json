@@ -71,105 +71,105 @@
   },
   {
    "ref": "econ-p2-m24-tz1",
-   "fn": "budget_balance",
+   "fn": "difference",
    "args": {
-    "tax_revenue": -40,
-    "spending": 70
+    "a": -40,
+    "b": 70
    },
    "roles": {
-    "tax_revenue": "current account -40",
-    "spending": "services 70"
+    "a": "current account -40",
+    "b": "services 70"
    },
    "answer": "-110"
   },
   {
    "ref": "econ-p2-m24-tz1",
-   "fn": "budget_balance",
+   "fn": "difference",
    "args": {
-    "tax_revenue": -110,
-    "spending": 8
+    "a": -110,
+    "b": 8
    },
    "roles": {
-    "tax_revenue": "-40 - 70 = -110",
-    "spending": "income 8"
+    "a": "-40 - 70 = -110",
+    "b": "income 8"
    },
    "answer": "-118"
   },
   {
    "ref": "econ-p2-m24-tz1",
-   "fn": "budget_balance",
+   "fn": "difference",
    "args": {
-    "tax_revenue": -118,
-    "spending": -6
+    "a": -118,
+    "b": -6
    },
    "roles": {
-    "tax_revenue": "-110 - 8 = -118",
-    "spending": "transfers -6"
+    "a": "-110 - 8 = -118",
+    "b": "transfers -6"
    },
    "answer": "-112"
   },
   {
    "ref": "econ-p2-m24-tz1",
-   "fn": "budget_balance",
+   "fn": "difference",
    "args": {
-    "tax_revenue": 600,
-    "spending": 320
+    "a": 600,
+    "b": 320
    },
    "roles": {
-    "tax_revenue": "GDP 600",
-    "spending": "consumption 320"
+    "a": "GDP 600",
+    "b": "consumption 320"
    },
    "answer": "280"
   },
   {
    "ref": "econ-p2-m24-tz1",
-   "fn": "budget_balance",
+   "fn": "difference",
    "args": {
-    "tax_revenue": 280,
-    "spending": 90
+    "a": 280,
+    "b": 90
    },
    "roles": {
-    "tax_revenue": "600 - 320 = 280",
-    "spending": "investment 90"
+    "a": "600 - 320 = 280",
+    "b": "investment 90"
    },
    "answer": "190"
   },
   {
    "ref": "econ-p2-m24-tz1",
-   "fn": "budget_balance",
+   "fn": "difference",
    "args": {
-    "tax_revenue": 190,
-    "spending": 110
+    "a": 190,
+    "b": 110
    },
    "roles": {
-    "tax_revenue": "280 - 90 = 190",
-    "spending": "government spending 110"
+    "a": "280 - 90 = 190",
+    "b": "government spending 110"
    },
    "answer": "80"
   },
   {
    "ref": "econ-p2-m24-tz1",
-   "fn": "budget_balance",
+   "fn": "difference",
    "args": {
-    "tax_revenue": 150,
-    "spending": 80
+    "a": 150,
+    "b": 80
    },
    "roles": {
-    "tax_revenue": "exports 150",
-    "spending": "190 - 110 = 80"
+    "a": "exports 150",
+    "b": "190 - 110 = 80"
    },
    "answer": "70"
   },
   {
    "ref": "econ-p2-m24-tz1",
-   "fn": "budget_balance",
+   "fn": "difference",
    "args": {
-    "tax_revenue": 540,
-    "spending": 500
+    "a": 540,
+    "b": 500
    },
    "roles": {
-    "tax_revenue": "GNI 540",
-    "spending": "GDP 500"
+    "a": "GNI 540",
+    "b": "GDP 500"
    },
    "answer": "40"
   },
@@ -287,92 +287,92 @@
   },
   {
    "ref": "econ-p2-m24-tz2",
-   "fn": "budget_balance",
+   "fn": "difference",
    "args": {
-    "tax_revenue": -40,
-    "spending": -60
+    "a": -40,
+    "b": -60
    },
    "roles": {
-    "tax_revenue": "current account -40",
-    "spending": "goods -60"
+    "a": "current account -40",
+    "b": "goods -60"
    },
    "answer": "20"
   },
   {
    "ref": "econ-p2-m24-tz2",
-   "fn": "budget_balance",
+   "fn": "difference",
    "args": {
-    "tax_revenue": 20,
-    "spending": 10
+    "a": 20,
+    "b": 10
    },
    "roles": {
-    "tax_revenue": "-40 - (-60) = 20",
-    "spending": "income 10"
+    "a": "-40 - (-60) = 20",
+    "b": "income 10"
    },
    "answer": "10"
   },
   {
    "ref": "econ-p2-m24-tz2",
-   "fn": "budget_balance",
+   "fn": "difference",
    "args": {
-    "tax_revenue": 10,
-    "spending": -8
+    "a": 10,
+    "b": -8
    },
    "roles": {
-    "tax_revenue": "20 - 10 = 10",
-    "spending": "transfers -8"
+    "a": "20 - 10 = 10",
+    "b": "transfers -8"
    },
    "answer": "18"
   },
   {
    "ref": "econ-p2-m24-tz2",
-   "fn": "budget_balance",
+   "fn": "difference",
    "args": {
-    "tax_revenue": 200,
-    "spending": 260
+    "a": 200,
+    "b": 260
    },
    "roles": {
-    "tax_revenue": "exports 200",
-    "spending": "imports 260"
+    "a": "exports 200",
+    "b": "imports 260"
    },
    "answer": "-60"
   },
   {
    "ref": "econ-p2-m24-tz2",
-   "fn": "budget_balance",
+   "fn": "difference",
    "args": {
-    "tax_revenue": 700,
-    "spending": 120
+    "a": 700,
+    "b": 120
    },
    "roles": {
-    "tax_revenue": "GDP 700",
-    "spending": "investment 120"
+    "a": "GDP 700",
+    "b": "investment 120"
    },
    "answer": "580"
   },
   {
    "ref": "econ-p2-m24-tz2",
-   "fn": "budget_balance",
+   "fn": "difference",
    "args": {
-    "tax_revenue": 580,
-    "spending": 130
+    "a": 580,
+    "b": 130
    },
    "roles": {
-    "tax_revenue": "700 - 120 = 580",
-    "spending": "government spending 130"
+    "a": "700 - 120 = 580",
+    "b": "government spending 130"
    },
    "answer": "450"
   },
   {
    "ref": "econ-p2-m24-tz2",
-   "fn": "budget_balance",
+   "fn": "difference",
    "args": {
-    "tax_revenue": 450,
-    "spending": -60
+    "a": 450,
+    "b": -60
    },
    "roles": {
-    "tax_revenue": "580 - 130 = 450",
-    "spending": "200 - 260 = -60"
+    "a": "580 - 130 = 450",
+    "b": "200 - 260 = -60"
    },
    "answer": "510"
   },
@@ -438,40 +438,40 @@
   },
   {
    "ref": "econ-p3-m24-q1",
-   "fn": "budget_balance",
+   "fn": "difference",
    "args": {
-    "tax_revenue": 900,
-    "spending": 300
+    "a": 900,
+    "b": 300
    },
    "roles": {
-    "tax_revenue": "Example (illustrative): 900",
-    "spending": "900 - 300"
+    "a": "Example (illustrative): 900",
+    "b": "900 - 300"
    },
    "answer": "600"
   },
   {
    "ref": "econ-p3-m24-q1",
-   "fn": "budget_balance",
+   "fn": "difference",
    "args": {
-    "tax_revenue": 600,
-    "spending": 200
+    "a": 600,
+    "b": 200
    },
    "roles": {
-    "tax_revenue": "900 - 300 = 600",
-    "spending": "600 - 200"
+    "a": "900 - 300 = 600",
+    "b": "600 - 200"
    },
    "answer": "400"
   },
   {
    "ref": "econ-p3-m24-q1",
-   "fn": "budget_balance",
+   "fn": "difference",
    "args": {
-    "tax_revenue": 400,
-    "spending": -100
+    "a": 400,
+    "b": -100
    },
    "roles": {
-    "tax_revenue": "600 - 200 = 400",
-    "spending": "400 - (-100"
+    "a": "600 - 200 = 400",
+    "b": "400 - (-100"
    },
    "answer": "500"
   },
@@ -503,14 +503,14 @@
   },
   {
    "ref": "econ-p3-m24-q1",
-   "fn": "budget_balance",
+   "fn": "difference",
    "args": {
-    "tax_revenue": 1080,
-    "spending": 1200
+    "a": 1080,
+    "b": 1200
    },
    "roles": {
-    "tax_revenue": "6.0 × 180 = 1080",
-    "spending": "4.0 × 300 = 1200"
+    "a": "6.0 × 180 = 1080",
+    "b": "4.0 × 300 = 1200"
    },
    "answer": "-120"
   },
@@ -849,27 +849,27 @@
   },
   {
    "ref": "econ-p3-n24-q1",
-   "fn": "budget_balance",
+   "fn": "difference",
    "args": {
-    "tax_revenue": 200.0,
-    "spending": 240.0
+    "a": 200.0,
+    "b": 240.0
    },
    "roles": {
-    "tax_revenue": "33.0 = 200.0",
-    "spending": "27.5 = 240.0"
+    "a": "33.0 = 200.0",
+    "b": "27.5 = 240.0"
    },
    "answer": "-40.0"
   },
   {
    "ref": "econ-p3-n24-q1",
-   "fn": "budget_balance",
+   "fn": "difference",
    "args": {
-    "tax_revenue": 400,
-    "spending": -150
+    "a": 400,
+    "b": -150
    },
    "roles": {
-    "tax_revenue": "Example (illustrative): 400",
-    "spending": "subtracting -150"
+    "a": "Example (illustrative): 400",
+    "b": "subtracting -150"
    },
    "answer": "550"
   },
@@ -914,14 +914,14 @@
   },
   {
    "ref": "econ-p3-n24-q1",
-   "fn": "budget_balance",
+   "fn": "difference",
    "args": {
-    "tax_revenue": 1276,
-    "spending": 1280
+    "a": 1276,
+    "b": 1280
    },
    "roles": {
-    "tax_revenue": "4.4 × 290 = 1276",
-    "spending": "4.0 × 320 = 1280"
+    "a": "4.4 × 290 = 1276",
+    "b": "4.0 × 320 = 1280"
    },
    "answer": "-4"
   },
@@ -1059,40 +1059,40 @@
   },
   {
    "ref": "econ-p2-m25-tz1",
-   "fn": "budget_balance",
+   "fn": "difference",
    "args": {
-    "tax_revenue": 1000,
-    "spending": 50
+    "a": 1000,
+    "b": 50
    },
    "roles": {
-    "tax_revenue": "GDP 1000",
-    "spending": "outflow of 50"
+    "a": "GDP 1000",
+    "b": "outflow of 50"
    },
    "answer": "950"
   },
   {
    "ref": "econ-p2-m25-tz1",
-   "fn": "budget_balance",
+   "fn": "difference",
    "args": {
-    "tax_revenue": 1200,
-    "spending": 40
+    "a": 1200,
+    "b": 40
    },
    "roles": {
-    "tax_revenue": "GDP 1200",
-    "spending": "outflow of 40"
+    "a": "GDP 1200",
+    "b": "outflow of 40"
    },
    "answer": "1160"
   },
   {
    "ref": "econ-p2-m25-tz1",
-   "fn": "budget_balance",
+   "fn": "difference",
    "args": {
-    "tax_revenue": 1160,
-    "spending": 950
+    "a": 1160,
+    "b": 950
    },
    "roles": {
-    "tax_revenue": "the change is 1160",
-    "spending": "50 = 950"
+    "a": "the change is 1160",
+    "b": "50 = 950"
    },
    "answer": "210"
   },
@@ -1167,14 +1167,14 @@
   },
   {
    "ref": "econ-p2-m25-tz3",
-   "fn": "budget_balance",
+   "fn": "difference",
    "args": {
-    "tax_revenue": 9.0,
-    "spending": 12.0
+    "a": 9.0,
+    "b": 12.0
    },
    "roles": {
-    "tax_revenue": "exports 9.0",
-    "spending": "imports 12.0"
+    "a": "exports 9.0",
+    "b": "imports 12.0"
    },
    "answer": "-3.00"
   },
@@ -1197,14 +1197,14 @@
   },
   {
    "ref": "econ-p2-m25-tz3",
-   "fn": "budget_balance",
+   "fn": "difference",
    "args": {
-    "tax_revenue": -1.0,
-    "spending": -2.0
+    "a": -1.0,
+    "b": -2.0
    },
    "roles": {
-    "tax_revenue": "account of -1.0",
-    "spending": "(-2.0"
+    "a": "account of -1.0",
+    "b": "(-2.0"
    },
    "answer": "1.00"
   },
@@ -1275,14 +1275,14 @@
   },
   {
    "ref": "econ-p3-m25-q1",
-   "fn": "budget_balance",
+   "fn": "difference",
    "args": {
-    "tax_revenue": 200,
-    "spending": 120
+    "a": 200,
+    "b": 120
    },
    "roles": {
-    "tax_revenue": "after 1/2 × 80 × 5.0 = 200",
-    "spending": "before 1/2 × 60 × 4.0 = 120"
+    "a": "after 1/2 × 80 × 5.0 = 200",
+    "b": "before 1/2 × 60 × 4.0 = 120"
    },
    "answer": "80"
   },
@@ -1314,14 +1314,14 @@
   },
   {
    "ref": "econ-p3-m25-q1",
-   "fn": "budget_balance",
+   "fn": "difference",
    "args": {
-    "tax_revenue": 19250,
-    "spending": 15000
+    "a": 19250,
+    "b": 15000
    },
    "roles": {
-    "tax_revenue": "change = 19250",
-    "spending": "60.0 × 250 = 15000"
+    "a": "change = 19250",
+    "b": "60.0 × 250 = 15000"
    },
    "answer": "4250"
   },
@@ -1370,27 +1370,27 @@
   },
   {
    "ref": "econ-p3-m25-q1",
-   "fn": "budget_balance",
+   "fn": "difference",
    "args": {
-    "tax_revenue": 1500,
-    "spending": 2250
+    "a": 1500,
+    "b": 2250
    },
    "roles": {
-    "tax_revenue": "change = 1500",
-    "spending": "17000 = 2250"
+    "a": "change = 1500",
+    "b": "17000 = 2250"
    },
    "answer": "-750"
   },
   {
    "ref": "econ-p3-m25-q1",
-   "fn": "budget_balance",
+   "fn": "difference",
    "args": {
-    "tax_revenue": 18000,
-    "spending": -3000
+    "a": 18000,
+    "b": -3000
    },
    "roles": {
-    "tax_revenue": "Example (illustrative): 18000",
-    "spending": "18000 - (-3000"
+    "a": "Example (illustrative): 18000",
+    "b": "18000 - (-3000"
    },
    "answer": "21000"
   },
@@ -1435,14 +1435,14 @@
   },
   {
    "ref": "econ-p3-m25-q2",
-   "fn": "budget_balance",
+   "fn": "difference",
    "args": {
-    "tax_revenue": 405,
-    "spending": -620
+    "a": 405,
+    "b": -620
    },
    "roles": {
-    "tax_revenue": "item A 3 × 135 = 405",
-    "spending": "405 - (-620"
+    "a": "item A 3 × 135 = 405",
+    "b": "405 - (-620"
    },
    "answer": "1025"
   },
@@ -1474,14 +1474,14 @@
   },
   {
    "ref": "econ-p3-m25-q2",
-   "fn": "budget_balance",
+   "fn": "difference",
    "args": {
-    "tax_revenue": 1.8,
-    "spending": 4.75
+    "a": 1.8,
+    "b": 4.75
    },
    "roles": {
-    "tax_revenue": "Example (illustrative): 1.8",
-    "spending": "1.8 - 4.75"
+    "a": "Example (illustrative): 1.8",
+    "b": "1.8 - 4.75"
    },
    "answer": "-2.95"
   },
@@ -1604,27 +1604,27 @@
   },
   {
    "ref": "econ-p3-n25-q1",
-   "fn": "budget_balance",
+   "fn": "difference",
    "args": {
-    "tax_revenue": 6.5,
-    "spending": 3.2
+    "a": 6.5,
+    "b": 3.2
    },
    "roles": {
-    "tax_revenue": "Example (illustrative): 6.5",
-    "spending": "6.5 - 3.2"
+    "a": "Example (illustrative): 6.5",
+    "b": "6.5 - 3.2"
    },
    "answer": "3.3"
   },
   {
    "ref": "econ-p3-n25-q1",
-   "fn": "budget_balance",
+   "fn": "difference",
    "args": {
-    "tax_revenue": 540.0,
-    "spending": 610.0
+    "a": 540.0,
+    "b": 610.0
    },
    "roles": {
-    "tax_revenue": "Example (illustrative): 540.0",
-    "spending": "540.0 - 610.0"
+    "a": "Example (illustrative): 540.0",
+    "b": "540.0 - 610.0"
    },
    "answer": "-70.0"
   },
@@ -1647,14 +1647,14 @@
   },
   {
    "ref": "econ-p3-n25-q1",
-   "fn": "budget_balance",
+   "fn": "difference",
    "args": {
-    "tax_revenue": -135.0,
-    "spending": 5.0
+    "a": -135.0,
+    "b": 5.0
    },
    "roles": {
-    "tax_revenue": "gives -135.0",
-    "spending": "-135.0 - 5.0"
+    "a": "gives -135.0",
+    "b": "-135.0 - 5.0"
    },
    "answer": "-140.0"
   },
@@ -1727,14 +1727,14 @@
   },
   {
    "ref": "econ-p3-n25-q2",
-   "fn": "budget_balance",
+   "fn": "difference",
    "args": {
-    "tax_revenue": 60.0,
-    "spending": 52.0
+    "a": 60.0,
+    "b": 52.0
    },
    "roles": {
-    "tax_revenue": "(60.0",
-    "spending": "(60.0 - 52.0"
+    "a": "(60.0",
+    "b": "(60.0 - 52.0"
    },
    "answer": "8.0"
   },
@@ -1753,40 +1753,40 @@
   },
   {
    "ref": "econ-p3-n25-q2",
-   "fn": "budget_balance",
+   "fn": "difference",
    "args": {
-    "tax_revenue": 5,
-    "spending": -10
+    "a": 5,
+    "b": -10
    },
    "roles": {
-    "tax_revenue": "Example (illustrative): 5",
-    "spending": "5 - (-10"
+    "a": "Example (illustrative): 5",
+    "b": "5 - (-10"
    },
    "answer": "15"
   },
   {
    "ref": "econ-p3-n25-q2",
-   "fn": "budget_balance",
+   "fn": "difference",
    "args": {
-    "tax_revenue": 15,
-    "spending": -15
+    "a": 15,
+    "b": -15
    },
    "roles": {
-    "tax_revenue": "(-10) = 15",
-    "spending": "15 - (-15"
+    "a": "(-10) = 15",
+    "b": "15 - (-15"
    },
    "answer": "30"
   },
   {
    "ref": "econ-p3-n25-q2",
-   "fn": "budget_balance",
+   "fn": "difference",
    "args": {
-    "tax_revenue": 150.0,
-    "spending": 120.0
+    "a": 150.0,
+    "b": 120.0
    },
    "roles": {
-    "tax_revenue": "base = 150.0",
-    "spending": "150.0 - 120.0"
+    "a": "base = 150.0",
+    "b": "150.0 - 120.0"
    },
    "answer": "30.0"
   },

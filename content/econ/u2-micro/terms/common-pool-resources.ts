@@ -126,8 +126,8 @@ export const terms: Term[] = [
     id: 'harvest-quota',
     term: { en: 'harvest quota', ru: 'квота на вылов (harvest quota)' },
     def: {
-      en: 'A limit on the quantity of a resource that may be taken in a period, often shared out as individual allocations to users.',
-      ru: 'Ограничение на объём ресурса, который можно добыть за период; обычно его делят между пользователями в виде индивидуальных долей.',
+      en: 'A limit on the quantity of a resource that may be taken in a period.',
+      ru: 'Ограничение на объём ресурса, который можно добыть за период.',
     },
     example: {
       en: 'A total quota of 1200 tonnes shared among 40 boats gives each boat 30 tonnes a year.',

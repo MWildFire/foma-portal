@@ -78,7 +78,7 @@ export const terms: Term[] = [
     },
     syllabus: '4.3',
     papers: ['P1', 'P2', 'P3'],
-    src,
+    src: { kind: 'textbook', title: book, locator: 'ch. 15.1, p. 466 (anti-dumping argument)' },
   },
   {
     id: 'downstream-industry',
@@ -103,8 +103,8 @@ export const terms: Term[] = [
     id: 'trade-war',
     term: { en: 'trade war', ru: 'торговая война (trade war)' },
     def: {
-      en: "An escalating sequence of retaliatory tariffs and other trade barriers between countries, in which each side responds to the other's protection and trade falls for both, with serious negative effects on global output and resource allocation.",
-      ru: 'Нарастающая цепочка ответных пошлин и других торговых барьеров между странами, в которой каждая сторона отвечает на защиту другой, торговля падает у обеих и серьёзно снижается мировой выпуск, ухудшается распределение ресурсов.',
+      en: "A tit-for-tat escalation of tariffs and other trade barriers between countries: each side retaliates, trade shrinks for both, and world output and the allocation of resources suffer.",
+      ru: 'Нарастающая череда ответных пошлин и других торговых барьеров между странами: каждая сторона отвечает на меры другой, торговля сокращается у обеих, а мировой выпуск и распределение ресурсов страдают.',
     },
     example: {
       en: 'Country X adds a 10% tariff on imports from Country Y, and Y replies with a 10% tariff on X exports, so exports fall on both sides.',

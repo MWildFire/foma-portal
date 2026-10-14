@@ -1,6 +1,6 @@
 {
   "checks": [
-    { "question": "p3-set-01", "fn": "rectangle", "args": { "base": 35, "height": 10 }, "roles": { "base": "fall from 35", "height": "MPC 35, MEC 10" }, "expect_in": ["markscheme.en", "markscheme.ru"] },
+    { "question": "p3-set-01", "fn": "rectangle", "args": { "base": 35, "height": 10 }, "roles": { "base": "fall from 35", "height": "MEC 10" }, "expect_in": ["markscheme.en", "markscheme.ru"] },
     { "question": "p3-set-01", "fn": "tax_revenue", "args": { "t": 10, "q": 30 }, "roles": { "t": "congestion charge of AED 10", "q": "if 30" }, "expect_in": ["markscheme.en", "markscheme.ru"] },
     { "question": "p3-set-01", "fn": "pct_change", "args": { "old": 35, "new": 30 }, "roles": { "old": "fall from 35", "new": "to 30" }, "expect_in": ["markscheme.en", "markscheme.ru"] },
     { "question": "p3-set-02", "fn": "tax_revenue", "args": { "t": 100, "q": 0.3 }, "roles": { "t": "the tariff is USD 100", "q": "imports fall to 0.3" }, "expect_in": ["markscheme.en", "markscheme.ru"] },
@@ -18,7 +18,7 @@
     { "question": "p3-mock-01", "fn": "pct_change", "args": { "old": 14, "new": 12 }, "roles": { "old": "quantity supplied 14", "new": "quantity supplied 12" }, "signed": true, "expect_in": ["markscheme.en", "markscheme.ru"] },
     { "question": "p3-mock-01", "fn": "total_revenue", "args": { "p": 3, "q": 14 }, "roles": { "p": "Rent 3.0", "q": "quantity supplied 14" }, "expect_in": ["markscheme.en", "markscheme.ru"] },
     { "question": "p3-mock-01", "fn": "total_revenue", "args": { "p": 2.5, "q": 12 }, "roles": { "p": "at the rent ceiling of AED 2.5", "q": "quantity supplied 12" }, "expect_in": ["markscheme.en", "markscheme.ru"] },
-    { "question": "p3-mock-01", "fn": "ped", "args": { "q1": 14, "q2": 16, "p1": 3.0, "p2": 3.5 }, "roles": { "q1": "quantity supplied 14", "q2": "quantity supplied 16", "p1": "Rent 3.0", "p2": "Rent 3.5" }, "expect_in": ["markscheme.en", "markscheme.ru"] },
+    { "question": "p3-mock-01", "fn": "pes", "args": { "q1": 14, "q2": 16, "p1": 3.0, "p2": 3.5 }, "roles": { "q1": "quantity supplied 14", "q2": "quantity supplied 16", "p1": "Rent 3.0", "p2": "Rent 3.5" }, "expect_in": ["markscheme.en", "markscheme.ru"] },
     { "question": "p3-mock-01", "fn": "rectangle", "args": { "base": 450, "height": 4 }, "roles": { "base": "a cost of AED 450", "height": "to build 4" }, "expect_in": ["markscheme.en", "markscheme.ru"] },
     { "question": "p3-mock-01", "fn": "rectangle", "args": { "base": 6, "height": 0.5 }, "roles": { "base": "for 6", "height": "allowance of AED 0.5" }, "expect_in": ["markscheme.en", "markscheme.ru"] }
   ]

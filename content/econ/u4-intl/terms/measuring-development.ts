@@ -27,8 +27,8 @@ export const terms: Term[] = [
     id: 'gross-national-income',
     term: { en: 'gross national income (GNI)', ru: 'валовой национальный доход, ВНД (gross national income, GNI)' },
     def: {
-      en: 'The total income earned by the residents of a country, wherever they earn it: GDP plus net income received from abroad.',
-      ru: 'Совокупный доход резидентов страны, где бы они его ни получали: ВВП плюс чистый доход, полученный из-за границы.',
+      en: 'Total income of residents of a nation, wherever it is earned. It equals GDP plus net income from abroad.',
+      ru: 'Весь доход резидентов страны, где бы он ни был заработан. Равен ВВП плюс чистый доход, полученный из-за границы.',
     },
     example: {
       en: 'A country with GDP of USD 30000 million and net income from abroad of USD 1500 million has a GNI of USD 31500 million.',

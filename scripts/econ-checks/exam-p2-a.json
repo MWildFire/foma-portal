@@ -9,6 +9,6 @@
     { "question": "p2-set-02", "fn": "linear_price", "args": { "a": 200, "b": 0.5, "c": 20, "d": 0.5 }, "roles": { "a": "Qd = 200", "b": "Qd = 200 - 0.5", "c": "Qs = 20", "d": "Qs = 20 + 0.5" }, "expect_in": ["markscheme.en", "markscheme.ru"] },
     { "question": "p2-set-02", "fn": "linear_quantity", "args": { "a": 200, "b": 0.5, "c": 20, "d": 0.5 }, "roles": { "a": "Qd = 200", "b": "Qd = 200 - 0.5", "c": "Qs = 20", "d": "Qs = 20 + 0.5" }, "expect_in": ["markscheme.en", "markscheme.ru"] },
     { "question": "p2-set-03", "fn": "multiplier", "args": { "mps": 0.2, "mpt": 0.1, "mpm": 0.1 }, "roles": { "mps": "(MPS): 0.2", "mpt": "(MPT): 0.1", "mpm": "(MPM): 0.1" }, "expect_in": ["markscheme.en", "markscheme.ru"] },
-    { "question": "p2-set-03", "fn": "ratio", "args": { "a": 20, "b": 0.4 }, "roles": { "a": "fall in investment of AED 20", "b": "Total leakages (MPS + MPT + MPM): 0.4" }, "expect_in": ["markscheme.en", "markscheme.ru"] }
+    { "question": "p2-set-03", "fn": "ratio", "args": { "a": -20, "b": 0.4 }, "signed": true, "roles": { "a": "fall in investment of AED 20", "b": "Total leakages (MPS + MPT + MPM): 0.4" }, "expect_in": ["markscheme.en", "markscheme.ru"] }
   ]
 }

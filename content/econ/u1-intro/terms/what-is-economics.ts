@@ -159,7 +159,7 @@ export const terms: Term[] = [
   },
   {
     id: 'production-possibility-curve',
-    term: { en: 'production possibility curve', ru: 'кривая производственных возможностей (production possibility curve)' },
+    term: { en: 'production possibility curve (production possibilities curve, PPC)', ru: 'кривая производственных возможностей (production possibility curve, PPC)' },
     def: {
       en: 'A curve showing the maximum combinations of two goods that an economy can produce, given its resources and technology and using them fully and efficiently.',
       ru: 'Кривая, показывающая максимальные комбинации двух товаров, которые экономика может произвести при имеющихся ресурсах и технологии, полностью и эффективно их используя.',

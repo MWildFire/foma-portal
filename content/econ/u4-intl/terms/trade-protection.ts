@@ -47,8 +47,8 @@ export const terms: Term[] = [
     id: 'quota',
     term: { en: 'quota', ru: 'квота (quota)' },
     def: {
-      en: 'A legal limit on the physical quantity of a good that can be imported or exported in a given period.',
-      ru: 'Законодательное ограничение физического объёма товара, который можно ввезти или вывезти за определённый период.',
+      en: 'A legal cap on the number of physical units of a good that may be brought in or shipped out within a set time frame.',
+      ru: 'Законодательно установленный предел числа физических единиц товара, которые можно ввезти или вывезти в установленный период.',
     },
     example: {
       en: 'An import quota of 25000 units per year caps imports at that quantity, even when buyers would want more at the world price.',
@@ -81,7 +81,7 @@ export const terms: Term[] = [
     syllabus: '4.2',
     papers: ['P1', 'P2', 'P3'],
     sim: 'econ.export-subsidy',
-    src: { kind: 'textbook', title: book, locator: 'ch. 14.3, p. 454' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 14.3, p. 457' },
   },
   {
     id: 'dumping',
@@ -158,7 +158,7 @@ export const terms: Term[] = [
     syllabus: '4.2',
     papers: ['P1', 'P2', 'P3'],
     sim: 'econ.quota',
-    src: { kind: 'textbook', title: book, locator: 'ch. 14.3, p. 448' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 14.3, p. 450' },
   },
   {
     id: 'exchange-controls',

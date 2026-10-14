@@ -86,8 +86,8 @@ export const terms: Term[] = [
     id: 'marginal-propensity-to-import',
     term: { en: 'marginal propensity to import (MPM)', ru: 'предельная склонность к импорту (marginal propensity to import, MPM)' },
     def: {
-      en: 'The proportion of an extra unit of income spent on imported goods and services, which leaves the domestic circular flow.',
-      ru: 'Доля дополнительной единицы дохода, которая тратится на импортные товары и услуги и поэтому выходит из внутреннего кругового потока.',
+      en: 'The share of each extra unit of income that households spend on foreign-produced goods and services, so it leaks out of the domestic circular flow.',
+      ru: 'Доля каждой дополнительной единицы дохода, которую домохозяйства тратят на зарубежные товары и услуги; эта часть выходит из внутреннего кругового потока.',
     },
     example: {
       en: 'If extra income of AED 100 bn leads to AED 15 bn of extra imports, the MPM is 0.15.',

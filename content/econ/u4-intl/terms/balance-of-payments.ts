@@ -125,8 +125,8 @@ export const terms: Term[] = [
     id: 'j-curve',
     term: { en: 'J-curve', ru: 'J-кривая (J-curve)' },
     def: {
-      en: 'The pattern in which the trade balance first worsens after a depreciation, because import prices rise before volumes adjust, and then improves as export and import volumes respond, provided the Marshall-Lerner condition holds.',
-      ru: 'Динамика, при которой после удешевления валюты торговый баланс сначала ухудшается, так как цены импорта растут раньше, чем меняются объёмы, а затем улучшается, когда объёмы экспорта и импорта приспосабливаются, при условии выполнения условия Маршалла–Лернера.',
+      en: 'The time path of the trade balance after a currency falls: it worsens at first, as import bills rise before volumes can change, then improves once export and import volumes adjust, if the Marshall-Lerner condition holds.',
+      ru: 'Динамика торгового баланса после падения курса валюты: сначала баланс ухудшается, так как счета за импорт растут раньше, чем меняются объёмы, затем улучшается, когда объёмы экспорта и импорта подстраиваются, при условии выполнения условия Маршалла–Лернера.',
     },
     syllabus: '4.6',
     papers: ['P1', 'P2', 'P3'],
