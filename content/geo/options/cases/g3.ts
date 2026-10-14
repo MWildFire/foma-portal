@@ -27,12 +27,12 @@ export const cases: CaseStudy[] = [
     title: { en: 'Land subsidence and flooding in Jakarta', ru: 'Просадка грунта и наводнения в Джакарте' },
     place: 'Jakarta, Indonesia',
     scale: 'local',
-    years: '2015–2019',
+    years: '2015–2022',
     lat: -6.2088,
     lng: 106.8456,
     facts: {
       en: 'Jakarta is still sinking by about 1 to 15 cm a year, and the ground at Pluit had sunk about 4 m by 2015. According to ITB research reported by The Jakarta Post in December 2019, the subsidence rate in Muara Baru, North Jakarta, fell from about 20 to 26 cm a year to 10 to 12 cm a year. A UGM study (2024) links the significant subsidence to rapid urbanisation and intensive groundwater extraction, and its abstract points to the coastal regions of North Jakarta.',
-      ru: 'Джакарта продолжает опускаться примерно на 1–15 см в год, а к 2015 году поверхность в районе Плуит (Pluit) опустилась примерно на 4 м. По исследованию ITB, о котором в декабре 2019 года писала The Jakarta Post, в Муара-Бару (Северная Джакарта) темп просадки снизился примерно с 20–26 см до 10–12 см в год. Исследование UGM (2024) связывает значительную просадку с быстрой урбанизацией и интенсивной откачкой грунтовых вод; на побережье просадка усиливает затопление в прилив.',
+      ru: 'Джакарта продолжает опускаться примерно на 1–15 см в год, а к 2015 году поверхность в районе Плуит (Pluit) опустилась примерно на 4 м. По исследованию ITB, о котором в декабре 2019 года писала The Jakarta Post, в Муара-Бару (Северная Джакарта) темп просадки снизился примерно с 20–26 см до 10–12 см в год. Исследование UGM (2024) связывает значительную просадку с быстрой урбанизацией и интенсивной откачкой грунтовых вод; в его абстракте указаны прибрежные районы Северной Джакарты.',
     },
     usedFor: ['g3-urban-stress'],
     src: [
@@ -64,17 +64,16 @@ export const cases: CaseStudy[] = [
     title: { en: 'Phoenix, Arizona: the night-time urban heat island', ru: 'Феникс, Аризона: ночной тепловой остров' },
     place: 'Phoenix, Arizona, USA',
     scale: 'local',
-    years: '2007–2019',
+    years: '2007',
     lat: 33.4484,
     lng: -112.074,
     facts: {
-      en: 'Anthony Brazel of Arizona State University wrote in 2007 that the urban heat island makes Phoenix night-time low temperatures 10 to 15 degrees Fahrenheit (about 5.6 to 8.3 °C) higher than in rural areas. Most of the difference appears in the evening, and by day the urban core can be slightly cooler than the natural desert around it, where the highest daytime temperatures often occur. An NPR report in 2019 said that the average night-time temperature in Phoenix had risen by 9 degrees Fahrenheit (about 5 °C) over the last half-century.',
-      ru: 'Энтони Брейзел (Arizona State University) в 2007 году писал, что тепловой остров делает ночные минимумы Феникса на 10–15 °F (около 5,6–8,3 °C) выше, чем в сельской местности. Больше всего разница проявляется вечером; днём центр города может быть немного прохладнее природной пустыни вокруг, где чаще всего бывает самая высокая дневная температура. По данным NPR (2019), средняя ночная температура в Фениксе за последние полвека выросла примерно на 9 °F (около 5 °C).',
+      en: 'Anthony Brazel of Arizona State University wrote in 2007 that the urban heat island makes Phoenix night-time low temperatures 10 to 15 degrees Fahrenheit (about 5.6 to 8.3 °C) higher than in rural areas. Most of the difference appears in the evening, and by day the urban core can be slightly cooler than the natural desert around it, where the highest daytime temperatures often occur.',
+      ru: 'Энтони Брейзел (Arizona State University) в 2007 году писал, что тепловой остров делает ночные минимумы Феникса на 10–15 °F (около 5,6–8,3 °C) выше, чем в сельской местности. Больше всего разница проявляется вечером; днём центр города может быть немного прохладнее природной пустыни вокруг, где чаще всего бывает самая высокая дневная температура.',
     },
     usedFor: ['g3-urban-stress'],
     src: [
-      { kind: 'web', title: 'Urban heat island affects Phoenix all year round (A. Brazel, Arizona Republic, 2007; ASU news)', url: 'https://ke.news.prod.rtd.asu.edu/2007/09/22/urban-heat-island-affects-phoenix-all-year-round/' },
-      { kind: 'web', title: 'Phoenix residents will need to adapt to an even hotter climate (NPR, 2019)', url: 'https://www.publicradioeast.org/us/2019-09-18/phoenix-residents-will-need-to-adapt-to-an-even-hotter-climate' },
+      { kind: 'web', title: 'Urban heat island affects Phoenix all year round (A. Brazel, Arizona Republic, 2007; ASU archive)', url: 'https://sustainability-innovation.asu.edu/support-services/news/archive/urban-heat-island-affects-phoenix-all-year-round' },
     ],
   },
 ];

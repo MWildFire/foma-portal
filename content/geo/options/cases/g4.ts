@@ -12,8 +12,8 @@ export const cases: CaseStudy[] = [
     lat: -25.4284,
     lng: -49.2733,
     facts: {
-      en: 'The first 20 km opened in 1974, when the system carried about 54,000 passengers a day. At the height of the network integration in 2014 it carried almost 2.5 million passengers a day, and in 2020 daily ridership fell to a little over 710,000.',
-      ru: 'Первые 20 км открылись в 1974 году, когда система перевозила около 54 000 пассажиров в день. На пике интеграции сети в 2014 году перевозилось почти 2,5 млн пассажиров в день, а в 2020 году дневной спрос упал до чуть более 710 000.',
+      en: 'The first 20 km opened in 1974, when the system carried about 54,000 passengers a day. By 2014 the network carried over 2.4 million passengers a day, and in 2020 daily ridership fell to a little over 710,000.',
+      ru: 'Первые 20 км открылись в 1974 году, когда система перевозила около 54 000 пассажиров в день. К 2014 году сеть перевозила более 2,4 млн пассажиров в день, а в 2020 году дневной спрос упал до чуть более 710 000.',
     },
     usedFor: ['g4-sustainable-cities'],
     src: [
@@ -52,12 +52,12 @@ export const cases: CaseStudy[] = [
     title: { en: 'Vauban, Freiburg: a car-free district', ru: 'Вобан, Фрайбург: район с ограниченным движением автомобилей' },
     place: 'Vauban, Freiburg im Breisgau, Germany',
     scale: 'local',
-    years: '1997–2020',
+    years: '1997–2003',
     lat: 47.97583,
     lng: 7.82472,
     facts: {
-      en: 'The Vauban district of Freiburg had 5,267 residents in 2020, according to city statistics. In its first development section, almost half of the households chose to live without a private car in the EU-funded LIFE project of 1997–1999. A 2003 study by Nobis found that more than 40% of households in the district did not own a car.',
-      ru: 'В районе Вобан во Фрайбурге в 2020 году жили 5 267 человек по данным городской статистики. В первой очереди застройки почти половина домохозяйств выбрала жизнь без частного автомобиля в рамках финансируемого ЕС проекта LIFE (1997–1999). По исследованию Nobis (2003) более 40% домохозяйств района не имели автомобиля.',
+      en: 'In the first development section of Vauban, almost half of the households chose to live without a private car in the EU-funded LIFE project of 1997–1999. A 2003 study by Nobis found that more than 40% of households in the district did not own a car.',
+      ru: 'В первой очереди застройки района Вобан почти половина домохозяйств выбрала жизнь без частного автомобиля в рамках финансируемого ЕС проекта LIFE (1997–1999). По исследованию Nobis (2003) более 40% домохозяйств района не имели автомобиля.',
     },
     usedFor: ['g4-sustainable-cities'],
     src: [
@@ -68,7 +68,7 @@ export const cases: CaseStudy[] = [
       },
       {
         kind: 'web',
-        title: 'Wikipedia: Vauban, Freiburg (citing City of Freiburg statistics, Nobis 2003 and Scheurer 2001)',
+        title: 'Wikipedia: Vauban, Freiburg (car ownership, citing Nobis 2003 and Scheurer 2001)',
         url: 'https://en.wikipedia.org/wiki/Vauban,_Freiburg',
       },
     ],

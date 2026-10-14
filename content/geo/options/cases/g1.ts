@@ -12,8 +12,8 @@ export const cases: CaseStudy[] = [
     lat: 25.2048,
     lng: 55.2708,
     facts: {
-      en: 'Dubai’s population was about 0.86 million in 2000 (census count) and about 1.91 million in 2010 (estimate for the end of the year), rising to 3.86 million at the end of 2024. The rise between 2000 and 2010 was about 121%, and in 2010 about 91% of residents were not UAE citizens, so the city depends heavily on migrants.',
-      ru: 'Население Дубая составляло около 0,86 млн человек в 2000 году (перепись) и около 1,91 млн в 2010 году (оценка на конец года), а на конец 2024 года — 3,86 млн. Рост за 2000–2010 годы составил около 121%. В 2010 году около 91% жителей не были гражданами ОАЭ, поэтому город сильно зависит от мигрантов.',
+      en: 'Dubai’s population was about 0.86 million in 2000 (census count) and about 1.91 million in 2010 (estimate for the end of the year), rising to 3.86 million at the end of 2024 (Dubai government portal, dubai.ae). The rise between 2000 and 2010 was about 121%, and in 2010 about 91% of residents were not UAE citizens, so the city depends heavily on migrants.',
+      ru: 'Население Дубая составляло около 0,86 млн человек в 2000 году (перепись) и около 1,91 млн в 2010 году (оценка на конец года), а на конец 2024 года — 3,86 млн (портал правительства Дубая, dubai.ae). Рост за 2000–2010 годы составил около 121%. В 2010 году около 91% жителей не были гражданами ОАЭ, поэтому город сильно зависит от мигрантов.',
     },
     usedFor: ['g1-urban-variety'],
     src: [
@@ -44,8 +44,8 @@ export const cases: CaseStudy[] = [
     lat: 6.5244,
     lng: 3.3792,
     facts: {
-      en: 'The Lagos urban agglomeration grew from about 4.8 million people in 1990 to 13.5 million in 2018, and the UN projects 20.6 million by 2030 (UN World Urbanization Prospects 2018; the 2025 revision may give different figures). It is one of three African megacities in 2018, with Cairo and Kinshasa, and its population grew by about 3.2% a year in 2015–2020. Growth on this scale outpaces the supply of formal housing and services.',
-      ru: 'Агломерация Лагоса выросла с примерно 4,8 млн человек в 1990 году до 13,5 млн в 2018 году; ООН прогнозирует 20,6 млн к 2030 году (UN WUP 2018, более новые редакции ООН могут давать другие цифры). Это один из трёх африканских мегаполисов 2018 года вместе с Каиром и Киншасой; в 2015–2020 годах население росло примерно на 3,2% в год. Такой рост опережает создание формального жилья и услуг.',
+      en: 'The Lagos urban agglomeration grew from about 4.8 million people in 1990 to 13.5 million in 2018, and the UN projects 20.6 million by 2030 (UN World Urbanization Prospects 2018). It is one of three African megacities in 2018, with Cairo and Kinshasa, and its population grew by about 3.2% a year in 2015–2020. Growth on this scale outpaces the supply of formal housing and services.',
+      ru: 'Агломерация Лагоса выросла с примерно 4,8 млн человек в 1990 году до 13,5 млн в 2018 году; ООН прогнозирует 20,6 млн к 2030 году (UN WUP 2018). Это один из трёх африканских мегаполисов 2018 года вместе с Каиром и Киншасой; в 2015–2020 годах население росло примерно на 3,2% в год. Такой рост опережает создание формального жилья и услуг.',
     },
     usedFor: ['g1-urban-variety'],
     src: [
@@ -93,8 +93,8 @@ export const cases: CaseStudy[] = [
     lat: 1.3521,
     lng: 103.8198,
     facts: {
-      en: 'In 2025, 77.2% of resident households lived in HDB flats, the public housing built by the Housing and Development Board (SingStat). This is a share of households, not of people, and it comes from SingStat’s annual household survey, so it is a survey estimate. Planned public housing on this scale gives the state a strong role in shaping the structure of the city.',
-      ru: 'В 2025 году 77,2% резидентных домохозяйств жили в квартирах HDB — государственного жилья, которое строит Housing and Development Board (SingStat). Это доля домохозяйств, а не людей, и она основана на ежегодном обследовании, то есть является оценкой по выборке. Такое масштабное планируемое государственное жильё даёт государству сильную роль в формировании структуры города.',
+      en: 'In 2025, 77.2% of resident households lived in HDB flats, the public housing built by the Housing and Development Board (SingStat). This is a share of households, not of people, and it comes from SingStat’s annual household surveys (Census of Population, General Household Survey and Comprehensive Labour Force Survey), so it is a survey-based figure. Planned public housing on this scale gives the state a strong role in shaping the structure of the city.',
+      ru: 'В 2025 году 77,2% резидентных домохозяйств жили в квартирах HDB — государственного жилья, которое строит Housing and Development Board (SingStat). Это доля домохозяйств, а не людей, и получена из ежегодных обследований домохозяйств SingStat (перепись населения, General Household Survey и Comprehensive Labour Force Survey), то есть опирается на данные обследований. Такое масштабное планируемое государственное жильё даёт государству сильную роль в формировании структуры города.',
     },
     usedFor: ['g1-urban-variety'],
     src: [

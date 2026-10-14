@@ -20,6 +20,11 @@ export const cases: CaseStudy[] = [
     src: [
       {
         kind: 'web',
+        title: 'US Census Bureau, QuickFacts: Detroit city, Population, Census, April 1, 2020 (639,111)',
+        url: 'https://census.gov/quickfacts/fact/table/detroitcitymichigan,adriancitymichigan/POP010220',
+      },
+      {
+        kind: 'web',
         title: 'Demographic history of Detroit, Michigan, 1820–2020 (Wikipedia; population table citing US Census Bureau data)',
         url: 'https://en.wikipedia.org/wiki/Demographic_history_of_Detroit',
       },
@@ -35,8 +40,8 @@ export const cases: CaseStudy[] = [
     lat: 51.505,
     lng: -0.0225,
     facts: {
-      en: 'The London Docklands Development Corporation (LDDC), set up in 1981 and wound up in 1998, oversaw the regeneration of a 22 km² (8.5 square mile) area of former docklands in Newham, Tower Hamlets and Southwark. All the docks had closed by 1980. Building of Canary Wharf, a new office district, began in 1988, and its first buildings, including One Canada Square, were completed in 1991.',
-      ru: 'Корпорация развития Лондонских доков (LDDC) работала с 1981 по 1998 год и руководила перестройкой территории 22 км² бывших доков и портовых земель в районах Ньюэм, Тауэр-Хэмлетс и Саутуорк. К 1980 году все доки закрылись. Строительство делового района Канари-Уорф началось в 1988 году, первые здания, включая One Canada Square, были готовы в 1991 году.',
+      en: 'The London Docklands Development Corporation (LDDC), set up in 1981 and wound up in 1998, oversaw the regeneration of a 22 km² (8.5 square miles) area of former docklands in Newham, Tower Hamlets and Southwark. The docks were empty by 1980. Building of Canary Wharf, a new office district, began in 1988, and its first buildings, including One Canada Square, were completed in 1991.',
+      ru: 'Корпорация развития Лондонских доков (LDDC) работала с 1981 по 1998 год и руководила перестройкой территории 22 км² (8,5 кв. мили) бывших доков и портовых земель в районах Ньюэм, Тауэр-Хэмлетс и Саутуорк. К 1980 году доки опустели. Строительство делового района Канари-Уорф началось в 1988 году, первые здания, включая One Canada Square, были готовы в 1991 году.',
     },
     usedFor: ['g2-urban-change'],
     src: [
@@ -83,7 +88,7 @@ export const cases: CaseStudy[] = [
     id: 'g-medellin-metrocable',
     subject: 'geo',
     title: { en: 'Medellín: cable cars for hillside communities', ru: 'Медельин: канатные дороги для жителей склонов' },
-    place: 'Medellín, Antioquia, Colombia',
+    place: 'Medellín, Antioquia, Colombia (coordinates: centre of Comuna 13 / координаты: центр комуны 13)',
     scale: 'local',
     years: '2004–2026',
     lat: 6.25635,
