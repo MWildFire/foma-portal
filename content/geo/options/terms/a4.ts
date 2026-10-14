@@ -1,9 +1,9 @@
 import type { Term } from '../../../../src/contract/types';
 
 // Option A, A.4: definitions in our own words, aligned with the key elements of the programme (guide 2017).
-// Locators point to the ThinkIB eBook section of this unit; the section is not fully exported yet (S1 map pending).
+// Locators point to ThinkIB section 44418 (Water Management Futures) and its subsections, as listed in geo/PACK.md (ThinkIB addresses, R01).
 // Three terms carry syllabus A.3 (internationally shared water, pressure on aquifers): the guide lists them under A.3.
-const SRC = { kind: 'thinkib' as const, title: 'Option A: Water Management Futures (ThinkIB eBook, A.4)', locator: 'Water Management Futures; Community Participation in Water Management (rest of section not exported); guide p. 29' };
+const SRC = { kind: 'thinkib' as const, title: 'Option A: Water Management Futures (ThinkIB, page 44418)', locator: 'Water Management Futures (44418); Community Participation in Water Management (44412); The Lancang–Mekong Dam Cascade (45425); Integrated Drainage Basin Management – Mekong (45427); Growing Pressures on Wetlands (45437); guide p. 29' };
 const SIM = 'geo.opt-a-dams' as const;
 
 export const terms: Term[] = [
@@ -45,15 +45,15 @@ export const terms: Term[] = [
     id: 'a-demand-side-management',
     term: { en: 'demand-side management', ru: 'управление спросом (demand-side management)' },
     def: {
-      en: 'Reducing the amount of water that users need or take, through pricing, efficiency, reuse and leakage control, rather than only increasing supply.',
-      ru: 'Снижение объёма воды, который нужен потребителям или который они забирают, за счёт тарифов, эффективности, повторного использования и контроля утечек, а не только за счёт увеличения предложения.',
+      en: 'Reducing the amount of water that users need or take, through pricing, efficiency, reuse and leakage control, rather than only increasing supply. Where water is scarce, the same measures are called demand management (see demand management, A.3).',
+      ru: 'Снижение объёма воды, который нужен потребителям или который они забирают, за счёт тарифов, эффективности, повторного использования и контроля утечек, а не только за счёт увеличения предложения. При дефиците воды те же меры называют управлением спросом (demand management, см. A.3).',
     },
     syllabus: 'A.4',
     papers: ['P1'],
     src: SRC,
     example: {
-      en: 'The UAE Water Security Strategy 2036 sets a target to cut total water demand by 21% (UAE Ministry of Energy and Infrastructure, 2025).',
-      ru: 'Стратегия водной безопасности ОАЭ до 2036 года ставит цель снизить общий спрос на воду на 21% (Министерство энергетики и инфраструктуры ОАЭ, 2025).',
+      en: 'The UAE Water Security Strategy 2036, announced in 2017, sets a target to cut total water demand by 21% (UAE Ministry of Energy, WAM, 2017).',
+      ru: 'Стратегия водной безопасности ОАЭ до 2036 года, объявленная в 2017 году, ставит цель снизить общий спрос на воду на 21% (Министерство энергетики ОАЭ, WAM, 2017).',
     },
   },
   {
@@ -69,6 +69,21 @@ export const terms: Term[] = [
     pitfall: {
       en: 'Price cuts demand only where users can respond. People reduce drinking and washing very little, even when prices rise.',
       ru: 'Цена снижает спрос только там, где потребители могут на неё реагировать. Питьё и гигиену люди сокращают очень мало, даже когда цены растут.',
+    },
+  },
+  {
+    id: 'a-affordable-water-access',
+    term: { en: 'access to clean, safe and affordable water', ru: 'доступ к чистой, безопасной и доступной по цене воде (access to clean, safe and affordable water)' },
+    def: {
+      en: 'The aim that every user, including poor households, can get clean, safe water at a price they can afford. It is a goal of water management in every economic context, alongside sustainable use and efficiency.',
+      ru: 'Цель, при которой каждый потребитель, включая бедные домохозяйства, может получать чистую и безопасную воду по цене, которую он может себе позволить. Это цель управления водой в любых экономических условиях наряду с устойчивым использованием и эффективностью.',
+    },
+    syllabus: 'A.4',
+    papers: ['P1'],
+    src: SRC,
+    pitfall: {
+      en: 'Tariffs can cut demand, but they can also make water unaffordable for poor households, so check who pays before you call a pricing policy good.',
+      ru: 'Тарифы могут сократить спрос, но могут сделать воду недоступной для бедных домохозяйств, поэтому проверяйте, кто платит, прежде чем называть тарифную политику удачной.',
     },
   },
   {
@@ -146,8 +161,8 @@ export const terms: Term[] = [
     papers: ['P1'],
     src: SRC,
     example: {
-      en: 'The reservoir behind Ethiopia’s Grand Ethiopian Renaissance Dam is designed to hold about 74 billion cubic metres (UN News, 2020).',
-      ru: 'Водохранилище за Великой эфиопской плотиной возрождения рассчитано примерно на 74 млрд кубометров (UN News, 2020).',
+      en: 'Ethiopia’s Grand Ethiopian Renaissance Dam on the Blue Nile stores water for hydropower in a large reservoir; Egypt has raised concerns about its water security and Sudan about dam safety (Water Power Magazine, 2026).',
+      ru: 'Великая плотина возрождения на Голубом Ниле в Эфиопии накапливает воду для гидроэнергетики в большом водохранилище; Египет выражает озабоченность водной безопасностью, а Судан — безопасностью плотины (Water Power Magazine, 2026).',
     },
     sim: SIM,
   },
@@ -242,8 +257,8 @@ export const terms: Term[] = [
     papers: ['P1'],
     src: SRC,
     example: {
-      en: 'China’s South-North Water Diversion Project diverted more than 76.7 billion cubic metres to northern China over its first ten years (State Council Information Office, 12 December 2024).',
-      ru: 'Проект переброски воды «Юг — Север» в Китае передал на север страны более 76,7 млрд кубометров воды за первые десять лет (Информационное бюро Государственного совета КНР, 12 декабря 2024 года).',
+      en: 'China’s South-North Water Diversion Project moved more than 76.7 billion cubic metres of water north through its middle and eastern routes in about ten years of operation (Xinhua, 12 December 2024).',
+      ru: 'Проект переброски воды «Юг — Север» в Китае передал на север более 76,7 млрд кубометров воды по среднему и восточному маршрутам за примерно десять лет работы (Синьхуа, 12 декабря 2024 года).',
     },
     pitfall: {
       en: 'A transfer moves the problem as well as the water. The source basin loses flow, and the receiving city still has to cut leaks and waste.',

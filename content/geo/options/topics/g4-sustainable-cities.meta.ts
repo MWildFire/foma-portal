@@ -56,6 +56,7 @@ const topic: TopicMeta = {
     'g-waste-hierarchy',
     'g-urban-resilience',
     'g-resilient-city-design',
+    'g-urban-growth-projections',
   ],
   questionIds: ['g4-sq1', 'g4-sq2', 'g4-sq3', 'g4-eq1', 'g4-eq2'],
   caseIds: ['g-curitiba-brt', 'g-copenhagen-cycling', 'g-vauban-freiburg', 'g-masdar-city'],

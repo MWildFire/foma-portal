@@ -2,7 +2,7 @@ import type { Term } from '../../../../src/contract/types';
 
 // Option A, A.3: definitions in our own words, aligned with the key elements of the programme (guide 2017).
 // Examples carry a figure only when it was checked: WHO fact sheets (2022, 2023) and the WHO 4th edition with addenda,
-// SAnews (24 January 2018), Ohio EPA presentation (27 April 2016), NERC Open Research Archive (BGS and DPHE, 2001).
+// SAnews (20 December 2017), News24 (23 January 2018), Ohio EPA presentation (27 April 2016), NERC Open Research Archive (BGS and DPHE, 2001).
 const SRC = { kind: 'thinkib' as const, title: 'Option A: Water Scarcity and Water Quality (page 44021)', locator: 'Water Scarcity; Conflicts and Resolutions in the Mekong River Basin; Environmental Consequences of Agriculture; guide p. 29' };
 
 export const terms: Term[] = [
@@ -55,15 +55,15 @@ export const terms: Term[] = [
     id: 'a-falkenmark-indicator',
     term: { en: 'Falkenmark indicator', ru: 'индикатор Фалькенмарк (Falkenmark indicator)' },
     def: {
-      en: 'Renewable freshwater per person per year, used to classify water stress. Below 1,700 m³ per person per year is water stress, below 1,000 m³ is water scarcity, and below 500 m³ is absolute scarcity.',
-      ru: 'Возобновляемые пресные воды на одного человека в год, по которым классифицируют водный стресс. Ниже 1 700 м³ на человека в год — водный стресс, ниже 1 000 м³ — дефицит воды, ниже 500 м³ — абсолютный дефицит.',
+      en: 'Renewable freshwater per person per year, used to classify countries. Below 1,700 m³ per person per year is the Falkenmark "water stress" threshold, below 1,000 m³ is water scarcity, and below 500 m³ is absolute scarcity.',
+      ru: 'Возобновляемые пресные воды на одного человека в год, по которым классифицируют страны. Ниже 1 700 м³ на человека в год — порог «водного стресса» по Фалькенмарк, ниже 1 000 м³ — дефицит воды, ниже 500 м³ — абсолютный дефицит.',
     },
     syllabus: 'A.3',
     papers: ['P1'],
     src: SRC,
     pitfall: {
-      en: 'The 1,700 figure is widely quoted. Check the original source before you quote it, and use the thresholds as a guide, not as a law.',
-      ru: 'Цифру 1 700 часто приводят. Прежде чем её цитировать, проверьте первоисточник. Пороги — это ориентир, а не закон.',
+      en: 'The 1,700 figure is widely quoted. Check the original source before you quote it, and use the thresholds as a guide, not as a law. Here "water stress" means only this threshold, not the demand-supply situation in g-water-stress (G.3).',
+      ru: 'Цифру 1 700 часто приводят. Прежде чем её цитировать, проверьте первоисточник. Пороги — это ориентир, а не закон. Здесь «водный стресс» — только этот порог, а не ситуация «спрос выше предложения» (см. водный стресс, G.3).',
     },
   },
   {
@@ -129,8 +129,8 @@ export const terms: Term[] = [
     papers: ['P1'],
     src: SRC,
     example: {
-      en: 'In January 2018 Cape Town’s City government said that a 1.4% drop in dam levels had moved Day Zero from 22 April to 12 April 2018 (SAnews, 24 January 2018).',
-      ru: 'В январе 2018 года администрация Кейптауна сообщила, что падение уровня водохранилищ на 1,4% передвинуло «День ноль» (Day Zero) с 22 апреля на 12 апреля 2018 года (SAnews, 24 января 2018).',
+      en: 'In January 2018 Cape Town announced that a 1.4% drop in dam levels had moved Day Zero forward by nine days, to 12 April 2018 (News24, 23 January 2018).',
+      ru: 'В январе 2018 года Кейптаун объявил, что падение уровня водохранилищ на 1,4% передвинуло «День ноль» (Day Zero) на девять дней, до 12 апреля 2018 года (News24, 23 января 2018).',
     },
   },
   {
@@ -242,13 +242,13 @@ export const terms: Term[] = [
     papers: ['P1'],
     src: SRC,
     example: {
-      en: 'WHO provisional guideline value for microcystin-LR in drinking water: 1 µg/L (WHO, 4th edition with addenda, 2022).',
-      ru: 'Предварительный норматив ВОЗ для микроцистина-LR в питьевой воде: 1 мкг/л (ВОЗ, 4-е издание с дополнениями, 2022).',
+      en: 'WHO has set a guideline value for microcystins in drinking water (WHO, 4th edition with addenda, 2022).',
+      ru: 'ВОЗ установила норматив для микроцистинов в питьевой воде (ВОЗ, 4-е издание с дополнениями, 2022).',
     },
   },
   {
     id: 'a-salinisation',
-    term: { en: 'salinisation', ru: 'засоление (salinisation)' },
+    term: { en: 'salinisation (salinization)', ru: 'засоление (salinisation)' },
     def: {
       en: 'Build-up of salt in soil or water. On irrigated land, water evaporates and leaves salts behind, and poor drainage makes the problem worse. Crop yields fall as salinity rises.',
       ru: 'Накопление соли в почве или воде. На орошаемых землях вода испаряется и оставляет соли, а плохой дренаж усугубляет проблему. С ростом засоления урожайность падает.',
@@ -272,8 +272,8 @@ export const terms: Term[] = [
     papers: ['P1'],
     src: SRC,
     example: {
-      en: 'WHO estimates that about 140 million people in at least 70 countries drink water with arsenic above the 10 µg/L guideline (WHO fact sheet, 2022).',
-      ru: 'По оценке ВОЗ, около 140 млн человек в как минимум 70 странах пьют воду с мышьяком выше норматива 10 мкг/л (факт-шит ВОЗ, 2022).',
+      en: 'Groundwater with naturally high arsenic affects countries including Argentina, Bangladesh, Chile, China, India, Mexico and the USA (WHO fact sheet, December 2012).',
+      ru: 'Подземные воды с природно высоким содержанием мышьяка есть во многих странах, в том числе в Аргентине, Бангладеш, Чили, Китае, Индии, Мексике и США (факт-шит ВОЗ, декабрь 2012).',
     },
     pitfall: {
       en: 'The arsenic here is natural, not industrial. Solutions are safer sources, such as deeper wells, and regular testing, not only the closure of a factory.',
@@ -306,8 +306,8 @@ export const terms: Term[] = [
     papers: ['P1'],
     src: SRC,
     example: {
-      en: 'WHO drinking-water guideline: E. coli must not be detectable in any 100 mL sample (WHO, 4th edition with addenda, 2022).',
-      ru: 'Норматив ВОЗ для питьевой воды: E. coli не должна обнаруживаться ни в одной пробе объёмом 100 мл (ВОЗ, 4-е издание с дополнениями, 2022).',
+      en: 'WHO drinking-water guideline: E. coli must not be detectable in drinking water (WHO, 4th edition with addenda, 2022).',
+      ru: 'Норматив ВОЗ для питьевой воды: E. coli не должна обнаруживаться в питьевой воде (ВОЗ, 4-е издание с дополнениями, 2022).',
     },
     pitfall: {
       en: 'An E. coli test shows faecal contamination, not chemical pollution. Clear water can still contain E. coli.',
@@ -318,15 +318,15 @@ export const terms: Term[] = [
     id: 'a-scarcity-demand-management',
     term: { en: 'demand management', ru: 'управление спросом (demand management)' },
     def: {
-      en: 'Measures that reduce how much water is used rather than only increasing supply, such as pricing, restrictions, leak repair, pressure control and efficient irrigation.',
-      ru: 'Меры, которые сокращают объём потребляемой воды, а не только увеличивают поставки: тарифы, ограничения, ремонт утечек, регулирование давления и эффективное орошение.',
+      en: 'Demand management (the same measures as demand-side management, see A.4), applied where water is scarce: cutting use through restrictions, pricing, leak repair, pressure control and efficient irrigation, rather than only increasing supply.',
+      ru: 'Управление спросом (те же меры, что demand-side management, см. A.4), применяемое при дефиците воды: сокращение потребления через ограничения, тарифы, ремонт утечек, регулирование давления и эффективное орошение, а не только увеличение поставок.',
     },
     syllabus: 'A.3',
     papers: ['P1'],
     src: SRC,
     example: {
-      en: 'In January 2018 Cape Town was installing thousands of water management devices on the properties of high users and running pressure management across the city (SAnews, 24 January 2018).',
-      ru: 'В январе 2018 года Кейптаун устанавливал тысячи устройств управления водой у крупных потребителей и проводил регулирование давления по всему городу (SAnews, 24 января 2018).',
+      en: 'By December 2017 Cape Town had installed more than 21,000 water management devices on the properties of high users, and planned 40,000 more from January 2018 (SAnews, 20 December 2017).',
+      ru: 'К декабрю 2017 года Кейптаун установил более 21 000 устройств управления водой у крупных потребителей и планировал ещё 40 000 с января 2018 года (SAnews, 20 декабря 2017 года).',
     },
     pitfall: {
       en: 'Demand management is not only restrictions. Leak repair and pricing change use over years, not only during one dry season.',

@@ -46,6 +46,7 @@ const topic: TopicMeta = {
     'a-rising-limb',
     'a-falling-limb',
     'a-storm-flow',
+    'a-base-flow',
     'a-lag-time',
     'a-peak-discharge',
     'a-levee',

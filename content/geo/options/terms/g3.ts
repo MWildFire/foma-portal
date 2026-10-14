@@ -64,8 +64,8 @@ export const terms: Term[] = [
     papers: ['P1'],
     src: SRC,
     example: {
-      en: 'Mumbai, 26 July 2005: 944 mm of rain in 24 hours flooded roads, railway lines and low-lying districts (Indian Meteorological Department, Santacruz station).',
-      ru: 'Мумбаи, 26 июля 2005 года: 944 мм осадков за 24 часа затопили дороги, железнодорожные пути и низинные районы (Indian Meteorological Department, станция Santacruz).',
+      en: 'Mumbai, 26 July 2005: one day of extreme rainfall flooded roads, railway lines and low-lying districts.',
+      ru: 'Мумбаи, 26 июля 2005 года: экстремальные осадки за один день затопили дороги, железнодорожные пути и низинные районы.',
     },
   },
   {
@@ -100,6 +100,10 @@ export const terms: Term[] = [
     def: {
       en: 'A situation in which demand for water exceeds the available supply, or poor quality limits its use. In growing cities it increases with population growth, pollution and falling groundwater levels.',
       ru: 'Ситуация, когда спрос на воду превышает доступные запасы, или низкое качество воды ограничивает её использование. В растущих городах он усиливается ростом населения, загрязнением и падением уровня грунтовых вод.',
+    },
+    pitfall: {
+      en: 'Not the same as the Falkenmark "water stress" threshold of 1,700 m³ per person per year (see Falkenmark indicator, A.3).',
+      ru: 'Не то же, что порог «водного стресса» по Фалькенмарк (1 700 м³ на человека в год, см. индикатор Фалькенмарк, A.3).',
     },
     syllabus: 'G.3',
     papers: ['P1'],
@@ -172,8 +176,8 @@ export const terms: Term[] = [
     papers: ['P1'],
     src: SRC,
     pitfall: {
-      en: 'A hazard is not the same as a risk: a flood in an empty area is a hazard, but it creates no risk to people.',
-      ru: 'Опасность — не то же самое, что риск: наводнение на пустом участке является опасностью, но риска для людей в нём нет.',
+      en: 'A hazard is not the same as a risk: a flood in an empty area is a hazard, but it creates no risk to people. G.4 applies these terms to cities: see resilient city design (G.4).',
+      ru: 'Опасность — не то же самое, что риск: наводнение на пустом участке является опасностью, но риска для людей в нём нет. В G.4 эти термины применяются к городам: см. Resilient city design (G.4).',
     },
   },
   {
@@ -182,6 +186,10 @@ export const terms: Term[] = [
     def: {
       en: 'The degree to which people, property or systems are likely to be harmed by a hazard. It depends on exposure, sensitivity (for example poverty, age or poor health) and the ability to cope and recover.',
       ru: 'Степень, в которой людям, имуществу или системам может быть нанесён ущерб от опасности. Зависит от подверженности, чувствительности (например, бедность, возраст, плохое здоровье) и способности справиться и восстановиться.',
+    },
+    pitfall: {
+      en: 'Vulnerability belongs to the people and property exposed, not to the hazard itself. Resilient city design (G.4) uses the term to plan how cities cope.',
+      ru: 'Уязвимость относится к людям и имуществу, которые подвержены опасности, а не к самой опасности. Resilient city design (G.4) использует это понятие для планирования устойчивости городов.',
     },
     syllabus: 'G.4',
     papers: ['P1'],
@@ -193,6 +201,10 @@ export const terms: Term[] = [
     def: {
       en: 'The chance of harm from a hazard. It combines how likely the hazard is with the vulnerability of the people and property exposed to it, so risk is high when both are high.',
       ru: 'Вероятность ущерба от опасности. Сочетает вероятность опасного события и уязвимость людей и имущества, которые ему подвержены: риск высок, когда высоки оба фактора.',
+    },
+    pitfall: {
+      en: 'Risk combines a hazard with the vulnerability of the people exposed to it. In G.4 the term is applied to climatic and geopolitical risks to cities: see resilient city design (G.4).',
+      ru: 'Риск сочетает опасность и уязвимость подверженных ей людей. В G.4 термин применяется к климатическим и геополитическим рискам для городов: см. Resilient city design (G.4).',
     },
     syllabus: 'G.4',
     papers: ['P1'],

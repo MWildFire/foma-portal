@@ -48,7 +48,7 @@ const topic: TopicMeta = {
     'a-throughflow',
     'a-overland-flow',
     'a-groundwater-flow',
-    'a-base-flow',
+    'a-cryosphere',
     'a-drainage-density',
     'a-long-profile',
     'a-river-regime',
@@ -69,7 +69,7 @@ const topic: TopicMeta = {
   caseIds: ['a-rhine-basin', 'a-mekong-basin', 'a-amazon-basin', 'a-uae-wadi-floods-2024'],
   sources: [
     { kind: 'ib-guide', title: 'Geography guide (2017), Option A: Freshwater', locator: 'A.1' },
-    { kind: 'thinkib', title: 'Option A: Drainage Basin Hydrology and Geomorphology (page 43412)', locator: 'The Water Budget; River Processes; Upper, Middle and Lower Course Landforms' },
+    { kind: 'thinkib', title: 'Option A: Drainage Basin Hydrology and Geomorphology (page 43413)', locator: 'The Water Budget; River Processes; Upper, Middle and Lower Course Landforms' },
   ],
   links: [
     { title: 'ThinkIB eBook: 1. Drainage Basin Hydrology and Geomorphology (A.1)', url: 'https://student.thinkib.net/geography/page/43413/1-drainage-basin-hydrology-and-geomorphology' },

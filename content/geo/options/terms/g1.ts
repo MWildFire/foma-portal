@@ -3,6 +3,7 @@ import type { Term } from '../../../../src/contract/types';
 // Option G, G.1: definitions in our own words, aligned with the key elements of the programme (guide 2017).
 // Locators point to the ThinkIB eBook section of this unit (section level; page locators come from the S1 map).
 // Urbanisation carries syllabus G.2: the guide lists urbanization and natural increase under Changing urban systems.
+// Model attributions (checked): Burgess 1925; Hoyt 1939; Harris and Ullman 1945 (Annals of the AAPSS, vol. 242); Griffin and Ford 1980 (Geographical Review).
 const SRC = { kind: 'thinkib' as const, title: 'Option G: Urban Environments (pages 37517, 37523, 37524)', locator: 'The Variety of Urban Environments; The Characteristics of Urban Places; Economic Activity in Urban Places; guide p. 40' };
 const SIM = 'geo.opt-g-models' as const;
 
@@ -18,8 +19,8 @@ export const terms: Term[] = [
     papers: ['P1'],
     src: SRC,
     example: {
-      en: 'Lagos (Nigeria) had about 13.5 million people in 2018 (UN World Urbanization Prospects 2018).',
-      ru: 'В Лагосе (Нигерия) в 2018 году жило около 13,5 млн человек (UN WUP 2018).',
+      en: 'Lagos (Nigeria) is a megacity whose population is hard to count, so official estimates differ widely between sources (Mistra Urban Futures, 2018).',
+      ru: 'Лагос (Нигерия) — мегаполис, население которого трудно подсчитать: официальные оценки сильно расходятся между источниками (Mistra Urban Futures, 2018).',
     },
     pitfall: {
       en: 'A megacity is defined by population size, not by wealth or political power.',
@@ -28,7 +29,7 @@ export const terms: Term[] = [
   },
   {
     id: 'g-urbanisation',
-    term: { en: 'urbanisation', ru: 'урбанизация (urbanisation)' },
+    term: { en: 'urbanisation (urbanization)', ru: 'урбанизация (urbanisation)' },
     def: {
       en: 'The rise in the proportion of a population that lives in towns and cities, through rural-urban migration and natural increase within urban areas.',
       ru: 'Рост доли населения, которое живёт в городах и городских поселениях. Он происходит из-за миграции из сельской местности в города и естественного прироста внутри городов.',
@@ -75,8 +76,8 @@ export const terms: Term[] = [
     id: 'g-central-business-district',
     term: { en: 'central business district (CBD)', ru: 'центральный деловой район (central business district, CBD)' },
     def: {
-      en: 'The commercial and administrative core of a city, with offices, shops and services, the highest land values and the best access to public transport.',
-      ru: 'Коммерческое и административное ядро города с офисами, магазинами и услугами; здесь самые высокие цены на землю и лучший доступ к общественному транспорту.',
+      en: 'The commercial and administrative core of a city, with offices, shops and services, the highest land values and the best access to public transport. Economic activities compete for sites by their distance from it: offices and high-order shops pay most for central sites, while industry moves out to cheaper land.',
+      ru: 'Коммерческое и административное ядро города с офисами, магазинами и услугами; здесь самые высокие цены на землю и лучший доступ к общественному транспорту. Экономическая деятельность конкурирует за участки по расстоянию от него: офисы и дорогие магазины платят больше всего за центральные участки, а промышленность уходит на более дешёвую землю.',
     },
     syllabus: 'G.1',
     papers: ['P1'],
@@ -223,5 +224,80 @@ export const terms: Term[] = [
     syllabus: 'G.1',
     papers: ['P1'],
     src: SRC,
+  },
+  {
+    id: 'g-site',
+    term: { en: 'site', ru: 'местоположение города (site)' },
+    def: {
+      en: 'The physical ground on which a settlement is built: relief, a river crossing, a coast or a defensible hill. The site shaped where the first settlement grew and how easily the town could expand.',
+      ru: 'Физические особенности участка, на котором построен город: рельеф, переправа через реку, побережье или защищённый холм. Они определили, где возникло первое поселение и насколько легко город мог расти.',
+    },
+    syllabus: 'G.1',
+    papers: ['P1'],
+    src: SRC,
+    pitfall: {
+      en: 'Site describes the ground, not the role of the city. The role is the function (see urban function).',
+      ru: 'Site описывает участок, а не роль города. Роль задаёт функция города (urban function).',
+    },
+  },
+  {
+    id: 'g-function',
+    term: { en: 'urban function', ru: 'функция города (urban function)' },
+    def: {
+      en: 'The main economic activity that gives a town or city its role, such as port, manufacturing, administration, tourism or retail. Cities of similar size can have very different functions.',
+      ru: 'Главная экономическая деятельность, которая задаёт роль города, например порт, промышленность, администрация, туризм или торговля. Города одинакового размера могут выполнять разные функции.',
+    },
+    syllabus: 'G.1',
+    papers: ['P1'],
+    src: SRC,
+    pitfall: {
+      en: 'Function is the role of the place, not its size. A large city can have a narrow function, such as one major port.',
+      ru: 'Функция — это роль места, а не его размер. Крупный город может иметь узкую функцию, например роль одного крупного порта.',
+    },
+  },
+  {
+    id: 'g-land-use',
+    term: { en: 'land use', ru: 'использование земли (land use)' },
+    def: {
+      en: 'The purpose for which an area of urban land is used, such as housing, offices, shops, industry, transport or green space. The pattern of land uses forms the internal structure of a city.',
+      ru: 'Назначение участка городской земли: жильё, офисы, магазины, промышленность, транспорт или зелёные зоны. Распределение видов использования земли формирует внутреннюю структуру города.',
+    },
+    syllabus: 'G.1',
+    papers: ['P1'],
+    src: SRC,
+    pitfall: {
+      en: 'Land use is what the land is used for now. Land-use change (G.2) is how these uses change over time.',
+      ru: 'Использование земли — это то, для чего земля служит сейчас. Изменение использования земли (G.2) — то, как эти виды меняются со временем.',
+    },
+  },
+  {
+    id: 'g-ethnicity',
+    term: { en: 'ethnicity', ru: 'этническая принадлежность (ethnicity)' },
+    def: {
+      en: 'Shared ethnic identity can influence where households live. Groups may cluster in particular neighbourhoods through choice, language, family networks or discrimination, which shapes the residential pattern of a city.',
+      ru: 'Общая этническая принадлежность может влиять на то, где живут семьи. Группы могут селиться вместе из-за выбора, языка, родственных связей или дискриминации, и это формирует рисунок жилых районов города.',
+    },
+    syllabus: 'G.1',
+    papers: ['P1'],
+    src: SRC,
+    pitfall: {
+      en: 'Ethnic clustering is a pattern, not a cause on its own: income, planning decisions and discrimination also shape where people live.',
+      ru: 'Этническая концентрация — это рисунок расселения, а не самостоятельная причина: доходы, решения планирования и дискриминация тоже определяют, где живут люди.',
+    },
+  },
+  {
+    id: 'g-informal-activity',
+    term: { en: 'informal activity', ru: 'неформальная деятельность (informal activity)' },
+    def: {
+      en: 'Housing and economic activity that operates outside official planning, legal permission or registration, such as informal settlements and small unregistered workshops or traders.',
+      ru: 'Жильё и экономическая деятельность вне официального планирования, законных разрешений или регистрации: например, неформальные поселения и небольшие незарегистрированные мастерские или торговцы.',
+    },
+    syllabus: 'G.1',
+    papers: ['P1'],
+    src: SRC,
+    pitfall: {
+      en: 'Informal does not only mean illegal: for many poorer households it is the main source of housing and income, so describe its scale and effects.',
+      ru: 'Неформальное не значит только незаконное: для многих бедных семей это главный источник жилья и дохода, поэтому описывайте его масштаб и последствия.',
+    },
   },
 ];

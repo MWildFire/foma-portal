@@ -5,6 +5,25 @@ const SRC: SourceRef = { kind: 'thinkib', title: 'Option G: Urban Environments (
 
 export const terms: Term[] = [
   {
+    id: 'g-urban-growth-projections',
+    term: { en: 'urban growth projections to 2050', ru: 'прогнозы городского роста к 2050 году (urban growth projections)' },
+    def: {
+      en: 'Forecasts of how urban populations will grow and change in size and structure by 2050, for regions and continents, based on trends in rural–urban migration. A projection is a scenario built on assumptions, not a certain prediction.',
+      ru: 'Прогнозы того, как городское население вырастет и изменит размер и структуру к 2050 году по регионам и континентам, на основе тенденций миграции из деревни в город. Прогноз — это сценарий на основе допущений, а не точное предсказание.',
+    },
+    syllabus: 'G.4',
+    papers: ['P1'],
+    src: SRC,
+    example: {
+      en: 'UN DESA’s World Urbanization Prospects, 2025 Revision, publishes urban population figures for selected years from 1950 to 2050 (UN DESA, 2025).',
+      ru: 'Доклад ООН World Urbanization Prospects, редакция 2025 года, публикует данные о городском населении за отдельные годы с 1950 по 2050 (UN DESA, 2025).',
+    },
+    pitfall: {
+      en: 'Name the assumptions a projection uses, for example about migration, because the conclusion depends on them.',
+      ru: 'Называйте допущения прогноза, например о миграции: вывод зависит от них.',
+    },
+  },
+  {
     id: 'g-sustainable-urban-development',
     term: { en: 'sustainable urban development', ru: 'устойчивое городское развитие (sustainable urban development)' },
     def: {
@@ -90,8 +109,8 @@ export const terms: Term[] = [
     id: 'g-smart-city',
     term: { en: 'smart city', ru: 'умный город (smart city)' },
     def: {
-      en: 'A city that uses digital technology, sensors and data to manage transport, energy, water and waste more efficiently and to inform residents and planners.',
-      ru: 'Город, который использует цифровые технологии, датчики и данные, чтобы эффективнее управлять транспортом, энергией, водой и отходами и информировать жителей и планировщиков.',
+      en: 'A city that uses digital technology, sensors and data to manage transport, energy, water and waste more efficiently and to inform residents and planners. It can be a purpose-built new settlement or an older city retrofitted with the same technology.',
+      ru: 'Город, который использует цифровые технологии, датчики и данные, чтобы эффективнее управлять транспортом, энергией, водой и отходами и информировать жителей и планировщиков. Это может быть новое специально спланированное поселение или старый город, модернизированный той же технологией.',
     },
     syllabus: 'G.4',
     papers: ['P1'],

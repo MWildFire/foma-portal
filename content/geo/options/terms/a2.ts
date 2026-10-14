@@ -16,8 +16,8 @@ export const terms: Term[] = [
     papers: ['P1'],
     src: SRC,
     example: {
-      en: 'Boscastle, Cornwall (England), 16 August 2004: up to 200 mm of rain fell in about five hours (HR Wallingford for the Environment Agency, 2005).',
-      ru: 'Боскасл, Корнуолл (Англия), 16 августа 2004 года: до 200 мм осадков выпало примерно за пять часов (HR Wallingford для Environment Agency, 2005).',
+      en: 'Boscastle, Cornwall (England), 16 August 2004: up to 200 mm of rain fell in about five hours (HR Wallingford, 2005).',
+      ru: 'Боскасл, Корнуолл (Англия), 16 августа 2004 года: до 200 мм осадков выпало примерно за пять часов (HR Wallingford, 2005).',
     },
   },
   {
@@ -31,8 +31,8 @@ export const terms: Term[] = [
     papers: ['P1'],
     src: SRC,
     example: {
-      en: 'The IJssel, Waal, Lower Rhine and Lek in the Netherlands received measures at 34 locations between 2006 and 2019 to give rivers more room (Rijkswaterstaat).',
-      ru: 'На реках IJssel, Waal, Lower Rhine и Lek в Нидерландах в 2006–2019 годах провели меры на 34 участках, чтобы дать рекам больше места (Rijkswaterstaat).',
+      en: 'The IJssel, Waal, Lower Rhine and Lek in the Netherlands received Room for the River measures that give the rivers more room in flood, for example by lowering some floodplains (Rijkswaterstaat).',
+      ru: 'На реках IJssel, Waal, Lower Rhine и Lek в Нидерландах провели меры программы Room for the River, которые дают рекам больше места в паводок, например понижая часть пойм (Rijkswaterstaat).',
     },
   },
   {
@@ -65,8 +65,8 @@ export const terms: Term[] = [
     id: 'a-surface-runoff',
     term: { en: 'surface runoff', ru: 'поверхностный сток (surface runoff)' },
     def: {
-      en: 'Rainwater that flows over the ground into streams, drains and rivers because the surface cannot absorb it, for example because the soil is saturated or the ground is sealed.',
-      ru: 'Дождевая вода, которая течёт по земле в ручьи, дренажные системы и реки, потому что поверхность не может её впитать, например из-за насыщенной водой почвы или запечатанного покрытия.',
+      en: 'The same process as overland flow (A.1) when it feeds streams, drains and rivers in a flood: rainwater flows over the ground because the surface cannot absorb it, for example because the soil is saturated or the ground is sealed.',
+      ru: 'Тот же процесс, что склоновый сток (overland flow, A.1), когда он питает ручьи, дренажные системы и реки во время паводка: дождевая вода течёт по земле, потому что поверхность не может её впитать, например из-за насыщенной водой почвы или запечатанного покрытия.',
     },
     syllabus: 'A.2',
     papers: ['P1'],

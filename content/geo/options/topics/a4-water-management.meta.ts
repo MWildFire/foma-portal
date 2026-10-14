@@ -64,6 +64,7 @@ const topic: TopicMeta = {
     'a-wetland',
     'a-ramsar-convention',
     'a-community-participation',
+    'a-affordable-water-access',
   ],
   sims: ['geo.opt-a-dams'],
   questionIds: ['a4-sq1', 'a4-sq2', 'a4-sq3', 'a4-eq1', 'a4-eq2'],

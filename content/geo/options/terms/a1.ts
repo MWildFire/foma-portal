@@ -2,8 +2,8 @@ import type { Term } from '../../../../src/contract/types';
 
 // Option A, A.1: definitions in our own words, aligned with the key elements of the programme (guide 2017).
 // Examples are added only where the figure, its year and its source are checked (see cases/a1.ts).
-// Hydrograph terms (storm hydrograph, limbs, lag time, peak discharge, storm flow) carry syllabus A.2: the guide lists hydrograph characteristics under A.2.
-const SRC = { kind: 'thinkib' as const, title: 'Option A: Drainage Basin Hydrology and Geomorphology (page 43412)', locator: 'The Water Budget; River Processes; Upper, Middle and Lower Course Landforms; guide p. 28' };
+// Hydrograph terms (storm hydrograph, limbs, lag time, peak discharge, base flow, storm flow) carry syllabus A.2: the guide lists hydrograph characteristics (lag time, peak discharge, base flow) under A.2.
+const SRC = { kind: 'thinkib' as const, title: 'Option A: Drainage Basin Hydrology and Geomorphology (page 43413)', locator: 'The Water Budget (43127); River Processes (43212); Upper, Middle and Lower Course Landforms (43271, 43316, 43403, 43411); guide p. 28' };
 
 export const terms: Term[] = [
   {
@@ -128,7 +128,7 @@ export const terms: Term[] = [
   },
   {
     id: 'a-overland-flow',
-    term: { en: 'overland flow', ru: 'поверхностный сток (overland flow)' },
+    term: { en: 'overland flow', ru: 'склоновый сток (overland flow)' },
     def: {
       en: 'Water that flows across the ground surface towards a channel. It happens when rain arrives faster than the soil can absorb it, or when the soil is already saturated.',
       ru: 'Вода, которая течёт по поверхности земли к руслу. Это происходит, когда дождь выпадает быстрее, чем почва может его впитать, или когда почва уже насыщена водой.',
@@ -137,8 +137,8 @@ export const terms: Term[] = [
     papers: ['P1'],
     src: SRC,
     pitfall: {
-      en: 'Overland flow is water moving across the land. It is not the water already in the river channel.',
-      ru: 'Поверхностный сток — это вода, движущаяся по суше. Это не та вода, которая уже находится в русле реки.',
+      en: 'Overland flow is water moving across the land. It is not the water already in the river channel. In flood work the same process is called surface runoff.',
+      ru: 'Склоновый сток — это вода, движущаяся по суше. Это не та вода, которая уже находится в русле реки. В работах о наводнениях тот же процесс называют поверхностным стоком (surface runoff).',
     },
   },
   {
@@ -154,6 +154,21 @@ export const terms: Term[] = [
     pitfall: {
       en: 'Groundwater flow supplies most of the base flow between storms, but it rarely creates the sharp storm peak.',
       ru: 'Подземный сток даёт основную часть базисного стока между ливнями, но редко создаёт резкий пик паводка.',
+    },
+  },
+  {
+    id: 'a-cryosphere',
+    term: { en: 'cryosphere', ru: 'криосфера (cryosphere)' },
+    def: {
+      en: 'The frozen part of a drainage basin: snow, glaciers, ice caps, permafrost and seasonally frozen ground. It stores water and releases it slowly, mostly as meltwater.',
+      ru: 'Замёрзшая часть речного бассейна: снег, ледники, ледниковые покровы, многолетняя мерзлота и сезонно промёрзший грунт. Она запасает воду и отдаёт её медленно, в основном в виде талых вод.',
+    },
+    syllabus: 'A.1',
+    papers: ['P1'],
+    src: SRC,
+    pitfall: {
+      en: 'The cryosphere is a store, not a flow: water stays frozen until it melts and only then joins the flows of the basin.',
+      ru: 'Криосфера — это запас, а не поток: вода остаётся замёрзшей, пока не растает, и только потом входит в потоки бассейна.',
     },
   },
   {
@@ -205,15 +220,15 @@ export const terms: Term[] = [
     id: 'a-lag-time',
     term: { en: 'lag time', ru: 'время запаздывания (lag time)' },
     def: {
-      en: 'The time between the peak of rainfall (or the centre of mass of the storm) and the peak of discharge. A short lag time means a quick response.',
-      ru: 'Время между пиком осадков (или центром тяжести ливня) и пиком расхода. Короткое время запаздывания означает быструю реакцию бассейна.',
+      en: 'The time between the storm centre (the middle of the storm) and the peak of discharge. A short lag time means a quick response.',
+      ru: 'Время между центром ливня (серединой ливня) и пиком расхода. Короткое время запаздывания означает быструю реакцию бассейна.',
     },
     syllabus: 'A.2',
     papers: ['P1'],
     src: SRC,
     pitfall: {
-      en: 'Lag time is a time in hours, not a flow. Measure it from the rainfall peak to the discharge peak, not from the start of the rain.',
-      ru: 'Время запаздывания — это время в часах, а не расход. Измеряйте его от пика осадков до пика расхода, а не от начала дождя.',
+      en: 'Lag time is a time in hours, not a flow. Measure it from the storm centre to the discharge peak, not from the start of the rain.',
+      ru: 'Время запаздывания — это время в часах, а не расход. Измеряйте его от центра ливня до пика расхода, а не от начала дождя.',
     },
   },
   {
@@ -227,8 +242,8 @@ export const terms: Term[] = [
     papers: ['P1'],
     src: SRC,
     example: {
-      en: 'Rhine at Lobith: 12,060 m³/s at the peak of January 1995 (KNMI, Hoogwater Rijn en Maas 1995).',
-      ru: 'Рейн у Лобита: 12 060 м³/с в пике января 1995 года (KNMI, «Hoogwater Rijn en Maas 1995»).',
+      en: 'Rhine at Lobith: about 12,000 m³/s at the peak of January 1995 (KNMI, Hoogwater Rijn en Maas 1995).',
+      ru: 'Рейн у Лобита: около 12 000 м³/с в пике января 1995 года (KNMI, «Hoogwater Rijn en Maas 1995»).',
     },
     pitfall: {
       en: 'Peak discharge is a flow, not a time. Quote the value with its unit and the time it was reached, for example "[value] m³/s at [time]".',
@@ -242,7 +257,7 @@ export const terms: Term[] = [
       en: 'The part of river discharge that comes from groundwater and continues between storms, so the river keeps flowing between rain events.',
       ru: 'Часть речного стока, которая поступает из подземных вод и продолжается между ливнями, поэтому река течёт и между дождями.',
     },
-    syllabus: 'A.1',
+    syllabus: 'A.2',
     papers: ['P1'],
     src: SRC,
     pitfall: {
@@ -306,8 +321,8 @@ export const terms: Term[] = [
     papers: ['P1'],
     src: SRC,
     example: {
-      en: 'Lower Mekong basin: over 90% of annual rainfall falls in the wet season, typically from mid-May to October (Nature Sustainability, 2025).',
-      ru: 'Нижний Меконг: более 90% годовых осадков выпадает в сезон дождей, обычно с середины мая по октябрь (Nature Sustainability, 2025).',
+      en: 'Lower Mekong basin: most of the annual rainfall falls in the wet season, typically from May to October (MDPI, Sustainability, 2025).',
+      ru: 'Нижний Меконг: большая часть годовых осадков выпадает в сезон дождей, обычно с мая по октябрь (MDPI, Sustainability, 2025).',
     },
     pitfall: {
       en: 'A river regime is a pattern over the year, not a single flood. Name the regime type and its source before you describe it.',
@@ -333,8 +348,8 @@ export const terms: Term[] = [
     id: 'a-river-erosion',
     term: { en: 'river erosion', ru: 'речная эрозия (river erosion)' },
     def: {
-      en: 'The wearing away of the river bed and banks by four processes: hydraulic action (the force of moving water and trapped air), abrasion (particles carried by the river scraping the bed), attrition (particles colliding and becoming smaller and more rounded) and solution (dissolving of rock).',
-      ru: 'Разрушение русла и берегов реки четырьмя процессами: гидравлическим действием (сила движущейся воды и захваченного воздуха), абразией (частицы, которые переносит река, скоблят дно), истиранием (столкновения частиц, из-за которых они становятся мельче и окатаннее) и растворением (растворение породы).',
+      en: 'The wearing away of the river bed and banks by four processes: hydraulic action (the force of moving water and trapped air), abrasion (particles carried by the river scraping the bed), attrition (particles colliding and becoming smaller and more rounded) and solution (dissolving of rock). How much is eroded varies along the course (spatial factors) and through the year (temporal factors): channel characteristics (for example gradient, depth and bed material) and seasonality (for example, more erosion at high discharge in the wet season or during snowmelt) set the rate.',
+      ru: 'Разрушение русла и берегов реки четырьмя процессами: гидравлическим действием (сила движущейся воды и захваченного воздуха), абразией (частицы, которые переносит река, скоблят дно), истиранием (столкновения частиц, из-за которых они становятся мельче и окатаннее) и растворением (растворение породы). Скорость размыва зависит от места по течению и от времени года: от особенностей русла (например, уклона, глубины и состава дна) и от сезонности (например, сильнее размывает при высоком стоке в сезон дождей или во время снеготаяния).',
     },
     syllabus: 'A.1',
     papers: ['P1'],
@@ -363,8 +378,8 @@ export const terms: Term[] = [
     id: 'a-deposition',
     term: { en: 'deposition', ru: 'отложение наносов (deposition)' },
     def: {
-      en: 'The dropping of load when a river loses energy, usually because its velocity falls. It happens on the inside of bends, on floodplains, in lakes and at the river mouth.',
-      ru: 'Выпадение наносов, когда река теряет энергию, обычно из-за снижения скорости течения. Оно происходит на внутренней стороне излучин, на поймах, в озёрах и в устье реки.',
+      en: 'The dropping of load when a river loses energy, usually because its velocity falls. It happens on the inside of bends, on floodplains, in lakes and at the river mouth. Where and how much is dropped depends on channel characteristics (for example shape, roughness and gradient) and on seasonality: more load is dropped when discharge falls after the wet season.',
+      ru: 'Выпадение наносов, когда река теряет энергию, обычно из-за снижения скорости течения. Оно происходит на внутренней стороне излучин, на поймах, в озёрах и в устье реки. Где и сколько наносов выпадает, зависит от особенностей русла (например, формы, шероховатости и уклона) и от сезонности: больше наносов откладывается, когда сток падает после сезона дождей.',
     },
     syllabus: 'A.1',
     papers: ['P1'],

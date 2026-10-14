@@ -8,10 +8,10 @@ const SRC: SourceRef = { kind: 'thinkib', title: 'Option G: Urban Environments (
 export const terms: Term[] = [
   {
     id: 'g-counter-urbanisation',
-    term: { en: 'counter-urbanisation', ru: 'контрурбанизация (counter-urbanisation)' },
+    term: { en: 'counter-urbanisation (counter-urbanization)', ru: 'контрурбанизация (counter-urbanisation)' },
     def: {
-      en: 'The net movement of people from large urban areas to smaller towns and the countryside beyond them, so that rural population grows faster than the cities it left.',
-      ru: 'Чистое переселение людей из крупных городских районов в малые города и сельскую местность за их пределами, при котором сельское население растёт быстрее, чем города, которые люди покинули.',
+      en: 'The net movement of people from large urban areas to smaller towns and the countryside beyond them.',
+      ru: 'Чистое переселение людей из крупных городских районов в малые города и сельскую местность за их пределами.',
     },
     syllabus: 'G.2',
     papers: ['P1'],
@@ -23,7 +23,7 @@ export const terms: Term[] = [
   },
   {
     id: 'g-suburbanisation',
-    term: { en: 'suburbanisation', ru: 'субурбанизация (suburbanisation)' },
+    term: { en: 'suburbanisation (suburbanization)', ru: 'субурбанизация (suburbanisation)' },
     def: {
       en: 'The growth of housing, population and jobs in the suburbs on the edge of a city, as people move out of the central area and often still commute into it for work.',
       ru: 'Рост жилья, населения и рабочих мест в пригородах на окраине города: люди переезжают из центральной части, но часто продолжают ездить туда на работу.',
@@ -139,7 +139,7 @@ export const terms: Term[] = [
   },
   {
     id: 'g-deindustrialisation',
-    term: { en: 'deindustrialisation', ru: 'деиндустриализация (deindustrialisation)' },
+    term: { en: 'deindustrialisation (deindustrialization)', ru: 'деиндустриализация (deindustrialisation)' },
     def: {
       en: 'The decline of manufacturing as a share of a country\'s or city\'s economy, usually through factory closures and job losses, while service jobs grow. Causes include competition from lower-cost producers, the relocation of factories to cheaper sites, automation and a shift in demand towards services.',
       ru: 'Снижение роли обрабатывающей промышленности в экономике страны или города: закрытие заводов и потеря рабочих мест при росте сферы услуг. Причины: конкуренция производителей с более низкими издержками, перенос заводов в более дешёвые места, автоматизация и сдвиг спроса в сторону услуг.',
