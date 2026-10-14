@@ -23,7 +23,7 @@ const topic: TopicMeta = {
     'core-carbon-flux', 'core-carbon-sink', 'core-positive-feedback', 'core-negative-feedback', 'core-ice-core',
   ],
   sims: ['geo.core-greenhouse-effect', 'geo.core-carbon-cycle'],
-  questionIds: ['core-2-1-a1', 'core-2-1-b1', 'core-2-1-a2', 'core-2-1-a3', 'core-2-1-a4', 'core-2-1-a5'],
+  questionIds: ['core-2-1-a2', 'core-2-1-a3', 'core-2-1-a4', 'core-2-1-a5'],
   caseIds: ['core-2-1-case-mauna-loa', 'core-2-1-case-arctic-sea-ice', 'core-2-1-case-china'],
   sources: [
     { kind: 'ib-guide', title: 'Geography guide (2017), core 2.1' },
