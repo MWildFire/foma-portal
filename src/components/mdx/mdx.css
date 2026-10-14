@@ -233,6 +233,13 @@
   margin: 0 auto;
 }
 
+/* On a phone a figure keeps a size where its labels can be read, and scrolls sideways inside its frame. */
+@media (max-width: 40rem) {
+  .foma-figure__frame img {
+    min-width: 35rem;
+  }
+}
+
 .foma-figure figcaption {
   margin-top: 0.4rem;
   color: var(--color-muted);

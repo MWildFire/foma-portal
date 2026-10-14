@@ -9,8 +9,9 @@ const ASSET_URLS = import.meta.glob<string>('/content/**/assets/*.svg', { query:
 // The glob is not eager, so none of the MDX is loaded by this line.
 const MDX_PATHS = Object.keys(import.meta.glob('/content/**/topics/*.{en,ru}.mdx'));
 
-// <Figure src="./assets/demand.svg" caption="Demand curve"/>. The src is relative to the MDX file.
-export function Figure({ src, caption }: { src?: string; caption?: string }) {
+// <Figure src="./assets/demand.svg" caption="Demand curve"/>. The src is relative to the MDX file. The alt text for a
+// screen reader is the caption, unless the figure has its own alt (for a diagram without a caption).
+export function Figure({ src, caption, alt }: { src?: string; caption?: string; alt?: string }) {
   const ctx = useTopicContext();
   const { t } = useBodyT();
   const url = ctx && src
@@ -20,7 +21,7 @@ export function Figure({ src, caption }: { src?: string; caption?: string }) {
   return (
     <figure className="foma-figure">
       <div className="foma-figure__frame">
-        <img src={url} alt={caption ?? ''} loading="lazy" />
+        <img src={url} alt={alt ?? caption ?? ''} loading="lazy" />
       </div>
       {caption ? <figcaption>{caption}</figcaption> : null}
     </figure>
