@@ -109,6 +109,18 @@ export default function BidRentSim({ lang }: { lang: Lang }) {
 
   return (
     <section style={{ maxWidth: 420 }}>
+      <p style={{ margin: '0 0 8px', fontWeight: 600 }}>
+        {text(
+          'This is a teaching model with illustrative parameters, not data for any real city.',
+          'Это учебная модель с условными параметрами, а не данные о каком-либо реальном городе.',
+        )}
+      </p>
+      <p style={{ margin: '0 0 12px', fontSize: 13, lineHeight: 1.5 }}>
+        {text(
+          'The starting rents at the CBD and the slopes are invented to show the mechanism.',
+          'Базовая рента в центре и наклоны кривых заданы условно, чтобы показать механизм.',
+        )}
+      </p>
       <svg
         viewBox="0 0 340 236"
         width="100%"
