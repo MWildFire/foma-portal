@@ -47,6 +47,13 @@ const topic: TopicMeta = {
     { kind: 'web', title: 'Our World in Data, annual CO2 emissions by country, based on Global Carbon Project data (Section A question 2)', url: 'https://ourworldindata.org/grapher/annual-co2-emissions-per-country' },
   ],
   links: [
+    { title: 'ThinkIB eBook: Chapter 6a - Disparities in Exposure to Climate Change', url: 'https://student.thinkib.net/geography/page/36620/chapter-6a-disparities-in-exposure-to-climate-change' },
+    { title: 'ThinkIB eBook: Chapter 6b - Contrasting Vulnerability - Detailed Examples', url: 'https://student.thinkib.net/geography/page/36621/chapter-6b-contrasting-vulnerability-detailed-examples' },
+    { title: 'ThinkIB eBook: Chapter 6c - Global Geopolitical Efforts', url: 'https://student.thinkib.net/geography/page/36622/chapter-6c-global-geopolitical-efforts' },
+    { title: 'ThinkIB eBook: Chapter 6d - Carbon Emission Offsetting and Trading', url: 'https://student.thinkib.net/geography/page/36623/chapter-6d-carbon-emission-offsetting-and-trading' },
+    { title: 'ThinkIB eBook: Chapter 6e - Technology and Geo-Engineering', url: 'https://student.thinkib.net/geography/page/36624/chapter-6e-technology-and-geo-engineering' },
+    { title: 'ThinkIB eBook: Chapter 6f - Civil Society and Corporate Strategies', url: 'https://student.thinkib.net/geography/page/36625/chapter-6f-civil-society-and-corporate-strategies' },
+    { title: 'ThinkIB eBook: Chapter 6g - Responses of Non-Governmental Stakeholders in Bangladesh (revision page)', url: 'https://student.thinkib.net/geography/page/54663/revision-page-bangladesh-ngos-responses-to-climate-change-the-ac' },
     { title: 'ThinkIB task: Chapter 6b, Contrasting Vulnerability, Detailed Examples', url: 'https://student.thinkib.net/geography/task/1277895/chapter-6b-contrasting-vulnerability-detailed-examples' },
     { title: 'ThinkIB task: Chapter 6e, Technology and Geo-Engineering', url: 'https://student.thinkib.net/geography/task/1284864/chapter-6e-technology-and-geo-engineering' },
   ],

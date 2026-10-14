@@ -68,7 +68,11 @@ const topic: TopicMeta = {
     { kind: 'thinkib', title: 'Option A: Water Scarcity and Water Quality (page 44021)', locator: 'Water Scarcity; Conflicts and Resolutions in the Mekong River Basin; Environmental Consequences of Agriculture' },
   ],
   links: [
-    { title: 'ThinkIB: Water Scarcity and Water Quality (44021)', url: 'https://student.thinkib.net/geography/' },
+    { title: 'ThinkIB eBook: 3. Water Scarcity and Water Quality (A.3)', url: 'https://student.thinkib.net/geography/page/44021/3-water-scarcity-and-water-quality' },
+    { title: 'ThinkIB eBook: Water Scarcity (A.3)', url: 'https://student.thinkib.net/geography/page/44019/water-scarcity' },
+    { title: 'ThinkIB eBook: Conflicts and Resolutions in the Mekong River Basin (A.3)', url: 'https://student.thinkib.net/geography/page/44313/conflicts-and-resolutions-in-the-mekong-river-basin' },
+    { title: 'ThinkIB eBook: Environmental Consequences of Agriculture (A.3)', url: 'https://student.thinkib.net/geography/page/44130/environmental-consequences-of-agriculture' },
+    { title: 'ThinkIB eBook: Groundwater and Lakes (A.3)', url: 'https://student.thinkib.net/geography/page/44307/groundwater-and-lakes' },
   ],
 };
 

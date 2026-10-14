@@ -63,7 +63,11 @@ const topic: TopicMeta = {
     { kind: 'thinkib', title: 'Option G: Urban Environments (pages 37521, 37639, 37641, 37654, 37666)', locator: 'Sustainable Urban Systems; Urban Growth; Resilient Cities; Ecocity Design and Environmental Strategies; Smart Cities' },
   ],
   links: [
-    { title: 'ThinkIB: Urban Environments (37521, 37639, 37641, 37654, 37666)', url: 'https://student.thinkib.net/geography/' },
+    { title: 'ThinkIB eBook: Sustainable Urban Systems (G.4)', url: 'https://student.thinkib.net/geography/page/37521/sustainable-urban-systems' },
+    { title: 'ThinkIB eBook: Urban Growth (G.4)', url: 'https://student.thinkib.net/geography/page/37639/urban-growth' },
+    { title: 'ThinkIB eBook: Resilient Cities (G.4)', url: 'https://student.thinkib.net/geography/page/37641/resilient-cities' },
+    { title: 'ThinkIB eBook: Ecocity Design and Environmental Strategies (G.4)', url: 'https://student.thinkib.net/geography/page/37654/ecocity-design-and-environmental-strategies' },
+    { title: 'ThinkIB eBook: Smart Cities (G.4)', url: 'https://student.thinkib.net/geography/page/37666/smart-cities' },
     { title: 'ThinkIB: Resilient Cities (23.01.2026)', url: 'https://student.thinkib.net/geography/task/1158376/resilient-cities' },
   ],
 };

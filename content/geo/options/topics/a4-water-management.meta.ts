@@ -71,7 +71,11 @@ const topic: TopicMeta = {
     { kind: 'thinkib', title: 'Option A: Water Management Futures (section not yet checked)', locator: 'Water Management Futures' },
   ],
   links: [
-    { title: 'ThinkIB: Water Management Futures', url: 'https://student.thinkib.net/geography/' },
+    { title: 'ThinkIB eBook: 4. Water Management Futures (A.4)', url: 'https://student.thinkib.net/geography/page/44418/4-water-management-futures' },
+    { title: 'ThinkIB eBook: Community Participation in Water Management (A.4)', url: 'https://student.thinkib.net/geography/page/44412/community-participation-in-water-management' },
+    { title: 'ThinkIB eBook: The Lancang - Mekong Dam Cascade (A.4)', url: 'https://student.thinkib.net/geography/page/45425/the-lancang-mekong-dam-cascade' },
+    { title: 'ThinkIB eBook: Integrated Drainage Basin Management - Mekong (A.4)', url: 'https://student.thinkib.net/geography/page/45427/integrated-drainage-basin-management-mekong' },
+    { title: 'ThinkIB eBook: Growing Pressures on Wetlands (A.4)', url: 'https://student.thinkib.net/geography/page/45437/growing-pressures-on-wetlands' },
   ],
 };
 

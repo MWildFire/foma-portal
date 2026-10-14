@@ -23,6 +23,9 @@ const topic: TopicMeta = {
     { kind: 'ib-guide', title: 'Geography guide (2017), Paper 2 structure, command terms and Section C markbands' },
     { kind: 'web', title: 'IB Documents mirror: Geography past papers, Paper 2, May 2019 to November 2025 (own tally of sessions, marks and subtopics)', url: 'https://ibdocs.re/past-papers-by-subject/geography' },
   ],
+  links: [
+    { title: 'ThinkIB eBook: Paper 2 - what is asked', url: 'https://student.thinkib.net/geography/page/24162/paper-2' },
+  ],
 };
 
 export default topic;

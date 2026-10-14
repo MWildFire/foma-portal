@@ -47,7 +47,7 @@ const topic: TopicMeta = {
   sims: [],
   sources: [{ kind: 'ib-guide', title: 'Geography guide (2017), Option A: Freshwater', locator: 'A-essay' }],
   links: [
-    { title: 'ThinkIB: Understanding Assessment, Paper 1 (24167)', url: 'https://student.thinkib.net/geography/' },
+    { title: 'ThinkIB eBook: Option A - Freshwater Environments (option page, Paper 1 essay)', url: 'https://student.thinkib.net/geography/page/43412/option-a-freshwater-environments' },
   ],
 };
 

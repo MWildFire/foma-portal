@@ -71,7 +71,13 @@ const topic: TopicMeta = {
     { kind: 'thinkib', title: 'Option A: Drainage Basin Hydrology and Geomorphology (page 43412)', locator: 'The Water Budget; River Processes; Upper, Middle and Lower Course Landforms' },
   ],
   links: [
-    { title: 'ThinkIB: Drainage Basin Hydrology and Geomorphology (43412)', url: 'https://student.thinkib.net/geography/' },
+    { title: 'ThinkIB eBook: 1. Drainage Basin Hydrology and Geomorphology (A.1)', url: 'https://student.thinkib.net/geography/page/43413/1-drainage-basin-hydrology-and-geomorphology' },
+    { title: 'ThinkIB eBook: The Water Budget (A.1)', url: 'https://student.thinkib.net/geography/page/43127/the-water-budget' },
+    { title: 'ThinkIB eBook: River Processes (A.1)', url: 'https://student.thinkib.net/geography/page/43212/river-processes' },
+    { title: 'ThinkIB eBook: Upper Course Landforms (A.1)', url: 'https://student.thinkib.net/geography/page/43271/upper-course-landforms' },
+    { title: 'ThinkIB eBook: Middle Course Landforms - Floodplains and Levees (A.1)', url: 'https://student.thinkib.net/geography/page/43316/middle-course-landforms-floodplains-and-levees' },
+    { title: 'ThinkIB eBook: Middle Course Landforms - Meanders and Ox-bow Lakes (A.1)', url: 'https://student.thinkib.net/geography/page/43403/middle-course-landforms-meanders-and-ox-bow-lakes' },
+    { title: 'ThinkIB eBook: Lower Course Landforms - Deltas (A.1)', url: 'https://student.thinkib.net/geography/page/43411/lower-course-landforms-deltas' },
   ],
 };
 

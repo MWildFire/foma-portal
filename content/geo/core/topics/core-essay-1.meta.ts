@@ -28,6 +28,9 @@ const topic: TopicMeta = {
     { kind: 'web', title: 'KDI: 2025 birth statistics (ministry data; TFR 0.80, first return to the 0.8 range since 2021)', url: 'https://eiec.kdi.re.kr/policy/materialView.do?num=285815' },
     { kind: 'web', title: 'Our World in Data: replacement-level fertility of 2.1 children per woman (UN WPP 2024 basis)', url: 'https://ourworldindata.org/data-insights/which-countries-have-fertility-rates-above-or-below-the-replacement-level' },
   ],
+  links: [
+    { title: 'ThinkIB eBook: Model Essays (Paper 2, Section C)', url: 'https://student.thinkib.net/geography/page/29163/model-essays' },
+  ],
 };
 
 export default topic;

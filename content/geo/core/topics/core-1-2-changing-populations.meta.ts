@@ -42,6 +42,13 @@ const topic: TopicMeta = {
     { kind: 'web', title: 'UN DESA Population Division, World Urbanization Prospects 2025, File F02 (Degree of Urbanization by region)', url: 'https://population.un.org/wup/downloads' },
     { kind: 'web', title: 'UN DESA Population Division, International Migrant Stock 2024', url: 'https://www.un.org/development/desa/pd/node/3315' },
   ],
+  links: [
+    { title: 'ThinkIB eBook: Chapter 2a - Population Change and Demographic Transition', url: 'https://student.thinkib.net/geography/page/36333/chapter-2a-population-change-and-demographic-transition' },
+    { title: 'ThinkIB eBook: Chapter 2b - China - Population Change', url: 'https://student.thinkib.net/geography/page/36334/chapter-2b-china-population-change' },
+    { title: 'ThinkIB eBook: Chapter 2c - Nigeria - Population Change', url: 'https://student.thinkib.net/geography/page/36335/chapter-2c-nigeria-population-change' },
+    { title: 'ThinkIB eBook: Chapter 2d - The Consequences of Megacity Growth', url: 'https://student.thinkib.net/geography/page/36337/chapter-2d-the-consequences-of-megacity-growth' },
+    { title: 'ThinkIB eBook: Chapter 2e - Forced Migration and Internal Displacement in Nigeria', url: 'https://student.thinkib.net/geography/page/36339/chapter-2e-forced-migration-and-internal-displacement-in-nigeria' },
+  ],
 };
 
 export default topic;

@@ -55,6 +55,13 @@ const topic: TopicMeta = {
     { kind: 'web', title: 'UMD GLAD, Commodity Crop Mapping and Monitoring in South America (Song et al., 2021)', url: 'https://glad.geog.umd.edu/node/673' },
     { kind: 'web', title: 'Al Jazeera, Indonesia nickel ore export ban from January 2020 (2 September 2019)', url: 'https://www.aljazeera.com/economy/2019/9/2/worlds-biggest-nickel-ore-maker-bans-exports-from-january-2020' },
   ],
+  links: [
+    { title: 'ThinkIB eBook: Chapter 7a - Poverty Reduction', url: 'https://student.thinkib.net/geography/page/36708/chapter-7a-poverty-reduction' },
+    { title: 'ThinkIB eBook: Chapter 7b - Trends in Resource Consumption', url: 'https://student.thinkib.net/geography/page/36727/chapter-7b-trends-in-resource-consumption' },
+    { title: 'ThinkIB eBook: Chapter 7c - Water Trends', url: 'https://student.thinkib.net/geography/page/36710/chapter-7c-water-trends' },
+    { title: 'ThinkIB eBook: Chapter 7d - Trends in Food', url: 'https://student.thinkib.net/geography/page/36912/revision-quiz-food-availability-and-consumption' },
+    { title: 'ThinkIB eBook: Chapter 7e - Trends in Energy', url: 'https://student.thinkib.net/geography/page/36913/trends-in-energy' },
+  ],
 };
 
 export default topic;

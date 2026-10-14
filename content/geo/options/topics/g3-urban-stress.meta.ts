@@ -64,7 +64,9 @@ const topic: TopicMeta = {
     { kind: 'thinkib', title: 'Option G: Urban Environments (pages 37520, 37586, 37591)', locator: 'Urban Environmental and Social Stress; Urban Micro-climates; Managing Urban Social Deprivation and Crime' },
   ],
   links: [
-    { title: 'ThinkIB: Urban Environments (37520, 37586, 37591)', url: 'https://student.thinkib.net/geography/' },
+    { title: 'ThinkIB eBook: Urban Environmental and Social Stress (G.3)', url: 'https://student.thinkib.net/geography/page/37520/urban-environmental-and-social-stress' },
+    { title: 'ThinkIB eBook: Urban Micro-climates (G.3)', url: 'https://student.thinkib.net/geography/page/37586/urban-micro-climates' },
+    { title: 'ThinkIB eBook: Managing Urban Social Deprivation and Crime (G.3)', url: 'https://student.thinkib.net/geography/page/37591/managing-urban-social-deprivation-and-crime' },
   ],
 };
 

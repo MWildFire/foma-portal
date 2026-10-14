@@ -58,7 +58,9 @@ const topic: TopicMeta = {
     { kind: 'thinkib', title: 'Option G: Urban Environments (pages 37517, 37523, 37524)', locator: 'The Variety of Urban Environments; The Characteristics of Urban Places; Economic Activity in Urban Places' },
   ],
   links: [
-    { title: 'ThinkIB: Urban Environments (37517, 37523, 37524)', url: 'https://student.thinkib.net/geography/' },
+    { title: 'ThinkIB eBook: The Variety of Urban Environments (G.1)', url: 'https://student.thinkib.net/geography/page/37517/the-variety-of-urban-environments' },
+    { title: 'ThinkIB eBook: The Characteristics of Urban Places (G.1)', url: 'https://student.thinkib.net/geography/page/37523/the-characteristics-of-urban-places' },
+    { title: 'ThinkIB eBook: Economic Activity in Urban Places (G.1)', url: 'https://student.thinkib.net/geography/page/37524/economic-activity-in-urban-places' },
   ],
 };
 

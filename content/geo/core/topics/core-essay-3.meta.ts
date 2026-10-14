@@ -26,6 +26,9 @@ const topic: TopicMeta = {
     { kind: 'web', title: 'FAO, SOFI 2025 news release (28 July 2025): 8.2% of the world population facing hunger in 2024 (8.5% in 2023); 2.6 billion unable to afford a healthy diet', url: 'https://www.fao.org/newsroom/detail/sofi-2025--fao-calls-for-urgent--coordinated-and-inclusive-action-to-end-global-hunger' },
     { kind: 'web', title: 'National Footprint and Biocapacity Accounts, 2026 edition (York University and Footprint Data Foundation; national and world public data, 2023 figures used)', url: 'https://footprint.info.yorku.ca/data/' },
   ],
+  links: [
+    { title: 'ThinkIB eBook: Model Essays (Paper 2, Section C)', url: 'https://student.thinkib.net/geography/page/29163/model-essays' },
+  ],
 };
 
 export default topic;

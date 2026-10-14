@@ -41,6 +41,7 @@ const topic: TopicMeta = {
     { kind: 'web', title: 'NSIDC Sea Ice Index, Version 4 (G02135)', url: 'https://nsidc.org/data/g02135' },
   ],
   links: [
+    { title: 'ThinkIB eBook: Unit 2 - Global Climate Vulnerability and Resilience (unit page)', url: 'https://student.thinkib.net/geography/page/36341/unit-2-global-climate-vulnerability-and-resilience' },
     { title: 'ThinkIB, Unit 2 overview (teacher task): Global Climate Vulnerability and Resilience', url: 'https://student.thinkib.net/geography/task/1255567/unit-2-global-climate-vulnerability-and-resilience' },
     { title: 'ThinkIB task: Chapter 4a, The Atmospheric System', url: 'https://student.thinkib.net/geography/task/1237926/chapter-4a-the-atmospheric-system' },
     { title: 'ThinkIB task: Chapter 4b, Changes in Solar Radiation and Volcanic Activity', url: 'https://student.thinkib.net/geography/task/1237927/chapter-4b-changes-in-solar-radiation-and-volcanic-activity' },

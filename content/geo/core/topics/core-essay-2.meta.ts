@@ -26,6 +26,9 @@ const topic: TopicMeta = {
     { kind: 'web', title: 'IPCC AR6 WG1, Summary for Policymakers (2021): A.1 human influence; A.1.3 human-caused warming 0.8–1.3 °C; C.1 natural drivers', url: 'https://www.ipcc.ch/report/ar6/wg1/chapter/summary-for-policymakers/' },
     { kind: 'web', title: 'NOAA GML: Mauna Loa annual mean CO2, co2_annmean_mlo.txt (316.91 ppm in 1960; 363.88 ppm in 1997; 427.35 ppm in 2025)', url: 'https://gml.noaa.gov/webdata/ccgg/trends/co2/co2_annmean_mlo.txt' },
   ],
+  links: [
+    { title: 'ThinkIB eBook: Model Essays (Paper 2, Section C)', url: 'https://student.thinkib.net/geography/page/29163/model-essays' },
+  ],
 };
 
 export default topic;

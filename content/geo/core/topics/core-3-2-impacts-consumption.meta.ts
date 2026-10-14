@@ -53,6 +53,11 @@ const topic: TopicMeta = {
     { kind: 'web', title: 'Bureau of Reclamation, 2007 Interim Guidelines', url: 'https://www.usbr.gov/ColoradoRiverBasin/interimguidelines/index.html' },
     { kind: 'web', title: 'UNEP, Ogoniland oil clean-up press release (1 August 2012)', url: 'https://www.unep.org/news-and-stories/press-release/unep-welcomes-nigerian-governments-green-light-ogoniland-oil-clean' },
   ],
+  links: [
+    { title: 'ThinkIB eBook: Chapter 8a - The Water-Food-Energy Nexus', url: 'https://student.thinkib.net/geography/page/36914/nexus-energy-quiz' },
+    { title: 'ThinkIB eBook: Chapter 8b - Climate Change and Resource Security in India and South Africa', url: 'https://student.thinkib.net/geography/page/55213/detailed-examples-revision-south-africa-and-india' },
+    { title: 'ThinkIB eBook: Chapter 8c - Waste', url: 'https://student.thinkib.net/geography/page/36716/chapter-8c-waste' },
+  ],
 };
 
 export default topic;

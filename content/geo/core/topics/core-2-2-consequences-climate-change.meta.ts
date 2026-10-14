@@ -45,6 +45,7 @@ const topic: TopicMeta = {
     { kind: 'web', title: 'GCF, funding proposal FP015 (2015), Tuvalu Coastal Adaptation Project, page 10', url: 'https://www.greenclimate.fund/sites/default/files/document/funding-proposal-fp015-undp-tuvalu.pdf' },
   ],
   links: [
+    { title: 'ThinkIB eBook: Unit 2 - Global Climate Vulnerability and Resilience (unit page)', url: 'https://student.thinkib.net/geography/page/36341/unit-2-global-climate-vulnerability-and-resilience' },
     { title: 'ThinkIB task: Chapter 5a, Effects on Water Stored as Ice and Sea Levels', url: 'https://student.thinkib.net/geography/task/1255568/chapter-5a-effects-on-water-stored-as-ice-and-sea-levels' },
     { title: 'ThinkIB task: Chapter 5b, The Effects on Carbon Stores', url: 'https://student.thinkib.net/geography/task/1255569/chapter-5b-the-effects-on-carbon-stores' },
     { title: 'ThinkIB task: Chapter 5c, Effects on Extreme Weather Events', url: 'https://student.thinkib.net/geography/task/1255570/chapter-5c-effects-on-extreme-weather-events' },

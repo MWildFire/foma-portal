@@ -51,6 +51,13 @@ const topic: TopicMeta = {
     { kind: 'web', title: 'Nobel Prize, Elinor Ostrom facts (Sveriges Riksbank Prize 2009)', url: 'https://www.nobelprize.org/prizes/economic-sciences/2009/ostrom/facts/' },
     { kind: 'web', title: 'Wikipedia, Tragedy of the commons (Hardin, 1968)', url: 'https://en.wikipedia.org/wiki/Tragedy_of_the_commons' },
   ],
+  links: [
+    { title: 'ThinkIB eBook: Chapter 9a - Population and Resources: The Pessimistic View', url: 'https://student.thinkib.net/geography/page/36717/chapter-9a-population-and-resources-the-pessimistic-view' },
+    { title: 'ThinkIB eBook: Chapter 9b - Population and Resources: The Optimistic View', url: 'https://student.thinkib.net/geography/page/36718/chapter-9b-population-and-resources-the-optimistic-view' },
+    { title: 'ThinkIB eBook: Chapter 9c - Population and Resources: Balanced Views', url: 'https://student.thinkib.net/geography/page/36719/chapter-9c-population-and-resources-balanced-views' },
+    { title: 'ThinkIB eBook: Chapter 9d - The Circular Economy', url: 'https://student.thinkib.net/geography/page/36785/chapter-9d-the-circular-economy' },
+    { title: 'ThinkIB eBook: Chapter 9e - The Role of the UN and the SDGs', url: 'https://student.thinkib.net/geography/page/36721/chapter-9e-the-role-of-the-un-and-the-sdgs' },
+  ],
 };
 
 export default topic;

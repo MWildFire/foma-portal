@@ -44,6 +44,13 @@ const topic: TopicMeta = {
     { kind: 'web', title: 'World Bank, GNI per capita, Atlas method (NY.GNP.PCAP.CD)', url: 'https://data.worldbank.org/indicator/NY.GNP.PCAP.CD' },
     { kind: 'web', title: 'World Bank, WDI EN.POP.DNST (population density per km² of land), Bangladesh and Mongolia, 2024', url: 'https://data.worldbank.org/indicator/EN.POP.DNST' },
   ],
+  links: [
+    { title: 'ThinkIB eBook: Chapter 1a - Population Distribution at the Global scale', url: 'https://student.thinkib.net/geography/page/36327/chapter-1a-population-distribution-at-the-global-scale' },
+    { title: 'ThinkIB eBook: Chapter 1b - Global Patterns of Economic Development', url: 'https://student.thinkib.net/geography/page/36328/chapter-1b-global-patterns-of-economic-development' },
+    { title: 'ThinkIB eBook: Chapter 1c - Population distribution and economic development at the national scale', url: 'https://student.thinkib.net/geography/page/36329/chapter-1c-population-distribution-and-economic-development-at-t' },
+    { title: 'ThinkIB eBook: Chapter 1d - China - Uneven Population Distribution', url: 'https://student.thinkib.net/geography/page/36330/chapter-1d-china-uneven-population-distribution' },
+    { title: 'ThinkIB eBook: Chapter 1e - Nigeria - Uneven Population Distribution', url: 'https://student.thinkib.net/geography/page/36332/chapter-1e-nigeria-uneven-population-distribution' },
+  ],
 };
 
 export default topic;

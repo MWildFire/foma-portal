@@ -45,6 +45,9 @@ const topic: TopicMeta = {
     { kind: 'web', title: 'Economic Research Forum, working paper on Iran’s family planning programme (started 1989)', url: 'https://erf.org.eg/publications/repression-and-revival-of-the-family-planning-program-and-its-impact-on-the-fertility-levels-and-demographic-transition-in-the-islamic-republic-of-iran/' },
     { kind: 'web', title: 'Wikipedia, One-child policy (1980 start; 1 January 2016 change)', url: 'https://en.wikipedia.org/wiki/One-child_policy' },
   ],
+  links: [
+    { title: 'ThinkIB eBook: Challenges and Opportunities', url: 'https://student.thinkib.net/geography/page/31784/challenges-and-opportunities' },
+  ],
 };
 
 export default topic;

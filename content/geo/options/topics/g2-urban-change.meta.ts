@@ -63,7 +63,9 @@ const topic: TopicMeta = {
     { kind: 'thinkib', title: 'Option G: Urban Environments (pages 37518, 37556, 37580)', locator: 'Changing Urban Systems; Urbanization; Urban System Growth and Lagos' },
   ],
   links: [
-    { title: 'ThinkIB: Urban Environments (37518, 37556, 37580)', url: 'https://student.thinkib.net/geography/' },
+    { title: 'ThinkIB eBook: Changing Urban Systems (G.2)', url: 'https://student.thinkib.net/geography/page/37518/changing-urban-systems' },
+    { title: 'ThinkIB eBook: Urbanization (G.2)', url: 'https://student.thinkib.net/geography/page/37556/urbanization' },
+    { title: 'ThinkIB eBook: Urban System Growth and Lagos (G.2)', url: 'https://student.thinkib.net/geography/page/37580/urban-system-growth-and-lagos' },
   ],
 };
 
