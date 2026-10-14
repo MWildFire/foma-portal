@@ -1,9 +1,9 @@
 import type { CaseStudy } from '../../../../src/contract/types';
 
-// Option A, A.3 cases. Checked in the S9 round (14.10.2026) against the pages named in src: Toledo dates, population and
-// the first 2013 advisory (CDC MMWR, PDF); the WHO 2022 microcystin value and its scope (chemical fact sheet, PDF);
-// Bangladesh survey figures and report number (NERC ORA abstract and record); Cape Town figures (SAnews, 24 January 2018);
-// Aral Sea figures (UNDP page). Open: the WHO 4th-edition page in the Toledo src entry was not opened; no figure depends on it.
+// Option A, A.3 cases. Checked in the S9 round (14.10.2026) against the pages named in src: Toledo dates (CDC MMWR for the
+// start, population and the first 2013 advisory; PBS NewsHour for the lifting on 4 August 2014); the WHO 2022 microcystin
+// fact sheet (PDF, p. 430: total MCs, value based on MC-LR data); Bangladesh survey figures and report number (NERC ORA
+// abstract and record, WC/00/019); Cape Town figures (SAnews, 24 January 2018); Aral Sea figures (UNDP page).
 export const cases: CaseStudy[] = [
   {
     id: 'a-cape-town-drought-2018',
@@ -64,8 +64,8 @@ export const cases: CaseStudy[] = [
     lat: 41.6528,
     lng: -83.5379,
     facts: {
-      en: 'In August 2014 microcystin, a toxin made by blue-green algae (cyanobacteria) in Lake Erie, contaminated the water supply of the City of Toledo. A do-not-drink advisory was in force from 2 to 4 August 2014 and was issued for all customers of the Collins Park water treatment plant, which had 440,552 residents in four counties in 2010 (CDC, 2016). Ohio’s first microcystin do-not-drink advisory had been issued in 2013, in Carroll Township (CDC, 2016). The WHO provisional guideline value for total microcystins (the sum of all variants, free and cell-bound) in drinking water is 1 µg/L. It is based on data for microcystin-LR only, the most studied variant (WHO, 2022).',
-      ru: 'В августе 2014 года микроцистин — токсин сине-зелёных водорослей (цианобактерий) в озере Эри — загрязнил водоснабжение города Толедо. Предупреждение «не пить воду» действовало со 2 по 4 августа 2014 года и было выпущено для всех потребителей водоочистной станции «Коллинз-Парк», в которой в 2010 году насчитывалось 440 552 жителя четырёх округов (CDC, 2016). Первое в штате Огайо предупреждение «не пить воду» из-за микроцистина было выпущено в 2013 году в Кэрролл-Тауншипе (Carroll Township) (CDC, 2016). Предварительное руководящее значение ВОЗ для суммы всех микроцистинов (всех вариантов, свободных в воде и связанных с клетками) в питьевой воде составляет 1 мкг/л. Оно основано только на данных о микроцистине-LR, наиболее изученном варианте (ВОЗ, 2022).',
+      en: 'In August 2014 microcystin, a toxin made by blue-green algae (cyanobacteria) in Lake Erie, contaminated the water supply of the City of Toledo. A do-not-drink advisory was in force from Saturday 2 August to the morning of Monday 4 August 2014. It was issued for all customers of the Collins Park water treatment plant, which had 440,552 residents in four counties in 2010 (CDC, 2016), and the mayor lifted it at a news conference on 4 August (PBS NewsHour, 2014). Ohio’s first microcystin do-not-drink advisory had been issued in 2013, in Carroll Township (CDC, 2016). The WHO provisional guideline value for total microcystins (the sum of all congeners, free and cell-bound) in drinking water is 1 µg/L. The value is provisional and rests on data for microcystin-LR alone, the most studied variant (WHO, 2022, chemical fact sheet “Microcystins”, p. 430).',
+      ru: 'В августе 2014 года микроцистин — токсин сине-зелёных водорослей (цианобактерий) в озере Эри — загрязнил водоснабжение города Толедо. Предупреждение «не пить воду» действовало с субботы 2 августа до утра понедельника 4 августа 2014 года и было выпущено для всех потребителей водоочистной станции «Коллинз-Парк», в которой в 2010 году насчитывалось 440 552 жителя четырёх округов (CDC, 2016). Мэр снял предупреждение на пресс-конференции 4 августа (PBS NewsHour, 2014). Первое в штате Огайо предупреждение «не пить воду» из-за микроцистина было выпущено в 2013 году в Кэрролл-Тауншипе (Carroll Township) (CDC, 2016). Предварительное руководящее значение ВОЗ для суммы всех вариантов микроцистинов (congeners; свободных в воде и связанных с клетками) в питьевой воде составляет 1 мкг/л. Оно предварительное и опирается на данные только по микроцистину-LR, наиболее изученному варианту (ВОЗ, 2022, факт-лист «Microcystins», с. 430).',
     },
     usedFor: ['a3-water-scarcity', 'a-essay-option'],
     src: [
@@ -76,12 +76,17 @@ export const cases: CaseStudy[] = [
       },
       {
         kind: 'web',
+        title: 'PBS NewsHour: Toledo mayor lifts city’s water ban (4 August 2014)',
+        url: 'https://www.pbs.org/newshour/nation/toledo-mayor-lifts-citywater-ban-lifted-nearly',
+      },
+      {
+        kind: 'web',
         title: 'WHO: Guidelines for drinking-water quality, fourth edition incorporating the first and second addenda (2022)',
         url: 'https://www.who.int/publications/i/item/9789240045064',
       },
       {
         kind: 'web',
-        title: 'WHO: Guidelines for drinking-water quality, fourth edition (2022), chemical fact sheet: Microcystins',
+        title: 'WHO: Guidelines for drinking-water quality, fourth edition incorporating the first and second addenda (2022), chemical fact sheet “Microcystins”, PDF p. 430',
         url: 'https://cdn.who.int/media/docs/default-source/wash-documents/water-safety-and-quality/chemical-fact-sheets-2022/microcystins-fact-sheet-2022.pdf?sfvrsn=e1b5c768_2&download=true',
       },
     ],
