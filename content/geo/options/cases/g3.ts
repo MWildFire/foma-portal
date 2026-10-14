@@ -13,12 +13,12 @@ export const cases: CaseStudy[] = [
     lat: 19.076,
     lng: 72.8777,
     facts: {
-      en: 'On 26 July 2005 the Indian Meteorological Department (IMD) station at Santacruz recorded 944 mm of rain in 24 hours, the wettest day on record for Mumbai, and 644 mm fell in the 12 hours between 8 am and 8 pm. Local train traffic stopped when the tracks flooded, and low-lying areas such as Dharavi were under water. The 2005 floods killed 1,094 people across Maharashtra (Wikipedia, citing a Maharashtra government status report, archived 2008).',
-      ru: '26 июля 2005 года метеостанция Santacruz Индийского метеорологического департамента (IMD) зафиксировала 944 мм осадков за 24 часа — самый дождливый день в истории Мумбаи; 644 мм выпали за 12 часов между 8 и 20 часами. Пригородное движение поездов остановилось из-за затопленных путей, а низинные районы, например Дхарави, оказались под водой. Наводнения 2005 года унесли жизни 1 094 человек по всему штату Махараштра (Википедия, со ссылкой на отчёт правительства штата Махараштра, архивная копия 2008 года).',
+      en: 'On 26 July 2005 the Santacruz rain gauge in Mumbai recorded 944.2 mm of rain in 24 hours. A 2017 AIKTC project report on Mumbai rainfall, using 20 years of daily data from Colaba and Santacruz, gives this day as the maximum in that record.',
+      ru: '26 июля 2005 года осадкомер Santacruz в Мумбаи зафиксировал 944,2 мм осадков за 24 часа. По отчёту проекта AIKTC (2017), который использует 20 лет ежедневных данных станций Colaba и Santacruz, этот день — максимум за весь ряд.',
     },
     usedFor: ['g3-urban-stress'],
     src: [
-      { kind: 'web', title: 'Maharashtra floods of 2005 (Wikipedia: IMD rainfall data; the death toll is cited from a Maharashtra government status report, archived 2008)', url: 'https://en.wikipedia.org/wiki/2005_Mumbai_flood' },
+      { kind: 'web', title: 'Design and management of urban storm water drainage system in coastal cities (AIKTC project report, April 2017; 20 years of daily rainfall at Colaba and Santacruz)', url: 'https://aiktc.ndl.gov.in/items/9b4755b8-91cd-4f85-830f-d6d91e6d246e' },
     ],
   },
   {
