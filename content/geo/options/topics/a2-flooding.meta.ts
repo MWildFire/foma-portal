@@ -36,8 +36,6 @@ const topic: TopicMeta = {
   termIds: [
     'a-flash-flood',
     'a-river-flood',
-    'a-coastal-flood',
-    'a-storm-surge',
     'a-saturated-soil',
     'a-impermeable-surface',
     'a-surface-runoff',

@@ -36,36 +36,6 @@ export const terms: Term[] = [
     },
   },
   {
-    id: 'a-coastal-flood',
-    term: { en: 'coastal flood', ru: 'прибрежное наводнение (coastal flood)' },
-    def: {
-      en: 'Flooding of low-lying land by the sea, caused by high tides, storm surges and large waves, often made worse by strong winds blowing onshore.',
-      ru: 'Затопление низменной суши морем из-за высоких приливов, штормовых нагонов и крупных волн, часто усиленное сильным ветром, который дует с моря на берег.',
-    },
-    syllabus: 'A.2',
-    papers: ['P1'],
-    src: SRC,
-    example: {
-      en: 'Large parts of the Netherlands lie below sea level, so coastal flood risk is a national concern (Delta Programme).',
-      ru: 'Большие части территории Нидерландов лежат ниже уровня моря, поэтому риск прибрежных наводнений — задача всей страны (Delta Programme).',
-    },
-  },
-  {
-    id: 'a-storm-surge',
-    term: { en: 'storm surge', ru: 'штормовой нагон (storm surge)' },
-    def: {
-      en: 'A temporary rise in sea level above the predicted tide, caused by low air pressure and strong winds that push water towards the coast during a storm.',
-      ru: 'Временный подъём уровня моря выше прогнозируемого прилива, вызванный низким атмосферным давлением и сильным ветром, который гонит воду к берегу во время шторма.',
-    },
-    syllabus: 'A.2',
-    papers: ['P1'],
-    src: SRC,
-    pitfall: {
-      en: 'A storm surge adds to the tide and the waves, so the water level can be much higher than the tide alone would produce.',
-      ru: 'Штормовой нагон добавляется к приливу и волнам, поэтому уровень воды может быть намного выше того, что дал бы один прилив.',
-    },
-  },
-  {
     id: 'a-saturated-soil',
     term: { en: 'saturated soil', ru: 'почва, насыщенная водой (saturated soil)' },
     def: {

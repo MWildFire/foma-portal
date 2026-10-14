@@ -160,17 +160,6 @@ export const terms: Term[] = [
     src: SRC,
   },
   {
-    id: 'g-global-city',
-    term: { en: 'global city', ru: 'глобальный город (global city)' },
-    def: {
-      en: 'A city that is a major centre of finance, business services, politics or culture, and that is strongly linked to other world cities through trade, investment and migration.',
-      ru: 'Город, который служит крупным центром финансов, деловых услуг, политики или культуры и тесно связан с другими мировыми городами через торговлю, инвестиции и миграцию.',
-    },
-    syllabus: 'G.2',
-    papers: ['P1'],
-    src: SRC,
-  },
-  {
     id: 'g-land-use-change',
     term: { en: 'land-use change', ru: 'изменение землепользования (land-use change)' },
     def: {

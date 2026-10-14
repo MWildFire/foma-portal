@@ -50,7 +50,6 @@ const topic: TopicMeta = {
     'g-bid-rent-curve',
     'g-deindustrialisation',
     'g-inner-city-decline',
-    'g-global-city',
     'g-land-use-change',
     'g-push-factor',
     'g-pull-factor',
