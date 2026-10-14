@@ -8,9 +8,9 @@ import type { Lang } from '../../contract/types';
 // Demand is met in a year when the water available covers the whole demand.
 // Fixed 10-year inflow pattern (no random numbers): multipliers of the mean annual inflow.
 // Years 4 and 8 are dry and use the dry-year slider. The eight normal years average exactly 1.00.
-// Sediment: UN University (2023), about 0.36% of initial capacity a year worldwide.
+// Sediment: UN University press release, 11 Jan 2023: global average annual storage loss of about 0.36% of initial capacity (UNU-INWEH study). The study says this may be an underestimate; earlier estimates mostly fall between 0.5% and 1% a year.
 // https://unu.edu/press-release/trapped-sediment-robbing-worlds-large-dams-vital-water-storage-capacity
-// Displacement: World Commission on Dams (2000), 40 to 80 million people displaced or resettled, as quoted by bpb.de.
+// Displacement: World Commission on Dams (2000) estimate of 40 to 80 million people displaced or resettled, as quoted by bpb.de (article section II: "zwischen 40 und 80 Millionen Menschen ... vertrieben oder umgesiedelt"). The WCD report itself was not checked: dams.org does not resolve, and the archived PDF is an image scan with no text layer.
 // https://www.bpb.de/apuz/25868/mehr-nutzen-aus-staudamm-grossprojekten?p=9
 
 const PATTERN: (number | 'dry')[] = [1.0, 1.1, 0.9, 'dry', 1.05, 0.95, 1.0, 'dry', 1.1, 0.9];
@@ -212,8 +212,8 @@ export default function OptADamsSim({ lang }: { lang: Lang }) {
       <p style={{ margin: '8px 0 0', fontSize: 13, lineHeight: 1.5 }}>
         <strong>{ru ? 'Компромиссы. ' : 'Trade-offs. '}</strong>
         {ru
-          ? 'Плотина запасает воду, может давать электричество и снижать пики паводков, но дорогая в строительстве и обслуживании и меняет реку. Переселение: Всемирная комиссия по плотинам (2000) оценила, что по всему миру от плотин были вытеснены или переселены от 40 до 80 млн человек. Заиление: средняя потеря ёмкости около 0,36% в год (Университет ООН, 2023), поэтому запас со временем сокращается, а до дельт и пляжей доходит меньше наносов. Экосистемы: плотины мешают миграции рыбы и меняют сезонный сток, от которого зависят пойменные местообитания. Управление спросом не требует новых объёмов, но пользователям приходится менять привычки, и это тоже имеет издержки.'
-          : 'A dam stores water, can generate power and can reduce flood peaks, but it is costly to build and maintain and it changes the river. Displacement: the World Commission on Dams (2000) estimated that 40 to 80 million people had been displaced or resettled by dams worldwide. Sediment: the average loss is about 0.36% of capacity a year (UN University, 2023), so storage shrinks over time and less sediment reaches deltas and beaches. Ecosystems: dams block fish migration and change the seasonal flows that floodplain habitats depend on. Demand management needs no new storage, but users must change their habits, which has its own costs.'}
+          ? 'Плотина запасает воду, может давать электричество и снижать пики паводков, но дорогая в строительстве и обслуживании и меняет реку. Переселение: Всемирная комиссия по плотинам (2000) оценила, что по всему миру от плотин были вытеснены или переселены от 40 до 80 млн человек. Заиление: по исследованию Университета ООН (2023), средняя годовая потеря запаса составляет около 0,36% первоначальной ёмкости. Исследование отмечает, что эта оценка может быть занижена, а более ранние оценки в основном лежат в диапазоне от 0,5% до 1% в год. Запас со временем сокращается, и до дельт и пляжей доходит меньше наносов. Экосистемы: плотины мешают миграции рыбы и меняют сезонный сток, от которого зависят пойменные местообитания. Управление спросом не требует новых объёмов, но пользователям приходится менять привычки, и это тоже имеет издержки.'
+          : 'A dam stores water, can generate power and can reduce flood peaks, but it is costly to build and maintain and it changes the river. Displacement: the World Commission on Dams (2000) estimated that 40 to 80 million people had been displaced or resettled by dams worldwide. Sediment: the UN University study (2023) gives a global average annual storage loss of about 0.36% of initial capacity, and notes that this may be an underestimate (earlier estimates generally fall between 0.5% and 1% a year). Storage shrinks over time, and less sediment reaches deltas and beaches. Ecosystems: dams block fish migration and change the seasonal flows that floodplain habitats depend on. Demand management needs no new storage, but users must change their habits, which has its own costs.'}
       </p>
       <p style={{ margin: '8px 0 0', fontSize: 13, lineHeight: 1.5 }}>
         <strong>{ru ? 'Что заметить. ' : 'What to notice. '}</strong>
@@ -224,8 +224,8 @@ export default function OptADamsSim({ lang }: { lang: Lang }) {
       <p style={{ margin: '8px 0 0', fontSize: 13, lineHeight: 1.5 }}>
         <strong>{ru ? 'Источники. ' : 'Sources. '}</strong>
         {ru
-          ? 'Университет ООН (2023), пресс-релиз о заилении водохранилищ (средняя потеря около 0,36% первоначальной ёмкости в год; исследование UNU-INWEH в журнале Sustainability); Всемирная комиссия по плотинам (2000), Dams and Development, цитата по bpb.de (от 40 до 80 млн человек вытеснены или переселены).'
-          : 'UN University (2023), press release on reservoir sedimentation (average loss about 0.36% of initial capacity a year; UNU-INWEH study in Sustainability); World Commission on Dams (2000), Dams and Development, as quoted by bpb.de (40 to 80 million people displaced or resettled).'}
+          ? 'Университет ООН (2023), пресс-релиз от 11 января 2023 г. о заилении водохранилищ (средняя годовая потеря около 0,36% первоначальной ёмкости, возможно занижена; исследование UNU-INWEH в журнале Sustainability); Всемирная комиссия по плотинам (2000), Dams and Development, цитата по bpb.de (от 40 до 80 млн человек вытеснены или переселены).'
+          : 'UN University (2023), press release of 11 January 2023 on reservoir sedimentation (global average annual storage loss about 0.36% of initial capacity, possibly an underestimate; UNU-INWEH study in Sustainability); World Commission on Dams (2000), Dams and Development, as quoted by bpb.de (40 to 80 million people displaced or resettled).'}
       </p>
     </div>
   );

@@ -7,7 +7,7 @@ import type { Lang } from '../../contract/types';
 // Thresholds: UN-Water (2017), Policy Brief: Water Quality, p. 5, after Falkenmark and Lindh (1976). A rule of thumb.
 // https://www.unwater.org/sites/default/files/app/uploads/2017/05/waterquality_policybrief.pdf
 // Physical and economic tests: FAO (2007), World Water Day brochure, map "Areas of Physical and Economic Water Scarcity".
-// Farming share of withdrawals: FAO SDG Data Portal, indicator 6.4.2, 2023 data (farming 72%, industry 15%, services 13%).
+// Farming share of withdrawals: FAO SDG Data Portal, indicator 6.4.2 page, 2023 data. The page says agriculture took 72 percent of total withdrawals in 2023, industry 15 percent and services 13 percent; the third share is labelled 'services'.
 // https://www.fao.org/sustainable-development-goals-data-portal/data/indicators/642-water-stress/en
 
 const THRESHOLDS = { stress: 1700, scarcity: 1000, absolute: 500 }; // m³ per person per year
