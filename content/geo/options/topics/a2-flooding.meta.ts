@@ -13,8 +13,8 @@ const topic: TopicMeta = {
   inMockScope: 'yes',
   outcomes: [
     {
-      en: 'I can describe flash, river and coastal floods and their natural and human causes, with examples',
-      ru: 'Умею описывать внезапные, речные и прибрежные наводнения и их природные и антропогенные причины, приводя примеры',
+      en: 'I can describe flash and river floods and their natural and human causes, with examples',
+      ru: 'Умею описывать внезапные и речные наводнения и их природные и антропогенные причины, приводя примеры',
     },
     {
       en: 'I can read a storm hydrograph and explain how urbanisation changes the lag time and the peak discharge',
