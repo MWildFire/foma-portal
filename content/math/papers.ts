@@ -142,6 +142,18 @@ export const papers: PaperGuide[] = [
         questionIds: ['q-p3-06', 'q-p3-01'],
         minutes: 75,
       },
+      {
+        id: 'p3-set-2',
+        title: { en: 'Set of two tasks, 55 marks: power model and tests', ru: 'Набор из двух заданий, 55 баллов: степенная модель и тесты' },
+        questionIds: ['q-p3-07', 'q-p3-08'],
+        minutes: 75,
+      },
+      {
+        id: 'p3-set-3',
+        title: { en: 'Set of two tasks, 55 marks: logistic model and canopy', ru: 'Набор из двух заданий, 55 баллов: логистическая модель и навес' },
+        questionIds: ['q-p3-09', 'q-p3-10'],
+        minutes: 75,
+      },
     ],
   },
 ];
