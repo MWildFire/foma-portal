@@ -1,8 +1,10 @@
 import type { CaseStudy } from '../../../../src/contract/types';
 
-// Option A, A.1 cases. Every figure below was checked on the page named in src (fetched 13.10.2026):
-// Rhine (BfG Undine, KNMI), Mekong (MRC archived page, Nature Sustainability 2025), Amazon (Nature Communications 2020),
-// UAE rainfall of 16 April 2024 (Scientific Reports 2026 with NCM station data; ECMWF 2024).
+// Option A, A.1 cases. Rechecked on 14.10.2026 against the named pages: Mekong (Nature Sustainability 2025, main text: 2,210 and
+// 13,260 km², reverse flow down 47% in a medium-flow year), Amazon (Nature Communications 2020: ~2000 mm, ~17%, seasonality
+// ~1.4 × 10^5 m³/s), UAE (Scientific Reports 2026: 254.8 mm at Khatm al-Shakla per NCM; 233.3 mm at Kalba; 144 mm at Dubai airport;
+// national mean ~100 mm a year).
+// Still open: Rhine (Undine, KNMI) and the MRC land area, checked on 13.10.2026 only and not rechecked here.
 export const cases: CaseStudy[] = [
   {
     id: 'a-rhine-basin',
@@ -26,7 +28,7 @@ export const cases: CaseStudy[] = [
       },
       {
         kind: 'web',
-        title: 'KNMI, Hoogwater Rijn en Maas 1995 (Lobith peak 12,060 m³/s; record 12,600 m³/s in 1926)',
+        title: 'KNMI, Hoogwater Rijn en Maas 1995 (in Dutch; Lobith peak 12,060 m³/s; record 12,600 m³/s in 1926)',
         url: 'https://www.knmi.nl/over-het-knmi/nieuws/hoogwater-rijn-en-maas-1995',
       },
     ],
@@ -53,7 +55,7 @@ export const cases: CaseStudy[] = [
       },
       {
         kind: 'web',
-        title: 'Nature Sustainability (2025): Sand-mining-driven reduction in Tonle Sap Lake’s critical flood pulse',
+        title: 'Nature Sustainability (2025): Sand-mining-driven reduction in Tonle Sap Lake’s critical flood pulse (2,210 and 13,260 km²: main text)',
         url: 'https://www.nature.com/articles/s41893-025-01677-8',
       },
     ],
@@ -87,11 +89,11 @@ export const cases: CaseStudy[] = [
     place: 'UAE: Khatm al-Shakla (Al Ain), Kalba, Al Marmoom and Dubai International Airport',
     scale: 'national',
     years: '2024',
-    lat: 25.2048,
-    lng: 55.2708,
+    lat: 23.4,
+    lng: 53.8,
     facts: {
-      en: 'On 16 April 2024 Khatm al-Shakla in Al Ain recorded 254.8 mm of rain in 24 hours, according to National Center of Meteorology (NCM) station data, and Kalba recorded 233.3 mm in the same storm. Dubai International Airport recorded about 144 mm in one day. The UAE’s national mean annual rainfall is about 100 mm, so the 24-hour total at Khatm al-Shakla was more than twice an average year. Wadis carry water only after rain, and this storm caused widespread flash flooding.',
-      ru: '16 апреля 2024 года на станции Хатм аль-Шакла (Khatm al-Shakla) в Эль-Айне выпало 254,8 мм осадков за 24 часа по данным Национального центра метеорологии (NCM). В Калбе за тот же ливень — 233,3 мм, а в международном аэропорту Дубая за один день — около 144 мм. Средние годовые осадки по стране — около 100 мм, поэтому суточный итог в Хатм аль-Шакле более чем вдвое превысил средний год. Вади несут воду только после дождя, а этот ливень вызвал массовые стремительные паводки (flash flooding).',
+      en: 'On 16 April 2024 Khatm al-Shakla in Al Ain recorded 254.8 mm of rain in 24 hours, according to National Center of Meteorology (NCM) station data, and Kalba recorded 233.3 mm in the same storm. Dubai International Airport recorded about 144 mm in one day. Across the UAE, rain averages about 100 mm a year, so the 24-hour total at Khatm al-Shakla was more than twice that annual average. The storm caused widespread flash flooding.',
+      ru: '16 апреля 2024 года на станции Хатм аль-Шакла (Khatm al-Shakla) в Эль-Айне выпало 254,8 мм осадков за 24 часа по данным Национального центра метеорологии (NCM). В Калбе за тот же ливень — 233,3 мм, а в международном аэропорту Дубая за один день — около 144 мм. Средние годовые осадки по стране — около 100 мм, поэтому суточный итог в Хатм аль-Шакле более чем вдвое превысил среднегодовой показатель. Этот ливень вызвал массовые стремительные паводки (flash flooding).',
     },
     usedFor: ['a1-drainage-basins'],
     src: [

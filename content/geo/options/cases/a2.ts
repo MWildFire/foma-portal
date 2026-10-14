@@ -17,7 +17,7 @@ export const cases: CaseStudy[] = [
       en: 'Since 2006 the ‘Room for the River’ programme has carried out measures at 34 locations along the IJssel, Waal, Lower Rhine and Lek. The programme cost a total of €2.3 billion and was completed in early 2019 with the opening of the Reevediep flood channel. It has improved safety for around 4 million people. Without the flood defences (storm-surge barriers, dikes and dunes), regular flooding would cover about 60% of the Netherlands (Delta Programme).',
       ru: 'С 2006 года программа «Room for the River» проводит меры в 34 местах вдоль рек IJssel, Waal, Lower Rhine и Lek. Её общая стоимость составила 2,3 млрд евро, а завершилась она в начале 2019 года открытием разгрузочного канала Reevediep. Она повысила безопасность примерно для 4 млн человек. Без защитных сооружений (штормовых барьеров, дамб и дюн) регулярное затопление охватило бы около 60% территории Нидерландов (Delta Programme).',
     },
-    usedFor: ['a2-flooding'],
+    usedFor: ['a2-flooding', 'a-essay-option'],
     src: [
       {
         kind: 'web',
@@ -41,10 +41,10 @@ export const cases: CaseStudy[] = [
     lat: 50.6937,
     lng: -4.6983,
     facts: {
-      en: 'On 16 August 2004 up to 200 mm of rain fell in approximately five hours on the north Cornwall coast. The storm flooded the Valency and Crackington Stream catchments and caused serious flooding on the Rivers Ottery and Neet. The report, produced for the Environment Agency in 2005, used analyses by the UK Met Office (meteorology), the Centre for Ecology and Hydrology (hydrology) and HR Wallingford (hydraulics).',
-      ru: '16 августа 2004 года на побережье Северного Корнуолла выпало до 200 мм осадков примерно за пять часов. Шторм затопил водосборы ручьёв Valency и Crackington Stream и вызвал сильное наводнение на реках Ottery и Neet. Отчёт, подготовленный для Environment Agency в 2005 году, опирался на анализы Met Office (метеорология), Центра экологии и гидрологии (гидрология) и HR Wallingford (гидравлика).',
+      en: 'On 16 August 2004 as much as 200 mm of rain fell in roughly five hours near the north Cornwall coast. The storm flooded the Valency and Crackington Stream catchments, and the Rivers Ottery and Neet also suffered serious floods. The report, produced for the Environment Agency in 2005, used analyses by the UK Met Office (meteorology), the Centre for Ecology and Hydrology (hydrology) and HR Wallingford (hydraulics).',
+      ru: '16 августа 2004 года у побережья Северного Корнуолла выпало до 200 мм осадков примерно за пять часов. Шторм затопил водосборы ручьёв Valency и Crackington Stream, а на реках Ottery и Neet случились сильные наводнения. Отчёт, подготовленный для Environment Agency в 2005 году, опирался на анализы Met Office (метеорология), Центра экологии и гидрологии (гидрология) и HR Wallingford (гидравлика).',
     },
-    usedFor: ['a2-flooding'],
+    usedFor: ['a2-flooding', 'a-essay-option'],
     src: [
       {
         kind: 'web',
@@ -64,9 +64,9 @@ export const cases: CaseStudy[] = [
     lng: 69.3451,
     facts: {
       en: 'The 2022 floods affected 33 million people, and more than 1,730 people died. Damage was estimated at more than USD 14.9 billion and economic losses at about USD 15.2 billion, so the total was over USD 30 billion. Rebuilding in a more resilient way needs at least USD 16.3 billion, and the direct loss to GDP was projected at about 2.2% of FY22 GDP. The Post-Disaster Needs Assessment found that the poorest and most vulnerable districts were hit hardest.',
-      ru: 'Наводнения 2022 года затронули 33 млн человек, погибли более 1730 человек. Ущерб оценён более чем в 14,9 млрд долларов США, экономические потери — примерно в 15,2 млрд долларов, то есть в сумме больше 30 млрд долларов. Восстановление на более устойчивой основе требует не менее 16,3 млрд долларов, а прямые потери ВВП оценены примерно в 2,2% ВВП за 2022 финансовый год. Оценка потребностей после бедствия (PDNA) показала, что сильнее всего пострадали беднейшие и наиболее уязвимые районы.',
+      ru: 'Наводнения 2022 года затронули 33 млн человек, погибли более 1 730 человек. Ущерб оценён более чем в 14,9 млрд долларов США, экономические потери — примерно в 15,2 млрд долларов, то есть в сумме больше 30 млрд долларов. Восстановление на более устойчивой основе требует не менее 16,3 млрд долларов, а прямые потери ВВП оценены примерно в 2,2% ВВП за 2022 финансовый год. Оценка потребностей после бедствия (PDNA) показала, что сильнее всего пострадали беднейшие и наиболее уязвимые районы.',
     },
-    usedFor: ['a2-flooding'],
+    usedFor: ['a2-flooding', 'a-essay-option'],
     src: [
       {
         kind: 'web',

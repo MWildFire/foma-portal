@@ -1,7 +1,9 @@
 import type { CaseStudy } from '../../../../src/contract/types';
 
-// Option A, A.3 cases. Every figure below was checked against the page named in src (WebFetch, downloaded PDFs
-// and the WHO 4th edition text, 13.10.2026). Figures without a checked source were left out.
+// Option A, A.3 cases. Checked in the S9 round (14.10.2026) against the pages named in src: Toledo dates, population and
+// the first 2013 advisory (CDC MMWR, PDF); the WHO 2022 microcystin value and its scope (chemical fact sheet, PDF);
+// Bangladesh survey figures and report number (NERC ORA abstract and record); Cape Town figures (SAnews, 24 January 2018);
+// Aral Sea figures (UNDP page). Open: the WHO 4th-edition page in the Toledo src entry was not opened; no figure depends on it.
 export const cases: CaseStudy[] = [
   {
     id: 'a-cape-town-drought-2018',
@@ -42,7 +44,7 @@ export const cases: CaseStudy[] = [
     src: [
       {
         kind: 'web',
-        title: 'NERC Open Research Archive: BGS and DPHE, Arsenic contamination of groundwater in Bangladesh, report WC/00/19 (2001), abstract',
+        title: 'NERC Open Research Archive: BGS and DPHE, Arsenic contamination of groundwater in Bangladesh, report WC/00/019 (2001), abstract',
         url: 'https://nora.nerc.ac.uk/id/eprint/11986/',
       },
       {
@@ -62,14 +64,14 @@ export const cases: CaseStudy[] = [
     lat: 41.6528,
     lng: -83.5379,
     facts: {
-      en: 'In August 2014 microcystin, a toxin made by blue-green algae (cyanobacteria) in Lake Erie, contaminated the water supply of the City of Toledo. A do-not-drink advisory was in force from 2 to 4 August 2014 and was issued for all customers of the Collins Park water treatment plant, which had 440,552 residents in four counties in 2010 (CDC, 2016). Ohio’s first microcystin do-not-drink advisory had been issued in 2013, in Carroll Township (CDC, 2016). The WHO provisional guideline value for total microcystins (the sum of all variants, free and cell-bound) in drinking water is 1 µg/L; it is based on microcystin-LR, the most studied variant (WHO, 2022).',
-      ru: 'В августе 2014 года микроцистин — токсин сине-зелёных водорослей (цианобактерий) в озере Эри — загрязнил водоснабжение города Толедо. Предупреждение «не пить воду» действовало со 2 по 4 августа 2014 года и было выпущено для всех потребителей водоочистной станции «Коллинз-Парк», в которой в 2010 году насчитывалось 440 552 жителя четырёх округов (CDC, 2016). Первое в штате Огайо предупреждение «не пить воду» из-за микроцистина было выпущено в 2013 году в Кэрролл-Тауншипе (Carroll Township) (CDC, 2016). Предварительное руководящее значение ВОЗ для суммы всех микроцистинов (всех вариантов, свободных в воде и связанных с клетками) в питьевой воде составляет 1 мкг/л; оно основано на данных о микроцистине-LR, наиболее изученном варианте (ВОЗ, 2022).',
+      en: 'In August 2014 microcystin, a toxin made by blue-green algae (cyanobacteria) in Lake Erie, contaminated the water supply of the City of Toledo. A do-not-drink advisory was in force from 2 to 4 August 2014 and was issued for all customers of the Collins Park water treatment plant, which had 440,552 residents in four counties in 2010 (CDC, 2016). Ohio’s first microcystin do-not-drink advisory had been issued in 2013, in Carroll Township (CDC, 2016). The WHO provisional guideline value for total microcystins (the sum of all variants, free and cell-bound) in drinking water is 1 µg/L. It is based on data for microcystin-LR only, the most studied variant (WHO, 2022).',
+      ru: 'В августе 2014 года микроцистин — токсин сине-зелёных водорослей (цианобактерий) в озере Эри — загрязнил водоснабжение города Толедо. Предупреждение «не пить воду» действовало со 2 по 4 августа 2014 года и было выпущено для всех потребителей водоочистной станции «Коллинз-Парк», в которой в 2010 году насчитывалось 440 552 жителя четырёх округов (CDC, 2016). Первое в штате Огайо предупреждение «не пить воду» из-за микроцистина было выпущено в 2013 году в Кэрролл-Тауншипе (Carroll Township) (CDC, 2016). Предварительное руководящее значение ВОЗ для суммы всех микроцистинов (всех вариантов, свободных в воде и связанных с клетками) в питьевой воде составляет 1 мкг/л. Оно основано только на данных о микроцистине-LR, наиболее изученном варианте (ВОЗ, 2022).',
     },
-    usedFor: ['a3-water-scarcity'],
+    usedFor: ['a3-water-scarcity', 'a-essay-option'],
     src: [
       {
         kind: 'web',
-        title: 'CDC, MMWR 2016;65:925–929: Community Needs Assessment After Microcystin Toxin Contamination of a Municipal Water Supply, Lucas County, Ohio, September 2014',
+        title: 'CDC, MMWR 2016;65(35): Community Needs Assessment After Microcystin Toxin Contamination of a Municipal Water Supply, Lucas County, Ohio, September 2014',
         url: 'https://www.cdc.gov/mmwr/volumes/65/wr/mm6535a1.htm',
       },
       {
@@ -94,8 +96,8 @@ export const cases: CaseStudy[] = [
     lat: 45.0,
     lng: 59.0,
     facts: {
-      en: 'According to UNDP, the Aral Sea, once the world’s fourth-largest inland lake, has lost around 90% of its water volume and 75% of its surface area over the past half century. UNDP links the decline to the unsustainable use of the lake’s natural resources. The exposed seabed causes soil salinity, dust and salt storms, lower agricultural productivity and water insecurity across the region. Uzbekistan has made strengthening resilience in the Priaralie (the Aral Sea coastal zone) a national priority.',
-      ru: 'По данным ПРООН (UNDP), Аральское море, некогда четвёртое по величине бессточное озеро в мире, за последние полвека потеряло около 90% объёма воды и 75% площади. ПРООН связывает сокращение с неустойчивым использованием природных ресурсов озера. Обнажившееся дно вызывает засоление почв, пыльные и солевые бури, снижение продуктивности сельского хозяйства и нехватку воды в регионе. Узбекистан сделал укрепление устойчивости Приаралья (прибрежной зоны Аральского моря) национальным приоритетом.',
+      en: 'According to UNDP, the Aral Sea, once the world’s fourth-largest inland lake, has lost around 90% of its water volume and 75% of its surface area over the past half century. The exposed seabed causes soil salinity, dust and salt storms, lower agricultural productivity and water insecurity across the region. Uzbekistan has made strengthening resilience in the Priaralie (the Aral Sea coastal zone) a national priority.',
+      ru: 'По данным ПРООН (UNDP), Аральское море, некогда четвёртое по величине бессточное озеро в мире, за последние полвека потеряло около 90% объёма воды и 75% площади. Обнажившееся дно вызывает засоление почв, пыльные и солевые бури, снижение продуктивности сельского хозяйства и нехватку воды в регионе. Узбекистан сделал укрепление устойчивости Приаралья (прибрежной зоны Аральского моря) национальным приоритетом.',
     },
     usedFor: ['a3-water-scarcity'],
     src: [
