@@ -3,7 +3,7 @@ import type { Term } from '../../../../src/contract/types';
 // Option A, A.4: definitions in our own words, aligned with the key elements of the programme (guide 2017).
 // Locators point to the ThinkIB eBook section of this unit; the section is not fully exported yet (S1 map pending).
 // Three terms carry syllabus A.3 (internationally shared water, pressure on aquifers): the guide lists them under A.3.
-const SRC = { kind: 'thinkib' as const, title: 'Option A: Water Management Futures (section not yet checked)', locator: 'Water Management Futures; Community Participation in Water Management (rest of section not exported); guide p. 29' };
+const SRC = { kind: 'thinkib' as const, title: 'Option A: Water Management Futures (ThinkIB eBook, A.4)', locator: 'Water Management Futures; Community Participation in Water Management (rest of section not exported); guide p. 29' };
 const SIM = 'geo.opt-a-dams' as const;
 
 export const terms: Term[] = [
