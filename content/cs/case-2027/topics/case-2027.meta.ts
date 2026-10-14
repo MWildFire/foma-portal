@@ -33,8 +33,10 @@ const meta: TopicMeta = {
     },
   ],
   termIds: [
+    'p1-case-image-generation',
     'p1-case-text-to-image',
     'p1-case-conditional-generation',
+    'p1-case-segmentation-map',
     'p1-case-unconditional-generation',
     'p1-case-image-to-image',
     'p1-case-noise-injection',
@@ -84,7 +86,7 @@ const meta: TopicMeta = {
     {
       kind: 'school',
       title: 'Case study 2027 booklet: Generative AI for image creation — a diffuse vision (school file, for May and November 2027)',
-      locator: 'pp. 3–8',
+      locator: 'PDF pp. 3–8',
     },
     { kind: 'textbook', title: 'Oxford IB DP Computer Science Course Companion (2025)', locator: 'ch. A4.3, p. 300' },
     { kind: 'textbook', title: 'Oxford IB DP Computer Science Course Companion (2025)', locator: 'ch. A4.4, pp. 307–308' },

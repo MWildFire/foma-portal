@@ -96,8 +96,8 @@ export const terms: Term[] = [
       ru: 'Злоумышленник в открытой Wi-Fi-сети кафе читает пароль, который ученик вводит на незашифрованной странице входа.',
     },
     pitfall: {
-      en: 'HTTPS with a valid certificate is the main defence against a MitM attack; an open, unencrypted connection gives no such protection.',
-      ru: 'Основная защита от MitM — HTTPS с действительным сертификатом; в открытом незашифрованном соединении такой защиты нет.',
+      en: 'HTTPS with a valid certificate protects against a MitM attack; an open, unencrypted connection gives no such protection.',
+      ru: 'HTTPS с действительным сертификатом защищает от атаки MitM; в открытом незашифрованном соединении такой защиты нет.',
     },
   },
   {

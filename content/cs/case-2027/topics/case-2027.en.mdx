@@ -2,21 +2,21 @@
 
 Section B asks you to apply the whole course to one real system. The 2027 case is about generative AI for images. A design company compares models that create pictures from a text prompt, from a given input such as a label or a sketch, or from random noise. You read the scenario, choose the concepts that explain it and judge the trade-offs.
 
-The case is the school file **Case Study CS.pdf** (the 2027 booklet, 8 pages), in the teacher's shared folder in your school Google Drive. The portal does not copy its text. Below is a summary in our own words, with the booklet's page and line numbers, so you can find each part quickly. Read the booklet for the exam-style detail; use this topic to learn the concepts.
+The case is the school file **Case Study CS.pdf** (the 2027 booklet, 8 pages), in the teacher's shared folder in your school Google Drive. The portal does not copy its text. Below is a summary in our own words, with the booklet's PDF page and line numbers, so you can find each part quickly. The cover is PDF page 1; the printed number at the foot of each page is one higher. Read the booklet for the exam-style detail; use this topic to learn the concepts.
 
 ## Explanation
 
 **What section B is.** On higher level, section B is worth 24 of the 80 marks of Paper 1. You answer one question on the case study, in parts (a) to (d). The last part is the longest answer.
 
-**What the case covers.** The company wants images for advertising campaigns, concept art and digital media. It compares three families of models: diffusion models, GANs and hybrid models. Diffusion models and the ethics are for both levels. GANs and hybrid models are for higher level only.
+**What the case covers.** The company wants to produce pictures more efficiently for ads, concept art and digital media. It compares three families of models: diffusion models, GANs and hybrid models. Diffusion models and the ethics are for both levels. GANs and hybrid models are for higher level only.
 
 - **Ways to generate images.** *Text-to-image* generation turns a prompt into a picture; DALL·E and Stable Diffusion are the examples given. *Conditional* generation follows a given input, such as a class label (for example "landscape"), a sketch or a segmentation map; image-to-image translation, such as black-and-white to colour, is one conditional task. *Unconditional* generation uses no input and relies on patterns learned from the training data; it suits exploratory art and synthetic datasets.
-- **Diffusion models** (page 4, lines 35–46, and Figure 1). The model starts from random noise, which is called noise injection. A neural denoiser, typically a convolutional neural network (CNN), removes noise over several steps. Figure 1 shows eight denoising steps. The content depends on the training data: a model trained on animal photographs produces animals, and one trained on city photographs produces urban scenes. Results can be photorealistic, but the many steps need a lot of computing, so optimisation matters. Modern models follow the denoising diffusion probabilistic model (DDPM), which describes adding noise during training and removing it during generation.
-- **GANs** (higher level only; page 5, lines 48–59, and Figure 2). A generator turns a D-dimensional noise vector into an image. A discriminator compares the image with real images. The two networks are trained against each other: each improves in response to the other, which is the adversarial dynamic. This gives sharp images, but training is sensitive to instability and to mode collapse, where the generator produces only a few variations.
-- **Hybrid models** (higher level only; page 5, lines 60–75). A hybrid combines model types to overcome the limits of one. Variational autoencoders (VAEs) learn a latent space, a compressed and organised representation in which similar images lie close together. Flow-based models learn an exact, reversible mapping between noise and images, so each image can be traced.
-- **How the studio judges a model** (page 6, lines 77–95). It checks output quality, computational efficiency, training stability, flexibility and scalability, and consistency: the same character across images (embedding-based approaches can help) and adherence to the requested style.
-- **Ethics and law** (page 6, lines 97–105). Dataset curation means keeping copyrighted material and intellectual property rules in mind. The studio must assess datasets for bias and be open with clients and audiences about the use of AI.
-- **Challenges** (page 7, lines 108–116). All students must manage the cost of the denoising process and the ethics of large datasets, including bias mitigation. Higher level students must also balance the generator and the discriminator, and evaluate how a hybrid model can balance the strengths of VAEs, GANs, flow-based models and diffusion models.
+- **Diffusion models** (PDF page 4, lines 35–46, and Figure 1). The model starts from random noise, which is called noise injection. A denoising network, usually a CNN, removes the noise in several steps. Figure 1 shows eight denoising steps. The content depends on the training data: a model trained on animal photographs produces animals, and one trained on city photographs produces urban scenes. Results can be photorealistic, but the many steps need a lot of computing, so optimisation matters. Modern models are built on the DDPM (denoising diffusion probabilistic model), which describes adding noise during training and removing it during generation.
+- **GANs** (higher level only; PDF page 5, lines 48–59, and Figure 2). A generator maps a D-dimensional noise vector to an image. A discriminator compares the image with real images. The two networks are trained against each other: each improves in response to the other, which is the adversarial dynamic. This gives sharp images, but training is sensitive to instability and to mode collapse, in which outputs lose most of their variety.
+- **Hybrid models** (higher level only; PDF page 5, lines 60–75). A hybrid combines model types to overcome the limits of one. Variational autoencoders (VAEs) learn a latent space: a compact, organised map in which similar images lie close together. Flow-based models learn an exact, reversible mapping between noise and images, so each image can be traced.
+- **How the studio judges a model** (PDF page 6, lines 77–95). It checks output quality, computational efficiency, training stability, flexibility and scalability, and consistency: the same character across images (methods built on embeddings are one option) and adherence to the requested style.
+- **Ethics and law** (PDF page 6, lines 97–105). Dataset curation means keeping copyrighted material and intellectual property rules in mind. The studio must assess datasets for bias and be open with clients and audiences about the use of AI.
+- **Challenges** (PDF page 7, lines 108–116). All students must manage the cost of the denoising process and the ethics of large datasets, including bias mitigation. Higher level students must also balance the generator and the discriminator, and evaluate how a hybrid model can balance the strengths of diffusion models, GANs, VAEs and flow-based models.
 
 **Link concepts to the scenario.** Most application marks come from linking the case to a concept. The terms of this topic give each concept a definition, an example and a source. The most useful links are <Term id="p1-case-diffusion-model"/> for the generation process, <Term id="p1-case-conditional-generation"/> for control by inputs, <Term id="p1-case-dataset-curation"/> and <Term id="p1-case-bias-mitigation"/> for the ethics of data, and <Term id="p1-case-gan"/> and <Term id="p1-case-hybrid-model"/> for higher level.
 
@@ -62,7 +62,7 @@ Section B questions are short or long, and the command term sets the kind of ans
 
 - **Describe**: a detailed account of what something is and how it works, with an example if it helps.
 - **Outline**: a brief summary of the main points, without reasons.
-- **Identify**: choose the correct items from the possibilities, with a short reason for each.
+- **Identify**: choose the correct answer or answers from the possibilities; no reason is needed.
 - **Explain**: a detailed account that stresses the why, with reasons or causes.
 - **Distinguish**: clear differences between two concepts; listing facts about each is not enough.
 - **Compare**: similarities and differences between two or more items, referring to all of them.
@@ -82,11 +82,11 @@ Typical stems look like "Describe the features of ...", "Outline a consequence o
 <Callout kind="mistake">Writing general theory with no link to the scenario. Application marks need the names, data and users from the question.</Callout>
 
 - Saying that a diffusion model copies its training images. It creates new images, and the training data shapes what they look like.
-- Calling diffusion cheap because its images are good. Its many steps need significant computing, which is the main practical limit.
-- Describing GAN training as stable. The case says it is highly sensitive and prone to instability and to <Term id="p1-case-mode-collapse"/>.
+- Calling diffusion cheap because its images are good. Its many steps need significant computing, which is a key practical limit.
+- Describing GAN training as stable. The case warns that GAN training is delicate and can slide into instability or into <Term id="p1-case-mode-collapse"/>.
 - Mixing up the two networks of a GAN: the generator creates images, and the discriminator judges them.
 - Answering Discuss or To what extent with advantages only. These need both sides and a conclusion.
-- Studying VAEs and flow-based models in depth. Higher level students need a deep focus on diffusion models, GANs and hybrid models, and only a broad understanding of VAEs and flow-based models.
+- Studying VAEs and flow-based models in depth. Higher level students need deep knowledge of diffusion models, GANs and hybrid models, and only general knowledge of VAEs and flow-based models.
 
 ## Check yourself
 
