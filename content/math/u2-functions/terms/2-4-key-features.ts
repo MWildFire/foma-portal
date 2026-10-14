@@ -1,11 +1,5 @@
 import type { Term } from '../../../../src/contract/types';
-
-const source = {
-  kind: 'web' as const,
-  title: 'IB Mathematics AI, first assessment 2021: public summary, not checked against the official guide',
-  locator: 'sub-topic 2.4',
-  url: 'https://www.ibo.org/globalassets/new-structure/university-admission/pdfs/dp-mathematics-applications-and-interpretation-guide-en.pdf',
-};
+import { BOOK_TITLE } from '../../book';
 
 export const terms: Term[] = [
   {
@@ -17,7 +11,7 @@ export const terms: Term[] = [
     },
     syllabus: '2.4',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 4.2, p. 163' },
     pitfall: {
       en: 'The x-intercepts come from f(x) = 0. Solving x = 0 gives the y-intercept instead.',
       ru: 'Точки пересечения с осью x находят из уравнения f(x) = 0. Если решать x = 0, получится точка пересечения с осью y.',
@@ -32,7 +26,7 @@ export const terms: Term[] = [
     },
     syllabus: '2.4',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 6.4, p. 274' },
     pitfall: {
       en: 'A graph can cross a horizontal asymptote. An asymptote describes behaviour near a value or far away, not the whole graph.',
       ru: 'График может пересекать горизонтальную асимптоту. Асимптота описывает поведение вблизи некоторого значения или при очень больших по модулю x, а не весь график.',
@@ -47,7 +41,7 @@ export const terms: Term[] = [
     },
     syllabus: '2.4',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 6.1, p. 234' },
     pitfall: {
       en: 'A maximum is a value of y, so give both coordinates (x, y), not only the x-value.',
       ru: 'Максимум — это значение y, поэтому записывайте обе координаты (x, y), а не только x.',
@@ -62,6 +56,6 @@ export const terms: Term[] = [
     },
     syllabus: '2.4',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 4.1, p. 149' },
   },
 ];

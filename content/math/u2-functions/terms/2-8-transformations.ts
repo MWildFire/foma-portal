@@ -1,4 +1,5 @@
 import type { Term } from '../../../../src/contract/types';
+import { BOOK_TITLE } from '../../book';
 
 const source = {
   kind: 'web' as const,
@@ -17,7 +18,7 @@ export const terms: Term[] = [
     },
     syllabus: '2.8',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 6.2, p. 253' },
     pitfall: {
       en: 'The direction is easy to reverse: $y = f(x + 2)$ moves the graph 2 units to the left. Factorise the coefficient of $x$ out of the bracket before reading the shift.',
       ru: 'Направление легко перепутать: $y = f(x + 2)$ сдвигает график на 2 единицы влево. Прежде чем читать сдвиг, вынесите коэффициент при $x$ из скобки.',
@@ -33,7 +34,7 @@ export const terms: Term[] = [
     },
     syllabus: '2.8',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 6.2, p. 254' },
   },
   {
     id: 'function-graph-stretch',
@@ -44,7 +45,7 @@ export const terms: Term[] = [
     },
     syllabus: '2.8',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 6.2, p. 254' },
     pitfall: {
       en: 'The factor for $f(qx)$ is $\\frac{1}{q}$, not $q$: $f(2x)$ halves every $x$-coordinate, so the graph becomes half as wide.',
       ru: 'Коэффициент для $f(qx)$ равен $\\frac{1}{q}$, а не $q$: $f(2x)$ уменьшает каждую $x$-координату вдвое, и график становится вдвое уже.',

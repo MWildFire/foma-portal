@@ -1,11 +1,5 @@
 import type { Term } from '../../../../src/contract/types';
-
-const source = {
-  kind: 'web' as const,
-  title: 'IB Mathematics AI, first assessment 2021: public summary, not checked against the official guide',
-  locator: 'sub-topic 2.5',
-  url: 'https://www.ibo.org/globalassets/new-structure/university-admission/pdfs/dp-mathematics-applications-and-interpretation-guide-en.pdf',
-};
+import { BOOK_TITLE } from '../../book';
 
 export const terms: Term[] = [
   {
@@ -17,7 +11,7 @@ export const terms: Term[] = [
     },
     syllabus: '2.5',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 6.1, p. 234' },
     pitfall: {
       en: 'The axis of symmetry is the vertical line $x = h$, not $y = h$.',
       ru: 'Ось симметрии — вертикальная прямая $x = h$, а не $y = h$.',
@@ -32,7 +26,7 @@ export const terms: Term[] = [
     },
     syllabus: '2.5',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 7.3, p. 312' },
     pitfall: {
       en: 'The asymptote is $y = c$, not $y = k$. The $y$-intercept is $k + c$.',
       ru: 'Асимптота равна $y = c$, а не $y = k$. Точка пересечения с осью $y$ равна $k + c$.',
@@ -42,12 +36,12 @@ export const terms: Term[] = [
     id: 'standard-direct-inverse-variation',
     term: { en: 'direct and inverse variation', ru: 'прямая и обратная пропорциональность (direct and inverse variation)' },
     def: {
-      en: 'Direct variation $y = ax$ and inverse variation $y = a/x$ are power models $y = ax^{n}$ with $n = 1$ and $n = -1$. Doubling $x$ doubles $y$ under direct variation and halves $y$ under inverse variation.',
-      ru: 'Прямая пропорциональность $y = ax$ и обратная пропорциональность $y = a/x$ — степенные модели $y = ax^{n}$ при $n = 1$ и $n = -1$. При прямой пропорциональности удвоение $x$ удваивает $y$, а при обратной — уменьшает $y$ вдвое.',
+      en: 'A power law $y = ax^{n}$, with constants $a$ and $n$, is direct variation: $y$ is directly proportional to $x^{n}$, and $y = ax$ is the case $n = 1$. If $y$ varies inversely with $x$ for $x > 0$, then $y = \\dfrac{k}{x}$.',
+      ru: 'Степенная зависимость $y = ax^{n}$ с постоянными $a$ и $n$ — это прямая пропорциональность: $y$ прямо пропорционален $x^{n}$, а при $n = 1$ получаем $y = ax$. Если $y$ обратно пропорционален $x$ при $x > 0$, то $y = \\dfrac{k}{x}$.',
     },
     syllabus: '2.5',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 6.4, p. 271' },
   },
   {
     id: 'standard-sinusoidal-amplitude',
@@ -58,7 +52,7 @@ export const terms: Term[] = [
     },
     syllabus: '2.5',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 8.2, p. 347' },
     pitfall: {
       en: 'The period is $2\\pi/b$, not $b$. The amplitude is $|a|$, not the maximum value.',
       ru: 'Период равен $2\\pi/b$, а не $b$. Амплитуда равна $|a|$, а не наибольшему значению.',

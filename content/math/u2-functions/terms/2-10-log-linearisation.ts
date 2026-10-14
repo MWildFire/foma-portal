@@ -1,4 +1,5 @@
 import type { Term } from '../../../../src/contract/types';
+import { BOOK_TITLE } from '../../book';
 
 const source = {
   kind: 'web' as const,
@@ -17,7 +18,7 @@ export const terms: Term[] = [
     },
     syllabus: '2.10',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 7.4, p. 325' },
     pitfall: {
       en: 'The intercept is $\\log a$, not $a$. Recover $a$ by undoing the logarithm, for example $a=10^{c}$ for base 10.',
       ru: 'Отрезок равен $\\log a$, а не $a$. Чтобы найти $a$, отмените логарифм, например $a=10^{c}$ при основании 10.',
@@ -32,7 +33,7 @@ export const terms: Term[] = [
     },
     syllabus: '2.10',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 7.4, p. 325' },
     sim: 'math.logistic-loglog-lab',
   },
   {
@@ -44,7 +45,7 @@ export const terms: Term[] = [
     },
     syllabus: '2.10',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 7.4, p. 326' },
   },
   {
     id: 'order-of-magnitude',

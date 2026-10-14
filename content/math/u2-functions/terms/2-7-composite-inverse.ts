@@ -1,11 +1,5 @@
 import type { Term } from '../../../../src/contract/types';
-
-const source = {
-  kind: 'web' as const,
-  title: 'IB Mathematics AI, first assessment 2021: public summary, not checked against the official guide',
-  locator: 'sub-topic 2.7',
-  url: 'https://www.ibo.org/globalassets/new-structure/university-admission/pdfs/dp-mathematics-applications-and-interpretation-guide-en.pdf',
-};
+import { BOOK_TITLE } from '../../book';
 
 export const terms: Term[] = [
   {
@@ -17,7 +11,7 @@ export const terms: Term[] = [
     },
     syllabus: '2.7',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 4.3, p. 174' },
     pitfall: {
       en: 'Read a composite from right to left, because $g$ acts first. In general $(f \\circ g)(x) \\neq (g \\circ f)(x)$.',
       ru: 'Читайте композицию справа налево: сначала действует $g$. В общем случае $(f \\circ g)(x) \\neq (g \\circ f)(x)$.',
@@ -32,7 +26,7 @@ export const terms: Term[] = [
     },
     syllabus: '2.7',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 6.1, p. 242' },
     pitfall: {
       en: 'The superscript $-1$ denotes the inverse function, not a reciprocal: $f^{-1}(x) \\neq \\dfrac{1}{f(x)}$.',
       ru: 'Надстрочный индекс $-1$ обозначает обратную функцию, а не обратное число: $f^{-1}(x) \\neq \\dfrac{1}{f(x)}$.',
@@ -47,7 +41,7 @@ export const terms: Term[] = [
     },
     syllabus: '2.7',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 6.1, p. 243' },
     pitfall: {
       en: 'Choose the branch that the restricted domain allows: for $x^2$ on $x \\ge 0$ the inverse is $\\sqrt{x}$, not $-\\sqrt{x}$.',
       ru: 'Выбирайте ветвь, которую допускает ограничение: для $x^2$ при $x \\ge 0$ обратная функция равна $\\sqrt{x}$, а не $-\\sqrt{x}$.',

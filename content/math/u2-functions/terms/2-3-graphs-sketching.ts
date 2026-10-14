@@ -1,4 +1,5 @@
 import type { Term } from '../../../../src/contract/types';
+import { BOOK_TITLE } from '../../book';
 
 const source = {
   kind: 'web' as const,
@@ -17,7 +18,7 @@ export const terms: Term[] = [
     },
     syllabus: '2.3',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 4.1, p. 146' },
     pitfall: {
       en: 'Points of the form (f(x), x) are not on the graph of y = f(x). The first coordinate is always the input x.',
       ru: 'Точки вида (f(x), x) не лежат на графике y = f(x): первая координата всегда остаётся входом x.',
@@ -32,7 +33,7 @@ export const terms: Term[] = [
     },
     syllabus: '2.3',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 6.1, p. 235' },
     pitfall: {
       en: 'A sketch without labelled key points usually loses the marks for those features, even if the shape is right.',
       ru: 'Эскиз без подписанных ключевых точек обычно теряет баллы за эти точки, даже если форма верна.',
@@ -47,7 +48,7 @@ export const terms: Term[] = [
     },
     syllabus: '2.3',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 6.2, p. 253' },
     pitfall: {
       en: 'The sign inside the bracket works in reverse: $f(x - 2)$ shifts the graph 2 units right, not left.',
       ru: 'Знак внутри скобок работает наоборот: $f(x - 2)$ сдвигает график вправо на 2, а не влево.',

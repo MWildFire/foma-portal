@@ -1,11 +1,5 @@
 import type { Term } from '../../../../src/contract/types';
-
-const source = {
-  kind: 'web' as const,
-  title: 'IB Mathematics AI, first assessment 2021: public summary, not checked against the official guide',
-  locator: 'sub-topic 2.9',
-  url: 'https://www.ibo.org/globalassets/new-structure/university-admission/pdfs/dp-mathematics-applications-and-interpretation-guide-en.pdf',
-};
+import { BOOK_TITLE } from '../../book';
 
 export const terms: Term[] = [
   {
@@ -17,7 +11,7 @@ export const terms: Term[] = [
     },
     syllabus: '2.9',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 7.3, p. 315' },
     pitfall: {
       en: 'The half-life is $\\dfrac{\\ln 2}{k}$, not $k$. A larger $k$ gives a shorter half-life.',
       ru: 'Период полураспада равен $\\dfrac{\\ln 2}{k}$, а не $k$. Чем больше $k$, тем короче период полураспада.',
@@ -32,7 +26,7 @@ export const terms: Term[] = [
     },
     syllabus: '2.9',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 7.5, p. 329' },
     sim: 'math.logistic-loglog-lab',
   },
   {
@@ -44,7 +38,7 @@ export const terms: Term[] = [
     },
     syllabus: '2.9',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 7.5, p. 332' },
     pitfall: {
       en: 'The limit $L$ is not the starting value. The starting value is $\\dfrac{L}{1+C}$, which is below $L$.',
       ru: 'Предел $L$ — не начальное значение. Начальное значение равно $\\dfrac{L}{1+C}$ и меньше $L$.',
@@ -59,7 +53,7 @@ export const terms: Term[] = [
     },
     syllabus: '2.9',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 4.2, p. 165' },
     pitfall: {
       en: 'Write the interval conditions so that no value belongs to two pieces, for example $0 \\le t < 3$ and $t \\ge 3$.',
       ru: 'Записывайте условия промежутков так, чтобы ни одно значение не попадало в два куска, например $0 \\le t < 3$ и $t \\ge 3$.',
