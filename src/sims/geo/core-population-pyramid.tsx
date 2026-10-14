@@ -1,16 +1,6 @@
 import { useState } from 'react';
 import type { Lang } from '../../contract/types';
-
-// Illustrative age–sex shapes for the five stages of the demographic transition model. They are not data for any country.
-// Relative weights for nine 10-year bands, from 0–9 (bottom) to 80+ (top). Each sex carries half of the population.
-const BANDS = ['0–9', '10–19', '20–29', '30–39', '40–49', '50–59', '60–69', '70–79', '80+'];
-const WEIGHTS: number[][] = [
-  [13, 12, 11, 10, 9, 8, 6, 4, 2],
-  [17, 16, 13, 10, 7, 5, 3, 2, 1],
-  [10, 11, 12, 12, 11, 9, 7, 5, 3],
-  [7, 8, 10, 11, 11, 10, 9, 7, 5],
-  [5, 6, 7, 8, 9, 10, 11, 12, 10],
-];
+import { BANDS, CENTRE, GAP, MAX_BAR, barLength, bandForRow, femaleBarX, maleBarX, sharesOf } from './core-population-pyramid-logic';
 
 const STAGES: { en: string; ru: string; note: { en: string; ru: string } }[] = [
   {
@@ -55,22 +45,9 @@ const STAGES: { en: string; ru: string; note: { en: string; ru: string } }[] = [
   },
 ];
 
-// Each sex has half of the population, so a band's share of the total is weight / sum × 50 (per cent).
-function sharesOf(stage: number): number[] {
-  const weights = WEIGHTS[stage];
-  const sum = weights.reduce((total, weight) => total + weight, 0);
-  return weights.map(weight => (weight / sum) * 50);
-}
-
-// One scale for all five stages, so that the shapes can be compared directly.
-const MAX_SHARE = Math.max(...WEIGHTS.map((_, stage) => Math.max(...sharesOf(stage))));
-
 const WIDTH = 400;
 const ROW = 30;
 const TOP = 36;
-const CENTRE = 200;
-const GAP = 40;        // free space on both sides of the centre, for the age labels
-const MAX_BAR = 140;   // length in pixels of the largest band
 const BOTTOM = TOP + BANDS.length * ROW;
 const HEIGHT = BOTTOM + 40;
 const GRID = [2, 4, 6, 8, 10];
@@ -79,7 +56,7 @@ export default function PopulationPyramid({ lang }: { lang: Lang }) {
   const ru = lang === 'ru';
   const [stage, setStage] = useState(0);
   const shares = sharesOf(stage);
-  const length = (share: number): number => (share / MAX_SHARE) * MAX_BAR;
+  const length = barLength;
   const title = ru ? `Возрастно-половая пирамида, стадия ${stage + 1}` : `Age–sex pyramid, DTM stage ${stage + 1}`;
 
   return (
@@ -120,14 +97,15 @@ export default function PopulationPyramid({ lang }: { lang: Lang }) {
             <text x={CENTRE + GAP + length(percent)} y={BOTTOM + 14} textAnchor="middle" fontSize="10" fill="currentColor">{percent}%</text>
           </g>
         ))}
-        {BANDS.map((band, row) => {
-          const index = BANDS.length - 1 - row; // the top row is the oldest band
+        {BANDS.map((_, row) => {
+          const index = bandForRow(row); // the top row is the oldest band
+          const band = BANDS[index];
           const y = TOP + row * ROW;
           const width = length(shares[index]);
           return (
             <g key={band}>
-              <rect x={CENTRE - GAP - width} y={y + 3} width={width} height={ROW - 6} fill="#3f6b8c" />
-              <rect x={CENTRE + GAP} y={y + 3} width={width} height={ROW - 6} fill="#b4604a" />
+              <rect x={maleBarX(width)} y={y + 3} width={width} height={ROW - 6} fill="#3f6b8c" />
+              <rect x={femaleBarX()} y={y + 3} width={width} height={ROW - 6} fill="#b4604a" />
               <text x={CENTRE} y={y + ROW / 2 + 4} textAnchor="middle" fontSize="11" fill="currentColor">{band}</text>
             </g>
           );
