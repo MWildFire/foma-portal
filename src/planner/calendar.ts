@@ -155,7 +155,9 @@ export function extendedMinutes(exams: ExamsFile, minutes: number): number {
   const fromTable = exams.accessMinutes[String(minutes)];
   if (typeof fromTable === 'number') return fromTable;
   const factor = exams.access?.extraTime ?? DEFAULT_EXTRA_TIME_FACTOR;
-  return Math.ceil(minutes * (1 + factor));
+  // Whole percent and integer arithmetic: 1 + 0.1 is not exact in binary, so 50 × 1.1 comes out as 55.00…01 and would round up to 56.
+  const percent = Math.round(factor * 100);
+  return Math.ceil((minutes * (100 + percent)) / 100);
 }
 
 // The papers the schedule marks as "no extra time" (access.noExtraTime, by exam id), e.g. the French listening.
