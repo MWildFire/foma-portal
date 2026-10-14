@@ -68,8 +68,8 @@ export const cases: CaseStudy[] = [
     place: 'Pakistan, especially Sindh province',
     scale: 'national',
     years: '2022–2023',
-    lat: 30,
-    lng: 70,
+    lat: 26,
+    lng: 68.5,
     facts: {
       en: 'World Bank press release, 28 October 2022, on Pakistan’s Post-Disaster Needs Assessment, led by the Ministry of Planning, Development and Special Initiatives: the 2022 floods affected 33 million people and killed more than 1,730. Damage and economic losses in 2022 were over USD 30 billion, close to 70% of them in Sindh province, and reconstruction needs in 2022 were at least USD 16.3 billion. Our World in Data (annual CO2 emissions, Global Carbon Project data): in 2023 Pakistan emitted 186.9 million tonnes of CO2, about 0.49% of the world total of 38,094 million tonnes. UNFCCC news release, 20 November 2022: COP27 closed with an agreement to provide “loss and damage” funding for vulnerable countries.',
       ru: 'Пресс-релиз Всемирного банка от 28 октября 2022 года об оценке потребностей после бедствия (Post-Disaster Needs Assessment), которую вело министерство планирования, развития и специальных инициатив Пакистана: наводнения 2022 года затронули 33 млн человек и унесли более 1 730 жизней. Ущерб и экономические потери в 2022 году превысили 30 млрд USD, около 70% из них пришлось на провинцию Синд; потребности в восстановлении в 2022 году составили не менее 16,3 млрд USD. Our World in Data (годовые выбросы CO2, данные Global Carbon Project): в 2023 году Пакистан выбросил 186,9 млн тонн CO2, примерно 0,49% мирового итога в 38 094 млн тонн. Пресс-релиз UNFCCC от 20 ноября 2022 года: COP27 завершился соглашением о финансировании «потерь и ущерба» для уязвимых стран.',
