@@ -3,17 +3,19 @@ import type { Lang } from '../../contract/types';
 
 // Illustrative teaching model of one storm on a small basin, not data and not a flood forecast.
 // (1) NRCS curve-number method: runoff depth Q (mm) from the storm rainfall P (mm).
-// (2) TR-55 lag equation: lag time (h) from the flow-path length, the retention S and the slope.
-// (3) Triangular hydrograph: time to peak and an indicative peak discharge (m³/s).
+// (2) NEH 630 ch. 15 lag equation (eq. 15-4a): lag time (h) from the flow-path length, the retention S and the slope.
+// (3) Triangular unit hydrograph (NEH 630 ch. 16, eqs 16A-5 to 16A-8): time to peak and an indicative peak discharge (m³/s).
 // The rural comparison is the same basin, storm and soil with 0% urban (impermeable) surface.
 type Moisture = 'low' | 'medium' | 'high';
 
 interface Outcome { cn: number; runoff: number; lag: number; tp: number; peak: number; tb: number }
 
-const CN_URBAN = 98;   // impervious surfaces: roofs, roads and paved yards
-const CN_RURAL = 70;   // pervious land at average moisture: a typical mixed rural value (teaching assumption)
+const CN_URBAN = 98;   // impervious surfaces: roofs, roads and paved yards (TR-55 1986, Table 2-2a, note 2)
+const CN_RURAL = 70;   // pervious land at average moisture: a typical mixed rural value (teaching assumption, not a measurement)
 
 // Curve number of the pervious (rural) land for dry (AMC I), average (AMC II) and wet (AMC III) soil before the storm.
+// The dry and wet equations are not printed in TR-55 (1986), which gives the average condition only; they approximate NEH 630 ch. 10, Table 10-1.
+// For CN 70 the table gives 51 (dry) and 85 (wet); the equations give 49.5 and 84.3.
 const ruralCn = (moisture: Moisture): number => {
   if (moisture === 'low') return (4.2 * CN_RURAL) / (10 - 0.058 * CN_RURAL);
   if (moisture === 'high') return (23 * CN_RURAL) / (10 + 0.13 * CN_RURAL);
@@ -26,12 +28,18 @@ function respond(rain: number, hours: number, urban: number, area: number, slope
   const ia = 0.2 * s;                                               // initial abstraction, mm
   const runoff = rain > ia ? ((rain - ia) ** 2) / (rain + 0.8 * s) : 0;   // runoff depth Q, mm
   const sInches = 1000 / cn - 10;                                   // the same S in inches
+  // Flow path L = 1.4 × √A km is an ASSUMPTION of this model (no source); real flow paths are measured on maps.
   const lengthFt = 1.4 * Math.sqrt(area) * 3280.84;                 // flow path L = 1.4 × √A (km), in feet
   const slopePct = 100 * Math.tan((slopeDeg * Math.PI) / 180);      // slope Y, percent
+  // NEH 630 ch. 15, eq. 15-4a: lag = l^0.8 (S+1)^0.7 / (1900 Y^0.5), with l in feet, S in inches and Y in percent.
   const lag = (lengthFt ** 0.8 * (sInches + 1) ** 0.7) / (1900 * Math.sqrt(slopePct));  // lag time, h
+  // NEH 630 ch. 16, eq. 16A-7: Tp = ΔD/2 + L, here with the whole storm as ΔD (a simplification, see the notes below).
   const tp = hours / 2 + lag;                                       // time from the start of the storm to the peak, h
-  const peak = (0.208 * area * runoff) / tp;                        // indicative peak discharge, m³/s
-  return { cn, runoff, lag, tp, peak, tb: 2.67 * tp };              // triangle base time = 2.67 × Tp
+  // NEH 630 ch. 16, eqs 16A-5 to 16A-8: qp = 484 × A × Q ÷ Tp in US units. Metric: 0.2083 = 484 × 0.0283168 ÷ (2.58999 × 25.4),
+  // with A in km², Q in mm and Tp in hours.
+  const peak = (0.2083 * area * runoff) / tp;                        // indicative peak discharge, m³/s
+  // Triangle base Tb = 2.67 × Tp, from Tr = 1.67 Tp (NEH 630 ch. 16, App. 16A, p. 16A–1).
+  return { cn, runoff, lag, tp, peak, tb: 2.67 * tp };
 }
 
 // Plot area inside a 320 × 200 viewBox.
@@ -99,10 +107,16 @@ export default function OptAHydrographSim({ lang }: { lang: Lang }) {
   const outputRows = [
     { en: 'Curve number CN', ru: 'Номер кривой стока CN', a: fmt(basin.cn, 0), b: fmt(rural.cn, 0) },
     { en: 'Runoff depth from the storm (mm)', ru: 'Глубина стока от ливня (мм)', a: fmt(basin.runoff, 1), b: fmt(rural.runoff, 1) },
-    { en: 'Lag time, from peak rainfall (middle of the storm) to peak discharge (h)', ru: 'Запаздывание от пика осадков (середина ливня) до пика расхода (ч)', a: fmt(basin.lag, 2), b: fmt(rural.lag, 2) },
+    { en: 'Lag time, from storm centre (middle of the storm) to peak discharge (h)', ru: 'Запаздывание от центра ливня (середина ливня) до пика расхода (ч)', a: fmt(basin.lag, 2), b: fmt(rural.lag, 2) },
     { en: 'Time to peak from the start (h)', ru: 'Время до пика от начала ливня (ч)', a: fmt(basin.tp, 1), b: fmt(rural.tp, 1) },
     { en: 'Peak discharge, indicative (m³/s)', ru: 'Пиковый расход, ориентировочно (м³/с)', a: fmt(basin.peak, 1), b: fmt(rural.peak, 1) },
   ];
+
+  // Applicability limits of the lag equation (NEH 630 ch. 15, p. 15–6): CN from 50 to 95 (the CN used for the lag);
+  // basins up to 19 square miles, about 49 km² (the upper limit the chapter cites; its data went to 9.2 square miles).
+  const outOfLimits: string[] = [];
+  if ([basin.cn, rural.cn].some(cn => cn < 50 || cn > 95)) outOfLimits.push(ru ? 'CN ниже 50 или выше 95' : 'CN below 50 or above 95');
+  if (area > 19 * 2.59) outOfLimits.push(ru ? 'площадь больше 49 км² (19 кв. миль)' : 'area above 49 km² (19 square miles)');
 
   return (
     <div style={{ maxWidth: '100%', boxSizing: 'border-box' }}>
@@ -139,6 +153,14 @@ export default function OptAHydrographSim({ lang }: { lang: Lang }) {
           </select>
         </label>
       </div>
+
+      {outOfLimits.length > 0 ? (
+        <p role="status" style={{ margin: '0 0 8px', fontSize: 13, fontWeight: 600 }}>
+          {ru
+            ? `Вне границ уравнения лага (NEH 630, гл. 15): ${outOfLimits.join('; ')}. Запаздывание и пик здесь только ориентировочные.`
+            : `Outside the limits of the lag equation (NEH 630 ch. 15): ${outOfLimits.join('; ')}. The lag and the peak here are indicative only.`}
+        </p>
+      ) : null}
 
       <svg
         viewBox="0 0 320 200"
@@ -229,9 +251,40 @@ export default function OptAHydrographSim({ lang }: { lang: Lang }) {
 
       <p style={{ margin: '10px 0 0', fontSize: 13, lineHeight: 1.5 }}>
         {ru
-          ? 'Формулы. Номер кривой стока бассейна: CN = (1 − доля городской поверхности) × CN_сел + доля × 98, где CN_сел = 70 при средней влажности; при сухой и влажной почве CN_сел становится CN_I = 4,2·CN ÷ (10 − 0,058·CN) и CN_III = 23·CN ÷ (10 + 0,13·CN). Запас S = 25 400 ÷ CN − 254 мм; сток Q = (P − 0,2·S)² ÷ (P + 0,8·S), если P > 0,2·S. Запаздывание (TR-55): lag = L^0,8 × (S_дюйм + 1)^0,7 ÷ (1 900 × √Y) часов, где L — длина пути в футах (L = 1,4 √A км), S_дюйм = 1 000 ÷ CN − 10, Y = 100 × tg(уклон) в процентах. Время до пика Tp = D/2 + lag, где D — продолжительность ливня. Пиковый расход = 0,208 × A × Q ÷ Tp м³/с (A в км², Q в мм, Tp в часах); гидрограф — треугольник с основанием 2,67 × Tp. Запаздывание отсчитывается от середины ливня (D/2). Ограничения: один ливень с равномерными осадками, один бассейн без деления на части; CN_сел = 70 — типичное значение, а не измерение. Модель годится для сравнения случаев, но не для прогноза паводка.'
-          : 'Formulas. Curve number of the basin: CN = (1 − urban share) × CN_rural + urban share × 98, where CN_rural = 70 at average moisture; for dry and wet soil CN_rural becomes CN_I = 4.2·CN ÷ (10 − 0.058·CN) and CN_III = 23·CN ÷ (10 + 0.13·CN). Retention S = 25,400 ÷ CN − 254 mm; runoff Q = (P − 0.2·S)² ÷ (P + 0.8·S) when P > 0.2·S. Lag (TR-55): lag = L^0.8 × (S_in + 1)^0.7 ÷ (1,900 × √Y) hours, where L is the flow path in feet (L = 1.4 √A km), S_in = 1,000 ÷ CN − 10 in inches, and Y = 100 × tan(slope) in percent. Time to peak Tp = D/2 + lag, where D is the storm duration. Peak = 0.208 × A × Q ÷ Tp m³/s (A in km², Q in mm, Tp in hours); the hydrograph is a triangle with base 2.67 × Tp. The lag is counted from the middle of the storm (D/2). Limits: one storm with even rain, one lumped basin, and CN_rural = 70 is a typical value, not a measurement. Use the model to compare cases, not to forecast a flood.'}
+          ? 'Формулы. Номер кривой стока бассейна: CN = (1 − доля городской поверхности) × CN_сел + доля × 98 (TR-55, табл. 2-2a), где CN_сел = 70 при средней влажности; при сухой и влажной почве CN_сел становится CN_I = 4,2·CN ÷ (10 − 0,058·CN) и CN_III = 23·CN ÷ (10 + 0,13·CN). Запас S = 25 400 ÷ CN − 254 мм; сток Q = (P − 0,2·S)² ÷ (P + 0,8·S), если P > 0,2·S. Запаздывание (NEH 630, гл. 15, ур. 15-4a): lag = L^0,8 × (S_дюйм + 1)^0,7 ÷ (1 900 × √Y) часов, где L — длина пути в футах (L = 1,4 √A км, допущение), S_дюйм = 1 000 ÷ CN − 10, Y = 100 × tg(уклон) в процентах. Время до пика Tp = D/2 + lag, где D — продолжительность ливня (NEH 630, гл. 16, ур. 16A-7; упрощение, см. ниже). Пиковый расход = 0,2083 × A × Q ÷ Tp м³/с (A в км², Q в мм, Tp в часах; NEH 630, гл. 16, ур. 16A-5–8, в метрических единицах); гидрограф — треугольник с основанием 2,67 × Tp. Запаздывание отсчитывается от середины ливня (D/2). Ограничения: один ливень с равномерными осадками, один бассейн без деления на части; CN_сел = 70 — типичное значение, а не измерение. Модель годится для сравнения случаев, но не для прогноза паводка.'
+          : 'Formulas. Curve number of the basin: CN = (1 − urban share) × CN_rural + urban share × 98 (TR-55, Table 2-2a), where CN_rural = 70 at average moisture; for dry and wet soil CN_rural becomes CN_I = 4.2·CN ÷ (10 − 0.058·CN) and CN_III = 23·CN ÷ (10 + 0.13·CN). Retention S = 25,400 ÷ CN − 254 mm; runoff Q = (P − 0.2·S)² ÷ (P + 0.8·S) when P > 0.2·S. Lag (NEH 630 ch. 15, eq. 15-4a): lag = L^0.8 × (S_in + 1)^0.7 ÷ (1,900 × √Y) hours, where L is the flow path in feet (L = 1.4 √A km, an assumption), S_in = 1,000 ÷ CN − 10 in inches, and Y = 100 × tan(slope) in percent. Time to peak Tp = D/2 + lag, where D is the storm duration (NEH 630 ch. 16, eq. 16A-7; a simplification, see below). Peak = 0.2083 × A × Q ÷ Tp m³/s (A in km², Q in mm, Tp in hours; NEH 630 ch. 16, eqs 16A-5 to 16A-8, metric form); the hydrograph is a triangle with base 2.67 × Tp. The lag is counted from the middle of the storm (D/2). Limits: one storm with even rain, one lumped basin, and CN_rural = 70 is a typical value, not a measurement. Use the model to compare cases, not to forecast a flood.'}
       </p>
+
+      <div style={{ margin: '10px 0 0', fontSize: 13, lineHeight: 1.5 }}>
+        <strong>{ru ? 'Границы, упрощения и допущения.' : 'Limits, simplifications and assumptions.'}</strong>
+        <ul style={{ margin: '4px 0 0', paddingLeft: 18 }}>
+          <li>
+            {ru
+              ? 'Границы: уравнение лага (NEH 630, гл. 15, с. 15–6) не следует применять при CN ниже 50 или выше 95. Данные для него — бассейны размером до 9,2 кв. мили (около 24 км²); глава называет разумным верхним пределом до 19 кв. миль (около 49 км²). Предупреждение под ползунками появляется, когда вход выходит за эти границы.'
+              : 'Limits: the lag equation (NEH 630 ch. 15, p. 15–6) should not be used for CN below 50 or above 95. Its data came from basins up to 9.2 square miles (about 24 km²); the chapter cites a reasonable upper limit of up to 19 square miles (about 49 km²). The warning under the sliders appears when an input is outside these limits.'}
+          </li>
+          <li>
+            {ru
+              ? 'Упрощение: треугольник использует всю длительность ливня D как длительность единичного стока. NEH 630, гл. 16 (ур. 16A-13, с. 16A–3) даёт короткую ΔD ≈ 0,133 × Tc, где Tc = запаздывание ÷ 0,6 (гл. 15, ур. 15-3). Пик оставлен, потому что он близок к установившемуся пику рационального метода, C·i·A ÷ 3,6 = A × Q ÷ (3,6 × D) = 14,2 м³/с, против 14,0 м³/с в модели для исходных значений (50 мм за 6 ч, 30 % городских, 25 км²). Это проверка именно этого случая, а не доказательство для других.'
+              : 'Simplification: the triangle uses the whole storm duration D as the unit duration. NEH 630 ch. 16 (eq. 16A-13, p. 16A–3) gives a short duration ΔD ≈ 0.133 × Tc, where Tc = lag ÷ 0.6 (ch. 15, eq. 15-3). The peak is kept because it agrees closely with the rational-method steady-state peak, C·i·A ÷ 3.6 = A × Q ÷ (3.6 × D) = 14.2 m³/s, against 14.0 m³/s from the model for the default inputs (50 mm in 6 h, 30% urban, 25 km²). This checks that case only, not other inputs.'}
+          </li>
+          <li>
+            {ru
+              ? 'Начало: треугольник начинается с t = 0, поэтому начальные потери не задерживают подъём расхода.'
+              : 'Start: the triangle starts at t = 0, so the initial losses do not delay the rise of discharge.'}
+          </li>
+          <li>
+            {ru
+              ? 'Коэффициент пика (peak rate factor) 484 — стандартное значение треугольника; в метрической записи он равен 0,2083. NEH 630, гл. 16 (с. 16–14) даёт диапазон от меньше 100 до больше 600, поэтому пик здесь — оценка.'
+              : 'Peak rate factor: 484 is the standard value of the triangle (0.2083 in metric units). NEH 630 ch. 16 (p. 16–14) gives a range from below 100 to more than 600, so the peak here is an estimate.'}
+          </li>
+          <li>
+            {ru
+              ? 'Допущения и приближения: длина пути L = 1,4 × √A км — допущение этой модели (на практике путь меряют по карте). Сухая и влажная кривые стока — формулы, которые приближают таблицу 10-1 NEH 630, гл. 10; TR-55 (1986) даёт только среднее состояние. Для CN 70 таблица даёт 51 и 85, формулы — 49,5 и 84,3.'
+              : 'Assumptions and approximations: the flow length L = 1.4 × √A km is an assumption of this model (in practice the path is measured on a map). The dry and wet curve numbers are equations that approximate Table 10-1 of NEH 630 ch. 10; TR-55 (1986) gives the average condition only. For CN 70 the table gives 51 and 85, the equations 49.5 and 84.3.'}
+          </li>
+        </ul>
+      </div>
     </div>
   );
 }
