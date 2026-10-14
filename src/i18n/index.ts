@@ -1,6 +1,7 @@
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
+import { documentLang } from './document-lang';
 
 // One JSON file per namespace: en/<ns>.json and ru/<ns>.json. Adding a namespace needs no edit here.
 type Bundle = Record<string, Record<string, unknown>>;
@@ -39,7 +40,7 @@ i18n
 // load this module in Node, where there is no document.
 function syncDocumentLang(language: string): void {
   if (typeof document === 'undefined') return;
-  document.documentElement.lang = language.toLowerCase().startsWith('ru') ? 'ru' : 'en';
+  document.documentElement.lang = documentLang(language);
 }
 i18n.on('languageChanged', syncDocumentLang);
 
