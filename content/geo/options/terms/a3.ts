@@ -333,4 +333,34 @@ export const terms: Term[] = [
       ru: 'Управление спросом — это не только ограничения. Ремонт утечек и тарифы меняют потребление на протяжении лет, а не только в один засушливый сезон.',
     },
   },
+  {
+    id: 'a-water-quality',
+    term: { en: 'water quality', ru: 'качество воды (water quality)' },
+    def: {
+      en: 'The chemical, physical and biological condition of water, which decides whether it is safe for a use such as drinking, farming or wildlife. Quality is separate from quantity: a river can carry plenty of water and still be too polluted to drink.',
+      ru: 'Химическое, физическое и биологическое состояние воды, которое определяет, безопасна ли она для использования, например для питья, полива или живых организмов. Качество — это не количество: в реке может быть много воды, и она всё равно будет слишком загрязнённой для питья.',
+    },
+    syllabus: 'A.3',
+    papers: ['P1'],
+    src: SRC,
+    pitfall: {
+      en: 'Do not answer a water quality question with the volume of water. A large volume of polluted water is still unsafe to drink.',
+      ru: 'Не подменяйте качество воды её объёмом. Большой объём загрязнённой воды по-прежнему небезопасен для питья.',
+    },
+  },
+  {
+    id: 'a-lake-pressure',
+    term: { en: 'human pressure on lakes', ru: 'давление человека на озёра (human pressure on lakes)' },
+    def: {
+      en: 'Rising demand on a lake from economic growth, such as more irrigation and industry, and from people migrating into the lake’s basin. The result can be lower water levels, more pollution and damage to habitats.',
+      ru: 'Рост нагрузки на озеро из-за экономического роста, например увеличения орошения и промышленности, и из-за переселения людей в бассейн озера. Последствиями могут стать падение уровня воды, загрязнение и повреждение местообитаний.',
+    },
+    syllabus: 'A.3',
+    papers: ['P1'],
+    src: SRC,
+    pitfall: {
+      en: 'A lake responds slowly. Its level changes over years, so the effect of new demand may not show for a long time.',
+      ru: 'Озеро реагирует медленно: его уровень меняется за годы, поэтому эффект новой нагрузки может долго не проявляться.',
+    },
+  },
 ];
