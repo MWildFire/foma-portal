@@ -1,11 +1,5 @@
 import type { Term } from '../../../../src/contract/types';
-
-const source = {
-  kind: 'web' as const,
-  title: 'IB Mathematics AI, first assessment 2021: public summary, not checked against the official guide',
-  locator: 'sub-topic 5.14',
-  url: 'https://www.ibo.org/globalassets/new-structure/university-admission/pdfs/dp-mathematics-applications-and-interpretation-guide-en.pdf',
-};
+import { BOOK_TITLE } from '../../book';
 
 export const terms: Term[] = [
   {
@@ -17,7 +11,7 @@ export const terms: Term[] = [
     },
     syllabus: '5.14',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 11.4, p. 515' },
   },
   {
     id: 'de-separation-of-variables',
@@ -28,7 +22,7 @@ export const terms: Term[] = [
     },
     syllabus: '5.14',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 11.4, p. 515' },
     pitfall: {
       en: 'Dividing by $g(y)$ can lose constant solutions such as $y=0$. Check them separately.',
       ru: 'Деление на $g(y)$ может потерять постоянные решения, например $y=0$. Проверьте их отдельно.',
@@ -43,6 +37,6 @@ export const terms: Term[] = [
     },
     syllabus: '5.14',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 11.4, p. 515' },
   },
 ];

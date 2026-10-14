@@ -1,11 +1,5 @@
 import type { Term } from '../../../../src/contract/types';
-
-const source = {
-  kind: 'web' as const,
-  title: 'IB Mathematics AI, first assessment 2021: public summary, not checked against the official guide',
-  locator: 'sub-topic 5.17',
-  url: 'https://www.ibo.org/globalassets/new-structure/university-admission/pdfs/dp-mathematics-applications-and-interpretation-guide-en.pdf',
-};
+import { BOOK_TITLE } from '../../book';
 
 export const terms: Term[] = [
   {
@@ -17,19 +11,19 @@ export const terms: Term[] = [
     },
     syllabus: '5.17',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 12.3, p. 550' },
     sim: 'math.phase-portrait-lab',
   },
   {
     id: 'equilibrium-point-2d',
     term: { en: 'equilibrium point of a system', ru: 'точка равновесия системы (equilibrium point of a system)' },
     def: {
-      en: 'A point where $\\frac{dx}{dt} = 0$ and $\\frac{dy}{dt} = 0$ at the same time, so a state that starts there stays there. For a linear system with $D \\neq 0$, the origin is the only equilibrium point.',
-      ru: 'Точка, в которой одновременно $\\frac{dx}{dt} = 0$ и $\\frac{dy}{dt} = 0$, поэтому состояние, начавшееся в ней, в ней и остаётся. Для линейной системы при $D \\neq 0$ начало координат — единственная точка равновесия.',
+      en: 'A point where $\\frac{dx}{dt} = 0$ and $\\frac{dy}{dt} = 0$ at the same time, so a state that starts there stays there. For a linear system with $D \\neq 0$, where $D$ is the determinant of its coefficient matrix, the origin is the only equilibrium point.',
+      ru: 'Точка, в которой одновременно $\\frac{dx}{dt} = 0$ и $\\frac{dy}{dt} = 0$, поэтому состояние, начавшееся в ней, в ней и остаётся. Для линейной системы при $D \\neq 0$, где $D$ — определитель матрицы коэффициентов, начало координат — единственная точка равновесия.',
     },
     syllabus: '5.17',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 12.3, p. 551' },
     pitfall: {
       en: 'The origin is always an equilibrium point of this kind of system. Other equilibrium points appear only when $D = 0$.',
       ru: 'Начало координат всегда является точкой равновесия такой системы. Другие точки равновесия появляются только при $D = 0$.',
@@ -44,7 +38,7 @@ export const terms: Term[] = [
     },
     syllabus: '5.17',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 12.3, p. 551' },
     pitfall: {
       en: 'A saddle is always unstable, even though some trajectories approach the origin.',
       ru: 'Седло всегда неустойчиво, хотя некоторые траектории и приближаются к началу координат.',
@@ -59,7 +53,7 @@ export const terms: Term[] = [
     },
     syllabus: '5.17',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 12.3, p. 554' },
     pitfall: {
       en: 'A zero trace alone does not give a centre: if the determinant is negative, the origin is a saddle.',
       ru: 'Одного нулевого следа недостаточно для центра: при отрицательном определителе начало координат — седло.',

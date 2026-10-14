@@ -1,11 +1,5 @@
 import type { Term } from '../../../../src/contract/types';
-
-const source = {
-  kind: 'web' as const,
-  title: 'IB Mathematics AI, first assessment 2021: public summary, not checked against the official guide',
-  locator: 'sub-topic 5.3',
-  url: 'https://www.ibo.org/globalassets/new-structure/university-admission/pdfs/dp-mathematics-applications-and-interpretation-guide-en.pdf',
-};
+import { BOOK_TITLE } from '../../book';
 
 export const terms: Term[] = [
   {
@@ -17,7 +11,7 @@ export const terms: Term[] = [
     },
     syllabus: '5.3',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 10.1, p. 430' },
     pitfall: {
       en: 'Write a fraction such as $\\dfrac{6}{x^2}$ as $6x^{-2}$ before differentiating. The rule applies to powers of $x$.',
       ru: 'Перед дифференцированием запишите дробь $\\dfrac{6}{x^2}$ как $6x^{-2}$: правило применяется к степеням $x$.',
@@ -32,7 +26,7 @@ export const terms: Term[] = [
     },
     syllabus: '5.3',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 10.1, p. 430' },
     pitfall: {
       en: 'A constant term disappears after differentiation: the derivative of -7 is 0, not -7x.',
       ru: 'Постоянный член исчезает после дифференцирования: производная от -7 равна 0, а не -7x.',

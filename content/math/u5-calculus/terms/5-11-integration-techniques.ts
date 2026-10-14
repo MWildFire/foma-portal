@@ -1,11 +1,5 @@
 import type { Term } from '../../../../src/contract/types';
-
-const source = {
-  kind: 'web' as const,
-  title: 'IB Mathematics AI, first assessment 2021: public summary, not checked against the official guide',
-  locator: 'sub-topic 5.11',
-  url: 'https://www.ibo.org/globalassets/new-structure/university-admission/pdfs/dp-mathematics-applications-and-interpretation-guide-en.pdf',
-};
+import { BOOK_TITLE } from '../../book';
 
 export const terms: Term[] = [
   {
@@ -17,7 +11,7 @@ export const terms: Term[] = [
     },
     syllabus: '5.11',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 11.2, p. 488' },
     pitfall: {
       en: 'Check the answer by differentiating it; a wrong constant multiple is the most common slip.',
       ru: 'Проверяйте ответ дифференцированием; ошибка в постоянном множителе — самая частая.',
@@ -32,7 +26,7 @@ export const terms: Term[] = [
     },
     syllabus: '5.11',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 11.2, p. 492' },
     pitfall: {
       en: 'In a definite integral, change the limits to values of $u$ at the same time, or substitute back to $x$ before using the original limits.',
       ru: 'В определённом интеграле одновременно меняйте пределы на значения $u$, или вернитесь к переменной $x$ перед подстановкой исходных пределов.',
@@ -47,6 +41,6 @@ export const terms: Term[] = [
     },
     syllabus: '5.11',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 11.2, p. 496' },
   },
 ];

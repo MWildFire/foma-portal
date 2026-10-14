@@ -1,11 +1,5 @@
 import type { Term } from '../../../../src/contract/types';
-
-const source = {
-  kind: 'web' as const,
-  title: 'IB Mathematics AI, first assessment 2021: public summary, not checked against the official guide',
-  locator: 'sub-topic 5.1',
-  url: 'https://www.ibo.org/globalassets/new-structure/university-admission/pdfs/dp-mathematics-applications-and-interpretation-guide-en.pdf',
-};
+import { BOOK_TITLE } from '../../book';
 
 export const terms: Term[] = [
   {
@@ -17,7 +11,7 @@ export const terms: Term[] = [
     },
     syllabus: '5.1',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 10.1, p. 430' },
     pitfall: {
       en: 'A limit describes what happens near a value. Substituting the value directly can give 0/0, which says nothing about the limit.',
       ru: 'Предел описывает поведение рядом со значением. Прямая подстановка может дать 0/0, и это ничего не говорит о пределе.',
@@ -32,19 +26,19 @@ export const terms: Term[] = [
     },
     syllabus: '5.1',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 10.1, p. 430' },
     sim: 'math.tangent-optimisation-lab',
   },
   {
     id: 'derivative-rate-of-change',
     term: { en: 'derivative as a rate of change', ru: 'производная как скорость изменения (derivative as a rate of change)' },
     def: {
-      en: 'The instantaneous rate of change of one quantity with respect to another. It is found as the limit of the average rate of change over an interval that shrinks to a point. Its units are the units of $y$ divided by the units of $x$.',
-      ru: 'Мгновенная скорость изменения одной величины относительно другой. Находится как предел средней скорости изменения на промежутке, стягивающемся в точку. Её единицы равны единицам $y$, делённым на единицы $x$.',
+      en: 'The instantaneous rate of change of one quantity with respect to another, which is the gradient of the curve that links them. It is found as the limit of the average rate of change over an interval that shrinks to a point. Its units are the units of $y$ divided by the units of $x$.',
+      ru: 'Мгновенная скорость изменения одной величины относительно другой, равная градиенту кривой, которая их связывает. Находится как предел средней скорости изменения на промежутке, стягивающемся в точку. Её единицы равны единицам $y$, делённым на единицы $x$.',
     },
     syllabus: '5.1',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 10.1, p. 428' },
     pitfall: {
       en: 'Always give the units with a rate, for example litres per minute, not just a number.',
       ru: 'Всегда указывайте единицы скорости, например литры в минуту, а не только число.',

@@ -1,11 +1,5 @@
 import type { Term } from '../../../../src/contract/types';
-
-const source = {
-  kind: 'web' as const,
-  title: 'IB Mathematics AI, first assessment 2021: public summary, not checked against the official guide',
-  locator: 'sub-topic 5.9',
-  url: 'https://www.ibo.org/globalassets/new-structure/university-admission/pdfs/dp-mathematics-applications-and-interpretation-guide-en.pdf',
-};
+import { BOOK_TITLE } from '../../book';
 
 export const terms: Term[] = [
   {
@@ -17,7 +11,7 @@ export const terms: Term[] = [
     },
     syllabus: '5.9',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 10.2, p. 443' },
     pitfall: {
       en: 'The factor for the inner function is easy to forget: multiply by the derivative of the inside as well.',
       ru: 'Легко забыть множитель для внутренней функции: умножайте и на её производную.',
@@ -32,7 +26,7 @@ export const terms: Term[] = [
     },
     syllabus: '5.9',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 10.2, p. 445' },
     pitfall: {
       en: 'The derivative of a product is not the product of the derivatives.',
       ru: 'Производная произведения не равна произведению производных.',
@@ -47,7 +41,7 @@ export const terms: Term[] = [
     },
     syllabus: '5.9',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 10.2, p. 446' },
     pitfall: {
       en: 'The order matters: the numerator starts with v times the derivative of u, and subtracts u times the derivative of v. Swapping the two terms changes the sign of the answer.',
       ru: 'Порядок важен: в числителе сначала идёт $v\\dfrac{du}{dx}$, затем вычитается $u\\dfrac{dv}{dx}$. Перестановка меняет знак ответа.',
@@ -62,7 +56,7 @@ export const terms: Term[] = [
     },
     syllabus: '5.9',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 10.3, p. 462' },
     pitfall: {
       en: 'Substitute the known values after differentiating, not before.',
       ru: 'Подставляйте известные значения после дифференцирования, а не до него.',

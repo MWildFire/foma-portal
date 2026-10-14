@@ -1,11 +1,5 @@
 import type { Term } from '../../../../src/contract/types';
-
-const source = {
-  kind: 'web' as const,
-  title: 'IB Mathematics AI, first assessment 2021: public summary, not checked against the official guide',
-  locator: 'sub-topic 5.16',
-  url: 'https://www.ibo.org/globalassets/new-structure/university-admission/pdfs/dp-mathematics-applications-and-interpretation-guide-en.pdf',
-};
+import { BOOK_TITLE } from '../../book';
 
 export const terms: Term[] = [
   {
@@ -17,7 +11,7 @@ export const terms: Term[] = [
     },
     syllabus: '5.16',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 11.5, p. 522' },
     sim: 'math.direction-field-lab',
   },
   {
@@ -29,7 +23,7 @@ export const terms: Term[] = [
     },
     syllabus: '5.16',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 11.5, p. 522' },
     pitfall: {
       en: 'h is the change in x, not in y. Keep it the same for every step, and count the steps from the length of the interval.',
       ru: 'h — это изменение x, а не y. Оставляйте его одинаковым на каждом шаге и считайте шаги по длине отрезка.',
@@ -44,7 +38,7 @@ export const terms: Term[] = [
     },
     syllabus: '5.16',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 12.4, p. 556' },
     pitfall: {
       en: 'Do not use the new x when you calculate the new y in the same step.',
       ru: 'Не используйте новое значение x при вычислении нового y на том же шаге.',

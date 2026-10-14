@@ -1,4 +1,5 @@
 import type { Term } from '../../../../src/contract/types';
+import { BOOK_TITLE } from '../../book';
 
 const source = {
   kind: 'web' as const,
@@ -17,7 +18,7 @@ export const terms: Term[] = [
     },
     syllabus: '5.2',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 10.1, p. 428' },
     pitfall: {
       en: 'Increasing describes an interval, not a single point. A function can be increasing while its values are still negative.',
       ru: 'Возрастание описывает промежуток, а не одну точку. Функция может возрастать, оставаясь отрицательной.',
@@ -32,7 +33,7 @@ export const terms: Term[] = [
     },
     syllabus: '5.2',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 10.1, p. 428' },
   },
   {
     id: 'sign-diagram-derivative',

@@ -1,4 +1,5 @@
 import type { Term } from '../../../../src/contract/types';
+import { BOOK_TITLE } from '../../book';
 
 const source = {
   kind: 'web' as const,
@@ -17,7 +18,7 @@ export const terms: Term[] = [
     },
     syllabus: '5.15',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 11.5, p. 520' },
     pitfall: {
       en: 'The gradient at $(x, y)$ is $f(x, y)$: substitute x first, then y, in that order.',
       ru: 'Наклон в точке $(x, y)$ равен $f(x, y)$: подставляйте сначала x, затем y.',
@@ -33,7 +34,7 @@ export const terms: Term[] = [
     },
     syllabus: '5.15',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 11.5, p. 520' },
   },
   {
     id: 'isocline-fxy-k',
@@ -44,7 +45,7 @@ export const terms: Term[] = [
     },
     syllabus: '5.15',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 11.5, p. 529' },
   },
   {
     id: 'equilibrium-value-first-order',

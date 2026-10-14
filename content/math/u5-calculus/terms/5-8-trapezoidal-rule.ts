@@ -1,4 +1,5 @@
 import type { Term } from '../../../../src/contract/types';
+import { BOOK_TITLE } from '../../book';
 
 const source = {
   kind: 'web' as const,
@@ -17,7 +18,7 @@ export const terms: Term[] = [
     },
     syllabus: '5.8',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 11.1, p. 484' },
     pitfall: {
       en: 'Every inner ordinate is counted twice, but only the two end ordinates are counted once.',
       ru: 'Каждая внутренняя ордината учитывается дважды, а только крайние — один раз.',
@@ -33,7 +34,7 @@ export const terms: Term[] = [
     },
     syllabus: '5.8',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 11.1, p. 484' },
     pitfall: {
       en: 'Dividing by $n - 1$ is wrong: $n$ strips always need $n + 1$ ordinates.',
       ru: 'Деление на $n - 1$ неверно: $n$ полосок всегда требуют $n + 1$ ординат.',

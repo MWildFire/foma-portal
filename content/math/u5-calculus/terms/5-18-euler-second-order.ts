@@ -1,11 +1,5 @@
 import type { Term } from '../../../../src/contract/types';
-
-const source = {
-  kind: 'web' as const,
-  title: 'IB Mathematics AI, first assessment 2021: public summary, not checked against the official guide',
-  locator: 'sub-topic 5.18',
-  url: 'https://www.ibo.org/globalassets/new-structure/university-admission/pdfs/dp-mathematics-applications-and-interpretation-guide-en.pdf',
-};
+import { BOOK_TITLE } from '../../book';
 
 export const terms: Term[] = [
   {
@@ -17,7 +11,7 @@ export const terms: Term[] = [
     },
     syllabus: '5.18',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 12.4, p. 560' },
   },
   {
     id: 'euler-second-order-step',
@@ -28,7 +22,7 @@ export const terms: Term[] = [
     },
     syllabus: '5.18',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 12.4, p. 560' },
     pitfall: {
       en: 'Using the new $x$ inside the update for $v$ is a different method. Use the old values on the right-hand side.',
       ru: 'Подстановка нового $x$ в формулу для $v$ — уже другой метод. В правой части используйте старые значения.',
@@ -43,7 +37,7 @@ export const terms: Term[] = [
     },
     syllabus: '5.18',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 12.4, p. 556' },
     pitfall: {
       en: 'The number of steps is the total time divided by $h$. For example, a time of $t = 0.5$ with $h = 0.1$ needs five steps.',
       ru: 'Число шагов равно полному времени, делённому на $h$. Например, при $t = 0{,}5$ и $h = 0{,}1$ нужно пять шагов.',

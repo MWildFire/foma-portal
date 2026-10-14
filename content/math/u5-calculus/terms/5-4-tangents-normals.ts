@@ -1,11 +1,5 @@
 import type { Term } from '../../../../src/contract/types';
-
-const source = {
-  kind: 'web' as const,
-  title: 'IB Mathematics AI, first assessment 2021: public summary, not checked against the official guide',
-  locator: 'sub-topic 5.4',
-  url: 'https://www.ibo.org/globalassets/new-structure/university-admission/pdfs/dp-mathematics-applications-and-interpretation-guide-en.pdf',
-};
+import { BOOK_TITLE } from '../../book';
 
 export const terms: Term[] = [
   {
@@ -17,7 +11,7 @@ export const terms: Term[] = [
     },
     syllabus: '5.4',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 10.1, p. 428' },
     pitfall: {
       en: 'The tangent gradient is the derivative at the point, not the y-coordinate of the point.',
       ru: 'Угловой коэффициент касательной — это производная в точке, а не координата y этой точки.',
@@ -32,7 +26,7 @@ export const terms: Term[] = [
     },
     syllabus: '5.4',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 10.1, p. 435' },
     pitfall: {
       en: 'The normal is perpendicular to the tangent, so its gradient is the negative reciprocal of the tangent gradient, not the negative of it.',
       ru: 'Нормаль перпендикулярна касательной, поэтому её угловой коэффициент — это отрицательная обратная величина к угловому коэффициенту касательной, а не просто противоположное число.',
@@ -47,7 +41,7 @@ export const terms: Term[] = [
     },
     syllabus: '5.4',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 10.1, p. 435' },
     pitfall: {
       en: 'When the tangent gradient is zero the normal is vertical, so it has no finite gradient.',
       ru: 'Если угловой коэффициент касательной равен нулю, нормаль вертикальна, и конечного углового коэффициента у неё нет.',

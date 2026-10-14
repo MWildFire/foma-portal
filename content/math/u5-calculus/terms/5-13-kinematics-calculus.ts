@@ -1,11 +1,5 @@
 import type { Term } from '../../../../src/contract/types';
-
-const source = {
-  kind: 'web' as const,
-  title: 'IB Mathematics AI, first assessment 2021: public summary, not checked against the official guide',
-  locator: 'sub-topic 5.13',
-  url: 'https://www.ibo.org/globalassets/new-structure/university-admission/pdfs/dp-mathematics-applications-and-interpretation-guide-en.pdf',
-};
+import { BOOK_TITLE } from '../../book';
 
 export const terms: Term[] = [
   {
@@ -17,7 +11,7 @@ export const terms: Term[] = [
     },
     syllabus: '5.13',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 11.3, p. 508' },
   },
   {
     id: 'calc-kinematics-velocity',
@@ -28,7 +22,7 @@ export const terms: Term[] = [
     },
     syllabus: '5.13',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 11.3, p. 508' },
     pitfall: {
       en: 'Speed is the modulus $|v|$ and is never negative. Zero velocity means the particle is at rest for an instant, not that it is at the origin.',
       ru: 'Модуль скорости $|v|$ не бывает отрицательным. Нулевая скорость означает покой в данный момент, а не нахождение в точке отсчёта.',
@@ -43,7 +37,7 @@ export const terms: Term[] = [
     },
     syllabus: '5.13',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 11.3, p. 508' },
     pitfall: {
       en: 'A zero acceleration does not mean the particle is at rest. It means the velocity has a stationary value at that instant.',
       ru: 'Нулевое ускорение не означает покой. Оно означает, что скорость имеет стационарное значение в этот момент.',
@@ -58,6 +52,6 @@ export const terms: Term[] = [
     },
     syllabus: '5.13',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 11.3, p. 512' },
   },
 ];

@@ -1,11 +1,5 @@
 import type { Term } from '../../../../src/contract/types';
-
-const source = {
-  kind: 'web' as const,
-  title: 'IB Mathematics AI, first assessment 2021: public summary, not checked against the official guide',
-  locator: 'sub-topic 5.5',
-  url: 'https://www.ibo.org/globalassets/new-structure/university-admission/pdfs/dp-mathematics-applications-and-interpretation-guide-en.pdf',
-};
+import { BOOK_TITLE } from '../../book';
 
 export const terms: Term[] = [
   {
@@ -17,7 +11,7 @@ export const terms: Term[] = [
     },
     syllabus: '5.5',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 11.2, p. 488' },
     pitfall: {
       en: 'Every indefinite integral needs the constant $+ C$. Leaving it out loses the marks for a boundary condition later.',
       ru: 'В каждом неопределённом интеграле нужна постоянная $+ C$. Если её пропустить, позже теряются баллы за граничное условие.',
@@ -32,7 +26,7 @@ export const terms: Term[] = [
     },
     syllabus: '5.5',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 11.3, p. 509' },
     pitfall: {
       en: 'Substitute the point into the anti-derivative including $C$, then solve for $C$ before you use the curve.',
       ru: 'Подставляйте точку в первообразную вместе с $C$, затем найдите $C$ и только после этого используйте кривую.',
@@ -47,7 +41,7 @@ export const terms: Term[] = [
     },
     syllabus: '5.5',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 11.2, p. 496' },
     pitfall: {
       en: 'A definite integral is negative when the region lies below the x-axis, so check the sign of $f(x)$ before you call the value an area.',
       ru: 'Определённый интеграл отрицателен, если область лежит под осью $x$, поэтому перед тем как назвать значение площадью, проверьте знак $f(x)$.',

@@ -1,11 +1,5 @@
 import type { Term } from '../../../../src/contract/types';
-
-const source = {
-  kind: 'web' as const,
-  title: 'IB Mathematics AI, first assessment 2021: public summary, not checked against the official guide',
-  locator: 'sub-topic 5.6',
-  url: 'https://www.ibo.org/globalassets/new-structure/university-admission/pdfs/dp-mathematics-applications-and-interpretation-guide-en.pdf',
-};
+import { BOOK_TITLE } from '../../book';
 
 export const terms: Term[] = [
   {
@@ -17,7 +11,7 @@ export const terms: Term[] = [
     },
     syllabus: '5.6',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 10.3, p. 457' },
     pitfall: {
       en: 'A zero of the gradient is only a candidate. It may be a maximum, a minimum, or neither.',
       ru: 'Нуль градиента — лишь кандидат. Это может быть максимум, минимум или ни то, ни другое.',
@@ -32,7 +26,7 @@ export const terms: Term[] = [
     },
     syllabus: '5.6',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 10.1, p. 438' },
   },
   {
     id: 'local-minimum-point',
@@ -43,7 +37,7 @@ export const terms: Term[] = [
     },
     syllabus: '5.6',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 10.1, p. 438' },
   },
   {
     id: 'first-derivative-sign-test',
@@ -54,6 +48,6 @@ export const terms: Term[] = [
     },
     syllabus: '5.6',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 10.1, p. 438' },
   },
 ];

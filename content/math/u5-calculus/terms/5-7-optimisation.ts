@@ -1,11 +1,5 @@
 import type { Term } from '../../../../src/contract/types';
-
-const source = {
-  kind: 'web' as const,
-  title: 'IB Mathematics AI, first assessment 2021: public summary, not checked against the official guide',
-  locator: 'sub-topic 5.7',
-  url: 'https://www.ibo.org/globalassets/new-structure/university-admission/pdfs/dp-mathematics-applications-and-interpretation-guide-en.pdf',
-};
+import { BOOK_TITLE } from '../../book';
 
 export const terms: Term[] = [
   {
@@ -17,7 +11,7 @@ export const terms: Term[] = [
     },
     syllabus: '5.7',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 10.3, p. 466' },
   },
   {
     id: 'objective-function',
@@ -28,7 +22,7 @@ export const terms: Term[] = [
     },
     syllabus: '5.7',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 10.1, p. 439' },
   },
   {
     id: 'optimisation-constraint',
@@ -39,7 +33,7 @@ export const terms: Term[] = [
     },
     syllabus: '5.7',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 10.1, p. 439' },
   },
   {
     id: 'feasible-domain',
@@ -50,7 +44,7 @@ export const terms: Term[] = [
     },
     syllabus: '5.7',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 10.3, p. 466' },
     pitfall: {
       en: 'A stationary value outside the feasible domain is not an answer, even though the gradient is zero there.',
       ru: 'Стационарное значение вне допустимой области не является ответом, даже если градиент в нём равен нулю.',

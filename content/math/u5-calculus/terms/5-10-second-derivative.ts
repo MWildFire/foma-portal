@@ -1,11 +1,5 @@
 import type { Term } from '../../../../src/contract/types';
-
-const source = {
-  kind: 'web' as const,
-  title: 'IB Mathematics AI, first assessment 2021: public summary, not checked against the official guide',
-  locator: 'sub-topic 5.10',
-  url: 'https://www.ibo.org/globalassets/new-structure/university-admission/pdfs/dp-mathematics-applications-and-interpretation-guide-en.pdf',
-};
+import { BOOK_TITLE } from '../../book';
 
 export const terms: Term[] = [
   {
@@ -17,7 +11,7 @@ export const terms: Term[] = [
     },
     syllabus: '5.10',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 10.3, p. 455' },
     pitfall: {
       en: 'Differentiate $f\'(x)$, not $f(x)$. One differentiation of $f(x)$ gives the gradient function, not the second derivative.',
       ru: 'Дифференцируйте $f\'(x)$, а не $f(x)$. Однократное дифференцирование $f(x)$ даёт функцию градиента, а не вторую производную.',
@@ -32,7 +26,7 @@ export const terms: Term[] = [
     },
     syllabus: '5.10',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 10.3, p. 457' },
     pitfall: {
       en: 'The test applies only where $f\'(a) = 0$. Confirm that first, then read the sign of $f\'\'(a)$.',
       ru: 'Признак работает только там, где $f\'(a) = 0$. Сначала проверьте это, затем определите знак $f\'\'(a)$.',
@@ -47,7 +41,7 @@ export const terms: Term[] = [
     },
     syllabus: '5.10',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 10.3, p. 455' },
     pitfall: {
       en: 'Concavity describes the bend of the curve, not whether the function is increasing or decreasing.',
       ru: 'Выпуклость описывает изгиб кривой, а не то, возрастает функция или убывает.',
