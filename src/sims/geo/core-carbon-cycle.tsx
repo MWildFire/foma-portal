@@ -6,8 +6,8 @@ import type { Lang } from '../../contract/types';
 // Stores and natural gross fluxes around 1750: IPCC AR6 WG1 (2021), Chapter 5, Figure 5.12 (values as printed).
 // Cumulative ocean and land uptake since 1750: AR6 Table 5.1.
 // Present flows: Global Carbon Budget 2025 (ESSD 18, doi:10.5194/essd-18-3211-2026), decadal means 2015–2024, Table 7.
-const STORE_1750 = { atmosphere: 588, surfaceOcean: 900, deepOcean: 37100, vegetation: 450, soils: 1700, permafrost: 1400 };
-const FLUX_1750 = { photosynthesis: 114, respiration: 113, oceanUptake: 60.0, oceanRelease: 60.4 };
+const STORE_1750 = { atmosphere: 591, surfaceOcean: 900, deepOcean: 37100, vegetation: 450, soils: 1700, permafrost: 1200 };
+const FLUX_1750 = { photosynthesis: 113, respiration: 111.1, oceanUptake: 54.0, oceanRelease: 54.6 };
 
 // Present state, GtC per year, 2015–2024 means.
 const E_FOS = 9.8; // fossil fuels and cement, including the small cement carbonation sink
@@ -59,7 +59,9 @@ export default function CarbonCycle({ lang }: { lang: Lang }) {
           {t('Present (flows 2015–2024; CO₂ 2025)', 'Настоящее время (потоки 2015–2024; CO₂ 2025)')}
         </button>
       </div>
-      <svg role="img" aria-label={title} viewBox="0 0 640 490" width="100%" style={{ maxWidth: 640, display: 'block' }}>
+      {/* on a phone the diagram scrolls sideways instead of shrinking its labels below readable size */}
+      <div style={{ overflowX: 'auto' }}>
+      <svg role="img" aria-label={title} viewBox="0 0 640 490" width="100%" style={{ maxWidth: 640, minWidth: 560, display: 'block' }}>
         <defs>
           <marker id="cc-arrow-natural" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
             <path d="M0,0 L10,5 L0,10 z" fill="#555555" />
@@ -100,10 +102,17 @@ export default function CarbonCycle({ lang }: { lang: Lang }) {
         <line x1={286} y1={262} x2={286} y2={198} stroke="#555555" strokeWidth={2} markerEnd="url(#cc-arrow-natural)" />
         <line x1={372} y1={198} x2={372} y2={262} stroke="#555555" strokeWidth={2} markerEnd="url(#cc-arrow-natural)" />
         <line x1={402} y1={262} x2={402} y2={198} stroke="#555555" strokeWidth={2} markerEnd="url(#cc-arrow-natural)" />
+        <text x={244} y={214} textAnchor="end" fontSize={11} fill="#374151">{`${t('photosynthesis', 'фотосинтез')} ${FLUX_1750.photosynthesis}`}</text>
+        <text x={292} y={232} fontSize={10} fill="#374151">{t('respiration', 'дыхание,')}</text>
+        <text x={292} y={244} fontSize={10} fill="#374151">{`${t('and fire', 'и пожары')} ${FLUX_1750.respiration}`}</text>
+        <text x={366} y={214} textAnchor="end" fontSize={10} fill="#374151">{`${t('to ocean', 'в океан')} ${dec(FLUX_1750.oceanUptake)}`}</text>
+        <text x={408} y={236} fontSize={11} fill="#374151">{`${t('from ocean', 'из океана')} ${dec(FLUX_1750.oceanRelease)}`}</text>
         {present && (
           <g>
             <line x1={212} y1={198} x2={212} y2={262} stroke="#c2410c" strokeWidth={2} markerEnd="url(#cc-arrow-human)" />
             <line x1={432} y1={198} x2={432} y2={262} stroke="#c2410c" strokeWidth={2} markerEnd="url(#cc-arrow-human)" />
+            <text x={206} y={252} textAnchor="end" fontSize={10} fill="#b4480c">{`${t('land sink', 'сток суши')} ${dec(S_LAND)}`}</text>
+            <text x={438} y={252} fontSize={10} fill="#b4480c">{`${t('ocean sink', 'сток океана')} ${dec(S_OCEAN)}`}</text>
           </g>
         )}
 
@@ -122,7 +131,7 @@ export default function CarbonCycle({ lang }: { lang: Lang }) {
         <rect x={370} y={262} width={260} height={196} rx={10} fill="#e6f0f8" stroke="#3d7ea6" strokeWidth={1.2} />
         <text x={384} y={284} fontSize={13} fontWeight="bold" fill="#1d1d1d">{t('Ocean, about 1750', 'Океан, около 1750 г.')}</text>
         <text x={384} y={304} fontSize={12} fill="#1d1d1d">{`${t('Surface ocean', 'Поверхностный океан')}: ${int(STORE_1750.surfaceOcean)}`}</text>
-        <text x={384} y={322} fontSize={12} fill="#1d1d1d">{`${t('Intermediate and deep ocean', 'Промежуточные и глубокие')}: ${int(STORE_1750.deepOcean)}`}</text>
+        <text x={384} y={322} fontSize={12} fill="#1d1d1d">{`${t('Intermediate and deep ocean', 'Промежуточные и глубокие слои')}: ${int(STORE_1750.deepOcean)}`}</text>
         <text x={384} y={366} fontSize={11} fontWeight="bold" fill="#4b5563">{flowsHeader}</text>
         <text x={384} y={386} fontSize={12} fill="#374151">{`${t('Uptake (gross)', 'Поглощение (валовое)')}: ${dec(FLUX_1750.oceanUptake)}`}</text>
         <text x={384} y={404} fontSize={12} fill="#374151">{`${t('Release (gross)', 'Выделение (валовое)')}: ${dec(FLUX_1750.oceanRelease)}`}</text>
@@ -139,6 +148,7 @@ export default function CarbonCycle({ lang }: { lang: Lang }) {
           </g>
         )}
       </svg>
+      </div>
 
       <ul style={{ marginTop: 12, paddingLeft: 18 }}>
         <li>

@@ -258,7 +258,7 @@
   <text x="687.0" y="315.0" font-size="11" text-anchor="middle" fill="#1e3a8a">1</text>
   <rect x="707" y="297" width="36" height="28" rx="3" fill="#93c5fd"/>
   <text x="725.0" y="315.0" font-size="11" text-anchor="middle" fill="#1e3a8a">2</text>
-  <text x="250" y="352" font-size="11" fill="#374151">Items per paper, mean over time zones: 0 · 1 · 2 · 3 · 4 or more. 0 means the subtopic does not appear in that session.</text>
+  <text x="250" y="352" font-size="11" fill="#374151">Items per paper, mean over time zones: 0 · 1 · 2 · 3 · 4 or more; 0 = subtopic not in that session.</text>
   <rect x="250" y="362" width="18" height="12" rx="2" fill="#f3f4f6" stroke="#d1d5db"/>
   <text x="274" y="372" font-size="11" fill="#374151">0</text>
   <rect x="306" y="362" width="18" height="12" rx="2" fill="#dbeafe" stroke="#d1d5db"/>

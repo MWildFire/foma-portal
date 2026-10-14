@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" role="img" aria-label="Bar chart: energy use per person by income group, 2000 and 2024">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" font-family="Arial, Helvetica, sans-serif" role="img" aria-label="Bar chart: energy use per person by income group, 2000 and 2024">
   <title>Energy use per person by income group, 2000 and 2024</title>
   <desc>Grouped bars of energy use per person in kilograms of oil equivalent. High income: 4,873 in 2000 and 4,454 in 2024. Middle income: 759 in 2000 and 1,438 in 2024. Low income: 398 in 2000 and 362 in 2024. Source: World Bank, indicator EG.USE.PCAP.KG.OE, data to 2024.</desc>
   <text x="320" y="24" text-anchor="middle" font-size="16" font-weight="bold" fill="#222">Energy use per person by income group, 2000 and 2024</text>

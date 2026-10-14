@@ -298,7 +298,7 @@ export default function WaterFoodEnergy({ lang }: { lang: Lang }) {
         {active ? (
           <>
             <strong>{t('Highlighted links: ', 'Выделенные связи: ')}</strong>
-            {active.links.map(linkName).join(', ')}
+            {active.links.map(linkName).join('; ')}
             {'. '}
             {ru ? active.effect.ru : active.effect.en}
           </>
@@ -310,7 +310,9 @@ export default function WaterFoodEnergy({ lang }: { lang: Lang }) {
         )}
       </p>
 
-      <svg role="img" aria-label={title} viewBox="0 0 640 560" width="100%" style={{ maxWidth: 640, display: 'block' }}>
+      {/* on a phone the diagram scrolls sideways instead of shrinking its labels below readable size */}
+      <div style={{ overflowX: 'auto' }}>
+      <svg role="img" aria-label={title} viewBox="0 0 640 560" width="100%" style={{ maxWidth: 640, minWidth: 560, display: 'block' }}>
         <defs>
           <marker
             id="wfe-arrow"
@@ -409,6 +411,7 @@ export default function WaterFoodEnergy({ lang }: { lang: Lang }) {
           );
         })}
       </svg>
+      </div>
 
       <p style={{ marginTop: 12, fontSize: 14 }}>
         {t(
