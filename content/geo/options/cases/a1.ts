@@ -1,10 +1,7 @@
 import type { CaseStudy } from '../../../../src/contract/types';
 
-// Option A, A.1 cases. Rechecked on 14.10.2026 against the named pages: Mekong (Nature Sustainability 2025, main text: 2,210 and
-// 13,260 km², reverse flow down 47% in a medium-flow year), Amazon (Nature Communications 2020: ~2000 mm, ~17%, seasonality
-// ~1.4 × 10^5 m³/s), UAE (Scientific Reports 2026: 254.8 mm at Khatm al-Shakla per NCM; 233.3 mm at Kalba; 144 mm at Dubai airport;
-// national mean ~100 mm a year).
-// Still open: Rhine (Undine, KNMI) and the MRC land area, checked on 13.10.2026 only and not rechecked here.
+// Option A, A.1 cases. Status (R01, 14.10.2026, S3): the Amazon seasonality method was rechecked against Nature Communications 2020.
+// Mekong (Nature Sustainability 2025) was checked for the r2 review. UAE (Scientific Reports 2026), Rhine (KNMI, Dutch-language source) and the MRC land area were not rechecked in R01.
 export const cases: CaseStudy[] = [
   {
     id: 'a-rhine-basin',

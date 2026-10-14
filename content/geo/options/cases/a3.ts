@@ -1,9 +1,7 @@
 import type { CaseStudy } from '../../../../src/contract/types';
 
-// Option A, A.3 cases. Checked in the S9 round (14.10.2026) against the pages named in src: Toledo dates (CDC MMWR for the
-// start, population and the first 2013 advisory; PBS NewsHour for the lifting on 4 August 2014); the WHO 2022 microcystin
-// fact sheet (PDF, p. 430: total MCs, value based on MC-LR data); Bangladesh survey figures and report number (NERC ORA
-// abstract and record, WC/00/019); Cape Town figures (SAnews, 24 January 2018); Aral Sea figures (UNDP page).
+// Option A, A.3 cases. Status (R01, 14.10.2026, S3): Toledo (CDC MMWR 2016; PBS NewsHour 2014) and the WHO 2022 microcystin fact sheet (PDF p. 430) were opened in R01.
+// The Bangladesh report number (NERC ORA, WC/00/019) was checked in R01. Cape Town (SAnews, 24 January 2018) and the Aral Sea figures (UNDP page) were not rechecked in R01.
 export const cases: CaseStudy[] = [
   {
     id: 'a-cape-town-drought-2018',

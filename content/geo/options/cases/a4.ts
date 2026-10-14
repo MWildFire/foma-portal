@@ -1,10 +1,9 @@
 import type { CaseStudy } from '../../../../src/contract/types';
 
-// Option A, A.4 cases. Checked in the S9 round (14.10.2026) against the pages named in src: UAE ministry statement (2025)
-// and UAE strategy page; PUB and MSE pages for Singapore; Tractebel, UN News, Down To Earth and Brookings for the GERD;
-// the Indus Waters Treaty text (UN Treaty Series No. 6032, Articles I–III read on pp. 126–134) and the World Bank timeline
-// (mediation from 1952); gov.cn for China; USGS for the High Plains aquifer.
-// Open: the 2025–2026 Indus suspension, which rests on news reports, not on an official notice.
+// Option A, A.4 cases. Status (R01, 14.10.2026, S3): opened in R01: the UAE ministry statement (23 March 2025), the Indus Waters Treaty text (UN Treaty Series No. 6032: Article II(1) on p. 130,
+// Article III(1) on p. 134), the World Bank timeline (mediation from 1952), gov.cn (China), Down To Earth and Brookings (GERD).
+// Not rechecked in R01: Singapore (PUB, MSE), Tractebel and UN News (GERD), USGS (High Plains aquifer).
+// Open: the 2025–2026 Indus suspension rests on news reports, not on an official notice.
 export const cases: CaseStudy[] = [
   {
     id: 'a-uae-desalination',
