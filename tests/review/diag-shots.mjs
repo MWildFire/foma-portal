@@ -6,7 +6,7 @@
 // External requests are aborted: the harness talks only to the local preview.
 //
 // Usage:  BASE_URL=http://127.0.0.1:4181 OUT=/tmp/foma-diag-geo node tests/review/diag-shots.mjs geo [math ...]
-// Env:    BASE_URL  local preview origin; start it first: npx vite preview --port <port> --strictPort
+// Env:    BASE_URL  local preview origin; start it first: npx vite preview --host 127.0.0.1 --port <port> --strictPort
 //         OUT       output folder (default /tmp/foma-diag)
 //         TOPICS    optional comma list of topic ids (smoke runs)
 //         LANGS     comma list, default en,ru
@@ -94,6 +94,12 @@ async function capture(page, locator, entry) {
 
 const browser = await chromium.launch();
 try {
+  // Another project's preview can answer on a shared port: stop unless this is the [redacted] portal.
+  const probe = await browser.newPage();
+  await probe.goto(`${BASE_URL}/`, { waitUntil: 'domcontentloaded' });
+  const title = await probe.title();
+  await probe.close();
+  if (!/[redacted]/i.test(title)) throw new Error(`${BASE_URL} serves "${title}", not the [redacted] portal: use another port`);
   for (const width of WIDTHS) {
     for (const lang of LANGS) {
       const context = await browser.newContext({ viewport: { width, height: 1000 }, deviceScaleFactor: 2 });
