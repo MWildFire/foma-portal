@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import type { Lang } from '../../contract/types';
 
-// Logistic curve L / (1 + C e^(-kx)) through a fixed dataset, with a semi-log view of the same points.
+// Logistic curve L / (1 + C e^(-kx)) through a fixed dataset, with a logit view of the same points.
 // If L is right, z = ln(y / (L - y)) is a straight line in x with gradient k and intercept -ln C,
 // so the best-fit line of the transformed points gives estimates of k and C.
 
@@ -37,7 +37,12 @@ function bestFit(xs: number[], zs: number[]) {
 const TEXT = {
   en: {
     left: 'Logistic curve and data points',
-    right: 'Semi-log view: ln(y / (L − y)) against x, with the best-fit line',
+    right: 'Logit view: ln(y / (L − y)) against x, with the best-fit line',
+    leftTitle: 'Model and data',
+    rightTitle: 'Logit view',
+    xAxis: 'x',
+    yAxis: 'y',
+    zAxis: 'ln(y / (L − y))',
     legend: 'Blue: model. Orange dots: data.',
     L: 'Upper limit L',
     C: 'Constant C',
@@ -52,7 +57,12 @@ const TEXT = {
   },
   ru: {
     left: 'Логистическая кривая и точки данных',
-    right: 'Полулогарифмический вид: ln(y / (L − y)) от x, с прямой наилучшего приближения',
+    right: 'Логит-вид: ln(y / (L − y)) от x, с прямой наилучшего приближения',
+    leftTitle: 'Модель и данные',
+    rightTitle: 'Логит-вид',
+    xAxis: 'x',
+    yAxis: 'y',
+    zAxis: 'ln(y / (L − y))',
     legend: 'Синяя линия: модель. Оранжевые точки: данные.',
     L: 'Верхний предел L',
     C: 'Константа C',
@@ -95,6 +105,9 @@ export default function LogisticLoglogLab({ lang }: { lang: Lang }) {
         <line x1={PAD} y1={H - PAD} x2={W - PAD} y2={H - PAD} stroke="currentColor" />
         <line x1={PAD} y1={PAD} x2={PAD} y2={H - PAD} stroke="currentColor" />
         <line x1={PAD} y1={sy(L)} x2={W - PAD} y2={sy(L)} stroke="#888" strokeDasharray="4 3" />
+        <text x={PAD} y={12} fontSize={10}>{t.leftTitle}</text>
+        <text x={W - PAD} y={H - PAD + 12} fontSize={10} textAnchor="end">{t.xAxis}</text>
+        <text x={PAD - 4} y={PAD - 6} fontSize={10} textAnchor="end">{t.yAxis}</text>
         <path d={curve} fill="none" stroke="#4f6fd8" strokeWidth={2} />
         {DATA_X.map((x, i) => (
           <circle key={x} cx={sx(x)} cy={sy(DATA_Y[i])} r={3} fill="#e0883a" />
@@ -104,6 +117,9 @@ export default function LogisticLoglogLab({ lang }: { lang: Lang }) {
         <line x1={PAD} y1={H - PAD} x2={W - PAD} y2={H - PAD} stroke="currentColor" />
         <line x1={PAD} y1={PAD} x2={PAD} y2={H - PAD} stroke="currentColor" />
         <line x1={sx(0)} y1={sz(fit.intercept)} x2={sx(X_MAX)} y2={sz(zEnd)} stroke="#4f6fd8" strokeWidth={2} />
+        <text x={PAD} y={12} fontSize={10}>{t.rightTitle}</text>
+        <text x={W - PAD} y={H - PAD + 12} fontSize={10} textAnchor="end">{t.xAxis}</text>
+        <text x={PAD + 4} y={PAD - 6} fontSize={10}>{t.zAxis}</text>
         {DATA_X.map((x, i) => (
           <circle key={x} cx={sx(x)} cy={sz(zs[i])} r={3} fill="#e0883a" />
         ))}

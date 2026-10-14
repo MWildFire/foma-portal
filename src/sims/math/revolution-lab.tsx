@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import type { Lang } from '../../contract/types';
+import { areaBetween, discSum, f, volumeBetween } from './revolution-logic';
 
 // The region under y = 9 - x^2 between the bounds a and b, rotated about the x-axis. The area is the integral of y, and
 // the volume is pi times the integral of y^2 (disc method). The discs are drawn edge-on at their midpoints, and the
@@ -12,17 +13,9 @@ const WIDTH = 320;
 const HEIGHT = 190;
 const PAD = 14;
 
-const f = (x: number): number => 9 - x * x;
-
-// Antiderivatives: 9x - x^3/3 for the area, and pi times (81x - 6x^3 + x^5/5) for the volume.
-const areaBetween = (a: number, b: number): number => (9 * b - b ** 3 / 3) - (9 * a - a ** 3 / 3);
-const volumeBetween = (a: number, b: number): number => {
-  const antiderivative = (x: number): number => 81 * x - 6 * x ** 3 + x ** 5 / 5;
-  return Math.PI * (antiderivative(b) - antiderivative(a));
-};
-
+// The x-axis sits in the middle of the box, so an edge-on disc of radius r is a rectangle from -r to r.
 const sx = (x: number): number => PAD + ((x - X_MIN) / (X_MAX - X_MIN)) * (WIDTH - 2 * PAD);
-const sy = (y: number): number => HEIGHT - PAD - (y / Y_MAX) * (HEIGHT - 2 * PAD);
+const sy = (y: number): number => HEIGHT / 2 - (y / Y_MAX) * (HEIGHT / 2 - PAD);
 
 const TEXT = {
   en: {
@@ -34,6 +27,7 @@ const TEXT = {
     area: 'Area (exact)',
     volume: 'Volume about the x-axis (exact)',
     sum: 'Disc sum with n discs',
+    discNote: 'Each disc of radius f(midpoint) is drawn edge-on: a rectangle of height 2f(midpoint) centred on the x-axis.',
   },
   ru: {
     label: 'Область под y = 9 − x² между a и b, диски показаны с ребра',
@@ -44,6 +38,7 @@ const TEXT = {
     area: 'Площадь (точно)',
     volume: 'Объём вокруг оси x (точно)',
     sum: 'Сумма дисков при n дисках',
+    discNote: 'Каждый диск радиуса f(середина) показан с ребра: прямоугольник высотой 2f(середина) по обе стороны от оси x.',
   },
 } as const;
 
@@ -56,7 +51,6 @@ export default function RevolutionLab({ lang }: { lang: Lang }) {
   const valid = a < b;
   const width = valid ? (b - a) / n : 0;
   const mids = valid ? Array.from({ length: n }, (_, i) => a + (i + 0.5) * width) : [];
-  const discSum = mids.reduce((sum, mid) => sum + Math.PI * f(mid) ** 2 * width, 0);
   const curve = Array.from({ length: 61 }, (_, i) => {
     const x = -3 + (i / 60) * 6;
     return `${sx(x)},${sy(f(x))}`;
@@ -81,7 +75,7 @@ export default function RevolutionLab({ lang }: { lang: Lang }) {
             x={sx(mid - width / 2)}
             y={sy(f(mid))}
             width={sx(mid + width / 2) - sx(mid - width / 2)}
-            height={sy(0) - sy(f(mid))}
+            height={sy(-f(mid)) - sy(f(mid))}
             fill="#e0883a"
             fillOpacity={0.35}
             stroke="#e0883a"
@@ -97,7 +91,9 @@ export default function RevolutionLab({ lang }: { lang: Lang }) {
             <br />
             {t.volume}: {volumeBetween(a, b).toFixed(2)}
             <br />
-            {t.sum}: {discSum.toFixed(2)}
+            {t.sum}: {discSum(a, b, n).toFixed(2)}
+            <br />
+            {t.discNote}
           </>
         ) : (
           t.invalid

@@ -24,6 +24,7 @@ const TEXT = {
     after: 'State after n steps',
     steady: 'Steady state (q / (p + q), p / (p + q))',
     regular: 'All entries of T are positive, so the chain is regular and the steady state is reached from any start.',
+    legend: 'Orange line: P(A) after each step. Dashed line: steady state. Dot: state after n steps.',
   },
   ru: {
     label: 'Вероятность состояния A по шагам; установившееся значение показано пунктиром',
@@ -39,6 +40,7 @@ const TEXT = {
     after: 'Состояние после n шагов',
     steady: 'Установившееся распределение (q / (p + q), p / (p + q))',
     regular: 'Все элементы T положительны, поэтому цепь регулярна и к установившемуся распределению приходят из любого начального состояния.',
+    legend: 'Оранжевая линия: P(A) после каждого шага. Пунктир: установившееся значение. Точка: состояние после n шагов.',
   },
 } as const;
 
@@ -65,6 +67,9 @@ export default function MarkovLab({ lang }: { lang: Lang }) {
         <line x1={10} y1={Y(steadyA)} x2={WIDTH - 10} y2={Y(steadyA)} stroke="#4f6fd8" strokeWidth={1.5} strokeDasharray="5 4" />
         <polyline points={line} fill="none" stroke="#e0883a" strokeWidth={2} />
         <circle cx={X(n)} cy={Y(aN)} r={4} fill="#e0883a" />
+        <text x={2} y={Y(1) + 3} fontSize={9}>1</text>
+        <text x={2} y={Y(0) - 3} fontSize={9}>0</text>
+        <text x={WIDTH - 2} y={BASE - 4} fontSize={9} textAnchor="end">n</text>
       </svg>
       <figcaption style={{ fontSize: 13, lineHeight: 1.5 }}>
         {t.after}: P(A) = {aN.toFixed(3)}, P(B) = {(1 - aN).toFixed(3)}
@@ -72,6 +77,8 @@ export default function MarkovLab({ lang }: { lang: Lang }) {
         {t.steady}: {steadyA.toFixed(3)} · {(1 - steadyA).toFixed(3)}
         <br />
         {t.regular}
+        <br />
+        {t.legend}
       </figcaption>
       <table style={{ margin: '8px 0', fontSize: 13, borderCollapse: 'collapse' }}>
         <caption style={{ textAlign: 'left' }}>{t.matrix}</caption>

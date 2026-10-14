@@ -16,7 +16,7 @@ const Y_MAX = 24;
 const WIDTH = 320;
 const GRAPH_H = 180;
 const LINE_Y = 200;
-const HEIGHT = 215;
+const HEIGHT = 228;
 const BLUE = '#4f6fd8';
 const ORANGE = '#e0883a';
 const GREEN = '#2e9e6a';
@@ -40,6 +40,7 @@ const TEXT = {
     up: 'positive (green): f is increasing',
     down: 'negative (red): f is decreasing',
     flat: 'zero: stationary point',
+    stationary: 'hollow circles: stationary points, f′(x) = 0',
   },
   ru: {
     label: 'График f(x) = x^3 - 6x^2 + 9x + 1 с касательной и хордой в выбранной точке и знак f′(x)',
@@ -55,6 +56,7 @@ const TEXT = {
     up: 'положительный (зелёный): f возрастает',
     down: 'отрицательный (красный): f убывает',
     flat: 'ноль: стационарная точка',
+    stationary: 'пустые кружки: стационарные точки, f′(x) = 0',
   },
 } as const;
 
@@ -100,7 +102,9 @@ export default function TangentOptimisationLab({ lang }: { lang: Lang }) {
           <rect key={a} x={px(a)} y={LINE_Y - 5} width={px(b) - px(a)} height={10} fill={df((a + b) / 2) > 0 ? GREEN : RED} />
         ))}
         <circle cx={px(x)} cy={LINE_Y} r={6} fill="#333" />
-        {[-1, 1, 3, 5].map(v => <text key={v} x={px(v)} y={LINE_Y + 20} fontSize={10} textAnchor="middle">{v}</text>)}
+        {[-1, 1, 3, 5].map(v => (
+          <text key={v} x={px(v)} y={LINE_Y + 20} fontSize={10} textAnchor={v === X_MIN ? 'start' : v === X_MAX ? 'end' : 'middle'}>{v}</text>
+        ))}
       </svg>
       <figcaption style={{ fontSize: 13, lineHeight: 1.5 }}>
         <span style={{ color: BLUE }}>■ {t.curve}</span>{' · '}
@@ -110,6 +114,8 @@ export default function TangentOptimisationLab({ lang }: { lang: Lang }) {
         {t.fx} = {fx.toFixed(2)} · {t.slope} = {slope.toFixed(2)} · {t.chordSlope} = {chord.toFixed(2)}
         <br />
         {t.sign}: {sign}
+        <br />
+        {t.stationary}
       </figcaption>
       <label style={{ display: 'block', marginTop: 8 }}>
         {t.x}: {x.toFixed(2)}
