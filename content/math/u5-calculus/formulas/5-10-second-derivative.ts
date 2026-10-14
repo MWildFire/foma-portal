@@ -10,8 +10,8 @@ export const formulas: Formula[] = [
       ru: 'Вторая производная есть производная от f\'(x). При y = f(x) её записывают как d^2 y / dx^2.',
     },
     when: {
-      en: 'Finding how the gradient of a curve changes, or classifying a stationary point.',
-      ru: 'Поиск того, как меняется градиент кривой, или классификация стационарной точки.',
+      en: 'Finding how the gradient of a curve changes, or classifying a stationary point. The booklet (page 12) has $a = \\dfrac{dv}{dt} = \\dfrac{d^{2}s}{dt^{2}}$ with $s$ and $t$ instead of $y$ and $x$.',
+      ru: 'Поиск того, как меняется градиент кривой, или классификация стационарной точки. В книжке (стр. 12) есть $a = \\dfrac{dv}{dt} = \\dfrac{d^{2}s}{dt^{2}}$ с переменными $s$ и $t$ вместо $y$ и $x$.',
     },
     syllabus: '5.10',
     inBooklet: false,

@@ -10,11 +10,11 @@ export const formulas: Formula[] = [
       ru: 'Для целого n производная от a x^n равна a n x^(n-1): показатель выносится множителем, а новый показатель на единицу меньше.',
     },
     when: {
-      en: 'Differentiating any term that is a constant times an integer power of x, including negative powers.',
-      ru: 'Дифференцирование любого члена вида a x^n с целым n, включая отрицательные степени.',
+      en: 'Differentiating any term that is a constant times an integer power of x, including negative powers. The booklet (page 11) has the power rule for $x^{n}$ alone, without the constant factor $a$.',
+      ru: 'Дифференцирование любого члена вида a x^n с целым n, включая отрицательные степени. В книжке (стр. 11) есть правило для $x^{n}$ без постоянного множителя $a$.',
     },
     syllabus: '5.3',
-    inBooklet: true,
+    inBooklet: false,
     example: {
       en: 'For y = 3x^4 - 2x^(-1): dy/dx = 12x^3 + 2x^(-2).',
       ru: 'Для y = 3x^4 - 2x^(-1): dy/dx = 12x^3 + 2x^(-2).',

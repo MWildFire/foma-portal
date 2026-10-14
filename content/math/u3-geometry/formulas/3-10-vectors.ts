@@ -67,8 +67,8 @@ export const formulas: Formula[] = [
       ru: 'Радиус-вектор середины отрезка AB равен среднему арифметическому радиус-векторов a и b.',
     },
     when: {
-      en: 'Finding the midpoint of a line segment in two or three dimensions.',
-      ru: 'Поиск середины отрезка на плоскости или в пространстве.',
+      en: 'Finding the midpoint of a line segment in two or three dimensions. The booklet gives the coordinates of a midpoint (page 2, and page 6 in 3D), not the vector form.',
+      ru: 'Поиск середины отрезка на плоскости или в пространстве. В книжке есть координаты середины отрезка (стр. 2 и стр. 6 для 3D), но не векторная запись.',
     },
     syllabus: '3.10',
     inBooklet: false,

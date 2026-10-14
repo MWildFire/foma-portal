@@ -70,8 +70,8 @@ export const formulas: Formula[] = [
       ru: 'Каждое значение x заменяется на y = ax + b. Среднее меняется так же. Стандартное отклонение умножается на |a| и не зависит от b.',
     },
     when: {
-      en: 'Every value is rescaled or shifted, for example by changing units or adding a fixed amount.',
-      ru: 'Все значения умножаются или сдвигаются, например при смене единиц или при добавлении фиксированной суммы.',
+      en: 'Every value is rescaled or shifted, for example by changing units or adding a fixed amount. The booklet (page 10) has $E(aX + b) = aE(X) + b$ and $\\text{Var}(aX + b) = a^{2}\\text{Var}(X)$; the standard deviation needs a square root.',
+      ru: 'Все значения умножаются или сдвигаются, например при смене единиц или при добавлении фиксированной суммы. В книжке (стр. 10) есть $E(aX + b) = aE(X) + b$ и $\\text{Var}(aX + b) = a^{2}\\text{Var}(X)$; стандартное отклонение получается извлечением корня.',
     },
     syllabus: '4.3',
     inBooklet: false,

@@ -48,8 +48,8 @@ export const formulas: Formula[] = [
       ru: 'Логарифм отменяет свою степень: $10^{\\log_{10}x}=x$ и $e^{\\ln x}=x$. Логарифм по основанию 10 от степени 10 возвращает показатель, а $\\ln$ делает то же для степени e.',
     },
     when: {
-      en: 'Solving $10^{x}=a$ or $e^{x}=b$ for x, or checking a logarithm by raising the base to it.',
-      ru: 'Решение $10^{x}=a$ или $e^{x}=b$ относительно x, а также проверка логарифма возведением основания в найденную степень.',
+      en: 'Solving $10^{x}=a$ or $e^{x}=b$ for x, or checking a logarithm by raising the base to it. The booklet has the general form $a^{x} = b \\Leftrightarrow x = \\log_a b$ (page 3); the two identities above are its special cases.',
+      ru: 'Решение $10^{x}=a$ или $e^{x}=b$ относительно x, а также проверка логарифма возведением основания в найденную степень. В формульной книжке есть общая форма $a^{x} = b \\Leftrightarrow x = \\log_a b$ (стр. 3); два тождества выше — её частные случаи.',
     },
     syllabus: '1.5',
     inBooklet: false,

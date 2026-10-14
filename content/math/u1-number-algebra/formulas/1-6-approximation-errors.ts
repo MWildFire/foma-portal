@@ -29,8 +29,8 @@ export const formulas: Formula[] = [
       ru: 'Размер погрешности в процентах от точного значения.',
     },
     when: {
-      en: 'Comparing an approximate or measured value with a known exact value.',
-      ru: 'Сравнение приближённого или измеренного значения с известным точным значением.',
+      en: 'Comparing an approximate or measured value with a known exact value. The booklet (page 3) gives the signed form $\\dfrac{v_A - v_E}{v_E} \\times 100\\%$, without modulus bars.',
+      ru: 'Сравнение приближённого или измеренного значения с известным точным значением. В книжке (стр. 3) есть форма со знаком $\\dfrac{v_A - v_E}{v_E} \\times 100\\%$, без модуля.',
     },
     syllabus: '1.6',
     inBooklet: false,

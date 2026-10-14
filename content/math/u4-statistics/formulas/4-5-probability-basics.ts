@@ -44,8 +44,8 @@ export const formulas: Formula[] = [
       ru: 'Ожидаемое число появлений события A в n испытаниях, где P(A) — вероятность A в одном испытании.',
     },
     when: {
-      en: 'Predicting an average count over many repeats, for example faulty items in a batch.',
-      ru: 'Прогноз среднего числа за много повторений, например бракованных изделий в партии.',
+      en: 'Predicting an average count over many repeats, for example faulty items in a batch. The booklet (page 9) has $E(X) = np$ for $X \\sim B(n, p)$; here $p = P(A)$.',
+      ru: 'Прогноз среднего числа за много повторений, например бракованных изделий в партии. В книжке (стр. 9) есть $E(X) = np$ для $X \\sim B(n, p)$; здесь $p = P(A)$.',
     },
     syllabus: '4.5',
     inBooklet: false,

@@ -48,8 +48,8 @@ export const formulas: Formula[] = [
       ru: 'Два корня уравнения az^2 + bz + c = 0, когда дискриминант b^2 - 4ac отрицателен. Они являются сопряжёнными комплексными числами.',
     },
     when: {
-      en: 'A real quadratic with no real roots, such as z^2 - 4z + 13 = 0.',
-      ru: 'Действительное квадратное уравнение без действительных корней, например z^2 - 4z + 13 = 0.',
+      en: 'A real quadratic with no real roots, such as z^2 - 4z + 13 = 0. The booklet has the quadratic formula (page 2) and the discriminant $\\Delta = b^{2} - 4ac$ (page 4); the complex form also needs $\\sqrt{-k} = i\\sqrt{k}$.',
+      ru: 'Действительное квадратное уравнение без действительных корней, например z^2 - 4z + 13 = 0. В книжке есть формула корней (стр. 2) и дискриминант $\\Delta = b^{2} - 4ac$ (стр. 4); комплексный вид также требует $\\sqrt{-k} = i\\sqrt{k}$.',
     },
     syllabus: '1.12',
     inBooklet: false,

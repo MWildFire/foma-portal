@@ -25,8 +25,8 @@ export const formulas: Formula[] = [
       ru: 'x меняется на h умножить на v, а v — на h умножить на f. Оба изменения используют значения в начале шага, а t увеличивается на h.',
     },
     when: {
-      en: 'Approximating the solution of a second-order equation with a fixed step length h.',
-      ru: 'Приближённое решение уравнения второго порядка с постоянной длиной шага h.',
+      en: 'Approximating the solution of a second-order equation with a fixed step length h. The booklet (page 12) has the Euler method for coupled systems; a second-order equation first becomes such a system, with $\\dot{x} = v$.',
+      ru: 'Приближённое решение уравнения второго порядка с постоянной длиной шага h. В книжке (стр. 12) есть метод Эйлера для систем; уравнение второго порядка сначала переводят в такую систему, где $\\dot{x} = v$.',
     },
     syllabus: '5.18',
     inBooklet: false,

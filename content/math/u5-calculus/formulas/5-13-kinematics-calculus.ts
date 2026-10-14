@@ -10,8 +10,8 @@ export const formulas: Formula[] = [
       ru: 'Скорость — производная перемещения по времени; ускорение — производная скорости.',
     },
     when: {
-      en: 'Going down the chain from displacement to velocity to acceleration.',
-      ru: 'Переход по цепочке от перемещения к скорости и ускорению.',
+      en: 'Going down the chain from displacement to velocity to acceleration. The booklet (page 12) has $a = \\dfrac{dv}{dt} = \\dfrac{d^{2}s}{dt^{2}}$; the link $v = \\dfrac{ds}{dt}$ is not written there.',
+      ru: 'Переход по цепочке от перемещения к скорости и ускорению. В книжке (стр. 12) есть $a = \\dfrac{dv}{dt} = \\dfrac{d^{2}s}{dt^{2}}$; связи $v = \\dfrac{ds}{dt}$ там нет.',
     },
     syllabus: '5.13',
     inBooklet: false,

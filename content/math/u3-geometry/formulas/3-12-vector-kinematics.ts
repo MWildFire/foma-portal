@@ -10,8 +10,8 @@ export const formulas: Formula[] = [
       ru: 'r0 — положение в момент t = 0, v — постоянный вектор скорости. Путь — прямая линия через точку r0.',
     },
     when: {
-      en: 'Linear motion with constant velocity in two or three dimensions.',
-      ru: 'Прямолинейное движение с постоянной скоростью на плоскости или в пространстве.',
+      en: 'Linear motion with constant velocity in two or three dimensions. The booklet gives $\\mathbf{r} = \\mathbf{a} + \\lambda\\mathbf{b}$ (page 8), with $\\lambda$ in place of $t$.',
+      ru: 'Прямолинейное движение с постоянной скоростью на плоскости или в пространстве. В книжке есть $\\mathbf{r} = \\mathbf{a} + \\lambda\\mathbf{b}$ (стр. 8), где вместо $t$ стоит $\\lambda$.',
     },
     syllabus: '3.12',
     inBooklet: false,

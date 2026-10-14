@@ -44,8 +44,8 @@ export const formulas: Formula[] = [
       ru: 'Прямая через точки A и B, направление AB = OB - OA. Точки с 0 ≤ λ ≤ 1 лежат на отрезке AB.',
     },
     when: {
-      en: 'The line is given by two points rather than by a point and a direction.',
-      ru: 'Прямая задана двумя точками, а не точкой и направлением.',
+      en: 'The line is given by two points rather than by a point and a direction. The booklet gives $\\mathbf{r} = \\mathbf{a} + \\lambda\\mathbf{b}$ (page 8); the two-point form is that formula with $\\mathbf{a} = \\overrightarrow{OA}$ and $\\mathbf{b} = \\overrightarrow{AB}$.',
+      ru: 'Прямая задана двумя точками, а не точкой и направлением. В книжке есть $\\mathbf{r} = \\mathbf{a} + \\lambda\\mathbf{b}$ (стр. 8); запись через две точки получается при $\\mathbf{a} = \\overrightarrow{OA}$ и $\\mathbf{b} = \\overrightarrow{AB}$.',
     },
     syllabus: '3.11',
     inBooklet: false,

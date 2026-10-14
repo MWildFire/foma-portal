@@ -10,8 +10,8 @@ export const formulas: Formula[] = [
       ru: 'Среднее n значений выборки. Используется как оценка среднего всей совокупности.',
     },
     when: {
-      en: 'Estimating a population mean from a random sample.',
-      ru: 'Оценка среднего совокупности по случайной выборке.',
+      en: 'Estimating a population mean from a random sample. The booklet (page 9) has the weighted mean $\\bar{x} = \\dfrac{\\sum f_i x_i}{n}$; with every $f_i = 1$ it becomes this formula.',
+      ru: 'Оценка среднего совокупности по случайной выборке. В книжке (стр. 9) есть взвешенное среднее $\\bar{x} = \\dfrac{\\sum f_i x_i}{n}$; при всех $f_i = 1$ получается эта формула.',
     },
     syllabus: '4.1',
     inBooklet: false,

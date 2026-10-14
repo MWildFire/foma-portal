@@ -63,8 +63,8 @@ export const formulas: Formula[] = [
       ru: 'Если начать в вершине i, вероятность оказаться в вершине j через n шагов равна элементу в строке i и столбце j матрицы T^n, где T — матрица переходов.',
     },
     when: {
-      en: 'Finding the probability of a position after several steps of a random walk on a graph.',
-      ru: 'Поиск вероятности положения после нескольких шагов случайного блуждания по графу.',
+      en: 'Finding the probability of a position after several steps of a random walk on a graph. The booklet gives $T^{n}s_0 = s_n$ for a state vector (page 10); a single entry of $T^{n}$ needs a vertex vector as $s_0$.',
+      ru: 'Поиск вероятности положения после нескольких шагов случайного блуждания по графу. В книжке есть $T^{n}s_0 = s_n$ для вектора состояния (стр. 10); отдельный элемент $T^{n}$ получается, если взять вектор вершины как $s_0$.',
     },
     syllabus: '3.15',
     inBooklet: false,
