@@ -1,4 +1,5 @@
 import type { Term } from '../../../../src/contract/types';
+import { BOOK_TITLE } from '../../book';
 
 const source = {
   kind: 'web' as const,
@@ -17,7 +18,7 @@ export const terms: Term[] = [
     },
     syllabus: '3.5',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 3.2, p. 93' },
     pitfall: {
       en: 'Use the negative reciprocal -1/m of the segment gradient, not m itself: a line through the midpoint with gradient m lies along the segment.',
       ru: 'Берите отрицательную обратную величину -1/m, а не m: прямая через середину с угловым коэффициентом m совпадает с самим отрезком.',
@@ -32,7 +33,7 @@ export const terms: Term[] = [
     },
     syllabus: '3.5',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 3.1, p. 85' },
   },
   {
     id: 'circumcentre-of-triangle',

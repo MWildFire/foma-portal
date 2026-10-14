@@ -1,11 +1,5 @@
 import type { Term } from '../../../../src/contract/types';
-
-const source = {
-  kind: 'web' as const,
-  title: 'IB Mathematics AI, first assessment 2021: public summary, not checked against the official guide',
-  locator: 'sub-topic 3.11',
-  url: 'https://www.ibo.org/globalassets/new-structure/university-admission/pdfs/dp-mathematics-applications-and-interpretation-guide-en.pdf',
-};
+import { BOOK_TITLE } from '../../book';
 
 export const terms: Term[] = [
   {
@@ -17,7 +11,7 @@ export const terms: Term[] = [
     },
     syllabus: '3.11',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 3.6, p. 119' },
   },
   {
     id: 'direction-vector-of-line',
@@ -28,7 +22,7 @@ export const terms: Term[] = [
     },
     syllabus: '3.11',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 3.6, p. 119' },
     pitfall: {
       en: 'A direction vector fixes the slant of the line, not a point on it. The point a must be given separately.',
       ru: 'Направляющий вектор задаёт наклон прямой, но не точку на ней. Точку a нужно задать отдельно.',
@@ -43,6 +37,6 @@ export const terms: Term[] = [
     },
     syllabus: '3.11',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 3.6, p. 119' },
   },
 ];

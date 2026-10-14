@@ -1,11 +1,5 @@
 import type { Term } from '../../../../src/contract/types';
-
-const source = {
-  kind: 'web' as const,
-  title: 'IB Mathematics AI, first assessment 2021: public summary, not checked against the official guide',
-  locator: 'sub-topic 3.9',
-  url: 'https://www.ibo.org/globalassets/new-structure/university-admission/pdfs/dp-mathematics-applications-and-interpretation-guide-en.pdf',
-};
+import { BOOK_TITLE } from '../../book';
 
 export const terms: Term[] = [
   {
@@ -17,7 +11,7 @@ export const terms: Term[] = [
     },
     syllabus: '3.9',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 9.4, p. 393' },
   },
   {
     id: 'transform-determinant',
@@ -32,19 +26,19 @@ export const terms: Term[] = [
     },
     syllabus: '3.9',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 9.4, p. 396' },
     sim: 'math.matrix-transform-lab',
   },
   {
     id: 'transform-singular',
     term: { en: 'singular transformation', ru: 'вырожденное преобразование (singular transformation)' },
     def: {
-      en: 'A transformation whose matrix has determinant 0. It squashes the plane onto a line or a point, so it has no inverse.',
-      ru: 'Преобразование, у которого определитель матрицы равен 0. Оно сжимает плоскость в прямую или точку, поэтому обратного преобразования не существует.',
+      en: 'A transformation whose matrix has determinant 0. The matrix is then singular, meaning it is non-invertible, so the transformation has no inverse.',
+      ru: 'Преобразование, у которого определитель матрицы равен 0. Матрица при этом вырожденная (singular), то есть необратимая, поэтому у преобразования нет обратного.',
     },
     syllabus: '3.9',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 9.3, p. 385' },
   },
   {
     id: 'transform-composite',
@@ -55,6 +49,6 @@ export const terms: Term[] = [
     },
     syllabus: '3.9',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 9.4, p. 394' },
   },
 ];

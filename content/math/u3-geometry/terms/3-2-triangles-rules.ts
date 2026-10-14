@@ -1,23 +1,17 @@
 import type { Term } from '../../../../src/contract/types';
-
-const source = {
-  kind: 'web' as const,
-  title: 'IB Mathematics AI, first assessment 2021: public summary, not checked against the official guide',
-  locator: 'sub-topic 3.2',
-  url: 'https://www.ibo.org/globalassets/new-structure/university-admission/pdfs/dp-mathematics-applications-and-interpretation-guide-en.pdf',
-};
+import { BOOK_TITLE } from '../../book';
 
 export const terms: Term[] = [
   {
     id: 'sine-rule-triangle',
     term: { en: 'sine rule', ru: 'теорема синусов (sine rule)' },
     def: {
-      en: 'In any triangle, the ratio of each side to the sine of its opposite angle is the same for all three sides.',
-      ru: 'В любом треугольнике отношение каждой стороны к синусу противолежащего угла одинаково для всех трёх сторон.',
+      en: 'In a triangle with no right angle, dividing each side by the sine of its opposite angle gives a constant value, the same for every side.',
+      ru: 'В треугольнике без прямого угла деление каждой стороны на синус противолежащего угла даёт постоянную величину, одинаковую для каждой стороны.',
     },
     syllabus: '3.2',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 1.2, p. 18' },
     pitfall: {
       en: 'Pair each side with the angle opposite it, not with a neighbouring angle.',
       ru: 'Сторону нужно сопоставлять с противолежащим углом, а не с соседним.',
@@ -32,7 +26,7 @@ export const terms: Term[] = [
     },
     syllabus: '3.2',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 1.2, p. 23' },
     pitfall: {
       en: 'The angle in the formula must be the one opposite the side on the left. Check the letters before you substitute.',
       ru: 'Угол в формуле должен быть противолежащим стороне слева. Проверьте буквы перед подстановкой.',
@@ -47,7 +41,7 @@ export const terms: Term[] = [
     },
     syllabus: '3.2',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 1.2, p. 22' },
   },
   {
     id: 'soh-cah-toa',
@@ -58,7 +52,7 @@ export const terms: Term[] = [
     },
     syllabus: '3.2',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 1.2, p. 13' },
     pitfall: {
       en: 'The hypotenuse is always opposite the right angle. Label the sides relative to the angle you are using.',
       ru: 'Гипотенуза всегда лежит напротив прямого угла. Подписывайте катеты относительно того угла, который используете.',

@@ -1,11 +1,5 @@
 import type { Term } from '../../../../src/contract/types';
-
-const source = {
-  kind: 'web' as const,
-  title: 'IB Mathematics AI, first assessment 2021: public summary, not checked against the official guide',
-  locator: 'sub-topic 3.13',
-  url: 'https://www.ibo.org/globalassets/new-structure/university-admission/pdfs/dp-mathematics-applications-and-interpretation-guide-en.pdf',
-};
+import { BOOK_TITLE } from '../../book';
 
 export const terms: Term[] = [
   {
@@ -17,7 +11,7 @@ export const terms: Term[] = [
     },
     syllabus: '3.13',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 3.5, p. 114' },
     pitfall: {
       en: 'The scalar product is a number, not a vector. A negative value means the angle between the vectors is obtuse.',
       ru: 'Скалярное произведение — число, а не вектор. Отрицательное значение означает, что угол между векторами тупой.',
@@ -33,7 +27,7 @@ export const terms: Term[] = [
     },
     syllabus: '3.13',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 3.5, p. 116' },
     pitfall: {
       en: 'Swapping the order changes the sign: w × v = -(v × w). The triangle with sides v and w has half the area.',
       ru: 'Перестановка множителей меняет знак: w × v = -(v × w). Треугольник со сторонами v и w имеет вдвое меньшую площадь.',
@@ -48,7 +42,7 @@ export const terms: Term[] = [
     },
     syllabus: '3.13',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 3.6, p. 120' },
     pitfall: {
       en: 'The scalar product of the direction vectors can be negative. Take its absolute value before dividing.',
       ru: 'Скалярное произведение направляющих векторов может быть отрицательным. Возьмите его модуль перед делением.',

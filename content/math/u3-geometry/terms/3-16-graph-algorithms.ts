@@ -1,11 +1,5 @@
 import type { Term } from '../../../../src/contract/types';
-
-const source = {
-  kind: 'web' as const,
-  title: 'IB Mathematics AI, first assessment 2021: public summary, not checked against the official guide',
-  locator: 'sub-topic 3.16',
-  url: 'https://www.ibo.org/globalassets/new-structure/university-admission/pdfs/dp-mathematics-applications-and-interpretation-guide-en.pdf',
-};
+import { BOOK_TITLE } from '../../book';
 
 export const terms: Term[] = [
   {
@@ -17,7 +11,7 @@ export const terms: Term[] = [
     },
     syllabus: '3.16',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 15.4, p. 714' },
     pitfall: {
       en: 'An open Eulerian trail (not closed) needs exactly two odd vertices: it starts at one of them and ends at the other.',
       ru: 'Незамкнутая эйлерова цепь возможна, когда ровно две вершины имеют нечётную степень: она начинается в одной из них и заканчивается в другой.',
@@ -32,7 +26,7 @@ export const terms: Term[] = [
     },
     syllabus: '3.16',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 15.3, p. 708' },
     sim: 'math.mst-lab',
   },
   {
@@ -44,7 +38,7 @@ export const terms: Term[] = [
     },
     syllabus: '3.16',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 15.4, p. 716' },
     pitfall: {
       en: 'The repeated length is the sum of shortest-route lengths, which can be less than the direct edge between two odd vertices.',
       ru: 'Добавляется сумма длин кратчайших маршрутов, которая может быть меньше длины прямого ребра между двумя нечётными вершинами.',
@@ -60,7 +54,7 @@ export const terms: Term[] = [
     },
     syllabus: '3.16',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 15.5, p. 722' },
     sim: 'math.route-lab',
   },
 ];

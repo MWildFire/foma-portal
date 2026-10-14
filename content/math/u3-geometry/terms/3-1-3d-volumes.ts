@@ -1,4 +1,5 @@
 import type { Term } from '../../../../src/contract/types';
+import { BOOK_TITLE } from '../../book';
 
 const source = {
   kind: 'web' as const,
@@ -17,7 +18,7 @@ export const terms: Term[] = [
     },
     syllabus: '3.1',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 3.1, p. 85' },
     pitfall: {
       en: 'The square root of the sum is essential. Without it you have the squared distance.',
       ru: 'Квадратный корень из суммы обязателен: без него получится квадрат расстояния.',
@@ -27,12 +28,12 @@ export const terms: Term[] = [
     id: 'right-pyramid',
     term: { en: 'right pyramid', ru: 'прямая пирамида (right pyramid)' },
     def: {
-      en: 'A pyramid whose apex lies directly above the centre of its base, so the perpendicular height meets the base at its centre. Its volume is one third of the base area times the perpendicular height.',
-      ru: 'Пирамида, у которой вершина находится прямо над центром основания, поэтому перпендикулярная высота опускается в центр основания. Её объём равен одной трети площади основания, умноженной на перпендикулярную высоту.',
+      en: 'A pyramid whose apex lies directly above the centre of its base, so the perpendicular height meets the base at its centre.',
+      ru: 'Пирамида, у которой вершина находится прямо над центром основания, поэтому перпендикулярная высота опускается в центр основания.',
     },
     syllabus: '3.1',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 1.3, p. 33' },
     pitfall: {
       en: 'The slant height of a face is longer than the perpendicular height. Do not put it into the volume formula.',
       ru: 'Апофема грани длиннее перпендикулярной высоты, и подставлять её в формулу объёма нельзя.',
@@ -58,7 +59,7 @@ export const terms: Term[] = [
     },
     syllabus: '3.1',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 1.3, p. 34' },
     pitfall: {
       en: 'Measure the angle with the projection, not with an edge of the solid that happens to touch the plane.',
       ru: 'Угол измеряется с проекцией, а не с ребром тела, которое случайно касается плоскости.',

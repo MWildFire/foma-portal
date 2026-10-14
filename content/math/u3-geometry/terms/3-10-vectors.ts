@@ -1,4 +1,5 @@
 import type { Term } from '../../../../src/contract/types';
+import { BOOK_TITLE } from '../../book';
 
 const source = {
   kind: 'web' as const,
@@ -17,7 +18,7 @@ export const terms: Term[] = [
     },
     syllabus: '3.10',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 3.4, p. 104' },
   },
   {
     id: 'position-vector-from-origin',
@@ -28,7 +29,7 @@ export const terms: Term[] = [
     },
     syllabus: '3.10',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 3.4, p. 106' },
   },
   {
     id: 'unit-vector-in-direction',

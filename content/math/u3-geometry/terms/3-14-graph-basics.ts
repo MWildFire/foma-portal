@@ -1,11 +1,5 @@
 import type { Term } from '../../../../src/contract/types';
-
-const source = {
-  kind: 'web' as const,
-  title: 'IB Mathematics AI, first assessment 2021: public summary, not checked against the official guide',
-  locator: 'sub-topic 3.14',
-  url: 'https://www.ibo.org/globalassets/new-structure/university-admission/pdfs/dp-mathematics-applications-and-interpretation-guide-en.pdf',
-};
+import { BOOK_TITLE } from '../../book';
 
 export const terms: Term[] = [
   {
@@ -17,7 +11,7 @@ export const terms: Term[] = [
     },
     syllabus: '3.14',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 15.1, p. 696' },
     pitfall: {
       en: 'Add the degrees of every vertex, including the vertices of degree 1. Leaving one out breaks the total.',
       ru: 'При сложении степеней учитывайте все вершины, включая вершины степени 1. Пропуск одной вершины нарушает сумму.',
@@ -32,7 +26,7 @@ export const terms: Term[] = [
     },
     syllabus: '3.14',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 15.5, p. 720' },
   },
   {
     id: 'graph-tree',
@@ -43,7 +37,7 @@ export const terms: Term[] = [
     },
     syllabus: '3.14',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 15.3, p. 708' },
     pitfall: {
       en: 'A graph with $n - 1$ edges that is not connected is not a tree. A tree needs both connection and no cycles.',
       ru: 'Граф с $n - 1$ рёбрами, который не связен, деревом не является. Нужны и связность, и отсутствие циклов.',
@@ -58,7 +52,7 @@ export const terms: Term[] = [
     },
     syllabus: '3.14',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 15.1, p. 697' },
     pitfall: {
       en: 'The in-degree and out-degree of one vertex are not equal in general. Each arc is counted once in the total of the in-degrees and once in the total of the out-degrees.',
       ru: 'Полустепени захода и исхода одной вершины, вообще говоря, не равны. Каждая дуга учитывается один раз в сумме полустепеней захода и один раз в сумме полустепеней исхода.',

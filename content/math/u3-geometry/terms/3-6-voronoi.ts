@@ -1,11 +1,5 @@
 import type { Term } from '../../../../src/contract/types';
-
-const source = {
-  kind: 'web' as const,
-  title: 'IB Mathematics AI, first assessment 2021: public summary, not checked against the official guide',
-  locator: 'sub-topic 3.6',
-  url: 'https://www.ibo.org/globalassets/new-structure/university-admission/pdfs/dp-mathematics-applications-and-interpretation-guide-en.pdf',
-};
+import { BOOK_TITLE } from '../../book';
 
 export const terms: Term[] = [
   {
@@ -17,7 +11,7 @@ export const terms: Term[] = [
     },
     syllabus: '3.6',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 3.3, p. 96' },
     sim: 'math.voronoi-lab',
     pitfall: {
       en: 'A point on an edge is equally far from two sites, so it is not nearer to both. Say so when a question asks about points on an edge.',
@@ -33,7 +27,7 @@ export const terms: Term[] = [
     },
     syllabus: '3.6',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 3.3, p. 96' },
   },
   {
     id: 'voronoi-vertex',
@@ -44,7 +38,7 @@ export const terms: Term[] = [
     },
     syllabus: '3.6',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 3.3, p. 100' },
   },
   {
     id: 'nearest-neighbour-interpolation',
@@ -55,7 +49,7 @@ export const terms: Term[] = [
     },
     syllabus: '3.6',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 3.3, p. 98' },
     pitfall: {
       en: 'The estimate is stepped, with jumps along the cell edges. It is not a smooth curve.',
       ru: 'Оценка ступенчатая, со скачками вдоль рёбер ячеек. Это не гладкая кривая.',

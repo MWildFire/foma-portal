@@ -1,4 +1,5 @@
 import type { Term } from '../../../../src/contract/types';
+import { BOOK_TITLE } from '../../book';
 
 const source = {
   kind: 'web' as const,
@@ -17,7 +18,7 @@ export const terms: Term[] = [
     },
     syllabus: '3.8',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 8.2, p. 343' },
     pitfall: {
       en: 'Angles are measured anticlockwise from the positive $x$-axis, so a negative angle is measured clockwise.',
       ru: 'Углы отсчитываются против часовой стрелки от положительной полуоси $x$; отрицательный угол откладывается по часовой стрелке.',
@@ -39,12 +40,12 @@ export const terms: Term[] = [
     id: 'ambiguous-case-sine-rule',
     term: { en: 'ambiguous case of the sine rule', ru: 'неоднозначный случай теоремы синусов (ambiguous case of the sine rule)' },
     def: {
-      en: 'When two sides and an angle not between them are given, the sine rule fixes the sine of the other angle. That sine is shared by an angle $\\theta$ and by $180^\\circ - \\theta$, so there may be two triangles, one, or none.',
-      ru: 'Если даны две стороны и угол, не заключённый между ними, теорема синусов задаёт синус другого угла. Этот синус общий для угла $\\theta$ и для $180^\\circ - \\theta$, поэтому возможны два треугольника, один или ни одного.',
+      en: 'Two sides and a non-included angle are given. If the angle being sought sits across from the longer of the two given sides, two triangles can be formed, and their two candidate angles add up to $180^\\circ$.',
+      ru: 'Даны две стороны и угол, не заключённый между ними. Если искомый угол лежит напротив большей из двух данных сторон, можно построить два треугольника, а два возможных значения этого угла в сумме дают $180^\\circ$.',
     },
     syllabus: '3.8',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 1.2, p. 21' },
     pitfall: {
       en: 'Test both angles: the second triangle exists only if the angle sum is less than $180^\\circ$.',
       ru: 'Проверяйте оба угла: второй треугольник существует, только если сумма углов меньше $180^\\circ$.',

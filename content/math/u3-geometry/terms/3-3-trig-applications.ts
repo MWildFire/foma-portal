@@ -1,4 +1,5 @@
 import type { Term } from '../../../../src/contract/types';
+import { BOOK_TITLE } from '../../book';
 
 const source = {
   kind: 'web' as const,
@@ -17,7 +18,7 @@ export const terms: Term[] = [
     },
     syllabus: '3.3',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 1.2, p. 14' },
     pitfall: {
       en: 'Measure from the horizontal through the observer, not from the vertical.',
       ru: 'Отсчитывайте угол от горизонтали через наблюдателя, а не от вертикали.',
@@ -32,7 +33,7 @@ export const terms: Term[] = [
     },
     syllabus: '3.3',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 1.2, p. 15' },
     pitfall: {
       en: 'When the horizontal lines are parallel, the angle of depression equals the angle of elevation seen from the object (alternate angles).',
       ru: 'Если горизонтальные линии параллельны, угол понижения равен углу возвышения, видимому из наблюдаемого объекта (накрест лежащие углы).',
