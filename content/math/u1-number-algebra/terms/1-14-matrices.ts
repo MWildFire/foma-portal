@@ -1,11 +1,5 @@
 import type { Term } from '../../../../src/contract/types';
-
-const source = {
-  kind: 'web' as const,
-  title: 'IB Mathematics AI, first assessment 2021: public summary, not checked against the official guide',
-  locator: 'sub-topic 1.14',
-  url: 'https://www.ibo.org/globalassets/new-structure/university-admission/pdfs/dp-mathematics-applications-and-interpretation-guide-en.pdf',
-};
+import { BOOK_TITLE } from '../../book';
 
 export const terms: Term[] = [
   {
@@ -17,7 +11,7 @@ export const terms: Term[] = [
     },
     syllabus: '1.14',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 9.1, p. 374' },
     pitfall: {
       en: 'Rows come first: a 2 × 3 matrix has 2 rows and 3 columns.',
       ru: 'Сначала строки: матрица 2 × 3 имеет 2 строки и 3 столбца.',
@@ -32,7 +26,7 @@ export const terms: Term[] = [
     },
     syllabus: '1.14',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 9.3, p. 385' },
     pitfall: {
       en: 'Subtract the product bc from ad. Do not add it.',
       ru: 'Из произведения ad вычитается произведение bc, а не прибавляется.',
@@ -47,7 +41,7 @@ export const terms: Term[] = [
     },
     syllabus: '1.14',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 9.3, p. 384' },
     pitfall: {
       en: 'Check the determinant first. If it is zero there is no inverse, and the factor $\\dfrac{1}{ad-bc}$ cannot be used.',
       ru: 'Сначала проверьте определитель. Если он равен нулю, обратной матрицы нет, и множитель $\\dfrac{1}{ad-bc}$ применять нельзя.',
@@ -62,6 +56,6 @@ export const terms: Term[] = [
     },
     syllabus: '1.14',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 9.2, p. 381' },
   },
 ];

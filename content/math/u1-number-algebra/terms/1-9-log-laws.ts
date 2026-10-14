@@ -1,11 +1,5 @@
 import type { Term } from '../../../../src/contract/types';
-
-const source = {
-  kind: 'web' as const,
-  title: 'IB Mathematics AI, first assessment 2021: public summary, not checked against the official guide',
-  locator: 'sub-topic 1.9',
-  url: 'https://www.ibo.org/globalassets/new-structure/university-admission/pdfs/dp-mathematics-applications-and-interpretation-guide-en.pdf',
-};
+import { BOOK_TITLE } from '../../book';
 
 export const terms: Term[] = [
   {
@@ -17,7 +11,7 @@ export const terms: Term[] = [
     },
     syllabus: '1.9',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 7.4, p. 320' },
     pitfall: {
       en: 'The argument must be positive: a logarithm of zero or of a negative number does not exist among the real numbers.',
       ru: 'Аргумент должен быть положительным: логарифм нуля или отрицательного числа не существует среди действительных чисел.',
@@ -32,7 +26,7 @@ export const terms: Term[] = [
     },
     syllabus: '1.9',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 7.4, p. 322' },
     pitfall: {
       en: 'The law needs a product inside the logarithm. $\\log_a(x+y)$ does not split into $\\log_a x+\\log_a y$.',
       ru: 'Правило требует произведения внутри логарифма. $\\log_a(x+y)$ не раскладывается на $\\log_a x+\\log_a y$.',
@@ -47,7 +41,7 @@ export const terms: Term[] = [
     },
     syllabus: '1.9',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 7.4, p. 322' },
     pitfall: {
       en: 'A quotient of two logarithms is not a logarithm of a quotient: $\\dfrac{\\log_a x}{\\log_a y}\\neq\\log_a\\left(\\dfrac{x}{y}\\right)$.',
       ru: 'Частное двух логарифмов — не логарифм частного: $\\dfrac{\\log_a x}{\\log_a y}\\neq\\log_a\\left(\\dfrac{x}{y}\\right)$.',
@@ -62,7 +56,7 @@ export const terms: Term[] = [
     },
     syllabus: '1.9',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 7.4, p. 322' },
     pitfall: {
       en: 'The power must sit inside the logarithm: $(\\log_2 8)^{2}=9$, but $\\log_2(8^{2})=6$.',
       ru: 'Степень должна стоять внутри логарифма: $(\\log_2 8)^{2}=9$, а $\\log_2(8^{2})=6$.',

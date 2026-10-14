@@ -1,11 +1,5 @@
 import type { Term } from '../../../../src/contract/types';
-
-const source = {
-  kind: 'web' as const,
-  title: 'IB Mathematics AI, first assessment 2021: public summary, not checked against the official guide',
-  locator: 'sub-topic 1.11',
-  url: 'https://www.ibo.org/globalassets/new-structure/university-admission/pdfs/dp-mathematics-applications-and-interpretation-guide-en.pdf',
-};
+import { BOOK_TITLE } from '../../book';
 
 export const terms: Term[] = [
   {
@@ -17,7 +11,7 @@ export const terms: Term[] = [
     },
     syllabus: '1.11',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 7.1, p. 299' },
     pitfall: {
       en: 'The formula gives no answer when $|r|\\geq 1$. Check the common ratio before you substitute.',
       ru: 'Формула не даёт ответа при $|r|\\geq 1$. Проверьте знаменатель прогрессии до подстановки.',
@@ -32,7 +26,7 @@ export const terms: Term[] = [
     },
     syllabus: '1.11',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 7.1, p. 299' },
     pitfall: {
       en: 'Convergence depends only on the common ratio, not on the size of the first term. When $r=1$ the partial sums grow without bound.',
       ru: 'Сходимость зависит только от знаменателя, а не от первого члена. При $r=1$ частичные суммы растут без ограничения.',
@@ -47,7 +41,7 @@ export const terms: Term[] = [
     },
     syllabus: '1.11',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 7.1, p. 299' },
     pitfall: {
       en: 'With a negative ratio the partial sums swing above and below the limit, but they still settle down when $|r|<1$.',
       ru: 'При отрицательном знаменателе частичные суммы колеблются вокруг предела, но всё равно приближаются к нему при $|r|<1$.',

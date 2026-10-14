@@ -1,11 +1,5 @@
 import type { Term } from '../../../../src/contract/types';
-
-const source = {
-  kind: 'web' as const,
-  title: 'IB Mathematics AI, first assessment 2021: public summary, not checked against the official guide',
-  locator: 'sub-topic 1.4',
-  url: 'https://www.ibo.org/globalassets/new-structure/university-admission/pdfs/dp-mathematics-applications-and-interpretation-guide-en.pdf',
-};
+import { BOOK_TITLE } from '../../book';
 
 export const terms: Term[] = [
   {
@@ -17,7 +11,7 @@ export const terms: Term[] = [
     },
     syllabus: '1.4',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 7.2, p. 302' },
     pitfall: {
       en: 'The growth factor is $1 + \\frac{r}{100k}$, not $\\frac{r}{100k}$: the original amount is kept as well as the interest.',
       ru: 'Множитель роста равен $1 + \\frac{r}{100k}$, а не $\\frac{r}{100k}$: исходная сумма сохраняется вместе с процентами.',
@@ -33,7 +27,7 @@ export const terms: Term[] = [
     },
     syllabus: '1.4',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 7.2, p. 303' },
   },
   {
     id: 'reducing-balance-depreciation',
@@ -44,7 +38,7 @@ export const terms: Term[] = [
     },
     syllabus: '1.4',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 7.1, p. 293' },
     pitfall: {
       en: 'The loss is a percentage of a shrinking value, so the amount lost each year gets smaller. It is not a fixed amount each year.',
       ru: 'Потеря — это процент от уменьшающейся стоимости, поэтому сумма потери каждый год становится меньше. Это не фиксированная сумма в год.',

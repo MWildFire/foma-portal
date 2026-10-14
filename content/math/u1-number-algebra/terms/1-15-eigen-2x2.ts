@@ -1,11 +1,5 @@
 import type { Term } from '../../../../src/contract/types';
-
-const source = {
-  kind: 'web' as const,
-  title: 'IB Mathematics AI, first assessment 2021: public summary, not checked against the official guide',
-  locator: 'sub-topic 1.15',
-  url: 'https://www.ibo.org/globalassets/new-structure/university-admission/pdfs/dp-mathematics-applications-and-interpretation-guide-en.pdf',
-};
+import { BOOK_TITLE } from '../../book';
 
 export const terms: Term[] = [
   {
@@ -17,7 +11,7 @@ export const terms: Term[] = [
     },
     syllabus: '1.15',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 9.7, p. 415' },
     pitfall: {
       en: 'The constant term is $\\det A$, and the coefficient of $\\lambda$ is minus the trace. Keep the signs.',
       ru: 'Свободный член равен $\\det A$, а коэффициент при $\\lambda$ равен минус следу матрицы. Следите за знаками.',
@@ -27,12 +21,12 @@ export const terms: Term[] = [
     id: 'eigenvalue-2x2',
     term: { en: 'eigenvalue of a 2 × 2 matrix', ru: 'собственное значение (eigenvalue of a 2 × 2 matrix)' },
     def: {
-      en: 'A number $\\lambda$ for which $A\\mathbf{v} = \\lambda\\mathbf{v}$ has a non-zero solution $\\mathbf{v}$. For a $2 \\times 2$ matrix it is a root of the characteristic equation.',
-      ru: 'Число $\\lambda$, для которого уравнение $A\\mathbf{v} = \\lambda\\mathbf{v}$ имеет ненулевое решение $\\mathbf{v}$. Для матрицы $2 \\times 2$ это корень характеристического уравнения.',
+      en: 'A real number $\\lambda$ for which $A\\mathbf{v} = \\lambda\\mathbf{v}$ has a non-zero solution $\\mathbf{v}$. For a $2 \\times 2$ matrix it is a root of the characteristic equation.',
+      ru: 'Вещественное число $\\lambda$, для которого уравнение $A\\mathbf{v} = \\lambda\\mathbf{v}$ имеет ненулевое решение $\\mathbf{v}$. Для матрицы $2 \\times 2$ это корень характеристического уравнения.',
     },
     syllabus: '1.15',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 9.7, p. 415' },
     pitfall: {
       en: 'A negative discriminant gives complex eigenvalues, and then there are no real eigenvectors.',
       ru: 'Отрицательный дискриминант даёт комплексные собственные значения, и тогда вещественных собственных векторов нет.',
@@ -48,7 +42,7 @@ export const terms: Term[] = [
     },
     syllabus: '1.15',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 9.7, p. 415' },
   },
   {
     id: 'diagonalisation-2x2',
@@ -59,7 +53,7 @@ export const terms: Term[] = [
     },
     syllabus: '1.15',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 9.7, p. 417' },
     pitfall: {
       en: 'Keep the order consistent: the first column of $P$ must be the eigenvector for the first diagonal entry of $D$.',
       ru: 'Сохраняйте порядок: первый столбец $P$ должен быть собственным вектором для первого диагонального элемента $D$.',

@@ -1,11 +1,5 @@
 import type { Term } from '../../../../src/contract/types';
-
-const source = {
-  kind: 'web' as const,
-  title: 'IB Mathematics AI, first assessment 2021: public summary, not checked against the official guide',
-  locator: 'sub-topic 1.13',
-  url: 'https://www.ibo.org/globalassets/new-structure/university-admission/pdfs/dp-mathematics-applications-and-interpretation-guide-en.pdf',
-};
+import { BOOK_TITLE } from '../../book';
 
 export const terms: Term[] = [
   {
@@ -17,7 +11,7 @@ export const terms: Term[] = [
     },
     syllabus: '1.13',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 8.4, p. 359' },
     sim: 'math.complex-plane-lab',
     pitfall: {
       en: 'Keep θ in one unit throughout. The exponential form needs radians, so convert degrees first.',
@@ -33,7 +27,7 @@ export const terms: Term[] = [
     },
     syllabus: '1.13',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 8.4, p. 357' },
     pitfall: {
       en: 'When $a < 0$, arctan(b/a) lies in the wrong half-plane. Add $\\pi$ for a point in the second quadrant and subtract $\\pi$ for one in the third.',
       ru: 'При $a < 0$ значение arctan(b/a) попадает в неверную полуплоскость. Для точки во второй четверти прибавьте $\\pi$, для точки в третьей — вычтите $\\pi$.',
@@ -48,7 +42,7 @@ export const terms: Term[] = [
     },
     syllabus: '1.13',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 8.4, p. 360' },
     pitfall: {
       en: 'The angle in $e^{i\\theta}$ is in radians. Writing $e^{30i}$ for an angle of 30 degrees is wrong.',
       ru: 'Угол в $e^{i\\theta}$ берётся в радианах. Запись $e^{30i}$ для угла в 30 градусов неверна.',
@@ -63,7 +57,7 @@ export const terms: Term[] = [
     },
     syllabus: '1.13',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 8.4, p. 361' },
     pitfall: {
       en: 'The argument is multiplied by $n$, not added to $n$. The modulus is raised to the power $n$, not multiplied by $n$.',
       ru: 'Аргумент умножается на $n$, а не складывается с $n$. Модуль возводится в степень $n$, а не умножается на $n$.',

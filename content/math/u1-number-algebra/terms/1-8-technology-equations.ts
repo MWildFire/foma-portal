@@ -1,4 +1,5 @@
 import type { Term } from '../../../../src/contract/types';
+import { BOOK_TITLE } from '../../book';
 
 const source = {
   kind: 'web' as const,
@@ -12,12 +13,12 @@ export const terms: Term[] = [
     id: 'system-linear-equations',
     term: { en: 'system of linear equations', ru: 'система линейных уравнений (system of linear equations)' },
     def: {
-      en: 'Two or three linear equations in the same unknowns, solved together. A solution is a set of values that satisfies every equation at the same time.',
-      ru: 'Два или три линейных уравнения с одними и теми же неизвестными, которые решают вместе. Решение — набор значений, при котором выполняются все уравнения одновременно.',
+      en: 'Linear equations in the same unknowns, solved together; a system with $n$ variables and $n$ equations can be written as $AX = B$. A solution is a set of values that satisfies every equation at the same time.',
+      ru: 'Линейные уравнения с одними и теми же неизвестными, решаемые вместе; система с $n$ неизвестными и $n$ уравнениями записывается в виде $AX = B$. Решение — набор значений, при котором одновременно выполняются все уравнения.',
     },
     syllabus: '1.8',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 9.3, p. 384' },
     pitfall: {
       en: 'Check the solution in every original equation, not only in the one you used to find it.',
       ru: 'Проверяйте решение во всех исходных уравнениях, а не только в том, с которым работали.',

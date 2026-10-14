@@ -1,11 +1,5 @@
 import type { Term } from '../../../../src/contract/types';
-
-const source = {
-  kind: 'web' as const,
-  title: 'IB Mathematics AI, first assessment 2021: public summary, not checked against the official guide',
-  locator: 'sub-topic 1.12',
-  url: 'https://www.ibo.org/globalassets/new-structure/university-admission/pdfs/dp-mathematics-applications-and-interpretation-guide-en.pdf',
-};
+import { BOOK_TITLE } from '../../book';
 
 export const terms: Term[] = [
   {
@@ -17,7 +11,7 @@ export const terms: Term[] = [
     },
     syllabus: '1.12',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 8.4, p. 358' },
     pitfall: {
       en: 'The imaginary part is the real number b, not bi. For z = 2 + 3i, Im z = 3.',
       ru: 'Мнимая часть — это действительное число b, а не bi. Для z = 2 + 3i имеем Im z = 3.',
@@ -32,7 +26,7 @@ export const terms: Term[] = [
     },
     syllabus: '1.12',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 8.4, p. 356' },
     sim: 'math.complex-plane-lab',
     pitfall: {
       en: 'Plot the imaginary part on the vertical axis: z = 2 + 3i is the point (2, 3), not (3, 2).',
@@ -48,7 +42,7 @@ export const terms: Term[] = [
     },
     syllabus: '1.12',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 8.3, p. 354' },
     pitfall: {
       en: 'Only the sign of the imaginary part changes. The real part stays the same.',
       ru: 'Меняется только знак мнимой части, действительная часть остаётся прежней.',
@@ -63,7 +57,7 @@ export const terms: Term[] = [
     },
     syllabus: '1.12',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 8.4, p. 357' },
     pitfall: {
       en: 'The modulus is not a + b. Square each part, add the squares, then take the square root.',
       ru: 'Модуль — это не a + b. Возведите каждую часть в квадрат, сложите квадраты и извлеките корень.',

@@ -1,4 +1,5 @@
 import type { Term } from '../../../../src/contract/types';
+import { BOOK_TITLE } from '../../book';
 
 const source = {
   kind: 'web' as const,
@@ -12,12 +13,12 @@ export const terms: Term[] = [
     id: 'geometric-sequence',
     term: { en: 'geometric sequence', ru: 'геометрическая последовательность (geometric sequence)' },
     def: {
-      en: 'A sequence in which each term is found from the previous one by multiplying by the same non-zero constant $r$. Its terms are $u_1, u_1 r, u_1 r^2, \\dots$',
-      ru: 'Последовательность, в которой каждый член получается из предыдущего умножением на одно и то же ненулевое число $r$. Её члены: $u_1, u_1 r, u_1 r^2, \\dots$',
+      en: 'A sequence in which each term is found by multiplying the previous term by the same common ratio $r$, where $r \\neq 1$. Its terms are $u_1, u_1 r, u_1 r^2, \\dots$',
+      ru: 'Последовательность, в которой каждый член получается умножением предыдущего члена на одно и то же число $r$, где $r \\neq 1$. Её члены: $u_1, u_1 r, u_1 r^2, \\dots$',
     },
     syllabus: '1.3',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 7.1, p. 291' },
     pitfall: {
       en: 'Multiplying by $r$ is different from adding $d$. The sequence 2, 4, 6, 8 is arithmetic, not geometric.',
       ru: 'Умножение на $r$ отличается от сложения с $d$. Последовательность 2, 4, 6, 8 арифметическая, а не геометрическая.',
@@ -32,7 +33,7 @@ export const terms: Term[] = [
     },
     syllabus: '1.3',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 7.1, p. 291' },
     pitfall: {
       en: 'The ratio is found by division, so it is only defined when the earlier term is not zero. A negative $r$ makes the signs of the terms alternate.',
       ru: 'Число $r$ находят делением, поэтому оно определено, только если предыдущий член не равен нулю. При отрицательном $r$ знаки членов чередуются.',
@@ -47,7 +48,7 @@ export const terms: Term[] = [
     },
     syllabus: '1.3',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 7.1, p. 296' },
     pitfall: {
       en: 'The formula with $1 - r$ in the denominator needs $r \\ne 1$. If $r = 1$ all terms are equal, and the sum is $n u_1$.',
       ru: 'Формула с $1 - r$ в знаменателе требует $r \\ne 1$. Если $r = 1$, все члены равны, и сумма равна $n u_1$.',

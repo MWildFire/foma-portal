@@ -1,4 +1,5 @@
 import type { Term } from '../../../../src/contract/types';
+import { BOOK_TITLE } from '../../book';
 
 const source = {
   kind: 'web' as const,
@@ -17,7 +18,7 @@ export const terms: Term[] = [
     },
     syllabus: '1.10',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 1.1, p. 11' },
     pitfall: {
       en: 'The rules here are stated for a positive base. With a negative base the root may not be real.',
       ru: 'Правила здесь записаны для положительного основания. При отрицательном основании корень может не быть действительным.',
@@ -27,12 +28,12 @@ export const terms: Term[] = [
     id: 'exponent-laws-rational',
     term: { en: 'laws of exponents for rational powers', ru: 'законы степеней для рациональных показателей (laws of exponents for rational powers)' },
     def: {
-      en: 'For $a,b>0$ and rational $p$, $q$: $a^{p}a^{q}=a^{p+q}$, $\\dfrac{a^{p}}{a^{q}}=a^{p-q}$, $(a^{p})^{q}=a^{pq}$ and $(ab)^{p}=a^{p}b^{p}$. The laws for whole-number exponents carry over unchanged.',
-      ru: 'При $a,b>0$ и рациональных $p$, $q$: $a^{p}a^{q}=a^{p+q}$, $\\dfrac{a^{p}}{a^{q}}=a^{p-q}$, $(a^{p})^{q}=a^{pq}$ и $(ab)^{p}=a^{p}b^{p}$. Законы для целых показателей переносятся без изменений.',
+      en: 'For a positive base $a$ and rational exponents $m$ and $n$, the rules of exponents are $a^{m}\\times a^{n}=a^{m+n}$, $(a^{m})^{n}=a^{mn}$ and $\\dfrac{a^{m}}{a^{n}}=a^{m-n}$.',
+      ru: 'Для положительного основания $a$ и рациональных показателей $m$ и $n$ правила степеней таковы: $a^{m}\\times a^{n}=a^{m+n}$, $(a^{m})^{n}=a^{mn}$ и $\\dfrac{a^{m}}{a^{n}}=a^{m-n}$.',
     },
     syllabus: '1.10',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 1.1, p. 11' },
     pitfall: {
       en: 'The laws act on products and powers only. $a^{p}+a^{q}$ does not simplify to $a^{p+q}$.',
       ru: 'Законы работают только с произведениями и степенями. $a^{p}+a^{q}$ не упрощается до $a^{p+q}$.',

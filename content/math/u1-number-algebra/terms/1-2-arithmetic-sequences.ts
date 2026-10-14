@@ -1,11 +1,5 @@
 import type { Term } from '../../../../src/contract/types';
-
-const source = {
-  kind: 'web' as const,
-  title: 'IB Mathematics AI, first assessment 2021: public summary, not checked against the official guide',
-  locator: 'sub-topic 1.2',
-  url: 'https://www.ibo.org/globalassets/new-structure/university-admission/pdfs/dp-mathematics-applications-and-interpretation-guide-en.pdf',
-};
+import { BOOK_TITLE } from '../../book';
 
 export const terms: Term[] = [
   {
@@ -17,7 +11,7 @@ export const terms: Term[] = [
     },
     syllabus: '1.2',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 4.4, p. 179' },
     pitfall: {
       en: 'The difference must be the same for every pair of neighbouring terms. Check at least two pairs before you call a sequence arithmetic.',
       ru: 'Разность должна быть одинаковой для каждой пары соседних членов. Проверьте хотя бы две пары, прежде чем называть последовательность арифметической.',
@@ -32,7 +26,7 @@ export const terms: Term[] = [
     },
     syllabus: '1.2',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 4.4, p. 179' },
   },
   {
     id: 'arithmetic-series',
@@ -43,7 +37,7 @@ export const terms: Term[] = [
     },
     syllabus: '1.2',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 4.4, p. 185' },
     pitfall: {
       en: '$u_n$ is one term and $S_n$ is the sum of n terms. Do not confuse them, and check which one the question asks for.',
       ru: '$u_n$ — это один член, а $S_n$ — сумма n членов. Не путайте их и проверяйте, что именно спрашивает вопрос.',
@@ -58,7 +52,7 @@ export const terms: Term[] = [
     },
     syllabus: '1.2',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 2.2, p. 51' },
     pitfall: {
       en: 'Substitute every value of $k$ from the lower to the upper limit and add the results. The top term alone is not the sum.',
       ru: 'Подставьте каждое значение $k$ от нижнего до верхнего предела и сложите результаты. Один последний член — это ещё не сумма.',

@@ -1,23 +1,17 @@
 import type { Term } from '../../../../src/contract/types';
-
-const source = {
-  kind: 'web' as const,
-  title: 'IB Mathematics AI, first assessment 2021: public summary, not checked against the official guide',
-  locator: 'sub-topic 1.5',
-  url: 'https://www.ibo.org/globalassets/new-structure/university-admission/pdfs/dp-mathematics-applications-and-interpretation-guide-en.pdf',
-};
+import { BOOK_TITLE } from '../../book';
 
 export const terms: Term[] = [
   {
     id: 'exponent-laws-integer',
     term: { en: 'laws of integer exponents', ru: 'законы степеней с целым показателем (laws of integer exponents)' },
     def: {
-      en: 'Rules for multiplying, dividing and raising powers of the same non-zero base when the exponents are integers. They also give $a^{0}=1$ and $a^{-n}=\\dfrac{1}{a^{n}}$.',
-      ru: 'Правила умножения, деления и возведения в степень при одном и том же основании $a\\neq 0$ и целых показателях. Из них следуют $a^{0}=1$ и $a^{-n}=\\dfrac{1}{a^{n}}$.',
+      en: 'Rules for multiplying, dividing and raising powers of a base $a>0$ when the exponents are integers: $a^{m}\\times a^{n}=a^{m+n}$, $(a^{m})^{n}=a^{mn}$ and $\\dfrac{a^{m}}{a^{n}}=a^{m-n}$. A negative exponent gives a reciprocal power: $a^{-n}=\\dfrac{1}{a^{n}}$.',
+      ru: 'Правила умножения, деления степеней и возведения степени в степень при основании $a>0$ и целых показателях: $a^{m}\\times a^{n}=a^{m+n}$, $(a^{m})^{n}=a^{mn}$ и $\\dfrac{a^{m}}{a^{n}}=a^{m-n}$. Отрицательный показатель задаёт обратную степень: $a^{-n}=\\dfrac{1}{a^{n}}$.',
     },
     syllabus: '1.5',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 1.1, p. 11' },
     pitfall: {
       en: 'Exponents add only when powers are multiplied. $2^{3}+2^{4}$ is not $2^{7}$.',
       ru: 'Показатели складываются только при умножении степеней. $2^{3}+2^{4}$ не равно $2^{7}$.',
@@ -32,7 +26,7 @@ export const terms: Term[] = [
     },
     syllabus: '1.5',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 7.4, p. 320' },
     pitfall: {
       en: 'Only positive numbers have a logarithm. $\\log_{10}0$ and $\\log_{10}(-5)$ are undefined.',
       ru: 'Логарифм существует только у положительных чисел. $\\log_{10}0$ и $\\log_{10}(-5)$ не определены.',
@@ -47,7 +41,7 @@ export const terms: Term[] = [
     },
     syllabus: '1.5',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 7.4, p. 320' },
     pitfall: {
       en: 'ln is the logarithm to base e, not to base 10. Check the base in the question before you evaluate.',
       ru: 'Функция $\\ln$ — логарифм по основанию e, а не по основанию 10. Проверьте основание в задаче до вычисления.',
