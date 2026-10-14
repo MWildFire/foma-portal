@@ -325,4 +325,79 @@ export const terms: Term[] = [
       ru: 'Откачка для орошения понизила уровень грунтовых вод в ряде районов водоносного горизонта High Plains (Огаллала) в США (USGS).',
     },
   },
+  {
+    id: 'a-integrated-drainage-basin-management',
+    term: { en: 'integrated drainage basin management (IDBM)', ru: 'комплексное управление речным бассейном (integrated drainage basin management, IDBM)' },
+    def: {
+      en: 'A plan for a whole drainage basin, drawn up with the authorities and users who share it. It sets out the costs and benefits of each option, such as dams, abstraction limits and pollution controls, so that the choices can be compared.',
+      ru: 'План управления всем речным бассейном, который составляют вместе с властями и пользователями, разделяющими этот бассейн. В нём указаны издержки и выгоды каждого варианта, например плотин, ограничений забора воды и контроля загрязнения, чтобы варианты можно было сравнить.',
+    },
+    syllabus: 'A.4',
+    papers: ['P1'],
+    src: SRC,
+    pitfall: {
+      en: 'IDBM is a plan for the whole basin, so one project judged on its own can mislead. Ask who gains and who pays, not only what the total benefit is.',
+      ru: 'IDBM — это план для всего бассейна, поэтому один проект, оценённый отдельно, может ввести в заблуждение. Спрашивайте, кто получает выгоду и кто платит, а не только какова общая выгода.',
+    },
+  },
+  {
+    id: 'a-dam',
+    term: { en: 'dam', ru: 'плотина (dam)' },
+    def: {
+      en: 'A barrier built across a river to hold back water, usually creating a reservoir. A multipurpose water scheme serves several aims at once, such as water supply, irrigation, hydroelectric power and flood control, so its costs and benefits fall on different groups.',
+      ru: 'Преграда, построенная поперёк реки, чтобы задерживать воду; обычно она создаёт водохранилище. Многоцелевая водная схема служит сразу нескольким целям, например водоснабжению, орошению, гидроэнергетике и защите от паводков, поэтому издержки и выгоды достаются разным группам.',
+    },
+    syllabus: 'A.4',
+    papers: ['P1'],
+    src: SRC,
+    pitfall: {
+      en: 'A dam’s benefits and costs are not spread evenly. It can help farmers and cities downstream while it displaces people and floods habitat upstream.',
+      ru: 'Выгоды и издержки плотины распределяются неравномерно: она может помогать фермерам и городам ниже по течению, но вытеснять людей и затапливать местообитания выше по течению.',
+    },
+  },
+  {
+    id: 'a-wetland',
+    term: { en: 'wetland', ru: 'водно-болотное угодье (wetland)' },
+    def: {
+      en: 'Land that is saturated with water for all or part of the year, such as a marsh, swamp, peatland or floodplain lake. Wetlands store floodwater, filter pollutants and support many species.',
+      ru: 'Участок суши, который насыщен водой в течение всего года или его части, например болото, топь, торфяник или пойменное озеро. Водно-болотные угодья задерживают паводковую воду, очищают воду от загрязнителей и поддерживают множество видов.',
+    },
+    syllabus: 'A.4',
+    papers: ['P1'],
+    src: SRC,
+    pitfall: {
+      en: 'A wetland is valuable for its water, soils and plants together. Draining one for farmland or building removes all of these functions at once.',
+      ru: 'Водно-болотное угодье ценно вместе со своей водой, почвами и растениями. Осушение его под поля или застройку сразу лишает все эти функции.',
+    },
+  },
+  {
+    id: 'a-ramsar-convention',
+    term: { en: 'Ramsar Convention', ru: 'Рамсарская конвенция (Ramsar Convention)' },
+    def: {
+      en: 'An international agreement, adopted in 1971 at Ramsar in Iran, under which member states protect wetlands of international importance and use all their wetlands wisely.',
+      ru: 'Международное соглашение, принятое в 1971 году в Рамсаре (Иран), по которому государства-участники защищают водно-болотные угодья международного значения и разумно используют все свои водно-болотные угодья.',
+    },
+    syllabus: 'A.4',
+    papers: ['P1'],
+    src: SRC,
+    pitfall: {
+      en: 'Each member state lists and manages its own Ramsar sites. The convention does not own the wetlands or run them directly.',
+      ru: 'Каждое государство-участник само включает свои рамсарские участки в список и управляет ими. Конвенция не владеет водно-болотными угодьями и не управляет ими напрямую.',
+    },
+  },
+  {
+    id: 'a-community-participation',
+    term: { en: 'community participation in water management', ru: 'участие местных общин в управлении водой (community participation)' },
+    def: {
+      en: 'Local people taking part in decisions about water: planning, managing and paying for supply, so that schemes fit local needs and are more likely to last.',
+      ru: 'Участие местных жителей в решениях о воде: в планировании, управлении и оплате водоснабжения, чтобы проекты соответствовали местным потребностям и дольше работали.',
+    },
+    syllabus: 'A.4',
+    papers: ['P1'],
+    src: SRC,
+    pitfall: {
+      en: 'Taking part is more than being consulted. Participation counts when communities can influence the decision and share responsibility for the result.',
+      ru: 'Участие — это больше, чем консультация. Оно имеет значение, когда община может повлиять на решение и разделить ответственность за результат.',
+    },
+  },
 ];
