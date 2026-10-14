@@ -6,7 +6,7 @@ export const terms: FrTerm[] = [
   // ---- G1 present ----
   {
     id: 'gr-present-regular',
-    term: { en: 'present tense: regular verbs', ru:'настоящее время (правильные глаголы)', fr: 'le présent des verbes réguliers' },
+    term: { en: 'present tense: regular verbs', ru:'настоящее время: правильные глаголы', fr: 'le présent des verbes réguliers' },
     def: { en: 'Regular verbs keep the infinitive stem and take a fixed set of endings that change with the person.', ru: 'Правильные глаголы сохраняют основу инфинитива и получают фиксированный набор окончаний, которые меняются в зависимости от лица.' },
     example: { en: "I work on Saturdays and finish at five o'clock.", ru: 'Я работаю по субботам и заканчиваю в пять часов.', fr: 'Je travaille le samedi et je finis à cinq heures.' },
     syllabus: 'G1.present',
@@ -15,7 +15,7 @@ export const terms: FrTerm[] = [
   },
   {
     id: 'gr-present-irregular',
-    term: { en: 'present tense: irregular verbs', ru:'настоящее время (неправильные глаголы)', fr: 'le présent des verbes irréguliers' },
+    term: { en: 'present tense: irregular verbs', ru:'настоящее время: неправильные глаголы', fr: 'le présent des verbes irréguliers' },
     def: { en: "Seven very common verbs, including 'to be' and 'to have', do not follow the regular endings.", ru: 'Семь очень частотных глаголов, в том числе «быть» и «иметь», не следуют обычным окончаниям.' },
     example: { en: "You want to go to the cinema, but I can't come.", ru: 'Ты хочешь пойти в кино, но я не могу прийти.', fr: 'Tu veux aller au cinéma, mais je ne peux pas venir.' },
     syllabus: 'G1.present',
@@ -35,7 +35,7 @@ export const terms: FrTerm[] = [
   // ---- G2 past ----
   {
     id: 'gr-passe-compose',
-    term: { en: 'perfect tense (passé composé)', ru: 'сложное прошедшее время (passé composé)', fr: 'le passé composé' },
+    term: { en: 'perfect tense, passé composé', ru: 'сложное прошедшее время (passé composé)', fr: 'le passé composé' },
     def: { en: "Formed with the present of 'to have' or 'to be' plus the past participle; it describes a completed event.", ru: 'Образуется из настоящего времени вспомогательного глагола «иметь» или «быть» и причастия прошедшего времени; обозначает законченное действие.' },
     example: { en: 'Yesterday Léa bought a book and read the first chapter.', ru: 'Вчера Леа купила книгу и прочитала первую главу.', fr: 'Hier, Léa a acheté un livre et elle a lu le premier chapitre.' },
     syllabus: 'G2.past',
@@ -62,7 +62,7 @@ export const terms: FrTerm[] = [
   },
   {
     id: 'gr-imparfait',
-    term: { en: 'imperfect tense (imparfait)', ru: 'несовершенное прошедшее время (imparfait)', fr: "l'imparfait" },
+    term: { en: 'imperfect tense, imparfait', ru: 'несовершенное прошедшее время (imparfait)', fr: "l'imparfait" },
     def: { en: "Built from the 'we' form minus its ending, except 'to be'; used for habits, descriptions and background.", ru: 'Образуется от формы «nous» без окончания, кроме глагола «быть»; используется для привычек, описаний и фона.' },
     example: { en: 'When Léa was little, she often played in the garden.', ru: 'Когда Леа была маленькой, она часто играла в саду.', fr: 'Quand Léa était petite, elle jouait souvent dans le jardin.' },
     syllabus: 'G2.past',
@@ -71,7 +71,7 @@ export const terms: FrTerm[] = [
   },
   {
     id: 'gr-plus-que-parfait',
-    term: { en: 'pluperfect tense (plus-que-parfait)', ru: 'давнопрошедшее время (plus-que-parfait)', fr: 'le plus-que-parfait' },
+    term: { en: 'pluperfect tense, plus-que-parfait', ru: 'давнопрошедшее время (plus-que-parfait)', fr: 'le plus-que-parfait' },
     def: { en: "Imperfect of 'to have' or 'to be' plus the past participle; for an action finished before another past action.", ru: 'Имперфект вспомогательного глагола «иметь» или «быть» плюс причастие; для действия, законченного до другого прошедшего.' },
     example: { en: 'When Léa arrived, Marc had already left.', ru: 'Когда Леа пришла, Марк уже ушёл.', fr: 'Quand Léa est arrivée, Marc était déjà parti.' },
     syllabus: 'G2.past',
@@ -82,7 +82,7 @@ export const terms: FrTerm[] = [
   // ---- G3 future and conditional ----
   {
     id: 'gr-futur-proche',
-    term: { en: 'near future (futur proche)', ru: 'ближайшее будущее (futur proche)', fr: 'le futur proche' },
+    term: { en: 'near future, futur proche', ru: 'ближайшее будущее (futur proche)', fr: 'le futur proche' },
     def: { en: "'To go' in the present plus an infinitive, for a near plan or a prediction based on evidence.", ru: 'Глагол «идти» в настоящем времени плюс инфинитив; для ближайшего плана или прогноза по видимым признакам.' },
     example: { en: 'Tonight we are going to watch a film.', ru: 'Сегодня вечером мы собираемся посмотреть фильм.', fr: 'Ce soir, nous allons regarder un film.' },
     syllabus: 'G3.future-conditional',
@@ -91,7 +91,7 @@ export const terms: FrTerm[] = [
   },
   {
     id: 'gr-futur-simple',
-    term: { en: 'future tense (futur simple)', ru: 'простое будущее время (futur simple)', fr: 'le futur simple' },
+    term: { en: 'future tense, futur simple', ru: 'простое будущее время (futur simple)', fr: 'le futur simple' },
     def: { en: 'Formed by adding one set of endings to a future stem; used for events that will happen.', ru: 'Образуется добавлением одного набора окончаний к основе будущего времени; употребляется для событий, которые произойдут.' },
     example: { en: 'Tomorrow I will talk to my teacher.', ru: 'Завтра я поговорю с моим учителем.', fr: 'Demain, je parlerai avec mon professeur.' },
     syllabus: 'G3.future-conditional',
@@ -109,7 +109,7 @@ export const terms: FrTerm[] = [
   },
   {
     id: 'gr-conditionnel-present',
-    term: { en: 'conditional tense (conditionnel présent)', ru: 'условное наклонение (conditionnel présent)', fr: 'le conditionnel présent' },
+    term: { en: 'conditional tense, conditionnel présent', ru: 'условное наклонение (conditionnel présent)', fr: 'le conditionnel présent' },
     def: { en: 'Formed from the future stem plus the imperfect endings; used for politeness, advice and hypotheses.', ru: 'Образуется от основы будущего времени и окончаний имперфекта; употребляется для вежливости, совета и гипотез.' },
     example: { en: 'Could you help me, please?', ru: 'Не могли бы вы мне помочь, пожалуйста?', fr: "Pourriez-vous m'aider, s'il vous plaît ?" },
     syllabus: 'G3.future-conditional',

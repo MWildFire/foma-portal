@@ -15,7 +15,7 @@ const topic: TopicMeta = {
     { en: 'I can answer a short question in English with the key words, in any order', ru: 'Могу ответить на короткий вопрос по-английски, назвав ключевые слова в любом порядке' },
     { en: 'I can match a statement to the paragraph (A to E) that has the same idea', ru: 'Могу сопоставить утверждение с абзацем (от A до E), в котором та же мысль' },
     { en: 'I can find a French word in the text from its English meaning and copy it exactly', ru: 'Могу найти французское слово в тексте по английскому значению и переписать его точно' },
-    { en: 'I can work through a set of three texts in 56 minutes (with extra time)', ru: 'Могу пройти набор из трёх текстов за 56 минут (с доп. временем)' },
+    { en: 'I can work through a set of three texts in 45 minutes', ru: 'Могу пройти набор из трёх текстов за 45 минут' },
   ],
   termIds: [],
   questionIds: ['reading-strategy-q1', 'reading-strategy-q2'],

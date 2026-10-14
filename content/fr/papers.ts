@@ -2,8 +2,7 @@ import type { PaperGuide } from '../../src/contract/types';
 
 // Paper guides for French B SL: P1 (writing), P2 reading and P2 listening, each with its mock timed sets.
 // The durations are the ones printed in data/exams.json (fr-p1 75 minutes, fr-p2r 45, fr-p2l 60); validate-content checks them.
-// Timed sets keep the standard paper time. The portal adds [redacted]'s 25% extra time (P1: 94 minutes, reading: 56);
-// listening gets none (60). The access setting belongs to the student, so the data never stores 94 or 56.
+// Timed sets keep the printed paper time, with no extension for [redacted], so the data stores only the printed times.
 
 // Question ids of whole sections. Every reading section r1 to r6 and listening section l1 to l8 holds ten questions
 // (r1-q01 … r6-q10, l1-q01 … l8-q10), one mark each, so three sections make a timed set of 30 questions and 30 marks.
@@ -14,16 +13,16 @@ export const papers: PaperGuide[] = [
   {
     subject: 'fr',
     paper: 'P1',
-    title: { en: 'Paper 1: writing (mock, 75 minutes; 94 with extra time)', ru: 'Часть 1 (Paper 1): письмо, пробный вариант, 75 минут (94 с доп. временем)' },
+    title: { en: 'Paper 1: writing (mock, 75 minutes)', ru: 'Часть 1 (Paper 1): письмо, пробный вариант, 75 минут' },
     minutes: 75,
     marks: 30,
     structure: {
-      en: 'Three writing tasks, each on a different theme. In the practice set each task has one text type. In the exam the candidate chooses the text type from those the task offers; check the official guide for the details. Choose one task and write 250 to 400 words in French for the reader and purpose the task names. The task is marked on criteria A, B and C: 30 marks in the practice set. Each timed set holds three tasks from three different themes and lasts 94 minutes (75 minutes plus 25% extra time).',
-      ru: 'Три задания на письмо, каждое на свою тему. В учебном наборе у каждого задания один тип текста. На экзамене тип текста выбирается из предложенных в задании; подробности проверьте в официальном гиде. Выберите одно задание и напишите 250–400 слов по-французски для адресата и с целью, которые указаны в задании. Задание оценивается по критериям A, B и C: 30 баллов в учебном наборе. Каждый набор на время содержит три задания из трёх разных тем и длится 94 минуты (75 минут и 25% доп. времени).',
+      en: 'Three writing tasks, each on a different theme. In the practice set each task has one text type. In the exam the candidate chooses the text type from those the task offers; check the official guide for the details. Choose one task and write 250 to 400 words in French for the reader and purpose the task names. The task is marked on criteria A, B and C: 30 marks in the practice set. Each timed set holds three tasks from three different themes and lasts 75 minutes.',
+      ru: 'Три задания на письмо, каждое на свою тему. В учебном наборе у каждого задания один тип текста. На экзамене тип текста выбирается из предложенных в задании; подробности проверьте в официальном гиде. Выберите одно задание и напишите 250–400 слов по-французски для адресата и с целью, которые указаны в задании. Задание оценивается по критериям A, B и C: 30 баллов в учебном наборе. Каждый набор на время содержит три задания из трёх разных тем и длится 75 минут.',
     },
     strategy: {
-      en: 'Spend about 12 minutes choosing: take the task whose text type and reader you know best and whose three content points you can cover. Spend 12 minutes on a plan: tone, reader, the three points in order, and the connectors you will use. Write for about 57 minutes, aiming at 300 to 350 words. Keep about 13 minutes to check agreements, accents, the choice of tu or vous, and the word count. These times are for the 94-minute set. Without extra time, the 75-minute paper splits into 10, 10, 45 and 10 minutes.',
-      ru: 'Около 12 минут на выбор задания: возьмите то, где вы хорошо знаете тип текста (text type) и адресата и где сможете раскрыть все три пункта. 12 минут на план (plan): тон, адресат, три пункта по порядку и связки (connectors). Около 57 минут на текст, цель 300–350 слов. Около 13 минут оставьте на проверку: согласование, акценты, выбор tu или vous и объём. Тайминг дан для набора на 94 минуты. Без доп. времени 75 минут делятся так: 10, 10, 45 и 10.',
+      en: 'Spend about 10 minutes choosing: take the task whose text type and reader you know best and whose three content points you can cover. Spend 10 minutes on a plan: tone, reader, the three points in order, and the connectors you will use. Write for about 45 minutes, aiming at 300 to 350 words. Keep about 10 minutes to check agreements, accents, the choice of tu or vous, and the word count. The 75 minutes split into 10, 10, 45 and 10.',
+      ru: 'Около 10 минут на выбор задания: возьмите то, где вы хорошо знаете тип текста (text type) и адресата и где сможете раскрыть все три пункта. 10 минут на план (plan): тон, адресат, три пункта по порядку и связки (connectors). Около 45 минут на текст, цель 300–350 слов. Около 10 минут оставьте на проверку: согласование, акценты, выбор tu или vous и объём. 75 минут делятся так: 10, 10, 45 и 10.',
     },
     criteria: {
       en: 'A Language (12 marks): accurate grammar and spelling, a range of structures and vocabulary, correct accents and agreements. B Message (12 marks): the right text type, reader and register, all three content points covered, and a clear, organised text. C Conceptual understanding (6 marks): the theme is treated with depth, with examples and a personal or cultural view. The names and marks are as in the exam; the descriptions here are our summary, to check against the official guide.',
@@ -67,16 +66,16 @@ export const papers: PaperGuide[] = [
     subject: 'fr',
     paper: 'P2',
     part: 'reading',
-    title: { en: 'Paper 2: reading (mock, 45 minutes; 56 with extra time)', ru: 'Часть 2 (Paper 2): чтение, пробный вариант, 45 минут (56 с доп. временем)' },
+    title: { en: 'Paper 2: reading (mock, 45 minutes)', ru: 'Часть 2 (Paper 2): чтение, пробный вариант, 45 минут' },
     minutes: 45,
     marks: 30,
     structure: {
-      en: 'Six French texts with ten questions each. Each timed set covers three texts: 30 questions, 30 marks in the practice set, one mark per question. Question types: Identify (true, false or not mentioned), State (a short answer, in English or French as the question says), Match (a letter for each item) and Quote (the exact French words copied from the text). The mock is shorter than the final exam here: 45 minutes against 1 hour in the final reading paper. With 25% extra time a set lasts 56 minutes.',
-      ru: 'Шесть французских текстов, к каждому по десять вопросов. Каждый набор на время охватывает три текста: 30 вопросов, 30 баллов в учебном наборе, по одному баллу за вопрос. Типы вопросов: Identify (верно, неверно или не упоминается), State (краткий ответ по-английски или по-французски, как сказано в вопросе), Match (буква для каждого пункта) и Quote (точная цитата: французские слова, скопированные из текста). Пробный вариант здесь короче итогового экзамена: 45 минут против 1 часа в итоговой части чтения. С 25% доп. времени набор длится 56 минут.',
+      en: 'Six French texts with ten questions each. Each timed set covers three texts: 30 questions, 30 marks in the practice set, one mark per question. Question types: Identify (true, false or not mentioned), State (a short answer, in English or French as the question says), Match (a letter for each item) and Quote (the exact French words copied from the text). The mock is shorter than the final exam here: 45 minutes against 1 hour in the final reading paper.',
+      ru: 'Шесть французских текстов, к каждому по десять вопросов. Каждый набор на время охватывает три текста: 30 вопросов, 30 баллов в учебном наборе, по одному баллу за вопрос. Типы вопросов: Identify (верно, неверно или не упоминается), State (краткий ответ по-английски или по-французски, как сказано в вопросе), Match (буква для каждого пункта) и Quote (точная цитата: французские слова, скопированные из текста). Пробный вариант здесь короче итогового экзамена: 45 минут против 1 часа в итоговой части чтения.',
     },
     strategy: {
-      en: 'Read the ten questions for a text before you read the text, and underline the key words. Scan the text for those words and read the sentences around them. Answer "not mentioned" only when the text says nothing at all about the point. For Quote, copy the French words exactly, with no changes and no extra words. Aim for about 1 minute 40 seconds per question, so that 30 questions take about 50 minutes, and keep about 6 minutes to check.',
-      ru: 'Прочитайте десять вопросов к тексту до того, как читать сам текст, и подчеркните ключевые слова. Ищите эти слова в тексте и читайте предложения вокруг них. Ответ «non mentionné» (не упоминается) ставьте, только если текст вообще ничего не говорит об этом. В Quote копируйте французские слова точно, без изменений и лишних слов. На один вопрос около 1 минуты 40 секунд: 30 вопросов займут около 50 минут, около 6 минут оставьте на проверку.',
+      en: 'Read the ten questions for a text before you read the text, and underline the key words. Scan the text for those words and read the sentences around them. Answer "not mentioned" only when the text says nothing at all about the point. For Quote, copy the French words exactly, with no changes and no extra words. Aim for about 1 minute 20 seconds per question, so that 30 questions take about 40 minutes, and keep about 5 minutes to check.',
+      ru: 'Прочитайте десять вопросов к тексту до того, как читать сам текст, и подчеркните ключевые слова. Ищите эти слова в тексте и читайте предложения вокруг них. Ответ «non mentionné» (не упоминается) ставьте, только если текст вообще ничего не говорит об этом. В Quote копируйте французские слова точно, без изменений и лишних слов. На один вопрос около 1 минуты 20 секунд: 30 вопросов займут около 40 минут, около 5 минут оставьте на проверку.',
     },
     commandTerms: ['Identify', 'State', 'Match', 'Quote'],
     timedSets: [
