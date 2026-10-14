@@ -1,13 +1,6 @@
 import type { Term } from '../../../../src/contract/types';
 import { BOOK_TITLE } from '../../book';
 
-const source = {
-  kind: 'web' as const,
-  title: 'IB Mathematics AI, first assessment 2021: public summary, not checked against the official guide',
-  locator: 'sub-topic 1.1',
-  url: 'https://www.ibo.org/globalassets/new-structure/university-admission/pdfs/dp-mathematics-applications-and-interpretation-guide-en.pdf',
-};
-
 export const terms: Term[] = [
   {
     id: 'standard-form',
@@ -44,6 +37,6 @@ export const terms: Term[] = [
     },
     syllabus: '1.1',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 1.1, p. 10' },
   },
 ];

@@ -48,7 +48,7 @@ export const terms: Term[] = [
     },
     syllabus: '1.8',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 6.3, p. 261' },
     pitfall: {
       en: 'A cubic can have only one real root, so do not assume there are three. Read the number of real roots from the output.',
       ru: 'Кубический многочлен может иметь только один действительный корень, поэтому не считайте, что их три. Число действительных корней берите из результата.',

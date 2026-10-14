@@ -1,13 +1,6 @@
 import type { Term } from '../../../../src/contract/types';
 import { BOOK_TITLE } from '../../book';
 
-const source = {
-  kind: 'web' as const,
-  title: 'IB Mathematics AI, first assessment 2021: public summary, not checked against the official guide',
-  locator: 'sub-topic 3.5',
-  url: 'https://www.ibo.org/globalassets/new-structure/university-admission/pdfs/dp-mathematics-applications-and-interpretation-guide-en.pdf',
-};
-
 export const terms: Term[] = [
   {
     id: 'perpendicular-bisector',
@@ -44,7 +37,7 @@ export const terms: Term[] = [
     },
     syllabus: '3.5',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 3.2, p. 95' },
     pitfall: {
       en: 'Two bisectors are enough to locate it. The third bisector should pass through the same point, which makes a useful check.',
       ru: 'Для нахождения точки достаточно двух перпендикуляров. Третий должен проходить через ту же точку, что является хорошей проверкой.',

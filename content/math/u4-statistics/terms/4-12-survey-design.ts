@@ -1,13 +1,6 @@
 import type { Term } from '../../../../src/contract/types';
 import { BOOK_TITLE } from '../../book';
 
-const source = {
-  kind: 'web' as const,
-  title: 'IB Mathematics AI, first assessment 2021: public summary, not checked against the official guide',
-  locator: 'sub-topic 4.12',
-  url: 'https://www.ibo.org/globalassets/new-structure/university-admission/pdfs/dp-mathematics-applications-and-interpretation-guide-en.pdf',
-};
-
 export const terms: Term[] = [
   {
     id: 'reliability-of-questionnaire',
@@ -44,7 +37,7 @@ export const terms: Term[] = [
     },
     syllabus: '4.12',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 14.5, p. 659' },
     pitfall: {
       en: 'The class boundaries and widths must be stated, because the test result depends on them.',
       ru: 'Границы и ширину классов нужно указывать: от них зависит результат теста.',

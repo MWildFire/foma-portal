@@ -1,13 +1,6 @@
 import type { Term } from '../../../../src/contract/types';
 import { BOOK_TITLE } from '../../book';
 
-const source = {
-  kind: 'web' as const,
-  title: 'IB Mathematics AI, first assessment 2021: public summary, not checked against the official guide',
-  locator: 'sub-topic 2.10',
-  url: 'https://www.ibo.org/globalassets/new-structure/university-admission/pdfs/dp-mathematics-applications-and-interpretation-guide-en.pdf',
-};
-
 export const terms: Term[] = [
   {
     id: 'log-log-graph',
@@ -56,7 +49,7 @@ export const terms: Term[] = [
     },
     syllabus: '2.10',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 1.1, p. 10' },
     pitfall: {
       en: 'The order of magnitude is a whole power of ten, so 3200 has order of magnitude $10^{3}$, even though $\\log_{10} 3200 \\approx 3.5$.',
       ru: 'Порядок величины — целая степень десяти: 3200 имеет порядок $10^{3}$, хотя $\\log_{10} 3200 \\approx 3{,}5$.',

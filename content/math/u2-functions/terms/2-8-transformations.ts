@@ -1,13 +1,6 @@
 import type { Term } from '../../../../src/contract/types';
 import { BOOK_TITLE } from '../../book';
 
-const source = {
-  kind: 'web' as const,
-  title: 'IB Mathematics AI, first assessment 2021: public summary, not checked against the official guide',
-  locator: 'sub-topic 2.8',
-  url: 'https://www.ibo.org/globalassets/new-structure/university-admission/pdfs/dp-mathematics-applications-and-interpretation-guide-en.pdf',
-};
-
 export const terms: Term[] = [
   {
     id: 'function-graph-translation',
@@ -60,7 +53,7 @@ export const terms: Term[] = [
     },
     syllabus: '2.8',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 6.2, p. 258' },
     pitfall: {
       en: 'Divide $x$ by $q$ first and then add $a$: the $x$-coordinate is $a + \\frac{x}{q}$, not $\\frac{x + a}{q}$.',
       ru: 'Сначала делите $x$ на $q$, затем прибавляйте $a$: $x$-координата равна $a + \\frac{x}{q}$, а не $\\frac{x + a}{q}$.',
