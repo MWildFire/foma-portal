@@ -1,8 +1,8 @@
 import type { SyllabusItem } from '../../src/contract/types';
 
 // English A: Literature SL, as used in the portal for the school mocks (26.10–05.11.2026, exam 29.10 for both papers).
-// Codes are local to this subject. Course works (one code per work, "W.<slug>") are added when the reading list
-// from the school arrives (ops/requests.md).
+// Codes are local to this subject. Course works (one code per work, "W.<slug>") are added once the reading list is
+// known. The school list is still not confirmed (S1, R01, 14.10), so the two works at the end are the round's default.
 export const syllabus: SyllabusItem[] = [
   // Paper 1: guided literary analysis (75 min, 20 marks, four criteria of 5 marks each)
   { code: 'P1.M', title: { en: 'Guided analysis method (Paper 1)', ru: 'Метод направленного анализа (Paper 1)' }, papers: ['P1'] },
@@ -34,4 +34,10 @@ export const syllabus: SyllabusItem[] = [
   { code: 'P2.B2', title: { en: 'Criterion B2: comparison of the two works', ru: 'Критерий B2: сравнение двух произведений' }, papers: ['P2'] },
   { code: 'P2.C', title: { en: 'Criterion C: focus and organisation of the essay', ru: 'Критерий C: фокус и организация эссе' }, papers: ['P2'] },
   { code: 'P2.D', title: { en: 'Criterion D: language of the essay', ru: 'Критерий D: язык эссе' }, papers: ['P2'] },
+
+  // Course works for Paper 2 (round R01, 14.10). Decision by default: S1 did not confirm the list (ops/requests.md).
+  // Much Ado About Nothing is course text (FA essay issued 08.10.2026). Into the Wild is the summer reading for all
+  // Literature students (teacher's task, Harkness 14.09; PACK, school folder "Foma_English_Literature_Summer_Work").
+  { code: 'W.much-ado', title: { en: 'Much Ado About Nothing (W. Shakespeare)', ru: 'Много шума из ничего (Much Ado About Nothing, У. Шекспир)' }, papers: ['P2'] },
+  { code: 'W.into-the-wild', title: { en: 'Into the Wild (J. Krakauer)', ru: '«Into the Wild» (Дж. Кракауэр)' }, papers: ['P2'] },
 ];
