@@ -2,7 +2,8 @@ import type { SourceRef, Term } from '../../../../src/contract/types';
 
 // G.2 Changing urban systems. Definitions are written in our own words from the Option G key elements.
 // Locators point to the ThinkIB eBook section of this unit (section level; page locators come from the S1 map).
-const SRC: SourceRef = { kind: 'thinkib', title: 'Option G: Urban Environments (pages 37518, 37556, 37580)', locator: 'Changing Urban Systems; Urbanization; Urban System Growth and Lagos' };
+// The two bid-rent terms carry syllabus G.1: the guide lists land values and proximity to the CBD under G.1.
+const SRC: SourceRef = { kind: 'thinkib', title: 'Option G: Urban Environments (pages 37518, 37556, 37580)', locator: 'Changing Urban Systems; Urbanization; Urban System Growth and Lagos; guide p. 40' };
 
 export const terms: Term[] = [
   {
@@ -116,7 +117,7 @@ export const terms: Term[] = [
       en: 'A model of land use in which each activity bids for a site, and the rent it can pay falls with distance from the CBD. Each site goes to the highest bidder, which explains why offices sit near the centre and housing further out.',
       ru: 'Модель землепользования, в которой каждый вид деятельности предлагает плату за участок, а величина этой платы снижается с удалением от центрального делового района (CBD). Участок достаётся тому, кто предложил больше, поэтому офисы располагаются ближе к центру, а жильё дальше.',
     },
-    syllabus: 'G.2',
+    syllabus: 'G.1',
     papers: ['P1'],
     src: SRC,
   },
@@ -127,7 +128,7 @@ export const terms: Term[] = [
       en: 'A graph of the maximum rent a land use can pay against distance from the CBD. The curve falls with distance, and steeper curves belong to uses that depend most on central accessibility, such as offices.',
       ru: 'График максимальной арендной платы, которую может заплатить вид землепользования, в зависимости от расстояния до CBD. Кривая снижается с расстоянием, и более крутые кривые у тех видов, которые больше всего зависят от доступности центра, например у офисов.',
     },
-    syllabus: 'G.2',
+    syllabus: 'G.1',
     papers: ['P1'],
     src: SRC,
     pitfall: {
