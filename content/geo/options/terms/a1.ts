@@ -2,7 +2,8 @@ import type { Term } from '../../../../src/contract/types';
 
 // Option A, A.1: definitions in our own words, aligned with the key elements of the programme (guide 2017).
 // Examples are added only where the figure, its year and its source are checked (see cases/a1.ts).
-const SRC = { kind: 'thinkib' as const, title: 'Option A: Drainage Basin Hydrology and Geomorphology (page 43412)', locator: 'The Water Budget; River Processes; Upper, Middle and Lower Course Landforms' };
+// Hydrograph terms (storm hydrograph, limbs, lag time, peak discharge, storm flow) carry syllabus A.2: the guide lists hydrograph characteristics under A.2.
+const SRC = { kind: 'thinkib' as const, title: 'Option A: Drainage Basin Hydrology and Geomorphology (page 43412)', locator: 'The Water Budget; River Processes; Upper, Middle and Lower Course Landforms; guide p. 28' };
 
 export const terms: Term[] = [
   {
@@ -162,7 +163,7 @@ export const terms: Term[] = [
       en: 'A graph of discharge against time at the basin outlet, showing how the river responds to one storm. It has a rising limb, a peak and a falling limb, set against the base flow.',
       ru: 'График расхода воды во времени в замыкающем створе бассейна, который показывает реакцию реки на один ливень. Он включает восходящую ветвь, пик и нисходящую ветвь на фоне базисного стока.',
     },
-    syllabus: 'A.1',
+    syllabus: 'A.2',
     papers: ['P1'],
     src: SRC,
     pitfall: {
@@ -177,7 +178,7 @@ export const terms: Term[] = [
       en: 'The part of a hydrograph where discharge climbs from the base flow to the peak after a storm. A steep rising limb means that water reaches the channel quickly.',
       ru: 'Участок гидрографа, на котором расход растёт от базисного стока до пика после ливня. Крутая восходящая ветвь означает, что вода быстро попадает в русло.',
     },
-    syllabus: 'A.1',
+    syllabus: 'A.2',
     papers: ['P1'],
     src: SRC,
     pitfall: {
@@ -192,7 +193,7 @@ export const terms: Term[] = [
       en: 'The part of a hydrograph where discharge falls from the peak back towards the base flow. Its shape shows how quickly the stores drain.',
       ru: 'Участок гидрографа, на котором расход падает от пика обратно к базисному стоку. Его форма показывает, как быстро опорожняются запасы воды в бассейне.',
     },
-    syllabus: 'A.1',
+    syllabus: 'A.2',
     papers: ['P1'],
     src: SRC,
     pitfall: {
@@ -207,7 +208,7 @@ export const terms: Term[] = [
       en: 'The time between the peak of rainfall (or the centre of mass of the storm) and the peak of discharge. A short lag time means a quick response.',
       ru: 'Время между пиком осадков (или центром тяжести ливня) и пиком расхода. Короткое время запаздывания означает быструю реакцию бассейна.',
     },
-    syllabus: 'A.1',
+    syllabus: 'A.2',
     papers: ['P1'],
     src: SRC,
     pitfall: {
@@ -222,16 +223,16 @@ export const terms: Term[] = [
       en: 'The highest discharge reached on a hydrograph after one storm, measured in cubic metres per second.',
       ru: 'Наибольший расход воды на гидрографе после одного ливня, измеряется в кубических метрах в секунду.',
     },
-    syllabus: 'A.1',
+    syllabus: 'A.2',
     papers: ['P1'],
     src: SRC,
     example: {
-      en: 'Rhine at Lobith: 12,060 m³/s at the peak of January 1995 (KNMI, 2020 article).',
-      ru: 'Рейн у Лобита: 12 060 м³/с в пике января 1995 года (KNMI, статья 2020 года).',
+      en: 'Rhine at Lobith: 12,060 m³/s at the peak of January 1995 (KNMI, Hoogwater Rijn en Maas 1995).',
+      ru: 'Рейн у Лобита: 12 060 м³/с в пике января 1995 года (KNMI, «Hoogwater Rijn en Maas 1995»).',
     },
     pitfall: {
-      en: 'Peak discharge is a flow, not a time. Quote the value with its unit and the time, for example "15 m³/s at 16:00".',
-      ru: 'Пиковый расход — это расход, а не время. Указывайте значение с единицей и время, например «15 м³/с в 16:00».',
+      en: 'Peak discharge is a flow, not a time. Quote the value with its unit and the time it was reached, for example "[value] m³/s at [time]".',
+      ru: 'Пиковый расход — это расход, а не время. Указывайте значение с единицей и время, когда он был достигнут, например «[значение] м³/с в [время]».',
     },
   },
   {
@@ -256,7 +257,7 @@ export const terms: Term[] = [
       en: 'The extra discharge produced by one storm, above the base flow. It comes mostly from overland flow and throughflow, which reach the channel quickly.',
       ru: 'Дополнительный расход, созданный одним ливнем сверх базисного стока. В основном он состоит из поверхностного и почвенного стока, которые быстро попадают в русло.',
     },
-    syllabus: 'A.1',
+    syllabus: 'A.2',
     papers: ['P1'],
     src: SRC,
     pitfall: {
