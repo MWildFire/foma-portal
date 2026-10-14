@@ -6,7 +6,7 @@ import type { Lang } from '../../contract/types';
 // This simplifies to resources × 1 000 ÷ population, since 10^9 ÷ 10^6 = 10^3.
 // Thresholds: UN-Water (2017), Policy Brief: Water Quality, p. 5, after Falkenmark and Lindh (1976). A rule of thumb.
 // https://www.unwater.org/sites/default/files/app/uploads/2017/05/waterquality_policybrief.pdf
-// Physical and economic tests: FAO (2007), World Water Day brochure, map "Areas of Physical and Economic Water Scarcity".
+// Physical and economic tests: Comprehensive Assessment of Water Management in Agriculture (2007), map "Areas of Physical and Economic Water Scarcity" (as described on the FAO portal). The 75% cut-off is a teaching threshold; its exact wording and page were not checked against the book.
 // Farming share of withdrawals: FAO SDG Data Portal, indicator 6.4.2 page, 2023 data. The page says agriculture took 72 percent of total withdrawals in 2023, industry 15 percent and services 13 percent; the third share is labelled 'services'.
 // https://www.fao.org/sustainable-development-goals-data-portal/data/indicators/642-water-stress/en
 
@@ -184,8 +184,8 @@ export default function OptAScarcitySim({ lang }: { lang: Lang }) {
       <p style={{ margin: '8px 0 0', fontSize: 13, lineHeight: 1.5 }}>
         <strong>{ru ? 'Физический или экономический? ' : 'Physical or economic? '}</strong>
         {ru
-          ? 'Физический дефицит: более 75% речного стока изымается на сельское хозяйство, промышленность и быт. Экономический дефицит: вода рядом, но стране не по силам освоить и доставить её, потому что человеческий, институциональный и финансовый капитал ограничивают доступ. Симуляция только задаёт этот тест и не вычисляет его: для проверки нужны данные о доходах, инвестициях, управлении и инфраструктуре.'
-          : 'Physical scarcity: more than 75% of river flows are withdrawn for farming, industry and homes. Economic scarcity: water is nearby, but a country cannot afford to develop and deliver it, because human, institutional and financial capital limit access. This simulation only states the test; it does not calculate it. Testing it needs data on income, investment, governance and infrastructure.'}
+          ? 'Физический дефицит: по учебному порогу более 75% речного стока изымается на сельское хозяйство, промышленность и быт. Экономический дефицит: вода рядом, но стране не по силам освоить и доставить её, потому что человеческий, институциональный и финансовый капитал ограничивают доступ. Симуляция только задаёт этот тест и не вычисляет его: для проверки нужны данные о доходах, инвестициях, управлении и инфраструктуре.'
+          : 'Physical scarcity: by the teaching threshold, more than 75% of river flows are withdrawn for farming, industry and homes. Economic scarcity: water is nearby, but a country cannot afford to develop and deliver it, because human, institutional and financial capital limit access. This simulation only states the test; it does not calculate it. Testing it needs data on income, investment, governance and infrastructure.'}
       </p>
       <p style={{ margin: '8px 0 0', fontSize: 13, lineHeight: 1.5 }}>
         <strong>{ru ? 'Доля сельского хозяйства. ' : 'Farming share. '}</strong>
@@ -196,8 +196,8 @@ export default function OptAScarcitySim({ lang }: { lang: Lang }) {
       <p style={{ margin: '8px 0 0', fontSize: 13, lineHeight: 1.5 }}>
         <strong>{ru ? 'Источники. ' : 'Sources. '}</strong>
         {ru
-          ? 'UN-Water (2017), Policy Brief: Water Quality, с. 5 (пороги, по Falkenmark и Lindh, 1976); FAO (2007), брошюра ко Дню водных ресурсов, карта «Areas of Physical and Economic Water Scarcity» (тест 75%); портал данных FAO SDG, индикатор 6.4.2 (72%, 15% и 13% за 2023 год).'
-          : 'UN-Water (2017), Policy Brief: Water Quality, p. 5 (thresholds, after Falkenmark and Lindh, 1976); FAO (2007), World Water Day brochure, map "Areas of Physical and Economic Water Scarcity" (the 75% test); FAO SDG Data Portal, indicator 6.4.2 (72%, 15% and 13% in 2023).'}
+          ? 'UN-Water (2017), Policy Brief: Water Quality, с. 5 (пороги, по Falkenmark и Lindh, 1976); Comprehensive Assessment of Water Management in Agriculture (2007), карта «Areas of Physical and Economic Water Scarcity» (по описанию карты на портале FAO; порог 75% — учебный, дословная формулировка и страница не сверены); портал данных FAO SDG, индикатор 6.4.2 (72%, 15% и 13% за 2023 год).'
+          : 'UN-Water (2017), Policy Brief: Water Quality, p. 5 (thresholds, after Falkenmark and Lindh, 1976); Comprehensive Assessment of Water Management in Agriculture (2007), map "Areas of Physical and Economic Water Scarcity" (as described on the FAO portal; the 75% cut-off is a teaching threshold, exact wording and page not checked); FAO SDG Data Portal, indicator 6.4.2 (72%, 15% and 13% in 2023).'}
       </p>
       <p style={{ margin: '8px 0 0', fontSize: 13, lineHeight: 1.5 }}>
         <strong>{ru ? 'Что заметить. ' : 'What to notice. '}</strong>
