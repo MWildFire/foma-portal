@@ -220,18 +220,19 @@ test('practice: with nothing rated wrong the redo list says so', async () => {
 test('practice, timed mode: ?set= opens the set with its questions in order, time and clock', async () => {
   const html = await view('PracticeView', { pack: pack() }, '/s/geo/practice?set=set-a');
   assert.match(html, /Mock set A/);
-  assert.match(html, /56:00/); // extra time is on by default: 45 minutes is 56 in the school table
+  assert.match(html, /45:00/); // the printed time by default: [redacted] has no extra time
+  assert.ok(!html.includes('56:00'), 'no 25% by default');
   assert.match(html, /Start the timer/);
   assert.ok(inOrder(html, 'Prompt of q4', 'Prompt of q2'), 'the order of the set');
   assert.ok(!html.includes('Prompt of q1') && !html.includes('Prompt of q3'), 'only the questions of the set');
   assert.match(html, /q404/, 'a question missing from the pack is named');
-  assert.match(html, /Extra time is on: 45 min/);
+  assert.match(html, /Time is the printed time, as in the exam\./);
   assert.ok(!html.includes('Filters'), 'filters are off in timed mode');
   assert.match(html, /Leave timed mode/);
 });
 
 test('practice, timed mode: extra time adds 25% and says so', async () => {
-  const state = { settings: { accessArrangements: { extraTime: true } } };
+  const state = { version: 3, settings: { accessArrangements: { extraTime: true } } };
   const html = await view('PracticeView', { pack: pack() }, '/s/geo/practice?set=set-a', { state });
   assert.match(html, /56:00/); // the school table: 45 minutes is 56 with extra time
   assert.match(html, /Extra time is on: 45 min \+ 25% \(\+11 min\) = 56 min/);
@@ -260,20 +261,20 @@ test('practice, timed mode: the results tiles stay out of the way, so the timer 
 
 test('practice, timed mode: a saved countdown is picked up again after a reload', async () => {
   const key = 'foma-portal-timer-v1:geo/set-a';
-  const saved = { status: 'paused', totalMs: 56 * 60_000, remainingMs: 20 * 60_000, endsAt: null, savedAt: Date.now() };
+  const saved = { status: 'paused', totalMs: 45 * 60_000, remainingMs: 20 * 60_000, endsAt: null, savedAt: Date.now() };
   const paused = await view('PracticeView', { pack: pack() }, '/s/geo/practice?set=set-a', { extra: { [key]: saved } });
   assert.match(paused, /20:00/);
   assert.match(paused, /Paused/);
   assert.match(paused, /Resume/);
   assert.ok(!paused.includes('Start the timer'));
 
-  const running = { status: 'running', totalMs: 56 * 60_000, remainingMs: 56 * 60_000, endsAt: Date.now() + 10 * 60_000, savedAt: Date.now() };
+  const running = { status: 'running', totalMs: 45 * 60_000, remainingMs: 45 * 60_000, endsAt: Date.now() + 10 * 60_000, savedAt: Date.now() };
   const resumed = await view('PracticeView', { pack: pack() }, '/s/geo/practice?set=set-a', { extra: { [key]: running } });
   assert.match(resumed, /(09|10):\d\d/);
   assert.match(resumed, /Running/);
   assert.match(resumed, />Pause</);
 
-  const over = { status: 'running', totalMs: 56 * 60_000, remainingMs: 1000, endsAt: Date.now() - 5000, savedAt: Date.now() - 60_000 };
+  const over = { status: 'running', totalMs: 45 * 60_000, remainingMs: 1000, endsAt: Date.now() - 5000, savedAt: Date.now() - 60_000 };
   const done = await view('PracticeView', { pack: pack() }, '/s/geo/practice?set=set-a', { extra: { [key]: over } });
   assert.match(done, /00:00/);
   assert.match(done, /Time is up/);
@@ -282,8 +283,8 @@ test('practice, timed mode: a saved countdown is picked up again after a reload'
 test('practice, timed mode: a saved countdown of another length, or damaged, is ignored', async () => {
   const key = 'foma-portal-timer-v1:geo/set-a';
   const other = { status: 'paused', totalMs: 57 * 60_000, remainingMs: 20 * 60_000, endsAt: null, savedAt: Date.now() };
-  assert.match(await view('PracticeView', { pack: pack() }, '/s/geo/practice?set=set-a', { extra: { [key]: other } }), /56:00/);
-  assert.match(await view('PracticeView', { pack: pack() }, '/s/geo/practice?set=set-a', { extra: { [key]: '{broken' } }), /56:00/);
+  assert.match(await view('PracticeView', { pack: pack() }, '/s/geo/practice?set=set-a', { extra: { [key]: other } }), /45:00/);
+  assert.match(await view('PracticeView', { pack: pack() }, '/s/geo/practice?set=set-a', { extra: { [key]: '{broken' } }), /45:00/);
 });
 
 test('practice: the select shows the filter chosen in the address', async () => {
@@ -294,7 +295,7 @@ test('practice: the select shows the filter chosen in the address', async () => 
 });
 
 test('practice in Russian', async () => {
-  const state = { settings: { accessArrangements: { extraTime: true } } };
+  const state = { version: 3, settings: { accessArrangements: { extraTime: true } } };
   const html = await view('PracticeView', { pack: pack() }, '/s/geo/practice?set=set-a', { lang: 'ru', state });
   assert.match(html, /Практика/);
   assert.match(html, /Условие q4/);

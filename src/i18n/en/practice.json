@@ -26,8 +26,7 @@
     "minutes": "Time: {{n}} min",
     "extra": {
       "on": "Extra time is on: {{base}} min + 25% (+{{extra}} min) = {{total}} min.",
-      "off": "Standard time. You can switch on 25% extra time in Settings.",
-      "settings": "Open Settings"
+      "off": "Time is the printed time, as in the exam."
     },
     "missing": "These questions are not in the question bank yet: {{ids}}.",
     "leave": "Leave timed mode",

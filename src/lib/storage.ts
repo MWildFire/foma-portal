@@ -1,9 +1,10 @@
 // Local progress for one browser (localStorage). Unknown or malformed data is dropped, never thrown.
 export const STORAGE_KEY = 'foma-portal-v1';
 export const UPDATE_EVENT = 'foma-portal-state-update';
-// 2: extra time is on unless a version-2 save switched it off. Version 1 saves wrote the old default (off) back on every
-// save, so normalizeState turns extra time on for them once (decision 5: +25% on all of Fома's exams).
-export const STORAGE_SCHEMA_VERSION = 2;
+// 3: extra time is off unless a version-3 save switched it on ([redacted], 14 Oct 2026: [redacted] has no extra time). Versions 1
+// and 2 had it on by default, so normalizeState turns it off for them. Nothing is written on load: the save becomes
+// version 3 at the next ordinary save.
+export const STORAGE_SCHEMA_VERSION = 3;
 
 export type Rag = 'red' | 'amber' | 'green';
 export type Rating = 'right' | 'partial' | 'wrong';
@@ -55,7 +56,7 @@ export function emptyState(): GlobalState {
     pastPapers: {},
     blocks: {},
     settings: {
-      accessArrangements: { extraTime: true, separateRoom: false, room: 'unknown' },
+      accessArrangements: { extraTime: false, separateRoom: false, room: 'unknown' },
       dailyLoadMinutes: {},
     },
   };
@@ -130,13 +131,14 @@ export function normalizeState(raw: unknown): GlobalState {
   state.pastPapers = mapRecord(raw.pastPapers, pastPaperOf);
   state.blocks = mapRecord(raw.blocks, value => (typeof value === 'string' ? value : null));
   const settings = isRecord(raw.settings) ? raw.settings : {};
-  // Extra time is on unless it was switched off. The room is the saved one; an old save with only the separateRoom
-  // flag means ACC2 when the flag is true, and not known otherwise.
+  // Extra time is off unless a version-3 save switched it on: earlier saves had it on by default, and [redacted] has none.
+  // The room is the saved one; an old save with only the separateRoom flag means ACC2 when the flag is true, and not
+  // known otherwise.
   const access: Record<string, unknown> = isRecord(settings.accessArrangements) ? settings.accessArrangements : {};
   const room: AccessRoom = access.room === 'ACC2' || access.room === 'SpHal2' || access.room === 'unknown'
     ? access.room
     : access.separateRoom === true ? 'ACC2' : 'unknown';
-  const extraTime = raw.version === STORAGE_SCHEMA_VERSION ? access.extraTime !== false : true;
+  const extraTime = raw.version === STORAGE_SCHEMA_VERSION && access.extraTime === true;
   state.settings.accessArrangements = { extraTime, separateRoom: room === 'ACC2', room };
   state.settings.dailyLoadMinutes = loadOf(settings.dailyLoadMinutes);
   return state;

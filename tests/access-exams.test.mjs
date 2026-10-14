@@ -112,8 +112,8 @@ test('clash rules on a small schedule: touching windows are fine, a one-minute o
   assert.deepEqual(pairsOf(hallClashes(small('09:15', 'ACC2'), 'SpHal2', true)), []);
 });
 
-test('the access choice: extra time on and the room unknown by default, a stored room wins, a legacy flag still means ACC2', () => {
-  assert.deepEqual(accessChoiceOf(undefined), { extraTime: true, room: 'unknown', separateRoom: false });
+test('the access choice: extra time off and the room unknown by default, a stored room wins, a legacy flag still means ACC2', () => {
+  assert.deepEqual(accessChoiceOf(undefined), { extraTime: false, room: 'unknown', separateRoom: false });
   assert.deepEqual(accessChoiceOf({ extraTime: false, separateRoom: false }), { extraTime: false, room: 'unknown', separateRoom: false });
   assert.deepEqual(accessChoiceOf({ extraTime: true, separateRoom: true }), { extraTime: true, room: 'ACC2', separateRoom: true });
   assert.deepEqual(accessChoiceOf({ extraTime: true, room: 'SpHal2', separateRoom: true }), { extraTime: true, room: 'SpHal2', separateRoom: false });

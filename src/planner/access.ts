@@ -1,10 +1,10 @@
 // Access arrangements as the student sets them in Settings (PLAN.md §0). Pure: the stored values go in, a typed choice
-// comes out. The room has three values: ACC2, SpHal2 and "unknown" (the school has not said yet). Extra time is on by
-// default.
+// comes out. The room has three values: ACC2, SpHal2 and "unknown" (the school has not said yet). Extra time is off by
+// default: [redacted] has none ([redacted], 14 Oct 2026). The switch in Settings is only for checking the school's table.
 export type ExamRoom = 'ACC2' | 'SpHal2' | 'unknown';
 export const EXAM_ROOMS: readonly ExamRoom[] = ['ACC2', 'SpHal2', 'unknown'];
 export const DEFAULT_ROOM: ExamRoom = 'unknown';
-export const DEFAULT_EXTRA_TIME = true;
+export const DEFAULT_EXTRA_TIME = false;
 
 export interface AccessChoice {
   extraTime: boolean;

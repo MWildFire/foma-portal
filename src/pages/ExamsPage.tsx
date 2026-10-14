@@ -131,7 +131,7 @@ export function ExamsPage() {
                         <span className="text-lg font-semibold">{ranges.printed.range}</span>{' '}
                         <span className={`text-sm ${MUTED}`}>{t('printedTime')}</span>
                       </span>
-                      {ranges.extended && (
+                      {extraTime && ranges.extended && (
                         <>
                           <span className={MUTED} aria-hidden>{' · '}</span>
                           <span className="whitespace-nowrap">

@@ -1,8 +1,6 @@
 import { useId, useMemo } from 'react';
-import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { Hourglass, TriangleAlert } from 'lucide-react';
-import { ROUTES } from '../../config/routes';
 import { PAPER_IDS, timerStorageKey, type TimedSetInfo } from '../../lib/practice';
 import { pickText } from '../../lib/text';
 import { EXAMS } from '../../planner/data';
@@ -107,10 +105,7 @@ export function TimedPanel({ subject, sets, active, requestedId, extraTime, lang
                 <span>{t('timed.extra.on', { base: active.minutes, extra: allowed - active.minutes, total: allowed })}</span>
               </p>
             ) : (
-              <p className="study-muted">
-                {t('timed.extra.off')}{' '}
-                <Link to={ROUTES.settings()} className="foma-link">{t('timed.extra.settings')}</Link>
-              </p>
+              <p className="study-muted">{t('timed.extra.off')}</p>
             )}
 
             {active.part?.includes('listening') ? <ListeningPlayer key={active.id} tracks={setTracks} /> : null}
