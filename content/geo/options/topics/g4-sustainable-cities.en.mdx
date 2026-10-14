@@ -46,12 +46,12 @@ No plan is free of costs. Pedestrian streets can reduce car access for shops, cy
 
 ## Worked example
 
-Take a city with 10,000 trips a day, each averaging 6 km. Before the plan the modal split is car 60%, BRT bus 25%, rail 5%, cycling 2% and walking 8%. The plan moves it to car 35%, BRT 40%, rail 10%, cycling 8% and walking 7%. The calculation uses the same illustrative factors as the simulation: 210.3 g CO2e per passenger-km for a car (DESNZ 2023 average car per vehicle-km, counted as one person), 80 g for the bus, 44 g for rail, and speeds of 20, 24, 30, 14 and 5 km/h.
+Take a city with 10,000 trips a day, each averaging 6 km. Before the plan the modal split is car 60%, BRT bus 25%, rail 5%, cycling 2% and walking 8%. The plan moves it to car 35%, BRT 40%, rail 10%, cycling 8% and walking 7%. The calculation uses the same illustrative factors as the simulation: 210.3 g CO2e per km for a car with one person (DESNZ 2023 average car, unknown fuel: 166.64 g direct plus 43.66 g indirect per vehicle-km), 80 g per passenger-km for the BRT bus (a teaching assumption, not a DESNZ value), 44.43 g per passenger-km for rail (DESNZ 2023 national rail: 35.46 g direct plus 8.97 g indirect), and speeds of 20, 24, 30, 14 and 5 km/h.
 
 <Steps>
 <Step>Trips before the plan: car 60% of 10,000 = 6,000; BRT 2,500; rail 500. Car passenger-km: 6,000 × 6 km = 36,000, so car emissions = 36,000 × 210.3 g = 7.571 t.</Step>
-<Step>Bus and rail before the plan: 2,500 × 6 km = 15,000 passenger-km × 80 g = 1.200 t; 500 × 6 km = 3,000 passenger-km × 44 g = 0.132 t. Total before the plan: 7.571 + 1.200 + 0.132 = 8.903 t a day.</Step>
-<Step>After the plan: car 3,500 trips give 4.416 t; BRT 4,000 trips give 1.920 t; rail 1,000 trips give 0.264 t. Total after the plan: 6.600 t a day. The reduction is 2.303 t, about 26%.</Step>
+<Step>Bus and rail before the plan: 2,500 × 6 km = 15,000 passenger-km × 80 g = 1.200 t; 500 × 6 km = 3,000 passenger-km × 44.43 g = 0.133 t. Total before the plan: 7.571 + 1.200 + 0.133 = 8.904 t a day.</Step>
+<Step>After the plan: car 3,500 trips give 4.416 t; BRT 4,000 trips give 1.920 t; rail 1,000 trips give 0.267 t. Total after the plan: 6.603 t a day. The reduction is 2.301 t, about 26%.</Step>
 <Step>Average travel time per trip: car 18 min, BRT 15, rail 12, cycling 25.7, walking 72. Before the plan: 0.60 × 18 + 0.25 × 15 + 0.05 × 12 + 0.02 × 25.7 + 0.08 × 72 = 21.4 minutes. After the plan: 0.35 × 18 + 0.40 × 15 + 0.10 × 12 + 0.08 × 25.7 + 0.07 × 72 = 20.6 minutes.</Step>
 </Steps>
 
@@ -59,7 +59,7 @@ Take a city with 10,000 trips a day, each averaging 6 km. Before the plan the mo
 
 <Sim id="geo.opt-g-transport"/>
 
-The simulation shows how a shift in the modal split changes daily CO2e and average travel time for 10,000 trips, and it rounds the totals to one decimal. The coefficients are teaching assumptions, so compare the direction and size of the change rather than the exact tonnes for any real city.
+The simulation shows how a shift in the modal split changes daily CO2e and average travel time for 10,000 trips, and it rounds the totals to one decimal. The BRT factor, the speeds and the zero factors for cycling and walking are teaching assumptions; the car and rail factors come from DESNZ 2023 (see the notes under the simulation). Compare the direction and size of the change rather than the exact tonnes for any real city.
 
 ## How it is examined
 
