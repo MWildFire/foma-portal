@@ -8,6 +8,7 @@ const RANGE = 2;     // every entry runs from -2 to 2
 const PLANE = 4;     // the plot shows -4 to 4 on both axes
 const SIZE = 240;    // side of the square plot, in pixels
 const SCALE = SIZE / (2 * PLANE);
+const TICKS = [-3, -2, -1, 1, 2, 3]; // unit marks on both axes
 const toX = (x: number) => SIZE / 2 + x * SCALE;
 const toY = (y: number) => SIZE / 2 - y * SCALE;
 
@@ -103,6 +104,14 @@ export default function EigenLab({ lang }: { lang: Lang }) {
       >
         <line x1={0} y1={SIZE / 2} x2={SIZE} y2={SIZE / 2} stroke="#bbb" />
         <line x1={SIZE / 2} y1={0} x2={SIZE / 2} y2={SIZE} stroke="#bbb" />
+        {TICKS.map(v => (
+          <g key={v} fill="#777" fontSize={9}>
+            <text x={toX(v)} y={SIZE / 2 + 11} textAnchor="middle">{v}</text>
+            <text x={SIZE / 2 - 5} y={toY(v) + 3} textAnchor="end">{v}</text>
+          </g>
+        ))}
+        <text x={SIZE - 4} y={SIZE / 2 + 12} textAnchor="end" fontSize={11} fill="#777">x</text>
+        <text x={SIZE / 2 + 5} y={10} fontSize={11} fill="#777">y</text>
         <circle cx={toX(0)} cy={toY(0)} r={SCALE} fill="none" stroke="#888" strokeDasharray="4 3" />
         <polygon points={image} fill="none" stroke="#2a9d8f" strokeWidth={2} />
         {eigen.map(({ lambda, v, colour }) => (
@@ -114,7 +123,11 @@ export default function EigenLab({ lang }: { lang: Lang }) {
           </g>
         ))}
       </svg>
-      <figcaption style={{ fontSize: 13, lineHeight: 1.5 }}>{t.legend}</figcaption>
+      <figcaption style={{ fontSize: 13, lineHeight: 1.5 }}>
+        A = [[{a.toFixed(1)}, {b.toFixed(1)}], [{c.toFixed(1)}, {d.toFixed(1)}]]
+        <br />
+        {t.legend}
+      </figcaption>
       <Slider label={t.entries[0]} value={a} onChange={setA} />
       <Slider label={t.entries[1]} value={b} onChange={setB} />
       <Slider label={t.entries[2]} value={c} onChange={setC} />

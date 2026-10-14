@@ -11,6 +11,7 @@ const STEP = 0.002;         // Euler step length
 const STEPS = 3000;         // 6 time units
 const RECORD = 25;          // keep every 25th point (0.05 time units)
 const LIMIT = 3.4;          // a curve that leaves the view stops
+const TICKS = [-3, -2, -1, 1, 2, 3]; // unit marks on both axes
 const STARTS: [number, number][] = [
   [2.5, 0], [0, 2.5], [-2.5, 0], [0, -2.5], [1.8, 1.8], [-1.8, -1.8], [1.8, -1.8], [-1.8, 1.8],
 ];
@@ -41,6 +42,9 @@ function curve(a: number, b: number, c: number, d: number, x0: number, y0: numbe
   }
   return points.join(' ');
 }
+
+// Right-hand side of one equation with the current entries, for example "−1.0x + 2.0y".
+const combination = (p: number, q: number) => `${p < 0 ? '−' : ''}${Math.abs(p).toFixed(1)}x ${q < 0 ? '−' : '+'} ${Math.abs(q).toFixed(1)}y`;
 
 const TEXT = {
   en: {
@@ -114,6 +118,14 @@ export default function PhasePortraitLab({ lang }: { lang: Lang }) {
       <svg viewBox={`0 0 ${SIZE} ${SIZE}`} width="100%" style={{ maxWidth: SIZE }} role="img" aria-label={t.label}>
         <line x1={0} y1={SIZE / 2} x2={SIZE} y2={SIZE / 2} stroke="currentColor" strokeWidth={0.5} />
         <line x1={SIZE / 2} y1={0} x2={SIZE / 2} y2={SIZE} stroke="currentColor" strokeWidth={0.5} />
+        {TICKS.map(v => (
+          <g key={v} fill="currentColor" fontSize={9}>
+            <text x={SIZE / 2 + v * SCALE} y={SIZE / 2 + 11} textAnchor="middle">{v}</text>
+            <text x={SIZE / 2 - 5} y={SIZE / 2 - v * SCALE + 3} textAnchor="end">{v}</text>
+          </g>
+        ))}
+        <text x={SIZE - 4} y={SIZE / 2 - 5} textAnchor="end" fontSize={11} fill="currentColor">x</text>
+        <text x={SIZE / 2 + 5} y={10} fontSize={11} fill="currentColor">y</text>
         {STARTS.map(([x0, y0]) => (
           <g key={`${x0},${y0}`}>
             <polyline points={curve(a, b, c, d, x0, y0)} fill="none" stroke="#4f6fd8" strokeWidth={1.2} />
@@ -123,6 +135,10 @@ export default function PhasePortraitLab({ lang }: { lang: Lang }) {
         <circle cx={SIZE / 2} cy={SIZE / 2} r={3} fill="currentColor" />
       </svg>
       <figcaption style={{ fontSize: 13, lineHeight: 1.6 }}>
+        dx/dt = {combination(a, b)}
+        <br />
+        dy/dt = {combination(c, d)}
+        <br />
         <strong>{t.type}: {t.kinds[kind]}{disc === 0 && kind.includes('node') ? ` (${t.repeated})` : ''}</strong>
         <br />
         {t.trace}: {trace.toFixed(1)} · {t.det}: {det.toFixed(2)} · {t.disc}: {disc.toFixed(2)}

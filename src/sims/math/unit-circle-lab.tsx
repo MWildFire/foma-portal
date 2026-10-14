@@ -1,12 +1,10 @@
 import { useState } from 'react';
 import type { Lang } from '../../contract/types';
+import { CENTRE, RADIUS, SIZE, tangentOf, tangentSegment } from './unit-circle-logic';
 
 // Unit circle with an angle control in degrees or radians. The point (cos θ, sin θ) gives sine and cosine; the line
 // from the centre through x = 1 reaches height tan θ; the table marks the signs of the quadrant the angle is in.
 
-const SIZE = 300;
-const CENTRE = 150;
-const RADIUS = 110; // pixels for one unit
 const ROMAN = ['I', 'II', 'III', 'IV'];
 
 // Signs of sin, cos and tan in quadrants I to IV.
@@ -28,6 +26,7 @@ const TEXT = {
     quadrant: 'Quadrant',
     onAxis: 'on an axis',
     undefinedTan: 'undefined (cos θ = 0)',
+    offFrame: 'off frame',
     table: 'Signs by quadrant',
     headers: ['Quadrant', 'sin θ', 'cos θ', 'tan θ'],
     cos: 'cos θ',
@@ -44,6 +43,7 @@ const TEXT = {
     quadrant: 'Четверть',
     onAxis: 'на оси',
     undefinedTan: 'не определён (cos θ = 0)',
+    offFrame: 'за рамкой',
     table: 'Знаки по четвертям',
     headers: ['Четверть', 'sin θ', 'cos θ', 'tan θ'],
     cos: 'cos θ',
@@ -65,7 +65,7 @@ export default function UnitCircleLab({ lang }: { lang: Lang }) {
   const theta = (degrees * Math.PI) / 180;
   const cos = Math.cos(theta);
   const sin = Math.sin(theta);
-  const tan = Math.abs(cos) < 0.0005 ? null : sin / cos; // cos shows as 0.000, so tan is undefined
+  const tan = tangentOf(theta); // null where cos shows as 0.000, so tan is undefined
   const turn = ((degrees % 360) + 360) % 360;
   const part = turn % 90;
   const onAxis = Math.min(part, 90 - part) < 0.5;
@@ -74,7 +74,8 @@ export default function UnitCircleLab({ lang }: { lang: Lang }) {
 
   const pointX = px(cos);
   const pointY = py(sin);
-  const tanY = tan === null ? null : py(Math.max(-1.4, Math.min(1.4, tan)));
+  // The true tangent value is drawn, and the line stops at the frame edge when the value lies outside the frame.
+  const tangent = tan === null ? null : tangentSegment(tan);
 
   return (
     <figure style={{ margin: 0 }}>
@@ -85,8 +86,11 @@ export default function UnitCircleLab({ lang }: { lang: Lang }) {
         {degrees > 0 && degrees < 360 && (
           <path d={`M ${px(1)} ${py(0)} A ${RADIUS} ${RADIUS} 0 ${theta > Math.PI ? 1 : 0} 0 ${pointX} ${pointY}`} fill="none" stroke="#3a9d6a" strokeWidth={3} />
         )}
-        {tanY !== null && <line x1={CENTRE} y1={CENTRE} x2={px(1)} y2={tanY} stroke="#3a9d6a" strokeDasharray="4 3" />}
-        {tanY !== null && <text x={px(1) + 4} y={tanY} fontSize={12}>{t.tan}</text>}
+        {tangent !== null && <line x1={CENTRE} y1={CENTRE} x2={tangent.x} y2={tangent.y} stroke="#3a9d6a" strokeDasharray="4 3" />}
+        {tan !== null && <text x={8} y={18} fontSize={12} fill="#3a9d6a">{`${t.tan} = ${tan.toFixed(2)}`}</text>}
+        {tangent !== null && tangent.cut && (
+          <text x={tangent.x - 8} y={tangent.y === 0 ? 14 : SIZE - 6} textAnchor="end" fontSize={11} fill="#3a9d6a">{t.offFrame}</text>
+        )}
         <line x1={CENTRE} y1={CENTRE} x2={pointX} y2={pointY} stroke="#4f6fd8" strokeWidth={2} />
         <line x1={pointX} y1={pointY} x2={pointX} y2={CENTRE} stroke="#e0883a" strokeDasharray="4 3" />
         <line x1={pointX} y1={pointY} x2={CENTRE} y2={pointY} stroke="#e0883a" strokeDasharray="4 3" />

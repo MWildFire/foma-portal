@@ -7,6 +7,7 @@ import type { Lang } from '../../contract/types';
 const SIZE = 260;
 const RANGE = 4;                       // the axes run from -4 to 4; entries in [-2, 2] keep the image inside
 const UNIT = (SIZE / 2 - 14) / RANGE;  // pixels per unit
+const TICKS = [-4, -3, -2, -1, 1, 2, 3, 4]; // unit marks on both axes
 
 const sx = (x: number) => SIZE / 2 + x * UNIT;
 const sy = (y: number) => SIZE / 2 - y * UNIT;
@@ -23,6 +24,7 @@ const TEXT = {
     kept: 'kept (det M > 0)',
     reversed: 'reversed, as in a mirror (det M < 0)',
     collapsed: 'collapsed onto a line or point (det M = 0): no inverse',
+    legend: 'Dashed: unit square. Shaded: its image under the matrix.',
     note: 'The origin always stays fixed. Move the sliders to change the entries.',
   },
   ru: {
@@ -35,6 +37,7 @@ const TEXT = {
     kept: 'сохраняется (det M > 0)',
     reversed: 'меняется, как в зеркале (det M < 0)',
     collapsed: 'сжата в прямую или точку (det M = 0): обратного преобразования нет',
+    legend: 'Пунктир: единичный квадрат. Заливка: его образ под действием матрицы.',
     note: 'Начало координат всегда остаётся на месте. Двигайте ползунки, чтобы менять элементы матрицы.',
   },
 } as const;
@@ -61,6 +64,14 @@ export default function MatrixTransformLab({ lang }: { lang: Lang }) {
       <svg viewBox={`0 0 ${SIZE} ${SIZE}`} width="100%" style={{ maxWidth: SIZE }} role="img" aria-label={t.label}>
         <line x1={0} y1={SIZE / 2} x2={SIZE} y2={SIZE / 2} stroke="currentColor" strokeOpacity={0.3} />
         <line x1={SIZE / 2} y1={0} x2={SIZE / 2} y2={SIZE} stroke="currentColor" strokeOpacity={0.3} />
+        {TICKS.map(v => (
+          <g key={v} fill="currentColor" fontSize={9}>
+            <text x={sx(v)} y={SIZE / 2 + 11} textAnchor="middle">{v}</text>
+            <text x={SIZE / 2 - 5} y={sy(v) + 3} textAnchor="end">{v}</text>
+          </g>
+        ))}
+        <text x={SIZE - 4} y={SIZE / 2 - 5} textAnchor="end" fontSize={11} fill="currentColor">x</text>
+        <text x={SIZE / 2 + 5} y={10} fontSize={11} fill="currentColor">y</text>
         <polygon points={polygon(square)} fill="none" stroke="currentColor" strokeDasharray="4 3" />
         <polygon points={polygon(image)} fill="#4f6fd8" fillOpacity={0.3} stroke="#4f6fd8" strokeWidth={2} />
       </svg>
@@ -70,6 +81,8 @@ export default function MatrixTransformLab({ lang }: { lang: Lang }) {
         {t.det} = {det.toFixed(2)} · {t.area} = {Math.abs(det).toFixed(2)}
         <br />
         {t.orientation}: {orientation}
+        <br />
+        {t.legend}
         <br />
         {t.note}
       </figcaption>

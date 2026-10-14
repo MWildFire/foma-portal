@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import type { Lang } from '../../contract/types';
+import { principalArgument } from './complex-plane-logic';
 
 // Argand diagram for z = a + bi. The fixed number w = 1 + i turns z through 45 degrees and stretches it by sqrt(2),
 // so the orange point is the product zw = (a - b) + (a + b)i. Everything is computed from the two sliders.
@@ -26,9 +27,11 @@ const TEXT = {
     product: 'zw',
     modulus: 'Modulus |z|',
     argument: 'Argument arg z',
+    undefinedArg: 'undefined (z = 0)',
+    rad: 'rad',
     polar: 'Polar form',
     fixed: 'Fixed number w = 1 + i, so zw =',
-    note: 'Multiplying by w turns z through 45 degrees and stretches it by sqrt(2).',
+    note: 'Multiplying by w turns z through π/4 (45°) and stretches it by √2.',
   },
   ru: {
     label: 'Диаграмма Аргана для z = a + bi и произведения zw',
@@ -41,9 +44,11 @@ const TEXT = {
     product: 'zw',
     modulus: 'Модуль |z|',
     argument: 'Аргумент arg z',
+    undefinedArg: 'не определён (z = 0)',
+    rad: 'рад',
     polar: 'Полярная форма',
     fixed: 'Фиксированное число w = 1 + i, поэтому zw =',
-    note: 'Умножение на w поворачивает z на 45 градусов и растягивает его в sqrt(2) раз.',
+    note: 'Умножение на w поворачивает z на π/4 (45°) и растягивает его в √2 раз.',
   },
 } as const;
 
@@ -56,7 +61,7 @@ export default function ComplexPlaneLab({ lang }: { lang: Lang }) {
   const [b, setB] = useState(3);
 
   const r = Math.hypot(a, b);
-  const theta = Math.atan2(b, a);
+  const theta = principalArgument(a, b); // radians, in (-pi, pi]
   const degrees = (theta * 180) / Math.PI;
   const productRe = a - b; // (a + bi)(1 + i) = (a - b) + (a + b)i
   const productIm = a + b;
@@ -86,9 +91,10 @@ export default function ComplexPlaneLab({ lang }: { lang: Lang }) {
         <text x={X(productRe) + 7} y={Y(productIm) - 7} fontSize={13} fill="currentColor">{t.product}</text>
       </svg>
       <figcaption style={{ fontSize: 13, lineHeight: 1.6 }}>
-        {t.value} {cartesian(a, b)} · {t.modulus}: {r.toFixed(2)} · {t.argument}: {degrees.toFixed(1)}°
+        {t.value} {cartesian(a, b)} · {t.modulus}: {r.toFixed(2)} · {t.argument}:{' '}
+        {r === 0 ? t.undefinedArg : `${theta.toFixed(2)} ${t.rad} (${degrees.toFixed(1)}°)`}
         <br />
-        {t.polar}: {r.toFixed(2)}(cos {degrees.toFixed(1)}° + i sin {degrees.toFixed(1)}°)
+        {t.polar}: {r.toFixed(2)}(cos {theta.toFixed(2)} + i sin {theta.toFixed(2)})
         <br />
         <span>
           {t.fixed} {cartesian(productRe, productIm)}

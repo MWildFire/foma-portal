@@ -10,11 +10,17 @@ const Y_MIN = -1;
 const Y_MAX = 5;
 const WIDTH = 320;
 const HEIGHT = 240;
-const PAD = 12;
-const X = (x: number) => PAD + (x / X_MAX) * (WIDTH - 2 * PAD);
-const Y = (y: number) => HEIGHT - PAD - ((y - Y_MIN) / (Y_MAX - Y_MIN)) * (HEIGHT - 2 * PAD);
-// Pixels of vertical travel per unit of slope, per pixel of horizontal travel.
-const SLOPE_PX = ((HEIGHT - 2 * PAD) / (Y_MAX - Y_MIN)) / ((WIDTH - 2 * PAD) / X_MAX);
+const LEFT = 32; // room for the y tick labels
+const RIGHT = 16; // room for the name of the x axis
+const TOP = 18; // room for the top y tick label and the name of the y axis
+const BOTTOM = 26; // room for the x tick labels
+const PLOT_W = WIDTH - LEFT - RIGHT;
+const PLOT_H = HEIGHT - TOP - BOTTOM;
+const X = (x: number) => LEFT + (x / X_MAX) * PLOT_W;
+const Y = (y: number) => HEIGHT - BOTTOM - ((y - Y_MIN) / (Y_MAX - Y_MIN)) * PLOT_H;
+// Pixels of vertical travel per unit of slope, per pixel of horizontal travel. The axes are not to the same scale.
+const SLOPE_PX = (PLOT_H / (Y_MAX - Y_MIN)) / (PLOT_W / X_MAX);
+const Y_TICKS = Array.from({ length: Y_MAX - Y_MIN + 1 }, (_, k) => Y_MIN + k); // -1, 0, ..., 5
 
 // f is the right-hand side; exact(y0, x) solves the equation with y(0) = y0 and is used only for the dashed curve.
 const FUNCTIONS = [
@@ -31,6 +37,7 @@ const TEXT = {
     step: 'Step length h',
     start: 'Starting value y(0)',
     note: 'Blue: slope field. Orange: Euler polygon. Dashed: exact solution.',
+    scale: 'The axes are not to the same scale: a slope is dy/dx, not the angle of an arrow.',
     at: 'At x =',
     euler: 'Euler',
     exact: 'exact',
@@ -43,6 +50,7 @@ const TEXT = {
     step: 'Шаг h',
     start: 'Начальное значение y(0)',
     note: 'Синее: поле направлений. Оранжевое: ломаная Эйлера. Пунктир: точное решение.',
+    scale: 'Масштабы осей не равные: наклон — это dy/dx, а не угол стрелки.',
     at: 'При x =',
     euler: 'Эйлер',
     exact: 'точно',
@@ -91,7 +99,16 @@ export default function DirectionFieldLab({ lang }: { lang: Lang }) {
   return (
     <figure style={{ margin: 0 }}>
       <svg viewBox={`0 0 ${WIDTH} ${HEIGHT}`} width="100%" style={{ maxWidth: WIDTH }} role="img" aria-label={t.label}>
-        <line x1={PAD} y1={Y(0)} x2={WIDTH - PAD} y2={Y(0)} stroke="#c9ccd3" strokeWidth={1} />
+        <line x1={X(0)} y1={Y(Y_MAX)} x2={X(0)} y2={Y(Y_MIN)} stroke="#c9ccd3" strokeWidth={1} />
+        <line x1={LEFT} y1={Y(0)} x2={WIDTH - RIGHT} y2={Y(0)} stroke="#c9ccd3" strokeWidth={1} />
+        {Y_TICKS.map(v => (
+          <text key={v} x={X(0) - 12} y={Y(v) + 4} textAnchor="end" fontSize={10} fill="currentColor">{v}</text>
+        ))}
+        {[0, X_MAX].map(v => (
+          <text key={v} x={X(v)} y={HEIGHT - 6} textAnchor="middle" fontSize={10} fill="currentColor">{v}</text>
+        ))}
+        <text x={WIDTH - 6} y={Y(0) - 5} textAnchor="end" fontSize={11} fill="currentColor">x</text>
+        <text x={X(0)} y={9} textAnchor="middle" fontSize={11} fill="currentColor">y</text>
         {arrows.map((a, k) => (
           <line key={k} x1={a.x1} y1={a.y1} x2={a.x2} y2={a.y2} stroke="#4f6fd8" strokeWidth={1} />
         ))}
@@ -103,6 +120,8 @@ export default function DirectionFieldLab({ lang }: { lang: Lang }) {
       </svg>
       <figcaption style={{ fontSize: 13, lineHeight: 1.5 }}>
         {t.note}
+        <br />
+        {t.scale}
         <br />
         {t.at} {xEnd.toFixed(2)}: {t.euler} {yEuler.toFixed(3)} · {t.exact} {yExact.toFixed(3)} · {t.error} {(yExact - yEuler).toFixed(3)}
       </figcaption>
