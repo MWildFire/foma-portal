@@ -4,9 +4,9 @@ import type { Lang } from '../../contract/types';
 // Illustrative water-scarcity calculator, not data about any real country.
 // Water per person (m³ per year) = renewable water (km³ per year) × 10^9 m³ per km³ ÷ (population in millions × 10^6 people).
 // This simplifies to resources × 1 000 ÷ population, since 10^9 ÷ 10^6 = 10^3.
-// Thresholds: UN-Water (2017), Policy Brief: Water Quality, p. 5, after Falkenmark and Lindh (1976). A rule of thumb.
+// Thresholds: UN-Water (2011), Policy Brief: Water Quality, p. 3 (printed page; the 5th page of the PDF), footnote 1, after Falkenmark and Lindh (1976). A rule of thumb.
 // https://www.unwater.org/sites/default/files/app/uploads/2017/05/waterquality_policybrief.pdf
-// Physical and economic tests: Comprehensive Assessment of Water Management in Agriculture (2007), map "Areas of Physical and Economic Water Scarcity" (as described on the FAO portal). The 75% cut-off is a teaching threshold; its exact wording and page were not checked against the source.
+// Physical and economic tests: Comprehensive Assessment of Water Management in Agriculture (2007), Summary, p. 11, map 2 "Areas of physical and economic water scarcity"; the 75% cut-off is its definition of physical scarcity (more than 75% of river flows withdrawn). The economic test is only stated here, not calculated.
 // Farming share of withdrawals: FAO SDG Data Portal, indicator 6.4.2 page, 2023 data. The page says agriculture took 72 percent of total withdrawals in 2023, industry 15 percent and services 13 percent; the third share is labelled 'services'.
 // https://www.fao.org/sustainable-development-goals-data-portal/data/indicators/642-water-stress/en
 
@@ -48,12 +48,21 @@ const BANDS: [number, number, number][] = [
   [1700, CHART_MAX, 0.08],
 ];
 
+// Names of the bands on the scale, from the lowest to the highest (same order as BANDS).
+const BAND_NAMES: { en: string; ru: string }[] = [
+  { en: 'absolute', ru: 'абсолютный' },
+  { en: 'scarcity', ru: 'дефицит' },
+  { en: 'stress', ru: 'стресс' },
+  { en: 'no stress', ru: 'нет стресса' },
+];
+
 export default function OptAScarcitySim({ lang }: { lang: Lang }) {
   const ru = lang === 'ru';
   const [population, setPopulation] = useState(50); // million people
   const [resources, setResources] = useState(60); // km³ per year
   const [farming, setFarming] = useState(72); // % of withdrawals used for farming
   const [drought, setDrought] = useState(0); // % fall in renewable resources
+  const [withdrawal, setWithdrawal] = useState(17.6); // % of renewable water withdrawn: world 2023, FAO SDG indicator 6.4.2
 
   // Decimal comma and grouped thousands in Russian; decimal point and commas in English.
   const fmt = (value: number, digits = 0): string => {
@@ -74,13 +83,16 @@ export default function OptAScarcitySim({ lang }: { lang: Lang }) {
   const furtherText = nextLower === null
     ? (ru ? '(уже абсолютный дефицит)' : '(already absolute scarcity)')
     : (ru ? `(ниже ${fmt(nextLower)})` : `(below ${fmt(nextLower)})`);
-  const farmingShare = after * (farming / 100);
-  const otherShare = after - farmingShare;
+  // Withdrawals are a share of the renewable water; the farming share applies to withdrawals, not to the resources.
+  const withdrawals = after * (withdrawal / 100);
+  const farmingShare = withdrawals * (farming / 100);
+  const otherShare = withdrawals - farmingShare;
 
-  const sliders = [
+  const sliders: { key: string; en: string; ru: string; min: number; max: number; step: number; value: number; set: (v: number) => void; digits?: number }[] = [
     { key: 'population', en: 'Population (million people)', ru: 'Население (млн человек)', min: 5, max: 1500, step: 1, value: population, set: setPopulation },
     { key: 'resources', en: 'Renewable water resources (km³ per year)', ru: 'Возобновляемые водные ресурсы (км³ в год)', min: 5, max: 1000, step: 1, value: resources, set: setResources },
     { key: 'farming', en: 'Share of withdrawals used for farming (%)', ru: 'Доля изъятой воды на сельское хозяйство (%)', min: 0, max: 100, step: 1, value: farming, set: setFarming },
+    { key: 'withdrawal', en: 'Water withdrawals, % of renewable water (world 2023: 17.6)', ru: 'Изъятия воды, % от возобновляемых ресурсов (мир, 2023: 17,6)', min: 0, max: 100, step: 0.1, value: withdrawal, set: setWithdrawal, digits: 1 },
     { key: 'drought', en: 'Drought: fall in renewable resources (%)', ru: 'Засуха: снижение водных ресурсов (%)', min: 0, max: 80, step: 1, value: drought, set: setDrought },
   ];
 
@@ -105,7 +117,7 @@ export default function OptAScarcitySim({ lang }: { lang: Lang }) {
           <label key={slider.key} style={{ display: 'block', marginBottom: 10 }}>
             <span style={{ display: 'flex', justifyContent: 'space-between', gap: 8, fontSize: 14 }}>
               <span>{ru ? slider.ru : slider.en}</span>
-              <strong>{fmt(slider.value)}</strong>
+              <strong>{fmt(slider.value, slider.digits ?? 0)}</strong>
             </span>
             <input
               type="range"
@@ -142,7 +154,7 @@ export default function OptAScarcitySim({ lang }: { lang: Lang }) {
           <strong>{furtherFall === null ? '—' : `${fmt(furtherFall, 1)}%`}</strong> {furtherText}
         </div>
         <div style={{ marginTop: 6, fontSize: 14 }}>
-          {ru ? 'Иллюстративное разбиение воды после засухи: сельское хозяйство ' : 'Illustrative split after the drought: farming '}
+          {ru ? 'Иллюстративное разбиение изъятой воды после засухи: сельское хозяйство ' : 'Illustrative split of withdrawals after the drought: farming '}
           <strong>{fmt(farmingShare)}</strong>
           {ru ? ' м³, остальные нужды ' : ' m³, other uses '}
           <strong>{fmt(otherShare)}</strong>
@@ -151,26 +163,36 @@ export default function OptAScarcitySim({ lang }: { lang: Lang }) {
       </div>
 
       <svg
-        viewBox="0 0 320 94"
+        viewBox="0 0 320 108"
         width="100%"
         role="img"
         aria-label={ru ? 'Шкала водообеспеченности на человека' : 'Scale of water per person'}
         style={{ display: 'block', maxWidth: 360, marginTop: 10 }}
       >
-        {BANDS.map(([from, to, opacity]) => (
-          <rect key={from} x={xOf(from)} y={30} width={xOf(to) - xOf(from)} height={24} fill="currentColor" fillOpacity={opacity} />
+        {BANDS.map(([from, to, opacity], index) => (
+          <g key={from}>
+            <rect x={xOf(from)} y={30} width={xOf(to) - xOf(from)} height={24} fill="currentColor" fillOpacity={opacity} />
+            <text x={(xOf(from) + xOf(to)) / 2} y={45} fontSize="8" textAnchor="middle" fill="currentColor">
+              {ru ? BAND_NAMES[index].ru : BAND_NAMES[index].en}
+            </text>
+          </g>
         ))}
         {[500, 1000, 1700].map(threshold => (
           <text key={threshold} x={xOf(threshold)} y={68} fontSize="10" textAnchor="middle" fill="currentColor">
             {fmt(threshold)}
           </text>
         ))}
+        <text x={xOf(0)} y={68} fontSize="10" textAnchor="start" fill="currentColor">0</text>
+        <text x={xOf(CHART_MAX)} y={68} fontSize="10" textAnchor="end" fill="currentColor">{`${fmt(CHART_MAX)}+`}</text>
+        <text x={(LEFT + RIGHT) / 2} y={84} fontSize="10" textAnchor="middle" fill="currentColor">
+          {ru ? 'м³ на человека в год' : 'm³ per person per year'}
+        </text>
         <line x1={xBefore} y1={22} x2={xBefore} y2={58} stroke="currentColor" strokeWidth={1.5} strokeDasharray="4 3" />
         <text x={xBefore} y={14} fontSize="10" textAnchor={anchorOf(xBefore)} fill="currentColor">
           {ru ? 'до засухи' : 'before drought'}
         </text>
         <line x1={xAfter} y1={22} x2={xAfter} y2={58} stroke="currentColor" strokeWidth={3} />
-        <text x={xAfter} y={90} fontSize="10" textAnchor={anchorOf(xAfter)} fill="currentColor">
+        <text x={xAfter} y={102} fontSize="10" textAnchor={anchorOf(xAfter)} fill="currentColor">
           {ru ? 'после засухи' : 'after drought'}
         </text>
       </svg>
@@ -178,26 +200,26 @@ export default function OptAScarcitySim({ lang }: { lang: Lang }) {
       <p style={{ margin: '12px 0 0', fontSize: 13, lineHeight: 1.5 }}>
         <strong>{ru ? 'Формулы. ' : 'Formulas. '}</strong>
         {ru
-          ? 'Вода на человека = возобновляемые ресурсы × 1 000 ÷ население, потому что 1 км³ = 10⁹ м³, а 1 млн человек = 10⁶ человек. После засухи: вода × (1 − засуха, %). Пороги: ниже 1 700 — водный стресс; ниже 1 000 — водный дефицит; ниже 500 — абсолютный дефицит. Пороги Фалькенмарк — эмпирическое правило: они не учитывают, как используется вода, насколько богата страна и что она ввозит из-за рубежа.'
+          ? 'Вода на человека = возобновляемые ресурсы × 1 000 ÷ население, потому что 1 км³ = 10⁹ м³, а 1 млн человек = 10⁶ человек. После засухи: вода × (1 − засуха, %). Пороги: ниже 1 700 — водный стресс; ниже 1 000 — водный дефицит; ниже 500 — абсолютный дефицит. Пороги Фалькенмарк — эмпирическое правило: они не учитывают, как используется вода, насколько богата страна и какое продовольствие она ввозит.'
           : 'Water per person = renewable resources × 1 000 ÷ population, because 1 km³ = 10⁹ m³ and 1 million people = 10⁶ people. After a drought: water × (1 − drought %). Thresholds: below 1,700 = water stress; below 1,000 = water scarcity; below 500 = absolute scarcity. The Falkenmark thresholds are a rule of thumb: they ignore how the water is used, how rich the country is, and what food it imports.'}
       </p>
       <p style={{ margin: '8px 0 0', fontSize: 13, lineHeight: 1.5 }}>
         <strong>{ru ? 'Физический или экономический? ' : 'Physical or economic? '}</strong>
         {ru
-          ? 'Физический дефицит: по учебному порогу более 75% речного стока изымается на сельское хозяйство, промышленность и быт. Экономический дефицит: вода рядом, но стране не по силам освоить и доставить её, потому что человеческий, институциональный и финансовый капитал ограничивают доступ. Симуляция только задаёт этот тест и не вычисляет его: для проверки нужны данные о доходах, инвестициях, управлении и инфраструктуре.'
-          : 'Physical scarcity: by the teaching threshold, more than 75% of river flows are withdrawn for farming, industry and homes. Economic scarcity: water is nearby, but a country cannot afford to develop and deliver it, because human, institutional and financial capital limit access. This simulation only states the test; it does not calculate it. Testing it needs data on income, investment, governance and infrastructure.'}
+          ? 'Физический дефицит: на сельское хозяйство, промышленность и быт изымается более 75% речного стока (Comprehensive Assessment of Water Management in Agriculture, 2007, Summary, с. 11, карта 2). Экономический дефицит: вода рядом, но стране не по силам освоить и доставить её, потому что человеческий, институциональный и финансовый капитал ограничивают доступ. Симуляция только задаёт этот тест и не вычисляет его: для проверки нужны данные о доходах, инвестициях, управлении и инфраструктуре.'
+          : 'Physical scarcity: more than 75% of river flows are withdrawn for agriculture, industry and domestic use (Comprehensive Assessment of Water Management in Agriculture, 2007, Summary, p. 11, map 2). Economic scarcity: water is nearby, but a country cannot afford to develop and deliver it, because human, institutional and financial capital limit access. This simulation only states the test; it does not calculate it. Testing it needs data on income, investment, governance and infrastructure.'}
       </p>
       <p style={{ margin: '8px 0 0', fontSize: 13, lineHeight: 1.5 }}>
         <strong>{ru ? 'Доля сельского хозяйства. ' : 'Farming share. '}</strong>
         {ru
-          ? 'Разбиение иллюстративное. По данным FAO за 2023 год, в мире на сельское хозяйство приходилось 72% изъятой воды, на промышленность 15%, на услуги 13%. Разбиение выше делит воду после засухи в тех же пропорциях; это не измеренный забор воды.'
-          : 'The split is illustrative. In FAO data for 2023, farming took 72% of withdrawals worldwide, industry 15% and services 13%. The split above divides the water after the drought in the same proportions; it is not a measured withdrawal.'}
+          ? 'Разбиение иллюстративное. По данным FAO за 2023 год, в мире на сельское хозяйство приходилось 72% изъятой воды, на промышленность 15%, на услуги 13%. Разбиение применено к изъятиям: изъятия = ресурсы после засухи × доля изъятий (по умолчанию 17,6% — мировой уровень, FAO, 2023 год). Это не измеренный забор воды.'
+          : 'The split is illustrative. In FAO data for 2023, farming took 72% of withdrawals worldwide, industry 15% and services 13%. The split applies these shares to withdrawals: withdrawals = resources after the drought × withdrawal share (default 17.6%, the world figure for 2023, FAO). It is not a measured withdrawal.'}
       </p>
       <p style={{ margin: '8px 0 0', fontSize: 13, lineHeight: 1.5 }}>
         <strong>{ru ? 'Источники. ' : 'Sources. '}</strong>
         {ru
-          ? 'UN-Water (2017), Policy Brief: Water Quality, с. 5 (пороги, по Falkenmark и Lindh, 1976); Comprehensive Assessment of Water Management in Agriculture (2007), карта «Areas of Physical and Economic Water Scarcity» (по описанию карты на портале FAO; порог 75% — учебный, дословная формулировка и страница не сверены); портал данных FAO SDG, индикатор 6.4.2 (72%, 15% и 13% за 2023 год).'
-          : 'UN-Water (2017), Policy Brief: Water Quality, p. 5 (thresholds, after Falkenmark and Lindh, 1976); Comprehensive Assessment of Water Management in Agriculture (2007), map "Areas of Physical and Economic Water Scarcity" (as described on the FAO portal; the 75% cut-off is a teaching threshold, exact wording and page not checked); FAO SDG Data Portal, indicator 6.4.2 (72%, 15% and 13% in 2023).'}
+          ? 'UN-Water (2011), Policy Brief: Water Quality, с. 3, сноска 1 (пороги, по Falkenmark и Lindh, 1976); Comprehensive Assessment of Water Management in Agriculture (2007), Summary, с. 11, карта 2 «Areas of physical and economic water scarcity» (более 75% речного стока изымается — определение физического дефицита); портал данных FAO SDG, индикатор 6.4.2 (72%, 15% и 13% изъятий за 2023 год; 17,6% — водный стресс в мире в 2023 году).'
+          : 'UN-Water (2011), Policy Brief: Water Quality, p. 3, footnote 1 (thresholds, after Falkenmark and Lindh, 1976); Comprehensive Assessment of Water Management in Agriculture (2007), Summary, p. 11, map 2 "Areas of physical and economic water scarcity" (more than 75% of river flows withdrawn: physical water scarcity); FAO SDG Data Portal, indicator 6.4.2 (72%, 15% and 13% of withdrawals in 2023; 17.6% world water stress in 2023).'}
       </p>
       <p style={{ margin: '8px 0 0', fontSize: 13, lineHeight: 1.5 }}>
         <strong>{ru ? 'Что заметить. ' : 'What to notice. '}</strong>

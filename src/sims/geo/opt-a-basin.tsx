@@ -40,13 +40,13 @@ export default function OptABasinSim({ lang }: { lang: Lang }) {
   const controls: { key: string; min: number; max: number; step: number; value: number; set: (v: number) => void; digits: number; en: string; ru: string }[] = [
     { key: 'area', min: 10, max: 5000, step: 10, value: area, set: setArea, digits: 0, en: 'Basin area A (km²)', ru: 'Площадь бассейна A (км²)' },
     { key: 'precip', min: 100, max: 3000, step: 10, value: precip, set: setPrecip, digits: 0, en: 'Mean annual precipitation P (mm/yr)', ru: 'Среднегодовые осадки P (мм/год)' },
-    { key: 'et', min: 0, max: 100, step: 1, value: etShare, set: setEtShare, digits: 0, en: 'Evapotranspiration E, share of P (%)', ru: 'Испарение E, доля от P (%)' },
+    { key: 'et', min: 0, max: 100, step: 1, value: etShare, set: setEtShare, digits: 0, en: 'Evapotranspiration E, share of P (%)', ru: 'Эвапотранспирация E, доля от P (%)' },
     { key: 'dS', min: -200, max: 200, step: 5, value: dS, set: setDS, digits: 0, en: 'Change in storage ΔS (mm/yr; + gain, − loss)', ru: 'Изменение запасов ΔS (мм/год; + прирост, − убыль)' },
     { key: 'gw', min: 0, max: 100, step: 5, value: gwShare, set: setGwShare, digits: 0, en: 'Groundwater share of Q, base flow (%)', ru: 'Доля подземных вод в Q, базисный сток (%)' },
   ];
 
   const rows = [
-    { en: 'Evapotranspiration E = share × P', ru: 'Испарение E = доля × P', value: `${fmt(et, 0)} ${unitMm}` },
+    { en: 'Evapotranspiration E = share × P', ru: 'Эвапотранспирация E = доля × P', value: `${fmt(et, 0)} ${unitMm}` },
     { en: 'Discharge Q = P − E − ΔS', ru: 'Сток Q = P − E − ΔS', value: `${shown(q)} ${unitMm}` },
     { en: 'Mean discharge = Q × A ÷ 31 536', ru: 'Средний расход = Q × A ÷ 31 536', value: `${shown((q * area) / M3S_DIVISOR, 1)} ${unitFlow}` },
     { en: 'Runoff coefficient Q ÷ P', ru: 'Коэффициент стока Q ÷ P', value: shown(q / precip, 2) },
@@ -113,6 +113,7 @@ export default function OptABasinSim({ lang }: { lang: Lang }) {
         {/* discharge at the outlet, split into quick flow and base flow */}
         <line x1={224} y1={96} x2={262} y2={96} stroke="currentColor" strokeWidth={arrowWidth(quickMm)} markerEnd={`url(#${ARROW_ID})`} />
         <line x1={224} y1={132} x2={262} y2={132} stroke="currentColor" strokeWidth={arrowWidth(baseMm)} markerEnd={`url(#${ARROW_ID})`} />
+        <text x={268} y={80} fontSize="10" fontWeight="600" fill="currentColor">{ru ? `Сток Q ${shown(q)} мм` : `Discharge Q ${shown(q)} mm`}</text>
         <text x={268} y={92} fontSize="10" fill="currentColor">{ru ? 'быстрый сток' : 'quick flow'}</text>
         <text x={268} y={105} fontSize="10" fill="currentColor">{`${shown(quickMm)} ${unitMmShort}`}</text>
         <text x={268} y={128} fontSize="10" fill="currentColor">{ru ? 'базисный сток' : 'base flow'}</text>

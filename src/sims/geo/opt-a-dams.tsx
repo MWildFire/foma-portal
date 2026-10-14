@@ -10,7 +10,7 @@ import type { Lang } from '../../contract/types';
 // Years 4 and 8 are dry and use the dry-year slider. The eight normal years average exactly 1.00.
 // Sediment: UN University press release, 11 Jan 2023: global average annual storage loss of about 0.36% of initial capacity (UNU-INWEH study). The study says this may be an underestimate; earlier estimates mostly fall between 0.5% and 1% a year.
 // https://unu.edu/press-release/trapped-sediment-robbing-worlds-large-dams-vital-water-storage-capacity
-// Displacement: World Commission on Dams (2000), Dams and Development: A New Framework for Decision-Making, Executive Summary, p. xxx ("some 40-80 million people displaced by dams"); chapter 1, pp. 16-17 ("some 40 to 80 million people"). Checked in a scanned copy (OCR of the page images), not in a publisher text layer.
+// Displacement: World Commission on Dams (2000), Dams and Development: A New Framework for Decision-Making, Executive Summary, p. xxx (Roman numeral 30; "some 40-80 million people displaced by dams"); chapter 1, pp. 16-17 ("some 40 to 80 million people"). Checked in a scanned copy (OCR of the page images), not in a publisher text layer.
 // https://www.bpb.de/apuz/25868/mehr-nutzen-aus-staudamm-grossprojekten?p=9
 
 const PATTERN: (number | 'dry')[] = [1.0, 1.1, 0.9, 'dry', 1.05, 0.95, 1.0, 'dry', 1.1, 0.9];
@@ -224,8 +224,8 @@ export default function OptADamsSim({ lang }: { lang: Lang }) {
       <p style={{ margin: '8px 0 0', fontSize: 13, lineHeight: 1.5 }}>
         <strong>{ru ? 'Источники. ' : 'Sources. '}</strong>
         {ru
-          ? 'Университет ООН (2023), пресс-релиз от 11 января 2023 г. о заилении водохранилищ (средняя годовая потеря около 0,36% первоначальной ёмкости, возможно занижена; исследование UNU-INWEH в журнале Sustainability); Всемирная комиссия по плотинам (2000), Dams and Development: A New Framework for Decision-Making, Executive Summary, с. xxx (от 40 до 80 млн человек вытеснены плотинами); глава 1, с. 16–17.'
-          : 'UN University (2023), press release of 11 January 2023 on reservoir sedimentation (global average annual storage loss about 0.36% of initial capacity, possibly an underestimate; UNU-INWEH study in Sustainability); World Commission on Dams (2000), Dams and Development: A New Framework for Decision-Making, Executive Summary, p. xxx (40 to 80 million people displaced by dams); chapter 1, pp. 16–17.'}
+          ? 'Университет ООН (2023), пресс-релиз от 11 января 2023 г. о заилении водохранилищ (средняя годовая потеря около 0,36% первоначальной ёмкости, возможно занижена; исследование UNU-INWEH в журнале Sustainability); Всемирная комиссия по плотинам (2000), Dams and Development: A New Framework for Decision-Making, Executive Summary, с. xxx (римская нумерация: 30; от 40 до 80 млн человек вытеснены плотинами); глава 1, с. 16–17.'
+          : 'UN University (2023), press release of 11 January 2023 on reservoir sedimentation (global average annual storage loss about 0.36% of initial capacity, possibly an underestimate; UNU-INWEH study in Sustainability); World Commission on Dams (2000), Dams and Development: A New Framework for Decision-Making, Executive Summary, p. xxx (Roman numeral 30; 40 to 80 million people displaced by dams); chapter 1, pp. 16–17.'}
       </p>
     </div>
   );

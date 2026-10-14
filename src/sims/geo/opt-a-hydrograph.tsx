@@ -12,6 +12,8 @@ interface Outcome { cn: number; runoff: number; lag: number; tp: number; peak: n
 
 const CN_URBAN = 98;   // impervious surfaces: roofs, roads and paved yards (TR-55 1986, Table 2-2a, note 2)
 const CN_RURAL = 70;   // pervious land at average moisture: a typical mixed rural value (teaching assumption, not a measurement)
+// Base flow before the storm and after it, m³/s: a constant teaching assumption, not a measurement. The storm flow is drawn on top of it.
+const BASE_FLOW = 5;
 
 // Curve number of the pervious (rural) land for dry (AMC I), average (AMC II) and wet (AMC III) soil before the storm.
 // The dry and wet equations are not printed in TR-55 (1986), which gives the average condition only; they approximate NEH 630 ch. 10, Table 10-1.
@@ -79,10 +81,10 @@ export default function OptAHydrographSim({ lang }: { lang: Lang }) {
 
   // Chart scales: time on the x axis, discharge on the y axis.
   const xMax = Math.max(4, Math.ceil(Math.max(basin.tb, rural.tb) / 2) * 2);
-  const yMax = Math.max(1, 1.4 * Math.max(basin.peak, rural.peak));
+  const yMax = Math.max(1, 1.4 * (BASE_FLOW + Math.max(basin.peak, rural.peak)));
   const xOf = (t: number): number => LEFT + (t / xMax) * (RIGHT - LEFT);
   const yOf = (q: number): number => BOTTOM - (q / yMax) * (BOTTOM - TOP);
-  const triangle = (r: Outcome): string => `${xOf(0)},${yOf(0)} ${xOf(r.tp)},${yOf(r.peak)} ${xOf(r.tb)},${yOf(0)}`;
+  const triangle = (r: Outcome): string => `${xOf(0)},${yOf(BASE_FLOW)} ${xOf(r.tp)},${yOf(BASE_FLOW + r.peak)} ${xOf(r.tb)},${yOf(BASE_FLOW)}`;
   const ticks = Array.from({ length: xMax / 2 + 1 }, (_, i) => i * 2);
   const centre = hours / 2;      // the middle of the rain: the lag starts here
   const yBasinLag = TOP + 14;    // lag markers sit above both curves
@@ -99,8 +101,8 @@ export default function OptAHydrographSim({ lang }: { lang: Lang }) {
 
   const peakMarker = (r: Outcome) => (
     <g>
-      <circle cx={xOf(r.tp)} cy={yOf(r.peak)} r={3} fill="currentColor" />
-      <text x={xOf(r.tp) + 6} y={yOf(r.peak) + 3} fontSize="10" fill="currentColor">{`${fmt(r.peak, 1)} ${unitFlow}`}</text>
+      <circle cx={xOf(r.tp)} cy={yOf(BASE_FLOW + r.peak)} r={3} fill="currentColor" />
+      <text x={xOf(r.tp) + 6} y={yOf(BASE_FLOW + r.peak) + 3} fontSize="10" fill="currentColor">{`+${fmt(r.peak, 1)} ${unitFlow}`}</text>
     </g>
   );
 
@@ -109,7 +111,8 @@ export default function OptAHydrographSim({ lang }: { lang: Lang }) {
     { en: 'Runoff depth from the storm (mm)', ru: 'Глубина стока от ливня (мм)', a: fmt(basin.runoff, 1), b: fmt(rural.runoff, 1) },
     { en: 'Lag time, from storm centre (middle of the storm) to peak discharge (h)', ru: 'Запаздывание от центра ливня (середина ливня) до пика расхода (ч)', a: fmt(basin.lag, 2), b: fmt(rural.lag, 2) },
     { en: 'Time to peak from the start (h)', ru: 'Время до пика от начала ливня (ч)', a: fmt(basin.tp, 1), b: fmt(rural.tp, 1) },
-    { en: 'Peak discharge, indicative (m³/s)', ru: 'Пиковый расход, ориентировочно (м³/с)', a: fmt(basin.peak, 1), b: fmt(rural.peak, 1) },
+    { en: 'Storm peak above base flow, indicative (m³/s)', ru: 'Пик ливневого стока над базисным, ориентировочно (м³/с)', a: fmt(basin.peak, 1), b: fmt(rural.peak, 1) },
+    { en: 'Peak discharge with base flow (m³/s)', ru: 'Пиковый расход с базисным стоком (м³/с)', a: fmt(BASE_FLOW + basin.peak, 1), b: fmt(BASE_FLOW + rural.peak, 1) },
   ];
 
   // Applicability limits of the lag equation (NEH 630 ch. 15, p. 15–6): CN from 50 to 95 (the CN used for the lag);
@@ -175,6 +178,11 @@ export default function OptAHydrographSim({ lang }: { lang: Lang }) {
           {ru ? `${fmt(rain, 0)} мм за ${fmt(hours, 0)} ч` : `${fmt(rain, 0)} mm in ${fmt(hours, 0)} h`}
         </text>
         <line x1={xOf(centre)} y1={TOP} x2={xOf(centre)} y2={BOTTOM} stroke="currentColor" strokeWidth={1} strokeDasharray="1 3" opacity={0.7} />
+        {/* base flow before and after the storm: a constant assumption, the storm flow is drawn above it */}
+        <line x1={xOf(0)} y1={yOf(BASE_FLOW)} x2={RIGHT} y2={yOf(BASE_FLOW)} stroke="currentColor" strokeWidth={1} strokeDasharray="2 2" opacity={0.6} />
+        <text x={LEFT + 4} y={yOf(BASE_FLOW) + 10} fontSize="9" fill="currentColor">
+          {ru ? `базисный сток ${fmt(BASE_FLOW, 0)} м³/с (допущение)` : `base flow ${fmt(BASE_FLOW, 0)} m³/s (assumed)`}
+        </text>
         {/* the two hydrographs: the rural comparison (dashed) and the basin (solid) */}
         <polyline points={triangle(rural)} fill="none" stroke="currentColor" strokeWidth={1.5} strokeDasharray="6 4" opacity={0.7} strokeLinejoin="round" />
         <polyline points={triangle(basin)} fill="none" stroke="currentColor" strokeWidth={2.5} strokeLinejoin="round" />
@@ -196,7 +204,9 @@ export default function OptAHydrographSim({ lang }: { lang: Lang }) {
         </text>
         <text x={LEFT - 6} y={BOTTOM + 4} fontSize="10" textAnchor="end" fill="currentColor">0</text>
         <text x={LEFT - 6} y={TOP + 8} fontSize="10" textAnchor="end" fill="currentColor">{fmt(yMax, 0)}</text>
-        <text x={LEFT - 6} y={TOP - 6} fontSize="10" textAnchor="end" fill="currentColor">{unitFlow}</text>
+        <text x={11} y={(TOP + BOTTOM) / 2} fontSize="10" textAnchor="middle" transform={`rotate(-90 11 ${(TOP + BOTTOM) / 2})`} fill="currentColor">
+          {ru ? 'Расход (м³/с)' : 'Discharge (m³/s)'}
+        </text>
       </svg>
 
       <p style={{ margin: '6px 0 0', fontSize: 13, lineHeight: 1.5 }}>
@@ -229,7 +239,7 @@ export default function OptAHydrographSim({ lang }: { lang: Lang }) {
       <p style={{ margin: '8px 0 0', fontSize: 15 }}>
         {ru ? 'Относительно сельского сравнения: запаздывание ' : 'Compared with the rural case: lag '}
         <strong>{`${lagChange > 0 ? '+' : ''}${lagChange}%`}</strong>
-        {ru ? ', пиковый расход ' : ', peak '}
+        {ru ? ', пиковый ливневый сток ' : ', peak storm flow '}
         <strong>{peakRatio === null ? '—' : `×${fmt(peakRatio, 1)}`}</strong>
         .
       </p>
@@ -280,8 +290,8 @@ export default function OptAHydrographSim({ lang }: { lang: Lang }) {
           </li>
           <li>
             {ru
-              ? 'Допущения и приближения: длина пути L = 1,4 × √A км — допущение этой модели (на практике путь меряют по карте). Сухая и влажная кривые стока — формулы, которые приближают таблицу 10-1 NEH 630, гл. 10; TR-55 (1986) даёт только среднее состояние. Для CN 70 таблица даёт 51 и 85, формулы — 49,5 и 84,3.'
-              : 'Assumptions and approximations: the flow length L = 1.4 × √A km is an assumption of this model (in practice the path is measured on a map). The dry and wet curve numbers are equations that approximate Table 10-1 of NEH 630 ch. 10; TR-55 (1986) gives the average condition only. For CN 70 the table gives 51 and 85, the equations 49.5 and 84.3.'}
+              ? 'Допущения и приближения: длина пути L = 1,4 × √A км — допущение этой модели (на практике путь меряют по карте). Сухая и влажная кривые стока — формулы, которые приближают таблицу 10-1 NEH 630, гл. 10; TR-55 (1986) даёт только среднее состояние. Для CN 70 таблица даёт 51 и 85, формулы — 49,5 и 84,3. Базисный сток 5 м³/с до ливня и после него — постоянное учебное допущение; ливневый сток рисуется над ним.'
+              : 'Assumptions and approximations: the flow length L = 1.4 × √A km is an assumption of this model (in practice the path is measured on a map). The dry and wet curve numbers are equations that approximate Table 10-1 of NEH 630 ch. 10; TR-55 (1986) gives the average condition only. For CN 70 the table gives 51 and 85, the equations 49.5 and 84.3. The base flow of 5 m³/s before and after the storm is a constant teaching assumption; the storm flow is drawn above it.'}
           </li>
         </ul>
       </div>
