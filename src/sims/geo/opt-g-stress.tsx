@@ -10,8 +10,8 @@ const INDICATORS: Indicator[] = [
   { en: 'Air pollution', ru: 'Загрязнение воздуха', inverse: false },
   { en: 'Flood risk', ru: 'Риск наводнений', inverse: false },
   { en: 'Housing unaffordability', ru: 'Недоступность жилья', inverse: false },
-  { en: 'Access to transport (inverse)', ru: 'Доступ к транспорту (обратный)', inverse: true },
-  { en: 'Access to green space (inverse)', ru: 'Доступ к зелёным зонам (обратный)', inverse: true },
+  { en: 'Access to transport (inverse)', ru: 'Доступ к транспорту (обратная шкала)', inverse: true },
+  { en: 'Access to green space (inverse)', ru: 'Доступ к зелёным зонам (обратная шкала)', inverse: true },
 ];
 
 const DEFAULT_VALUES = [70, 40, 80, 60, 20];
@@ -70,7 +70,7 @@ export default function OptGStressSim({ lang }: { lang: Lang }) {
               <span style={{ display: 'flex', justifyContent: 'space-between', gap: 8, fontSize: 13 }}>
                 <span>{ru ? 'Вес' : 'Weight'}</span>
                 <span>
-                  {weights[i]} · {ru ? 'доля' : 'share'} {totalWeight > 0 ? fmt((weights[i] / totalWeight) * 100, 0) : '0'}%
+                  {weights[i]} · {ru ? 'доля' : 'share'} {totalWeight > 0 ? fmt((weights[i] / totalWeight) * 100, 1) : '0'}%
                 </span>
               </span>
               <input
