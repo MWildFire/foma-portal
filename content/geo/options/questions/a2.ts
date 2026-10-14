@@ -11,8 +11,8 @@ export const questions: Question[] = [
     marks: 10,
     command: 'Describe',
     stimulus: {
-      en: 'Illustrative data (not real). A storm brings rain to two catchments of similar size, with the rainfall peak at 10:00 in both. Discharge at the outlet of each catchment (cubic metres per second):\n\nRural catchment: 10:00 = 3; 12:00 = 6; 14:00 = 11; 16:00 = 18 (peak); 18:00 = 9.\n\nUrban catchment: 10:00 = 4; 10:30 = 15; 11:00 = 36 (peak); 12:00 = 22; 13:00 = 10.',
-      ru: 'Условные данные (не реальные). Шторм приносит дождь на два водосбора сходного размера; пик осадков в обоих случаях приходится на 10:00. Расход на выходе из каждого водосбора (м³/с):\n\nСельский водосбор: 10:00 = 3; 12:00 = 6; 14:00 = 11; 16:00 = 18 (пик); 18:00 = 9.\n\nГородской водосбор: 10:00 = 4; 10:30 = 15; 11:00 = 36 (пик); 12:00 = 22; 13:00 = 10.',
+      en: 'Illustrative data (not real). A storm brings rain to two catchments of similar size, with the storm centre at 10:00 in both. Discharge at the outlet of each catchment (cubic metres per second):\n\nRural catchment: 10:00 = 3; 12:00 = 6; 14:00 = 11; 16:00 = 18 (peak); 18:00 = 9.\n\nUrban catchment: 10:00 = 4; 10:30 = 15; 11:00 = 36 (peak); 12:00 = 22; 13:00 = 10.',
+      ru: 'Условные данные (не реальные). Шторм приносит дождь на два водосбора сходного размера; центр ливня в обоих случаях приходится на 10:00. Расход на выходе из каждого водосбора (м³/с):\n\nСельский водосбор: 10:00 = 3; 12:00 = 6; 14:00 = 11; 16:00 = 18 (пик); 18:00 = 9.\n\nГородской водосбор: 10:00 = 4; 10:30 = 15; 11:00 = 36 (пик); 12:00 = 22; 13:00 = 10.',
     },
     prompt: {
       en: '(a) Describe the shape of the urban catchment hydrograph between 10:00 and 13:00. Use figures from the data. (3 marks)\n\n(b) Calculate the percentage increase in peak discharge in the urban catchment compared with the rural catchment. Show your working and give your answer as a percentage. (2 marks)\n\n(c) Explain why the urban catchment has a shorter lag time and a higher peak discharge than the rural catchment. (5 marks)',

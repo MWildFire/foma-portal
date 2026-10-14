@@ -13,8 +13,8 @@ export const cases: CaseStudy[] = [
     lat: 19.076,
     lng: 72.8777,
     facts: {
-      en: 'On 26 July 2005 the Santacruz rain gauge in Mumbai recorded 944.2 mm of rain in 24 hours. A 2017 AIKTC project report on Mumbai rainfall, using 20 years of daily data from Colaba and Santacruz, gives this day as the maximum in that record.',
-      ru: '26 июля 2005 года осадкомер Santacruz в Мумбаи зафиксировал 944,2 мм осадков за 24 часа. По отчёту проекта AIKTC (2017), который использует 20 лет ежедневных данных станций Colaba и Santacruz, этот день — максимум за весь ряд.',
+      en: 'On 26 July 2005 Mumbai recorded 944.2 mm of rain in 24 hours. A 2017 AIKTC project report on Mumbai rainfall, using 20 years of daily data from the Colaba and Santacruz rain gauges, gives this day as the maximum in that record.',
+      ru: '26 июля 2005 года в Мумбаи выпало 944,2 мм осадков за 24 часа. По отчёту проекта AIKTC (2017), который использует 20 лет ежедневных данных станций Colaba и Santacruz, этот день — максимум за весь ряд.',
     },
     usedFor: ['g3-urban-stress'],
     src: [
@@ -27,7 +27,7 @@ export const cases: CaseStudy[] = [
     title: { en: 'Land subsidence and flooding in Jakarta', ru: 'Просадка грунта и наводнения в Джакарте' },
     place: 'Jakarta, Indonesia',
     scale: 'local',
-    years: '2015–2022',
+    years: '1925–2015, 2017–2022',
     lat: -6.2088,
     lng: 106.8456,
     facts: {

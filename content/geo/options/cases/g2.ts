@@ -13,8 +13,8 @@ export const cases: CaseStudy[] = [
     lat: 42.33167,
     lng: -83.04583,
     facts: {
-      en: "Detroit's population peaked at 1,849,568 in 1950 and fell to 639,111 at the 2020 census, a loss of 1,210,457 people or 65.4%. The decline is usually linked to the loss of car-manufacturing jobs and to residents moving to the suburbs.",
-      ru: 'Население Детройта достигло пика в 1 849 568 человек по переписи 1950 года и сократилось до 639 111 человек по переписи 2020 года: потеря составила 1 210 457 человек, или 65,4%. Спад обычно связывают с потерей рабочих мест в автомобилестроении и переездом жителей в пригороды.',
+      en: "Detroit's population peaked at 1,849,568 in 1950 and fell to 639,111 at the 2020 census, a loss of 1,210,457 people or 65.4%. The decline is usually linked to the loss of car-manufacturing jobs and to residents moving to the suburbs. The city disputes this count: in December 2021 city leaders released a report, prepared with University of Michigan researchers, suggesting that more than 8% of occupied homes in ten neighbourhoods may have been missed, and in 2022 Detroit filed a formal challenge with the Census Bureau. The official figure is used here.",
+      ru: 'Население Детройта достигло пика в 1 849 568 человек по переписи 1950 года и сократилось до 639 111 человек по переписи 2020 года: потеря составила 1 210 457 человек, или 65,4%. Спад обычно связывают с потерей рабочих мест в автомобилестроении и переездом жителей в пригороды. Власти Детройта оспаривают эту цифру: в декабре 2021 года они опубликовали доклад с участием специалистов Мичиганского университета, по которому более 8% занятых домов в десяти районах могли остаться неучтёнными, а в 2022 году город подал в Бюро переписи официальный запрос на пересмотр итогов. В кейсе используется официальная цифра.',
     },
     usedFor: ['g2-urban-change'],
     src: [
@@ -27,6 +27,11 @@ export const cases: CaseStudy[] = [
         kind: 'web',
         title: 'Demographic history of Detroit, Michigan, 1820–2020 (Wikipedia; population table citing US Census Bureau data)',
         url: 'https://en.wikipedia.org/wiki/Demographic_history_of_Detroit',
+      },
+      {
+        kind: 'web',
+        title: 'Detroit is largest city to challenge 2020 census numbers (Associated Press, 4 April 2022, via ClickOnDetroit)',
+        url: 'https://www.clickondetroit.com/news/michigan/2022/04/05/detroit-is-largest-city-to-challenge-2020-census-numbers/',
       },
     ],
   },
@@ -88,7 +93,7 @@ export const cases: CaseStudy[] = [
     id: 'g-medellin-metrocable',
     subject: 'geo',
     title: { en: 'Medellín: cable cars for hillside communities', ru: 'Медельин: канатные дороги для жителей склонов' },
-    place: 'Medellín, Antioquia, Colombia (coordinates: centre of Comuna 13 / координаты: центр комуны 13)',
+    place: 'Medellín, Antioquia, Colombia (map: centre of Comuna 13)',
     scale: 'local',
     years: '2004–2026',
     lat: 6.25635,

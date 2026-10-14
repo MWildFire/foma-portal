@@ -1,7 +1,7 @@
 import type { CaseStudy } from '../../../../src/contract/types';
 
 // Option A, A.3 cases. Status (R01, 14.10.2026, S3): Toledo (CDC MMWR 2016; PBS NewsHour 2014) and the WHO 2022 microcystin fact sheet (PDF p. 430) were opened in R01.
-// The Bangladesh report number (NERC ORA, WC/00/019) was checked in R01. Cape Town (SAnews, 24 January 2018) and the Aral Sea figures (UNDP page) were not rechecked in R01.
+// The Bangladesh report number (NERC ORA, WC/00/019) was checked in R01. Cape Town was rechecked in R02 against News24 (23 January 2018): the day count is kept, and the water-loss figures that no source confirmed were removed. The Aral Sea figures (UNDP page) were not rechecked.
 export const cases: CaseStudy[] = [
   {
     id: 'a-cape-town-drought-2018',
@@ -13,15 +13,15 @@ export const cases: CaseStudy[] = [
     lat: -33.9249,
     lng: 18.4241,
     facts: {
-      en: 'In January 2018 the City of Cape Town said that a 1.4% drop in dam levels had moved Day Zero, the date when taps would run dry, forward from 22 April to 12 April 2018 (SAnews, 24 January 2018). The City put its water losses at 16%, against a national average of 36%. It was installing thousands of water management devices on the properties of high users and running pressure management across the city, while it urged residents to join the water-saving effort.',
-      ru: 'В январе 2018 года администрация Кейптауна заявила, что падение уровня водохранилищ на 1,4% передвинуло «День ноль» (Day Zero) — дату, когда в кранах закончилась бы вода, — с 22 апреля на 12 апреля 2018 года (SAnews, 24 января 2018). Потери воды в городе составляли 16% при среднем по стране показателе 36%. Город устанавливал тысячи устройств управления водой у крупных потребителей и проводил регулирование давления по всей сети, одновременно призывая жителей присоединиться к экономии воды.',
+      en: 'In January 2018 the City of Cape Town said that a 1.4% drop in dam levels had moved Day Zero, the date when taps would run dry, forward by nine days, to 12 April 2018 (News24, 23 January 2018). It was installing thousands of water management devices on the properties of high users and running pressure management across the city, while it urged residents to join the water-saving effort.',
+      ru: 'В январе 2018 года администрация Кейптауна заявила, что падение уровня водохранилищ на 1,4% передвинуло «День ноль» (Day Zero) — дату, когда в кранах закончилась бы вода, — на девять дней, до 12 апреля 2018 года (News24, 23 января 2018). Город устанавливал тысячи устройств управления водой у крупных потребителей и проводил регулирование давления по всей сети, одновременно призывая жителей присоединиться к экономии воды.',
     },
     usedFor: ['a3-water-scarcity'],
     src: [
       {
         kind: 'web',
-        title: 'SAnews (South African government news agency): Drop in dam levels brings Day Zero closer, 24 January 2018',
-        url: 'https://www.sanews.gov.za/node/37626',
+        title: 'News24: Day Zero now on April 12 for Cape Town, 23 January 2018',
+        url: 'https://www.news24.com/southafrica/news/day-zero-now-on-april-12-for-cape-town-20180123',
       },
     ],
   },
