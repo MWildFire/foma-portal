@@ -277,8 +277,9 @@ function serviceHits(text) {
 }
 
 function rawMathHits(text) {
-  // Not TeX: currency and price marks ("$99", "100$", "$$$$$") and a Python "\n" before a capital letter in a string.
-  const dollars = [...text.matchAll(/(?<![A-Za-z\d$])\$(?![$\d])/g)];
+  // Not TeX: currency and price marks ("$99", "100$", "$$$$$"), unless a TeX mark (^ _ { } < > =) follows a "$" before a
+  // digit before the next "$", as in "$2P(t_{35} > 2.16)$". Also a Python "\n" before a capital letter in a string.
+  const dollars = [...text.matchAll(/(?<![A-Za-z\d$])\$(?![$\d])|(?<![A-Za-z\d$])\$(?=\d[^$\n]{0,80}?[\^_{}<>=])/g)];
   const commands = [...text.matchAll(/\\[a-zA-Z]{2,}/g)].filter((m) => !/^\\n[A-Z]/.test(m[0]));
   const first = dollars[0] ?? commands[0];
   return { dollars: dollars.length, commands: commands.length, sample: first ? snippet(text, first.index) : '' };
