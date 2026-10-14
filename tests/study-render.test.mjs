@@ -46,6 +46,11 @@ before(async () => {
     FormulasView: '/src/components/formulas/FormulasView.tsx',
     SimsView: '/src/components/sims/SimsView.tsx',
     ReportView: '/src/components/report/ReportView.tsx',
+    FormulaCard: '/src/components/ui/Formula.tsx',
+    SubjectLoadError: '/src/components/subject/SubjectLoadError.tsx',
+    InlineLoadError: '/src/components/subject/SubjectLoadError.tsx',
+    InlineLoadWait: '/src/components/subject/SubjectLoadError.tsx',
+    PastPaperCard: '/src/components/past-papers/PastPaperCard.tsx',
   };
   for (const [name, path] of Object.entries(files)) loaded[name] = (await server.ssrLoadModule(path))[name];
 });
@@ -442,6 +447,50 @@ test('formulas: "booklet only" keeps the booklet formulas', async () => {
   assert.match(booklet, /Showing 1 of 3 formulas/);
   const none = await view('FormulasView', { pack: pack({ formulas: [formula('f2', false)] }) }, '/s/geo/formulas?booklet=1');
   assert.match(none, /No formula from the booklet/);
+});
+
+test('a formula card: the booklet badge for a formula in the booklet, the learn-it badge outside it, none without the flag', async () => {
+  const inside = await view('FormulaCard', { formula: formula('a', true), lang: 'en' }, '/');
+  assert.match(inside, /In the formula booklet/);
+  assert.ok(!inside.includes('Not in the booklet'));
+  const outside = await view('FormulaCard', { formula: formula('b', false), lang: 'en' }, '/');
+  assert.match(outside, /Not in the booklet — learn it/);
+  assert.ok(!outside.includes('In the formula booklet'));
+  const unflagged = await view('FormulaCard', { formula: formula('c'), lang: 'en' }, '/');
+  assert.ok(!unflagged.includes('In the formula booklet') && !unflagged.includes('Not in the booklet'));
+  const ruInside = await view('FormulaCard', { formula: formula('a', true), lang: 'ru' }, '/', { lang: 'ru' });
+  assert.match(ruInside, /Есть в формульной книжке/);
+  const ruOutside = await view('FormulaCard', { formula: formula('b', false), lang: 'ru' }, '/', { lang: 'ru' });
+  assert.match(ruOutside, /Нет в книжке — выучить/);
+});
+
+// ---- inside a topic: a map or a simulation that waits or fails keeps the page's one heading
+
+test('a map or a simulation in a topic: the wait is a status line, and a failed wait is an alert with no second heading', async () => {
+  const wait = await view('InlineLoadWait', { label: 'Loading the map' }, '/');
+  assert.match(wait, /role="status"/);
+  assert.ok(wait.includes('Loading the map'));
+  assert.ok(!wait.includes('<h1'));
+  const failed = await view('InlineLoadError', { onRetry: () => {} }, '/');
+  assert.match(failed, /role="alert"/);
+  assert.match(failed, /This did not load/);
+  assert.match(failed, /Try again/);
+  assert.ok(!failed.includes('<h1'), 'no second h1 inside a topic');
+  const whole = await view('SubjectLoadError', { cause: new Error('load timeout') }, '/');
+  assert.match(whole, /<h1/, 'the whole-page error keeps its heading');
+});
+
+// ---- past papers: the typing reminder above the paper's own timer
+
+test('a past paper timer: the typing reminder for an essay paper, none for maths', async () => {
+  const paper = (subject, id) => ({
+    id: `${subject}-${id}`, subject, paper: id, session: 'M24', level: 'HL', files: [], minutes: 105, marks: 50, items: [],
+  });
+  const props = { topics: [], progress: undefined, extraTime: false, onScore: () => {}, onSolved: () => {} };
+  const essay = await view('PastPaperCard', { ...props, subject: 'eng', paper: paper('eng', 'P2') }, '/');
+  assert.ok(essay.includes('Practise typing your answer'));
+  const maths = await view('PastPaperCard', { ...props, subject: 'math', paper: paper('math', 'P1') }, '/');
+  assert.ok(!maths.includes('Practise typing your answer'));
 });
 
 test('formulas: links to the topics that use a formula; an empty pack gives an empty state', async () => {

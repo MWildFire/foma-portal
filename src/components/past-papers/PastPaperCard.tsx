@@ -10,6 +10,7 @@ import { RichText } from '../content/RichText';
 import { dubaiToday } from '../subject/AssignmentList';
 import { timerStorageKey } from '../../lib/practice';
 import { EXAMS } from '../../planner/data';
+import { typingReminderFor } from '../../planner/access';
 import { Clock } from '../practice/Clock';
 import { setAllowanceMinutes } from '../practice/timing';
 
@@ -57,6 +58,7 @@ export function PastPaperCard({ subject, paper, topics, progress, extraTime, onS
             {allowance > paper.minutes ? t('pastPapers.allowanceExtra', { minutes: allowance }) : t('pastPapers.allowance', { minutes: allowance })}
           </span>
         </div>
+        {typingReminderFor(subject, paper.paper) ? <p className="m-0 text-sm text-[var(--color-muted)]">{t('typing.hint', { ns: 'timing' })}</p> : null}
         {timed ? <Clock key={`${paper.id}:${allowance}`} minutes={allowance} storageKey={timerStorageKey(subject, `past-${paper.id}`)} /> : null}
       </div>
 

@@ -8,6 +8,7 @@
     "title": "This page did not load",
     "network": "The connection may have dropped, or the portal was updated while this tab was open.",
     "other": "Something went wrong while opening this page.",
+    "inline": "This did not load. Check the connection and try again.",
     "retry": "Try again"
   },
   "header": {

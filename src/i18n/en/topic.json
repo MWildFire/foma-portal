@@ -29,7 +29,7 @@
   "formula": {
     "kind": "Formula",
     "inBooklet": "In the formula booklet",
-    "notInBooklet": "Not in the booklet: learn it",
+    "notInBooklet": "Not in the booklet — learn it",
     "cannotRender": "This formula could not be displayed.",
     "meaning": "Meaning",
     "when": "When to use it",
