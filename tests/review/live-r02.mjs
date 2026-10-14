@@ -109,23 +109,19 @@ try {
     await context.close();
   }
 
-  // 3. Typing reminder: on the English P2 timed set, not on the Maths P1 one (the set opened by "Solve on time").
+  // 3. Typing reminder in the practice timed set (TimedPanel, opened by ?set=<id>): English P1 and P2 show it, Maths P1
+  // does not. The past-paper timers on the paper pages ("Solve on time") do not carry it (PastPaperCard has no reminder).
   const TYPING_CASES = [
-    { id: 'typing-eng-p2', hash: '/s/eng/paper/P2', expect: true },
-    { id: 'typing-math-p1', hash: '/s/math/paper/P1', expect: false },
+    { id: 'typing-eng-p1', hash: '/s/eng/practice?set=p1-set-poetry-prose', expect: true },
+    { id: 'typing-eng-p2', hash: '/s/eng/practice?set=p2-full', expect: true },
+    { id: 'typing-math-p1', hash: '/s/math/practice?set=p1-full', expect: false },
   ];
   for (const lang of LANGS) {
     for (const item of TYPING_CASES) {
       const { context, page, errors } = await openPage(browser, lang, item.hash);
-      const button = page.getByRole('button', { name: /^(Solve on time|Решать на время)$/ }).first();
-      const clicked = (await button.count()) > 0;
-      if (clicked) {
-        await button.click();
-        await page.waitForTimeout(800);
-      }
       const text = await page.evaluate(() => document.querySelector('main')?.innerText ?? '');
       const shown = TYPING_HINT[lang].test(text);
-      checks.push({ id: `${item.id}-${lang}`, ok: clicked && shown === item.expect && errors.length === 0, clicked, shown, expected: item.expect, errors });
+      checks.push({ id: `${item.id}-${lang}`, ok: shown === item.expect && errors.length === 0, shown, expected: item.expect, errors });
       await context.close();
     }
   }
