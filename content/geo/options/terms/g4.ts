@@ -1,7 +1,7 @@
 import type { SourceRef, Term } from '../../../../src/contract/types';
 
 // Terms of Option G.4. Definitions are our own wording of the G.4 content; the source is the ThinkIB eBook section (section level).
-const SRC: SourceRef = { kind: 'thinkib', title: 'Option G: Urban Environments (pages 37521, 37639, 37641, 37654, 37666)', locator: 'Sustainable Urban Systems; Urban Growth; Resilient Cities; Ecocity Design and Environmental Strategies; Smart Cities' };
+const SRC: SourceRef = { kind: 'thinkib', title: 'Option G: Urban Environments (pages 37521, 37639, 37641, 37654, 37666)', locator: 'Sustainable Urban Systems; Urban Growth; Resilient Cities; Ecocity Design and Environmental Strategies; Smart Cities; guide p. 41' };
 
 export const terms: Term[] = [
   {
@@ -50,7 +50,7 @@ export const terms: Term[] = [
     term: { en: 'modal split', ru: 'модальное распределение поездок (modal split)' },
     def: {
       en: 'The percentage of all trips in an area made by each transport mode, such as car, bus, rail, cycling and walking, over a given period.',
-      ru: 'Процентная доля всех поездок на данной территории, совершённых каждым видом транспорта (автомобиль, автобус, рельс, велосипед, пешком) за заданный период.',
+      ru: 'Процентная доля всех поездок на данной территории, совершённых каждым видом транспорта (автомобиль, автобус, железная дорога, велосипед, пешком) за заданный период.',
     },
     syllabus: 'G.4',
     papers: ['P1'],
