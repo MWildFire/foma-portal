@@ -13,12 +13,12 @@ export const cases: CaseStudy[] = [
     lat: 19.076,
     lng: 72.8777,
     facts: {
-      en: 'On 26 July 2005 the Indian Meteorological Department station at Santacruz recorded 944 mm of rain in 24 hours, the wettest day on record for Mumbai, and 644 mm fell between 8 am and 8 pm. Local trains stopped and roads flooded across the city. Death tolls differ between sources: one source gives about 1,094 deaths across Maharashtra, so check each figure against its source before quoting it.',
-      ru: '26 июля 2005 года метеостанция Santacruz Индийского метеорологического департамента (IMD) зафиксировала 944 мм осадков за 24 часа — самый дождливый день в истории Мумбаи; 644 мм выпали между 8 и 20 часами. Остановились пригородные поезда, затопило улицы города. Число погибших называют разное: источник приводит около 1 094 человек по всему штату Махараштра, поэтому цифры стоит проверять по источнику.',
+      en: 'On 26 July 2005 the Indian Meteorological Department (IMD) station at Santacruz recorded 944 mm of rain in 24 hours, the wettest day on record for Mumbai, and 644 mm fell in the 12 hours between 8 am and 8 pm. Local train traffic stopped when the tracks flooded, and low-lying areas such as Dharavi were under water. The 2005 floods killed 1,094 people across Maharashtra (Wikipedia, citing a Maharashtra government status report, archived 2008).',
+      ru: '26 июля 2005 года метеостанция Santacruz Индийского метеорологического департамента (IMD) зафиксировала 944 мм осадков за 24 часа — самый дождливый день в истории Мумбаи; 644 мм выпали за 12 часов между 8 и 20 часами. Пригородное движение поездов остановилось из-за затопленных путей, а низинные районы, например Дхарави, оказались под водой. Наводнения 2005 года унесли жизни 1 094 человек по всему штату Махараштра (Википедия, со ссылкой на отчёт правительства штата Махараштра, архивная копия 2008 года).',
     },
     usedFor: ['g3-urban-stress'],
     src: [
-      { kind: 'web', title: 'Maharashtra floods of 2005 (Wikipedia, citing IMD data)', url: 'https://en.wikipedia.org/wiki/2005_Mumbai_flood' },
+      { kind: 'web', title: 'Maharashtra floods of 2005 (Wikipedia: IMD rainfall data; the death toll is cited from a Maharashtra government status report, archived 2008)', url: 'https://en.wikipedia.org/wiki/2005_Mumbai_flood' },
     ],
   },
   {
@@ -31,8 +31,8 @@ export const cases: CaseStudy[] = [
     lat: -6.2088,
     lng: 106.8456,
     facts: {
-      en: 'Jakarta is still sinking by about 1 to 15 cm a year, and the ground at Pluit had sunk about 4 m by 2015. According to ITB research reported by The Jakarta Post in December 2019, the subsidence rate in Muara Baru, North Jakarta, fell from about 20 to 26 cm a year to 10 to 12 cm a year. A UGM study (2024) links the significant subsidence to rapid urbanisation and intensive groundwater extraction, and its abstract points to the coastal regions of North Jakarta.',
-      ru: 'Джакарта продолжает опускаться примерно на 1–15 см в год, а к 2015 году поверхность в районе Плуит (Pluit) опустилась примерно на 4 м. По исследованию ITB, о котором в декабре 2019 года писала The Jakarta Post, в Муара-Бару (Северная Джакарта) темп просадки снизился примерно с 20–26 см до 10–12 см в год. Исследование UGM (2024) связывает значительную просадку с быстрой урбанизацией и интенсивной откачкой грунтовых вод; в его абстракте указаны прибрежные районы Северной Джакарты.',
+      en: 'An ITB study of land data from 1925 to 2015, reported by The Jakarta Post in December 2019, found that Pluit had sunk about 4 m by 2015 and that Jakarta is still sinking by about 1 to 15 cm a year. The same team found that the subsidence rate in Muara Baru, North Jakarta, had fallen from about 20–26 cm a year to 10–12 cm a year. A UGM study of satellite data for 2017–2022 (Geocarto International, 2024) ties the strong subsidence to fast urban growth and heavy pumping of groundwater; its abstract names Cikarang and the coastal zone of North Jakarta as the areas with the most significant subsidence.',
+      ru: 'По исследованию ITB (данные 1925–2015 годов), о котором в декабре 2019 года писала The Jakarta Post, к 2015 году район Плуит (Pluit) опустился примерно на 4 м, а Джакарта продолжает опускаться примерно на 1–15 см в год. Та же команда отметила, что темп просадки в Муара-Бару (Северная Джакарта) снизился примерно с 20–26 см до 10–12 см в год. Исследование UGM (2024) на спутниковых данных за 2017–2022 годы связывает сильную просадку с быстрым ростом городов и интенсивной откачкой грунтовых вод; в его абстракте названы Cikarang и прибрежная зона Северной Джакарты как районы с самой значительной просадкой.',
     },
     usedFor: ['g3-urban-stress'],
     src: [
@@ -68,12 +68,12 @@ export const cases: CaseStudy[] = [
     lat: 33.4484,
     lng: -112.074,
     facts: {
-      en: 'Anthony Brazel of Arizona State University wrote in 2007 that the urban heat island makes Phoenix night-time low temperatures 10 to 15 degrees Fahrenheit (about 5.6 to 8.3 °C) higher than in rural areas. Most of the difference appears in the evening, and by day the urban core can be slightly cooler than the natural desert around it, where the highest daytime temperatures often occur.',
-      ru: 'Энтони Брейзел (Arizona State University) в 2007 году писал, что тепловой остров делает ночные минимумы Феникса на 10–15 °F (около 5,6–8,3 °C) выше, чем в сельской местности. Больше всего разница проявляется вечером; днём центр города может быть немного прохладнее природной пустыни вокруг, где чаще всего бывает самая высокая дневная температура.',
+      en: 'Anthony Brazel of Arizona State University wrote in 2007 that the urban heat island makes Phoenix’s night-time low temperatures 10 to 15 degrees Fahrenheit (about 5.6 to 8.3 °C) higher than in rural areas. The effect builds after sundown: high evening temperatures account for most of the urban–rural difference. By day, the highest temperatures often occur in the natural desert, while the urban centre can be slightly cooler.',
+      ru: 'Энтони Брейзел (Arizona State University) в 2007 году писал, что тепловой остров делает ночные минимумы Феникса на 10–15 °F (около 5,6–8,3 °C) выше, чем в сельской местности. Эффект усиливается после заката: высокие вечерние температуры дают большую часть разницы между городом и сельской местностью. Днём самые высокие температуры чаще всего бывают в природной пустыне, а городской центр может быть немного прохладнее.',
     },
     usedFor: ['g3-urban-stress'],
     src: [
-      { kind: 'web', title: 'Urban heat island affects Phoenix all year round (A. Brazel, Arizona Republic, 2007; ASU archive)', url: 'https://sustainability-innovation.asu.edu/support-services/news/archive/urban-heat-island-affects-phoenix-all-year-round' },
+      { kind: 'web', title: 'Urban heat island affects Phoenix all year round (A. J. Brazel, for the Arizona Republic, 22 September 2007; KE News, Arizona State University)', url: 'https://ke.news.prod.rtd.asu.edu/2007/09/22/urban-heat-island-affects-phoenix-all-year-round/' },
     ],
   },
 ];
