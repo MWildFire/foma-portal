@@ -14,12 +14,12 @@ export const papers: PaperGuide[] = [
     minutes: 75,
     marks: 25,
     structure: {
-      en: 'Three questions; choose one. Part (a) is worth 10 marks and usually asks you to explain (Explain, sometimes Distinguish), often with a labelled diagram (AD/AS is the most common). Part (b) is worth 15 marks and asks you to discuss or evaluate (Discuss or Evaluate), with real-world examples. Total: 25 marks in 75 minutes (94 minutes with +25% extra time).',
-      ru: 'Три вопроса, выберите один. Часть (a) — 10 баллов, обычно «Explain» (иногда «Distinguish»), часто с подписанной диаграммой (чаще всего модель совокупного спроса и совокупного предложения, AD/AS). Часть (b) — 15 баллов, «Discuss» или «Evaluate», с примерами из реальной жизни. Всего: 25 баллов за 75 минут (94 минуты с доп. временем +25%).',
+      en: 'Three questions; choose one. Part (a) is worth 10 marks and usually asks you to explain (Explain, sometimes Distinguish), often with a labelled diagram (AD/AS is the most common). Part (b) is worth 15 marks and asks you to discuss or evaluate (Discuss or Evaluate), with real-world examples. Total: 25 marks in 75 minutes. On the exam you type your answers (typing): practise typing a full essay in 75 minutes.',
+      ru: 'Три вопроса, выберите один. Часть (a) — 10 баллов, обычно «Explain» (иногда «Distinguish»), часто с подписанной диаграммой (чаще всего модель совокупного спроса и совокупного предложения, AD/AS). Часть (b) — 15 баллов, «Discuss» или «Evaluate», с примерами из реальной жизни. Всего: 25 баллов за 75 минут. На экзамене вы печатаете ответы (typing): тренируйтесь печатать полное эссе за 75 минут.',
     },
     strategy: {
-      en: 'Plan for about five minutes: write the key definitions, sketch the diagram, choose one real-world example with figures, and note the evaluation points (short run and long run, stakeholders, assumptions). In part (a), define the terms, draw the labelled diagram and explain the chain of effects step by step. In part (b), set out the case for and against using the example, and end with a judgement that answers the question. Timed practice from real papers: November 2025 TZ1 and May 2025 TZ1, 75 minutes each (94 with +25% extra time).',
-      ru: 'Около пяти минут уходит на план: запишите ключевые определения, набросайте диаграмму, выберите один реальный пример с цифрами и отметьте пункты оценки (краткосрочный и долгосрочный периоды, заинтересованные стороны, допущения). В части (a) дайте определения, нарисуйте подписанную диаграмму и объясните цепочку эффектов по шагам. В части (b) изложите аргументы за и против, опираясь на пример, и завершите ответ суждением, которое отвечает на вопрос. Тайм-сеты из реальных пейперов: ноябрь 2025, TZ1, и май 2025, TZ1, по 75 минут (94 с доп. временем +25%).',
+      en: 'Plan for about five minutes: write the key definitions, sketch the diagram, choose one real-world example with figures, and note the evaluation points (short run and long run, stakeholders, assumptions). In part (a), define the terms, draw the labelled diagram and explain the chain of effects step by step. In part (b), set out the case for and against using the example, and end with a judgement that answers the question. Timed practice from real papers: November 2025 TZ1 and May 2025 TZ1, 75 minutes each.',
+      ru: 'Около пяти минут уходит на план: запишите ключевые определения, набросайте диаграмму, выберите один реальный пример с цифрами и отметьте пункты оценки (краткосрочный и долгосрочный периоды, заинтересованные стороны, допущения). В части (a) дайте определения, нарисуйте подписанную диаграмму и объясните цепочку эффектов по шагам. В части (b) изложите аргументы за и против, опираясь на пример, и завершите ответ суждением, которое отвечает на вопрос. Тайм-сеты из реальных пейперов: ноябрь 2025, TZ1, и май 2025, TZ1, по 75 минут.',
     },
     criteria: {
       en: 'Knowledge and understanding: accurate definitions and a labelled diagram. Application: a real-world example with figures and a named place. Analysis: chains of reasoning (if ... then ... so ...). Evaluation: short-run and long-run effects, stakeholders, assumptions and a justified judgement.',
@@ -30,7 +30,7 @@ export const papers: PaperGuide[] = [
     timedSets: [
       {
         id: 'p1-one-essay',
-        title: { en: 'One essay, 75 minutes (94 with +25% extra time; choose one of three)', ru: 'Одно эссе, 75 минут (94 с доп. временем +25%; выберите одно из трёх)' },
+        title: { en: 'One essay, 75 minutes (choose one of three)', ru: 'Одно эссе, 75 минут (выберите одно из трёх)' },
         questionIds: ['p1-essay-01', 'p1-essay-02', 'p1-essay-03'],
         minutes: 75,
       },
@@ -52,12 +52,12 @@ export const papers: PaperGuide[] = [
     minutes: 105,
     marks: 40,
     structure: {
-      en: 'Two questions; choose one (40 marks). Each question has several extracts (texts, tables and graphs) that the parts refer to. Part (a) is worth 4 marks: two definitions. Part (b) is worth 5 marks: calculations from the data, with units and signs, and a sketch of a diagram. Parts (c) to (f) are worth 4 marks each: explain, usually with a labelled diagram. Part (g) is worth 15 marks: discuss or evaluate, with a judgement. Total: 40 marks in 105 minutes (131 minutes with +25% extra time).',
-      ru: 'Два вопроса, выберите один (40 баллов). В каждом несколько материалов (тексты, таблицы и графики), к которым относятся части. Часть (a) — 4 балла: два определения. Часть (b) — 5 баллов: расчёты по данным с единицами и знаками и набросок диаграммы. Части (c)–(f) — по 4 балла: объяснение, обычно с подписанной диаграммой. Часть (g) — 15 баллов: обсуждение или оценка с суждением. Всего: 40 баллов за 105 минут (131 минута с доп. временем +25%).',
+      en: 'Two questions; choose one (40 marks). Each question has several extracts (texts, tables and graphs) that the parts refer to. Part (a) is worth 4 marks: two definitions. Part (b) is worth 5 marks: calculations from the data, with units and signs, and a sketch of a diagram. Parts (c) to (f) are worth 4 marks each: explain, usually with a labelled diagram. Part (g) is worth 15 marks: discuss or evaluate, with a judgement. Total: 40 marks in 105 minutes.',
+      ru: 'Два вопроса, выберите один (40 баллов). В каждом несколько материалов (тексты, таблицы и графики), к которым относятся части. Часть (a) — 4 балла: два определения. Часть (b) — 5 баллов: расчёты по данным с единицами и знаками и набросок диаграммы. Части (c)–(f) — по 4 балла: объяснение, обычно с подписанной диаграммой. Часть (g) — 15 баллов: обсуждение или оценка с суждением. Всего: 40 баллов за 105 минут.',
     },
     strategy: {
-      en: 'Read the stimulus and the data before the questions, and underline the figures you need. Define each term in one sentence, using the exact term. Calculate with the formula written out, with units and sign. Draw diagrams with labelled axes and curves, and show shifts clearly. In part (g), give a balanced discussion of two sides, an evaluation (short run and long run, stakeholders, assumptions) and a judgement. Timed practice from real papers: November 2025 TZ1 and May 2025 TZ1, 105 minutes each (131 with +25% extra time).',
-      ru: 'Сначала прочитайте материал и данные, отметьте нужные цифры. Давайте определения в одном предложении, используя точный термин. Рассчитывайте, записывая формулу, единицы и знак. Рисуйте диаграммы с подписанными осями и кривыми, ясно показывайте сдвиги. В части (g) дайте сбалансированное обсуждение двух сторон, оценку (краткосрочный и долгосрочный периоды, заинтересованные стороны, допущения) и суждение. Тайм-сеты из реальных пейперов: ноябрь 2025, TZ1, и май 2025, TZ1, по 105 минут (131 с доп. временем +25%).',
+      en: 'Read the stimulus and the data before the questions, and underline the figures you need. Define each term in one sentence, using the exact term. Calculate with the formula written out, with units and sign. Draw diagrams with labelled axes and curves, and show shifts clearly. In part (g), give a balanced discussion of two sides, an evaluation (short run and long run, stakeholders, assumptions) and a judgement. Timed practice from real papers: November 2025 TZ1 and May 2025 TZ1, 105 minutes each.',
+      ru: 'Сначала прочитайте материал и данные, отметьте нужные цифры. Давайте определения в одном предложении, используя точный термин. Рассчитывайте, записывая формулу, единицы и знак. Рисуйте диаграммы с подписанными осями и кривыми, ясно показывайте сдвиги. В части (g) дайте сбалансированное обсуждение двух сторон, оценку (краткосрочный и долгосрочный периоды, заинтересованные стороны, допущения) и суждение. Тайм-сеты из реальных пейперов: ноябрь 2025, TZ1, и май 2025, TZ1, по 105 минут.',
     },
     criteria: {
       en: 'Definitions and calculations are accurate, with units and signs; diagrams are correct and labelled; explanations are chains of reasoning that use the data; the part (g) discussion is balanced, evaluative and ends with a justified judgement.',
@@ -68,7 +68,7 @@ export const papers: PaperGuide[] = [
     timedSets: [
       {
         id: 'p2-full-set',
-        title: { en: 'Full data response, 105 minutes (131 with +25% extra time; one of two questions)', ru: 'Полный анализ данных, 105 минут (131 с доп. временем +25%; один из двух вопросов)' },
+        title: { en: 'Full data response, 105 minutes (one of two questions)', ru: 'Полный анализ данных, 105 минут (один из двух вопросов)' },
         questionIds: ['p2-set-01', 'p2-set-02'],
         minutes: 105,
       },
@@ -90,12 +90,12 @@ export const papers: PaperGuide[] = [
     minutes: 60,
     marks: 30,
     structure: {
-      en: 'School mock: one question, 30 marks, 60 minutes (75 with +25% extra time). Part (a) is 20 marks in several sub-parts (calculations, explanations and a diagram), and part (b) is 10 marks: recommend one policy from the data and justify it. The real paper: from 2023 it is 1 hour 45 minutes with two case-study questions, both answered, 30 marks each (60 in total; 58 in May 2023). In 2022 the paper was 1 hour with one question answered (30 marks). The school\'s own format is not on the printout; the mock follows the one-question layout until the school confirms it.',
-      ru: 'Школьный мок: один вопрос, 30 баллов, 60 минут (75 с доп. временем +25%). Часть (a) — 20 баллов в нескольких подпунктах (расчёты, объяснения и диаграмма), часть (b) — 10 баллов: рекомендуйте одну политику на основе данных и обоснуйте её. Настоящий пейпер: с 2023 года 1 час 45 минут, два вопроса-кейса, оба выполняются, по 30 баллов на вопрос (всего 60; в мае 2023 — 58). В 2022 году пейпер длился 1 час, выполнялся один вопрос (30 баллов). Формат школьного мока в распечатке не указан; до подтверждения школы мок идёт в формате одного вопроса.',
+      en: 'School mock: one question, 30 marks, 60 minutes. Part (a) is 20 marks in several sub-parts (calculations, explanations and a diagram), and part (b) is 10 marks: recommend one policy from the data and justify it. The real paper: from 2023 it is 1 hour 45 minutes with two case-study questions, both answered, 30 marks each (60 in total; 58 in May 2023). In 2022 the paper was 1 hour with one question answered (30 marks). The school\'s own format is not on the printout; the mock follows the one-question layout until the school confirms it.',
+      ru: 'Школьный мок: один вопрос, 30 баллов, 60 минут. Часть (a) — 20 баллов в нескольких подпунктах (расчёты, объяснения и диаграмма), часть (b) — 10 баллов: рекомендуйте одну политику на основе данных и обоснуйте её. Настоящий пейпер: с 2023 года 1 час 45 минут, два вопроса-кейса, оба выполняются, по 30 баллов на вопрос (всего 60; в мае 2023 — 58). В 2022 году пейпер длился 1 час, выполнялся один вопрос (30 баллов). Формат школьного мока в распечатке не указан; до подтверждения школы мок идёт в формате одного вопроса.',
     },
     strategy: {
-      en: 'Spend about six minutes reading the case and marking the key figures. Do the calculations first and show each formula and unit. Draw labelled diagrams. In part (b), choose the policy early, justify it with at least two figures from the data, then discuss the trade-offs, stakeholders and timing, and finish with a judgement on the conditions under which your choice holds. Timed practice: the school mock (p3-mock-01, 30 marks in 60 minutes; 75 with +25% extra time). The practice sets 1 to 4 have 40 marks each, so they are longer than the mock and train every part. The one-hour papers of May 2022 and November 2022 are the closest real timing.',
-      ru: 'Около шести минут уходит на чтение кейса и отметку ключевых цифр. Сначала сделайте расчёты, показывая формулу и единицы. Рисуйте подписанные диаграммы. В части (b) выберите политику заранее, обоснуйте её не менее чем двумя цифрами из данных, затем обсудите компромиссы, заинтересованные стороны и сроки и завершите суждением о том, при каких условиях ваш выбор верен. Тайм-сет: школьный мок (p3-mock-01, 30 баллов за 60 минут; 75 с доп. временем +25%). Наборы 1–4 по 40 баллов длиннее мока и тренируют все части. Ближе всего к реальному времени часовые пейперы мая и ноября 2022 года (60 минут, один вопрос).',
+      en: 'Spend about six minutes reading the case and marking the key figures. Do the calculations first and show each formula and unit. Draw labelled diagrams. In part (b), choose the policy early, justify it with at least two figures from the data, then discuss the trade-offs, stakeholders and timing, and finish with a judgement on the conditions under which your choice holds. Timed practice: the school mock (p3-mock-01, 30 marks in 60 minutes). The practice sets 1 to 4 have 40 marks each, so they are longer than the mock and train every part. The one-hour papers of May 2022 and November 2022 are the closest real timing.',
+      ru: 'Около шести минут уходит на чтение кейса и отметку ключевых цифр. Сначала сделайте расчёты, показывая формулу и единицы. Рисуйте подписанные диаграммы. В части (b) выберите политику заранее, обоснуйте её не менее чем двумя цифрами из данных, затем обсудите компромиссы, заинтересованные стороны и сроки и завершите суждением о том, при каких условиях ваш выбор верен. Тайм-сет: школьный мок (p3-mock-01, 30 баллов за 60 минут). Наборы 1–4 по 40 баллов длиннее мока и тренируют все части. Ближе всего к реальному времени часовые пейперы мая и ноября 2022 года (60 минут, один вопрос).',
     },
     criteria: {
       en: 'Calculations are correct, with units; explanations are chains of reasoning; diagrams are labelled and accurate; evaluation weighs arguments with data, short and long run, stakeholders and assumptions; the recommendation is clear and justified by data, with trade-offs, stakeholders, timing and a judgement.',
@@ -106,7 +106,7 @@ export const papers: PaperGuide[] = [
     timedSets: [
       {
         id: 'p3-mock',
-        title: { en: 'School mock: one policy question, 30 marks, 60 minutes (75 with +25% extra time)', ru: 'Мок: один вопрос на анализ политики, 30 баллов, 60 минут (75 с доп. временем +25%)' },
+        title: { en: 'School mock: one policy question, 30 marks, 60 minutes', ru: 'Мок: один вопрос на анализ политики, 30 баллов, 60 минут' },
         questionIds: ['p3-mock-01'],
         minutes: 60,
       },

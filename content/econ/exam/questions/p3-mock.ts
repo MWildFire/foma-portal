@@ -1,6 +1,6 @@
 import type { Question } from '../../../../src/contract/types';
 
-// EX-3 school mock: one policy question of 30 marks for the one-hour mock (75 minutes with +25% extra time).
+// EX-3 school mock: one policy question of 30 marks for the one-hour mock.
 // Part (a) is 20 marks (calculations, an explanation and a diagram) and part (b) is 10 marks (a recommendation): the
 // same split as one question of the real Paper 3 from 2023. All numbers are invented and labelled as illustrative data.
 // The city (Maravel) is fictional. Rent is in AED thousand per month and quantities in thousand flats per month, so
