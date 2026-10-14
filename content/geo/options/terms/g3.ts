@@ -3,7 +3,8 @@ import type { Term } from '../../../../src/contract/types';
 // Option G.3 (Urban environmental and social stresses) terms.
 // Definitions are written in our own words from the programme content of G.3 (IB Geography guide, 2017).
 // Locators point to the ThinkIB eBook section of this unit (section level; page locators come from the S1 map).
-const SRC = { kind: 'thinkib' as const, title: 'Option G: Urban Environments (pages 37520, 37586, 37591)', locator: 'Urban Environmental and Social Stress; Urban Micro-climates; Managing Urban Social Deprivation and Crime' };
+// Hazard, vulnerability, risk and urban resilience carry syllabus G.4: the guide places risk management under G.4 (resilient city design).
+const SRC = { kind: 'thinkib' as const, title: 'Option G: Urban Environments (pages 37520, 37586, 37591)', locator: 'Urban Environmental and Social Stress; Urban Micro-climates; Managing Urban Social Deprivation and Crime; guide p. 41' };
 
 export const terms: Term[] = [
   {
@@ -63,8 +64,8 @@ export const terms: Term[] = [
     papers: ['P1'],
     src: SRC,
     example: {
-      en: 'Mumbai, 26 July 2005: 944 mm of rain in 24 hours flooded roads, railway lines and low-lying districts.',
-      ru: 'Мумбаи, 26 июля 2005 года: 944 мм осадков за 24 часа затопили дороги, железнодорожные пути и низинные районы.',
+      en: 'Mumbai, 26 July 2005: 944 mm of rain in 24 hours flooded roads, railway lines and low-lying districts (Indian Meteorological Department, Santacruz station).',
+      ru: 'Мумбаи, 26 июля 2005 года: 944 мм осадков за 24 часа затопили дороги, железнодорожные пути и низинные районы (Indian Meteorological Department, станция Santacruz).',
     },
   },
   {
@@ -167,7 +168,7 @@ export const terms: Term[] = [
       en: 'A potentially damaging natural or human-induced event or process, such as a flood, heatwave or land subsidence. A hazard exists whether or not people or property are exposed to it.',
       ru: 'Потенциально разрушительное природное или вызванное человеком событие или процесс, например наводнение, жара или просадка грунта. Опасность существует, даже если людей и имущества рядом нет.',
     },
-    syllabus: 'G.3',
+    syllabus: 'G.4',
     papers: ['P1'],
     src: SRC,
     pitfall: {
@@ -182,7 +183,7 @@ export const terms: Term[] = [
       en: 'The degree to which people, property or systems are likely to be harmed by a hazard. It depends on exposure, sensitivity (for example poverty, age or poor health) and the ability to cope and recover.',
       ru: 'Степень, в которой людям, имуществу или системам может быть нанесён ущерб от опасности. Зависит от подверженности, чувствительности (например, бедность, возраст, плохое здоровье) и способности справиться и восстановиться.',
     },
-    syllabus: 'G.3',
+    syllabus: 'G.4',
     papers: ['P1'],
     src: SRC,
   },
@@ -193,7 +194,7 @@ export const terms: Term[] = [
       en: 'The chance of harm from a hazard. It combines how likely the hazard is with the vulnerability of the people and property exposed to it, so risk is high when both are high.',
       ru: 'Вероятность ущерба от опасности. Сочетает вероятность опасного события и уязвимость людей и имущества, которые ему подвержены: риск высок, когда высоки оба фактора.',
     },
-    syllabus: 'G.3',
+    syllabus: 'G.4',
     papers: ['P1'],
     src: SRC,
   },
@@ -204,7 +205,7 @@ export const terms: Term[] = [
       en: 'The ability of a city and its people to withstand a hazard or stress, adapt to it and recover, keeping essential services and social networks working.',
       ru: 'Способность города и его жителей выдержать опасность или нагрузку, приспособиться к ней и восстановиться, сохранив работу важнейших служб и социальных связей.',
     },
-    syllabus: 'G.3',
+    syllabus: 'G.4',
     papers: ['P1'],
     src: SRC,
     example: {
