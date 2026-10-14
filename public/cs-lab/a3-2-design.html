@@ -545,8 +545,9 @@
       <!-- Manager rectangle -->
       <rect x="500" y="20" width="140" height="60" rx="6" fill="#fde68a" stroke="#92400e" stroke-width="2"/>
       <text x="570" y="55" text-anchor="middle" font-family="Helvetica" font-size="18" font-weight="600" fill="#7c2d12">Manager</text>
-      <!-- This goes via separate diamond - simplified: directly to second instance below -->
-      <line x1="570" y1="335" x2="570" y2="350" stroke="#475569" stroke-width="0"/>
+      <!-- Line Manages-Manager: routed around the right side of Team -->
+      <polyline points="630,295 665,295 665,50 640,50" fill="none" stroke="#475569" stroke-width="2"/>
+      <text x="645" y="44" font-family="Helvetica" font-size="14" font-weight="700" fill="#1e293b">1</text>
     </svg>
     <span class="caption"><span class="lang-ru-inline">Концептуальная ER-диаграмма: Player N : 1 Team, Team 1 : 1 Manager. Ромбы — связи (Plays, Manages), прямоугольники — сущности.</span><span class="lang-en-inline">Conceptual ER diagram: Player N : 1 Team, Team 1 : 1 Manager. Diamonds are relationships (Plays, Manages), rectangles are entities.</span></span>
   </div>
@@ -1293,7 +1294,7 @@
   </span><span class="lang-en-inline"><b>Notice:</b> in 3NF the information about the artist (Name, Email) is <b>finally</b> separated from the item, because these attributes depend on <code>Artist_ID</code>, not on <code>Item_ID</code>. The transitive dependency has been removed.</span></p>
 
   <!-- ============ SECTION 9: SCHEMA DIAGRAM ============ -->
-  <h2><span class="lang-ru-inline">9. Схема-диаграмма: логическая модель vs физическая</span><span class="lang-en-inline">9. Schema diagram: logical vs physical</span></h2>
+  <h2><span class="lang-ru-inline">9. Схема-диаграмма физической модели</span><span class="lang-en-inline">9. Schema diagram of the physical model</span></h2>
 
   <div class="ru-tip en-summary" style="border-left-color:var(--accent); background:rgba(14,165,233,0.08);">
     <b>EN summary — Schema diagrams.</b> Once a database is normalised, a schema diagram offers a compact picture: each entity is drawn as a rectangle that lists its attributes, with relationships shown as lines between primary keys and foreign keys. The logical schema diagram lists the attributes alongside their key roles but omits data types. The physical schema diagram extends it by adding concrete types such as VARCHAR(25) and CHAR(6), plus storage hints like indexes. Both share the same entities and links — the physical version just makes the implementation choices explicit.
@@ -1304,7 +1305,7 @@
   </span><span class="lang-en-inline">Once you have normalized the database, it is useful to draw a <b>schema diagram</b>: a compact picture in which each entity is a rectangle with its fields, and the links between them are drawn through PK/FK.</span></p>
 
   <div class="erd-svg-wrap">
-    <svg viewBox="0 0 760 280" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Schema diagram логического уровня">
+    <svg viewBox="0 0 760 280" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Schema diagram физического уровня">
       <!-- STUDENT -->
       <rect x="20" y="20" width="200" height="180" rx="6" fill="#f0f9ff" stroke="#0369a1" stroke-width="2"/>
       <rect x="20" y="20" width="200" height="28" rx="6" fill="#0369a1"/>
@@ -1334,7 +1335,7 @@
       <text x="460" y="184" font-family="ui-monospace" font-size="11" fill="#1e293b">Description: text</text>
       <text x="460" y="202" font-family="ui-monospace" font-size="11" fill="#1e293b" font-weight="700">TeacherID: varchar(6) FK</text>
     </svg>
-    <span class="caption"><span class="lang-ru-inline">Schema diagram: фрагмент логической схемы для системы школьных поездок. Видны типы данных, PK и FK.</span><span class="lang-en-inline">Schema diagram: a fragment of the logical schema for a school trips system. The data types, the PK and the FK are shown.</span></span>
+    <span class="caption"><span class="lang-ru-inline">Фрагмент физической схемы для системы школьных поездок (таблицы STUDENT и TRIP). Видны типы данных, PK и FK. Поле TeacherID ссылается на таблицу TEACHER, которой во фрагменте нет.</span><span class="lang-en-inline">Schema diagram: a fragment of the physical schema for a school trips system (tables STUDENT and TRIP). The data types, the PK and the FK are shown. TeacherID references the TEACHER table, which is not part of this fragment.</span></span>
   </div>
 
   <h3><span class="lang-ru-inline">9.1. Логический vs физический — в чём разница</span><span class="lang-en-inline">9.1. Logical vs physical: what is the difference</span></h3>
