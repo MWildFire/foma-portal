@@ -32,11 +32,13 @@ FIRST_BODY_PDF = 12   # PDF page 12 is printed page 1; earlier pages are front m
 DEFAULT_OFFSET = 11   # printed page = PDF page - 11 (checked on 855 printed footers)
 COPY_RUN = 7          # word runs of this length or more count as copied
 FOOTER = re.compile(r'^\s*(\d{1,3})\s*$')
-HEADING = re.compile(r'^\s*(\d{1,2})\.(\d{1,2})\s+([A-Z][^\n]{2,70})$')
+HEADING = re.compile(r'^\s*(\d{1,2})\.(\d{1,2})\s+([A-Zχ][^\n]*)$')
 DEF_CUE = re.compile(r'^(?:is|are|refers to|means|is called|are called|is known as|is defined as|is the|are the)\b', re.I)
 # The text layer drops the ff / fi / fl ligatures ("Dierential", "xed"), so they are
 # removed from both the search term and the book text before comparing.
 GAPS = re.compile(r'ffi|ffl|ff|fi|fl')
+# Highest section number per chapter in the book; anything else on a line starting 'N.M' is a unit or a number.
+MAX_SECTION = {1: 3, 2: 4, 3: 6, 4: 5, 5: 4, 6: 4, 7: 5, 8: 5, 9: 7, 10: 3, 11: 5, 12: 4, 13: 6, 14: 6, 15: 5}
 
 
 def letters_of(text):
@@ -95,8 +97,11 @@ class Book:
                 continue
             for index, line in enumerate(self.pages[pdf].split('\n')):
                 match = HEADING.match(line)
-                if match and 1 <= int(match.group(1)) <= 15 and 1 <= int(match.group(2)) <= 12:
-                    self.headings.append((pdf, index, f'{match.group(1)}.{match.group(2)}', match.group(3).strip()))
+                if match and int(match.group(2)) <= MAX_SECTION.get(int(match.group(1)), 0):
+                    # Headings are often padded with spaces or followed by dot leaders and a page number.
+                    title = re.split(r'\s{3,}|\.{3,}', match.group(3))[0].strip()
+                    if title:
+                        self.headings.append((pdf, index, f'{match.group(1)}.{match.group(2)}', title))
         self.keys = [(pdf, index) for pdf, index, _, _ in self.headings]
         self.letter_cache = {}
 
@@ -105,6 +110,10 @@ class Book:
 
     def section_at(self, pdf, index):
         position = bisect.bisect_right(self.keys, (pdf, index)) - 1
+        following = self.headings[position + 1] if position + 1 < len(self.headings) else None
+        # A running head above a section heading at the top of the same page belongs to that section.
+        if index < 4 and following and following[0] == pdf and following[1] <= 6:
+            return following[2]
         return self.headings[position][2] if position >= 0 else 'n/a'
 
     def letters(self, pdf):
