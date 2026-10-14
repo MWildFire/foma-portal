@@ -15,7 +15,12 @@
 //
 // Usage:  node tests/review/day1.mjs
 //         BASE_URL=https://fomalearningportal.academy node tests/review/day1.mjs   (live site, Basic Auth)
+//         DATES=2026-10-14..2026-10-20 LANGS=en WIDTHS=390 OUT=/tmp/days node tests/review/day1.mjs
 // Env:    BASE_URL     preview origin (default http://127.0.0.1:4173), or the live origin
+//         DATES        dates to check: "2026-10-14,2026-10-15" or an inclusive range "2026-10-14..2026-11-04"
+//                      (default: today and tomorrow in Dubai)
+//         LANGS        en, ru (default en,ru)
+//         WIDTHS       viewport widths in px (default 390,1280)
 //         SITE_USER    Basic Auth login for the live site (default dmitry), with SITE_PASS
 //         SITE_PASS    Basic Auth password; without it the login is read from the credentials file
 //         LOGIN        login to take from the credentials file (default dmitry)
@@ -43,9 +48,31 @@ function siteLogin() {
   }
   throw new Error(`no login "${user}" in the credentials file`);
 }
-const DATES = ['2026-10-14', '2026-10-15'];
-const LANGS = ['en', 'ru'];
-const WIDTHS = [390, 1280];
+// DATES, LANGS and WIDTHS come from the environment (see the header). Default: today and tomorrow in Dubai.
+const DATES = datesFromEnv(process.env.DATES);
+const LANGS = listFromEnv(process.env.LANGS, ['en', 'ru']);
+const WIDTHS = listFromEnv(process.env.WIDTHS, ['390', '1280']).map(Number);
+if (LANGS.some(lang => lang !== 'en' && lang !== 'ru')) throw new Error(`LANGS must be en or ru, got "${LANGS}"`);
+if (WIDTHS.some(width => !Number.isInteger(width) || width <= 0)) throw new Error(`WIDTHS must be pixel widths, got "${WIDTHS}"`);
+function datesFromEnv(value) {
+  if (!value) {
+    const today = new Date().toLocaleDateString('en-CA', { timeZone: 'Asia/Dubai' });
+    return [today, addDays(today, 1)];
+  }
+  const range = value.match(/^(\d{4}-\d{2}-\d{2})\.\.(\d{4}-\d{2}-\d{2})$/);
+  const dates = range ? [] : listFromEnv(value, []);
+  if (range) for (let d = range[1]; d <= range[2]; d = addDays(d, 1)) dates.push(d);
+  if (!dates.length || dates.some(d => !/^\d{4}-\d{2}-\d{2}$/.test(d))) throw new Error(`DATES: cannot read "${value}"`);
+  return dates;
+}
+function addDays(iso, days) {
+  const d = new Date(`${iso}T00:00:00Z`);
+  d.setUTCDate(d.getUTCDate() + days);
+  return d.toISOString().slice(0, 10);
+}
+function listFromEnv(value, fallback) {
+  return value ? value.split(',').map(s => s.trim()).filter(Boolean) : fallback;
+}
 const NOT_FOUND = /not found|There is no |Something went wrong|не найден|Нет такой|Что-то пошло не так/i;
 const CYRILLIC = /[а-яёА-ЯЁ]/g;
 const STATE = JSON.stringify({
@@ -117,7 +144,7 @@ for (const date of DATES) {
     for (const width of WIDTHS) {
       const label = `${date} ${lang} ${width}`;
       const context = await browser.newContext({
-        ...(HTTP_CREDENTIALS ? { httpCredentials: HTTP_CREDENTIALS } : {}),
+        ...(HTTP_CREDENTIALS ? { httpCredentials: { ...HTTP_CREDENTIALS, origin: ORIGIN } } : {}),
         viewport: { width, height: 900 },
         isMobile: width < 500,
         hasTouch: width < 500,
