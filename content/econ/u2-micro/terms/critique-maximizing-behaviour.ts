@@ -66,12 +66,12 @@ export const terms: Term[] = [
     id: 'satisficing',
     term: { en: 'satisficing', ru: 'удовлетворительный выбор (satisficing)' },
     def: {
-      en: 'Choosing the first option that meets a minimum acceptable target on several objectives, rather than searching for the best possible option on any one of them.',
-      ru: 'Выбор первого варианта, который достигает минимально приемлемой цели сразу по нескольким целям, а не поиск наилучшего возможного варианта по какой-либо одной из них.',
+      en: 'Aiming for a satisfactory level on several objectives at once, rather than the optimal or best result on any one of them.',
+      ru: 'Стремление к удовлетворительному уровню сразу по нескольким целям, а не к оптимальному или наилучшему результату по какой-либо одной из них.',
     },
     example: {
-      en: 'A manager accepts the first supplier that delivers within 5 days at AED 500 or less per unit, without comparing the other 10 suppliers.',
-      ru: 'Менеджер принимает первого поставщика, который доставляет за 5 дней и не дороже 500 AED за единицу, не сравнивая остальные 10 поставщиков.',
+      en: 'A manager picks a supplier that delivers within 5 days at AED 500 or less per unit, and does not look for the lowest price, because both targets are already met.',
+      ru: 'Менеджер выбирает поставщика, который доставляет за 5 дней и не дороже 500 AED за единицу, и не ищет самую низкую цену, так как обе цели уже выполнены.',
     },
     pitfall: {
       en: 'Satisficing is a sensible response when searching is costly, not laziness.',

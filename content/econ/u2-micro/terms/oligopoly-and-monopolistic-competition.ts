@@ -8,8 +8,8 @@ export const terms: Term[] = [
     id: 'monopolistic-competition',
     term: { en: 'monopolistic competition', ru: 'монополистическая конкуренция (monopolistic competition)' },
     def: {
-      en: 'A market with many firms selling differentiated products, low barriers to entry and some control over price, where in the long run each firm earns only normal profit.',
-      ru: 'Рынок с большим числом фирм, продающих дифференцированные товары, с низкими барьерами для входа и некоторым контролем над ценой; в долгосрочном периоде каждая фирма получает только нормальную прибыль.',
+      en: 'A market with many firms selling differentiated products, free entry and some control over price, where in the long run each firm earns only normal profit.',
+      ru: 'Рынок с большим числом фирм, продающих дифференцированные товары, со свободным входом и некоторым контролем над ценой; в долгосрочном периоде каждая фирма получает только нормальную прибыль.',
     },
     example: {
       en: 'Restaurants in a city each sell their own menu and brand at about AED 60 per guest, and new restaurants entering over time remove any supernormal profit.',
@@ -21,7 +21,7 @@ export const terms: Term[] = [
     },
     syllabus: '2.11',
     papers: ['P1', 'P2', 'P3'],
-    src: { kind: 'textbook', title: book, locator: 'ch. 7.1, p. 197' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 7.5, p. 225–228' },
     sim: 'econ.monopolistic-competition',
   },
   {

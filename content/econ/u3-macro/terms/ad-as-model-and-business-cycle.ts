@@ -69,16 +69,16 @@ export const terms: Term[] = [
     id: 'long-run-aggregate-supply',
     term: { en: 'long-run aggregate supply (LRAS)', ru: 'долгосрочное совокупное предложение (long-run aggregate supply, LRAS)' },
     def: {
-      en: 'In the long run, the real output an economy can sustain at full employment, set by its factors of production and technology, shown as a vertical line.',
-      ru: 'В долгосрочном периоде — уровень реального выпуска, который экономика может поддерживать при полной занятости; определяется факторами производства и технологиями и изображается вертикальной линией.',
+      en: 'In the long run, the real output that the economy produces at full employment, its potential GDP, shown as a vertical line that does not depend on the price level.',
+      ru: 'В долгосрочном периоде — реальный выпуск, который экономика производит при полной занятости, то есть потенциальный ВВП; изображается вертикальной линией, не зависящей от уровня цен.',
     },
     example: {
       en: 'An economy with potential output of AED 800 bn keeps its LRAS at AED 800 bn even if the price level doubles.',
       ru: 'Экономика с потенциальным выпуском 800 млрд AED сохраняет LRAS на уровне 800 млрд AED, даже если уровень цен удвоится.',
     },
     pitfall: {
-      en: 'LRAS shifts with productive capacity such as labour, capital and technology, not with the price level.',
-      ru: 'LRAS сдвигается при изменении производственных мощностей, например труда, капитала и технологий, а не при изменении уровня цен.',
+      en: 'Potential GDP is not the same as actual real GDP: an economy can produce below or above it, and real GDP equals potential GDP only at full employment.',
+      ru: 'Потенциальный ВВП — не то же, что фактический реальный ВВП: экономика может производить ниже или выше него, а реальный ВВП равен потенциальному только при полной занятости.',
     },
     syllabus: '3.2',
     papers: ['P1', 'P2', 'P3'],

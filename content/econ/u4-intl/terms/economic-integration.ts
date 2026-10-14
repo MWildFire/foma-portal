@@ -27,16 +27,16 @@ export const terms: Term[] = [
     id: 'free-trade-area',
     term: { en: 'free trade area', ru: 'зона свободной торговли (free trade area)' },
     def: {
-      en: 'A group of countries that remove tariffs and quotas on trade among themselves, while each member keeps its own tariffs on imports from non-members.',
-      ru: 'Группа стран, которые отменяют пошлины и квоты в торговле между собой, но каждая страна-участница сохраняет собственные пошлины на импорт из стран, не входящих в группу.',
+      en: 'A group of countries that cut out trade barriers among themselves, while each member keeps its own barriers against imports from non-members.',
+      ru: 'Группа стран, которые убирают торговые барьеры между собой, а каждая страна-участница сохраняет собственные барьеры для импорта из стран, не входящих в группу.',
     },
     example: {
       en: 'Under a free trade area, a good from a member enters duty free, while the same good from a non-member pays a tariff of AED 4 per unit.',
       ru: 'В зоне свободной торговли товар из страны-участницы ввозится беспошлинно, а тот же товар из страны, не входящей в зону, платит пошлину 4 AED за единицу.',
     },
     pitfall: {
-      en: 'A free trade area is not a customs union, because its members keep their own tariffs on non-members.',
-      ru: 'Зона свободной торговли — это не таможенный союз, потому что её участники сохраняют собственные пошлины для стран, не входящих в зону.',
+      en: 'A free trade area is not a customs union, because its members keep their own trade barriers against non-members.',
+      ru: 'Зона свободной торговли — это не таможенный союз, потому что её участники сохраняют собственные торговые барьеры для стран, не входящих в зону.',
     },
     syllabus: '4.4',
     papers: ['P1', 'P2', 'P3'],

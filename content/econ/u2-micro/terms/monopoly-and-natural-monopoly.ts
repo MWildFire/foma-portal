@@ -66,16 +66,16 @@ export const terms: Term[] = [
     id: 'marginal-revenue',
     term: { en: 'marginal revenue', ru: 'предельный доход (marginal revenue)' },
     def: {
-      en: 'The change in total revenue from selling one more unit: MR equals the change in total revenue divided by the change in quantity. For a monopolist MR is below the price.',
-      ru: 'Изменение общей выручки при продаже одной дополнительной единицы: MR равно изменению общей выручки, делённому на изменение количества. У монополиста MR ниже цены.',
+      en: 'The additional revenue a firm receives from selling one more unit of output.',
+      ru: 'Дополнительная выручка, которую фирма получает от продажи одной дополнительной единицы выпуска.',
     },
     example: {
       en: 'If total revenue rises from AED 400 to AED 418 when output rises from 10 to 11 units, MR is AED 18 per unit.',
       ru: 'Если общая выручка растёт с 400 AED до 418 AED при росте выпуска с 10 до 11 единиц, MR составляет 18 AED за единицу.',
     },
     pitfall: {
-      en: 'A monopolist must cut the price on every unit to sell one more, so its MR is below its price; in perfect competition MR equals the price.',
-      ru: 'Монополист, чтобы продать ещё одну единицу, снижает цену на все единицы, поэтому его MR ниже цены; при совершенной конкуренции MR равен цене.',
+      en: 'Marginal revenue is not average revenue: MR is the extra revenue from one more unit, while AR is total revenue divided by the number of units sold.',
+      ru: 'Предельный доход (MR) — не то же, что средний доход (AR): MR — это дополнительная выручка от одной дополнительной единицы, а AR — общая выручка, делённая на количество единиц выпуска.',
     },
     syllabus: '2.11',
     papers: ['P1', 'P2', 'P3'],

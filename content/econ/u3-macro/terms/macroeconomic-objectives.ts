@@ -182,12 +182,12 @@ export const terms: Term[] = [
     id: 'natural-rate-of-unemployment',
     term: { en: 'natural rate of unemployment', ru: 'естественный уровень безработицы (natural rate of unemployment)' },
     def: {
-      en: 'The unemployment rate that remains when the economy is at potential output, made up of frictional and structural unemployment.',
-      ru: 'Уровень безработицы, который сохраняется, когда экономика работает на уровне потенциального выпуска; состоит из фрикционной и структурной безработицы.',
+      en: 'The unemployment rate that exists when the output of the economy is at its potential level; it includes structural, frictional and seasonal unemployment.',
+      ru: 'Уровень безработицы, который существует, когда выпуск экономики находится на потенциальном уровне; включает структурную, фрикционную и сезонную безработицу.',
     },
     example: {
-      en: 'If frictional unemployment is 2% and structural unemployment is 2.5%, the natural rate is 4.5%.',
-      ru: 'Если фрикционная безработица составляет 2%, а структурная 2,5%, естественный уровень безработицы равен 4,5%.',
+      en: 'If frictional unemployment is 2%, structural unemployment is 2.5% and seasonal unemployment is 0.5%, the natural rate is 5%.',
+      ru: 'Если фрикционная безработица составляет 2%, структурная — 2,5%, а сезонная — 0,5%, естественный уровень безработицы равен 5%.',
     },
     pitfall: {
       en: 'The natural rate is not zero: some unemployment is always present, even when the economy is at full employment.',
@@ -196,6 +196,6 @@ export const terms: Term[] = [
     syllabus: '3.3',
     papers: ['P1', 'P2', 'P3'],
     sim: 'econ.phillips-lr',
-    src: { kind: 'textbook', title: book, locator: 'ch. 9.3, p. 282' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 10.1, p. 304' },
   },
 ];

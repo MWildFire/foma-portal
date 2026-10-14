@@ -66,12 +66,12 @@ export const terms: Term[] = [
     id: 'financial-account',
     term: { en: 'financial account', ru: 'финансовый счёт (financial account)' },
     def: {
-      en: 'The part of the balance of payments that records changes in ownership of financial assets: direct and portfolio investment, loans and deposits, official borrowing, and changes in official reserves.',
-      ru: 'Часть платёжного баланса, которая учитывает изменения собственности на финансовые активы: прямые и портфельные инвестиции, кредиты и депозиты, официальные заимствования (государственные займы за рубежом), а также изменения официальных резервов.',
+      en: 'One of the three accounts of the balance of payments, alongside the current and capital accounts, that records direct and portfolio investment, official borrowing and reserve assets (official reserves).',
+      ru: 'Один из трёх счетов платёжного баланса, наряду с текущим и капитальным, который учитывает прямые и портфельные инвестиции, официальные заимствования и резервные активы (официальные резервы).',
     },
     syllabus: '4.6',
     papers: ['P1', 'P2', 'P3'],
-    src: { kind: 'textbook', title: book, locator: 'ch. 16, p. 512' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 16.4, p. 510' },
     example: {
       en: 'A German company buying a factory in Dubai for AED 50 million is an inflow of capital, shown as a positive entry in the UAE financial account.',
       ru: 'Немецкая компания, купившая завод в Дубае за AED 50 млн, создаёт приток капитала, который показан со знаком плюс в финансовом счёте ОАЭ.',

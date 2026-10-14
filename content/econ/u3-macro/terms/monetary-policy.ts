@@ -29,8 +29,8 @@ export const terms: Term[] = [
     id: 'central-bank',
     term: { en: 'central bank', ru: 'центральный банк (central bank)' },
     def: {
-      en: 'The institution that issues currency, manages the money supply and sets the policy interest rate, often independently of the government.',
-      ru: 'Учреждение, которое выпускает валюту, управляет денежной массой и устанавливает ключевую ставку, часто независимо от правительства.',
+      en: 'The institution that manages the money supply and sets the policy interest rate, often independently of the government, and acts as banker to the government and to commercial banks.',
+      ru: 'Учреждение, которое управляет денежной массой и устанавливает ключевую ставку, часто независимо от правительства, а также выступает банкиром правительства и коммерческих банков.',
     },
     example: {
       en: 'A central bank with a 2% inflation target raises its policy rate when prices rise faster than that target.',
@@ -42,7 +42,7 @@ export const terms: Term[] = [
     },
     syllabus: '3.5',
     papers: ['P1', 'P2', 'P3'],
-    src: { kind: 'textbook', title: book, locator: 'ch. 13, p. 388' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 13.2, p. 388' },
   },
   {
     id: 'policy-interest-rate',
@@ -166,12 +166,12 @@ export const terms: Term[] = [
     id: 'inflation-targeting',
     term: { en: 'inflation targeting', ru: 'таргетирование инфляции (inflation targeting)' },
     def: {
-      en: 'A monetary policy framework in which the central bank publicly announces medium-term numerical inflation targets and commits to meeting them by adjusting interest rates.',
-      ru: 'Режим монетарной политики, при котором центральный банк публично объявляет среднесрочные числовые цели по инфляции и обязуется их достигать, меняя процентные ставки.',
+      en: 'A monetary policy framework in which the central bank publicly announces medium-term numerical inflation targets and makes an institutional commitment to achieve them.',
+      ru: 'Режим монетарной политики, при котором центральный банк публично объявляет среднесрочные числовые цели по инфляции и берёт на себя институциональное обязательство их достигать.',
     },
     example: {
-      en: 'A central bank with a 2% target raises its policy rate when forecast inflation is 3%, to bring inflation back towards the target.',
-      ru: 'Центральный банк с целью 2% повышает ставку, когда прогнозная инфляция составляет 3%, чтобы вернуть её к цели.',
+      en: 'A central bank announces a medium-term inflation target of 2%, measured by the CPI, with a tolerance of one percentage point either side, so inflation between 1% and 3% stays within the tolerance margin.',
+      ru: 'Центральный банк публично объявляет среднесрочную цель по инфляции 2%, измеряемую по ИПЦ, с допуском в один процентный пункт в обе стороны: инфляция от 1% до 3% остаётся в пределах допуска.',
     },
     pitfall: {
       en: 'Inflation targeting does not mean ignoring output: many targeting regimes also consider growth and employment.',
@@ -179,7 +179,7 @@ export const terms: Term[] = [
     },
     syllabus: '3.5',
     papers: ['P1', 'P2', 'P3'],
-    src: { kind: 'textbook', title: book, locator: 'ch. 13, p. 389' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 13.2, p. 389' },
   },
   {
     id: 'liquidity-trap',

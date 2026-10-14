@@ -123,12 +123,12 @@ export const terms: Term[] = [
     id: 'macroeconomics',
     term: { en: 'macroeconomics', ru: 'макроэкономика (macroeconomics)' },
     def: {
-      en: 'The study of the economy as a whole, using aggregate variables such as GDP, the inflation rate, the unemployment rate and the balance of payments.',
-      ru: 'Изучение экономики в целом с помощью агрегированных показателей, таких как ВВП, темп инфляции, уровень безработицы и платёжный баланс.',
+      en: 'The study of the economy as a whole, using aggregates such as total income and output, total employment and the general price level.',
+      ru: 'Изучение экономики в целом с помощью агрегатов, таких как совокупный доход и выпуск, совокупная занятость и общий уровень цен.',
     },
     example: {
-      en: 'Studying why GDP grows by 3% in a year while the inflation rate is 2% is macroeconomics, because it looks at the whole economy.',
-      ru: 'Изучение того, почему ВВП растёт на 3% за год при темпе инфляции 2%, относится к макроэкономике, так как рассматривает экономику в целом.',
+      en: 'Studying why total output grows by 3% in a year while the general price level rises by 2% is macroeconomics, because it looks at the whole economy.',
+      ru: 'Изучение того, почему совокупный выпуск растёт на 3% за год, а общий уровень цен — на 2%, относится к макроэкономике, так как рассматривает экономику в целом.',
     },
     pitfall: {
       en: 'Macroeconomics is not simply the sum of many microeconomic studies, because the whole economy can behave differently from its parts.',

@@ -183,19 +183,19 @@ export const terms: Term[] = [
     id: 'property-rights',
     term: { en: 'property rights', ru: 'права собственности (property rights)' },
     def: {
-      en: 'Legal rights of owners to use, transfer or exclude others from a resource, which can remove an externality if the rights are clear and bargaining costs are low.',
-      ru: 'Законные права владельцев использовать ресурс, передавать его или не допускать других; при ясных правах и низких издержках переговоров внешний эффект может быть устранён.',
+      en: 'The legal rules that set who owns a resource and whether the owner may use or sell it; secure rights reduce the risk of investing in that resource.',
+      ru: 'Законные правила, которые определяют, кому принадлежит ресурс и может ли владелец его использовать или продавать; надёжные права снижают риск инвестиций в этот ресурс.',
     },
     example: {
-      en: 'If residents own the right to clean air, a factory must pay them AED 6 per tonne of pollution, which turns the external cost into a private cost.',
-      ru: 'Если жители владеют правом на чистый воздух, завод должен платить им 6 AED за тонну загрязнения, и внешние издержки становятся частными.',
+      en: 'A farmer who can prove ownership of a plot can use it as collateral for a bank loan to buy irrigation equipment, while a farmer with no legal title to the same plot is less likely to get that loan.',
+      ru: 'Фермер, который может доказать право собственности на участок, может заложить этот участок как обеспечение банковского кредита на покупку оборудования для орошения, а фермер без законного правоустанавливающего документа на тот же участок с меньшей вероятностью получит этот кредит.',
     },
     pitfall: {
-      en: 'Bargaining solves an externality only when there are few parties and transaction costs are low; with many affected people, government action is usually needed.',
-      ru: 'Переговоры решают проблему только при небольшом числе сторон и низких транзакционных издержках; при множестве пострадавших обычно нужны действия государства.',
+      en: 'Titled property rights are not the same as land rights: in many developing countries land is regulated by custom or communal ownership, which involves no titles.',
+      ru: 'Права собственности, подтверждённые документами, — не то же, что права на землю: во многих развивающихся странах землю регулируют обычаи или общинная собственность, которые не требуют документов.',
     },
     syllabus: '2.8',
     papers: ['P1', 'P2', 'P3'],
-    src: { kind: 'textbook', title: book, locator: 'ch. 9.1, p. 274' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 19.3, p. 585' },
   },
 ];

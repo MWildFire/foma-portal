@@ -21,7 +21,7 @@ export const terms: Term[] = [
     },
     syllabus: '4.9',
     papers: ['P1', 'P2', 'P3'],
-    src: { kind: 'textbook', title: book, locator: 'ch. 19, p. 564' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 19.1, p. 564' },
   },
   {
     id: 'economic-institutions',
