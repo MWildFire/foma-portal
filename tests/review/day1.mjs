@@ -73,7 +73,8 @@ function addDays(iso, days) {
 function listFromEnv(value, fallback) {
   return value ? value.split(',').map(s => s.trim()).filter(Boolean) : fallback;
 }
-const NOT_FOUND = /not found|There is no |Something went wrong|не найден|Нет такой|Что-то пошло не так/i;
+// The app's own "not found" texts. Plain "There is no ..." in a guide is not one of them (a false hit on CS guides).
+const NOT_FOUND = /not found|There is no (subject|simulation|timed set|topic|page)|Something went wrong|не найден|Нет такой|Что-то пошло не так/i;
 const CYRILLIC = /[а-яёА-ЯЁ]/g;
 const STATE = JSON.stringify({
   version: 2, topics: {}, terms: {}, questions: {}, blocks: {},
