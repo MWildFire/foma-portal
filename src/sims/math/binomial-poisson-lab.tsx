@@ -1,28 +1,16 @@
 import { useState } from 'react';
 import type { Lang } from '../../contract/types';
+import { binomialPmf, poissonPmf, windowMax, xTicks } from './binomial-poisson-logic';
 
 // Binomial bars next to Poisson bars with the same mean np. Raising n and lowering p shows why the Poisson model
-// is a good approximation for rare events.
+// is a good approximation for rare events. The x-axis runs from 0 to a window that holds almost all of both distributions.
 
-const MAX_X = 20;
 const WIDTH = 320;
 const HEIGHT = 170;
 const BASE = HEIGHT - 20;
-
-// C(n, x) p^x (1 - p)^(n - x), computed with logarithms to avoid overflow.
-function binomialPmf(n: number, p: number, x: number): number {
-  if (x < 0 || x > n) return 0;
-  let logChoose = 0;
-  for (let i = 1; i <= x; i++) logChoose += Math.log(n - x + i) - Math.log(i);
-  return Math.exp(logChoose + x * Math.log(p) + (n - x) * Math.log(1 - p));
-}
-
-// e^(-m) m^x / x!
-function poissonPmf(m: number, x: number): number {
-  let logFactorial = 0;
-  for (let i = 2; i <= x; i++) logFactorial += Math.log(i);
-  return Math.exp(-m + x * Math.log(m) - logFactorial);
-}
+const TOP = 16; // room above the tallest bar for the y-axis label
+const LEFT = 10;
+const RIGHT = WIDTH - 10;
 
 const TEXT = {
   en: {
@@ -55,11 +43,14 @@ export default function BinomialPoissonLab({ lang }: { lang: Lang }) {
   const [p, setP] = useState(0.1);
 
   const mean = n * p;
-  const binomial = Array.from({ length: MAX_X + 1 }, (_, x) => binomialPmf(n, p, x));
-  const poisson = Array.from({ length: MAX_X + 1 }, (_, x) => poissonPmf(mean, x));
+  const xMax = windowMax(n, p);
+  const xs = Array.from({ length: xMax + 1 }, (_, x) => x);
+  const binomial = xs.map(x => binomialPmf(n, p, x));
+  const poisson = xs.map(x => poissonPmf(mean, x));
   const top = Math.max(0.05, ...binomial, ...poisson);
-  const slot = WIDTH / (MAX_X + 1);
-  const heightOf = (value: number) => (value / top) * (BASE - 10);
+  const slot = (RIGHT - LEFT) / (xMax + 1);
+  const groupX = (x: number) => LEFT + x * slot;
+  const heightOf = (value: number) => (value / top) * (BASE - TOP);
 
   return (
     <figure style={{ margin: 0 }}>
@@ -68,7 +59,7 @@ export default function BinomialPoissonLab({ lang }: { lang: Lang }) {
         {binomial.map((value, x) => (
           <rect
             key={`b${x}`}
-            x={x * slot + 1}
+            x={groupX(x) + 1}
             y={BASE - heightOf(value)}
             width={slot / 2 - 1}
             height={heightOf(value)}
@@ -78,13 +69,27 @@ export default function BinomialPoissonLab({ lang }: { lang: Lang }) {
         {poisson.map((value, x) => (
           <rect
             key={`p${x}`}
-            x={x * slot + slot / 2}
+            x={groupX(x) + slot / 2}
             y={BASE - heightOf(value)}
             width={slot / 2 - 1}
             height={heightOf(value)}
             fill="#e0883a"
           />
         ))}
+        {xTicks(xMax).map(v => (
+          <g key={`t${v}`}>
+            <line x1={groupX(v) + slot / 2} y1={BASE} x2={groupX(v) + slot / 2} y2={BASE + 3} stroke="currentColor" strokeWidth={1} />
+            <text x={groupX(v) + slot / 2} y={BASE + 13} textAnchor="middle" fontSize={10} fill="currentColor">
+              {v}
+            </text>
+          </g>
+        ))}
+        <text x={RIGHT} y={BASE - 5} textAnchor="end" fontSize={11} fill="currentColor">
+          x
+        </text>
+        <text x={LEFT} y={TOP - 6} fontSize={11} fill="currentColor">
+          P(X = x)
+        </text>
       </svg>
       <figcaption style={{ fontSize: 13, lineHeight: 1.5 }}>
         <span style={{ color: '#4f6fd8' }}>■ {t.binomial}</span>{' · '}

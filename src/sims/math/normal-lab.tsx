@@ -1,45 +1,18 @@
 import { useState } from 'react';
 import type { Lang } from '../../contract/types';
+import { PLOT_HEIGHT, SIGMA_MAX, SIGMA_MIN, cdf, densityHeight, inverseCdf, normalDensity } from './normal-logic';
 
 // Normal curve on the axis from 0 to 100. The shaded area is P(a <= X <= b); the dashed line is the value x with
-// P(X <= x) = p. No library: the standard normal cdf is a power series and the inverse is found by bisection.
+// P(X <= x) = p. The height scale is fixed by the smallest sigma (see normal-logic.ts), so a wider curve is lower.
 
 const X_MIN = 0;
 const X_MAX = 100;
+const TICKS = [0, 25, 50, 75, 100];
 const WIDTH = 320;
 const HEIGHT = 180;
-const TOP = 16;
 const BASE = HEIGHT - 24;
+const TOP = BASE - PLOT_HEIGHT;
 const SAMPLES = 100;
-
-function phi(z: number): number {
-  return Math.exp(-(z * z) / 2) / Math.sqrt(2 * Math.PI);
-}
-
-// P(Z <= z) from Phi(z) = 1/2 + phi(z) (z + z^3/3 + z^5/(3 * 5) + ...).
-function cdf(z: number): number {
-  if (z <= -8) return 0;
-  if (z >= 8) return 1;
-  let term = z;
-  let sum = z;
-  for (let n = 1; n < 400 && Math.abs(term) > 1e-15; n++) {
-    term *= (z * z) / (2 * n + 1);
-    sum += term;
-  }
-  return 0.5 + phi(z) * sum;
-}
-
-// The z with P(Z <= z) = p, by bisection on cdf.
-function inverseCdf(p: number): number {
-  let low = -8;
-  let high = 8;
-  for (let i = 0; i < 60; i++) {
-    const mid = (low + high) / 2;
-    if (cdf(mid) < p) low = mid;
-    else high = mid;
-  }
-  return (low + high) / 2;
-}
 
 const TEXT = {
   en: {
@@ -76,10 +49,9 @@ export default function NormalLab({ lang }: { lang: Lang }) {
   const [b, setB] = useState(60);
   const [p, setP] = useState(0.9);
 
-  const density = (x: number) => phi((x - mu) / sigma) / sigma;
-  const peak = density(mu);
+  const density = (x: number) => normalDensity(x, mu, sigma);
   const px = (x: number) => ((x - X_MIN) / (X_MAX - X_MIN)) * WIDTH;
-  const py = (x: number) => BASE - (density(x) / peak) * (BASE - TOP);
+  const py = (x: number) => BASE - densityHeight(density(x));
   const point = (x: number) => `${px(x).toFixed(1)},${py(x).toFixed(1)}`;
 
   const curve = Array.from({ length: SAMPLES + 1 }, (_, i) => point(X_MIN + ((X_MAX - X_MIN) * i) / SAMPLES)).join(' ');
@@ -102,6 +74,20 @@ export default function NormalLab({ lang }: { lang: Lang }) {
         <polygon points={shade} fill="#4f6fd8" fillOpacity={0.35} />
         <polyline points={curve} fill="none" stroke="currentColor" strokeWidth={2} />
         <line x1={0} y1={BASE} x2={WIDTH} y2={BASE} stroke="currentColor" strokeWidth={1} />
+        {TICKS.map(v => (
+          <g key={`t${v}`}>
+            <line x1={px(v)} y1={BASE} x2={px(v)} y2={BASE + 3} stroke="currentColor" strokeWidth={1} />
+            <text x={px(v)} y={BASE + 13} textAnchor={v === X_MIN ? 'start' : v === X_MAX ? 'end' : 'middle'} fontSize={10} fill="currentColor">
+              {v}
+            </text>
+          </g>
+        ))}
+        <text x={WIDTH - 2} y={BASE - 5} textAnchor="end" fontSize={11} fill="currentColor">
+          x
+        </text>
+        <text x={2} y={TOP - 6} fontSize={11} fill="currentColor">
+          f(x)
+        </text>
         <line x1={px(mu)} y1={TOP} x2={px(mu)} y2={BASE} stroke="currentColor" strokeWidth={0.5} />
         <text x={px(mu)} y={TOP - 4} textAnchor="middle" fontSize={11} fill="currentColor">μ</text>
         {xp >= X_MIN && xp <= X_MAX && (
@@ -121,7 +107,7 @@ export default function NormalLab({ lang }: { lang: Lang }) {
       </label>
       <label style={{ display: 'block', marginTop: 4 }}>
         {t.sigma}: {sigma}
-        <input type="range" min={2} max={10} step={0.5} value={sigma} onChange={event => setSigma(Number(event.target.value))} style={{ width: '100%' }} />
+        <input type="range" min={SIGMA_MIN} max={SIGMA_MAX} step={0.5} value={sigma} onChange={event => setSigma(Number(event.target.value))} style={{ width: '100%' }} />
       </label>
       <label style={{ display: 'block', marginTop: 4 }}>
         {t.a}: {a}

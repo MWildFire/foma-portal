@@ -1,55 +1,20 @@
 import { useState } from 'react';
 import type { Lang } from '../../contract/types';
+import { DATA, NAMES, leastSquares, predict } from './regression-logic';
+import type { DataSet, Model } from './regression-logic';
 
-// Least-squares fits to two small data sets: c0 + c1 f(x) + c2 g(x), with coefficients from the normal equations, so the
-// sum of squared residuals (SSR) is the smallest possible for each model. The sliders draw a hand-chosen line for comparison.
-
-type Model = 'linear' | 'log' | 'quad';
-type DataSet = 'plants' | 'revision';
+// Least-squares fits to two small data sets, with coefficients from the normal equations (see regression-logic.ts),
+// so the sum of squared residuals (SSR) is the smallest possible for each model. The sliders draw a hand-chosen line
+// for comparison.
 
 const W = 320;
 const H = 220;
 
-const DATA: Record<DataSet, { x: number[]; y: number[]; xMax: number; yMax: number }> = {
-  plants: { x: [2, 4, 6, 8, 10], y: [5, 9, 10, 14, 18], xMax: 12, yMax: 20 },
-  revision: { x: [1, 2, 3, 4, 6, 8, 9, 10], y: [38, 52, 58, 63, 70, 72, 76, 77], xMax: 11, yMax: 90 },
+// Axis titles take their units from the data set names: x first, then y.
+const AXES: Record<DataSet, Record<Lang, [string, string]>> = {
+  plants: { en: ['fertiliser (g)', 'height (cm)'], ru: ['удобрение (г)', 'высота (см)'] },
+  revision: { en: ['hours', 'mock score (%)'], ru: ['часы', 'пробный балл (%)'] },
 };
-
-const BASIS: Record<Model, (x: number) => number[]> = {
-  linear: x => [1, x],
-  log: x => [1, Math.log(x)],
-  quad: x => [1, x, x * x],
-};
-
-// Names of the coefficients in the order of the basis functions: linear is y = ax + b, so c0 is b and c1 is a.
-const NAMES: Record<Model, string[]> = { linear: ['b', 'a'], log: ['a', 'b'], quad: ['a', 'b', 'c'] };
-
-function predict(model: Model, c: number[], x: number): number {
-  return BASIS[model](x).reduce((sum, b, i) => sum + b * c[i], 0);
-}
-
-// Normal equations (B'B) c = B'y, solved by Gaussian elimination.
-function leastSquares(model: Model, xs: number[], ys: number[]): number[] {
-  const rows = xs.map(x => BASIS[model](x));
-  const k = rows[0].length;
-  const m = Array.from({ length: k }, (_, i) => [
-    ...Array.from({ length: k }, (_, j) => rows.reduce((sum, row) => sum + row[i] * row[j], 0)),
-    rows.reduce((sum, row, n) => sum + row[i] * ys[n], 0),
-  ]);
-  for (let i = 0; i < k; i++) {
-    for (let r = i + 1; r < k; r++) {
-      const f = m[r][i] / m[i][i];
-      for (let col = i; col <= k; col++) m[r][col] -= f * m[i][col];
-    }
-  }
-  const c = new Array<number>(k).fill(0);
-  for (let i = k - 1; i >= 0; i--) {
-    let s = m[i][k];
-    for (let j = i + 1; j < k; j++) s -= m[i][j] * c[j];
-    c[i] = s / m[i][i];
-  }
-  return c;
-}
 
 const TEXT = {
   en: {
@@ -60,7 +25,7 @@ const TEXT = {
     model: 'Model',
     linear: 'Linear: y = ax + b',
     log: 'Logarithmic: y = a + b ln x',
-    quad: 'Quadratic: y = a + bx + cx²',
+    quad: 'Quadratic: y = ax² + bx + c',
     coef: 'Coefficients',
     r2: 'R²',
     r: 'r (linear model)',
@@ -68,6 +33,7 @@ const TEXT = {
     slope: 'Your gradient',
     icpt: 'Your intercept',
     yours: 'Your line: sum of squared residuals',
+    legend: 'Blue: model. Orange dots: data. Red bars: residuals. Grey dashed: your line.',
     note: 'Red bars are residuals. Least squares makes the sum of their squares as small as possible.',
   },
   ru: {
@@ -78,7 +44,7 @@ const TEXT = {
     model: 'Модель',
     linear: 'Линейная: y = ax + b',
     log: 'Логарифмическая: y = a + b ln x',
-    quad: 'Квадратичная: y = a + bx + cx²',
+    quad: 'Квадратичная: y = ax² + bx + c',
     coef: 'Коэффициенты',
     r2: 'R²',
     r: 'r (линейная модель)',
@@ -86,6 +52,7 @@ const TEXT = {
     slope: 'Ваш угловой коэффициент',
     icpt: 'Ваш свободный член',
     yours: 'Ваша прямая: сумма квадратов остатков',
+    legend: 'Синим: модель. Оранжевые точки: данные. Красные отрезки: остатки. Серый пунктир: ваша прямая.',
     note: 'Красные отрезки — остатки. Метод наименьших квадратов делает сумму их квадратов как можно меньше.',
   },
 } as const;
@@ -98,13 +65,14 @@ export default function RegressionLab({ lang }: { lang: Lang }) {
   const [icpt, setIcpt] = useState(0);
 
   const d = DATA[set];
+  const [xTitle, yTitle] = AXES[set][lang];
   const coef = leastSquares(model, d.x, d.y);
   const fitted = d.x.map(x => predict(model, coef, x));
   const mean = d.y.reduce((sum, y) => sum + y, 0) / d.y.length;
   const ssr = d.y.reduce((sum, y, i) => sum + (y - fitted[i]) ** 2, 0);
   const sst = d.y.reduce((sum, y) => sum + (y - mean) ** 2, 0);
   const r2 = 1 - ssr / sst;
-  const r = Math.sign(coef[1]) * Math.sqrt(r2);
+  const r = Math.sign(coef[0]) * Math.sqrt(r2); // the linear basis is [x, 1], so coef[0] is the slope
   const yours = d.y.reduce((sum, y, i) => sum + (y - (slope * d.x[i] + icpt)) ** 2, 0);
 
   const sx = (x: number) => 30 + (x / d.xMax) * (W - 40);
@@ -121,12 +89,16 @@ export default function RegressionLab({ lang }: { lang: Lang }) {
         <line x1={sx(0)} y1={sy(icpt)} x2={sx(d.xMax)} y2={sy(slope * d.xMax + icpt)} stroke="#888" strokeDasharray="4 3" />
         <polyline points={path} fill="none" stroke="#4f6fd8" strokeWidth={2} />
         {d.x.map((x, i) => <circle key={`p${i}`} cx={sx(x)} cy={sy(d.y[i])} r={3.5} fill="#e0883a" />)}
+        <text x={W / 2} y={H - 4} textAnchor="middle" fontSize={11} fill="currentColor">{xTitle}</text>
+        <text x={sx(0) + 4} y={10} fontSize={11} fill="currentColor">{yTitle}</text>
       </svg>
       <figcaption style={{ fontSize: 13, lineHeight: 1.6 }}>
         {t.coef}: {coef.map((v, i) => `${NAMES[model][i]} = ${v.toFixed(2)}`).join(', ')} · {t.r2}: {r2.toFixed(3)} · {t.ssr}: {ssr.toFixed(2)}
         {model === 'linear' ? <> · {t.r}: {r.toFixed(3)}</> : null}
         <br />
         {t.yours}: {yours.toFixed(2)}
+        <br />
+        {t.legend}
         <br />
         {t.note}
       </figcaption>
