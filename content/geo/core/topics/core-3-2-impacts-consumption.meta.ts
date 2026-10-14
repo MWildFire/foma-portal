@@ -44,7 +44,7 @@ const topic: TopicMeta = {
     { kind: 'web', title: 'World Bank, agriculture share of freshwater withdrawals (ER.H2O.FWAG.ZS, AQUASTAT source)', url: 'https://data.worldbank.org/indicator/ER.H2O.FWAG.ZS' },
     { kind: 'web', title: 'World Bank, electricity production from hydroelectric sources (EG.ELC.HYRO.ZS)', url: 'https://data.worldbank.org/indicator/EG.ELC.HYRO.ZS' },
     { kind: 'web', title: 'UNESCO and UN-Water, World Water Development Report 2022: Groundwater (launch release, 21 March 2022)', url: 'https://reliefweb.int/report/world/united-nations-world-water-development-report-2022-groundwater-making-invisible-visible' },
-    { kind: 'web', title: 'IPBES, Global Assessment media release (2019)', url: 'https://www.ipbes.net/news/Media-Release-Global-Assessment' },
+    { kind: 'web', title: 'IPBES (2019), Global Assessment Summary for Policymakers, section A, PDF p. 26', url: 'https://www.ipbes.net/sites/default/files/downloads/summary_for_policymakers_ipbes_global_assessment.pdf' },
     { kind: 'web', title: 'European Commission, REPowerEU – 4 years on', url: 'https://energy.ec.europa.eu/topics/markets-and-consumers/actions-and-measures-energy-prices/repowereu-3-years_en' },
     { kind: 'web', title: 'FAO news release, FAO Food Price Index posts significant leap in March (8 April 2022)', url: 'https://www.fao.org/newsroom/detail/fao-food-price-index-posts-significant-leap-in-march/en' },
     { kind: 'web', title: 'Texas A&M AFPC, Southern Ag Today: India bans exports of white non-basmati rice (27 July 2023)', url: 'https://sat-wp.afpc.tamu.edu/?p=38680' },
