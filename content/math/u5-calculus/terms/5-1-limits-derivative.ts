@@ -21,7 +21,7 @@ export const terms: Term[] = [
     id: 'derivative-gradient-function',
     term: { en: 'gradient function (derivative)', ru: 'функция градиента, производная (gradient function (derivative))' },
     def: {
-      en: 'The function $f\'(x)$ that gives the gradient of the curve $y = f(x)$ at every point $x$. It is the limit of the gradient of a chord as the width of the chord tends to zero.',
+      en: 'The function $f\'(x)$ that returns the slope of the curve $y = f(x)$ at each $x$. It is found as the limit of the slope of a chord when the chord\'s horizontal width shrinks to zero.',
       ru: 'Функция $f\'(x)$, которая даёт градиент кривой $y = f(x)$ в каждой точке $x$. Это предел градиента хорды, когда ширина хорды стремится к нулю.',
     },
     syllabus: '5.1',

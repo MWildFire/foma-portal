@@ -36,7 +36,7 @@ export const terms: Term[] = [
     id: 'definite-integral-as-area',
     term: { en: 'definite integral', ru: 'определённый интеграл (definite integral)' },
     def: {
-      en: 'The number $\\int_a^b f(x)\\,dx = F(b) - F(a)$, where $F$ is an anti-derivative of $f$. When $f(x) > 0$ on $[a, b]$ it equals the area between the curve, the x-axis, $x = a$ and $x = b$.',
+      en: 'The number $\\int_a^b f(x)\\,dx = F(b) - F(a)$, where $F$ is an anti-derivative of $f$. When $f(x) > 0$ on $[a, b]$, this value is the area enclosed between the graph of $f$, the horizontal axis and the lines $x = a$ and $x = b$.',
       ru: 'Число $\\int_a^b f(x)\\,dx = F(b) - F(a)$, где $F$ — первообразная $f$. Если $f(x) > 0$ на отрезке $[a, b]$, оно равно площади между кривой, осью $x$, прямыми $x = a$ и $x = b$.',
     },
     syllabus: '5.5',

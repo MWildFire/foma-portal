@@ -16,7 +16,7 @@ export const terms: Term[] = [
       ru: 'коэффициент корреляции Пирсона r (Pearson\'s product-moment correlation coefficient r)',
     },
     def: {
-      en: 'A number from −1 to 1 that measures the strength and direction of a linear relationship between two numerical variables. Values near ±1 mean the points lie close to a straight line; values near 0 mean no linear pattern.',
+      en: 'A number from −1 to 1 that describes how strongly, and in which direction, two numerical variables are linearly related. Values near ±1 mean the points lie close to a straight line; values near 0 mean no linear pattern.',
       ru: 'Число от −1 до 1, которое показывает силу и направление линейной связи между двумя числовыми величинами. Значения, близкие к ±1, означают, что точки лежат близко к прямой; значения, близкие к 0, означают отсутствие линейной закономерности.',
     },
     syllabus: '4.4',
@@ -53,7 +53,7 @@ export const terms: Term[] = [
       ru: 'точка средних (mean point)',
     },
     def: {
-      en: 'The point $(\\bar{x}, \\bar{y})$ with coordinates equal to the two sample means. The regression line of y on x always passes through it.',
+      en: 'The point $(\\bar{x}, \\bar{y})$ whose coordinates are the two sample means. The least-squares line of y on x always passes through it.',
       ru: 'Точка $(\\bar{x}, \\bar{y})$, координаты которой равны средним значениям обеих величин. Линия регрессии y на x всегда проходит через неё.',
     },
     syllabus: '4.4',

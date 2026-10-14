@@ -30,10 +30,10 @@ export const terms: Term[] = [
   },
   {
     id: 'step-length-h-second-order',
-    term: { en: 'step length h', ru: 'длина шага h (step length h)' },
+    term: { en: 'second-order step length h', ru: 'длина шага h для уравнения второго порядка (second-order step length h)' },
     def: {
-      en: 'The fixed time increment in Euler\'s method, so that after $n$ steps the time is $t_n = nh$. A smaller $h$ gives a more accurate result over the same interval, but needs more steps.',
-      ru: 'Фиксированный шаг по времени в методе Эйлера: после $n$ шагов время равно $t_n = nh$. Меньший $h$ даёт более точный результат на том же интервале, но требует больше шагов.',
+      en: 'The fixed time increment in Euler\'s method, so that after $n$ steps the time is $t_n = nh$. Covering the same interval with a smaller $h$ needs more steps.',
+      ru: 'Фиксированный шаг по времени в методе Эйлера: после $n$ шагов время равно $t_n = nh$. Чтобы пройти тот же интервал с меньшим $h$, нужно больше шагов.',
     },
     syllabus: '5.18',
     papers: ['P1', 'P2', 'P3'],

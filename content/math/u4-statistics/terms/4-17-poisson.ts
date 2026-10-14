@@ -18,7 +18,7 @@ export const terms: Term[] = [
     id: 'poisson-parameter',
     term: { en: 'Poisson parameter m', ru: 'параметр m (Poisson parameter m)' },
     def: {
-      en: 'The average number of events in the interval being modelled. Both the mean and the variance of the distribution equal $m$.',
+      en: 'The average number of events in the interval being modelled. Mean and variance both take the value $m$.',
       ru: 'Среднее число событий в рассматриваемом интервале. И среднее, и дисперсия распределения равны $m$.',
     },
     syllabus: '4.17',

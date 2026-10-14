@@ -21,7 +21,7 @@ export const terms: Term[] = [
     id: 'normal-to-curve',
     term: { en: 'normal to a curve', ru: 'нормаль (normal to a curve)' },
     def: {
-      en: 'The straight line through a point on a curve that is perpendicular to the tangent to the curve at that point.',
+      en: 'The straight line through a point on a curve that is at right angles to the curve\'s tangent at that point.',
       ru: 'Прямая, проходящая через точку кривой перпендикулярно касательной к кривой в этой точке.',
     },
     syllabus: '5.4',

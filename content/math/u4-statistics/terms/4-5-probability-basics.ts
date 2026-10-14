@@ -6,7 +6,7 @@ export const terms: Term[] = [
     id: 'sample-space-probability',
     term: { en: 'sample space', ru: 'пространство выборки (sample space)' },
     def: {
-      en: 'The set $U$ of all possible outcomes of a trial. $n(U)$ is the number of outcomes in $U$.',
+      en: 'The universal set $U$ that lists every outcome a trial could have. $n(U)$ counts these outcomes.',
       ru: 'Множество $U$ всех возможных исходов испытания. $n(U)$ — число исходов в $U$.',
     },
     syllabus: '4.5',

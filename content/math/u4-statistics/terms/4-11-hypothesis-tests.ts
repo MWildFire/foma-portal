@@ -32,7 +32,7 @@ export const terms: Term[] = [
     id: 'p-value-of-a-test',
     term: { en: 'p-value', ru: 'p-значение (p-value)' },
     def: {
-      en: 'The probability, assuming H0 is true, of a result at least as extreme as the one observed, in the direction stated by H1. H0 is rejected when the p-value is less than the significance level.',
+      en: 'The p-value is the chance, assuming H0 is correct, of a result as extreme as the observed one, or more so, in the direction given by H1. H0 is rejected if the p-value falls below the significance level.',
       ru: 'Вероятность при условии, что H0 верна, получить результат не менее экстремальный, чем наблюдаемый, в направлении, заданном H1. H0 отклоняют, если p-значение меньше уровня значимости.',
     },
     syllabus: '4.11',

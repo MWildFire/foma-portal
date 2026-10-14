@@ -11,7 +11,7 @@ export const terms: Term[] = [
     },
     syllabus: '3.12',
     papers: ['P1', 'P2', 'P3'],
-    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 12.2, p. 540' },
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 12.2, p. 541' },
   },
   {
     id: 'kinematics-velocity-vector',
@@ -29,7 +29,7 @@ export const terms: Term[] = [
     id: 'kinematics-speed',
     term: { en: 'speed', ru: 'скорость (speed)' },
     def: {
-      en: 'The magnitude of the velocity vector, |v|. It is a scalar and a length, so it is never negative.',
+      en: 'The length of the velocity vector, written |v|. It is a scalar, so it is never negative.',
       ru: 'Модуль вектора скорости |v|. Это скалярная величина и длина вектора, поэтому она не бывает отрицательной.',
     },
     syllabus: '3.12',

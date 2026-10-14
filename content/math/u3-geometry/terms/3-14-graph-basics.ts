@@ -47,7 +47,7 @@ export const terms: Term[] = [
     id: 'graph-in-out-degree',
     term: { en: 'in-degree and out-degree', ru: 'полустепень захода и полустепень исхода (in-degree and out-degree)' },
     def: {
-      en: 'For a vertex of a directed graph, the in-degree is the number of arcs ending at the vertex and the out-degree is the number of arcs starting at it.',
+      en: 'At a vertex of a directed graph, the in-degree counts the arcs that point into the vertex, and the out-degree counts the arcs that leave it.',
       ru: 'Для вершины ориентированного графа полустепень захода (in-degree) — число дуг, которые в неё входят, а полустепень исхода (out-degree) — число дуг, которые из неё выходят.',
     },
     syllabus: '3.14',

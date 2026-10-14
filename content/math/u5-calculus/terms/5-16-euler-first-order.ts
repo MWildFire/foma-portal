@@ -18,8 +18,8 @@ export const terms: Term[] = [
     id: 'euler-step-length-first-order',
     term: { en: 'step length h', ru: 'шаг h (step length h)' },
     def: {
-      en: 'The fixed increase in x at each step of Euler’s method. A smaller h usually gives a more accurate estimate, but more steps are needed to reach the same x.',
-      ru: 'Фиксированное приращение x на каждом шаге метода Эйлера. Меньшее h обычно даёт более точную оценку, но для того же x нужно больше шагов.',
+      en: 'The fixed increase in x at each step of Euler’s method. Reaching the same x with a smaller h needs more steps.',
+      ru: 'Фиксированное приращение x на каждом шаге метода Эйлера. Чтобы прийти к тому же x при меньшем h, нужно больше шагов.',
     },
     syllabus: '5.16',
     papers: ['P1', 'P2', 'P3'],
