@@ -2,7 +2,8 @@ import type { Term } from '../../../../src/contract/types';
 
 // Option A, A.4: definitions in our own words, aligned with the key elements of the programme (guide 2017).
 // Locators point to the ThinkIB eBook section of this unit; the section is not fully exported yet (S1 map pending).
-const SRC = { kind: 'thinkib' as const, title: 'Option A: Water Management Futures (section not yet checked)', locator: 'Water Management Futures; Community Participation in Water Management (rest of section not exported)' };
+// Three terms carry syllabus A.3 (internationally shared water, pressure on aquifers): the guide lists them under A.3.
+const SRC = { kind: 'thinkib' as const, title: 'Option A: Water Management Futures (section not yet checked)', locator: 'Water Management Futures; Community Participation in Water Management (rest of section not exported); guide p. 29' };
 const SIM = 'geo.opt-a-dams' as const;
 
 export const terms: Term[] = [
@@ -17,8 +18,8 @@ export const terms: Term[] = [
     papers: ['P1'],
     src: SRC,
     example: {
-      en: 'In 2025 the UAE Ministry of Energy and Infrastructure cited a UN report that gave the UAE 82% for integrated water resources management.',
-      ru: 'В 2025 году Министерство энергетики и инфраструктуры ОАЭ сослалось на доклад ООН, по которому ОАЭ получили 82% за комплексное управление водными ресурсами.',
+      en: 'The UN tracks countries’ progress on integrated water resources management through SDG indicator 6.5.1 (UN-Water).',
+      ru: 'ООН отслеживает прогресс стран в комплексном управлении водными ресурсами с помощью индикатора ЦУР 6.5.1 (UN-Water).',
     },
     pitfall: {
       en: 'IWRM is a process, not a single project. It is judged by coordination, data and governance, not by one new dam or pipe.',
@@ -207,8 +208,8 @@ export const terms: Term[] = [
     papers: ['P1'],
     src: SRC,
     example: {
-      en: 'By 2025 Singapore had five desalination plants. The fifth, Jurong Island, was opened in 2022 (Singapore Ministry of Sustainability and the Environment, 2025).',
-      ru: 'К 2025 году в Сингапуре работало пять опреснительных заводов. Пятый, Jurong Island, открыт в 2022 году (Министерство устойчивого развития и окружающей среды Сингапура, 2025).',
+      en: 'Singapore’s desalination plants supply part of its water, alongside NEWater, imported water and local catchment water (PUB).',
+      ru: 'Опреснительные заводы Сингапура дают часть воды наряду с NEWater, импортной водой и водой из местных водосборов (PUB).',
     },
     pitfall: {
       en: 'Desalination provides water without relying on rain, but it is energy-intensive and produces brine. It is a supply option with costs, not free water.',
@@ -286,7 +287,7 @@ export const terms: Term[] = [
       en: 'A river that crosses, or forms, an international boundary, so that two or more countries share its water.',
       ru: 'Река, которая пересекает или образует государственную границу, поэтому её воду делят два и более государства.',
     },
-    syllabus: 'A.4',
+    syllabus: 'A.3',
     papers: ['P1'],
     src: SRC,
     example: {
@@ -301,7 +302,7 @@ export const terms: Term[] = [
       en: 'A country that lies on a river or within its basin and shares the rights and duties to use the river’s water fairly.',
       ru: 'Государство, которое лежит на реке или в её бассейне и разделяет права и обязанности по справедливому использованию её воды.',
     },
-    syllabus: 'A.4',
+    syllabus: 'A.3',
     papers: ['P1'],
     src: SRC,
     pitfall: {
@@ -316,12 +317,12 @@ export const terms: Term[] = [
       en: 'Pumping groundwater faster than it is naturally replenished, so that water levels fall and the aquifer can become depleted.',
       ru: 'Откачка подземных вод быстрее, чем они естественным образом восполняются; уровень воды падает, и водоносный горизонт может истощиться.',
     },
-    syllabus: 'A.4',
+    syllabus: 'A.3',
     papers: ['P1'],
     src: SRC,
     example: {
-      en: 'FAO’s AQUASTAT country profile states that irrigation in the United Arab Emirates is completely based on groundwater.',
-      ru: 'По страновому профилю FAO AQUASTAT, орошение в Объединённых Арабских Эмиратах полностью основано на подземных водах.',
+      en: 'Irrigation pumping has lowered groundwater levels in parts of the High Plains (Ogallala) aquifer in the USA (USGS).',
+      ru: 'Откачка для орошения понизила уровень грунтовых вод в ряде районов водоносного горизонта High Plains (Огаллала) в США (USGS).',
     },
   },
 ];
