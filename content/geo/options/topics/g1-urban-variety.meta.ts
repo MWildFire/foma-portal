@@ -35,7 +35,6 @@ const topic: TopicMeta = {
   ],
   termIds: [
     'g-megacity',
-    'g-urbanisation',
     'g-conurbation',
     'g-primate-city',
     'g-central-business-district',
