@@ -374,4 +374,109 @@ export const terms: Term[] = [
       ru: 'Большой расход переносит больше наносов, но отложение происходит там, где поток замедляется. Река может быть высокой и всё равно откладывать наносы на пойме.',
     },
   },
+  {
+    id: 'a-river-discharge',
+    term: { en: 'river discharge', ru: 'расход реки (river discharge)' },
+    def: {
+      en: 'The volume of water that passes a point on a river each second, measured in cubic metres per second (m³/s). It equals the cross-sectional area of the channel multiplied by the velocity of the flow.',
+      ru: 'Объём воды, который проходит через определённую точку реки за одну секунду; измеряется в кубических метрах в секунду (м³/с). Равен площади поперечного сечения русла, умноженной на скорость течения.',
+    },
+    syllabus: 'A.1',
+    papers: ['P1'],
+    src: SRC,
+    pitfall: {
+      en: 'Discharge is a volume per second, not a speed. A fast river in a narrow channel can carry less discharge than a slow river in a wide one.',
+      ru: 'Расход — это объём в секунду, а не скорость. Быстрая река в узком русле может нести меньший расход, чем медленная река в широком.',
+    },
+  },
+  {
+    id: 'a-hydraulic-radius',
+    term: { en: 'hydraulic radius', ru: 'гидравлический радиус (hydraulic radius)' },
+    def: {
+      en: 'The cross-sectional area of a channel divided by its wetted perimeter, which is the length of bed and bank in contact with the water. A larger hydraulic radius means the water flows faster for the same slope and roughness.',
+      ru: 'Площадь поперечного сечения русла, делённая на смоченный периметр — длину дна и берегов, которые касаются воды. Чем больше гидравлический радиус, тем быстрее течёт вода при том же уклоне и шероховатости русла.',
+    },
+    syllabus: 'A.1',
+    papers: ['P1'],
+    src: SRC,
+    pitfall: {
+      en: 'Hydraulic radius is not the radius of the river. A wide, shallow channel can have a smaller value than a narrow, deep one.',
+      ru: 'Гидравлический радиус — это не радиус реки. Широкое мелкое русло может иметь меньшее значение, чем узкое глубокое.',
+    },
+  },
+  {
+    id: 'a-waterfall',
+    term: { en: 'waterfall', ru: 'водопад (waterfall)' },
+    def: {
+      en: 'A vertical or near-vertical drop in the river bed, usually where hard rock lies over softer rock. Undercutting at the base makes the fall retreat upstream over time.',
+      ru: 'Вертикальный или почти вертикальный уступ русла, обычно там, где твёрдая порода лежит на более мягкой. Подмыв у основания заставляет уступ отступать вверх по течению.',
+    },
+    syllabus: 'A.1',
+    papers: ['P1'],
+    src: SRC,
+    pitfall: {
+      en: 'A waterfall is a step in the long profile, not just a steep stretch. Name the plunge pool at its foot and the retreat of the lip when you explain it.',
+      ru: 'Водопад — это уступ в продольном профиле реки, а не просто крутой участок. Называйте водобойную яму у подножия и отступание кромки уступа, когда объясняете его.',
+    },
+  },
+  {
+    id: 'a-meander',
+    term: { en: 'meander', ru: 'меандр (meander)' },
+    def: {
+      en: 'A bend in a river that swings across its floodplain, typical of the lower course. Erosion on the outside of the bend and deposition on the inside shift the bend sideways and downstream over time.',
+      ru: 'Излучина реки, которая виляет по своей пойме и типична для нижнего течения. Размыв на внешней стороне излучины и отложение наносов на внутренней сдвигают её вбок и вниз по течению.',
+    },
+    syllabus: 'A.1',
+    papers: ['P1'],
+    src: SRC,
+    pitfall: {
+      en: 'Faster flow erodes the outside of a bend, and slower flow deposits on the inside. Name both sides when you describe a meander.',
+      ru: 'Более быстрый поток размывает внешнюю сторону излучины, а более медленный откладывает наносы на внутренней. Называйте обе стороны, когда описываете меандр.',
+    },
+  },
+  {
+    id: 'a-delta',
+    term: { en: 'delta', ru: 'дельта (delta)' },
+    def: {
+      en: 'A landform built from sediment where a river enters a sea or lake and loses energy, so it drops its load. Distributary channels split the flow across the delta, which pushes the coastline outward.',
+      ru: 'Форма рельефа из наносов, которая образуется там, где река впадает в море или озеро и теряет энергию, поэтому откладывает груз. Протоки делят поток по дельте, и береговая линия выдвигается наружу.',
+    },
+    syllabus: 'A.1',
+    papers: ['P1'],
+    src: SRC,
+    pitfall: {
+      en: 'A delta is built by deposition at the river mouth. An estuary is a drowned river mouth where the sea floods the valley, so the two words are not synonyms.',
+      ru: 'Дельта образуется отложением наносов у устья реки. Эстуарий — это затопленное устье, где море заливает долину; эти слова не являются синонимами.',
+    },
+  },
+  {
+    id: 'a-floodplain-landform',
+    term: { en: 'floodplain (landform)', ru: 'пойма как форма рельефа (floodplain)' },
+    def: {
+      en: 'A flat surface beside a river, built from sediment that the river has deposited while it shifted across its valley over time. It is covered when the river overflows its banks, and its soils are often fertile.',
+      ru: 'Ровная поверхность вдоль реки, сложенная наносами, которые река откладывала, смещаясь по своей долине. Она уходит под воду, когда река выходит из берегов, а почвы на ней часто плодородны.',
+    },
+    syllabus: 'A.1',
+    papers: ['P1'],
+    src: SRC,
+    pitfall: {
+      en: 'A floodplain is part of the valley floor. A terrace is an older floodplain left high above the present river, so it does not flood today.',
+      ru: 'Пойма — это часть днища долины. Терраса — это древняя пойма, оставшаяся высоко над современной рекой, поэтому сегодня она обычно не затапливается.',
+    },
+  },
+  {
+    id: 'a-natural-levee',
+    term: { en: 'natural levee', ru: 'природный вал (natural levee)' },
+    def: {
+      en: 'A low ridge of sediment along the banks of a river. It builds up when floodwater spills out and drops its coarsest load close to the channel, and it forms without any human construction.',
+      ru: 'Низкий гребень наносов вдоль берегов реки. Он нарастает, когда паводковая вода выходит из русла и откладывает самый крупный груз у самого русла; формируется он без участия человека.',
+    },
+    syllabus: 'A.1',
+    papers: ['P1'],
+    src: SRC,
+    pitfall: {
+      en: 'A natural levee is built by deposition, while an embankment is built by people. Say which one you mean in an answer.',
+      ru: 'Природный вал создаётся отложением наносов, а дамба обвалования — людьми. В ответе указывайте, о каком из них идёт речь.',
+    },
+  },
 ];
