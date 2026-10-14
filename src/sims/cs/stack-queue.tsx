@@ -16,13 +16,13 @@ const LABEL: Record<Op, Msg> = {
   peek: { en: 'Peek', ru: 'Посмотреть (peek)' },
   enqueue: { en: 'Enqueue', ru: 'В конец (enqueue)' },
   dequeue: { en: 'Dequeue', ru: 'Из начала (dequeue)' },
-  front: { en: 'Front', ru: 'Посмотреть начало (front)' },
+  front: { en: 'Peek (front)', ru: 'Посмотреть начало (peek)' },
 };
 const OK_TEXT: Record<Op, (v: number) => Msg> = {
   push: (v) => ({ en: `Pushed ${v} on top.`, ru: `${v} положено сверху.` }),
   pop: (v) => ({ en: `Popped ${v} from the top.`, ru: `Снято ${v} с вершины.` }),
   peek: (v) => ({ en: `The top element is ${v}.`, ru: `Элемент на вершине: ${v}.` }),
-  enqueue: (v) => ({ en: `Enqueued ${v} at the back.`, ru: `${v} поставлено в конец очереди.` }),
+  enqueue: (v) => ({ en: `Enqueued ${v} at the rear.`, ru: `${v} поставлено в конец очереди.` }),
   dequeue: (v) => ({ en: `Dequeued ${v} from the front.`, ru: `${v} удалено из начала очереди.` }),
   front: (v) => ({ en: `The front element is ${v}.`, ru: `Элемент в начале очереди: ${v}.` }),
 };
@@ -40,7 +40,7 @@ const VALUE_TEXT: Msg = { en: 'Enter a whole number from 0 to 99.', ru: 'Вве�
 const isAdd = (op: Op) => op === 'push' || op === 'enqueue';
 
 // Stack: the top is the LAST array element.
-// Queue: the front is the FIRST element; enqueue adds at the back (the end of the array).
+// Queue: the front is the FIRST element; enqueue adds at the rear (the end of the array).
 function run(op: Op, items: number[], value = 0): Outcome {
   if (isAdd(op)) {
     return items.length >= CAPACITY ? { ok: false, items, error: 'full' } : { ok: true, items: [...items, value] };
@@ -171,12 +171,12 @@ export default function StackQueueSim(p: { lang: Lang }) {
           </ol>
         ) : (
           <div className="overflow-x-auto pb-1">
-            <ol aria-label={slot} className="flex w-max items-start gap-2 px-1">
+            <ol aria-label={slot} className="flex flex-wrap items-start gap-2 px-1">
               {items.length === 0 && <li className="py-6 text-[var(--color-muted)]">{t('(empty)', '(пусто)')}</li>}
               {items.map((v, i) => (
                 <li key={i} className="flex w-12 flex-col items-center">
-                  <span className="h-4 font-sans text-xs text-[var(--color-accent)]">
-                    {i === 0 ? t('front', 'начало') : i === items.length - 1 ? t('back', 'конец') : ''}
+                  <span className="h-8 text-center font-sans text-xs leading-4 text-[var(--color-accent)]">
+                    {i === 0 ? t('front', 'начало') : i === items.length - 1 ? t('rear', 'хвост (rear)') : ''}
                   </span>
                   <span className={`${cell} flex h-12 w-12 items-center justify-center`}>{v}</span>
                 </li>

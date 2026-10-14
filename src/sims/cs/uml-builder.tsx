@@ -1,5 +1,6 @@
-import { useId, useState, type ReactElement } from 'react';
+import { useEffect, useId, useState, type ReactElement } from 'react';
 import type { Lang } from '../../contract/types';
+import { HEAD, LINE, NARROW_W, WIDE_W, comp, edge, layoutBoxes, type Box } from './uml-builder-logic';
 
 // ---- logic (pure) ----
 type Msg = { en: string; ru: string };
@@ -101,14 +102,8 @@ function exportText(d: Diagram, t: (en: string, ru: string) => string): string {
 }
 
 // ---- component ----
-type Box = { x: number; y: number; w: number; h: number };
 const INK = 'var(--color-fg)';
 const CARD = 'var(--color-card)';
-const W = 560; // SVG width; the diagram scrolls sideways on small screens
-const BOX_W = 230;
-const HEAD = 28; // class-name compartment height
-const LINE = 16; // one member line
-const comp = (n: number) => 12 + Math.max(1, n) * LINE;
 const clip = (s: string, n = 30) => (s.length > n ? `${s.slice(0, n - 1)}…` : s);
 const btn = 'rounded-md border border-[var(--color-border)] bg-[var(--color-card)] px-3 py-1.5 text-sm text-[var(--color-fg)] hover:border-[var(--color-accent)]';
 const inp = 'w-full rounded-md border border-[var(--color-border)] bg-[var(--color-card)] px-2 py-1.5 text-[var(--color-fg)]';
@@ -118,23 +113,18 @@ const LEGEND: Msg = {
   ru: 'Наследование: пустой треугольник у суперкласса (To). Композиция: закрашенный ромб у целого (From). Агрегация: пустой ромб у целого (From). Ассоциация: простая линия.',
 };
 
-function layoutBoxes(classes: Cls[]): Box[] {
-  const heights = classes.map((c) => HEAD + comp(c.attrs.length) + comp(c.methods.length));
-  const rowTop: number[] = [];
-  let y = 20;
-  for (let r = 0; r * 2 < classes.length; r++) {
-    rowTop[r] = y;
-    y += Math.max(...heights.slice(r * 2, r * 2 + 2)) + 40;
-  }
-  return classes.map((_, i) => ({ x: 20 + (i % 2) * (BOX_W + 60), y: rowTop[Math.floor(i / 2)], w: BOX_W, h: heights[i] }));
-}
-
-// Point where the line from the box centre towards (tx, ty) leaves the box.
-function edge(b: Box, tx: number, ty: number): [number, number] {
-  const dx = tx - (b.x + b.w / 2);
-  const dy = ty - (b.y + b.h / 2);
-  const s = Math.min(dx === 0 ? Infinity : b.w / 2 / Math.abs(dx), dy === 0 ? Infinity : b.h / 2 / Math.abs(dy));
-  return [b.x + b.w / 2 + dx * s, b.y + b.h / 2 + dy * s];
+// One column of boxes on narrow screens, so that the whole diagram fits without sideways scrolling.
+const NARROW_QUERY = '(max-width: 600px)';
+function useNarrow(): boolean {
+  const [narrow, setNarrow] = useState(() => window.matchMedia(NARROW_QUERY).matches);
+  useEffect(() => {
+    const query = window.matchMedia(NARROW_QUERY);
+    const update = () => setNarrow(query.matches);
+    update();
+    query.addEventListener('change', update);
+    return () => query.removeEventListener('change', update);
+  }, []);
+  return narrow;
 }
 
 function ClassBox({ c, b, noName }: { c: Cls; b: Box; noName: string }) {
@@ -193,7 +183,9 @@ export default function UmlBuilderSim(p: { lang: Lang }) {
   const [methText, setMethText] = useState('');
   const [rel, setRel] = useState<Rel>({ kind: 'association', from: '', to: '', fromMult: '', toMult: '' });
   const [msg, setMsg] = useState<Msg | null>(null);
-  const boxes = layoutBoxes(d.classes);
+  const narrow = useNarrow();
+  const W = narrow ? NARROW_W : WIDE_W; // drawing width in SVG units
+  const boxes = layoutBoxes(d.classes.map((c) => ({ attrs: c.attrs.length, methods: c.methods.length })), narrow ? 1 : 2);
   const byName = new Map<string, Box>();
   d.classes.forEach((c, i) => {
     const n = c.name.trim();
@@ -250,7 +242,7 @@ export default function UmlBuilderSim(p: { lang: Lang }) {
       <div>
         <p className="font-medium">{t('Diagram', 'Диаграмма')}</p>
         <div className="overflow-x-auto rounded-md border border-[var(--color-border)] bg-[var(--color-card)]">
-          <svg width={W} height={height} role="img" className="block" aria-label={t(`Class diagram: ${d.classes.length} classes, ${d.rels.length} relationships`, `Диаграмма классов: классов ${d.classes.length}, связей ${d.rels.length}`)}>
+          <svg viewBox={`0 0 ${W} ${height}`} width="100%" style={{ maxWidth: W, height: 'auto' }} role="img" className="block" aria-label={t(`Class diagram: ${d.classes.length} classes, ${d.rels.length} relationships`, `Диаграмма классов: классов ${d.classes.length}, связей ${d.rels.length}`)}>
             {d.classes.length === 0 && <text x={20} y={40} fontSize={13} style={{ fill: 'var(--color-muted)' }}>{t('No classes yet.', 'Классов пока нет.')}</text>}
             {d.rels.map((r, i) => {
               const a = byName.get(r.from.trim());

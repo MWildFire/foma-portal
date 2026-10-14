@@ -134,10 +134,13 @@ const btn =
   'rounded-md border border-[var(--color-border)] bg-[var(--color-card)] px-3 py-1.5 text-sm text-[var(--color-fg)] hover:border-[var(--color-accent)] disabled:opacity-50';
 const field = 'w-24 rounded-md border border-[var(--color-border)] bg-[var(--color-card)] px-2 py-1.5 text-[var(--color-fg)]';
 const INK = 'var(--color-fg)';
-const X0 = 74; // x of the first node
-const STEP = 104; // distance between neighbouring nodes
+const X0 = 70; // x of the first node
+const STEP = 96; // distance between neighbouring nodes
 const Y = 74; // top of the node boxes
 const H = 40; // node height
+// Fills of the node boxes. The legend under the picture uses the same values.
+const CURRENT_FILL = 'color-mix(in srgb, var(--color-accent) 40%, transparent)'; // current node of the traversal
+const CHANGED_FILL = 'rgba(217, 142, 4, 0.35)'; // changed by the last operation
 
 function HArrow({ x1, x2, y }: { x1: number; x2: number; y: number }) {
   return (
@@ -165,6 +168,7 @@ export default function LinkedListSim(p: { lang: Lang }) {
   const v = valid ? Number(raw.trim()) : 0;
   const current = trav !== null && trav < ids.length ? ids[trav] : null;
   const endX = X0 + ids.length * STEP; // the NULL box sits here
+  const W = Math.max(320, endX + 70); // drawing width in SVG units, NULL box included
   const listText = [...ids.map(nm), 'NULL'].join(' → ');
 
   function fail(msg: Msg) {
@@ -244,16 +248,17 @@ export default function LinkedListSim(p: { lang: Lang }) {
         <button type="button" onClick={reset} className={btn}>{t('Reset list', 'Сбросить список')}</button>
       </div>
       <div className="overflow-x-auto rounded-md border border-[var(--color-border)] bg-[var(--color-card)] py-2">
-        <svg width={Math.max(320, endX + 70)} height={150} role="img" aria-label={t(`Linked list: ${listText}`, `Связный список: ${listText}`)} className="block">
+        {/* The drawing scales down to the frame width, but to no less than 75 %; below that the frame scrolls sideways. */}
+        <svg viewBox={`0 0 ${W} 150`} width="100%" style={{ maxWidth: W, minWidth: Math.round(W * 0.75), height: 'auto' }} role="img" aria-label={t(`Linked list: ${listText}`, `Связный список: ${listText}`)} className="block">
           <text x={6} y={Y + 24} fontSize={12} style={{ fill: INK }}>head</text>
           <HArrow x1={42} x2={X0 - 2} y={Y + H / 2} />
           {ids.map((id, i) => {
             const x = X0 + i * STEP;
             const fill =
               id === current
-                ? 'color-mix(in srgb, var(--color-accent) 40%, transparent)'
+                ? CURRENT_FILL
                 : changed.includes(id)
-                  ? 'rgba(217, 142, 4, 0.35)'
+                  ? CHANGED_FILL
                   : 'var(--color-card)';
             return (
               <g key={id}>
@@ -261,8 +266,8 @@ export default function LinkedListSim(p: { lang: Lang }) {
                 <rect x={x + 34} y={Y} width={24} height={H} style={{ fill, stroke: INK }} />
                 <text x={x + 17} y={Y + 25} textAnchor="middle" fontSize={13} style={{ fill: INK }}>{get(s, id).value}</text>
                 <circle cx={x + 46} cy={Y + H / 2} r={3.5} style={{ fill: INK }} />
-                <text x={x + 29} y={Y - 8} textAnchor="middle" fontSize={11} style={{ fill: 'var(--color-muted)' }}>{`N${id}`}</text>
-                <text x={x + 29} y={Y + H + 18} textAnchor="middle" fontSize={11} style={{ fill: 'var(--color-muted)' }}>
+                <text x={x + 29} y={Y - 8} textAnchor="middle" fontSize={12} style={{ fill: 'var(--color-muted)' }}>{`N${id}`}</text>
+                <text x={x + 29} y={Y + H + 18} textAnchor="middle" fontSize={12} style={{ fill: 'var(--color-muted)' }}>
                   {`${t('index', 'индекс')} ${i}`}
                 </text>
                 <HArrow x1={x + 58} x2={x + STEP - 2} y={Y + H / 2} />
@@ -270,9 +275,13 @@ export default function LinkedListSim(p: { lang: Lang }) {
             );
           })}
           <rect x={endX} y={Y + 11} width={46} height={18} style={{ fill: 'var(--color-card)', stroke: INK }} />
-          <text x={endX + 23} y={Y + 24} textAnchor="middle" fontSize={11} style={{ fill: INK }}>NULL</text>
+          <text x={endX + 23} y={Y + 24} textAnchor="middle" fontSize={12} style={{ fill: INK }}>NULL</text>
         </svg>
       </div>
+      <ul className="m-0 flex list-none flex-wrap gap-x-4 gap-y-1 p-0 text-xs text-[var(--color-muted)]">
+        <li className="flex items-center gap-1.5"><span aria-hidden="true" className="inline-block h-3 w-3 rounded-sm" style={{ background: CURRENT_FILL }} />{t('Shaded: current node of the traversal.', 'Выделено: текущий узел обхода.')}</li>
+        <li className="flex items-center gap-1.5"><span aria-hidden="true" className="inline-block h-3 w-3 rounded-sm" style={{ background: CHANGED_FILL }} />{t('Amber: nodes changed by the last operation.', 'Янтарный: узлы, изменённые последней операцией.')}</li>
+      </ul>
       <p aria-live="polite" className={`min-h-[3rem] rounded-md border px-3 py-2 ${status?.error ? 'border-[#c5221f]' : 'border-[var(--color-border)]'}`}>
         {travMsg
           ? travMsg[p.lang]

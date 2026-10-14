@@ -1,59 +1,8 @@
 import { useId, useState, type PointerEvent as RPointerEvent } from 'react';
-import type { L, Lang } from '../../contract/types';
-
-// ---- logic (pure, no JSX; checked outside the browser) ----
-interface Cls { id: string; label: string; name: L; dash?: string; f: (n: number) => number }
-
-// Operation-count functions. Log classes use base 2; the table rounds them to whole numbers.
-const CLASSES: Cls[] = [
-  { id: 'o1', label: 'O(1)', name: { en: 'constant', ru: 'постоянный' }, f: () => 1 },
-  { id: 'olog', label: 'O(log n)', name: { en: 'logarithmic', ru: 'логарифмический' }, dash: '7 4', f: n => Math.log2(n) },
-  { id: 'on', label: 'O(n)', name: { en: 'linear', ru: 'линейный' }, f: n => n },
-  { id: 'onlogn', label: 'O(n log n)', name: { en: 'linearithmic', ru: 'линейно-логарифмический' }, dash: '10 4 2 4', f: n => n * Math.log2(n) },
-  { id: 'on2', label: 'O(n²)', name: { en: 'quadratic', ru: 'квадратичный' }, f: n => n * n },
-  { id: 'o2n', label: 'O(2ⁿ)', name: { en: 'exponential', ru: 'экспоненциальный' }, dash: '2 3', f: n => 2 ** n },
-];
-const ops = (c: Cls, n: number): number => Math.round(c.f(n));
-// Exact up to 10^9; larger values are shown to three significant figures.
-const fmtCount = (v: number, locale: string): string => {
-  if (v <= 1e9) return v.toLocaleString(locale);
-  const [mantissa, exponent] = v.toExponential(2).split('e');
-  return `${mantissa} × 10^${Number(exponent)}`;
-};
-
-// Chart geometry in SVG units. The y-axis stops at YMAX; a curve that leaves the top stops on the top edge.
-const W = 360;
-const H = 250;
-const X0 = 52;
-const X1 = 346;
-const Y0 = 14;
-const Y1 = 214;
-const NMAX = 50;
-const YMAX = 2500;
-const xAt = (n: number) => X0 + ((n - 1) / (NMAX - 1)) * (X1 - X0);
-const yAt = (v: number) => Y1 - (v / YMAX) * (Y1 - Y0);
-
-function curve(f: (n: number) => number): { d: string; clipX: number | null } {
-  const pts = [`${xAt(1)},${yAt(f(1))}`];
-  let prev = { n: 1, v: f(1) };
-  for (let n = 2; n <= NMAX; n++) {
-    const v = f(n);
-    if (v <= YMAX) {
-      pts.push(`${xAt(n)},${yAt(v)}`);
-      prev = { n, v };
-      continue;
-    }
-    const at = prev.n + ((YMAX - prev.v) / (v - prev.v)) * (n - prev.n);
-    pts.push(`${xAt(at)},${yAt(YMAX)}`);
-    return { d: `M${pts.join(' L')}`, clipX: xAt(at) };
-  }
-  return { d: `M${pts.join(' L')}`, clipX: null };
-}
-const CURVES = CLASSES.map(c => curve(c.f));
-// ---- end logic ----
+import type { Lang } from '../../contract/types';
+import { CLASSES, CURVES, H, NMAX, W, X0, X1, Y0, Y1, YMAX, Y_TICKS, fmtCount, ops, xAt, yAt } from './big-o-logic';
 
 const X_TICKS = [1, 10, 20, 30, 40, 50];
-const Y_TICKS = [0, 500, 1000, 1500, 2000, 2500];
 const SIZES = [10, 100, 1000];
 // Series colours from the validated categorical palette (dataviz skill, reference palette), per theme.
 const CSS = `
@@ -67,7 +16,7 @@ const CSS = `
 export default function BigO(p: { lang: Lang }) {
   const lang = p.lang;
   const t =(en: string, ru: string) => (lang === 'ru' ? ru : en);
-  const pick = (text: L) => text[lang];
+  const pick = (text: { en: string; ru: string }) => text[lang];
   const fmt = (v: number) => fmtCount(v, lang === 'ru' ? 'ru-RU' : 'en-US');
   const uid = useId();
   const idN = `${uid}-n`;
@@ -102,7 +51,7 @@ export default function BigO(p: { lang: Lang }) {
             <path key={c.id} d={CURVES[k].d} fill="none" strokeWidth={2} strokeLinejoin="round" strokeDasharray={c.dash} style={{ stroke: `var(--bo-${k + 1})` }} />
           ))}
           {clipX !== null && (
-            <text x={clipX + 6} y={Y0 + 14} fontSize="10" fill="var(--color-muted)">{t('2ⁿ clipped', '2ⁿ обрезано')}</text>
+            <text x={clipX + 4} y={Y0 - 4} fontSize="10" fill="var(--color-muted)">{t('2ⁿ clipped', '2ⁿ обрезано')}</text>
           )}
           {n <= NMAX && <line x1={xAt(n)} x2={xAt(n)} y1={Y0} y2={Y1} stroke="var(--color-fg)" strokeWidth={1} strokeDasharray="3 3" />}
           {hoverN !== null && <line x1={xAt(hoverN)} x2={xAt(hoverN)} y1={Y0} y2={Y1} stroke="var(--color-muted)" strokeWidth={1} />}
@@ -110,6 +59,9 @@ export default function BigO(p: { lang: Lang }) {
           <text transform={`translate(12 ${(Y0 + Y1) / 2}) rotate(-90)`} textAnchor="middle" fontSize="11" fill="var(--color-muted)">{t('operations', 'операции')}</text>
         </svg>
       </div>
+      <p className="m-0 text-xs text-[var(--color-muted)]">
+        {t(`Curves above ${YMAX} stop at the top edge: n² and 2ⁿ.`, `Кривые выше ${YMAX} обрываются у верхнего края: n² и 2ⁿ.`)}
+      </p>
 
       <ul className="m-0 grid list-none grid-cols-1 gap-1 p-0 text-sm sm:grid-cols-2">
         {CLASSES.map((c, k) => (
