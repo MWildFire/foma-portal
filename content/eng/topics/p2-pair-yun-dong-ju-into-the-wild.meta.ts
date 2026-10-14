@@ -1,0 +1,48 @@
+import type { TopicMeta } from '../../../src/contract/types';
+
+const topic: TopicMeta = {
+  id: 'p2-pair-yun-dong-ju-into-the-wild',
+  subject: 'eng',
+  code: 'P2.YD-IW',
+  title: { en: 'Paper 2 pair: Yun Dong-ju poems and Into the Wild', ru: 'Пара для Paper 2: стихи Юн Дон Джу и «Into the Wild»' },
+  papers: ['P2'],
+  order: 31,
+  minutes: 60,
+  priority: 1,
+  inMockScope: 'yes',
+  outcomes: [
+    { en: 'I can compare the lyric I of a poem with the author-narrator of a non-fiction book, with a location in each text', ru: 'Могу сравнить лирическое «я» стихотворения с автором-рассказчиком документальной книги, с местом в каждом тексте' },
+    { en: 'I can name a technique of each form, such as apostrophe and imagery in a poem, or interviews, letters and the author\'s own climb in the book, and say what it does', ru: 'Могу назвать приём каждой формы, например обращение и образность в стихотворении или интервью, письма и собственное восхождение автора в книге, и сказать, что он делает' },
+    { en: 'I can compare identity, names and self-judgement in a poem and in the book, and tell a given road from a chosen one', ru: 'Могу сравнить идентичность, имена и суждение о себе в стихотворении и в книге и отличить данную дорогу от выбранной' },
+    { en: 'I can present a cause of death as a hypothesis, not as a proven fact, and keep the poet\'s death and the book\'s death apart as different kinds of evidence', ru: 'Могу подать причину смерти как гипотезу, а не как доказанный факт, и не смешивать смерть поэта и смерть в книге как разные виды доказательств' },
+    { en: 'I can plan a Paper 2 answer in ten minutes: a thesis, three points, locations and the link that earns B2', ru: 'Могу за десять минут спланировать ответ Paper 2: тезис, три пункта, места в текстах и связь, которая даёт B2' },
+  ],
+  termIds: ['lyric-persona', 'apostrophe', 'imagery', 'narrator', 'theme', 'metaphor', 'symbol', 'motif', 'juxtaposition'],
+  questionIds: ['p2-pair-yd-iw-1', 'p2-pair-yd-iw-2', 'p2-pair-yd-iw-3', 'p2-q02', 'p2-q06', 'p2-q09', 'p2-q10', 'p2-q11', 'p2-q15'],
+  sources: [
+    { kind: 'web', title: 'Yun Dong-ju (Yun Tongju), Wikipedia', url: 'https://en.wikipedia.org/wiki/Yun_Tongju' },
+    { kind: 'web', title: 'Korean Wikisource, Sky, Wind, Star and Poem (1948 edition)', url: 'https://ko.wikisource.org/wiki/%ED%95%98%EB%8A%98%EA%B3%BC_%EB%B0%94%EB%9E%8C%EA%B3%BC_%EB%B3%84%EA%B3%BC_%EC%8B%9C_(1948%EB%85%84)' },
+    { kind: 'school', title: 'Sky, Wind and Stars anthology, school file (eng/books)' },
+    { kind: 'web', title: 'Into the Wild (Krakauer book), Wikipedia', url: 'https://en.wikipedia.org/wiki/Into_the_Wild_(Krakauer_book)' },
+    { kind: 'web', title: 'Into the Wild by Jon Krakauer, Penguin Random House', url: 'https://www.penguinrandomhouse.com/books/95440/into-the-wild-by-jon-krakauer/9780385486804' },
+    { kind: 'web', title: 'Into the Wild, SparkNotes: full summary', url: 'https://www.sparknotes.com/lit/into-the-wild/summary/' },
+    { kind: 'web', title: 'Into the Wild, SparkNotes: Chapters 1 & 2', url: 'https://www.sparknotes.com/lit/into-the-wild/section1/' },
+    { kind: 'web', title: 'Into the Wild, SparkNotes: Chapter 3', url: 'https://www.sparknotes.com/lit/into-the-wild/section2/' },
+    { kind: 'web', title: 'Into the Wild, SparkNotes: Chapters 6 & 7', url: 'https://www.sparknotes.com/lit/into-the-wild/section4/' },
+    { kind: 'web', title: 'Into the Wild, SparkNotes: Chapters 12 & 13', url: 'https://www.sparknotes.com/lit/into-the-wild/section7/' },
+    { kind: 'web', title: 'Into the Wild, SparkNotes: Chapters 14 & 15', url: 'https://www.sparknotes.com/lit/into-the-wild/section8/' },
+    { kind: 'web', title: 'Into the Wild, SparkNotes: Chapter 18 & Epilogue', url: 'https://www.sparknotes.com/lit/into-the-wild/section11/' },
+    { kind: 'web', title: 'Into the Wild, LitCharts: plot summary', url: 'https://www.litcharts.com/lit/into-the-wild/summary' },
+    { kind: 'web', title: 'Into the Wild, LitCharts: Chapter 1', url: 'https://www.litcharts.com/lit/into-the-wild/chapter-1-the-alaska-interior' },
+    { kind: 'web', title: 'Into the Wild, LitCharts: Chapter 6', url: 'https://www.litcharts.com/lit/into-the-wild/chapter-6-anza-borrego' },
+    { kind: 'web', title: 'Into the Wild, LitCharts: Chapter 12', url: 'https://www.litcharts.com/lit/into-the-wild/chapter-12-annandale' },
+    { kind: 'web', title: 'Into the Wild, LitCharts: Chapter 14', url: 'https://www.litcharts.com/lit/into-the-wild/chapter-14-the-stikine-ice-cap' },
+    { kind: 'web', title: 'Into the Wild, LitCharts: Chapter 15', url: 'https://www.litcharts.com/lit/into-the-wild/chapter-15-the-stikine-ice-cap' },
+    { kind: 'web', title: 'Into the Wild, LitCharts: Chapter 18', url: 'https://www.litcharts.com/lit/into-the-wild/chapter-18-the-stampede-trail' },
+    { kind: 'web', title: 'Into the Wild, LitCharts: Epilogue', url: 'https://www.litcharts.com/lit/into-the-wild/epilogue' },
+    { kind: 'web', title: 'Folger Shakespeare: Much Ado About Nothing (act.scene.line)', url: 'https://www.folger.edu/explore/shakespeares-works/much-ado-about-nothing/read/' },
+    { kind: 'web', title: 'Much Ado About Nothing, Act 4 Scene 1, Folger Shakespeare Library', url: 'https://shakespeare.folger.edu/shakespeares-works/much-ado-about-nothing/act-4-scene-1/' },
+  ],
+};
+
+export default topic;
