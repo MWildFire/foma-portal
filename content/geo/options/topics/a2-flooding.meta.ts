@@ -39,7 +39,6 @@ const topic: TopicMeta = {
     'a-saturated-soil',
     'a-impermeable-surface',
     'a-surface-runoff',
-    'a-infiltration',
     'a-floodplain',
     'a-channelisation',
     'a-storm-hydrograph',
