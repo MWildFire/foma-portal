@@ -63,25 +63,6 @@ export const questions: Question[] = [
     minutes: 5,
   },
   {
-    id: 'core-1-2-a4',
-    subject: 'geo',
-    topicIds: TOPIC,
-    paper: 'P2',
-    section: 'A',
-    marks: 4,
-    command: 'Explain',
-    prompt: {
-      en: 'Explain two reasons why counter-urbanisation has occurred in some high-income countries.',
-      ru: 'Объясните две причины, по которым в некоторых странах с высоким уровнем дохода наблюдается контрурбанизация.',
-    },
-    markscheme: {
-      en: '1 mark: reason 1, for example high house prices, congestion and pollution in large cities; 1 mark: development of reason 1, for example a household can buy more space and a better environment outside the city; 1 mark: reason 2, for example better roads, rail and broadband let people commute to a city from a smaller town or work remotely; 1 mark: development of reason 2, for example remote working makes a home in a smaller town or village a realistic choice.',
-      ru: '1 балл: причина 1, например высокие цены на жильё, заторы и загрязнение в крупных городах; 1 балл: развитие причины 1, например семья может купить больше места и лучшую среду вне города; 1 балл: причина 2, например лучшие дороги, железные дороги и широкополосный интернет позволяют ездить на работу в город из небольшого города или работать удалённо; 1 балл: развитие причины 2, например удалённая работа делает жильё в небольшом городе или деревне реалистичным выбором.',
-    },
-    origin: 'original',
-    minutes: 6,
-  },
-  {
     id: 'core-1-2-a5',
     subject: 'geo',
     topicIds: TOPIC,

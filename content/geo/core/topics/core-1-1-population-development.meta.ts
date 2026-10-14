@@ -35,7 +35,7 @@ const topic: TopicMeta = {
     'core-carrying-capacity',
   ],
   sims: ['geo.core-demographic-transition', 'geo.core-population-pyramid', 'geo.core-malthus-boserup'],
-  questionIds: ['core-1-1-a2', 'core-1-1-a3', 'core-1-1-b1'],
+  questionIds: ['core-1-1-a2', 'core-1-1-a3', 'core-1-1-a4', 'core-1-1-b1'],
   caseIds: ['core-1-1-case-niger', 'core-1-1-case-bangladesh', 'core-1-1-case-japan'],
   sources: [
     { kind: 'ib-guide', title: 'Geography guide (2017), core 1.1' },

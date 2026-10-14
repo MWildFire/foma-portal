@@ -7,25 +7,6 @@ const topicIds = ['core-3-3-resource-stewardship'];
 
 export const questions: Question[] = [
   {
-    id: 'core-3-3-a1',
-    subject: 'geo',
-    topicIds,
-    paper: 'P2',
-    section: 'A',
-    marks: 2,
-    command: 'Outline',
-    prompt: {
-      en: 'Outline how increasing block tariffs, where each extra block of water costs more, can reduce household water demand.',
-      ru: 'Кратко опишите, как прогрессивные блочные тарифы, при которых каждый следующий блок воды стоит дороже, могут снизить спрос домохозяйств на воду.',
-    },
-    markscheme: {
-      en: '1 mark: higher prices for larger volumes give households a reason to cut non-essential use, such as garden watering or car washing; 1 mark: demand for essential uses, such as drinking and cooking, responds less to price, so the reduction comes mainly from non-essential use.',
-      ru: '1 балл: более высокие цены за большие объёмы дают домохозяйствам причину сократить неосновное потребление, например полив сада или мойку автомобиля; 1 балл: спрос на основные нужды, например питьё и приготовление пищи, слабо реагирует на цену, поэтому сокращение идёт в основном за счёт неосновного потребления.',
-    },
-    origin: 'original',
-    minutes: 3,
-  },
-  {
     id: 'core-3-3-a2',
     subject: 'geo',
     topicIds,
@@ -62,25 +43,6 @@ export const questions: Question[] = [
     },
     origin: 'original',
     minutes: 6,
-  },
-  {
-    id: 'core-3-3-a4',
-    subject: 'geo',
-    topicIds,
-    paper: 'P2',
-    section: 'A',
-    marks: 4,
-    command: 'Explain',
-    prompt: {
-      en: 'Explain how the Montreal Protocol (1987) shows that a multilateral environmental agreement can succeed.',
-      ru: 'Объясните, как Монреальский протокол (1987) показывает, что многостороннее природоохранное соглашение может быть успешным.',
-    },
-    markscheme: {
-      en: '1 mark: the Protocol is a binding agreement among many countries that phased out chemicals that destroy ozone, such as those used in aerosols and refrigerants; 1 mark: the problem was global, so all countries had to act together; 1 mark: evidence: the ozone layer is projected to return to 1980 levels by about 2045 over the Arctic and about 2066 over Antarctica (UNEP and WMO 2022 assessment, reported in January 2023); 1 mark: a qualifier, such as recovery depends on continued compliance and on the control of replacement chemicals.',
-      ru: '1 балл: протокол — обязательное соглашение многих стран, по которому выводятся из употребления вещества, разрушающие озон, например используемые в аэрозолях и холодильных агентах; 1 балл: проблема глобальна, поэтому все страны должны были действовать вместе; 1 балл: свидетельство: по прогнозу озоновый слой вернётся к уровню 1980 года примерно к 2045 году над Арктикой и примерно к 2066 году над Антарктидой (оценка ЮНЕП и ВМО 2022 года, сообщения в январе 2023 года); 1 балл: оговорка: восстановление зависит от продолжения соблюдения соглашения и от контроля над заменяющими веществами.',
-    },
-    origin: 'original',
-    minutes: 5,
   },
   {
     id: 'core-3-3-a5',

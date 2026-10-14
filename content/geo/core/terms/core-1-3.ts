@@ -4,6 +4,7 @@ import type { Term } from '../../../../src/contract/types';
 // subtopic, in line with the Geography guide (2017). The ThinkIB eBook has no page numbers; the locator names chapter 3
 // of Unit 1, because its section list has not been exported yet.
 const src = { kind: 'thinkib' as const, title: 'ThinkIB Geography eBook', locator: 'Paper 2 › Unit 1 › ch. 3' };
+const srcGuide = { kind: 'ib-guide' as const, title: 'Geography guide (2017), core 1.3, section 3 “Challenges and opportunities”', locator: 'p. 43' };
 const DEPENDENCY_SIM = 'geo.core-dependency-ratio' as const;
 
 export const terms: Term[] = [
@@ -225,6 +226,47 @@ export const terms: Term[] = [
     pitfall: {
       en: 'Long-term care is different from hospital treatment; it is usually given at home or in a care home.',
       ru: 'Долгосрочный уход отличается от больничного лечения; обычно его получают дома или в доме престарелых.',
+    },
+  },
+  {
+    id: 'core-sex-ratio',
+    term: { en: 'sex ratio', ru: 'соотношение полов (sex ratio)' },
+    def: {
+      en: 'The number of males for every 100 females in a population or in a group, such as births. The sex ratio at birth is the number of boys born for every 100 girls.',
+      ru: 'Число мужчин на каждые 100 женщин в населении или в группе, например среди родившихся. Соотношение полов при рождении — число мальчиков на 100 девочек.',
+    },
+    syllabus: 'core-1.3',
+    papers: ['P2'],
+    src: srcGuide,
+    pitfall: {
+      en: 'Do not confuse the sex ratio at birth with the sex ratio of the whole population, which also depends on mortality and migration.',
+      ru: 'Не путайте соотношение полов при рождении с соотношением полов во всём населении: во всём населении оно зависит также от смертности и миграции.',
+    },
+  },
+  {
+    id: 'core-gender-equality-policy',
+    term: { en: 'gender equality policy', ru: 'политика гендерного равенства (gender equality policy)' },
+    def: {
+      en: 'Laws and programmes that aim to give women and men equal rights, opportunities and treatment, for example in education, work and political life.',
+      ru: 'Законы и программы, которые направлены на равные права, возможности и условия для женщин и мужчин, например в образовании, работе и политической жизни.',
+    },
+    syllabus: 'core-1.3',
+    papers: ['P2'],
+    src: srcGuide,
+  },
+  {
+    id: 'core-anti-trafficking-policy',
+    term: { en: 'anti-trafficking policy', ru: 'политика борьбы с торговлей людьми (anti-trafficking policy)' },
+    def: {
+      en: 'Laws and programmes that prevent trafficking in people, prosecute traffickers and protect and support the victims.',
+      ru: 'Законы и программы, которые предотвращают торговлю людьми, преследуют торговцев и защищают пострадавших и помогают им.',
+    },
+    syllabus: 'core-1.3',
+    papers: ['P2'],
+    src: srcGuide,
+    pitfall: {
+      en: 'A victim count shows the scale of trafficking; it does not show that a policy works. Judge a policy by its outcomes.',
+      ru: 'Число пострадавших показывает масштаб торговли людьми, но не показывает, работает ли политика. Оценивайте политику по результатам.',
     },
   },
 ];

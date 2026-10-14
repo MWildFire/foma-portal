@@ -46,25 +46,6 @@ export const questions: Question[] = [
     minutes: 6,
   },
   {
-    id: 'core-2-2-a3',
-    subject: 'geo',
-    topicIds: TOPIC,
-    paper: 'P2',
-    section: 'A',
-    marks: 3,
-    command: 'Outline',
-    prompt: {
-      en: 'Outline how ocean acidification affects marine organisms such as corals and shellfish.',
-      ru: 'Опишите, как подкисление океана влияет на морские организмы, например кораллы и моллюсков.',
-    },
-    markscheme: {
-      en: '1 mark: the ocean absorbs part of the extra carbon dioxide from the atmosphere; 1 mark: this lowers the pH of seawater, so it becomes more acidic (it stays alkaline); 1 mark: fewer available carbonate ions make it harder for corals and shellfish to build shells and skeletons, which reduces their growth and survival.',
-      ru: '1 балл: океан поглощает часть дополнительного углекислого газа из атмосферы; 1 балл: это снижает pH морской воды, и она становится более кислой (но остаётся щелочной); 1 балл: меньше доступных карбонат-ионов затрудняет кораллам и моллюскам строительство раковин и скелетов, что снижает их рост и выживаемость.',
-    },
-    origin: 'original',
-    minutes: 4,
-  },
-  {
     id: 'core-2-2-a4',
     subject: 'geo',
     topicIds: TOPIC,

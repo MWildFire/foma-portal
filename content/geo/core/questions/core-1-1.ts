@@ -7,25 +7,6 @@ const topicIds = ['core-1-1-population-development'];
 
 export const questions: Question[] = [
   {
-    id: 'core-1-1-a1',
-    subject: 'geo',
-    topicIds,
-    paper: 'P2',
-    section: 'A',
-    marks: 2,
-    command: 'Outline',
-    prompt: {
-      en: 'Outline the difference between the crude birth rate and the total fertility rate.',
-      ru: 'Кратко опишите различие между общим коэффициентом рождаемости и суммарным коэффициентом рождаемости.',
-    },
-    markscheme: {
-      en: '1 mark: the crude birth rate is the number of live births per 1000 people of the whole population in one year; 1 mark: the total fertility rate is the average number of children a woman would have in her lifetime, based on women aged 15 to 49.',
-      ru: '1 балл: общий коэффициент рождаемости — число живорождений за год на 1000 человек всего населения; 1 балл: суммарный коэффициент рождаемости — среднее число детей, которое родила бы женщина за жизнь, исходя из возраста 15–49 лет.',
-    },
-    origin: 'original',
-    minutes: 3,
-  },
-  {
     id: 'core-1-1-a2',
     subject: 'geo',
     topicIds,
