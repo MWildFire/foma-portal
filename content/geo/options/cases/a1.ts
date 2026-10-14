@@ -70,8 +70,8 @@ export const cases: CaseStudy[] = [
     lat: -1.92,
     lng: -55.51,
     facts: {
-      en: 'The Amazon basin receives about 2,000 mm of precipitation a year and supplies about 17% of the freshwater that the world’s rivers deliver to the oceans (Nature Communications, 2020). Over 1979–2018 the mean seasonality of Amazon river discharge at Óbidos, which the study defines as the difference between the maximum and minimum values within one year, is about 140,000 m³/s. The study’s basin is the catchment upstream of Óbidos, not the whole basin that drains to the mouth.',
-      ru: 'Бассейн Амазонки получает около 2 000 мм осадков в год и даёт около 17% пресной воды, которую мировые реки доставляют в океаны (Nature Communications, 2020). За 1979–2018 годы средняя сезонность речного стока Амазонки на станции Обидос (Óbidos), которую исследование определяет как разницу между максимальным и минимальным значениями внутри одного года, составляет около 140 000 м³/с. Бассейн в исследовании — это водосбор выше Обидоса, а не весь бассейн, стекающий к устью.',
+      en: 'The Amazon basin receives about 2,000 mm of precipitation a year and supplies about 17% of the freshwater that the world’s rivers deliver to the oceans (Nature Communications, 2020). Over 1979–2018 the mean seasonality of Amazon river discharge at Óbidos, measured as the difference between the highest and lowest monthly values in a year, was about 140,000 m³/s. The study’s basin is the catchment upstream of Óbidos, not the whole basin that drains to the mouth.',
+      ru: 'Бассейн Амазонки получает около 2 000 мм осадков в год и даёт около 17% пресной воды, которую мировые реки доставляют в океаны (Nature Communications, 2020). За 1979–2018 годы средняя сезонность речного стока Амазонки на станции Обидос (Óbidos), измеренная как разница между самым высоким и самым низким месячными значениями в году, составляла около 140 000 м³/с. Бассейн в исследовании — это водосбор выше Обидоса, а не весь бассейн, стекающий к устью.',
     },
     usedFor: ['a1-drainage-basins'],
     src: [
