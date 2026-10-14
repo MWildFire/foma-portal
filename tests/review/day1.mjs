@@ -102,7 +102,7 @@ async function goHash(page, hash) {
 }
 
 // run: { page, errors, teardown, last } for one browser context. Leaves `run.last` on the page just opened.
-async function visit(run, hash) {
+async function visit(run, hash, { map = false } = {}) {
   const { page, errors, teardown } = run;
   const a = errors.length;
   await goHash(page, '#/');
@@ -110,6 +110,8 @@ async function visit(run, hash) {
   if (run.last !== '#/') teardown.push({ left: run.last, errors: errors.slice(a, b).filter(e => !isNoise(e)) });
   await goHash(page, hash);
   run.last = hash;
+  // A case map is drawn after its files load, which can take longer than the page text: wait for it, up to 15 s.
+  if (map) await page.waitForSelector('.foma-map', { timeout: 15000 }).catch(() => {});
   const info = await page.evaluate(() => {
     const main = document.querySelector('main') ?? document.body;
     const text = main.innerText ?? '';
@@ -200,7 +202,7 @@ for (const date of DATES) {
 
       const fixed = [];
       for (const f of FIXED) {
-        const r = await visit(run, f.route);
+        const r = await visit(run, f.route, { map: Boolean(f.map) });
         let actionFound = true;
         let expectOk = true;
         if (f.action) {
