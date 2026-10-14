@@ -73,6 +73,7 @@ export function ExamsPage() {
           <span className="font-medium">{t('access.title')}: </span>
           {[extraTime ? t('access.extraTime') : null, ta(`room.summary.${room}`)].filter(Boolean).join(' · ')}
         </p>
+        <p className="m-0">{t('access.typing')}</p>
         <Link to={ROUTES.settings()} className="inline-flex min-h-[44px] items-center font-medium">
           {t('access.change')}
         </Link>

@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { Hourglass, TriangleAlert } from 'lucide-react';
 import { PAPER_IDS, timerStorageKey, type TimedSetInfo } from '../../lib/practice';
 import { pickText } from '../../lib/text';
+import { typingReminderFor } from '../../planner/access';
 import { EXAMS } from '../../planner/data';
 import { Clock } from './Clock';
 import { ListeningPlayer } from './ListeningPlayer';
@@ -107,6 +108,8 @@ export function TimedPanel({ subject, sets, active, requestedId, extraTime, lang
             ) : (
               <p className="study-muted">{t('timed.extra.off')}</p>
             )}
+
+            {typingReminderFor(subject, active.paper) ? <p className="study-muted">{t('typing.hint', { ns: 'timing' })}</p> : null}
 
             {active.part?.includes('listening') ? <ListeningPlayer key={active.id} tracks={setTracks} /> : null}
 

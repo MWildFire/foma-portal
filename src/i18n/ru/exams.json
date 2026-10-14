@@ -17,7 +17,8 @@
   "access": {
     "title": "Особые условия (access arrangements)",
     "extraTime": "+25% времени",
-    "change": "Изменить в настройках"
+    "change": "Изменить в настройках",
+    "typing": "Твоё access arrangement — typing: ответы ты печатаешь на компьютере. Доп. времени нет."
   },
   "status": {
     "finished": "Завершён",

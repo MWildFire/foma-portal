@@ -17,7 +17,8 @@
   "access": {
     "title": "Access arrangements",
     "extraTime": "25% extra time",
-    "change": "Change in Settings"
+    "change": "Change in Settings",
+    "typing": "Your access arrangement is typing: you type your answers on the computer. There is no extra time."
   },
   "status": {
     "finished": "Finished",

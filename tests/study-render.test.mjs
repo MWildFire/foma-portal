@@ -303,6 +303,13 @@ test('practice in Russian', async () => {
   assert.match(html, /56:00/);
 });
 
+test('practice, timed mode: an essay paper reminds the student to type the answer, in both languages', async () => {
+  const html = await view('PracticeView', { pack: pack() }, '/s/geo/practice?set=set-a');
+  assert.match(html, /Practise typing your answer: in the exam you type \(access arrangement: typing\)\. No extra time\./);
+  const ru = await view('PracticeView', { pack: pack() }, '/s/geo/practice?set=set-a', { lang: 'ru' });
+  assert.match(ru, /Тренируйся печатать ответ: на экзамене ты печатаешь/);
+});
+
 // ---- glossary and flashcards
 
 test('glossary, example subject: English term and definition come before the Russian ones, with syllabus; own notes are not shown as a source', async () => {
