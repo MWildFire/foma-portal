@@ -1,4 +1,5 @@
 import type { Term } from '../../../../src/contract/types';
+import { BOOK_TITLE } from '../../book';
 
 const source = {
   kind: 'web' as const,
@@ -20,7 +21,7 @@ export const terms: Term[] = [
     },
     syllabus: '4.4',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 2.4, p. 69' },
     pitfall: {
       en: 'r measures only linear association. A strong curved pattern can give r close to 0, and correlation does not show that one variable causes the other.',
       ru: 'r измеряет только линейную связь. Сильная криволинейная зависимость может дать r, близкое к 0, а корреляция не доказывает, что одна величина вызывает другую.',
@@ -39,7 +40,7 @@ export const terms: Term[] = [
     },
     syllabus: '4.4',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 4.5, p. 191' },
     pitfall: {
       en: 'Swapping x and y gives a different line: the regression of y on x predicts y from x.',
       ru: 'Перестановка x и y даёт другую прямую: регрессия y на x предсказывает y по x.',

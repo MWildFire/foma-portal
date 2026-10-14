@@ -1,11 +1,5 @@
 import type { Term } from '../../../../src/contract/types';
-
-const source = {
-  kind: 'web' as const,
-  title: 'IB Mathematics AI, first assessment 2021: public summary, not checked against the official guide',
-  locator: 'sub-topic 4.7',
-  url: 'https://www.ibo.org/globalassets/new-structure/university-admission/pdfs/dp-mathematics-applications-and-interpretation-guide-en.pdf',
-};
+import { BOOK_TITLE } from '../../book';
 
 export const terms: Term[] = [
   {
@@ -17,7 +11,7 @@ export const terms: Term[] = [
     },
     syllabus: '4.7',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 13.1, p. 572' },
   },
   {
     id: 'discrete-probability-distribution',
@@ -28,7 +22,7 @@ export const terms: Term[] = [
     },
     syllabus: '4.7',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 13.1, p. 572' },
     pitfall: {
       en: 'If the probabilities do not add to 1, a value is missing from the table or one of the probabilities is wrong.',
       ru: 'Если вероятности не дают в сумме 1, в таблице не хватает значения или одна из вероятностей неверна.',
@@ -43,7 +37,7 @@ export const terms: Term[] = [
     },
     syllabus: '4.7',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 13.1, p. 575' },
     pitfall: {
       en: 'Weight each value by its probability. The plain average of the values is not E(X) unless the values are equally likely.',
       ru: 'Умножайте каждое значение на его вероятность. Простое среднее значений не равно E(X), если значения не равновероятны.',

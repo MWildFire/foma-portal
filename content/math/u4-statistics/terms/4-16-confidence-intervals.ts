@@ -1,4 +1,5 @@
 import type { Term } from '../../../../src/contract/types';
+import { BOOK_TITLE } from '../../book';
 
 const source = {
   kind: 'web' as const,
@@ -17,7 +18,7 @@ export const terms: Term[] = [
     },
     syllabus: '4.16',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 14.3, p. 645' },
     pitfall: {
       en: 'The interval is random, while $\\mu$ is fixed. Write "we are 95% confident that $\\mu$ lies between ...", not "there is a 95% probability that $\\mu$ lies between ...".',
       ru: 'Интервал случаен, а $\\mu$ фиксировано. Пишите «с уровнем доверия 95% мы уверены, что $\\mu$ лежит между ...», а не «с вероятностью 95% $\\mu$ лежит между ...».',
@@ -32,7 +33,7 @@ export const terms: Term[] = [
     },
     syllabus: '4.16',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 14.3, p. 645' },
     pitfall: {
       en: 'Raising the confidence level from 95% to 99% widens the interval. It does not make the estimate more precise.',
       ru: 'Повышение уровня доверия с 95% до 99% расширяет интервал. Точность оценки при этом не растёт.',
@@ -62,7 +63,7 @@ export const terms: Term[] = [
     },
     syllabus: '4.16',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 14.3, p. 643' },
     pitfall: {
       en: 'The degrees of freedom are $n - 1$, not $n$. Using $z^{*}$ when $\\sigma$ is unknown gives an interval that is too narrow.',
       ru: 'Число степеней свободы равно $n - 1$, а не $n$. Использование $z^{*}$ при неизвестной $\\sigma$ даёт слишком узкий интервал.',

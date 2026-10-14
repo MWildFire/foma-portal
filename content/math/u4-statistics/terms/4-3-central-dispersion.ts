@@ -1,11 +1,5 @@
 import type { Term } from '../../../../src/contract/types';
-
-const source = {
-  kind: 'web' as const,
-  title: 'IB Mathematics AI, first assessment 2021: public summary, not checked against the official guide',
-  locator: 'sub-topic 4.3',
-  url: 'https://www.ibo.org/globalassets/new-structure/university-admission/pdfs/dp-mathematics-applications-and-interpretation-guide-en.pdf',
-};
+import { BOOK_TITLE } from '../../book';
 
 export const terms: Term[] = [
   {
@@ -17,7 +11,7 @@ export const terms: Term[] = [
     },
     syllabus: '4.3',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 2.2, p. 57' },
     pitfall: {
       en: 'It is an estimate, because the exact values inside each class are unknown. Do not call it the mean.',
       ru: 'Это оценка, потому что точные значения внутри каждого класса неизвестны. Не называйте её просто средним.',
@@ -27,12 +21,12 @@ export const terms: Term[] = [
     id: 'modal-class',
     term: { en: 'modal class', ru: 'модальный класс (modal class)' },
     def: {
-      en: 'The class with the highest frequency density. For classes of equal width, this is the class with the highest frequency.',
-      ru: 'Класс с наибольшей плотностью частоты. Если все классы одинаковой ширины, это класс с наибольшей частотой.',
+      en: 'The class with the highest frequency. It can be identified when the data are grouped into classes of equal width.',
+      ru: 'Класс с наибольшей частотой. Его можно найти, если данные сгруппированы в классы одинаковой ширины.',
     },
     syllabus: '4.3',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 2.2, p. 57' },
     pitfall: {
       en: 'With classes of unequal width, compare frequency densities, not frequencies.',
       ru: 'Если классы разной ширины, сравнивайте плотности частот, а не частоты.',
@@ -47,7 +41,7 @@ export const terms: Term[] = [
     },
     syllabus: '4.3',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 2.2, p. 53' },
     pitfall: {
       en: 'The IQR is not the range. It ignores the lowest and highest quarters of the data, so extreme values do not affect it.',
       ru: 'Межквартильный размах — это не размах. Он не учитывает нижнюю и верхнюю четверти данных, поэтому крайние значения на него не влияют.',
@@ -62,7 +56,7 @@ export const terms: Term[] = [
     },
     syllabus: '4.3',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 2.2, p. 52' },
     pitfall: {
       en: 'The variance is in squared units. The standard deviation is in the original units.',
       ru: 'Дисперсия измеряется в квадратных единицах, стандартное отклонение — в исходных единицах.',

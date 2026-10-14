@@ -1,11 +1,5 @@
 import type { Term } from '../../../../src/contract/types';
-
-const source = {
-  kind: 'web' as const,
-  title: 'IB Mathematics AI, first assessment 2021: public summary, not checked against the official guide',
-  locator: 'sub-topic 4.19',
-  url: 'https://www.ibo.org/globalassets/new-structure/university-admission/pdfs/dp-mathematics-applications-and-interpretation-guide-en.pdf',
-};
+import { BOOK_TITLE } from '../../book';
 
 export const terms: Term[] = [
   {
@@ -17,7 +11,7 @@ export const terms: Term[] = [
     },
     syllabus: '4.19',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 9.5, p. 404' },
     pitfall: {
       en: 'Some sources put the current state in the rows. Read the convention in the question and transpose the matrix if needed before multiplying.',
       ru: 'В некоторых источниках текущее состояние записано в строках. Прочитайте условие и при необходимости транспонируйте матрицу перед умножением.',
@@ -33,7 +27,7 @@ export const terms: Term[] = [
     },
     syllabus: '4.19',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 9.6, p. 408' },
     pitfall: {
       en: 'A zero entry in T does not rule out regularity. Check T squared, T cubed and so on.',
       ru: 'Нулевой элемент в T ещё не исключает регулярность. Проверьте T², T³ и так далее.',
@@ -48,7 +42,7 @@ export const terms: Term[] = [
     },
     syllabus: '4.19',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 9.6, p. 409' },
     pitfall: {
       en: 'TS = S on its own has infinitely many solutions. Add the condition that the probabilities sum to 1.',
       ru: 'Одно лишь уравнение TS = S имеет бесконечно много решений. Добавьте условие, что вероятности в сумме дают 1.',

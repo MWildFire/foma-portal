@@ -1,4 +1,5 @@
 import type { Term } from '../../../../src/contract/types';
+import { BOOK_TITLE } from '../../book';
 
 const source = {
   kind: 'web' as const,
@@ -17,7 +18,7 @@ export const terms: Term[] = [
     },
     syllabus: '4.15',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 13.6, p. 607' },
     pitfall: {
       en: 'Independence is needed. Variances combine with squared coefficients; standard deviations never add directly.',
       ru: 'Нужна независимость. Дисперсии складываются с квадратами коэффициентов; стандартные отклонения напрямую не складываются.',
@@ -32,18 +33,18 @@ export const terms: Term[] = [
     },
     syllabus: '4.15',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 13.6, p. 608' },
   },
   {
     id: 'central-limit-theorem',
     term: { en: 'central limit theorem (CLT)', ru: 'центральная предельная теорема, ЦПТ (central limit theorem (CLT))' },
     def: {
-      en: 'For a large random sample of size $n$ from any population with mean $\\mu$ and variance $\\sigma^{2}$, the sample mean is approximately $N(\\mu, \\sigma^{2}/n)$, whatever the shape of the population.',
-      ru: 'Для большой случайной выборки объёма $n$ из любой совокупности со средним $\\mu$ и дисперсией $\\sigma^{2}$ выборочное среднее приближённо распределено как $N(\\mu, \\sigma^{2}/n)$, какова бы ни была форма совокупности.',
+      en: 'For a random sample of size $n \\ge 30$ from any population with mean $\\mu$ and variance $\\sigma^{2}$, the sample mean is approximately $N(\\mu, \\sigma^{2}/n)$, whatever the shape of the population.',
+      ru: 'Для случайной выборки объёма $n \\ge 30$ из любой совокупности со средним $\\mu$ и дисперсией $\\sigma^{2}$ выборочное среднее приближённо распределено как $N(\\mu, \\sigma^{2}/n)$, какова бы ни была форма совокупности.',
     },
     syllabus: '4.15',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 13.6, p. 612' },
     pitfall: {
       en: 'The theorem describes the distribution of the sample mean, not of the individual values. Say "approximately" and state that $n$ is large.',
       ru: 'Теорема описывает распределение выборочного среднего, а не отдельных значений. Пишите «приближённо» и отмечайте, что $n$ велико.',

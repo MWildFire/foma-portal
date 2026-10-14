@@ -1,4 +1,5 @@
 import type { Term } from '../../../../src/contract/types';
+import { BOOK_TITLE } from '../../book';
 
 const source = {
   kind: 'web' as const,
@@ -17,7 +18,7 @@ export const terms: Term[] = [
     },
     syllabus: '4.9',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 13.4, p. 596' },
     pitfall: {
       en: 'For a continuous variable $P(X = a) = 0$, so a probability is an area between two values, not the height of the curve at one point.',
       ru: 'Для непрерывной величины $P(X = a) = 0$, поэтому вероятность — это площадь между двумя значениями, а не высота кривой в одной точке.',
@@ -44,6 +45,6 @@ export const terms: Term[] = [
     },
     syllabus: '4.9',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 13.4, p. 598' },
   },
 ];

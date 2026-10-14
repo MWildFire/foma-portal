@@ -1,4 +1,5 @@
 import type { Term } from '../../../../src/contract/types';
+import { BOOK_TITLE } from '../../book';
 
 const source = {
   kind: 'web' as const,
@@ -17,7 +18,7 @@ export const terms: Term[] = [
     },
     syllabus: '4.12',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 14.6, p. 674' },
     pitfall: {
       en: 'Reliability concerns consistency, not whether the questions measure the right thing. That is validity.',
       ru: 'Надёжность касается согласованности, а не того, измеряют ли вопросы нужное. Это валидность.',
@@ -27,12 +28,12 @@ export const terms: Term[] = [
     id: 'validity-of-questionnaire',
     term: { en: 'validity', ru: 'валидность (validity)' },
     def: {
-      en: 'How well a questionnaire measures what it is meant to measure. It is checked against an independent criterion, or by expert judgement of the content.',
-      ru: 'Насколько хорошо анкета измеряет то, что должна измерять. Проверяют по независимому критерию или экспертной оценкой содержания.',
+      en: 'How well a questionnaire measures what it claims to measure. Criterion validity checks it against an independent measure, such as later success; content validity means the questions span the whole subject being assessed.',
+      ru: 'Насколько хорошо анкета измеряет то, что заявлено измерять. Критериальная валидность проверяется по независимому показателю, например по успеху в дальнейшем; содержательная валидность означает, что вопросы охватывают всё содержание, которое оценивается.',
     },
     syllabus: '4.12',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 14.6, p. 673' },
   },
   {
     id: 'categorising-numerical-data',

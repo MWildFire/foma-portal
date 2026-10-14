@@ -1,11 +1,5 @@
 import type { Term } from '../../../../src/contract/types';
-
-const source = {
-  kind: 'web' as const,
-  title: 'IB Mathematics AI, first assessment 2021: public summary, not checked against the official guide',
-  locator: 'sub-topic 4.13',
-  url: 'https://www.ibo.org/globalassets/new-structure/university-admission/pdfs/dp-mathematics-applications-and-interpretation-guide-en.pdf',
-};
+import { BOOK_TITLE } from '../../book';
 
 export const terms: Term[] = [
   {
@@ -20,7 +14,7 @@ export const terms: Term[] = [
     },
     syllabus: '4.13',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 6.2, p. 248' },
     sim: 'math.regression-lab',
   },
   {
@@ -35,7 +29,7 @@ export const terms: Term[] = [
     },
     syllabus: '4.13',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 4.5, p. 190' },
     pitfall: {
       en: 'A residual is observed minus predicted. Keep that order in your working, even though squaring removes the sign.',
       ru: 'Остаток — это наблюдаемое значение минус предсказанное. Сохраняйте этот порядок в решении, хотя при возведении в квадрат знак исчезает.',
@@ -53,7 +47,7 @@ export const terms: Term[] = [
     },
     syllabus: '4.13',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 6.2, p. 248' },
     pitfall: {
       en: 'A model with more parameters, such as a quadratic instead of a line, always fits the same data at least as well, so a higher R² alone cannot settle the choice.',
       ru: 'Модель с большим числом параметров, например квадратичная вместо прямой, на тех же данных подходит не хуже, поэтому один только больший R² не решает выбор модели.',

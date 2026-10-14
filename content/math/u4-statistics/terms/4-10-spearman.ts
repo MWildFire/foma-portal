@@ -1,4 +1,5 @@
 import type { Term } from '../../../../src/contract/types';
+import { BOOK_TITLE } from '../../book';
 
 const source = {
   kind: 'web' as const,
@@ -20,7 +21,7 @@ export const terms: Term[] = [
     },
     syllabus: '4.10',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 14.1, p. 626' },
     pitfall: {
       en: 'The differences $d_i$ between the two ranks always add up to zero, so square them before adding.',
       ru: 'Разности $d_i$ между двумя рангами всегда в сумме дают ноль, поэтому их нужно возвести в квадрат до суммирования.',
@@ -38,7 +39,7 @@ export const terms: Term[] = [
     },
     syllabus: '4.10',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 14.1, p. 626' },
   },
   {
     id: 'outlier-effect-on-correlation',

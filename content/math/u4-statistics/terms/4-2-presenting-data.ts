@@ -1,11 +1,5 @@
 import type { Term } from '../../../../src/contract/types';
-
-const source = {
-  kind: 'web' as const,
-  title: 'IB Mathematics AI, first assessment 2021: public summary, not checked against the official guide',
-  locator: 'sub-topic 4.2',
-  url: 'https://www.ibo.org/globalassets/new-structure/university-admission/pdfs/dp-mathematics-applications-and-interpretation-guide-en.pdf',
-};
+import { BOOK_TITLE } from '../../book';
 
 export const terms: Term[] = [
   {
@@ -17,7 +11,7 @@ export const terms: Term[] = [
     },
     syllabus: '4.2',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 2.3, p. 59' },
     pitfall: {
       en: 'When class widths differ, the height is the frequency density, not the frequency.',
       ru: 'Если ширина классов разная, по высоте откладывают плотность частоты, а не частоту.',
@@ -32,7 +26,7 @@ export const terms: Term[] = [
     },
     syllabus: '4.2',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 2.3, p. 63' },
     pitfall: {
       en: 'Plot each cumulative frequency at the upper class boundary, and start the curve at zero at the lower end of the first class.',
       ru: 'Каждую накопленную частоту откладывайте при верхней границе класса, а кривую начинайте с нуля у нижнего края первого класса.',
@@ -47,6 +41,6 @@ export const terms: Term[] = [
     },
     syllabus: '4.2',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 2.3, p. 60' },
   },
 ];

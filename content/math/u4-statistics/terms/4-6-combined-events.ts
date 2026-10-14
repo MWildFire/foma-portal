@@ -1,11 +1,5 @@
 import type { Term } from '../../../../src/contract/types';
-
-const source = {
-  kind: 'web' as const,
-  title: 'IB Mathematics AI, first assessment 2021: public summary, not checked against the official guide',
-  locator: 'sub-topic 4.6',
-  url: 'https://www.ibo.org/globalassets/new-structure/university-admission/pdfs/dp-mathematics-applications-and-interpretation-guide-en.pdf',
-};
+import { BOOK_TITLE } from '../../book';
 
 export const terms: Term[] = [
   {
@@ -17,7 +11,7 @@ export const terms: Term[] = [
     },
     syllabus: '4.6',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 5.2, p. 212' },
     pitfall: {
       en: 'Fill the overlap first. The part of A outside B is $n(A) - n(A \\cap B)$, not $n(A)$.',
       ru: 'Сначала заполните пересечение. Часть A вне B равна $n(A) - n(A \\cap B)$, а не $n(A)$.',
@@ -32,7 +26,7 @@ export const terms: Term[] = [
     },
     syllabus: '4.6',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 5.3, p. 218' },
     pitfall: {
       en: 'Mutually exclusive events are not independent when both have non-zero probability: $P(A \\cap B) = 0$ is not equal to $P(A)\\,P(B)$.',
       ru: 'Несовместные события не являются независимыми, если у обоих ненулевая вероятность: $P(A \\cap B) = 0$ не равно $P(A)\\,P(B)$.',
@@ -47,7 +41,7 @@ export const terms: Term[] = [
     },
     syllabus: '4.6',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 5.3, p. 218' },
     pitfall: {
       en: 'The given event B goes in the denominator. $P(A \\mid B)$ and $P(B \\mid A)$ are usually different.',
       ru: 'Заданное событие B стоит в знаменателе. $P(A \\mid B)$ и $P(B \\mid A)$, как правило, различны.',
@@ -62,6 +56,6 @@ export const terms: Term[] = [
     },
     syllabus: '4.6',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 5.3, p. 218' },
   },
 ];
