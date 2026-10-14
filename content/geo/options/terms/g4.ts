@@ -204,4 +204,19 @@ export const terms: Term[] = [
     papers: ['P1'],
     src: SRC,
   },
+  {
+    id: 'g-resilient-city-design',
+    term: { en: 'resilient city design', ru: 'проектирование городов с устойчивостью к рискам (resilient city design)' },
+    def: {
+      en: 'Planning and building a city so that it can withstand escalating climate and geopolitical risks, such as floods, heatwaves and disruption to energy, food or water supplies, and recover from them. Strategies include flood-resistant design, green space for cooling and more than one source for essential supplies.',
+      ru: 'Планирование и строительство города так, чтобы он выдерживал растущие климатические и геополитические риски, например наводнения, волны жары и перебои с поставками энергии, продовольствия или воды, и восстанавливался после них. Стратегии включают устойчивое к наводнениям проектирование, зелёные зоны для охлаждения и несколько источников важнейших поставок.',
+    },
+    syllabus: 'G.4',
+    papers: ['P1'],
+    src: SRC,
+    pitfall: {
+      en: 'Resilience is about withstanding shocks and recovering from them. Cutting the city’s carbon footprint belongs to eco city design, a separate strategy.',
+      ru: 'Устойчивость к рискам — это способность выдерживать потрясения и восстанавливаться после них. Снижение углеродного следа города относится к проектированию эко-городов и является отдельной стратегией.',
+    },
+  },
 ];

@@ -109,8 +109,8 @@ export const terms: Term[] = [
     id: 'g-urban-stress',
     term: { en: 'urban stress', ru: 'городской стресс (urban stress)' },
     def: {
-      en: 'The combined pressure on a city and its people from environmental and social problems, such as heat, pollution, flooding, poverty and inequality, which lowers quality of life.',
-      ru: 'Совокупная нагрузка на город и его жителей от экологических и социальных проблем (жара, загрязнение, наводнения, бедность, неравенство), которая снижает качество жизни.',
+      en: 'The combined pressure on a city and its people from environmental and social problems, such as heat, pollution, flooding, poverty, inequality and the loss of green space when land is redeveloped, which lowers quality of life.',
+      ru: 'Совокупная нагрузка на город и его жителей от экологических и социальных проблем (жара, загрязнение, наводнения, бедность, неравенство и потеря зелёных зон при перестройке территорий), которая снижает качество жизни.',
     },
     syllabus: 'G.3',
     papers: ['P1'],
@@ -211,6 +211,51 @@ export const terms: Term[] = [
     example: {
       en: 'Early-warning systems, upgraded drainage and community support networks all increase resilience.',
       ru: 'Системы раннего предупреждения, модернизированный дренаж и сети взаимопомощи в сообществах повышают устойчивость города.',
+    },
+  },
+  {
+    id: 'g-slum-clearance',
+    term: { en: 'slum clearance', ru: 'снос трущоб (slum clearance)' },
+    def: {
+      en: 'The demolition of informal or substandard housing, usually to free the land for redevelopment, with the residents moved elsewhere. It can improve housing, but it often displaces poorer residents, who lose their homes and their access to work.',
+      ru: 'Снос неформального или некачественного жилья, обычно чтобы освободить землю под перестройку; жителей переселяют. Такие меры могут улучшить жильё, но часто вытесняют более бедных жителей, которые теряют дом и доступ к работе.',
+    },
+    syllabus: 'G.3',
+    papers: ['P1'],
+    src: SRC,
+    pitfall: {
+      en: 'Clearance is contested. The land and buildings may improve, but the people who lived there may not be able to return or afford the new homes.',
+      ru: 'Снос вызывает споры. Территория и здания могут стать лучше, но прежние жители могут не вернуться или не смочь позволить себе новое жильё.',
+    },
+  },
+  {
+    id: 'g-cycle-of-deprivation',
+    term: { en: 'cycle of deprivation', ru: 'цикл депривации (cycle of deprivation)' },
+    def: {
+      en: 'A self-reinforcing pattern in which low income, poor housing, weak education, unemployment and poor health pass from one generation to the next, so that each problem makes the others harder to escape.',
+      ru: 'Самоподдерживающаяся схема, при которой низкий доход, плохое жильё, слабое образование, безработица и плохое здоровье передаются из поколения в поколение, и каждая проблема мешает справиться с остальными.',
+    },
+    syllabus: 'G.3',
+    papers: ['P1'],
+    src: SRC,
+    pitfall: {
+      en: 'The cycle links several factors. Name the links, for example how weak schooling limits later work, rather than listing the problems.',
+      ru: 'Цикл связывает несколько факторов. Называйте связи между ними, например как слабое образование ограничивает будущую работу, а не просто перечисляйте проблемы.',
+    },
+  },
+  {
+    id: 'g-crime-and-place',
+    term: { en: 'crime and place', ru: 'география преступности (crime and place)' },
+    def: {
+      en: 'The study of where crime happens and why. It looks at how the design of places, land use and the social make-up of neighbourhoods shape patterns of crime, which are often concentrated in particular streets or districts.',
+      ru: 'Изучение того, где и почему происходят преступления. Оно показывает, как устройство мест, землепользование и социальный состав районов формируют картину преступности; преступления часто сосредоточены на отдельных улицах или в отдельных районах.',
+    },
+    syllabus: 'G.3',
+    papers: ['P1'],
+    src: SRC,
+    pitfall: {
+      en: 'A high crime count in a district does not show that its residents are to blame. Poverty, design and where crime is recorded all shape the pattern.',
+      ru: 'Высокое число преступлений в районе не означает, что его жители виноваты. На картину влияют бедность, планировка и то, где фиксируются преступления.',
     },
   },
 ];
