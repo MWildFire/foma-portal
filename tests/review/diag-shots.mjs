@@ -6,11 +6,13 @@
 // External requests are aborted: the harness talks only to the local preview.
 //
 // Usage:  BASE_URL=http://127.0.0.1:4181 OUT=/tmp/foma-diag-geo node tests/review/diag-shots.mjs geo [math ...]
-// Env:    BASE_URL  local preview origin; start it first: npx vite preview --host 127.0.0.1 --port <port> --strictPort
+// Env:    BASE_URL  local preview of THIS worktree's build, on 127.0.0.1 only; start it first:
+//                   npm run build && node node_modules/vite/bin/vite.js preview --host 127.0.0.1 --port <port> --strictPort
 //         OUT       output folder (default /tmp/foma-diag)
 //         TOPICS    optional comma list of topic ids (smoke runs)
 //         LANGS     comma list, default en,ru
 //         WIDTHS    comma list of viewport widths in px, default 1280,390
+//         SCALE     device scale factor, default 1 (use 2 for a zoomed re-shot of a few topics)
 import { existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -19,8 +21,22 @@ import { chromium } from 'playwright';
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
 const BASE_URL = (process.env.BASE_URL ?? 'http://127.0.0.1:4173').replace(/\/+$/, '');
 const BASE = new URL(BASE_URL);
-if (!['127.0.0.1', 'localhost'].includes(BASE.hostname)) {
-  throw new Error(`BASE_URL must be a local preview, got ${BASE.hostname}`);
+// Only 127.0.0.1: on this Mac "localhost" resolves to [::1], where a stale preview of another build can answer.
+if (BASE.hostname !== '127.0.0.1') {
+  throw new Error(`BASE_URL must be http://127.0.0.1:<port>, got ${BASE.hostname}`);
+}
+const SCALE = Number(process.env.SCALE ?? 1);
+
+// The preview must serve this worktree's build: the entry script of "/" must match dist/index.html.
+const entryOf = (html) => html.match(/<script type="module"[^>]*src="([^"]+)"/)?.[1] ?? null;
+const DIST_INDEX = path.join(ROOT, 'dist', 'index.html');
+if (!existsSync(DIST_INDEX)) throw new Error('no dist/index.html: run npm run build first');
+const LOCAL_ENTRY = entryOf(readFileSync(DIST_INDEX, 'utf8'));
+const SERVED = await fetch(`${BASE_URL}/`).then((response) => response.text()).catch((error) => {
+  throw new Error(`nothing answers on ${BASE_URL} (${error?.message ?? error}): start the preview first`);
+});
+if (!LOCAL_ENTRY || entryOf(SERVED) !== LOCAL_ENTRY) {
+  throw new Error(`${BASE_URL} does not serve this worktree's build (dist entry ${LOCAL_ENTRY}, served ${entryOf(SERVED)}): use your own port and rebuild`);
 }
 const OUT = process.env.OUT ?? '/tmp/foma-diag';
 const SUBJECTS = process.argv.slice(2);
@@ -102,7 +118,7 @@ try {
   if (!/[redacted]/i.test(title)) throw new Error(`${BASE_URL} serves "${title}", not the [redacted] portal: use another port`);
   for (const width of WIDTHS) {
     for (const lang of LANGS) {
-      const context = await browser.newContext({ viewport: { width, height: 1000 }, deviceScaleFactor: 2 });
+      const context = await browser.newContext({ viewport: { width, height: 1000 }, deviceScaleFactor: SCALE });
       await context.addInitScript((code) => {
         try {
           window.localStorage.setItem('foma-lang', code);
