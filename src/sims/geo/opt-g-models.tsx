@@ -278,8 +278,8 @@ export default function OptGModels(p: { lang: Lang }) {
         <p style={{ margin: '6px 0' }}>{t(scene.note)}</p>
         <p style={{ margin: '6px 0', fontStyle: 'italic' }}>
           {ru
-            ? 'Иллюстративная модель: упрощённая схема, а не карта реального города.'
-            : 'Illustrative model: a simplified diagram, not a map of any real city.'}
+            ? 'Иллюстративная модель: упрощённая учебная схема классической модели (Берджесс, 1925; Хойт, 1939; Харрис и Ульман, 1945; Гриффин и Форд, 1980), а не карта реального города и не копия рисунка из публикации.'
+            : 'Illustrative model: a simplified teaching diagram of a classic model (Burgess, 1925; Hoyt, 1939; Harris and Ullman, 1945; Griffin and Ford, 1980), not a map of any real city and not a copy of a published figure.'}
         </p>
       </figcaption>
     </figure>

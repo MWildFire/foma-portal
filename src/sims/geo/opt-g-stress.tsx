@@ -44,8 +44,8 @@ export default function OptGStressSim({ lang }: { lang: Lang }) {
       </p>
       <p style={{ margin: '0 0 12px', fontSize: 13, lineHeight: 1.5 }}>
         {ru
-          ? 'Значения задаёте вы (0–100): это не данные о городе. Высокий балл означает большую нагрузку; для доступа высокий балл означает меньше нагрузки, поэтому нагрузка = 100 минус балл. Веса нормируются: доля каждого показателя = его вес ÷ сумма весов. Веса — это субъективная оценка, а не измеренные значения.'
-          : 'You set the values (0–100); they are not data about a city. A high score means more stress; for access a high score means less stress, so stress = 100 minus the score. Weights are normalised: each share = its weight ÷ the sum of weights. The weights are a judgement, not measured values.'}
+          ? 'Значения задаёте вы (0–100): это не данные о городе. Высокий балл означает большую нагрузку; для доступа высокий балл означает меньше нагрузки, поэтому нагрузка = 100 минус балл. Веса нормируются: доля каждого показателя = его вес ÷ сумма весов. Веса — субъективные учебные допущения, а не измеренные значения; их задаёт пользователь.'
+          : 'You set the values (0–100); they are not data about a city. A high score means more stress; for access a high score means less stress, so stress = 100 minus the score. Weights are normalised: each share = its weight ÷ the sum of weights. The weights are subjective teaching assumptions, not measured values; the user sets them.'}
       </p>
 
       <div>

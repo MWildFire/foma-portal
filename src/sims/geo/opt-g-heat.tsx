@@ -104,8 +104,8 @@ export default function OptGHeatSim({ lang }: { lang: Lang }) {
 
       <p style={{ margin: '10px 0 0', fontSize: 13, lineHeight: 1.5 }}>
         {ru
-          ? 'Допущения: пригород фиксирован (застройка 10%, растительность 60%, альбедо 25%). Тепловой член = застройка × (1 − растительность) × (1 − альбедо). Разность температур = 10 °C × (тепловой член − тепловой член пригорода) × 1 / (1 + ветер / 4). График показывает разность относительно пригорода по профилю. Масштаб 10 °C и ветровой множитель 1 / (1 + ветер / 4) — условные значения, не откалиброванные по измерениям.'
-          : 'Assumptions: the suburb is fixed (density 10%, vegetation 60%, albedo 25%). Heat term = density × (1 − vegetation) × (1 − albedo). Temperature difference = 10 °C × (heat term − suburb heat term) × 1 / (1 + wind / 4). The chart shows the difference from the suburbs along the transect. The 10 °C scale and the wind factor 1 / (1 + wind / 4) are illustrative values, not calibrated to measurements.'}
+          ? 'Допущения: пригород фиксирован (застройка 10%, растительность 60%, альбедо 25%). Тепловой член = застройка × (1 − растительность) × (1 − альбедо). Разность температур = 10 °C × (тепловой член − тепловой член пригорода) × 1 / (1 + ветер / 4). График показывает разность относительно пригорода по профилю. Масштаб 10 °C и ветровой множитель 1 / (1 + ветер / 4) — неоткалиброванные учебные константы, не подобранные по измерениям.'
+          : 'Assumptions: the suburb is fixed (density 10%, vegetation 60%, albedo 25%). Heat term = density × (1 − vegetation) × (1 − albedo). Temperature difference = 10 °C × (heat term − suburb heat term) × 1 / (1 + wind / 4). The chart shows the difference from the suburbs along the transect. The 10 °C scale and the wind factor 1 / (1 + wind / 4) are uncalibrated teaching constants, not fitted to measurements.'}
       </p>
     </div>
   );
