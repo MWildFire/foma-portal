@@ -2,6 +2,7 @@ import type { Term } from '../../../../src/contract/types';
 
 // Option G, G.1: definitions in our own words, aligned with the key elements of the programme (guide 2017).
 // Locators point to the ThinkIB eBook section of this unit (section level; page locators come from the S1 map).
+// Urbanisation carries syllabus G.2: the guide lists urbanization and natural increase under Changing urban systems.
 const SRC = { kind: 'thinkib' as const, title: 'Option G: Urban Environments (pages 37517, 37523, 37524)', locator: 'The Variety of Urban Environments; The Characteristics of Urban Places; Economic Activity in Urban Places; guide p. 40' };
 const SIM = 'geo.opt-g-models' as const;
 
@@ -32,7 +33,7 @@ export const terms: Term[] = [
       en: 'The rise in the proportion of a population that lives in towns and cities, through rural-urban migration and natural increase within urban areas.',
       ru: 'Рост доли населения, которое живёт в городах и городских поселениях. Он происходит из-за миграции из сельской местности в города и естественного прироста внутри городов.',
     },
-    syllabus: 'G.1',
+    syllabus: 'G.2',
     papers: ['P1'],
     src: SRC,
     pitfall: {

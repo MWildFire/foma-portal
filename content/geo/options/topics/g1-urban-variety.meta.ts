@@ -49,6 +49,8 @@ const topic: TopicMeta = {
     'g-urban-hierarchy',
     'g-rural-urban-fringe',
     'g-zone-in-transition',
+    'g-bid-rent-theory',
+    'g-bid-rent-curve',
   ],
   sims: ['geo.opt-g-models'],
   questionIds: ['g1-sq1', 'g1-sq2', 'g1-sq3', 'g1-eq1', 'g1-eq2'],

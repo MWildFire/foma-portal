@@ -141,8 +141,8 @@ export const terms: Term[] = [
     id: 'g-deindustrialisation',
     term: { en: 'deindustrialisation', ru: 'деиндустриализация (deindustrialisation)' },
     def: {
-      en: 'The decline of manufacturing as a share of a country\'s or city\'s economy, usually through factory closures and job losses, while service jobs grow.',
-      ru: 'Снижение роли обрабатывающей промышленности в экономике страны или города: закрытие заводов и потеря рабочих мест при росте сферы услуг.',
+      en: 'The decline of manufacturing as a share of a country\'s or city\'s economy, usually through factory closures and job losses, while service jobs grow. Causes include competition from lower-cost producers, the relocation of factories to cheaper sites, automation and a shift in demand towards services.',
+      ru: 'Снижение роли обрабатывающей промышленности в экономике страны или города: закрытие заводов и потеря рабочих мест при росте сферы услуг. Причины: конкуренция производителей с более низкими издержками, перенос заводов в более дешёвые места, автоматизация и сдвиг спроса в сторону услуг.',
     },
     syllabus: 'G.2',
     papers: ['P1'],
@@ -187,6 +187,32 @@ export const terms: Term[] = [
     def: {
       en: 'A factor at the destination that attracts people, such as jobs, higher wages, better services, education, housing or safety.',
       ru: 'Фактор в месте назначения, который привлекает людей: рабочие места, более высокие зарплаты, лучшие услуги, образование, жильё или безопасность.',
+    },
+    syllabus: 'G.2',
+    papers: ['P1'],
+    src: SRC,
+  },
+  {
+    id: 'g-centripetal-movement',
+    term: { en: 'centripetal population movement', ru: 'центростремительное движение населения (centripetal population movement)' },
+    def: {
+      en: 'The movement of people towards the centre of a city or urban area. In industrialising cities it is mainly rural–urban migration; in post-industrial cities it can mean a return to inner-city areas, linked to gentrification. Compare with centrifugal movement.',
+      ru: 'Движение людей к центру города или городской территории. В индустриализирующихся городах это в основном миграция из села в город; в постиндустриальных городах это может быть возвращение во внутренние районы, связанное с джентрификацией. Сравните с центробежным движением.',
+    },
+    syllabus: 'G.2',
+    papers: ['P1'],
+    src: SRC,
+    pitfall: {
+      en: 'Centripetal and centrifugal describe the direction of movement inside the urban area. They do not describe the share of people living in towns, which is urbanisation.',
+      ru: 'Центростремительное и центробежное описывают направление движения внутри городской территории. Они не описывают долю людей, живущих в городах, — это урбанизация.',
+    },
+  },
+  {
+    id: 'g-infrastructure',
+    term: { en: 'infrastructure', ru: 'инфраструктура (infrastructure)' },
+    def: {
+      en: 'The basic networks and services a city needs in order to work, such as transport, sanitation, water supply, waste disposal and communications. Improving infrastructure over time is one way an urban system grows.',
+      ru: 'Базовые сети и службы, без которых город не может работать: транспорт, канализация, водоснабжение, вывоз отходов и связь. Улучшение инфраструктуры со временем — один из способов роста городской системы.',
     },
     syllabus: 'G.2',
     papers: ['P1'],
