@@ -7,7 +7,8 @@
 // blocked on purpose; the harness talks only to the local preview.
 //
 // Usage:  node tests/review/ux-eng.mjs
-// Env:    BASE_URL      preview origin (default http://127.0.0.1:4173); vite preview is started if nothing answers
+// Env:    BASE_URL      preview origin, 127.0.0.1 only (default http://127.0.0.1:4173); vite preview is started if
+//                       nothing answers there. If another server answers, it must serve this worktree's build
 //         UX_OUT        folder for ux-eng.json and screenshots (default: a folder under the OS temp directory)
 //         AXE_PATH      path to axe.min.js (default: axe-core from node_modules, when it resolves)
 //         UX_BUDGET_MS  wall-clock budget; routes not reached in time are reported as skipped (default 14 min)
@@ -22,8 +23,9 @@ import { chromium } from 'playwright';
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
 const BASE_URL = (process.env.BASE_URL ?? 'http://127.0.0.1:4173').replace(/\/+$/, '');
 const BASE = new URL(BASE_URL);
-if (!['127.0.0.1', 'localhost'].includes(BASE.hostname)) {
-  throw new Error(`BASE_URL must be a local preview, got ${BASE.hostname}`);
+// Only 127.0.0.1: on this Mac "localhost" resolves to [::1], where a stale preview of another build can answer.
+if (BASE.hostname !== '127.0.0.1') {
+  throw new Error(`BASE_URL must be http://127.0.0.1:<port>, got ${BASE.hostname}`);
 }
 const OUT = process.env.UX_OUT ?? path.join(tmpdir(), 'foma-ux-eng');
 const SHOTS = path.join(OUT, 'shots');
@@ -60,23 +62,38 @@ function resolveAxe() {
 }
 const AXE = resolveAxe();
 
-async function responds(url) {
+// The HTML that a server on the preview origin serves at "/", or null when nothing answers there.
+async function servedHtml(url) {
   try {
-    return (await fetch(url)).ok;
+    const response = await fetch(url);
+    return response.ok ? await response.text() : null;
   } catch {
-    return false;
+    return null;
   }
 }
 
+// A server already on the port must serve this worktree's build: its entry script must match dist/index.html
+// (the same test as diag-shots.mjs). A stale preview of another build fails here, with a clear message.
+const entryOf = (html) => html.match(/<script type="module"[^>]*src="([^"]+)"/)?.[1] ?? null;
+
 async function ensurePreview() {
-  if (await responds(BASE_URL)) return null;
+  const indexFile = path.join(ROOT, 'dist', 'index.html');
+  if (!existsSync(indexFile)) throw new Error('no dist/index.html: run npm run build first');
+  const local = entryOf(readFileSync(indexFile, 'utf8'));
+  const served = await servedHtml(`${BASE_URL}/`);
+  if (served !== null) {
+    if (!local || entryOf(served) !== local) {
+      throw new Error(`${BASE_URL} does not serve this worktree's build (dist entry ${local}, served ${entryOf(served)}): use another port`);
+    }
+    return null;
+  }
   const vite = path.join(ROOT, 'node_modules', 'vite', 'bin', 'vite.js');
   const child = spawn(process.execPath, [vite, 'preview', '--host', BASE.hostname, '--port', BASE.port || '4173', '--strictPort'], {
     cwd: ROOT,
     stdio: 'ignore',
   });
   for (let i = 0; i < 60; i += 1) {
-    if (await responds(BASE_URL)) return child;
+    if ((await servedHtml(`${BASE_URL}/`)) !== null) return child;
     await sleep(500);
   }
   child.kill();

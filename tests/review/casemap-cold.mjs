@@ -34,10 +34,11 @@ function siteLogin() {
   }
   throw new Error(`no login "${user}" in the credentials file`);
 }
-// The same storage as day1.mjs: [redacted]'s extra time is on, so the topic is opened the way [redacted] opens it.
+// The same storage as day1.mjs: [redacted] has no extra time (typing is his only access arrangement), so the topic is opened
+// the way [redacted] opens it. Schema 3: a version 2 save would have its extra time switched off on load.
 const STATE = JSON.stringify({
-  version: 2, topics: {}, terms: {}, questions: {}, blocks: {},
-  settings: { accessArrangements: { extraTime: true, separateRoom: false }, dailyLoadMinutes: {} },
+  version: 3, topics: {}, terms: {}, questions: {}, blocks: {},
+  settings: { accessArrangements: { extraTime: false, separateRoom: false }, dailyLoadMinutes: {} },
 });
 const NOISE = /ERR_FAILED|ERR_ABORTED|net::|Failed to load resource/;
 
