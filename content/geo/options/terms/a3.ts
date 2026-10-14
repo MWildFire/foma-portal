@@ -3,7 +3,7 @@ import type { Term } from '../../../../src/contract/types';
 // Option A, A.3: definitions in our own words, aligned with the key elements of the programme (guide 2017).
 // Examples carry a figure only when it was checked: WHO fact sheets (2022, 2023) and the WHO 4th edition with addenda,
 // SAnews (24 January 2018), Ohio EPA presentation (27 April 2016), NERC Open Research Archive (BGS and DPHE, 2001).
-const SRC = { kind: 'thinkib' as const, title: 'Option A: Water Scarcity and Water Quality (page 44021)', locator: 'Water Scarcity; Conflicts and Resolutions in the Mekong River Basin; Environmental Consequences of Agriculture' };
+const SRC = { kind: 'thinkib' as const, title: 'Option A: Water Scarcity and Water Quality (page 44021)', locator: 'Water Scarcity; Conflicts and Resolutions in the Mekong River Basin; Environmental Consequences of Agriculture; guide p. 29' };
 
 export const terms: Term[] = [
   {
@@ -11,7 +11,7 @@ export const terms: Term[] = [
     term: { en: 'water scarcity', ru: 'дефицит воды (water scarcity)' },
     def: {
       en: 'A shortage of freshwater for the needs of people, farming and industry. It can be physical (too little water) or economic (the water exists, but people cannot afford it or reach it).',
-      ru: 'Нехватка пресной воды для нужд людей, сельского хозяйства и промышленности. Он бывает физическим (воды мало) или экономическим (вода есть, но люди не могут её себе позволить или до неё добраться).',
+      ru: 'Нехватка пресной воды для нужд людей, сельского хозяйства и промышленности. Она бывает физической (воды мало) или экономической (вода есть, но люди не могут её себе позволить или до неё добраться).',
     },
     syllabus: 'A.3',
     papers: ['P1'],
@@ -62,8 +62,8 @@ export const terms: Term[] = [
     papers: ['P1'],
     src: SRC,
     pitfall: {
-      en: 'The 1,700 figure is widely quoted, but the 1989 paper usually cited for it does not make that claim (Damkjær and Taylor, 2017). Use the thresholds as a guide, not as a law.',
-      ru: 'Цифру 1 700 часто приводят, но статья 1989 года, которую обычно цитируют, этого порога не утверждает (Damkjær and Taylor, 2017). Пороги — это ориентир, а не закон.',
+      en: 'The 1,700 figure is widely quoted. Check the original source before you quote it, and use the thresholds as a guide, not as a law.',
+      ru: 'Цифру 1 700 часто приводят. Прежде чем её цитировать, проверьте первоисточник. Пороги — это ориентир, а не закон.',
     },
   },
   {
@@ -242,8 +242,8 @@ export const terms: Term[] = [
     papers: ['P1'],
     src: SRC,
     example: {
-      en: 'WHO provisional guideline value for microcystins in drinking water: 1 µg/L (WHO, 4th edition with addenda, 2022).',
-      ru: 'Предварительный норматив ВОЗ для микроцистинов в питьевой воде: 1 мкг/л (ВОЗ, 4-е издание с дополнениями, 2022).',
+      en: 'WHO provisional guideline value for microcystin-LR in drinking water: 1 µg/L (WHO, 4th edition with addenda, 2022).',
+      ru: 'Предварительный норматив ВОЗ для микроцистина-LR в питьевой воде: 1 мкг/л (ВОЗ, 4-е издание с дополнениями, 2022).',
     },
   },
   {
