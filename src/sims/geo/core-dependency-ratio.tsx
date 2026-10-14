@@ -50,7 +50,7 @@ export default function DependencyRatio({ lang }: { lang: Lang }) {
         <rect x={(young / 100) * 360} y={14} width={(working / 100) * 360} height={30} fill="#9aa5ad" />
         <rect x={((young + working) / 100) * 360} y={14} width={(old / 100) * 360} height={30} fill="#b4604a" />
         <text x={(young / 200) * 360} y={36} textAnchor="middle" fontSize="12" fill="#ffffff">0–14</text>
-        <text x={((young + working / 2) / 100) * 360} y={36} textAnchor="middle" fontSize="12" fill="#ffffff">{ru ? '15–64 (работающие)' : '15–64 (working)'}</text>
+        <text x={((young + working / 2) / 100) * 360} y={36} textAnchor="middle" fontSize="12" fill="#ffffff">{ru ? '15–64 (трудоспособный возраст)' : '15–64 (working age)'}</text>
         <text x={((young + working + old / 2) / 100) * 360} y={36} textAnchor="middle" fontSize="12" fill="#ffffff">65+</text>
       </svg>
       <ul style={{ marginTop: 12, paddingLeft: 18 }}>

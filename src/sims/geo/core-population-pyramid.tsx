@@ -5,7 +5,7 @@ import { BANDS, CENTRE, GAP, MAX_BAR, barLength, bandForRow, femaleBarX, maleBar
 const STAGES: { en: string; ru: string; note: { en: string; ru: string } }[] = [
   {
     en: '1 High stationary',
-    ru: '1. Высокая стационарность',
+    ru: '1. Высокий стационар',
     note: {
       en: 'Birth and death rates are both high, so the population grows slowly. Few people live to old age: the pyramid is a triangle with a narrow top.',
       ru: 'Рождаемость и смертность высокие, поэтому население растёт медленно. До старости доживают немногие: пирамида — треугольник с узкой вершиной.',
@@ -13,7 +13,7 @@ const STAGES: { en: string; ru: string; note: { en: string; ru: string } }[] = [
   },
   {
     en: '2 Early expanding',
-    ru: '2. Раннее расширение',
+    ru: '2. Ранний рост',
     note: {
       en: 'The death rate falls quickly (better food, water and health care) while the birth rate stays high. The base is very wide: the number of children keeps growing.',
       ru: 'Смертность быстро падает (лучше питание, вода и медицина), а рождаемость остаётся высокой. Основание очень широкое: детей становится всё больше.',
@@ -21,7 +21,7 @@ const STAGES: { en: string; ru: string; note: { en: string; ru: string } }[] = [
   },
   {
     en: '3 Late expanding',
-    ru: '3. Позднее расширение',
+    ru: '3. Поздний рост',
     note: {
       en: 'The birth rate falls, so the base narrows, but the groups of young adults are large. Growth continues, though more slowly.',
       ru: 'Рождаемость падает, основание сужается, но группы молодых взрослых многочисленны. Рост продолжается, но медленнее.',
@@ -29,7 +29,7 @@ const STAGES: { en: string; ru: string; note: { en: string; ru: string } }[] = [
   },
   {
     en: '4 Low stationary',
-    ru: '4. Низкая стационарность',
+    ru: '4. Низкий стационар',
     note: {
       en: 'Birth and death rates are both low and the population is almost stable. The middle and older bands are wider than the base.',
       ru: 'Рождаемость и смертность низкие, население почти стабильно. Средние и старшие группы шире основания.',
@@ -117,8 +117,8 @@ export default function PopulationPyramid({ lang }: { lang: Lang }) {
       <p style={{ marginTop: 12 }}>{STAGES[stage].note[lang]}</p>
       <p style={{ fontSize: 13, opacity: 0.8 }}>
         {ru
-          ? 'Формы условные: это не данные конкретной страны. Для реальных стран смотрите UN World Population Prospects 2024.'
-          : 'The shapes are illustrative, not data for one country. For real countries, see UN World Population Prospects 2024.'}
+          ? 'Формы условные: это не данные конкретной страны. Группы по 10 лет (в реальных таблицах обычно по 5), мужчины и женщины в каждой группе равны — это упрощение. Для реальных стран смотрите UN World Population Prospects 2024.'
+          : 'The shapes are illustrative, not data for one country. Bands are 10 years wide (real tables usually use 5), and men and women are equal in each band: a simplification. For real countries, see UN World Population Prospects 2024.'}
       </p>
     </div>
   );

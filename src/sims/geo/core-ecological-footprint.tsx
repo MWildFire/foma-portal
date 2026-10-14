@@ -118,8 +118,8 @@ export default function EcologicalFootprint({ lang }: { lang: Lang }) {
   const worldCarbonPct = Math.round(worldCarbonShare * 100);
 
   const intro = t(
-    "The ecological footprint is the land and sea area, in global hectares (gha), that a country's production needs: crops, grazing, timber, fish, built-up land and the forest needed to absorb CO₂ from fossil fuels and cement. Biocapacity is the productive land and sea the country has. Data year 2023, from the 2026 edition of the National Footprint and Biocapacity Accounts.",
-    'Экологический след — площадь суши и моря в глобальных гектарах (gha), которую требует производство страны: посевы, пастбища, древесина, рыба, застроенные территории и лес для поглощения CO₂ от сжигания топлива и производства цемента. Биоёмкость — продуктивные суша и море, которые есть в стране. Год данных — 2023, издание 2026 года.',
+    "The footprint of production is the land and sea area, in global hectares (gha), that a country's production needs: crops, grazing, timber, fish, built-up land and the forest needed to absorb CO₂ from fossil fuels and cement. The footprint of consumption counts the same land for what a country uses, including imports and exports; this chart uses production. Biocapacity is the productive land and sea the country has. Data year 2023, from the 2026 edition of the National Footprint and Biocapacity Accounts.",
+    'След производства — площадь суши и моря в глобальных гектарах (gha), которую требует производство страны: посевы, пастбища, древесина, рыба, застроенные территории и лес для поглощения CO₂ от сжигания топлива и производства цемента. След потребления считает ту же площадь для того, что страна потребляет, с учётом импорта и экспорта; на этой диаграмме — след производства. Биоёмкость — продуктивные суша и море, которые есть в стране. Год данных — 2023, издание 2026 года.',
   );
 
   const worldTotalNote = t(
@@ -212,7 +212,9 @@ export default function EcologicalFootprint({ lang }: { lang: Lang }) {
           {t('Biocapacity', 'Биоёмкость')}
         </span>
       </div>
-      <svg role="img" aria-label={`${title}: ${modeName}, ${unitName}`} viewBox={`0 0 ${W} ${H}`} width="100%" style={{ maxWidth: W, display: 'block' }}>
+      {/* on a phone the chart scrolls sideways instead of shrinking its labels below readable size */}
+      <div style={{ overflowX: 'auto' }}>
+      <svg role="img" aria-label={`${title}: ${modeName}, ${unitName}`} viewBox={`0 0 ${W} ${H}`} width="100%" style={{ maxWidth: W, minWidth: 560, display: 'block' }}>
         {ticks.map(v => (
           <g key={`tick-${v}`}>
             <line x1={LEFT} x2={W - 4} y1={BASE - v * scale} y2={BASE - v * scale} stroke={v === 0 ? '#6b7280' : '#d1d5db'} strokeWidth={v === 0 ? 1.2 : 1} />
@@ -238,6 +240,7 @@ export default function EcologicalFootprint({ lang }: { lang: Lang }) {
           );
         })}
       </svg>
+      </div>
       {!perPerson && <p style={{ fontSize: 13, marginTop: 6 }}>{worldTotalNote}</p>}
 
       <p style={{ marginTop: 12 }}>
