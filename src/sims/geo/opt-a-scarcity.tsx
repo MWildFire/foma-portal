@@ -6,7 +6,7 @@ import type { Lang } from '../../contract/types';
 // This simplifies to resources × 1 000 ÷ population, since 10^9 ÷ 10^6 = 10^3.
 // Thresholds: UN-Water (2017), Policy Brief: Water Quality, p. 5, after Falkenmark and Lindh (1976). A rule of thumb.
 // https://www.unwater.org/sites/default/files/app/uploads/2017/05/waterquality_policybrief.pdf
-// Physical and economic tests: Comprehensive Assessment of Water Management in Agriculture (2007), map "Areas of Physical and Economic Water Scarcity" (as described on the FAO portal). The 75% cut-off is a teaching threshold; its exact wording and page were not checked against the book.
+// Physical and economic tests: Comprehensive Assessment of Water Management in Agriculture (2007), map "Areas of Physical and Economic Water Scarcity" (as described on the FAO portal). The 75% cut-off is a teaching threshold; its exact wording and page were not checked against the source.
 // Farming share of withdrawals: FAO SDG Data Portal, indicator 6.4.2 page, 2023 data. The page says agriculture took 72 percent of total withdrawals in 2023, industry 15 percent and services 13 percent; the third share is labelled 'services'.
 // https://www.fao.org/sustainable-development-goals-data-portal/data/indicators/642-water-stress/en
 
