@@ -1,10 +1,12 @@
 import type { L } from '../../contract/types';
 import { setAllowanceMinutes } from '../../components/practice/timing.ts';
 import type { ExamPaper, ExamsFile } from '../../planner/types.ts';
+import { frenchKeysMatch } from './accents.ts';
 
 // Pure logic for the reading practice (Paper 2). The component reads the passages and items at build time and passes
 // them in, so scripts/fr-reading-logic.test.mjs can check this file with node:test.
-// French answers keep their accents; capitals, apostrophe variants or final punctuation do not count. English short answers
+// French answers: accents may be left out when they do not change the word (accents.ts); capitals, apostrophe variants or
+// final punctuation do not count. English short answers
 // pass when every key word of the answer is in the student's words (any order, common endings; see sameWord).
 
 // What the logic reads from a passage (content/fr/reading/*.ts) and from an item (content/fr/questions/reading-*.ts).
@@ -85,8 +87,8 @@ export function normaliseFrench(text: string): string {
     .trim();
 }
 
-// A French answer keeps its accents ("mer" is not "mère", "ou" is not "où"); capitals, apostrophe variants and
-// punctuation do not count.
+// A French key keeps its accents; capitals, apostrophe variants and punctuation do not count. frenchMatches decides
+// when the accents may be left out (accents.ts).
 function frenchKey(text: string): string {
   return text
     .normalize('NFC')
@@ -137,7 +139,7 @@ export function frenchMatches(expected: string, typed: string): boolean {
   const wanted = frenchKey(expected);
   if (wanted === '') return false;
   const given = frenchKey(typed);
-  return given === wanted || (!wanted.includes("'") && given.replace(ELISION, '') === wanted);
+  return frenchKeysMatch(wanted, given) || (!wanted.includes("'") && frenchKeysMatch(wanted, given.replace(ELISION, '')));
 }
 
 // Every key word of the expected phrase must be in the typed answer. The order does not matter and extra words are fine.

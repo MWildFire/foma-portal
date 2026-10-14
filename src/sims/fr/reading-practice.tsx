@@ -46,7 +46,7 @@ const shortCode = (passage: PassageLike): string => passage.id.slice(0, 2).toUpp
 const COPY = {
   en: {
     title: 'Reading practice (Paper 2)',
-    intro: 'Read the text, then answer its ten items. The paragraphs are lettered A to E. French answers must keep their accents; capitals do not count. For vrai or faux the trainer checks only the label: write the quote on paper and compare it with the markscheme. Check when you are ready; the markscheme follows.',
+    intro: 'Read the text, then answer its ten items. The paragraphs are lettered A to E. A French answer may leave out its accents when they do not change the word (ecole for école); ou and où are different words, so they keep theirs. Capitals do not count. For vrai or faux the trainer checks only the label: write the quote on paper and compare it with the markscheme. Check when you are ready; the markscheme follows.',
     practice: 'Practice: one text',
     timed: (minutes: number, printed: number, extra: boolean) => `Timed run: three texts, ${minutes} minutes${extra ? ` (${printed} + extra time)` : ''}`,
     set: 'Set',
@@ -65,7 +65,7 @@ const COPY = {
   },
   ru: {
     title: 'Тренировка чтения (Paper 2)',
-    intro: 'Прочитайте текст, затем ответьте на его десять заданий. Абзацы обозначены буквами от A до E. Французские ответы должны совпадать с текстом, включая акценты; заглавные буквы не важны. Для vrai и faux тренажёр проверяет только метку: цитату запишите на бумаге и сверьте её с критериями оценивания. Проверяйте, когда будете готовы.',
+    intro: 'Прочитайте текст, затем ответьте на его десять заданий. Абзацы обозначены буквами от A до E. Французский ответ можно написать без акцентов, если они не меняют слово (ecole для école); ou и où — разные слова, поэтому их акценты нужны. Заглавные буквы не важны. Для vrai и faux тренажёр проверяет только метку: цитату запишите на бумаге и сверьте её с критериями оценивания. Проверяйте, когда будете готовы.',
     practice: 'Тренировка: один текст',
     timed: (minutes: number, printed: number, extra: boolean) => `На время: три текста, ${minutes} минут${extra ? ` (${printed} + доп. время)` : ''}`,
     set: 'Набор',

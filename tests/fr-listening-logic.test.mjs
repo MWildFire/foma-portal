@@ -81,7 +81,7 @@ test('isCorrect compares letters, true/false words and short answers, and never 
   assert.equal(isCorrect('B', ' b '), true);
   assert.equal(isCorrect('vrai', 'Vrai'), true);
   assert.equal(isCorrect('vrai', 'faux'), false);
-  assert.equal(isCorrect('non mentionné', 'non mentionne'), false);
+  assert.equal(isCorrect('non mentionné', 'non mentionne'), true);
   assert.equal(isCorrect('salle des fêtes', 'Salle des fêtes.'), true);
   assert.equal(isCorrect('deux', ''), false);
   assert.equal(isCorrect('', ''), false);

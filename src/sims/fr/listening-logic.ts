@@ -1,4 +1,5 @@
 import type { FrQuestion, ListeningTrack } from '../../../content/fr/types';
+import { frenchKeysMatch } from './accents.ts';
 
 // Pure logic for the listening player (listening-player.tsx). The real tracks and questions are checked by
 // tests/fr-listening-logic.test.mjs.
@@ -116,9 +117,10 @@ export function normalizeAnswer(text: string): string {
   return withoutLeadingWords(numeralsToWords(plain));
 }
 
+// Accents count unless they do not change the word (accents.ts): "Quebec" is right for "Québec", "ou" is not "où".
 export function isCorrect(answer: string, response: string): boolean {
   const given = normalizeAnswer(response);
-  return given !== '' && given === normalizeAnswer(answer);
+  return given !== '' && frenchKeysMatch(normalizeAnswer(answer), given);
 }
 
 // The text of a turn as the transcript shows it: the "[pause 1.5s]" markers of the audio script are removed.

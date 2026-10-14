@@ -29,7 +29,7 @@ const QUESTIONS: FrQuestion[] = Object.values(
 
 const EN = {
   title: 'Listening practice (Paper 2)',
-  hint: 'Choose a recording. It plays twice, with a pause in between. Answer the questions, then press Vérifier. The transcript appears after the check.',
+  hint: 'Choose a recording. It plays twice, with a pause in between. Answer the questions, then press Vérifier. The transcript appears after the check. A French answer may leave out its accents when they do not change the word (ecole for école); ou and où need theirs.',
   track: 'Recording',
   speed: 'Speed',
   play: 'Play (Écouter)',
@@ -51,7 +51,7 @@ const COPY: Record<Lang, typeof EN> = {
   en: EN,
   ru: {
     title: 'Тренировка аудирования (P2)',
-    hint: 'Выберите запись. Она звучит дважды, между прослушиваниями пауза. Ответьте на вопросы и нажмите «Vérifier». Текст записи появится после проверки.',
+    hint: 'Выберите запись. Она звучит дважды, между прослушиваниями пауза. Ответьте на вопросы и нажмите «Vérifier». Текст записи появится после проверки. Французский ответ можно написать без акцентов, если они не меняют слово (ecole для école); ou и où нужны акценты.',
     track: 'Запись',
     speed: 'Скорость',
     play: 'Слушать (Écouter)',
