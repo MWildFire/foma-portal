@@ -20,7 +20,10 @@ const topic: TopicMeta = {
   termIds: [],
   questionIds: ['reading-strategy-q1', 'reading-strategy-q2'],
   sims: ['fr.reading-practice'],
-  sources: [{ kind: 'own', title: 'Own strategy notes for this portal' }],
+  sources: [
+    { kind: 'ib-guide', title: 'IB Examiner Instructions 2026: Language B', locator: 'Paper 2 – Reading: nature of the paper; applying the markscheme', url: 'https://ibpublishing.ibo.org/exinst/apps/exinst/index.html?chapter=1&doc=EX_instructions_2026_e&part=9' },
+    { kind: 'own', title: 'Own strategy notes for this portal' },
+  ],
 };
 
 export default topic;

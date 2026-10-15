@@ -21,6 +21,7 @@ const topic: TopicMeta = {
   questionIds: ['exam-pattern-q1', 'exam-pattern-q2'],
   sims: ['fr.what-is-asked'],
   sources: [
+    { kind: 'ib-guide', title: 'IB Examiner Instructions 2026: Language B', locator: 'Paper 2 – Reading: nature of the paper; applying the markscheme', url: 'https://ibpublishing.ibo.org/exinst/apps/exinst/index.html?chapter=1&doc=EX_instructions_2026_e&part=9' },
     { kind: 'web', title: 'IB past papers, French B SL, November 2020–2025 (ibdocs.re)', url: 'https://ibdocs.re/past-papers-by-subject/french-b' },
     { kind: 'thinkib', title: 'ThinkIB, French B SL: Assessment overview', locator: 'Paper 1 and Paper 2 formats and durations (SL)' },
     { kind: 'own', title: 'Own analysis of the past papers in pastpapers.ts' },

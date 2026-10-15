@@ -9,6 +9,7 @@
 //     examples use SQL, binary and addresses, so they are not parsed.
 // Usage: node --experimental-strip-types scripts/cs-verify.mjs
 // The question modules are TypeScript, so the strip-types flag is needed (the same flag as scripts/validate-content.ts).
+import { numericAnswer } from './cs-numeric-answers.mjs';
 import { spawnSync } from 'node:child_process';
 import { existsSync, readFileSync, readdirSync, statSync } from 'node:fs';
 import path from 'node:path';
@@ -41,7 +42,7 @@ function pythonBlocks(text) {
 
 // Runs code with python3 (program on stdin, so no temporary files are needed).
 function runPython(code) {
-  const result = spawnSync('python3', ['-'], { input: code, encoding: 'utf8', timeout: TIMEOUT_MS });
+  const result = spawnSync('python3', ['-I', '-'], { input: code, encoding: 'utf8', timeout: TIMEOUT_MS });
   return {
     ok: result.status === 0 && !result.error,
     stdout: result.stdout || '',
@@ -64,6 +65,7 @@ const notes = [];
 let questionCount = 0;
 let answerCount = 0;
 let codeCount = 0;
+let numericCount = 0;
 
 // 1. Questions.
 const questionFiles = walk(subjectRoot, (file) => /\/questions\/[^/]+\.ts$/.test(file));
@@ -75,7 +77,14 @@ for (const file of questionFiles) {
     const source = question.stimulus?.en || question.prompt?.en || '';
     const blocks = pythonBlocks(source);
     if (blocks.length === 0) {
-      if (question.answer !== undefined) notes.push(`${question.id}: has an answer but no python block, so it was not checked`);
+      if (question.answer !== undefined) {
+        try {
+          const actual = numericAnswer(question);
+          numericCount += 1;
+          answerCount += 1;
+          if (normalise(String(question.answer)) !== actual) failures.push(`${question.id}: calculated answer differs. expected "${question.answer}" got "${actual}"`);
+        } catch (error) { failures.push(String(error.message)); }
+      }
       continue;
     }
     codeCount += 1;
@@ -115,7 +124,7 @@ for (const file of bodyFiles) {
 
 // 3. Term examples (Theme B). Each code span in an example is parsed as Python, all spans of one example together.
 const parsesAsPython = (code) => {
-  const parse = (text) => spawnSync('python3', ['-c', 'import ast, sys; ast.parse(sys.stdin.read())'], { input: text, encoding: 'utf8', timeout: TIMEOUT_MS });
+  const parse = (text) => spawnSync('python3', ['-I', '-c', 'import ast, sys; ast.parse(sys.stdin.read())'], { input: text, encoding: 'utf8', timeout: TIMEOUT_MS });
   let result = parse(code);
   if (result.status !== 0 && code.trimEnd().endsWith(':')) result = parse(`${code}\n    pass`);
   return result.status === 0 ? null : (result.stderr || 'timeout').trim().split('\n').pop();
@@ -134,7 +143,7 @@ for (const file of walk(path.join(subjectRoot, 'theme-b'), (name) => /\/terms\/[
   }
 }
 
-console.log(`questions read: ${questionCount} (python blocks run: ${codeCount}, answers checked: ${answerCount})`);
+console.log(`questions read: ${questionCount} (python blocks run: ${codeCount}, answers checked: ${answerCount}, numerical answers without code: ${numericCount})`);
 console.log(`topic bodies: ${bodyFiles.length} files, python blocks run: ${bodyBlocks}`);
 console.log(`term examples: ${termExamples} with code checked`);
 notes.forEach((line) => console.log(`note: ${line}`));
@@ -143,5 +152,5 @@ if (failures.length > 0) {
   failures.forEach((line) => console.log(`  ${line}`));
   process.exitCode = 1;
 } else {
-  console.log('all python examples run and match their answers');
+  console.log('all Python examples and numerical answer checks pass');
 }
