@@ -13,7 +13,7 @@ Logarithms also make <Term id="linearisation"/> possible. Taking logarithms of b
 
 <Callout kind="define">Linearisation: transforming data, usually by taking logarithms, so that a non-linear relationship appears as a straight line.</Callout>
 
-To decide between the two models, compare how straight each transformed graph is. A cloud of points that lies closer to a line, a value of $r$ nearer to 1 and no clear curve in the residuals all point to the better model.
+To decide between the two models, compare how straight each transformed graph is. A cloud of points that lies closer to a line, a value of $|r|$ nearer to 1 and no clear curve in the residuals all point to the better model.
 
 <Callout kind="gdc">In Lists & Spreadsheet, put the data in named columns and fill the logarithm columns you need in the formula cell (the second cell from the top), using one base throughout ($\log$ is base 10, $\ln$ is base $e$). Then use `Menu → Statistics → Stat Calculations → Linear Regression (mx+b)` with the two columns that make the straight line as `X List` and `Y List`; the output shows the gradient as $m$ and the intercept as $b$, and also gives $r$. `Power Regression` and `Exponential Regression` report $r$ for the log-transformed data, so you can compare it with your line.</Callout>
 
@@ -37,13 +37,17 @@ To return to the original model, use the intercept $c$ of the line: with base 10
 
 <Sim id="math.logistic-loglog-lab"/>
 
-The right panel of the lab is a semi-log view. Its vertical axis is $\ln\dfrac{y}{L-y}$, the logarithm of the odds, plotted against $x$. For the logistic model this is a straight line with gradient $k$, but only when $L$ is the right upper limit. Move $L$ and watch the best-fit line and the value of $r$ change. For power data, sketch a log-log graph on paper: the points form a straight line with gradient $b$.
+The left panel shows the logistic curve $y=L/(1+Ce^{-kx})$ on ordinary $x$ and $y$ axes. The right panel is the **logit view**: its horizontal coordinate is $x$ and its vertical coordinate is $\ln(y/(L-y))$, not $\ln y$. Both panels use evenly spaced coordinates; the right panel plots transformed values rather than a logarithmic $y$ axis.
+
+For $0<y<L$, rearranging the logistic model gives $y/(L-y)=e^{kx}/C$, hence $\ln(y/(L-y))=kx-\ln C$. A suitable $L$ makes the transformed data approximately linear: the fitted gradient estimates $k$ and the intercept estimates $-\ln C$. Move $L$ to see how the fit changes. The $C$ and $k$ sliders change the blue model on the left; the fitted line on the right comes from the fixed orange data and the chosen $L$.
+
+Oxford AI HL, ch. 7.4, pp. 325–326 explains semi-log and log-log plots; ch. 7.5, p. 332 gives the logistic model. The logit transformation above is derived from that model. A semi-log plot for exponential data uses $x$ and $\ln y$; a log-log plot for power data uses $\ln x$ and $\ln y$.
 
 ## How it is examined
 
 Command terms include Calculate, Find, Determine, Show that and Comment. Marks are given for taking logarithms correctly (M1), for reading the gradient and the intercept from the line (M1), for returning to $a$ and $b$ to the required accuracy (A1) and for a justified choice of model (R1).
 
-<Callout kind="exam">Name the graph you used, log-log or semi-log, and say why its points are straight. A value of $r$ without that reasoning loses the reasoning mark.</Callout>
+<Callout kind="exam">State both plotted coordinates: log-log, semi-log and logit plots use different transformations. Explain why your chosen model gives a straight line. A value of $r$ without that reasoning loses the reasoning mark.</Callout>
 
 ## Common mistakes
 

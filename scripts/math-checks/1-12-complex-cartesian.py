@@ -28,7 +28,7 @@ LEAST_N = next(n for n in range(1, 50) if abs(P_ROOT) ** n > 1000)
 CHECKS = [
     ('we-1-12-complex-cartesian-1', [QUOTIENT.real, QUOTIENT.imag], '-0.588; 0.647'),
     ('we-1-12-complex-cartesian-2', [NUMERATOR.real, NUMERATOR.imag, DENOMINATOR], '-10; 11; 17'),
-    ('we-1-12-complex-cartesian-3', [MODULUS_Z, ARG_Z], '3.61; 56.3'),
+    ('we-1-12-complex-cartesian-3', [MODULUS_Z, cmath.phase(Z), ARG_Z], '3.61; 0.983; 56.3'),
     ('we-1-12-complex-cartesian-4', [DISC, ROOT.real, ROOT.imag], '-36; 2; 3'),
     ('q-1-12-01', [QUOTIENT.real, QUOTIENT.imag], None),
     ('q-1-12-02', [abs(Z2), math.degrees(cmath.phase(Z2))], None),

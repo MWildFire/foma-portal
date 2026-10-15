@@ -4,6 +4,8 @@ A complex number $z = a + bi$ adds the imaginary unit $i$, defined by $i^{2} = -
 
 ## Explanation
 
+Unless the question specifies degrees, give the principal argument in radians, with $-\pi<\arg z\leq\pi$ (Oxford AI HL, ch. 8.4, p. 357). The argument of zero is undefined.
+
 <Term id="complex-cartesian-form"/> is the form $z = a + bi$, where $\text{Re}\,z = a$ and $\text{Im}\,z = b$. Because $i^{2} = -1$, negative numbers have square roots: $\sqrt{-9} = 3i$. Two complex numbers are equal only when their real parts and their imaginary parts are equal.
 
 Add and subtract by combining real parts and imaginary parts separately. Multiply by expanding the brackets and replacing $i^{2}$ by $-1$. To divide, multiply the top and the bottom by the <Term id="complex-conjugate"/> of the denominator, which makes the denominator real:
@@ -24,7 +26,7 @@ If a quadratic with real coefficients has a negative discriminant, its two roots
 
 <Formula id="complex-quadratic-roots"/>
 
-<Callout kind="gdc">Set Real or Complex to Rectangular in `Home → Settings → Document Settings`, so that results are written as $a + bi$, and enter the imaginary unit ⅈ from the symbol palette (`ctrl` then `catalog`). On a Calculator page, `abs(` gives $|z|$, `angle(` gives $\arg z$ and `conj(` gives the conjugate; for $z = 2 + 3i$, `angle(2+3ⅈ)` gives `56.3` in Degree mode. Check the Angle setting (Degree or Radian) in the same dialog before you read an argument.</Callout>
+<Callout kind="gdc">Set Real or Complex to Rectangular in `Home → Settings → Document Settings`, so that results are written as $a + bi$, and enter the imaginary unit ⅈ from the symbol palette (`ctrl` then `catalog`). On a Calculator page, `abs(` gives $|z|$, `angle(` gives $\arg z$ and `conj(` gives the conjugate; for $z = 2 + 3i$, `angle(2+3ⅈ)` gives approximately `0.983` in Radian mode. Use Radian for this topic; switch to Degree only when the question explicitly asks for degrees.</Callout>
 
 ## Worked example
 
@@ -32,7 +34,7 @@ Let $z = 2 + 3i$ and $w = 1 - 4i$.
 
 <Steps>
 <Step>Quotient: $\dfrac{z}{w} = \dfrac{(2+3i)(1+4i)}{(1-4i)(1+4i)} = \dfrac{-10+11i}{17} = -0.588 + 0.647i$ (to 3 decimal places).</Step>
-<Step>Modulus and argument of $z$: $|z| = \sqrt{2^{2}+3^{2}} = 3.61$ (to 3 significant figures) and $\arg z = 56.3^\circ$ (to 1 decimal place).</Step>
+<Step>Modulus and argument of $z$: $|z| = \sqrt{2^{2}+3^{2}} = 3.61$ (to 3 significant figures) and $\arg z = 0.983$ radians (3 decimal places), equivalent to $56.3^\circ$ (1 decimal place).</Step>
 <Step>Roots of $u^{2} - 4u + 13 = 0$: the discriminant is $-36$, so $u = \dfrac{4 \pm \sqrt{-36}}{2} = 2 \pm 3i$.</Step>
 </Steps>
 
@@ -42,7 +44,7 @@ Let $z = 2 + 3i$ and $w = 1 - 4i$.
 
 <Sim id="math.complex-plane-lab"/>
 
-Move the sliders to change $z = a + bi$. The dashed circle has radius $|z|$, the arc marks $\arg z$, and the orange point is the product $zw$ for the fixed number $w = 1 + i$. Multiplying by $w$ turns $z$ through $45^\circ$ and stretches it by $\sqrt{2}$, so the orange point is always $\sqrt{2}$ times as far from the origin as $z$.
+Move the sliders to change $z = a + bi$. The dashed circle has radius $|z|$, the arc marks $\arg z$, and the orange point is the product $zw$ for the fixed number $w = 1 + i$. Multiplying by $w$ turns $z$ through $\pi/4$ radians ($45^\circ$) and stretches it by $\sqrt{2}$, so the orange point is always $\sqrt{2}$ times as far from the origin as $z$.
 
 ## How it is examined
 
