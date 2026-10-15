@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react';
 import { setAllowanceMinutes } from '../../components/practice/timing';
+import { useLocalProgress } from '../../hooks/useLocalProgress';
 import { EXAMS } from '../../planner/data';
 import type { Lang } from '../../contract/types';
 
-// Printed duration comes from the school schedule; writing gets the time left after planning and checking.
+// Paper 2 timing. The printed length and the sitting with extra time come from data/exams.json (the school's accessMinutes
+// table: 105 becomes 131), not from this file. Planning, checking and the spare minutes are fixed; writing gets the rest.
 const PLAN_MINUTES = 10;
 const CHECK_MINUTES = 10;
 const SPARE_MINUTES = 5;
@@ -37,7 +39,7 @@ const LABELS = {
     reset: 'Reset this stage',
     spare: `Spare: ${SPARE_MINUTES} minutes for a slow start or a longer check.`,
     done: 'Time for this stage is up. Move on to the next one.',
-    total: (total: number) => `Total: ${total} min`,
+    total: (total: number, printed: number) => (total > printed ? `Total: ${total} minutes (${printed} + access time)` : `Total: ${printed} minutes`),
     stage: 'Stage',
   },
   ru: {
@@ -48,7 +50,7 @@ const LABELS = {
     reset: 'Сбросить этап',
     spare: `Запас: ${SPARE_MINUTES} минут на медленный старт или более долгую проверку.`,
     done: 'Время этапа вышло. Переходите к следующему.',
-    total: (total: number) => `Всего: ${total} мин`,
+    total: (total: number, printed: number) => (total > printed ? `Всего: ${total} мин (${printed} + доп. время)` : `Всего: ${printed} мин`),
     stage: 'Этап',
   },
 };
@@ -59,20 +61,22 @@ function clock(seconds: number): string {
   return `${String(minutes).padStart(2, '0')}:${String(rest).padStart(2, '0')}`;
 }
 
-function paperSitting(): { printed: number; total: number } {
+// The printed length of English Paper 2 and the minutes of the sitting, with or without extra time.
+function paperSitting(extraTime: boolean): { printed: number; total: number } {
   const paper = EXAMS.papers.find(exam => exam.subject === 'eng' && exam.paper === 'P2');
   if (!paper) throw new Error('data/exams.json has no English Paper 2');
-  const total = setAllowanceMinutes({ subject: 'eng', set: { paper: paper.paper, minutes: paper.minutes }, exams: EXAMS });
+  const total = setAllowanceMinutes({ subject: 'eng', set: { paper: paper.paper, minutes: paper.minutes }, exams: EXAMS, extraTime });
   return { printed: paper.minutes, total };
 }
 
 export default function P2Timer({ lang }: { lang: Lang }) {
-  const sitting = paperSitting();
+  const [state] = useLocalProgress();
+  const sitting = paperSitting(state.settings.accessArrangements.extraTime);
   // A different sitting length starts a fresh timer.
   return <StageTimer key={sitting.total} lang={lang} printed={sitting.printed} total={sitting.total} />;
 }
 
-function StageTimer({ lang, total }: { lang: Lang; printed: number; total: number }) {
+function StageTimer({ lang, printed, total }: { lang: Lang; printed: number; total: number }) {
   const labels = LABELS[lang];
   const minutes = stageMinutes(total);
   const [index, setIndex] = useState(0);
@@ -150,7 +154,7 @@ function StageTimer({ lang, total }: { lang: Lang; printed: number; total: numbe
         ))}
       </ul>
       <p style={{ margin: '0.75rem 0 0', fontSize: '0.875rem', color: 'var(--color-muted)' }}>
-        {labels.total(total)}. {labels.spare}
+        {labels.total(total, printed)}. {labels.spare}
       </p>
     </section>
   );

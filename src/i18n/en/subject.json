@@ -114,6 +114,7 @@
     "solveOnTime": "Solve on time",
     "hideTimer": "Hide the timer",
     "allowance": "Time: {{minutes}} min",
+    "allowanceExtra": "With extra time (+25%): {{minutes}} min",
     "itemsSummary": "Questions and your marks ({{count}})"
   }
 }

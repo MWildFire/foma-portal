@@ -76,7 +76,7 @@ export function setDailyLoad(state: GlobalState, day: Weekday, minutes: number |
   return { ...state, settings: { ...state.settings, dailyLoadMinutes } };
 }
 
-export function setAccessArrangement(state: GlobalState, key: 'separateRoom', value: boolean): GlobalState {
+export function setAccessArrangement(state: GlobalState, key: 'extraTime' | 'separateRoom', value: boolean): GlobalState {
   return { ...state, settings: { ...state.settings, accessArrangements: { ...state.settings.accessArrangements, [key]: value } } };
 }
 

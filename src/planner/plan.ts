@@ -7,7 +7,9 @@
 //    Later days are projected on the assumption that everything planned before them gets done.
 //  - From today on, every day starts from the quotas file. The quota of a subject is filled with first-pass slices
 //    of the topic queue (25 minutes each), then practice of studied topics (red first), then the day's timed paper.
-//  - Moved work must fit within 115% of the day's capacity.
+//  - A day may take over moved work only up to 115% of its capacity. Extra time (PLAN.md §5) is part of that overload:
+//    the extended sitting stacks on top of the quota, and if the day would pass 115% the review of its timed papers
+//    moves to the next day.
 //  - A subject is not planned on or after its last exam. On the eve of its exam only that exam's papers are planned.
 import type { L, PaperId, PastPaperRef, SubjectId } from '../contract/types.ts';
 import type {
@@ -88,7 +90,9 @@ interface Slot {
 export function buildPlan(input: PlannerInput): Plan {
   const { today, exams, quotas, state } = input;
   const settings = state.settings;
-  const ext = (entry: TimedEntry): number => timedEntryMinutes(exams, entry);
+  const extraTime = settings.accessArrangements.extraTime;
+  // Minutes a timed entry runs for: with extra time where the schedule allows it (never for the French listening).
+  const ext = (entry: TimedEntry): number => timedEntryMinutes(exams, entry, extraTime);
 
   const lastOverall = lastExamOverall(exams);
   const firstDate = quotas.start || exams.papers[0]?.date || today;
@@ -148,7 +152,8 @@ export function buildPlan(input: PlannerInput): Plan {
       const nominal = timed.reduce((sum, entry) => sum + entry.minutes, 0);
       const actual = timed.reduce((sum, entry) => sum + ext(entry), 0);
       const quota = Math.max(qd.quota[subject] ?? 0, nominal);
-      // Review occupies the quota left after the printed sitting.
+      // The review and regular minutes are what the quota keeps after the printed sitting. Extra time stacks on top of
+      // the quota; phase 1b moves the review on when the day would go past its overload.
       return { subject, timed, actual, flex: Math.max(0, quota - ceil5(nominal)) };
     });
     let flexOf = new Map<SubjectId, number>(rows.map(row => [row.subject, row.flex]));
@@ -599,7 +604,8 @@ export function buildPlan(input: PlannerInput): Plan {
       slots.set(subject, { subject, sitting, items, flex, extra: 0 });
     }
 
-    // If timed papers overflow a reduced capacity, move their review to the next day, lowest priority first.
+    // Phase 1b: extra time stacks on top of the quota. When the day would go past its overload with its timed papers,
+    // the review of the subjects with a timed paper today moves to the next day, the least important subject first.
     // The moved minutes join the debt after phase 2, so they cannot come back to the same day.
     const deferred = new Map<SubjectId, number>();
     const limit = Math.floor(base.capacity * OVERLOAD);

@@ -22,8 +22,9 @@ export function useNow(intervalMs = 10_000): number {
 }
 
 // The exam the countdown points at: the first one that has not finished yet, with the student's own start
-export function useExamCountdown(separateRoom: boolean, intervalMs = 10_000): { now: number; next: NextExam | null } {
+// (the ACC2 time with a separate room) and length (25% longer with extra time).
+export function useExamCountdown(extraTime: boolean, separateRoom: boolean, intervalMs = 10_000): { now: number; next: NextExam | null } {
   const now = useNow(intervalMs);
-  const next = useMemo(() => nextExam(EXAMS, now, separateRoom), [now, separateRoom]);
+  const next = useMemo(() => nextExam(EXAMS, now, extraTime, separateRoom), [now, extraTime, separateRoom]);
   return { now, next };
 }

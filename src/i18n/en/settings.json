@@ -6,7 +6,11 @@
   },
   "access": {
     "title": "Access arrangements",
-    "intro": "[redacted]'s only access arrangement is typing: he types his answers on the computer. The switch below is only for checking."
+    "intro": "[redacted]'s only access arrangement is typing: he types his answers on the computer. The switch below is only for checking.",
+    "extraTime": {
+      "label": "25% extra time ([redacted] does not have it)",
+      "hint": "Off by default. Switch it on only to check the times with extra time, from the school's table."
+    }
   },
   "load": {
     "title": "Study time per day",

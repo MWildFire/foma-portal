@@ -22,7 +22,7 @@ test('malformed nested values are dropped and valid ones kept', () => {
     questions: { 'geo/q1': { rating: 'partial', at: '2026-10-13' }, 'geo/q2': { rating: 'great', at: '2026-10-13' } },
     blocks: { b1: '2026-10-13', b2: 5 },
     settings: {
-      accessArrangements: { separateRoom: 'yes' },
+      accessArrangements: { extraTime: true, separateRoom: 'yes' },
       dailyLoadMinutes: { sat: 270, funday: 60, sun: -5, mon: 'long' },
     },
   });
@@ -31,7 +31,7 @@ test('malformed nested values are dropped and valid ones kept', () => {
   assert.deepEqual(state.questions, { 'geo/q1': { rating: 'partial', at: '2026-10-13' } });
   assert.deepEqual(state.blocks, { b1: '2026-10-13' });
   // No version: a save from before version 3, so its extra time is not trusted.
-  assert.deepEqual(state.settings.accessArrangements, { separateRoom: false, room: 'unknown' });
+  assert.deepEqual(state.settings.accessArrangements, { extraTime: false, separateRoom: false, room: 'unknown' });
   assert.deepEqual(state.settings.dailyLoadMinutes, { sat: 270, sun: 0 });
 });
 
@@ -46,19 +46,19 @@ test('a saved state loads back unchanged', () => {
 });
 
 test('extra time is off by default', () => {
-  assert.deepEqual(emptyState().settings.accessArrangements, { separateRoom: false, room: 'unknown' });
-  assert.deepEqual(normalizeState({}).settings.accessArrangements, { separateRoom: false, room: 'unknown' });
+  assert.deepEqual(emptyState().settings.accessArrangements, { extraTime: false, separateRoom: false, room: 'unknown' });
+  assert.deepEqual(normalizeState({}).settings.accessArrangements, { extraTime: false, separateRoom: false, room: 'unknown' });
 });
 
 test('a save from before version 3 has its extra time switched off, and the rest of it is kept', () => {
   // Version 2 saves had +25% on by default. [redacted] has no extra time ([redacted], 14 Oct 2026), so the stored value is not trusted.
   assert.deepEqual(
     normalizeState({ version: 2, settings: { accessArrangements: { extraTime: true, room: 'SpHal2' } } }).settings.accessArrangements,
-    { separateRoom: false, room: 'SpHal2' },
+    { extraTime: false, separateRoom: false, room: 'SpHal2' },
   );
   assert.deepEqual(
     normalizeState({ version: 1, settings: { accessArrangements: { extraTime: true, room: 'ACC2' } } }).settings.accessArrangements,
-    { separateRoom: true, room: 'ACC2' },
+    { extraTime: false, separateRoom: true, room: 'ACC2' },
   );
   const migrated = normalizeState({
     version: 2,
@@ -69,27 +69,27 @@ test('a save from before version 3 has its extra time switched off, and the rest
   assert.deepEqual(migrated.settings.dailyLoadMinutes, { fri: 120 });
 });
 
-test('a version 3 save drops the retired flag, and the room survives a reload', () => {
+test('a version 3 save keeps the extra time the student chose, and the room survives a reload', () => {
   assert.deepEqual(
     normalizeState({ version: 3, settings: { accessArrangements: { extraTime: true, room: 'SpHal2' } } }).settings.accessArrangements,
-    { separateRoom: false, room: 'SpHal2' },
+    { extraTime: true, separateRoom: false, room: 'SpHal2' },
   );
   assert.deepEqual(
     normalizeState({ version: 3, settings: { accessArrangements: { extraTime: false, room: 'ACC2' } } }).settings.accessArrangements,
-    { separateRoom: true, room: 'ACC2' },
+    { extraTime: false, separateRoom: true, room: 'ACC2' },
   );
   assert.deepEqual(
     normalizeState({ version: 3, settings: { accessArrangements: { room: 'ACC2' } } }).settings.accessArrangements,
-    { separateRoom: true, room: 'ACC2' },
+    { extraTime: false, separateRoom: true, room: 'ACC2' },
   );
   // Room rules as before: an old save with only the separateRoom flag means ACC2 when the flag is true.
   assert.deepEqual(
     normalizeState({ settings: { accessArrangements: { separateRoom: true } } }).settings.accessArrangements,
-    { separateRoom: true, room: 'ACC2' },
+    { extraTime: false, separateRoom: true, room: 'ACC2' },
   );
   assert.deepEqual(
     normalizeState({ settings: { accessArrangements: { room: 'Hall 3' } } }).settings.accessArrangements,
-    { separateRoom: false, room: 'unknown' },
+    { extraTime: false, separateRoom: false, room: 'unknown' },
   );
 });
 
@@ -103,7 +103,7 @@ test('loading a saved state never writes to localStorage', () => {
     return setItem(key, value);
   };
   try {
-    assert.equal(loadState().settings.accessArrangements.extraTime, undefined);
+    assert.equal(loadState().settings.accessArrangements.extraTime, false);
     assert.equal(writes, 0);
   } finally {
     window.localStorage.setItem = setItem;

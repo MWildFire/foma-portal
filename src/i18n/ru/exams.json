@@ -11,12 +11,14 @@
     "room": "Зал: {{room}}",
     "untilStart": "до начала",
     "untilEnd": "до конца",
+    "extraTime": "С дополнительными 25% времени: {{time}}.",
     "separateRoom": "В отдельной аудитории (ACC2) начало в {{time}}, в основном зале — в {{hall}}."
   },
   "access": {
     "title": "Особые условия (access arrangements)",
+    "extraTime": "+25% времени",
     "change": "Изменить в настройках",
-    "typing": "Твоё access arrangement — typing: ответы ты печатаешь на компьютере."
+    "typing": "Твоё access arrangement — typing: ответы ты печатаешь на компьютере. Доп. времени нет."
   },
   "status": {
     "finished": "Завершён",
@@ -27,10 +29,12 @@
     "duration": "Длительность",
     "room": "Зал",
     "separateRoom": "Отдельная аудитория",
+    "extraTime": "С доп. временем",
     "note": "Примечание к расписанию"
   },
   "separateStart": "ACC2, начало в {{time}}",
   "noSeparateStart": "в расписании нет отдельного времени начала",
   "printedTime": "Печатное время",
+  "withExtraTime": "С доп. временем (+25 %)",
   "paperGuide": "Гид по пейперу"
 }

@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import type { Lang } from '../../contract/types';
+import { useLocalProgress } from '../../hooks/useLocalProgress';
 import { EXAMS } from '../../planner/data';
 import {
   TRUE_FALSE,
@@ -9,6 +10,7 @@ import {
   collectItems,
   collectPassages,
   formatTime,
+  readingExam,
   scoreOf,
   splitPrompt,
   timedRunMinutes,
@@ -19,6 +21,7 @@ import {
 
 // The reading passages (content/fr/reading/) and their items (content/fr/questions/reading-1.ts and reading-2.ts), read at
 // build time. The logic is in reading-logic.ts. Practice works on one text; a timed run is one set of three texts, timed as
+// the reading paper in data/exams.json (45 minutes, plus the student's extra time from the school's table).
 const PASSAGES = collectPassages(import.meta.glob<{ passage?: unknown }>('../../../content/fr/reading/*.ts', { eager: true }));
 const ITEMS = collectItems(import.meta.glob<{ questions?: unknown }>('../../../content/fr/questions/reading-[0-9]*.ts', { eager: true }));
 const ITEM_BY_ID = new Map(ITEMS.map((item): [string, ItemLike] => [item.id, item]));
@@ -45,7 +48,7 @@ const COPY = {
     title: 'Reading practice (Paper 2)',
     intro: 'Read the text, then answer its ten items. The paragraphs are lettered A to E. A French answer may leave out its accents when they do not change the word (ecole for école); ou and où are different words, so they keep theirs. Capitals do not count. For vrai or faux the trainer checks only the label: write the quote on paper and compare it with the markscheme. Check when you are ready; the markscheme follows.',
     practice: 'Practice: one text',
-    timed: (minutes: number) => `Timed run: three texts, ${minutes} minutes`,
+    timed: (minutes: number, printed: number, extra: boolean) => `Timed run: three texts, ${minutes} minutes${extra ? ` (${printed} + extra time)` : ''}`,
     set: 'Set',
     text: 'Text',
     start: 'Start the timer',
@@ -64,7 +67,7 @@ const COPY = {
     title: 'Тренировка чтения (Paper 2)',
     intro: 'Прочитайте текст, затем ответьте на его десять заданий. Абзацы обозначены буквами от A до E. Французский ответ можно написать без акцентов, если они не меняют слово (ecole для école); ou и où — разные слова, поэтому их акценты нужны. Заглавные буквы не важны. Для vrai и faux тренажёр проверяет только метку: цитату запишите на бумаге и сверьте её с критериями оценивания. Проверяйте, когда будете готовы.',
     practice: 'Тренировка: один текст',
-    timed: (minutes: number) => `На время: три текста, ${minutes} минут`,
+    timed: (minutes: number, printed: number, extra: boolean) => `На время: три текста, ${minutes} минут${extra ? ` (${printed} + доп. время)` : ''}`,
     set: 'Набор',
     text: 'Текст',
     start: 'Запустить таймер',
@@ -105,7 +108,11 @@ const input = {
 
 export default function ReadingPractice({ lang }: { lang: Lang }) {
   const copy = COPY[lang];
-  const timedMinutes = timedRunMinutes(EXAMS);
+  // The student's extra-time setting decides the length of a timed run; the lengths themselves are in data/exams.json.
+  const [progress] = useLocalProgress();
+  const extraTime = progress.settings.accessArrangements.extraTime;
+  const printedMinutes = readingExam(EXAMS)?.minutes ?? 0;
+  const timedMinutes = timedRunMinutes(EXAMS, extraTime);
   const timedLimitMs = timedMinutes * 60 * 1000;
   const [mode, setMode] = useState<'practice' | 'timed'>('practice');
   const [setIndex, setSetIndex] = useState(0);
@@ -186,7 +193,7 @@ export default function ReadingPractice({ lang }: { lang: Lang }) {
           {copy.practice}
         </button>
         <button type="button" aria-pressed={mode === 'timed'} onClick={() => chooseMode('timed')} style={toggle(mode === 'timed')}>
-          {copy.timed(timedMinutes)}
+          {copy.timed(timedMinutes, printedMinutes, extraTime)}
         </button>
       </div>
       {mode === 'timed' ? (

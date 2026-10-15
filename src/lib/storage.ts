@@ -1,7 +1,9 @@
 // Local progress for one browser (localStorage). Unknown or malformed data is dropped, never thrown.
 export const STORAGE_KEY = 'foma-portal-v1';
 export const UPDATE_EVENT = 'foma-portal-state-update';
-// Unsupported legacy fields are dropped in memory. Loading never writes to storage.
+// 3: extra time is off unless a version-3 save switched it on ([redacted], 14 Oct 2026: [redacted] has no extra time). Versions 1
+// and 2 had it on by default, so normalizeState turns it off for them. Nothing is written on load: the save becomes
+// version 3 at the next ordinary save.
 export const STORAGE_SCHEMA_VERSION = 3;
 
 export type Rag = 'red' | 'amber' | 'green';
@@ -40,7 +42,7 @@ export interface GlobalState {
   pastPapers: Record<string, PastPaperProgress>; // key: `${subject}/${pastPaperId}`
   blocks: Record<string, string>;              // plan block id -> ISO date when done
   settings: {
-    accessArrangements: { separateRoom: boolean; room: AccessRoom };
+    accessArrangements: { extraTime: boolean; separateRoom: boolean; room: AccessRoom };
     dailyLoadMinutes: Partial<Record<Weekday, number>>;   // overrides of the default load; absent = default
   };
 }
@@ -54,7 +56,7 @@ export function emptyState(): GlobalState {
     pastPapers: {},
     blocks: {},
     settings: {
-      accessArrangements: { separateRoom: false, room: 'unknown' },
+      accessArrangements: { extraTime: false, separateRoom: false, room: 'unknown' },
       dailyLoadMinutes: {},
     },
   };
@@ -129,13 +131,15 @@ export function normalizeState(raw: unknown): GlobalState {
   state.pastPapers = mapRecord(raw.pastPapers, pastPaperOf);
   state.blocks = mapRecord(raw.blocks, value => (typeof value === 'string' ? value : null));
   const settings = isRecord(raw.settings) ? raw.settings : {};
+  // Extra time is off unless a version-3 save switched it on: earlier saves had it on by default, and [redacted] has none.
   // The room is the saved one; an old save with only the separateRoom flag means ACC2 when the flag is true, and not
   // known otherwise.
   const access: Record<string, unknown> = isRecord(settings.accessArrangements) ? settings.accessArrangements : {};
   const room: AccessRoom = access.room === 'ACC2' || access.room === 'SpHal2' || access.room === 'unknown'
     ? access.room
     : access.separateRoom === true ? 'ACC2' : 'unknown';
-  state.settings.accessArrangements = { separateRoom: room === 'ACC2', room };
+  const extraTime = raw.version === STORAGE_SCHEMA_VERSION && access.extraTime === true;
+  state.settings.accessArrangements = { extraTime, separateRoom: room === 'ACC2', room };
   state.settings.dailyLoadMinutes = loadOf(settings.dailyLoadMinutes);
   return state;
 }

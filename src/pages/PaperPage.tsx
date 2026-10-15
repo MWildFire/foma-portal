@@ -89,7 +89,7 @@ export function PaperPage() {
   const { t, i18n } = useTranslation(['paper', 'subject', 'common']);
   const [contentLang] = useContentLang();
   const base = useId();
-  const { progressOf, setScore, setSolved } = usePastPaperProgress(subject);
+  const { progressOf, extraTime, setScore, setSolved } = usePastPaperProgress(subject);
   const { pack, loading, failed, cause } = useSubject(subject);
   const guides = pack && isPaperKey(paper) ? guidesForPaper(pack.papers, paper) : [];
   const paperName = isPaperKey(paper) ? t(`paperNames.${paper}`, { ns: 'subject' }) : paper;
@@ -133,6 +133,7 @@ export function PaperPage() {
                     paper={ref}
                     topics={pack.topics}
                     progress={progressOf(ref.id)}
+                    extraTime={extraTime}
                     onScore={(itemIndex, score) => setScore(ref.id, itemIndex, score)}
                     onSolved={date => setSolved(ref.id, date)}
                   />
