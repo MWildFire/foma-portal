@@ -1,3 +1,4 @@
+import { filterFormulas } from '../../lib/formula-filter';
 import { filterMockResources } from '../../lib/mock-scope';
 import { Fragment, useCallback, useId, useMemo, useState } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
@@ -24,12 +25,13 @@ export function FormulasView({ pack }: { pack: SubjectPack }) {
   const subject = pack.meta.id;
   const [params, setParams] = useSearchParams();
   const bookletOnly = params.get('booklet') === '1';
+  const outsideOnly = params.get('booklet') === '0';
   const emptyId = useId();
   const [showOutside,setShowOutside]=useState(false);
   const scopeFormulas=useMemo(()=>filterMockResources(pack.formulas,pack.topics,'formulaIds',showOutside),[pack.formulas,pack.topics,showOutside]);
 
   const inBooklet = useMemo(() => scopeFormulas.filter(formula => formula.inBooklet === true), [scopeFormulas]);
-  const shown = bookletOnly ? inBooklet : scopeFormulas;
+  const shown = filterFormulas(scopeFormulas,bookletOnly ? 'booklet' : outsideOnly ? 'outside' : 'all');
   const topicsByFormula = useMemo(() => {
     const map = new Map<string, TopicMeta[]>();
     for (const topic of pack.topics) {
@@ -42,11 +44,11 @@ export function FormulasView({ pack }: { pack: SubjectPack }) {
     return map;
   }, [pack.topics]);
 
-  const toggleBooklet = useCallback((): void => {
+  const toggleBooklet = useCallback((mode: '1'|'0' = '1'): void => {
     setParams(previous => {
       const next = new URLSearchParams(previous);
-      if (next.get('booklet') === '1') next.delete('booklet');
-      else next.set('booklet', '1');
+      if (next.get('booklet') === mode) next.delete('booklet');
+      else next.set('booklet', mode);
       return next;
     }, { replace: true });
   }, [setParams]);
@@ -63,17 +65,18 @@ export function FormulasView({ pack }: { pack: SubjectPack }) {
       ) : (
         <>
           <div role="group" aria-label={t('filter.label')} className="foma-btn-row">
-            <button type="button" className="foma-btn" aria-pressed={bookletOnly} onClick={toggleBooklet}>
+            <button type="button" className="foma-btn" aria-pressed={bookletOnly} onClick={()=>toggleBooklet('1')}>
               {bookletOnly ? <Check size={16} aria-hidden="true" /> : <BookOpen size={16} aria-hidden="true" />}
               {t('filter.booklet')}
             </button>
+            <button type="button" className="foma-btn" aria-pressed={outsideOnly} onClick={()=>toggleBooklet('0')}>{t('filter.outside')}</button>
           </div>
           <p role="status" className="study-status">
             {t('count', { shown: shown.length, total: pack.formulas.length })} · {t('bookletCount', { n: inBooklet.length })}
           </p>
 
           {shown.length === 0 ? (
-            <p className="study-banner" data-tone="amber" role="note">{t('noBooklet')}</p>
+            <p className="study-banner" data-tone="amber" role="note">{bookletOnly ? t('noBooklet') : t('noMatch')}</p>
           ) : (
             <ul className="fm-list" aria-label={t('title')}>
               {shown.map(formula => {

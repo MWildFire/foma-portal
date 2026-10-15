@@ -40,3 +40,10 @@ export function Anchor({ href, children }: ComponentProps<'a'>) {
   if (!target) return <>{children}</>;
   return <ContentLink href={target} lang={ctx?.contentLang}>{children}</ContentLink>;
 }
+
+// Rehype KaTeX emits spans. Display formulas get the same accessible scroll box as Tex.
+export function Span(props: ComponentProps<'span'>) {
+  const { t } = useBodyT();
+  if (!props.className?.split(/\s+/).includes('katex-display')) return <span {...props} />;
+  return <span className="foma-math-region" tabIndex={0} role="region" aria-label={t('region.formula')}><span {...props} /></span>;
+}

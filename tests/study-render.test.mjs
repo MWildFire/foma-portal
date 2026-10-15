@@ -578,3 +578,12 @@ test('report page: the real subjects draw without a crash', async () => {
   const html = await page('ReportPage', '/report', '/report');
   assert.match(html, /Progress report/);
 });
+
+test('formulas: outside-booklet URL filter excludes both booklet and unflagged formulas',async()=>{
+ const html=await view('FormulasView',{pack:pack()},'/s/geo/formulas?booklet=0');
+ assert.ok(html.includes('Formula f2'));
+ assert.ok(!html.includes('Formula f1') && !html.includes('Formula f3'));
+ assert.match(html,/Showing 1 of 3 formulas/);
+ const empty=await view('FormulasView',{pack:pack({formulas:[formula('f1',true)]})},'/s/geo/formulas?booklet=0');
+ assert.match(empty,/No formulas match these filters/);
+});

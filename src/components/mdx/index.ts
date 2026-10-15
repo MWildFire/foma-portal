@@ -10,7 +10,7 @@ import { Reveal } from './Reveal';
 import { Sim } from './Sim';
 import { Step, Steps } from './Steps';
 import { Term } from './Term';
-import { Anchor, Code, H2, H3, Hr, Li, Ol, P, Pre, Quote, Table, Td, Th, Ul } from './elements';
+import { Anchor, Code, H2, H3, Hr, Li, Ol, P, Pre, Span, Quote, Table, Td, Th, Ul } from './elements';
 
 // The component map passed to <MDXProvider>. Names and props are the contract of PLAN.md section 2; props are
 // strings only. Everything else a component needs (subject, topic, pack, languages) comes from the topic context.
@@ -28,6 +28,7 @@ export const mdxComponents: MDXComponents = {
   Figure,
   // Plain Markdown elements with the reading styles.
   p: P,
+  span: Span,
   h2: H2,
   h3: H3,
   ul: Ul,

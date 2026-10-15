@@ -166,6 +166,15 @@ export function checkMdxDoc(r: Report, ctx: MdxCtx, doc: TopicDoc): void {
   analysis.problems.forEach(problem => r.error(subject, 'mdx-structure', problem.message, at(problem.line)));
   analysis.components.forEach(component => checkComponent(r, ctx, doc, component));
 
+  const topic = ctx.pack.topics.find(t => t.id === doc.topicId);
+  if (Array.isArray(topic?.questionIds)) {
+    const declared = new Set(topic.questionIds);
+    const rendered = new Set(analysis.components.filter(c=>c.name==='Question').map(c=>c.props.id).filter(Boolean));
+    const onlyMeta = Array.from(declared).filter(id=>!rendered.has(id));
+    const onlyBody = Array.from(rendered).filter(id=>!declared.has(id));
+    if (onlyMeta.length || onlyBody.length) r.warn(subject, 'refs', `questionIds differs from rendered Question components: metadata only [${onlyMeta.join(', ')}]; body only [${onlyBody.join(', ')}]. Confirm practice-only entries or align the metadata.`, at());
+  }
+
   // Rule 7 for the formulas of the body.
   analysis.math.forEach(math => {
     const problem = texError(math.tex, math.display);

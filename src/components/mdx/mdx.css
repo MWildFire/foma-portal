@@ -366,3 +366,6 @@
 .foma-casemap__list li + li {
   margin-top: 0.25rem;
 }
+
+.foma-math-region { display: block; max-width: 100%; overflow-x: auto; }
+.foma-math-region > .katex-display { overflow: visible; }

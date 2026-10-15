@@ -27,6 +27,7 @@ before(async () => {
   i18n = (await server.ssrLoadModule('/src/i18n/index.ts')).default;
   await new Promise(resolve => setTimeout(resolve, 20));
   loaded.RichText = (await server.ssrLoadModule('/src/components/content/RichText.tsx')).RichText;
+  loaded.Span = (await server.ssrLoadModule('/src/components/mdx/elements.tsx')).Span;
   loaded.Pre = (await server.ssrLoadModule('/src/components/mdx/elements.tsx')).Pre;
 });
 
@@ -92,4 +93,14 @@ test('a code block is a focusable region named "Scrollable code"', async () => {
   assert.equal(pre['aria-label'], 'Scrollable code');
   const russian = await draw(createElement(loaded.Pre, null, createElement('code', null, 'x = 1')), 'ru');
   assert.equal(attributesOf(russian, 'pre', 'foma-pre')['aria-label'], 'Код с прокруткой');
+});
+
+test('raw MDX display math compiles to KaTeX in a named focusable scroll region',async()=>{
+ const {evaluate}=await import('@mdx-js/mdx');
+ const runtime=await import('react/jsx-runtime');
+ const remarkMath=(await import('remark-math')).default;
+ const rehypeKatex=(await import('rehype-katex')).default;
+ const {default:Content}=await evaluate('$$\nx^2+y^2=z^2\n$$',{...runtime,remarkPlugins:[remarkMath],rehypePlugins:[rehypeKatex]});
+ const html=await draw(createElement(Content,{components:{span:loaded.Span ?? 'span'}}));
+ assert.match(html,/katex-display/);assert.match(html,/role="region"/);assert.match(html,/tabindex="0"/);assert.match(html,/Scrollable formula/);assert.doesNotMatch(html,/\$\$/);
 });

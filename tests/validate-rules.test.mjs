@@ -917,3 +917,11 @@ test('checkSubjects: the id in meta.ts is the folder name, ids are unique, unkno
   assert.ok(text.includes('"physics" is not one of the subject folders'));
   assert.equal(errors(report.issues).length, 2);
 });
+
+test('EC-14: metadata and rendered Question ids are compared with an actionable warning',()=>{
+ const pack=makePack({topics:[{id:'t1',questionIds:['listed-only']}],questions:[{id:'listed-only'},{id:'rendered-only'}]});
+ const findings=checkDoc(pack,mdxDoc('en',bodyFor('en',{3:'<Question id="rendered-only"/>'})));
+ assert.ok(findings.some(i=>i.severity==='warning' && /questionIds/.test(i.message) && /listed-only/.test(i.message) && /rendered-only/.test(i.message)));
+ const equal=makePack({topics:[{id:'t1',questionIds:['rendered-only']}],questions:[{id:'rendered-only'}]});
+ assert.ok(!checkDoc(equal,mdxDoc('en',bodyFor('en',{3:'<Question id="rendered-only"/>'}))).some(i=>/questionIds/.test(i.message)));
+});
