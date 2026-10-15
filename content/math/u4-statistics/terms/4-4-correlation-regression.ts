@@ -53,11 +53,11 @@ export const terms: Term[] = [
       ru: 'точка средних (mean point)',
     },
     def: {
-      en: 'The point $(\\bar{x}, \\bar{y})$ whose coordinates are the two sample means. The least-squares line of y on x always passes through it.',
-      ru: 'Точка $(\\bar{x}, \\bar{y})$, координаты которой равны средним значениям обеих величин. Линия регрессии y на x всегда проходит через неё.',
+      en: 'The point $(\\bar{x}, \\bar{y})$ whose coordinates are the two sample means. To sketch a best-fit line, mark this point and draw the line through it following the data trend.',
+      ru: 'Точка $(\\bar{x}, \\bar{y})$, координаты которой равны средним значениям обеих величин. Чтобы провести линию наилучшего приближения от руки, отметьте эту точку и проведите через неё прямую вдоль тенденции данных.',
     },
     syllabus: '4.4',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 2.4, pp. 68–69; review exercise 10, p. 77' },
   },
 ];

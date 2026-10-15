@@ -63,7 +63,7 @@ export const terms: Term[] = [
     },
     syllabus: '1.3',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 7.1, pp. 291, 296' },
     pitfall: {
       en: 'The power is $r^{k-1}$, not $r^{k}$: the first term is $u_1 r^{0} = u_1$.',
       ru: 'Степень равна $r^{k-1}$, а не $r^{k}$: первый член равен $u_1 r^{0} = u_1$.',
