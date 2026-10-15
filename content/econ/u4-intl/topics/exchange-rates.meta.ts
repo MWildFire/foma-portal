@@ -5,11 +5,11 @@ const topic: TopicMeta = {
   subject: 'econ',
   code: '4.5',
   title: { en: 'Exchange rates', ru: 'Обменные курсы' },
-  papers: ['P1', 'P2', 'P3'],
+  papers: ['P2', 'P3'],
   order: 44,
   minutes: 50,
   priority: 1,
-  inMockScope: 'unknown',
+  inMockScope: 'no',
   outcomes: [
     { en: 'I can define the exchange rate and explain how nominal and real exchange rates differ', ru: 'Могу определить обменный курс и объяснить, чем номинальный курс отличается от реального' },
     { en: 'I can explain how the demand and supply of a currency set its price under a floating rate', ru: 'Могу объяснить, как спрос и предложение валюты задают её цену при плавающем курсе' },

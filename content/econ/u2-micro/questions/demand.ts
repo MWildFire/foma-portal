@@ -1,7 +1,7 @@
 import type { Question } from '../../../../src/contract/types';
 
 // Demand questions. The calculation (econ-demand-01) is checked by scripts/econ-checks/demand.json.
-export const questions: Question[] = [
+export const questions: (Question & { inMockScope?: 'yes' | 'no' })[] = [
   {
     id: 'econ-demand-01',
     subject: 'econ',
@@ -25,7 +25,7 @@ export const questions: Question[] = [
     id: 'econ-demand-02',
     subject: 'econ',
     topicIds: ['demand'],
-    paper: 'P1',
+    paper: 'P2',
     marks: 3,
     command: 'Distinguish',
     prompt: {
@@ -43,7 +43,7 @@ export const questions: Question[] = [
     id: 'econ-demand-03',
     subject: 'econ',
     topicIds: ['demand'],
-    paper: 'P1',
+    paper: 'P2',
     marks: 4,
     command: 'Explain',
     prompt: {
@@ -61,7 +61,7 @@ export const questions: Question[] = [
     id: 'econ-demand-04',
     subject: 'econ',
     topicIds: ['demand'],
-    paper: 'P1',
+    paper: 'P2',
     marks: 4,
     command: 'Explain',
     prompt: {

@@ -5,7 +5,7 @@ import type { Question } from '../../../../src/contract/types';
 // The five evaluation marks in part (b) follow the three bands: limited, appropriate, effective and balanced reasoning.
 // No model answers in this file (they are in p1-essays-a.ts). The essays use no numbers, so there are no calculation checks.
 
-export const questions: Question[] = [
+export const questions: (Question & { inMockScope?: 'yes' | 'no' })[] = [
   {
     id: 'p1-essay-11',
     subject: 'econ',
@@ -180,6 +180,7 @@ export const questions: Question[] = [
   },
   {
     id: 'p1-essay-13',
+    inMockScope: 'no',
     subject: 'econ',
     topicIds: ['trade-protection'],
     paper: 'P1',
@@ -266,6 +267,7 @@ export const questions: Question[] = [
   },
   {
     id: 'p1-essay-14',
+    inMockScope: 'no',
     subject: 'econ',
     topicIds: ['arguments-for-and-against-trade-control', 'trade-protection'],
     paper: 'P1',
@@ -352,6 +354,7 @@ export const questions: Question[] = [
   },
   {
     id: 'p1-essay-15',
+    inMockScope: 'no',
     subject: 'econ',
     topicIds: ['economic-integration'],
     paper: 'P1',
@@ -438,6 +441,7 @@ export const questions: Question[] = [
   },
   {
     id: 'p1-essay-16',
+    inMockScope: 'no',
     subject: 'econ',
     topicIds: ['exchange-rates', 'balance-of-payments'],
     paper: 'P1',
@@ -524,6 +528,7 @@ export const questions: Question[] = [
   },
   {
     id: 'p1-essay-17',
+    inMockScope: 'no',
     subject: 'econ',
     topicIds: ['balance-of-payments', 'fiscal-policy'],
     paper: 'P1',
@@ -610,6 +615,7 @@ export const questions: Question[] = [
   },
   {
     id: 'p1-essay-18',
+    inMockScope: 'no',
     subject: 'econ',
     topicIds: ['sustainable-development', 'externalities'],
     paper: 'P1',
@@ -696,6 +702,7 @@ export const questions: Question[] = [
   },
   {
     id: 'p1-essay-19',
+    inMockScope: 'no',
     subject: 'econ',
     topicIds: ['measuring-development', 'barriers-to-growth-and-development'],
     paper: 'P1',
@@ -782,6 +789,7 @@ export const questions: Question[] = [
   },
   {
     id: 'p1-essay-20',
+    inMockScope: 'no',
     subject: 'econ',
     topicIds: ['policies-for-growth-and-development', 'benefits-of-trade'],
     paper: 'P1',

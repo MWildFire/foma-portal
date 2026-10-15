@@ -5,11 +5,11 @@ const topic: TopicMeta = {
   subject: 'econ',
   code: '4.1',
   title: { en: 'Benefits of international trade', ru: 'Выгоды международной торговли (benefits of international trade)' },
-  papers: ['P1', 'P2', 'P3'],
+  papers: ['P2', 'P3'],
   order: 40,
   minutes: 40,
   priority: 1,
-  inMockScope: 'unknown',
+  inMockScope: 'no',
   outcomes: [
     { en: 'I can calculate the opportunity cost of a good from two production possibilities', ru: 'Могу рассчитать альтернативные издержки товара по двум производственным возможностям' },
     { en: 'I can distinguish absolute advantage from comparative advantage', ru: 'Могу различать абсолютное и сравнительное преимущество' },

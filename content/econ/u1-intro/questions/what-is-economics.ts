@@ -1,11 +1,11 @@
 import type { Question } from '../../../../src/contract/types';
 
-export const questions: Question[] = [
+export const questions: (Question & { inMockScope?: 'yes' | 'no' })[] = [
   {
     id: 'econ-what-is-economics-01',
     subject: 'econ',
     topicIds: ['what-is-economics'],
-    paper: 'P1',
+    paper: 'P2',
     marks: 2,
     command: 'Define',
     prompt: {
@@ -23,7 +23,7 @@ export const questions: Question[] = [
     id: 'econ-what-is-economics-02',
     subject: 'econ',
     topicIds: ['what-is-economics'],
-    paper: 'P1',
+    paper: 'P2',
     marks: 3,
     command: 'Explain',
     prompt: {

@@ -5,9 +5,10 @@ import type { Question } from '../../../../src/contract/types';
 // The data is written as bold-labelled lists, because the Markdown reader used by the portal has no table block.
 // Every calculation quoted in a markscheme has a check in scripts/econ-checks/exam-p2-b.json (expect_in).
 
-export const questions: Question[] = [
+export const questions: (Question & { inMockScope?: 'yes' | 'no' })[] = [
   {
     id: 'p2-set-04',
+    inMockScope: 'no',
     subject: 'econ',
     topicIds: ['price-elasticity-of-demand', 'income-and-cross-elasticity'],
     paper: 'P2',
@@ -186,6 +187,7 @@ Specific points:
   },
   {
     id: 'p2-set-05',
+    inMockScope: 'no',
     subject: 'econ',
     topicIds: ['monopoly-and-natural-monopoly', 'oligopoly-and-monopolistic-competition'],
     paper: 'P2',
@@ -362,6 +364,7 @@ Specific points:
   },
   {
     id: 'p2-set-06',
+    inMockScope: 'no',
     subject: 'econ',
     topicIds: ['trade-protection', 'exchange-rates'],
     paper: 'P2',

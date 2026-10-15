@@ -17,7 +17,7 @@ const topic: TopicMeta = {
     { en: 'I can evaluate supply-side policies, using time lags, costs and equity', ru: 'Могу оценить меры политики предложения, используя временные лаги, издержки и равенство' },
     { en: 'I can explain why supply-side policies do not solve a recession caused by low demand on their own', ru: 'Могу объяснить, почему меры политики предложения сами по себе не решают рецессию, вызванную низким спросом' },
   ],
-  termIds: [
+  termIds: ['economic-infrastructure', 'regulation', 
     'supply-side-policies',
     'market-based-supply-side-policies',
     'interventionist-supply-side-policies',

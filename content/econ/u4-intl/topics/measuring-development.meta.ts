@@ -5,11 +5,11 @@ const topic: TopicMeta = {
   subject: 'econ',
   code: '4.8',
   title: { en: 'Measuring development', ru: 'Измерение развития' },
-  papers: ['P1', 'P2', 'P3'],
+  papers: ['P2', 'P3'],
   order: 47,
   minutes: 40,
   priority: 1,
-  inMockScope: 'unknown',
+  inMockScope: 'no',
   outcomes: [
     { en: 'I can explain what economic development means and how it differs from economic growth', ru: 'Могу объяснить, что такое экономическое развитие и чем оно отличается от экономического роста' },
     { en: 'I can calculate GNI per capita and a ratio between two countries, with units', ru: 'Могу рассчитать ВНД на душу населения и отношение между двумя странами с единицами измерения' },

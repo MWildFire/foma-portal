@@ -183,8 +183,8 @@ export const terms: Term[] = [
     id: 'property-rights',
     term: { en: 'property rights', ru: 'права собственности (property rights)' },
     def: {
-      en: 'The legal rules that set who owns a resource and whether the owner may use or sell it; secure rights reduce the risk of investing in that resource.',
-      ru: 'Законные правила, которые определяют, кому принадлежит ресурс и может ли владелец его использовать или продавать; надёжные права снижают риск инвестиций в этот ресурс.',
+      en: 'Legally established permissions concerning who may own an asset, use it and transfer it to someone else.',
+      ru: 'Установленные законом права, определяющие, кто может владеть имуществом, использовать его и передавать другому лицу.',
     },
     example: {
       en: 'A farmer who can prove ownership of a plot can use it as collateral for a bank loan to buy irrigation equipment, while a farmer with no legal title to the same plot is less likely to get that loan.',

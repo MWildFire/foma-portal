@@ -5,7 +5,7 @@ const topic: TopicMeta = {
   subject: 'econ',
   code: '2.8',
   title: { en: 'Externalities', ru: 'Экстерналии (externalities)' },
-  papers: ['P1', 'P2', 'P3'],
+  papers: ['P2', 'P3'],
   order: 18,
   minutes: 55,
   priority: 1,
@@ -17,7 +17,7 @@ const topic: TopicMeta = {
     { en: 'I can calculate the socially optimal quantity, the welfare loss and the tax revenue of a Pigouvian tax', ru: 'Могу рассчитать оптимальный для общества объём, потери благосостояния и налоговые поступления от налога Пигу' },
     { en: 'I can evaluate taxes, subsidies, regulation, tradable permits and property rights, including their limits', ru: 'Могу оценить налоги, субсидии, регулирование, торгуемые разрешения и права собственности, включая их ограничения' },
   ],
-  termIds: [
+  termIds: ['carbon-tax', 'negative-externality', 'positive-externality', 
     'externality', 'external-cost', 'external-benefit', 'marginal-private-cost', 'marginal-social-cost',
     'marginal-private-benefit', 'marginal-social-benefit', 'pigouvian-tax', 'tradable-permits', 'property-rights',
     'deadweight-loss',
@@ -26,7 +26,7 @@ const topic: TopicMeta = {
     'econ.externality-negative-production', 'econ.externality-positive-consumption',
     'econ.externality-negative-consumption', 'econ.externality-positive-production',
   ],
-  questionIds: [
+  questionIds: ['mock-hl-negative-consumption', 'mock-hl-positive-production', 'mock-hl-positive-consumption', 
     'econ-externalities-01', 'econ-externalities-02', 'econ-externalities-03', 'econ-externalities-04',
     'econ-externalities-05', 'econ-externalities-06', 'econ-externalities-07',
   ],

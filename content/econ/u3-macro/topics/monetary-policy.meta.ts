@@ -17,7 +17,7 @@ const topic: TopicMeta = {
     { en: 'I can evaluate the limits of monetary policy, such as time lags and the liquidity trap', ru: 'Могу оценивать пределы монетарной политики, такие как лаги и ловушка ликвидности' },
     { en: 'I can calculate the percentage change in the policy interest rate', ru: 'Могу рассчитать процентное изменение ключевой ставки' },
   ],
-  termIds: [
+  termIds: ['real-interest-rate', 'nominal-interest-rate', 'money-supply', 'interest-rate', 'minimum-reserve-requirement', 'commercial-bank', 
     'monetary-policy',
     'central-bank',
     'inflation',

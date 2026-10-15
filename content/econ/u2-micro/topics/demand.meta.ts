@@ -5,7 +5,7 @@ const topic: TopicMeta = {
   subject: 'econ',
   code: '2.1',
   title: { en: 'Demand', ru: 'Спрос' },
-  papers: ['P1', 'P2', 'P3'],
+  papers: ['P2', 'P3'],
   order: 10,
   minutes: 35,
   priority: 1,

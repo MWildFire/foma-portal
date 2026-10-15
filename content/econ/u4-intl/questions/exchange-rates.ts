@@ -1,8 +1,9 @@
 import type { Question } from '../../../../src/contract/types';
 
-export const questions: Question[] = [
+export const questions: (Question & { inMockScope?: 'yes' | 'no' })[] = [
   {
     id: 'econ-exchange-rates-01',
+    inMockScope: 'no',
     subject: 'econ',
     topicIds: ['exchange-rates'],
     paper: 'P2',
@@ -22,6 +23,7 @@ export const questions: Question[] = [
   },
   {
     id: 'econ-exchange-rates-02',
+    inMockScope: 'no',
     subject: 'econ',
     topicIds: ['exchange-rates'],
     paper: 'P2',
@@ -41,6 +43,7 @@ export const questions: Question[] = [
   },
   {
     id: 'econ-exchange-rates-03',
+    inMockScope: 'no',
     subject: 'econ',
     topicIds: ['exchange-rates'],
     paper: 'P2',
@@ -60,6 +63,7 @@ export const questions: Question[] = [
   },
   {
     id: 'econ-exchange-rates-04',
+    inMockScope: 'no',
     subject: 'econ',
     topicIds: ['exchange-rates'],
     paper: 'P2',
@@ -79,6 +83,7 @@ export const questions: Question[] = [
   },
   {
     id: 'econ-exchange-rates-05',
+    inMockScope: 'no',
     subject: 'econ',
     topicIds: ['exchange-rates'],
     paper: 'P2',
@@ -98,6 +103,7 @@ export const questions: Question[] = [
   },
   {
     id: 'econ-exchange-rates-06',
+    inMockScope: 'no',
     subject: 'econ',
     topicIds: ['exchange-rates'],
     paper: 'P1',
@@ -116,6 +122,7 @@ export const questions: Question[] = [
   },
   {
     id: 'econ-exchange-rates-07',
+    inMockScope: 'no',
     subject: 'econ',
     topicIds: ['exchange-rates'],
     paper: 'P1',

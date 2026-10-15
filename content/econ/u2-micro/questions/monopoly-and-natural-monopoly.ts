@@ -1,8 +1,9 @@
 import type { Question } from '../../../../src/contract/types';
 
-export const questions: Question[] = [
+export const questions: (Question & { inMockScope?: 'yes' | 'no' })[] = [
   {
     id: 'econ-monopoly-and-natural-monopoly-01',
+    inMockScope: 'no',
     subject: 'econ',
     topicIds: ['monopoly-and-natural-monopoly'],
     paper: 'P2',
@@ -22,6 +23,7 @@ export const questions: Question[] = [
   },
   {
     id: 'econ-monopoly-and-natural-monopoly-02',
+    inMockScope: 'no',
     subject: 'econ',
     topicIds: ['monopoly-and-natural-monopoly'],
     paper: 'P2',
@@ -41,6 +43,7 @@ export const questions: Question[] = [
   },
   {
     id: 'econ-monopoly-and-natural-monopoly-03',
+    inMockScope: 'no',
     subject: 'econ',
     topicIds: ['monopoly-and-natural-monopoly'],
     paper: 'P2',
@@ -60,6 +63,7 @@ export const questions: Question[] = [
   },
   {
     id: 'econ-monopoly-and-natural-monopoly-04',
+    inMockScope: 'no',
     subject: 'econ',
     topicIds: ['monopoly-and-natural-monopoly'],
     paper: 'P2',
@@ -79,6 +83,7 @@ export const questions: Question[] = [
   },
   {
     id: 'econ-monopoly-and-natural-monopoly-05',
+    inMockScope: 'no',
     subject: 'econ',
     topicIds: ['monopoly-and-natural-monopoly'],
     paper: 'P1',
@@ -97,6 +102,7 @@ export const questions: Question[] = [
   },
   {
     id: 'econ-monopoly-and-natural-monopoly-06',
+    inMockScope: 'no',
     subject: 'econ',
     topicIds: ['monopoly-and-natural-monopoly'],
     paper: 'P1',
