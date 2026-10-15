@@ -1,6 +1,6 @@
 import type { CaseStudy } from '../../../../src/contract/types';
 
-// Option A, A.3 cases. Status (R01, 14.10.2026, S3): Toledo (CDC MMWR 2016; PBS NewsHour 2014) and the WHO 2022 microcystin fact sheet (printed p. 430 (fact-sheet PDF p. 1)) were opened in R01.
+// Option A, A.3 cases. R03 (15 October 2026): WHO microcystin fact sheet checked at printed p. 430 (PDF p. 1), including the lifetime scope and MC-LR caveat. Toledo CDC/PBS sources retain their earlier checks.
 // The Bangladesh report number (NERC ORA, WC/00/019) was checked in R01. Cape Town was rechecked in R02 against News24 (23 January 2018): the day count is kept, and the water-loss figures that no source confirmed were removed. The Aral Sea figures (UNDP page) were not rechecked.
 export const cases: CaseStudy[] = [
   {
