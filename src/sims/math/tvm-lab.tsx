@@ -16,7 +16,7 @@ const TEXT = {
     payment: 'Equal payment M',
     balance: 'Balance after each payment',
     columns: ['No.', 'Interest', 'Repaid', 'Balance'],
-    note: 'Interest is charged on the balance first; the rest of each payment reduces it.',
+    note: 'Interest is charged on the balance first; the rest of each payment reduces it. These are positive magnitudes; in the GDC cash-flow convention, money received and paid has opposite signs (PV positive, PMT negative for a borrower).',
   },
   ru: {
     label: 'Остаток долга во времени и первые строки таблицы погашения',
@@ -28,7 +28,7 @@ const TEXT = {
     payment: 'Равный платёж M',
     balance: 'Остаток долга после каждого платежа',
     columns: ['№', 'Проценты', 'Погашение', 'Остаток'],
-    note: 'Сначала проценты начисляются на остаток; остальная часть платежа уменьшает долг.',
+    note: 'Сначала проценты начисляются на остаток; остальная часть платежа уменьшает долг. Здесь показаны положительные величины; на GDC поступления и выплаты имеют разные знаки (для заёмщика PV положительно, PMT отрицательно).',
   },
 } as const;
 
@@ -49,6 +49,7 @@ export default function TvmLab({ lang }: { lang: Lang }) {
   const payment = (principal * i) / (1 - (1 + i) ** -periods);
 
   // One payment at a time: interest on the balance, and the rest of the payment repays the loan.
+  const fmt = (value: number, digits = 2) => value.toLocaleString(lang === 'ru' ? 'ru-RU' : 'en-GB', { minimumFractionDigits: digits, maximumFractionDigits: digits });
   const curve = [principal];
   const rows: { no: number; interest: number; repaid: number; balance: number }[] = [];
   let balance = principal;
@@ -70,14 +71,14 @@ export default function TvmLab({ lang }: { lang: Lang }) {
       <figcaption style={{ fontSize: 13, lineHeight: 1.5 }}>
         {t.balance}
         <br />
-        {t.compound}: {compound.toFixed(2)}
+        {t.compound}: {fmt(compound)}
         <br />
-        {t.payment}: {payment.toFixed(2)}
+        {t.payment}: {fmt(payment)}
         <br />
         {t.note}
       </figcaption>
       <label style={{ display: 'block', marginTop: 8 }}>
-        {t.principal}: {principal}
+        {t.principal}: {fmt(principal, 0)}
         <input type="range" min={1000} max={200000} step={1000} value={principal} onChange={event => setPrincipal(Number(event.target.value))} style={{ width: '100%' }} />
       </label>
       <label style={{ display: 'block', marginTop: 4 }}>
@@ -100,9 +101,9 @@ export default function TvmLab({ lang }: { lang: Lang }) {
           {rows.map(row => (
             <tr key={row.no}>
               <td style={cell}>{row.no}</td>
-              <td style={cell}>{row.interest.toFixed(2)}</td>
-              <td style={cell}>{row.repaid.toFixed(2)}</td>
-              <td style={cell}>{row.balance.toFixed(2)}</td>
+              <td style={cell}>{fmt(row.interest)}</td>
+              <td style={cell}>{fmt(row.repaid)}</td>
+              <td style={cell}>{fmt(row.balance)}</td>
             </tr>
           ))}
         </tbody>

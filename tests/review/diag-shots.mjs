@@ -136,6 +136,11 @@ try {
       for (const job of jobs) {
         await page.goto(`${BASE_URL}/#/s/${job.subject}/t/${job.topic}`, { waitUntil: 'domcontentloaded' });
         await settle(page);
+        // A subject chunk may still be mounting after the article shell appears on a busy machine.
+        await page.waitForFunction(({ sims, figures }) =>
+          document.querySelectorAll('.foma-sim').length >= sims &&
+          document.querySelectorAll('figure.foma-figure').length >= figures,
+          { sims: job.sims.length, figures: job.figures.length }, { timeout: 30000 }).catch(() => {});
         const common = { subject: job.subject, topic: job.topic, lang, width };
         const sims = page.locator('.foma-sim');
         const simCount = await sims.count();

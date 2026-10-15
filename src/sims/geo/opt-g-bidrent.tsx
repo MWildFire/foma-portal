@@ -1,66 +1,20 @@
+import ReadableDiagram from '../readable-diagram';
 import { useState } from 'react';
 import type { Lang } from '../../contract/types';
+import { USES, MAX_KM, interceptsOf, rentOf, zonesOf, type Use } from './opt-g-bidrent-logic';
 
 // Illustrative bid-rent model (a teaching model, not data for any real city). Each land use can pay a rent that falls in a
 // straight line with distance from the CBD. The intercepts and slopes are invented to show the mechanism.
 
-type Use = 'office' | 'retail' | 'housing';
-type Intercepts = Record<Use, number>;
-interface Zone { use: Use; from: number; to: number }
-
-const USES: Use[] = ['office', 'retail', 'housing'];
 const NAME: Record<Use, { en: string; ru: string }> = {
-  office: { en: 'Offices', ru: 'Офисы' },
-  retail: { en: 'Retail', ru: 'Торговля' },
+  commercial: { en: 'Retail and offices', ru: 'Торговля и офисы' },
+  industry: { en: 'Industry', ru: 'Промышленность' },
   housing: { en: 'Housing', ru: 'Жильё' },
+  farming: { en: 'Farming', ru: 'Сельское хозяйство' },
 };
-const COLOUR: Record<Use, string> = { office: '#2f5d8a', retail: '#c2652a', housing: '#3c7d4f' };
-
-// Rent lost per km when transport cost is 1. Offices depend most on central access, so their curve is the steepest.
-const SLOPE: Record<Use, number> = { office: 30, retail: 20, housing: 8 };
-
-const MAX_KM = 10;
-const MAX_RENT = 500;
-const SAMPLE_KM = 0.05;
-
-// Plot area inside the 340 x 236 viewBox.
+const COLOUR: Record<Use, string> = { commercial: '#2f5d8a', industry: '#c2652a', housing: '#3c7d4f', farming: '#8c6d31' };
+const MAX_RENT = 650;
 const PLOT = { left: 44, right: 330, top: 26, bottom: 196 };
-
-function rentOf(use: Use, km: number, intercepts: Intercepts, transport: number): number {
-  return Math.max(0, intercepts[use] - SLOPE[use] * transport * km);
-}
-
-// The use that can pay the most at this distance, or null when no use can pay anything.
-function winnerAt(km: number, intercepts: Intercepts, transport: number): Use | null {
-  let winner: Use | null = null;
-  let top = 0;
-  for (const use of USES) {
-    const value = rentOf(use, km, intercepts, transport);
-    if (value > top) {
-      top = value;
-      winner = use;
-    }
-  }
-  return winner;
-}
-
-// Contiguous distance ranges in which one use is the highest bidder, sampled every SAMPLE_KM.
-function zonesOf(intercepts: Intercepts, transport: number): Zone[] {
-  const zones: Zone[] = [];
-  const steps = Math.round(MAX_KM / SAMPLE_KM);
-  for (let i = 0; i <= steps; i++) {
-    const km = Math.round(i * SAMPLE_KM * 100) / 100;
-    const use = winnerAt(km, intercepts, transport);
-    if (use === null) continue;
-    const last = zones[zones.length - 1];
-    if (last && last.use === use && last.to >= km - SAMPLE_KM - 1e-9) {
-      last.to = km;
-    } else {
-      zones.push({ use, from: km, to: km });
-    }
-  }
-  return zones;
-}
 
 export default function BidRentSim({ lang }: { lang: Lang }) {
   const ru = lang === 'ru';
@@ -74,11 +28,7 @@ export default function BidRentSim({ lang }: { lang: Lang }) {
   const [access, setAccess] = useState(50);        // accessibility of the CBD, 0 to 100
   const [demand, setDemand] = useState(1);         // demand for central land, multiplier
 
-  const intercepts: Intercepts = {
-    office: 300 * demand + (access - 50),
-    retail: 240 + (access - 50) * 0.5,
-    housing: 150,
-  };
+  const intercepts = interceptsOf(demand, access);
 
   const zones = zonesOf(intercepts, transport);
   // Each zone runs from the midpoint with the previous zone to the midpoint with the next one.
@@ -117,17 +67,17 @@ export default function BidRentSim({ lang }: { lang: Lang }) {
       </p>
       <p style={{ margin: '0 0 12px', fontSize: 13, lineHeight: 1.5 }}>
         {text(
-          'The starting rents at the CBD and the slopes are invented to show the mechanism.',
-          'Базовая рента в центре и наклоны кривых заданы условно, чтобы показать механизм.',
+          'Teaching adaptation of bid-rent theory: retail and offices → industry → housing → farming. Rents and slopes are illustrative; farming is a constant outside option. The controls can change or remove zones.',
+          'Учебная адаптация теории бид-ренты: торговля и офисы → промышленность → жильё → сельское хозяйство. Рента и наклоны условные; сельское хозяйство — постоянная внешняя альтернатива. Ползунки могут менять или убирать зоны.',
         )}
       </p>
-      <svg
+      <ReadableDiagram lang={lang}><svg
         viewBox="0 0 340 236"
         width="100%"
         role="img"
         aria-label={text(
-          'Rent curves for offices, retail and housing against distance from the CBD',
-          'Кривые ренты офисов, торговли и жилья в зависимости от расстояния до CBD',
+          'Rent curves for retail and offices, industry, housing and farming against distance from the CBD',
+          'Кривые ренты торговли и офисов, промышленности, жилья и сельского хозяйства в зависимости от расстояния до CBD',
         )}
         style={{ display: 'block' }}
       >
@@ -142,7 +92,7 @@ export default function BidRentSim({ lang }: { lang: Lang }) {
             fillOpacity={0.08}
           />
         ))}
-        {[0, 100, 200, 300, 400, 500].map(rent => (
+        {[0, 100, 200, 300, 400, 500, 600].map(rent => (
           <g key={`rent-${rent}`}>
             <line x1={PLOT.left} x2={PLOT.right} y1={yOf(rent)} y2={yOf(rent)} stroke="currentColor" strokeOpacity={0.12} />
             <text x={PLOT.left - 4} y={yOf(rent) + 3} fontSize="9" textAnchor="end" fill="currentColor">{rent}</text>
@@ -179,8 +129,9 @@ export default function BidRentSim({ lang }: { lang: Lang }) {
         <text x={(PLOT.left + PLOT.right) / 2} y={PLOT.bottom + 26} fontSize="9" textAnchor="middle" fill="currentColor">
           {text('Distance from the CBD, km', 'Расстояние от CBD, км')}
         </text>
-      </svg>
+      </svg></ReadableDiagram>
 
+      <p style={{ fontSize: 13 }}>{text('Urban ordering: Rodrigue et al., The Geography of Transport Systems, 3rd ed., chapter 6, pp. 202–203. Grouping retail with offices and adding farming are assumptions of this teaching adaptation.', 'Городской порядок: Rodrigue и др., The Geography of Transport Systems, 3-е изд., глава 6, с. 202–203. Объединение торговли с офисами и добавление сельского хозяйства — допущения этой учебной адаптации.')}</p>
       <ul style={{ display: 'flex', flexWrap: 'wrap', gap: 12, listStyle: 'none', padding: 0, margin: '8px 0', fontSize: 14 }}>
         {USES.map(use => (
           <li key={use} style={{ display: 'flex', alignItems: 'center', gap: 6 }}>

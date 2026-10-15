@@ -1,3 +1,4 @@
+import ReadableDiagram from '../readable-diagram';
 import { useState } from 'react';
 import type { Lang } from '../../contract/types';
 
@@ -101,7 +102,7 @@ export default function LogisticLoglogLab({ lang }: { lang: Lang }) {
 
   return (
     <figure style={{ margin: 0 }}>
-      <svg viewBox={`0 0 ${W} ${H}`} width="100%" style={{ maxWidth: W }} role="img" aria-label={t.left}>
+      <ReadableDiagram lang={lang}><svg viewBox={`0 0 ${W} ${H}`} width="100%" style={{ maxWidth: W }} role="img" aria-label={t.left}>
         <line x1={PAD} y1={H - PAD} x2={W - PAD} y2={H - PAD} stroke="currentColor" />
         <line x1={PAD} y1={PAD} x2={PAD} y2={H - PAD} stroke="currentColor" />
         <line x1={PAD} y1={sy(L)} x2={W - PAD} y2={sy(L)} stroke="#888" strokeDasharray="4 3" />
@@ -112,8 +113,8 @@ export default function LogisticLoglogLab({ lang }: { lang: Lang }) {
         {DATA_X.map((x, i) => (
           <circle key={x} cx={sx(x)} cy={sy(DATA_Y[i])} r={3} fill="#e0883a" />
         ))}
-      </svg>
-      <svg viewBox={`0 0 ${W} ${H}`} width="100%" style={{ maxWidth: W }} role="img" aria-label={t.right}>
+      </svg></ReadableDiagram>
+      <ReadableDiagram lang={lang}><svg viewBox={`0 0 ${W} ${H}`} width="100%" style={{ maxWidth: W }} role="img" aria-label={t.right}>
         <line x1={PAD} y1={H - PAD} x2={W - PAD} y2={H - PAD} stroke="currentColor" />
         <line x1={PAD} y1={PAD} x2={PAD} y2={H - PAD} stroke="currentColor" />
         <line x1={sx(0)} y1={sz(fit.intercept)} x2={sx(X_MAX)} y2={sz(zEnd)} stroke="#4f6fd8" strokeWidth={2} />
@@ -123,7 +124,7 @@ export default function LogisticLoglogLab({ lang }: { lang: Lang }) {
         {DATA_X.map((x, i) => (
           <circle key={x} cx={sx(x)} cy={sz(zs[i])} r={3} fill="#e0883a" />
         ))}
-      </svg>
+      </svg></ReadableDiagram>
       <figcaption style={{ fontSize: 13, lineHeight: 1.6 }}>
         {t.legend}
         <br />

@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import ReadableDiagram from '../readable-diagram';
+import { useId, useState } from 'react';
 import type { Lang } from '../../contract/types';
 
 // Phase portrait of dx/dt = a x + b y, dy/dt = c x + d y. The sliders hold tenths as integers, so the trace, the
@@ -89,6 +90,7 @@ const TEXT = {
 
 export default function PhasePortraitLab({ lang }: { lang: Lang }) {
   const t = TEXT[lang];
+  const arrow = useId();
   const [a10, setA] = useState(-10);   // a = -1.0: a stable spiral by default
   const [b10, setB] = useState(20);
   const [c10, setC] = useState(-20);
@@ -115,7 +117,8 @@ export default function PhasePortraitLab({ lang }: { lang: Lang }) {
   ];
   return (
     <figure style={{ margin: 0 }}>
-      <svg viewBox={`0 0 ${SIZE} ${SIZE}`} width="100%" style={{ maxWidth: SIZE }} role="img" aria-label={t.label}>
+      <ReadableDiagram lang={lang}><svg viewBox={`0 0 ${SIZE} ${SIZE}`} width="100%" style={{ maxWidth: SIZE }} role="img" aria-label={t.label}>
+        <defs><marker id={arrow} viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L8 4L0 8Z" fill="#4f6fd8" /></marker></defs>
         <line x1={0} y1={SIZE / 2} x2={SIZE} y2={SIZE / 2} stroke="currentColor" strokeWidth={0.5} />
         <line x1={SIZE / 2} y1={0} x2={SIZE / 2} y2={SIZE} stroke="currentColor" strokeWidth={0.5} />
         {TICKS.map(v => (
@@ -126,14 +129,17 @@ export default function PhasePortraitLab({ lang }: { lang: Lang }) {
         ))}
         <text x={SIZE - 4} y={SIZE / 2 - 5} textAnchor="end" fontSize={11} fill="currentColor">x</text>
         <text x={SIZE / 2 + 5} y={10} fontSize={11} fill="currentColor">y</text>
-        {STARTS.map(([x0, y0]) => (
-          <g key={`${x0},${y0}`}>
-            <polyline points={curve(a, b, c, d, x0, y0)} fill="none" stroke="#4f6fd8" strokeWidth={1.2} />
+        {STARTS.map(([x0, y0]) => {
+          const points = curve(a, b, c, d, x0, y0).split(' ');
+          const end = Math.min(5, points.length - 1);
+          return <g key={`${x0},${y0}`}>
+            <polyline points={points.join(' ')} fill="none" stroke="#4f6fd8" strokeWidth={1.2} />
+            {end > 0 && <path d={`M${points[end - 1]} L${points[end]}`} fill="none" stroke="#4f6fd8" markerEnd={`url(#${arrow})`} />}
             <circle cx={SIZE / 2 + x0 * SCALE} cy={SIZE / 2 - y0 * SCALE} r={2.5} fill="#e0883a" />
-          </g>
-        ))}
+          </g>;
+        })}
         <circle cx={SIZE / 2} cy={SIZE / 2} r={3} fill="currentColor" />
-      </svg>
+      </svg></ReadableDiagram>
       <figcaption style={{ fontSize: 13, lineHeight: 1.6 }}>
         dx/dt = {combination(a, b)}
         <br />

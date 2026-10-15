@@ -1,3 +1,4 @@
+import ReadableDiagram from '../readable-diagram';
 import { useState } from 'react';
 import type { Lang } from '../../contract/types';
 
@@ -43,7 +44,7 @@ export default function GreenhouseEffect({ lang }: { lang: Lang }) {
           <input type="range" min={0.2} max={0.4} step={0.01} value={albedo} onChange={event => setAlbedo(Number(event.target.value))} style={{ width: '100%' }} />
         </label>
       </div>
-      <svg role="img" aria-label={title} viewBox="0 0 400 190" width="100%" style={{ maxWidth: 520, display: 'block', marginTop: 16 }}>
+      <ReadableDiagram lang={lang}><svg role="img" aria-label={title} viewBox="0 0 400 190" width="100%" style={{ maxWidth: 520, display: 'block', marginTop: 16 }}>
         <defs>
           <marker id="greenhouse-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" markerUnits="userSpaceOnUse" orient="auto">
             <path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor" />
@@ -73,7 +74,7 @@ export default function GreenhouseEffect({ lang }: { lang: Lang }) {
         {/* the surface */}
         <rect x={20} y={150} width={360} height={18} fill="currentColor" opacity={0.25} />
         <text x={28} y={163} fontSize="11" fill="currentColor">{ru ? 'поверхность Земли' : 'Earth’s surface'}</text>
-      </svg>
+      </svg></ReadableDiagram>
       <ul style={{ marginTop: 12, paddingLeft: 18 }}>
         <li>
           {ru ? 'Радиационное воздействие CO₂: ΔF = 5,35 × ln(' : 'Radiative forcing of CO₂: ΔF = 5.35 × ln('}

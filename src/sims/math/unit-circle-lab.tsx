@@ -1,3 +1,4 @@
+import ReadableDiagram from '../readable-diagram';
 import { useState } from 'react';
 import type { Lang } from '../../contract/types';
 import { CENTRE, RADIUS, SIZE, tangentOf, tangentSegment } from './unit-circle-logic';
@@ -79,7 +80,7 @@ export default function UnitCircleLab({ lang }: { lang: Lang }) {
 
   return (
     <figure style={{ margin: 0 }}>
-      <svg viewBox={`0 0 ${SIZE} ${SIZE}`} width="100%" style={{ maxWidth: SIZE }} role="img" aria-label={t.label}>
+      <ReadableDiagram lang={lang}><svg viewBox={`0 0 ${SIZE} ${SIZE}`} width="100%" style={{ maxWidth: SIZE }} role="img" aria-label={t.label}>
         <line x1={0} y1={CENTRE} x2={SIZE} y2={CENTRE} stroke="#999" />
         <line x1={CENTRE} y1={0} x2={CENTRE} y2={SIZE} stroke="#999" />
         <circle cx={CENTRE} cy={CENTRE} r={RADIUS} fill="none" stroke="currentColor" strokeWidth={1.5} />
@@ -97,7 +98,7 @@ export default function UnitCircleLab({ lang }: { lang: Lang }) {
         <circle cx={pointX} cy={pointY} r={4} fill="#e0883a" />
         <text x={pointX} y={CENTRE + 16} textAnchor="middle" fontSize={12}>{t.cos}</text>
         <text x={CENTRE - 8} y={pointY + 4} textAnchor="end" fontSize={12}>{t.sin}</text>
-      </svg>
+      </svg></ReadableDiagram>
       <figcaption style={{ fontSize: 13, lineHeight: 1.6 }}>
         {t.angle}: {inRadians ? `${value.toFixed(2)} ${t.rad}` : `${value}°`} · {t.quadrant}:{' '}
         {onAxis ? t.onAxis : ROMAN[quadrant]}

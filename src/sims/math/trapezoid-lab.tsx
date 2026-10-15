@@ -18,8 +18,8 @@ const py = (y: number) => HEIGHT - PAD - (y / Y_MAX) * (HEIGHT - 2 * PAD);
 const TEXT = {
   en: {
     label: 'Trapezia under the curve y = 2 + sin x between a and b',
-    a: 'Lower endpoint a',
-    b: 'Upper endpoint b',
+    a: 'Lower endpoint a (rad)',
+    b: 'Upper endpoint b (rad)',
     n: 'Number of trapezia n',
     h: 'Strip width h',
     est: 'Trapezoidal estimate T',
@@ -31,8 +31,8 @@ const TEXT = {
   },
   ru: {
     label: 'Трапеции под графиком y = 2 + sin x между a и b',
-    a: 'Левая граница a',
-    b: 'Правая граница b',
+    a: 'Левая граница a (рад)',
+    b: 'Правая граница b (рад)',
     n: 'Число трапеций n',
     h: 'Ширина полоски h',
     est: 'Оценка по формуле трапеций T',

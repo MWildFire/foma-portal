@@ -1,3 +1,4 @@
+import ReadableDiagram from '../readable-diagram';
 import { useState } from 'react';
 import type { Lang } from '../../contract/types';
 import { principalArgument } from './complex-plane-logic';
@@ -70,7 +71,7 @@ export default function ComplexPlaneLab({ lang }: { lang: Lang }) {
 
   return (
     <figure style={{ margin: 0 }}>
-      <svg viewBox={`0 0 ${SIZE} ${SIZE}`} width="100%" style={{ maxWidth: SIZE }} role="img" aria-label={t.label}>
+      <ReadableDiagram lang={lang}><svg viewBox={`0 0 ${SIZE} ${SIZE}`} width="100%" style={{ maxWidth: SIZE }} role="img" aria-label={t.label}>
         {GRID.map(k => (
           <g key={k} stroke="currentColor" strokeOpacity={0.12}>
             <line x1={X(k)} y1={0} x2={X(k)} y2={SIZE} />
@@ -89,7 +90,7 @@ export default function ComplexPlaneLab({ lang }: { lang: Lang }) {
         <circle cx={X(productRe)} cy={Y(productIm)} r={5} fill="#e0883a" />
         <text x={X(a) + 7} y={Y(b) - 7} fontSize={13} fill="#4f6fd8">{t.z}</text>
         <text x={X(productRe) + 7} y={Y(productIm) - 7} fontSize={13} fill="currentColor">{t.product}</text>
-      </svg>
+      </svg></ReadableDiagram>
       <figcaption style={{ fontSize: 13, lineHeight: 1.6 }}>
         {t.value} {cartesian(a, b)} · {t.modulus}: {r.toFixed(2)} · {t.argument}:{' '}
         {r === 0 ? t.undefinedArg : `${theta.toFixed(2)} ${t.rad} (${degrees.toFixed(1)}°)`}

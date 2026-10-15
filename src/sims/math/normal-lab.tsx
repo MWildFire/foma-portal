@@ -1,13 +1,14 @@
+import ReadableDiagram from '../readable-diagram';
 import { useState } from 'react';
 import type { Lang } from '../../contract/types';
-import { PLOT_HEIGHT, SIGMA_MAX, SIGMA_MIN, cdf, densityHeight, inverseCdf, normalDensity } from './normal-logic';
+import { NORMAL_DOMAIN, PLOT_HEIGHT, SIGMA_MAX, SIGMA_MIN, cdf, densityHeight, inverseCdf, normalDensity } from './normal-logic';
 
-// Normal curve on the axis from 0 to 100. The shaded area is P(a <= X <= b); the dashed line is the value x with
+// Normal curve on the axis from -20 to 120. The shaded area is P(a <= X <= b); the dashed line is the value x with
 // P(X <= x) = p. The height scale is fixed by the smallest sigma (see normal-logic.ts), so a wider curve is lower.
 
-const X_MIN = 0;
-const X_MAX = 100;
-const TICKS = [0, 25, 50, 75, 100];
+const X_MIN = NORMAL_DOMAIN.min;
+const X_MAX = NORMAL_DOMAIN.max;
+const TICKS = [-20, 0, 20, 40, 60, 80, 100, 120];
 const WIDTH = 320;
 const HEIGHT = 180;
 const BASE = HEIGHT - 24;
@@ -70,7 +71,7 @@ export default function NormalLab({ lang }: { lang: Lang }) {
 
   return (
     <figure style={{ margin: 0 }}>
-      <svg viewBox={`0 0 ${WIDTH} ${HEIGHT}`} width="100%" style={{ maxWidth: WIDTH }} role="img" aria-label={t.label}>
+      <ReadableDiagram lang={lang}><svg viewBox={`0 0 ${WIDTH} ${HEIGHT}`} width="100%" style={{ maxWidth: WIDTH }} role="img" aria-label={t.label}>
         <polygon points={shade} fill="#4f6fd8" fillOpacity={0.35} />
         <polyline points={curve} fill="none" stroke="currentColor" strokeWidth={2} />
         <line x1={0} y1={BASE} x2={WIDTH} y2={BASE} stroke="currentColor" strokeWidth={1} />
@@ -93,7 +94,7 @@ export default function NormalLab({ lang }: { lang: Lang }) {
         {xp >= X_MIN && xp <= X_MAX && (
           <line x1={px(xp)} y1={TOP} x2={px(xp)} y2={BASE} stroke="#e0883a" strokeWidth={1.5} strokeDasharray="4 3" />
         )}
-      </svg>
+      </svg></ReadableDiagram>
       <figcaption style={{ fontSize: 13, lineHeight: 1.6 }}>
         {t.area}: {area.toFixed(3)} · {t.z}: {zLo.toFixed(2)}, {zHi.toFixed(2)}
         <br />

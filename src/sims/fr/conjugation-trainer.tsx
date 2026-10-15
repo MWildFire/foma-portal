@@ -81,7 +81,7 @@ const input = {
   color: 'inherit',
 } as const;
 
-const field = { display: 'grid', gap: 4 } as const;
+const field = { display: 'grid', gridTemplateColumns: 'minmax(0, 1fr)', minWidth: 0, maxWidth: '100%', gap: 4 } as const;
 
 export default function ConjugationTrainer({ lang }: { lang: Lang }) {
   const copy = COPY[lang];
@@ -131,7 +131,7 @@ export default function ConjugationTrainer({ lang }: { lang: Lang }) {
   const checkDisabled = verdict === 'idle' && text.trim() === '';
 
   return (
-    <div style={{ display: 'grid', gap: 12 }}>
+    <div style={{ display: 'grid', gridTemplateColumns: 'minmax(0, 1fr)', gap: 12 }}>
       <p style={{ margin: 0 }}>
         <strong>{copy.title}</strong>
         <br />
@@ -140,7 +140,7 @@ export default function ConjugationTrainer({ lang }: { lang: Lang }) {
       <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12 }}>
         <label style={field}>
           {copy.mood}
-          <select value={filter.mood} onChange={e => applyFilter({ mood: e.target.value as Mood | 'all', tense: 'all' })}>
+          <select style={{ minWidth: 0, maxWidth: '100%' }} value={filter.mood} onChange={e => applyFilter({ mood: e.target.value as Mood | 'all', tense: 'all' })}>
             <option value="all">{copy.allMoods}</option>
             {MOODS.map(mood => (
               <option key={mood} value={mood}>{moodLabel(mood, lang)}</option>
@@ -149,7 +149,7 @@ export default function ConjugationTrainer({ lang }: { lang: Lang }) {
         </label>
         <label style={field}>
           {copy.tense}
-          <select value={filter.tense} onChange={e => applyFilter({ mood: filter.mood, tense: e.target.value })}>
+          <select style={{ minWidth: 0, maxWidth: '100%' }} value={filter.tense} onChange={e => applyFilter({ mood: filter.mood, tense: e.target.value })}>
             <option value="all">{copy.allTenses}</option>
             {tenses.map(tense => (
               <option key={tense} value={tense}>{tenseLabel(tense, lang)}</option>
@@ -158,7 +158,7 @@ export default function ConjugationTrainer({ lang }: { lang: Lang }) {
         </label>
       </div>
       {drill ? (
-        <form onSubmit={onSubmit} style={{ display: 'grid', gap: 10 }}>
+        <form onSubmit={onSubmit} style={{ display: 'grid', gridTemplateColumns: 'minmax(0, 1fr)', gap: 10 }}>
           <p style={{ margin: 0 }}>
             {copy.verb}: <strong lang="fr">{drill.verb}</strong> · {copy.person}: <strong lang="fr">{drill.pronoun}</strong>
             <br />

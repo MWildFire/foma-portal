@@ -1,3 +1,4 @@
+import ReadableDiagram from '../readable-diagram';
 import { useState } from 'react';
 import type { Lang } from '../../contract/types';
 
@@ -164,7 +165,8 @@ export default function OptADamsSim({ lang }: { lang: Lang }) {
       <p style={{ margin: '0 0 2px', fontSize: 14 }}>
         {ru ? 'Запас воды на конец каждого года, млн м³ (* — сухой год)' : 'Storage at the end of each year, million m³ (* = dry year)'}
       </p>
-      <svg
+      <p style={{ fontSize: 13 }}>{ru ? 'Пунктир — ёмкость водохранилища.' : 'Dashed line: reservoir capacity.'}</p>
+      <ReadableDiagram lang={lang}><svg
         viewBox="0 0 320 166"
         width="100%"
         role="img"
@@ -201,7 +203,7 @@ export default function OptADamsSim({ lang }: { lang: Lang }) {
             </g>
           );
         })}
-      </svg>
+      </svg></ReadableDiagram>
 
       <p style={{ margin: '12px 0 0', fontSize: 13, lineHeight: 1.5 }}>
         <strong>{ru ? 'Формулы. ' : 'Formulas. '}</strong>

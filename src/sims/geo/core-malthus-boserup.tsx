@@ -1,3 +1,4 @@
+import ReadableDiagram from '../readable-diagram';
 import { useState } from 'react';
 import type { Lang } from '../../contract/types';
 
@@ -40,6 +41,7 @@ function crossingYear(growth: number): number | null {
 }
 
 export default function MalthusBoserup({ lang }: { lang: Lang }) {
+  const fmt = (value: number) => value.toLocaleString(lang === 'ru' ? 'ru-RU' : 'en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
   const ru = lang === 'ru';
   const [growthPercent, setGrowthPercent] = useState(2.5);
   const [response, setResponse] = useState(1.2);
@@ -67,11 +69,11 @@ export default function MalthusBoserup({ lang }: { lang: Lang }) {
         </label>
         <label style={{ display: 'block' }}>
           {ru ? 'Ответ технологий и интенсификации (s): ' : 'Boserup response of food supply (s): '}
-          <strong>{response.toFixed(2)}</strong>
+          <strong>{fmt(response)}</strong>
           <input type="range" min={1} max={1.4} step={0.05} value={response} onChange={event => setResponse(Number(event.target.value))} style={{ width: '100%' }} />
         </label>
       </div>
-      <svg role="img" aria-label={title} viewBox={`0 0 ${W} ${H}`} width="100%" style={{ maxWidth: 460, display: 'block' }}>
+      <ReadableDiagram lang={lang}><svg role="img" aria-label={title} viewBox={`0 0 ${W} ${H}`} width="100%" style={{ maxWidth: 460, display: 'block' }}>
         {/* legend above the plot */}
         <line x1={40} x2={60} y1={12} y2={12} stroke="#3f6b8c" strokeWidth={1.5} strokeDasharray="2 3" />
         <text x={66} y={16} fontSize="11" fill="currentColor">{ru ? 'Население = 1' : 'Population = 1'}</text>
@@ -95,7 +97,7 @@ export default function MalthusBoserup({ lang }: { lang: Lang }) {
         <polyline points={line(() => 1)} fill="none" stroke="#3f6b8c" strokeWidth={1.5} strokeDasharray="2 3" />
         <polyline points={line(t => malthusPerHead(t, growth))} fill="none" stroke="currentColor" strokeWidth={2} strokeDasharray="6 4" />
         <polyline points={line(t => boserupPerHead(t, growth, response))} fill="none" stroke="#3e8e5a" strokeWidth={2.5} />
-      </svg>
+      </svg></ReadableDiagram>
       <ul style={{ marginTop: 12, paddingLeft: 18 }}>
         <li>
           {crossing === null
@@ -108,13 +110,13 @@ export default function MalthusBoserup({ lang }: { lang: Lang }) {
         </li>
         <li>
           {ru
-            ? `Через ${YEARS} лет еды на человека по Мальтусу: ${malthusResult.toFixed(2)} от стартового уровня.`
-            : `After ${YEARS} years, Malthusian food per person: ${malthusResult.toFixed(2)} of the starting level.`}
+            ? `Через ${YEARS} лет еды на человека по Мальтусу: ${fmt(malthusResult)} от стартового уровня.`
+            : `After ${YEARS} years, Malthusian food per person: ${fmt(malthusResult)} of the starting level.`}
         </li>
         <li>
           {ru
-            ? `По Бозеруп (s = ${response.toFixed(2)}): еды на человека через ${YEARS} лет — ${boserupResult.toFixed(2)} от стартового уровня. Значение 1 означает, что еда растёт вровень с населением.`
-            : `Boserup (s = ${response.toFixed(2)}): food per person after ${YEARS} years is ${boserupResult.toFixed(2)} of the starting level. A value of 1 means food grows in line with population.`}
+            ? `По Бозеруп (s = ${fmt(response)}): еды на человека через ${YEARS} лет — ${fmt(boserupResult)} от стартового уровня. Значение 1 означает, что еда растёт вровень с населением.`
+            : `Boserup (s = ${fmt(response)}): food per person after ${YEARS} years is ${fmt(boserupResult)} of the starting level. A value of 1 means food grows in line with population.`}
         </li>
       </ul>
       <p style={{ fontSize: 13, opacity: 0.8 }}>

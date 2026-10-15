@@ -50,3 +50,6 @@ export function inverseCdf(p: number): number {
   }
   return (low + high) / 2;
 }
+
+// Covers all slider states (mu 25–75, sigma 2–10), including at least 4.5 sigma on both sides.
+export const NORMAL_DOMAIN = { min: -20, max: 120 };

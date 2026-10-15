@@ -1,3 +1,4 @@
+import ReadableDiagram from '../readable-diagram';
 import { useState } from 'react';
 import type { Lang } from '../../contract/types';
 
@@ -165,7 +166,7 @@ export default function OptAHydrographSim({ lang }: { lang: Lang }) {
         </p>
       ) : null}
 
-      <svg
+      <ReadableDiagram lang={lang}><svg
         viewBox="0 0 320 200"
         width="100%"
         role="img"
@@ -207,7 +208,7 @@ export default function OptAHydrographSim({ lang }: { lang: Lang }) {
         <text x={11} y={(TOP + BOTTOM) / 2} fontSize="10" textAnchor="middle" transform={`rotate(-90 11 ${(TOP + BOTTOM) / 2})`} fill="currentColor">
           {ru ? 'Расход (м³/с)' : 'Discharge (m³/s)'}
         </text>
-      </svg>
+      </svg></ReadableDiagram>
 
       <p style={{ margin: '6px 0 0', fontSize: 13, lineHeight: 1.5 }}>
         {ru

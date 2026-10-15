@@ -32,3 +32,12 @@ test('density and probability helpers give the standard values', () => {
   assert.ok(Math.abs(inverseCdf(0.9) - 1.2815516) < 1e-6);
   assert.ok(Math.abs(cdf(inverseCdf(0.3)) - 0.3) < 1e-9);
 });
+
+test('plot window retains at least 99.999 percent at every allowed mean and deviation', async () => {
+  const { NORMAL_DOMAIN } = await import('../src/sims/math/normal-logic.ts');
+  assert.ok(NORMAL_DOMAIN, 'shared plot domain is defined');
+  for (let mu=25; mu<=75; mu++) for(let sigma=SIGMA_MIN; sigma<=SIGMA_MAX; sigma+=.5) {
+    const mass=cdf((NORMAL_DOMAIN.max-mu)/sigma)-cdf((NORMAL_DOMAIN.min-mu)/sigma);
+    assert.ok(mass>=.99999, `${mu},${sigma}: visible mass ${mass}`);
+  }
+});

@@ -1,3 +1,4 @@
+import ReadableDiagram from '../readable-diagram';
 import { useState } from 'react';
 import type { Lang } from '../../contract/types';
 
@@ -109,20 +110,22 @@ export default function TTestLab({ lang }: { lang: Lang }) {
 
   return (
     <figure style={{ margin: 0 }}>
-      <svg viewBox={`0 0 ${WIDTH} ${HEIGHT}`} width="100%" style={{ maxWidth: WIDTH }} role="img" aria-label={t.label}>
+      <ReadableDiagram lang={lang}><svg viewBox={`0 0 ${WIDTH} ${HEIGHT}`} width="100%" style={{ maxWidth: WIDTH }} role="img" aria-label={t.label}>
         <line x1={0} y1={BASE} x2={WIDTH} y2={BASE} stroke="currentColor" strokeWidth={1} />
+        {[-4, -2, 0, 2, 4].map(v => <text key={v} x={X(v)} y={BASE + 14} textAnchor="middle" fontSize={11} fill="currentColor">{String(v).replace('-', '−')}</text>)}
+        <text x={WIDTH - 1} y={BASE - 5} textAnchor="end" fontSize={11} fill="currentColor">t</text>
         {regions.map(([from, to]) => (
           <path key={from} d={shade(from, to)} fill="#e0883a" fillOpacity={0.6} />
         ))}
         <polyline points={curve} fill="none" stroke="#4f6fd8" strokeWidth={2} />
-        <line x1={X(clamp(stat))} y1={BASE} x2={X(clamp(stat))} y2={12} stroke="#c0392b" strokeWidth={1.5} strokeDasharray="4 3" />
-      </svg>
+        {Math.abs(stat) <= RANGE && <line x1={X(stat)} y1={BASE} x2={X(clamp(stat))} y2={12} stroke="#c0392b" strokeWidth={1.5} strokeDasharray="4 3" />}
+      </svg></ReadableDiagram>
       <figcaption style={{ fontSize: 13, lineHeight: 1.5 }}>
         {t.stat} = {stat.toFixed(2)} · {t.df} = {nu} · {t.p} = {pValue.toFixed(3)}
         <br />
         <strong>{pValue < alpha ? t.reject : t.keep}</strong>
         <br />
-        {t.note}
+        {t.note} {Math.abs(stat) > RANGE && (lang === 'en' ? 'The observed t lies outside the displayed −5 to 5 window.' : 'Наблюдаемое t находится за пределами окна от −5 до 5.')}
       </figcaption>
       <label style={{ display: 'block', marginTop: 8 }}>
         {t.mean}: {mean.toFixed(1)}

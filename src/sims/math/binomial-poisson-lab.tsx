@@ -1,3 +1,4 @@
+import ReadableDiagram from '../readable-diagram';
 import { useState } from 'react';
 import type { Lang } from '../../contract/types';
 import { binomialPmf, poissonPmf, windowMax, xTicks } from './binomial-poisson-logic';
@@ -54,7 +55,7 @@ export default function BinomialPoissonLab({ lang }: { lang: Lang }) {
 
   return (
     <figure style={{ margin: 0 }}>
-      <svg viewBox={`0 0 ${WIDTH} ${HEIGHT}`} width="100%" style={{ maxWidth: WIDTH }} role="img" aria-label={t.label}>
+      <ReadableDiagram lang={lang}><svg viewBox={`0 0 ${WIDTH} ${HEIGHT}`} width="100%" style={{ maxWidth: WIDTH }} role="img" aria-label={t.label}>
         <line x1={0} y1={BASE} x2={WIDTH} y2={BASE} stroke="currentColor" strokeWidth={1} />
         {binomial.map((value, x) => (
           <rect
@@ -90,7 +91,7 @@ export default function BinomialPoissonLab({ lang }: { lang: Lang }) {
         <text x={LEFT} y={TOP - 6} fontSize={11} fill="currentColor">
           P(X = x)
         </text>
-      </svg>
+      </svg></ReadableDiagram>
       <figcaption style={{ fontSize: 13, lineHeight: 1.5 }}>
         <span style={{ color: '#4f6fd8' }}>■ {t.binomial}</span>{' · '}
         <span style={{ color: '#e0883a' }}>■ {t.poisson}</span>

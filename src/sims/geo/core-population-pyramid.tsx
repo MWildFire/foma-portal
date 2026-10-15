@@ -1,3 +1,4 @@
+import ReadableDiagram from '../readable-diagram';
 import { useState } from 'react';
 import type { Lang } from '../../contract/types';
 import { BANDS, CENTRE, GAP, MAX_BAR, barLength, bandForRow, femaleBarX, maleBarX, sharesOf } from './core-population-pyramid-logic';
@@ -82,7 +83,7 @@ export default function PopulationPyramid({ lang }: { lang: Lang }) {
           </button>
         ))}
       </div>
-      <svg role="img" aria-label={title} viewBox={`0 0 ${WIDTH} ${HEIGHT}`} width="100%" style={{ maxWidth: 420, display: 'block' }}>
+      <ReadableDiagram lang={lang}><svg role="img" aria-label={title} viewBox={`0 0 ${WIDTH} ${HEIGHT}`} width="100%" style={{ maxWidth: 420, display: 'block' }}>
         <text x={CENTRE - GAP - MAX_BAR / 2} y={20} textAnchor="middle" fontSize="13" fill="currentColor">
           {ru ? 'Мужчины' : 'Male'}
         </text>
@@ -113,7 +114,7 @@ export default function PopulationPyramid({ lang }: { lang: Lang }) {
         <text x={CENTRE} y={HEIGHT - 6} textAnchor="middle" fontSize="11" fill="currentColor">
           {ru ? 'Доля в общем населении, %' : 'Share of the total population, %'}
         </text>
-      </svg>
+      </svg></ReadableDiagram>
       <p style={{ marginTop: 12 }}>{STAGES[stage].note[lang]}</p>
       <p style={{ fontSize: 13, opacity: 0.8 }}>
         {ru

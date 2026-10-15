@@ -121,6 +121,10 @@ export default function GTransportSim({ lang }: { lang: Lang }) {
       <figcaption style={{ fontWeight: 600 }}>{t.title}</figcaption>
       <p style={{ margin: '0.4rem 0 0.9rem' }}>{t.lead}</p>
 
+      <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, marginBottom: 12 }}>
+        <button type="button" onClick={() => setShares([...START_SHARES])}>{lang === 'ru' ? 'До: исходные доли' : 'Before: initial shares'}</button>
+        <button type="button" onClick={() => setShares(rebalance(START_SHARES, 0, 20))}>{lang === 'ru' ? 'После: автомобиль 20%' : 'After: car share 20%'}</button>
+      </div>
       {MODES.map((mode, i) => (
         <div key={mode} style={{ marginBottom: '0.7rem' }}>
           <label htmlFor={`g-transport-${mode}`} style={{ display: 'flex', justifyContent: 'space-between', gap: '0.5rem' }}>

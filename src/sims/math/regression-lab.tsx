@@ -1,3 +1,4 @@
+import ReadableDiagram from '../readable-diagram';
 import { useState } from 'react';
 import type { Lang } from '../../contract/types';
 import { DATA, NAMES, leastSquares, predict } from './regression-logic';
@@ -82,7 +83,7 @@ export default function RegressionLab({ lang }: { lang: Lang }) {
 
   return (
     <figure style={{ margin: 0 }}>
-      <svg viewBox={`0 0 ${W} ${H}`} width="100%" style={{ maxWidth: W, overflow: 'hidden' }} role="img" aria-label={t.label}>
+      <ReadableDiagram lang={lang}><svg viewBox={`0 0 ${W} ${H}`} width="100%" style={{ maxWidth: W, overflow: 'hidden' }} role="img" aria-label={t.label}>
         <line x1={sx(0)} y1={sy(0)} x2={sx(d.xMax)} y2={sy(0)} stroke="currentColor" strokeWidth={1} />
         <line x1={sx(0)} y1={sy(0)} x2={sx(0)} y2={sy(d.yMax)} stroke="currentColor" strokeWidth={1} />
         {d.x.map((x, i) => <line key={`e${i}`} x1={sx(x)} y1={sy(d.y[i])} x2={sx(x)} y2={sy(fitted[i])} stroke="#d64545" strokeWidth={2} />)}
@@ -91,7 +92,7 @@ export default function RegressionLab({ lang }: { lang: Lang }) {
         {d.x.map((x, i) => <circle key={`p${i}`} cx={sx(x)} cy={sy(d.y[i])} r={3.5} fill="#e0883a" />)}
         <text x={W / 2} y={H - 4} textAnchor="middle" fontSize={11} fill="currentColor">{xTitle}</text>
         <text x={sx(0) + 4} y={10} fontSize={11} fill="currentColor">{yTitle}</text>
-      </svg>
+      </svg></ReadableDiagram>
       <figcaption style={{ fontSize: 13, lineHeight: 1.6 }}>
         {t.coef}: {coef.map((v, i) => `${NAMES[model][i]} = ${v.toFixed(2)}`).join(', ')} · {t.r2}: {r2.toFixed(3)} · {t.ssr}: {ssr.toFixed(2)}
         {model === 'linear' ? <> · {t.r}: {r.toFixed(3)}</> : null}
