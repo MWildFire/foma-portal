@@ -101,7 +101,8 @@ test('the practice goes on through the questions of a past paper from one day to
   assert.equal(first.pastPaper.id, 'geo-p2-m24', 'the most recent Geography paper');
   assert.deepEqual(first.pastItems, ['q1', 'q2', 'q3']);
   assert.equal(second.pastPaper.id, 'geo-p2-m24');
-  assert.deepEqual(second.pastItems, ['q4', 'q5', 'q6']);
+  assert.deepEqual(second.pastItems, ['q4', 'q5']); // 16 Oct now reserves 60 minutes for the economics diagnostic.
+  assert.equal(second.minutes, 15);
 });
 
 test('a paper marked solved waits behind the unsolved ones; when all are solved the most recent comes back', () => {

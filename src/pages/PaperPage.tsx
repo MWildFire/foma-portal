@@ -25,7 +25,6 @@ import '../components/subject/subject.css';
 function GuideSection({ guide, subject, lang }: { guide: PaperGuide; subject: string; lang: string }) {
   const { t } = useTranslation('paper');
   const base = useId();
-  const [showOutside,setShowOutside]=useState(false);
   const reading = 'font-reading max-w-[60ch] text-[1.0625rem] leading-relaxed';
   return (
     <article aria-labelledby={`${base}-title`} className="mb-12">
