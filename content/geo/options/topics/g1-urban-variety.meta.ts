@@ -60,7 +60,7 @@ const topic: TopicMeta = {
   questionIds: ['g1-sq1', 'g1-sq2', 'g1-sq3', 'g1-eq1', 'g1-eq2'],
   caseIds: ['g-dubai-growth', 'g-lagos-megacity', 'g-dharavi', 'g-singapore-hdb'],
   sources: [
-    { kind: 'ib-guide', title: 'Geography guide (2017), Option G: Urban environments', locator: 'G.1' },
+    { kind: 'ib-guide', title: 'Geography guide (2017), Option G: Urban environments', locator: 'G.1, p. 40' },
     { kind: 'thinkib', title: 'Option G: Urban Environments (pages 37517, 37523, 37524)', locator: 'The Variety of Urban Environments; The Characteristics of Urban Places; Economic Activity in Urban Places' },
   ],
   links: [

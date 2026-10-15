@@ -59,7 +59,7 @@ const topic: TopicMeta = {
   questionIds: ['g3-sq1', 'g3-sq2', 'g3-sq3', 'g3-eq1', 'g3-eq2'],
   caseIds: ['g-mumbai-floods-2005', 'g-jakarta-subsidence', 'g-kibera', 'g-phoenix-heat'],
   sources: [
-    { kind: 'ib-guide', title: 'Geography guide (2017), Option G: Urban environments', locator: 'G.3' },
+    { kind: 'ib-guide', title: 'Geography guide (2017), Option G: Urban environments', locator: 'G.3, p. 41' },
     { kind: 'thinkib', title: 'Option G: Urban Environments (pages 37520, 37586, 37591)', locator: 'Urban Environmental and Social Stress; Urban Micro-climates; Managing Urban Social Deprivation and Crime' },
   ],
   links: [

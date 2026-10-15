@@ -63,7 +63,7 @@ const topic: TopicMeta = {
   questionIds: ['a2-sq1', 'a2-sq2', 'a2-sq3', 'a2-eq1', 'a2-eq2'],
   caseIds: ['a-netherlands-room-river', 'a-boscastle-flash-2004', 'a-pakistan-floods-2022'],
   sources: [
-    { kind: 'ib-guide', title: 'Geography guide (2017), Option A: Freshwater', locator: 'A.2' },
+    { kind: 'ib-guide', title: 'Geography guide (2017), Option A: Freshwater', locator: 'A.2, p. 28' },
     { kind: 'thinkib', title: 'Option A: Floods and Flood Mitigation (page 43867)', locator: 'Flood Mitigation Strategies; Flood Prediction; Hydrographs and Floods' },
   ],
   links: [

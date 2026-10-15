@@ -44,15 +44,15 @@ export const cases: CaseStudy[] = [
     lat: 6.5244,
     lng: 3.3792,
     facts: {
-      en: 'The Lagos urban agglomeration grew from about 4.8 million people in 1990 to 13.5 million in 2018, and the UN projects 20.6 million by 2030 (UN World Urbanization Prospects 2018). It is one of three African megacities in 2018, with Cairo and Kinshasa, and its population grew by about 3.2% a year in 2015–2020.',
-      ru: 'Агломерация Лагоса выросла с примерно 4,8 млн человек в 1990 году до 13,5 млн в 2018 году; ООН прогнозирует 20,6 млн к 2030 году (UN WUP 2018). Это один из трёх африканских мегаполисов 2018 года вместе с Каиром и Киншасой; в 2015–2020 годах население росло примерно на 3,2% в год.',
+      en: 'The Lagos urban agglomeration grew from about 4.8 million people in 1990 to 13.5 million in 2018, and the UN projects 20.6 million by 2030 (UN World Urbanization Prospects 2018: Highlights, Table II, p. 29; a projection made in that revision). It is one of three African megacities in 2018, with Cairo and Kinshasa, and that revision gives an average annual population growth rate of 3.21% for 2015–2020 (a period partly projected at publication).',
+      ru: 'Агломерация Лагоса выросла с примерно 4,8 млн человек в 1990 году до 13,5 млн в 2018 году; ООН прогнозирует 20,6 млн к 2030 году (UN WUP 2018: Highlights, таблица II, с. 29; прогноз именно этого выпуска). Это один из трёх африканских мегаполисов 2018 года вместе с Каиром и Киншасой; для периода 2015–2020 этот выпуск даёт среднегодовой рост 3,21% (на дату публикации часть периода была прогнозной).',
     },
     usedFor: ['g1-urban-variety'],
     src: [
       {
         kind: 'web',
-        title: 'UN DESA, World Urbanization Prospects: The 2018 Revision, Highlights (table of urban agglomerations)',
-        url: 'https://www.un.org/development/desa/pd/sites/www.un.org.development.desa.pd/files/files/documents/2020/Feb/un_2018_wup_highlights.pdf',
+        title: 'UN DESA, World Urbanization Prospects: The 2018 Revision, Highlights (Table II, p. 29; Lagos: 4,764 / 13,463 / 20,600 thousand in 1990 / 2018 / 2030; 3.21% in 2015–2020)',
+        url: 'https://population.un.org/wup/assets/Publications/WUP2018-Highlights.pdf',
       },
     ],
   },

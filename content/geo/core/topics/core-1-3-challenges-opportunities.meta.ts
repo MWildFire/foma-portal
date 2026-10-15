@@ -47,7 +47,7 @@ const topic: TopicMeta = {
     { kind: 'web', title: 'Portfolio.hu, Hungary’s tax system in 2020 (lifetime income-tax exemption for mothers of four)', url: 'https://www.portfolio.hu/en/economy/20200101/hungarys-tax-system-in-2020-changes-like-weve-never-seen-before-411307' },
     { kind: 'web', title: 'Economic Research Forum, working paper on Iran’s family planning programme (started 1989)', url: 'https://erf.org.eg/publications/repression-and-revival-of-the-family-planning-program-and-its-impact-on-the-fertility-levels-and-demographic-transition-in-the-islamic-republic-of-iran/' },
     { kind: 'web', title: 'Wikipedia, One-child policy (1980 start; 1 January 2016 change)', url: 'https://en.wikipedia.org/wiki/One-child_policy' },
-    { kind: 'web', title: 'UN Information Service, UNODC Global Report on Trafficking in Persons 2024 (press release, 11 December 2024)', url: 'https://unis.unvienna.org/unis/en/pressrels/2024/uniscp1182.html' },
+    { kind: 'web', title: 'UNODC, Global Report on Trafficking in Persons 2024, Chapter 1, p. 39, Figure 24 (39% women + 22% girls; 2022 or most recent)', url: 'https://www.unodc.org/documents/data-and-analysis/glotip/2024/GLOTIP2024_Chapter_1.pdf' },
     { kind: 'web', title: 'Republic Act 9208, Anti-Trafficking in Persons Act of 2003 (approved 26 May 2003)', url: 'https://lawphil.net/statutes/repacts/ra2003/ra_9208_2003.html' },
   ],
   links: [

@@ -1,5 +1,7 @@
 import type { Question } from '../../../../src/contract/types';
 
+const infographicUrl = new URL('../topics/assets/core-3-3-infographic.svg?no-inline', import.meta.url).href;
+
 // Syllabus core 3.3. Original questions in IB Geography SL Paper 2 style.
 // Figures: FAO Fisheries Circular No. 920 (1997) for the Peruvian anchoveta; Eurostat cei_wm011 (updated 30 March 2026) for the Section B data.
 // The arithmetic in the markschemes was checked by a script (scratch check, 13 October 2026).
@@ -72,8 +74,8 @@ export const questions: Question[] = [
     marks: 10,
     command: 'Using the infographic',
     stimulus: {
-      en: 'Figure 1 (infographic) shows the recycling rate of municipal waste, the percentage of municipal waste that is recycled, for Germany, the Netherlands and Romania in 2014, 2020 and 2023. Source: Eurostat, dataset cei_wm011, Recycling rate of municipal waste (data updated 30 March 2026).',
-      ru: 'Рисунок 1 (инфографика) показывает уровень переработки муниципальных отходов, то есть долю муниципальных отходов, которая перерабатывается, для Германии, Нидерландов и Румынии в 2014, 2020 и 2023 годах. Источник: Eurostat, набор данных cei_wm011, Recycling rate of municipal waste (данные обновлены 30 марта 2026 года).',
+      en: 'Figure 1 (infographic) shows the recycling rate of municipal waste, the percentage of municipal waste that is recycled, for Germany, the Netherlands and Romania in 2014, 2020 and 2023. Source: Eurostat, dataset cei_wm011, Recycling rate of municipal waste (data updated 30 March 2026).' + ' [Open infographic](' + infographicUrl + ')',
+      ru: 'Рисунок 1 (инфографика) показывает уровень переработки муниципальных отходов, то есть долю муниципальных отходов, которая перерабатывается, для Германии, Нидерландов и Румынии в 2014, 2020 и 2023 годах. Источник: Eurostat, набор данных cei_wm011, Recycling rate of municipal waste (данные обновлены 30 марта 2026 года).' + ' [Открыть инфографику](' + infographicUrl + ')',
     },
     prompt: {
       en: '(a) Using the infographic, describe the trend in the recycling rate for each country between 2014 and 2023. [3]\n\n(b) Calculate the percentage increase in the recycling rate in the Netherlands from 2014 to 2023. Show your working. [3]\n\n(c) Evaluate the use of pay-as-you-throw charges, under which households pay according to the amount of residual waste they produce, as a way to raise recycling rates in a country such as Romania. [4]',

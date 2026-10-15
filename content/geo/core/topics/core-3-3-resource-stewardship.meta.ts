@@ -33,9 +33,11 @@ const topic: TopicMeta = {
     'core-desalination',
     'core-multilateral-environmental-agreement',
   ],
+  sims: ['geo.core-malthus-boserup'],
   questionIds: ['core-3-3-b1', 'core-3-3-a2', 'core-3-3-a3', 'core-3-3-a5'],
   caseIds: ['core-3-3-case-peru-anchoveta', 'core-3-3-case-bhutan-forest', 'core-3-3-case-cape-town'],
   sources: [
+    { kind: 'web', title: 'Costa Rica, Ley 8114, SINALEVI official consolidated text', locator: 'Version 220/220, 21 September 2026, Article 5(c); choose Versión vigente, then Texto Completo; checked 15 October 2026', url: 'https://sinalevi.go.cr/ResultadosNormativa/Informacion?param1=46631&param2=151950&param3=3+&param4=30' },
     { kind: 'ib-guide', title: 'Geography guide (2017), core 3.3' },
     { kind: 'web', title: 'Eurostat, dataset cei_wm011, Recycling rate of municipal waste (updated 30 March 2026)', url: 'https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/cei_wm011' },
     { kind: 'web', title: 'FAO, Review of the state of world fishery resources: marine fisheries, FAO Fisheries Circular No. 920 (1997)', url: 'https://www.fao.org/4/w4248e/w4248e30.htm' },

@@ -69,7 +69,9 @@ const topic: TopicMeta = {
   questionIds: ['a3-sq1', 'a3-sq2', 'a3-sq3', 'a3-eq1', 'a3-eq2'],
   caseIds: ['a-cape-town-drought-2018', 'a-bangladesh-arsenic', 'a-toledo-2014', 'a-aral-sea'],
   sources: [
-    { kind: 'ib-guide', title: 'Geography guide (2017), Option A: Freshwater', locator: 'A.3' },
+    { kind: 'web', title: 'UN-Water, Policy Brief: Water Quality (2011), p. 3, footnote 1', url: 'https://www.unwater.org/sites/default/files/app/uploads/2017/05/waterquality_policybrief.pdf' },
+    { kind: 'web', title: 'Comprehensive Assessment of Water Management in Agriculture (2007), Summary, p. 11, map 2' },
+    { kind: 'ib-guide', title: 'Geography guide (2017), Option A: Freshwater', locator: 'A.3, p. 29' },
     { kind: 'thinkib', title: 'Option A: Water Scarcity and Water Quality (page 44021)', locator: 'Water Scarcity; Conflicts and Resolutions in the Mekong River Basin; Environmental Consequences of Agriculture' },
   ],
   links: [

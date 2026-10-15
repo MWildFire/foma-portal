@@ -1,5 +1,7 @@
 import type { Question } from '../../../../src/contract/types';
 
+const infographicUrl = new URL('../topics/assets/core-3-1-infographic.svg?no-inline', import.meta.url).href;
+
 // Syllabus core 3.1. Original questions in IB Geography SL Paper 2 style. Figures checked against the sources in the cases and the topic meta.
 const topicIds = ['core-3-1-consumption-trends'];
 
@@ -111,8 +113,8 @@ export const questions: Question[] = [
     marks: 10,
     command: 'Using the infographic',
     stimulus: {
-      en: 'Figure 1 (infographic) shows energy use per person, in kilograms of oil equivalent, for high-income, middle-income and low-income country groups in 2000 and 2024. Source: World Bank, World Development Indicators, indicator EG.USE.PCAP.KG.OE (data to 2024).',
-      ru: 'Рисунок 1 (инфографика) показывает потребление энергии на человека в килограммах нефтяного эквивалента для групп стран с высоким, средним и низким доходом в 2000 и 2024 годах. Источник: Всемирный банк, World Development Indicators, индикатор EG.USE.PCAP.KG.OE (данные до 2024 года).',
+      en: 'Figure 1 (infographic) shows energy use per person, in kilograms of oil equivalent, for high-income, middle-income and low-income country groups in 2000 and 2024. Source: World Bank, World Development Indicators, indicator EG.USE.PCAP.KG.OE (data to 2024).' + ' [Open infographic](' + infographicUrl + ')',
+      ru: 'Рисунок 1 (инфографика) показывает потребление энергии на человека в килограммах нефтяного эквивалента для групп стран с высоким, средним и низким доходом в 2000 и 2024 годах. Источник: Всемирный банк, World Development Indicators, индикатор EG.USE.PCAP.KG.OE (данные до 2024 года).' + ' [Открыть инфографику](' + infographicUrl + ')',
     },
     prompt: {
       en: '(a) Using the infographic, describe the change in energy use per person for each of the three income groups between 2000 and 2024. [3]\n\n(b) Calculate the percentage change in energy use per person for middle-income countries between 2000 and 2024. Also calculate how many times greater energy use per person was in high-income countries than in low-income countries in 2024. Show your working. [3]\n\n(c) Evaluate the claim that rising affluence is the main reason why energy use per person has grown in middle-income countries. [4]',

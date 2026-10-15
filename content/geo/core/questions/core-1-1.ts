@@ -1,5 +1,7 @@
 import type { Question } from '../../../../src/contract/types';
 
+const infographicUrl = new URL('../topics/assets/core-1-1-infographic.svg?no-inline', import.meta.url).href;
+
 // Topic core-1.1. Section A: five original questions (2 to 6 marks). Section B: one infographic question (10 marks).
 // Figures come from UN DESA WPP 2024 (Medium variant, 2023 values), UNDP HDR 2025 (HDI 2023) and the World Bank
 // Atlas-method GNI per capita (2025). Section A calculations use invented data and were checked by script.
@@ -91,8 +93,8 @@ export const questions: Question[] = [
     marks: 10,
     command: 'Using the infographic',
     stimulus: {
-      en: 'Figure 1 (infographic) shows the crude birth rate and the crude death rate, per 1000 people, for five countries in 2023. Source: United Nations, Department of Economic and Social Affairs, Population Division, World Population Prospects 2024 (Medium variant), 2023 values.',
-      ru: 'Рисунок 1 (инфографика) показывает общий коэффициент рождаемости и общий коэффициент смертности на 1000 человек для пяти стран в 2023 году. Источник: Организация Объединённых Наций, Департамент по экономическим и социальным вопросам, Отдел народонаселения, World Population Prospects 2024 (вариант Medium), значения за 2023 год.',
+      en: 'Figure 1 (infographic) shows the crude birth rate and the crude death rate, per 1000 people, for five countries in 2023. Source: United Nations, Department of Economic and Social Affairs, Population Division, World Population Prospects 2024 (Medium variant), 2023 values.' + ' [Open infographic](' + infographicUrl + ')',
+      ru: 'Рисунок 1 (инфографика) показывает общий коэффициент рождаемости и общий коэффициент смертности на 1000 человек для пяти стран в 2023 году. Источник: Организация Объединённых Наций, Департамент по экономическим и социальным вопросам, Отдел народонаселения, World Population Prospects 2024 (вариант Medium), значения за 2023 год.' + ' [Открыть инфографику](' + infographicUrl + ')',
     },
     prompt: {
       en: '(a) Identify the stage of the demographic transition model for Niger, the United Kingdom and Japan. [3]\n\n(b) Calculate the natural increase per 1000 people for Bangladesh and for Germany. Show your working. [3]\n\n(c) Using the infographic and your knowledge, explain why natural change is strongly positive in Niger but negative in Japan. [4]',
