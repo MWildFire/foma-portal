@@ -1,12 +1,16 @@
 import type { Lang } from '../../contract/types';
-import { StepPlayer, fn, type CurveSpec, type Step, type TickSpec } from './_lib/graph';
+import { StepPlayer, fn, type CurveSpec, type MarkSpec, type Step, type TickSpec } from './_lib/graph';
 
 // Supply. S1: P = 2 + 0.5Q, so Q = 2P - 4. A change in price moves along S1.
 // A cost rise gives S2: P = 4 + 0.5Q. At every price supply falls by 4 units.
 // A technology gain gives S3: P = 0.5Q. At every price supply rises by 4 units.
+// New equilibrium (Tragakes ch.2 p.60, Fig 2.13): demand D: P = 12 - 0.5Q crosses S1 at E (P1 7, Q1 10),
+// S2 at E1 (P2 8, Q2 8) after the cost rise, and S3 at E1 (P2 6, Q2 12) after the technology gain.
 const S1 = fn(q => 2 + 0.5 * q, 0, 24, 1);
 const S2 = fn(q => 4 + 0.5 * q, 0, 20, 1);
-const S3 = fn(q => 0.5 * q, 0, 28, 1);
+// S3 stops at Q 27 so that its label stands right of the end, clear of the label of S1.
+const S3 = fn(q => 0.5 * q, 0, 27, 1);
+const D = fn(q => 12 - 0.5 * q, 0, 24, 1);
 
 const ticks = (values: number[]): TickSpec[] => values.map(value => ({ value, label: { en: String(value), ru: String(value) } }));
 
@@ -21,6 +25,14 @@ const axes = {
 
 const s1: CurveSpec = { id: 's1', points: S1, tone: 'supply', label: { en: 'S1', ru: 'S1' } };
 const s1Old: CurveSpec = { id: 's1', points: S1, tone: 'muted', dashed: true, label: { en: 'S1', ru: 'S1' } };
+const s2: CurveSpec = { id: 's2', points: S2, tone: 'loss', label: { en: 'S2', ru: 'S2' } };
+const s3: CurveSpec = { id: 's3', points: S3, tone: 'gain', label: { en: 'S3', ru: 'S3' } };
+const demand: CurveSpec = { id: 'd', points: D, tone: 'demand', label: { en: 'D', ru: 'D' } };
+
+const symbol = (value: number, text: string): TickSpec => ({ value, label: { en: text, ru: text } });
+// The labels of the two equilibria stand above the points, in the space between the rising and the falling curve.
+const markE: MarkSpec = { id: 'E', at: [10, 7], tone: 'ink', label: { en: 'E', ru: 'E' }, dx: -4, dy: -9 };
+const markE1 = (at: [number, number]): MarkSpec => ({ id: 'E1', at, tone: 'policy', label: { en: 'E1', ru: 'E1' }, dx: -7, dy: -9 });
 
 const steps: Step[] = [
   {
@@ -60,12 +72,32 @@ const steps: Step[] = [
     },
     graph: {
       ...axes,
-      curves: [s1Old, { id: 's2', points: S2, tone: 'loss', label: { en: 'S2', ru: 'S2' } }],
+      curves: [s1Old, s2],
       guides: [{ id: 'shift2', from: [4, 6], to: [8, 6], tone: 'loss' }],
       marks: [
         { id: 'A', at: [8, 6], tone: 'muted', label: { en: 'A (Q 8)', ru: 'A (Q 8)' }, dx: 8, dy: 16 },
         { id: 'C', at: [4, 6], tone: 'loss', label: { en: 'C (Q 4)', ru: 'C (Q 4)' }, dx: 8, dy: 32 },
       ],
+    },
+  },
+  {
+    title: { en: 'New equilibrium after a cost rise', ru: 'Новое равновесие после роста издержек' },
+    text: {
+      en: 'Demand D crosses S1 at E: price P1 = 7 and quantity Q1 = 10. After supply shifts left to S2, sellers offer less than buyers want at P1, so the price rises along D to the new equilibrium E1: P2 = 8 and Q2 = 8. The price is higher and the quantity is lower.',
+      ru: 'Спрос D пересекает S1 в точке E: цена P1 = 7 и количество Q1 = 10. После сдвига предложения влево, в S2, при цене P1 продавцы предлагают меньше, чем хотят купить покупатели, поэтому цена растёт вдоль D до нового равновесия E1: P2 = 8 и Q2 = 8. Цена выше, количество меньше.',
+    },
+    graph: {
+      ...axes,
+      xTicks: [symbol(8, 'Q2'), symbol(10, 'Q1')],
+      yTicks: [symbol(7, 'P1'), symbol(8, 'P2')],
+      curves: [s1Old, s2, demand],
+      guides: [
+        { id: 'e-h', from: [0, 7], to: [10, 7], tone: 'muted' },
+        { id: 'e-v', from: [10, 0], to: [10, 7], tone: 'muted' },
+        { id: 'e1-h', from: [0, 8], to: [8, 8], tone: 'policy' },
+        { id: 'e1-v', from: [8, 0], to: [8, 8], tone: 'policy' },
+      ],
+      marks: [markE, markE1([8, 8])],
     },
   },
   {
@@ -76,12 +108,32 @@ const steps: Step[] = [
     },
     graph: {
       ...axes,
-      curves: [s1Old, { id: 's3', points: S3, tone: 'gain', label: { en: 'S3', ru: 'S3' } }],
+      curves: [s1Old, s3],
       guides: [{ id: 'shift3', from: [8, 6], to: [12, 6], tone: 'gain' }],
       marks: [
         { id: 'A', at: [8, 6], tone: 'muted', label: { en: 'A (Q 8)', ru: 'A (Q 8)' }, dx: -56, dy: -8 },
-        { id: 'D', at: [12, 6], tone: 'gain', label: { en: 'D (Q 12)', ru: 'D (Q 12)' }, dx: 8, dy: 32 },
+        { id: 'F', at: [12, 6], tone: 'gain', label: { en: 'F (Q 12)', ru: 'F (Q 12)' }, dx: 8, dy: 32 },
       ],
+    },
+  },
+  {
+    title: { en: 'New equilibrium after a technology gain', ru: 'Новое равновесие после улучшения технологии' },
+    text: {
+      en: 'Demand D crosses S1 at E: price P1 = 7 and quantity Q1 = 10. After supply shifts right to S3, sellers offer more than buyers want at P1, so the price falls along D to the new equilibrium E1: P2 = 6 and Q2 = 12. The price is lower and the quantity is higher.',
+      ru: 'Спрос D пересекает S1 в точке E: цена P1 = 7 и количество Q1 = 10. После сдвига предложения вправо, в S3, при цене P1 продавцы предлагают больше, чем хотят купить покупатели, поэтому цена падает вдоль D до нового равновесия E1: P2 = 6 и Q2 = 12. Цена ниже, количество больше.',
+    },
+    graph: {
+      ...axes,
+      xTicks: [symbol(10, 'Q1'), symbol(12, 'Q2')],
+      yTicks: [symbol(6, 'P2'), symbol(7, 'P1')],
+      curves: [s1Old, s3, demand],
+      guides: [
+        { id: 'e-h', from: [0, 7], to: [10, 7], tone: 'muted' },
+        { id: 'e-v', from: [10, 0], to: [10, 7], tone: 'muted' },
+        { id: 'e1-h', from: [0, 6], to: [12, 6], tone: 'policy' },
+        { id: 'e1-v', from: [12, 0], to: [12, 6], tone: 'policy' },
+      ],
+      marks: [markE, markE1([12, 6])],
     },
   },
   {
@@ -94,14 +146,14 @@ const steps: Step[] = [
       ...axes,
       curves: [
         s1,
-        { id: 's2', points: S2, tone: 'loss', label: { en: 'S2', ru: 'S2' } },
-        { id: 's3', points: S3, tone: 'gain', label: { en: 'S3', ru: 'S3' } },
+        s2,
+        s3,
       ],
       guides: [{ id: 'p6', from: [0, 6], to: [12, 6], tone: 'muted' }],
       marks: [
         { id: 'C', at: [4, 6], tone: 'loss', label: { en: 'C', ru: 'C' }, dx: 8, dy: 16 },
         { id: 'A', at: [8, 6], tone: 'supply', label: { en: 'A', ru: 'A' }, dx: 8, dy: 16 },
-        { id: 'D', at: [12, 6], tone: 'gain', label: { en: 'D', ru: 'D' }, dx: 8, dy: 16 },
+        { id: 'F', at: [12, 6], tone: 'gain', label: { en: 'F', ru: 'F' }, dx: 8, dy: 16 },
       ],
     },
   },

@@ -1,10 +1,11 @@
-import type { Lang } from '../../contract/types';
-import { StepPlayer, fn, type CurveSpec, type Step, type TickSpec } from './_lib/graph';
+import type { L, Lang } from '../../contract/types';
+import { StepPlayer, fn, type AreaSpec, type CurveSpec, type GuideSpec, type MarkSpec, type Point, type Step, type TickSpec, type Tone } from './_lib/graph';
 
 // Specific (per-unit) tax of 3 on a market with D: P = 12 - 0.5Q and S: P = 0.5Q.
 // Before the tax E is (Q 12, P 6). With the tax, S shifts up by 3: S+t: P = 0.5Q + 3.
-// New equilibrium: 12 - 0.5Q = 0.5Q + 3, so Q = 9. Buyers pay 7.5 (on D at Q 9); sellers keep 4.5 (on S at Q 9).
+// New equilibrium: 12 - 0.5Q = 0.5Q + 3, so Q = 9. Buyers pay Pc = 7.5 (on D at Q 9); sellers keep Pp = 4.5 (on S at Q 9).
 // Tax revenue = 3 x 9 = 27 (rectangle). Deadweight loss = 1/2 x 3 x 3 = 4.5 (triangle between Q 9 and Q 12).
+// Names as in Tragakes ch.4 p.129 (Fig 4.11b): Pc is the price paid by consumers, Pp the price received by producers.
 const D = fn(q => 12 - 0.5 * q, 0, 24, 1);
 const S = fn(q => 0.5 * q, 0, 24, 1);
 const St = fn(q => 0.5 * q + 3, 0, 20, 1);
@@ -24,8 +25,20 @@ const demand: CurveSpec = { id: 'd', points: D, tone: 'demand', label: { en: 'D'
 const supplyOld: CurveSpec = { id: 's', points: S, tone: 'muted', dashed: true, label: { en: 'S', ru: 'S' } };
 const supplyTax: CurveSpec = { id: 'st', points: St, tone: 'policy', label: { en: 'S+t', ru: 'S+t' } };
 
-const oldE = { id: 'E', at: [12, 6] as [number, number], tone: 'ink' as const, label: { en: 'E', ru: 'E' }, dx: 4, dy: -14 };
-const newE = { id: 'E1', at: [9, 7.5] as [number, number], tone: 'policy' as const, label: { en: 'E1', ru: 'E1' }, dx: -49, dy: 16 };
+const oldE: MarkSpec = { id: 'E', at: [12, 6], tone: 'ink', label: { en: 'E', ru: 'E' }, dx: 4, dy: -14 };
+// E1 stands right above its point, in the space between the falling and the rising curve.
+const newE: MarkSpec = { id: 'E1', at: [9, 7.5], tone: 'policy', label: { en: 'E1', ru: 'E1' }, dx: -7, dy: -12 };
+const dotSp: MarkSpec = { id: 'Sp', at: [9, 4.5], tone: 'supply' };
+
+// The two prices are named on their lines: Pc (blue, on D) and Pp (orange, on S); the numbers stand on the price axis.
+const q9: GuideSpec = { id: 'q9', from: [9, 0], to: [9, 7.5], tone: 'ink' };
+const pc: GuideSpec = { id: 'pc', from: [0, 7.5], to: [9, 7.5], tone: 'demand', label: { en: 'Pc', ru: 'Pc' }, labelAt: 'start' };
+const pp: GuideSpec = { id: 'pp', from: [0, 4.5], to: [9, 4.5], tone: 'supply', label: { en: 'Pp', ru: 'Pp' }, labelAt: 'start' };
+// A text note: the shared Graph has no text-only element, so a guide of zero length carries the label.
+const note = (id: string, at: Point, tone: Tone, label: L): GuideSpec => ({ id, from: at, to: at, tone, label, labelAt: 'start' });
+const taxNote = note('t', [0.3, 5.5], 'policy', { en: 't = 3', ru: 't = 3' });
+const revenueNote = note('rev-note', [0.3, 6.4], 'policy', { en: 'revenue 27', ru: 'выручка 27' });
+const revenue: AreaSpec = { id: 'rev', points: [[0, 4.5], [9, 4.5], [9, 7.5], [0, 7.5]], tone: 'policy' };
 
 const steps: Step[] = [
   {
@@ -58,36 +71,28 @@ const steps: Step[] = [
   {
     title: { en: 'New equilibrium at Q 9', ru: 'Новое равновесие при Q 9' },
     text: {
-      en: 'The new equilibrium is E1 at Q = 9. Buyers pay 7.5 (the blue line to D). Sellers keep 4.5 (the orange line to S), which is 3 less.',
-      ru: 'Новое равновесие E1 при Q = 9. Покупатели платят 7.5 (синяя линия к D). Продавцы получают 4.5 (оранжевая линия к S), то есть на 3 меньше.',
+      en: 'The new equilibrium is E1 at Q = 9. Buyers pay Pc = 7.5 (the blue line to D). Sellers keep Pp = 4.5 (the orange line to S). The gap is the tax: Pc - Pp = t = 3.',
+      ru: 'Новое равновесие E1 при Q = 9. Покупатели платят Pc = 7.5 (синяя линия к D). Продавцы получают Pp = 4.5 (оранжевая линия к S). Разница — это налог: Pc - Pp = t = 3.',
     },
     graph: {
       ...axes,
       curves: [demand, supplyOld, supplyTax],
-      guides: [
-        { id: 'q9', from: [9, 0], to: [9, 7.5], tone: 'ink' },
-        { id: 'pc', from: [0, 7.5], to: [9, 7.5], tone: 'demand' },
-        { id: 'pp', from: [0, 4.5], to: [9, 4.5], tone: 'supply' },
-      ],
-      marks: [newE, { id: 'Sp', at: [9, 4.5], tone: 'supply' }],
+      guides: [q9, pc, pp, taxNote],
+      marks: [newE, dotSp],
     },
   },
   {
     title: { en: 'Tax revenue', ru: 'Налоговая выручка' },
     text: {
-      en: 'Government revenue is the tax per unit times the quantity sold: 3 x 9 = 27. It is the purple rectangle between the buyers price 7.5 and the sellers price 4.5, for Q from 0 to 9.',
-      ru: 'Выручка государства равна налогу на единицу, умноженному на проданное количество: 3 x 9 = 27. Это фиолетовый прямоугольник между ценой покупателя 7.5 и ценой продавца 4.5 при Q от 0 до 9.',
+      en: 'Government revenue is the tax per unit times the quantity sold: 3 x 9 = 27. It is the purple rectangle between the buyers price Pc = 7.5 and the sellers price Pp = 4.5, for Q from 0 to 9.',
+      ru: 'Выручка государства равна налогу на единицу, умноженному на проданное количество: 3 x 9 = 27. Это фиолетовый прямоугольник между ценой покупателя Pc = 7.5 и ценой продавца Pp = 4.5 при Q от 0 до 9.',
     },
     graph: {
       ...axes,
       curves: [demand, supplyOld, supplyTax],
-      areas: [{ id: 'rev', points: [[0, 4.5], [9, 4.5], [9, 7.5], [0, 7.5]], tone: 'policy' }],
-      guides: [
-        { id: 'q9', from: [9, 0], to: [9, 7.5], tone: 'ink' },
-        { id: 'pc', from: [0, 7.5], to: [9, 7.5], tone: 'demand' },
-        { id: 'pp', from: [0, 4.5], to: [9, 4.5], tone: 'supply' },
-      ],
-      marks: [newE, { id: 'Sp', at: [9, 4.5], tone: 'supply' }],
+      areas: [revenue],
+      guides: [q9, pc, pp, taxNote, revenueNote],
+      marks: [newE, dotSp],
     },
   },
   {
@@ -100,16 +105,18 @@ const steps: Step[] = [
       ...axes,
       curves: [demand, supplyOld, supplyTax],
       areas: [
-        { id: 'rev', points: [[0, 4.5], [9, 4.5], [9, 7.5], [0, 7.5]], tone: 'policy' },
+        revenue,
         { id: 'dwl', points: [[9, 7.5], [12, 6], [9, 4.5]], tone: 'loss' },
       ],
       guides: [
-        { id: 'q9', from: [9, 0], to: [9, 7.5], tone: 'ink' },
-        { id: 'pc', from: [0, 7.5], to: [9, 7.5], tone: 'demand' },
-        { id: 'pp', from: [0, 4.5], to: [9, 4.5], tone: 'supply' },
+        q9,
+        pc,
+        pp,
+        taxNote,
+        revenueNote,
         { id: 'dwl-leader', from: [12, 6], to: [12, 1.5], tone: 'loss', label: { en: 'DWL 4.5', ru: 'потери 4.5' }, labelAt: 'end' },
       ],
-      marks: [oldE, newE, { id: 'Sp', at: [9, 4.5], tone: 'supply' }],
+      marks: [oldE, newE, dotSp],
     },
   },
 ];
