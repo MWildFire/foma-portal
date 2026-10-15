@@ -1,8 +1,8 @@
 import type { Question } from '../../../../src/contract/types';
 
 // EX-3 school mock: one policy question of 32 marks for the one-hour mock.
-// Part (a) is 20 marks (calculations, an explanation and a diagram) and part (b) is 10 marks (a recommendation): the
-// same split as one question of the real Paper 3 from 2023. All numbers are invented and labelled as illustrative data.
+// Part (a) is 22 marks (calculations, an explanation and a diagram); part (b) is 10 marks (a recommendation).
+// This original practice adapts the school mock total; all numbers are invented and labelled as illustrative data.
 // The city (Maravel) is fictional. Rent is in AED thousand per month and quantities in thousand flats per month, so
 // total rent is in AED million per month. The numbers are written without thousands separators, so the verifier reads them.
 // Each calculation has an entry in scripts/econ-checks/exam-p3.json (expect_in: markscheme.en and markscheme.ru).
