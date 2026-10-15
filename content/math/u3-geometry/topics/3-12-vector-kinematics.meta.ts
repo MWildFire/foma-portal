@@ -10,7 +10,7 @@ const topic: TopicMeta = {
   order: 37,
   minutes: 40,
   priority: 2,
-  inMockScope: 'unknown',
+  inMockScope: 'no',
   outcomes: [
     {
       en: 'I can write the position of an object moving with constant velocity in two or three dimensions as r = r0 + tv',
@@ -30,6 +30,7 @@ const topic: TopicMeta = {
   sims: ['math.vector-lab'],
   questionIds: ['q-3-12-01', 'q-3-12-02', 'q-3-12-03'],
   sources: [
+    { kind: 'school', title: 'Topic list for Mock Oct 26 — Applications and Interpretation HL (9 October 2026)', locator: 'Oxford chapters 1–8, 13, 14; mapped to the syllabus in G2-math R03' },
     {
       kind: 'web',
       title: 'IB Mathematics AI, first assessment 2021: public summary, not checked against the official guide',

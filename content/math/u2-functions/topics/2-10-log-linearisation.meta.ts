@@ -13,7 +13,7 @@ const topic: TopicMeta = {
   order: 25,
   minutes: 45,
   priority: 2,
-  inMockScope: 'unknown',
+  inMockScope: 'yes',
   outcomes: [
     {
       en: 'I can scale very large or small numbers with logarithms and state their order of magnitude',
@@ -33,6 +33,7 @@ const topic: TopicMeta = {
   sims: ['math.logistic-loglog-lab'],
   questionIds: ['q-2-10-01', 'q-2-10-02', 'q-2-10-03'],
   sources: [
+    { kind: 'school', title: 'Topic list for Mock Oct 26 — Applications and Interpretation HL (9 October 2026)', locator: 'Oxford chapters 1–8, 13, 14; mapped to the syllabus in G2-math R03' },
     {
       kind: 'web',
       title: 'IB Mathematics AI, first assessment 2021: public summary, not checked against the official guide',

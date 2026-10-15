@@ -9,7 +9,7 @@ const topic: TopicMeta = {
   order: 1,
   minutes: 25,
   priority: 1,
-  inMockScope: 'unknown',
+  inMockScope: 'yes',
   outcomes: [
     {
       en: 'I can write very large and very small numbers in standard form a × 10^k with 1 ≤ a < 10',
@@ -28,6 +28,7 @@ const topic: TopicMeta = {
   formulaIds: ['standard-form-representation', 'standard-form-product-quotient'],
   questionIds: ['q-1-1-01', 'q-1-1-02', 'q-1-1-03'],
   sources: [
+    { kind: 'school', title: 'Topic list for Mock Oct 26 — Applications and Interpretation HL (9 October 2026)', locator: 'Oxford chapters 1–8, 13, 14; mapped to the syllabus in G2-math R03' },
     {
       kind: 'web',
       title: 'IB Mathematics AI, first assessment 2021: public summary, not checked against the official guide',
