@@ -15,11 +15,10 @@
   },
   "acc2": {
     "heading": "ACC2 start times",
-    "intro": "In ACC2 each paper starts at the time below. Your end time is that start plus your length with extra time."
+    "intro": "In ACC2 each paper starts at the time below. Your end time is that start plus the printed duration."
   },
   "clash": {
     "title": "Possible clash",
     "text": "{{date}}, {{hall}}: {{first}} ({{firstFrom}}–{{firstTo}}) overlaps with {{second}} (from {{secondFrom}}). Check the room and the start times with the school."
-  },
-  "noExtraTime": "No extra time for this paper."
+  }
 }

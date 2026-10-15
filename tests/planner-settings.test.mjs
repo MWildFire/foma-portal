@@ -97,14 +97,14 @@ test('a rest day (0 minutes) has no blocks and its timed papers move on', () => 
   assert.deepEqual(unplaced.geo, ['P2']);
 });
 
-test('extra time gives timed sets 25% more time and keeps the day the same length', () => {
+test('legacy setting leaves timed sets and workload unchanged', () => {
   const normal = dayOf(plan('2026-10-14'), '2026-10-24');
   const extra = dayOf(plan('2026-10-14', { state: withSettings(emptyState(), { accessArrangements: { extraTime: true } }) }), '2026-10-24');
   const timed = day => Object.fromEntries(day.blocks.filter(b => b.kind === 'timed').map(b => [b.subject, b.minutes]));
   assert.deepEqual(timed(normal), { math: 120, geo: 75 });
-  assert.deepEqual(timed(extra), { math: 150, geo: 94 });
+  assert.deepEqual(timed(extra), { math: 120, geo: 75 });
   assert.ok(Math.abs(extra.minutes - normal.minutes) <= 0.15 * normal.minutes);
-  assert.ok(extra.minutes >= 150 + 94 + 15);
+  assert.ok(extra.minutes >= 120 + 75 + 15);
   const everyDay = plan('2026-10-14', { state: withSettings(emptyState(), { accessArrangements: { extraTime: true } }) });
   for (const day of everyDay.days.filter(d => d.blocks.length > 0)) {
     assert.ok(Math.abs(day.minutes - day.capacity) <= 0.15 * day.capacity, `${day.date}: ${day.minutes} vs ${day.capacity}`);

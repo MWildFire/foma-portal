@@ -169,7 +169,6 @@ export function PracticeView({ pack, tracks = NO_TRACKS }: { pack: SubjectPack; 
               sets={sets}
               active={active}
               requestedId={requestedSet}
-              extraTime={state.settings.accessArrangements.extraTime}
               lang={lang}
               questionCount={inSet?.found.length ?? 0}
               missing={inSet?.missing ?? []}

@@ -1,6 +1,6 @@
 import { useId, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Hourglass, TriangleAlert } from 'lucide-react';
+import { TriangleAlert } from 'lucide-react';
 import { PAPER_IDS, timerStorageKey, type TimedSetInfo } from '../../lib/practice';
 import { pickText } from '../../lib/text';
 import { typingReminderFor } from '../../planner/access';
@@ -9,7 +9,7 @@ import { Clock } from './Clock';
 import { ListeningPlayer } from './ListeningPlayer';
 import { NO_TRACKS, tracksForSet, type ListeningTrackRef } from './listening';
 import { readStoredTimer } from './timerStorage';
-import { hasExtraTimeSet, setAllowanceMinutes } from './timing';
+import { setAllowanceMinutes } from './timing';
 import { FilterSelect } from './fields';
 import '../content/ui.css';
 import './fields.css';
@@ -22,8 +22,6 @@ interface Props {
   active: TimedSetInfo | undefined;
   /** The ?set= value as typed, even when no such set exists. */
   requestedId: string;
-  /** storage.settings.accessArrangements.extraTime */
-  extraTime: boolean;
   lang: string;
   /** How many of the set's questions are in the pack, and the ids that are not. */
   questionCount: number;
@@ -37,11 +35,10 @@ interface Props {
 // Timed mode: choose a set and run the clock. It returns the picker panel and, for a chosen set, the clock as a
 // second element. The clock sticks to the top of the screen while the student scrolls through the questions, so
 // the page must put both elements in the same container as the question list.
-export function TimedPanel({ subject, sets, active, requestedId, extraTime, lang, questionCount, missing, onSelect, tracks = NO_TRACKS }: Props) {
+export function TimedPanel({ subject, sets, active, requestedId, lang, questionCount, missing, onSelect, tracks = NO_TRACKS }: Props) {
   const { t } = useTranslation(['practice', 'subject', 'timing']);
   const headingId = useId();
-  const allowed = active ? setAllowanceMinutes({ subject, set: active, exams: EXAMS, extraTime }) : 0;
-  const noExtra = active ? !hasExtraTimeSet(EXAMS, subject, active) : false;
+  const allowed = active ? setAllowanceMinutes({ subject, set: active, exams: EXAMS }) : 0;
   const setTracks = useMemo(() => (active ? tracksForSet(active, tracks) : []), [active, tracks]);
   const papers = PAPER_IDS.filter(paper => sets.some(set => set.paper === paper));
 
@@ -98,17 +95,9 @@ export function TimedPanel({ subject, sets, active, requestedId, extraTime, lang
               <span className="foma-chip">{t('timed.minutes', { n: active.minutes })}</span>
             </div>
 
-            {noExtra ? (
-              <p className="study-muted">{t('extra.none', { ns: 'timing', base: active.minutes })}</p>
-            ) : extraTime ? (
-              <p className="study-banner" data-tone="blue">
-                <Hourglass size={18} aria-hidden="true" />
-                <span>{t('timed.extra.on', { base: active.minutes, extra: allowed - active.minutes, total: allowed })}</span>
-              </p>
-            ) : (
-              <p className="study-muted">{t('timed.extra.off')}</p>
-            )}
 
+
+            <p className="study-muted">{t('timed.printed')}</p>
             {typingReminderFor(subject, active.paper) ? <p className="study-muted">{t('typing.hint', { ns: 'timing' })}</p> : null}
 
             {active.part?.includes('listening') ? <ListeningPlayer key={active.id} tracks={setTracks} /> : null}
