@@ -36,7 +36,7 @@ const steps: Step[] = [
     },
     graph: {
       ...axes,
-      curves: [{ id: 'sin', points: S_IN, tone: 'supply', label: { en: 'Inelastic', ru: 'Неэластичное' } }],
+      curves: [{ id: 'sin', points: S_IN, tone: 'supply', label: { en: 'Inelastic', ru: 'Неэласт.' } }],
       guides: [{ id: 'e-h', from: [0, 6], to: [12, 6], tone: 'muted' }, { id: 'e-v', from: [12, 0], to: [12, 6], tone: 'muted' }, ...priceGuides(14)],
       marks: [
         { id: 'E', at: [12, 6], tone: 'ink', label: { en: 'E', ru: 'E' }, dx: 8, dy: 14 },
@@ -52,7 +52,7 @@ const steps: Step[] = [
     },
     graph: {
       ...axes,
-      curves: [{ id: 'sunit', points: S_UNIT, tone: 'supply', label: { en: 'Unit', ru: 'Единичное' } }],
+      curves: [{ id: 'sunit', points: S_UNIT, tone: 'supply', label: { en: 'Unit', ru: 'Единич.' } }],
       guides: [{ id: 'e-h', from: [0, 6], to: [12, 6], tone: 'muted' }, { id: 'e-v', from: [12, 0], to: [12, 6], tone: 'muted' }, ...priceGuides(16)],
       marks: [
         { id: 'E', at: [12, 6], tone: 'ink', label: { en: 'E', ru: 'E' }, dx: 8, dy: 14 },
@@ -68,7 +68,7 @@ const steps: Step[] = [
     },
     graph: {
       ...axes,
-      curves: [{ id: 'sel', points: S_EL, tone: 'supply', label: { en: 'Elastic', ru: 'Эластичное' } }],
+      curves: [{ id: 'sel', points: S_EL, tone: 'supply', label: { en: 'Elastic', ru: 'Эласт.' } }],
       guides: [{ id: 'e-h', from: [0, 6], to: [12, 6], tone: 'muted' }, { id: 'e-v', from: [12, 0], to: [12, 6], tone: 'muted' }, ...priceGuides(20)],
       marks: [
         { id: 'E', at: [12, 6], tone: 'ink', label: { en: 'E', ru: 'E' }, dx: 8, dy: 14 },
@@ -85,7 +85,7 @@ const steps: Step[] = [
     graph: {
       ...axes,
       curves: [
-        { id: 'vert', points: [[12, 0], [12, 16]], tone: 'supply', label: { en: 'PES = 0', ru: 'PES = 0' } },
+        { id: 'vert', points: [[12, 0], [12, 15]], tone: 'supply', label: { en: 'PES = 0', ru: 'PES = 0' } },
         { id: 'horiz', points: [[0, 6], [24, 6]], tone: 'alt', label: { en: 'PES = ∞', ru: 'PES = ∞' } },
       ],
       marks: [{ id: 'E', at: [12, 6], tone: 'ink', label: { en: 'E (P 6, Q 12)', ru: 'E (P 6, Q 12)' }, dx: 8, dy: 14 }],
@@ -119,9 +119,9 @@ const steps: Step[] = [
     graph: {
       ...axes,
       curves: [
-        { id: 'sin', points: S_IN, tone: 'supply', label: { en: 'Inelastic', ru: 'Неэластичное' } },
-        { id: 'sunit', points: S_UNIT, tone: 'alt', label: { en: 'Unit', ru: 'Единичное' } },
-        { id: 'sel', points: S_EL, tone: 'gain', label: { en: 'Elastic', ru: 'Эластичное' } },
+        { id: 'sin', points: S_IN, tone: 'supply', label: { en: 'Inelastic', ru: 'Неэласт.' } },
+        { id: 'sunit', points: S_UNIT, tone: 'alt', label: { en: 'Unit', ru: 'Единич.' } },
+        { id: 'sel', points: S_EL, tone: 'gain', label: { en: 'Elastic', ru: 'Эласт.' } },
       ],
       marks: [{ id: 'E', at: [12, 6], tone: 'ink', label: { en: 'E (P 6, Q 12)', ru: 'E (P 6, Q 12)' }, dx: 8, dy: 14 }],
     },

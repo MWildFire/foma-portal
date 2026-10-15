@@ -17,7 +17,8 @@ const axes = {
   yMax: 12,
   xLabel: { en: 'Unemployment (%)', ru: 'Безработица (%)' },
   yLabel: { en: 'Inflation (%)', ru: 'Инфляция (%)' },
-  xTicks: ticks([2, 4, 6, 8]),
+  // 5 is the natural rate of unemployment, where LRPC stands; it is named on the axis in both languages.
+  xTicks: [...ticks([2, 4]), { value: 5, label: { en: '5 (NRU)', ru: '5 (ЕУ)' } }, ...ticks([6, 8])],
   yTicks: ticks([2, 4, 6, 8, 10]),
 };
 
@@ -45,8 +46,8 @@ const steps: Step[] = [
   {
     title: { en: 'Long-run curve', ru: 'Долгосрочная кривая' },
     text: {
-      en: 'The long-run Phillips curve (LRPC) is vertical at the natural rate of unemployment, 5%. In the long run unemployment returns to 5% whatever the inflation rate.',
-      ru: 'Долгосрочная кривая Филлипса (long-run Phillips curve, LRPC) вертикальна на уровне естественной безработицы, 5%. В долгосрочном периоде безработица возвращается к 5% при любом уровне инфляции.',
+      en: 'The long-run Phillips curve (LRPC) is vertical at the natural rate of unemployment (NRU), 5%. In the long run unemployment returns to 5% whatever the inflation rate.',
+      ru: 'Долгосрочная кривая Филлипса (long-run Phillips curve, LRPC) вертикальна на естественном уровне безработицы (ЕУ), 5%. В долгосрочном периоде безработица возвращается к 5% при любом уровне инфляции.',
     },
     graph: {
       ...axes,

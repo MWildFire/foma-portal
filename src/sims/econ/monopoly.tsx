@@ -23,7 +23,7 @@ const profitGuide: GuideSpec = { id: 'profit-g', from: [0, 8], to: [8, 8], tone:
 const dwlGuide: GuideSpec = { id: 'dwl-g', from: [8, 6], to: [10.5, 6], tone: 'loss', label: { en: 'DWL 32', ru: 'DWL 32' }, labelAt: 'start' };
 const monopolyPoint: MarkSpec = { id: 'a', at: [8, 12], tone: 'ink', label: { en: 'monopoly', ru: 'монополия' }, dx: 6, dy: -12 };
 const mrMcPoint: MarkSpec = { id: 'b', at: [8, 4], tone: 'ink', label: { en: 'MR = MC', ru: 'MR = MC' }, dx: -70, dy: 20 };
-const competitivePoint: MarkSpec = { id: 'c', at: [16, 4], tone: 'ink', label: { en: 'competitive', ru: 'конкуренция' }, dx: -66, dy: 17 };
+const competitivePoint: MarkSpec = { id: 'c', at: [16, 4], tone: 'ink', label: { en: 'competitive', ru: 'конкуренция' }, dx: -60, dy: 28 };
 
 const axes = {
   xMax: 20,

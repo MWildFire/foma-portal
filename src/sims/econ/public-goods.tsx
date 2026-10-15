@@ -32,7 +32,8 @@ const steps: Step[] = [
       en: 'Each curve shows what one person would pay for each unit. A starts at 12 and B at 8, so A values the good more.',
       ru: 'Каждая кривая показывает, сколько один человек заплатил бы за каждую единицу. Спрос A начинается с 12, спрос B с 8, поэтому A ценит благо выше.',
     },
-    graph: { ...axes, curves: indiv },
+    // The price axis carries the values that the step texts name: 12 and 8 here, 6, 8 and 14 in step 2, MC = 5 later.
+    graph: { ...axes, curves: indiv, yTicks: ticks([8, 12]) },
   },
   {
     title: { en: 'Vertical sum', ru: 'Вертикальное сложение' },
@@ -50,6 +51,7 @@ const steps: Step[] = [
         { id: 's4', at: [4, 14], tone: 'ink', label: { en: 'sum 14', ru: 'сумма 14' }, dx: 8, dy: -6 },
       ],
       xTicks: ticks([4]),
+      yTicks: ticks([6, 8, 12, 14, 20]),
     },
   },
   {
@@ -64,6 +66,7 @@ const steps: Step[] = [
       guides: [{ id: 'eq', from: [10, 0], to: [10, 5], tone: 'ink' }],
       marks: [{ id: 'e', at: [10, 5], tone: 'ink', label: { en: 'Qopt 10', ru: 'Qopt 10' }, dx: 8, dy: -8 }],
       xTicks: ticks([10]),
+      yTicks: ticks([5, 8, 12, 20]),
     },
   },
   {
@@ -84,6 +87,7 @@ const steps: Step[] = [
         { id: 'm', at: [7, 5], tone: 'demand', label: { en: 'Qm 7', ru: 'Qm 7' }, dx: -50, dy: 20 },
       ],
       xTicks: ticks([7, 10]),
+      yTicks: ticks([5, 8, 12, 20]),
     },
   },
 ];

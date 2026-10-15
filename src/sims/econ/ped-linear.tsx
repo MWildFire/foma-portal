@@ -1,17 +1,18 @@
 import type { Lang } from '../../contract/types';
-import { StepPlayer, fn, type CurveSpec, type Step, type TickSpec } from './_lib/graph';
+import { StepPlayer, fn, type CurveSpec, type MarkSpec, type Step, type TickSpec } from './_lib/graph';
 
 // Linear demand Q = 24 - 2P, so P = 12 - 0.5Q. The midpoint P = 6, Q = 12 has PED = -1.
 // Above the midpoint demand is elastic, below it inelastic.
 // Total revenue TR = P x Q: 40 at P 10, 64 at P 8, 72 at P 6 (maximum), 64 at P 4, 40 at P 2.
 const D = fn(q => 12 - 0.5 * q, 0, 24, 1);
-const ELASTIC = fn(q => 12 - 0.5 * q, 0, 12, 1);
-const INELASTIC = fn(q => 12 - 0.5 * q, 12, 24, 1);
+// Each part is drawn towards the end where its label sits: the label stands right of a curve's last point.
+const ELASTIC = fn(q => 12 - 0.5 * q, 12, 0, 1);
+const INELASTIC = fn(q => 12 - 0.5 * q, 24, 12, 1);
 
 const ticks = (values: number[]): TickSpec[] => values.map(value => ({ value, label: { en: String(value), ru: String(value) } }));
 
 const axes = {
-  xMax: 26,
+  xMax: 27,
   yMax: 14,
   xLabel: { en: 'Quantity (Q)', ru: 'Количество (Q)' },
   yLabel: { en: 'Price (P)', ru: 'Цена (P)' },
@@ -20,8 +21,11 @@ const axes = {
 };
 
 const demand: CurveSpec = { id: 'd', points: D, tone: 'demand', label: { en: 'D', ru: 'D' } };
-const elastic: CurveSpec = { id: 'elastic', points: ELASTIC, tone: 'gain', width: 4 };
-const inelastic: CurveSpec = { id: 'inelastic', points: INELASTIC, tone: 'policy', width: 4 };
+// The labels are the legend of the colours: green = elastic part (PED > 1), purple = inelastic part (PED < 1).
+const elastic: CurveSpec = { id: 'elastic', points: ELASTIC, tone: 'gain', width: 4, label: { en: 'PED > 1', ru: 'PED > 1' } };
+const inelastic: CurveSpec = { id: 'inelastic', points: INELASTIC, tone: 'policy', width: 4, label: { en: 'PED < 1', ru: 'PED < 1' } };
+// The label of M stands left of the point and below the demand curve, so it stays clear of 'PED < 1' on the last step.
+const markM: MarkSpec = { id: 'M', at: [12, 6], tone: 'ink', label: { en: 'M: PED = -1', ru: 'M: PED = -1' }, dx: -92, dy: 18 };
 
 const steps: Step[] = [
   {
@@ -35,8 +39,8 @@ const steps: Step[] = [
   {
     title: { en: 'Elastic part (upper half)', ru: 'Эластичная часть (верхняя половина)' },
     text: {
-      en: 'Above the midpoint demand is elastic: PED is more than 1 in size. At P 10, Q 4, total revenue TR = P x Q = 10 x 4 = 40.',
-      ru: 'Выше середины спрос эластичен: ценовая эластичность спроса (price elasticity of demand, PED) больше 1 по модулю. При P = 10 и Q = 4 выручка (total revenue, TR) равна 10 × 4 = 40.',
+      en: 'Above the midpoint demand is elastic (green part, PED > 1): PED is more than 1 in size. At P 10, Q 4, total revenue TR = P x Q = 10 x 4 = 40.',
+      ru: 'Выше середины спрос эластичен (зелёная часть, PED > 1): ценовая эластичность спроса (price elasticity of demand, PED) больше 1 по модулю. При P = 10 и Q = 4 выручка (total revenue, TR) равна 10 × 4 = 40.',
     },
     graph: {
       ...axes,
@@ -76,7 +80,7 @@ const steps: Step[] = [
       curves: [demand],
       areas: [{ id: 'tr6', points: [[0, 0], [12, 0], [12, 6], [0, 6]], tone: 'alt' }],
       marks: [
-        { id: 'M', at: [12, 6], tone: 'ink', label: { en: 'M: PED = -1', ru: 'M: PED = -1' } },
+        markM,
         { id: 'TR', at: [6, 3], tone: 'alt', label: { en: 'TR 72', ru: 'TR 72' } },
       ],
     },
@@ -84,8 +88,8 @@ const steps: Step[] = [
   {
     title: { en: 'Inelastic part (lower half)', ru: 'Неэластичная часть (нижняя половина)' },
     text: {
-      en: 'Below the midpoint demand is inelastic: PED is less than 1 in size. A price cut from 4 to 2 (point C to point D) raises quantity from 16 to 20, but TR falls from 64 to 40: PED = 25% / -50% = -0.5.',
-      ru: 'Ниже середины спрос неэластичен: PED меньше 1 по модулю. Снижение цены с 4 до 2 (от точки C к точке D) увеличивает величину спроса с 16 до 20, но выручка падает с 64 до 40: PED = 25% / -50% = -0,5.',
+      en: 'Below the midpoint demand is inelastic (purple part, PED < 1): PED is less than 1 in size. A price cut from 4 to 2 (point C to point D) raises quantity from 16 to 20, but TR falls from 64 to 40: PED = 25% / -50% = -0.5.',
+      ru: 'Ниже середины спрос неэластичен (фиолетовая часть, PED < 1): PED меньше 1 по модулю. Снижение цены с 4 до 2 (от точки C к точке D) увеличивает величину спроса с 16 до 20, но выручка падает с 64 до 40: PED = 25% / -50% = -0,5.',
     },
     graph: {
       ...axes,
@@ -107,7 +111,7 @@ const steps: Step[] = [
       ...axes,
       curves: [demand, elastic, inelastic],
       areas: [{ id: 'tr6', points: [[0, 0], [12, 0], [12, 6], [0, 6]], tone: 'alt' }],
-      marks: [{ id: 'M', at: [12, 6], tone: 'ink', label: { en: 'M: PED = -1', ru: 'M: PED = -1' } }],
+      marks: [markM],
     },
   },
 ];

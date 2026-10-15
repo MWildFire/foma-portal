@@ -3,7 +3,7 @@ import { StepPlayer, fn, type CurveSpec, type MarkSpec, type Step, type TickSpec
 
 // Output gap. Potential output (LRAS) is Y 8. E0 (Y 8, PL 6) lies on AD1 (PL = 14 - Y) and SRAS (PL = Y - 2).
 // AD2 (PL = 18 - Y): E1 at Y 10, PL 8, an inflationary gap of +2. AD3 (PL = 10 - Y): E2 at Y 6, PL 4, a deflationary gap of -2.
-// Output gap = (actual - potential) / potential x 100: +25% at E1 and -25% at E2.
+// Output gap = actual - potential (Tragakes ch.8 p.261): +2 at E1 and -2 at E2. As a share of potential output: +25% and -25%.
 const SRAS = fn(q => q - 2, 3, 11, 8);
 const AD1 = fn(q => 14 - q, 4, 11, 7);
 const AD2 = fn(q => 18 - q, 6, 12, 6);
@@ -81,8 +81,8 @@ const steps: Step[] = [
   {
     title: { en: 'Complete picture', ru: 'Полная картина' },
     text: {
-      en: 'Output gap = (actual - potential) / potential x 100. At E1 this gives (10 - 8) / 8 = +25%, and at E2 it gives (6 - 8) / 8 = -25%.',
-      ru: 'Разрыв выпуска = (фактический - потенциальный) / потенциальный × 100. В точке E1 это (10 - 8) / 8 = +25%, в точке E2 — (6 - 8) / 8 = -25%.',
+      en: 'Output gap = actual GDP - potential GDP. At E1 it is 10 - 8 = +2 (gap +2), at E2 it is 6 - 8 = -2 (gap -2). A positive gap is inflationary, a negative gap is deflationary. As a share of potential GDP: +2 / 8 x 100 = +25% and -2 / 8 x 100 = -25%.',
+      ru: 'Разрыв выпуска = фактический ВВП - потенциальный ВВП. В точке E1 он равен 10 - 8 = +2 (разрыв +2), в точке E2 — 6 - 8 = -2 (разрыв -2). Положительный разрыв — инфляционный, отрицательный — дефляционный. В процентах от потенциального ВВП: +2 / 8 × 100 = +25% и -2 / 8 × 100 = -25%.',
     },
     graph: {
       ...axes,

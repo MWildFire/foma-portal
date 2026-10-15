@@ -1,5 +1,5 @@
 import type { Lang } from '../../contract/types';
-import { StepPlayer, fn, type AreaSpec, type CurveSpec, type GraphSpec, type MarkSpec, type Step, type TickSpec } from './_lib/graph';
+import { StepPlayer, fn, type AreaSpec, type CurveSpec, type GraphSpec, type GuideSpec, type MarkSpec, type Step, type TickSpec } from './_lib/graph';
 
 // Tariff of 1 per unit on imports, small importing country, world price Pw = 3.
 // Domestic market (the same in the quota and export-subsidy sims): Qd = 24 - 2P (P = 12 - 0.5Q), Qs = 2P (P = 0.5Q).
@@ -23,6 +23,9 @@ const demand: CurveSpec = { id: 'd', points: D, tone: 'demand', label: { en: 'D'
 const supply: CurveSpec = { id: 's', points: S, tone: 'supply', label: { en: 'S', ru: 'S' } };
 const worldPrice: CurveSpec = { id: 'pw', points: [[0, 3], [24, 3]], tone: 'ink', dashed: true };
 const domesticPrice: CurveSpec = { id: 'p4', points: [[0, 4], [24, 4]], tone: 'policy', width: 2 };
+// The price line is a curve that runs to the right edge of the plot, so it cannot carry a label there. The label is a guide of
+// zero length: it draws no line, only the text, above the left end of the line.
+const domesticPriceLabel: GuideSpec = { id: 'p4-label', from: [0, 4], to: [0, 4], tone: 'policy', label: { en: 'Pw + t = 4', ru: 'Pw + t = 4' } };
 
 // Areas. The four tiles a, b, c, d split the lost consumer surplus (the band between prices 3 and 4) without overlap.
 const csFree: AreaSpec = { id: 'cs-free', points: [[0, 12], [0, 3], [18, 3]], tone: 'gain' };
@@ -70,11 +73,12 @@ const tariffGraph: GraphSpec = {
   guides: [
     { id: 'q8', from: [8, 0], to: [8, 4], tone: 'muted' },
     { id: 'q16', from: [16, 0], to: [16, 4], tone: 'muted' },
+    domesticPriceLabel,
   ],
   marks: [
     { id: 'qs', at: [8, 4], tone: 'supply' },
     { id: 'qd', at: [16, 4], tone: 'demand' },
-    { id: 'imports', at: [12, 4], tone: 'ink', label: { en: 'imports 8', ru: 'импорт 8' }, dx: -28, dy: 13 },
+    { id: 'imports', at: [12, 4], tone: 'ink', label: { en: 'imports 8', ru: 'импорт 8' }, dx: -28, dy: 27 },
   ],
 };
 
@@ -84,6 +88,7 @@ const csFallsGraph: GraphSpec = {
   yTicks: [tick(3, 'Pw 3'), tick(4, 'P 4')],
   curves: [demand, supply, worldPrice, domesticPrice],
   areas: [csTariff, lostCs],
+  guides: [domesticPriceLabel],
   marks: [csMark([2, 9], 'CS 64'), lostMark],
 };
 
@@ -93,6 +98,7 @@ const gainAndRevenueGraph: GraphSpec = {
   yTicks: [tick(3, 'Pw 3'), tick(4, 'P 4')],
   curves: [demand, supply, worldPrice, domesticPrice],
   areas: [psGain, revenue],
+  guides: [domesticPriceLabel],
   marks: [psMark([0.5, 3.5], 'PS +7'), revenueMark],
 };
 
@@ -102,6 +108,7 @@ const completeGraph: GraphSpec = {
   yTicks: [tick(3, 'Pw 3'), tick(4, 'P 4')],
   curves: [demand, supply, worldPrice, domesticPrice],
   areas: [csTariff, psGain, revenue, dwlProduction, dwlConsumption],
+  guides: [domesticPriceLabel],
   marks: [csMark([2, 9], 'CS 64'), psMark([0.5, 3.5], 'PS +7'), revenueMark, ...dwlMarks],
 };
 

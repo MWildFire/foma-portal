@@ -1,97 +1,74 @@
 import type { Lang } from '../../contract/types';
 import { StepPlayer, fn, type CurveSpec, type GuideSpec, type MarkSpec, type Step, type TickSpec } from './_lib/graph';
 
-// Income elasticity of demand (YED). Income Y on x, quantity demanded Qd on y.
-// Normal good: Qd = 10 + 2Y. Inferior good: Qd = 60 - 2Y.
-// From Y 10 to Y 15 (+50%) the normal good goes from 30 to 40 (+33.3%): YED = 33.3% / 50% = 0.67.
-// The inferior good goes from 40 to 30 (-25%): YED = -25% / 50% = -0.5.
-const NORMAL = fn(y => 10 + 2 * y, 0, 20, 1);
-const INFERIOR = fn(y => 60 - 2 * y, 0, 20, 1);
+// Income elasticity of demand (YED) as a shift of the demand curve on the P-Q axes (Tragakes ch.3 p.99, Fig 3.9).
+// D1: P = 18 - 0.5Q (Q = 36 - 2P) at income Y 10. At P 6, Q = 24 (point A). Income then doubles, from Y 10 to Y 20 (+100%).
+// Normal good: demand shifts right by 16 at every price, to D3: P = 26 - 0.5Q. At P 6, Q = 40 (+66.7%): YED = 66.7% / 100% = 0.67.
+// Inferior good: demand shifts left by 12 at every price, to D2: P = 12 - 0.5Q. At P 6, Q = 12 (-50%): YED = -50% / 100% = -0.5.
+// The shifts are large on purpose: the three curve labels stand right of the curve ends and must not touch the next curve.
+const D1 = fn(q => 18 - 0.5 * q, 0, 36, 1);
+const D2 = fn(q => 12 - 0.5 * q, 0, 24, 1);
+const D3 = fn(q => 26 - 0.5 * q, 0, 52, 1);
 
 const ticks = (values: number[]): TickSpec[] => values.map(value => ({ value, label: { en: String(value), ru: String(value) } }));
 
 const axes = {
-  xMax: 24,
-  yMax: 70,
-  xLabel: { en: 'Income (Y)', ru: 'Доход (Y)' },
-  yLabel: { en: 'Quantity demanded (Qd)', ru: 'Величина спроса (Qd)' },
-  xTicks: ticks([5, 10, 15, 20]),
-  yTicks: ticks([20, 40, 60]),
+  xMax: 58,
+  yMax: 30,
+  xLabel: { en: 'Quantity (Q)', ru: 'Количество (Q)' },
+  yLabel: { en: 'Price (P)', ru: 'Цена (P)' },
+  xTicks: ticks([12, 24, 40]),
+  yTicks: ticks([6, 12, 18, 24]),
 };
 
-const normal: CurveSpec = { id: 'normal', points: NORMAL, tone: 'demand', label: { en: 'Normal', ru: 'Норм.' } };
-const inferior: CurveSpec = { id: 'inferior', points: INFERIOR, tone: 'alt', label: { en: 'Inferior', ru: 'Низш.' } };
+const d1: CurveSpec = { id: 'd1', points: D1, tone: 'demand', label: { en: 'D1', ru: 'D1' } };
+const d1Old: CurveSpec = { id: 'd1', points: D1, tone: 'muted', dashed: true, label: { en: 'D1', ru: 'D1' } };
+const d2: CurveSpec = { id: 'd2', points: D2, tone: 'loss', label: { en: 'D2', ru: 'D2' } };
+const d3: CurveSpec = { id: 'd3', points: D3, tone: 'gain', label: { en: 'D3', ru: 'D3' } };
 
-// Points: A (Y 10, Q 30) and B (Y 15, Q 40) on the normal good; C (Y 10, Q 40) and D (Y 15, Q 30) on the inferior good.
-const guidesA: GuideSpec[] = [
-  { id: 'a-h', from: [0, 30], to: [10, 30], tone: 'muted' },
-  { id: 'a-v', from: [10, 0], to: [10, 30], tone: 'muted' },
-];
-const guidesB: GuideSpec[] = [
-  { id: 'b-h', from: [0, 40], to: [15, 40], tone: 'muted' },
-  { id: 'b-v', from: [15, 0], to: [15, 40], tone: 'muted' },
-];
-const guidesC: GuideSpec[] = [
-  { id: 'c-h', from: [0, 40], to: [10, 40], tone: 'muted' },
-  { id: 'c-v', from: [10, 0], to: [10, 40], tone: 'muted' },
-];
-const guidesD: GuideSpec[] = [
-  { id: 'd-h', from: [0, 30], to: [15, 30], tone: 'muted' },
-  { id: 'd-v', from: [15, 0], to: [15, 30], tone: 'muted' },
-];
+const toB: GuideSpec = { id: 'to-b', from: [24, 6], to: [40, 6], tone: 'gain' };
+const toC: GuideSpec = { id: 'to-c', from: [12, 6], to: [24, 6], tone: 'loss' };
 
-// Single letters, placed clear of the lines (A and D sit at Qd 30, B and C at Qd 40).
-const markA: MarkSpec = { id: 'A', at: [10, 30], tone: 'demand', label: { en: 'A', ru: 'A' }, dx: 6, dy: 14 };
-const markB: MarkSpec = { id: 'B', at: [15, 40], tone: 'demand', label: { en: 'B', ru: 'B' }, dx: 6, dy: -8 };
-const markC: MarkSpec = { id: 'C', at: [10, 40], tone: 'alt', label: { en: 'C', ru: 'C' }, dx: -12, dy: -8 };
-const markD: MarkSpec = { id: 'D', at: [15, 30], tone: 'alt', label: { en: 'D', ru: 'D' }, dx: -12, dy: 14 };
+const startA: MarkSpec = { id: 'A', at: [24, 6], tone: 'ink', label: { en: 'A (P 6, Q 24)', ru: 'A (P 6, Q 24)' }, dx: 8, dy: -10 };
+const oldA: MarkSpec = { id: 'A', at: [24, 6], tone: 'muted' };
+const markA: MarkSpec = { id: 'A', at: [24, 6], tone: 'ink', label: { en: 'A', ru: 'A' }, dx: -4, dy: 17 };
+const normalB: MarkSpec = { id: 'B', at: [40, 6], tone: 'gain', label: { en: 'B (Q 40)', ru: 'B (Q 40)' }, dx: 8, dy: -10 };
+const inferiorC: MarkSpec = { id: 'C', at: [12, 6], tone: 'loss', label: { en: 'C (Q 12)', ru: 'C (Q 12)' }, dx: -50, dy: 16 };
+const markB: MarkSpec = { id: 'B', at: [40, 6], tone: 'gain', label: { en: 'B', ru: 'B' }, dx: 8, dy: -10 };
+const markC: MarkSpec = { id: 'C', at: [12, 6], tone: 'loss', label: { en: 'C', ru: 'C' }, dx: -16, dy: 16 };
 
 const steps: Step[] = [
   {
-    title: { en: 'Axes: income and quantity', ru: 'Оси: доход и величина спроса' },
+    title: { en: 'Demand D1 at income Y 10', ru: 'Спрос D1 при доходе Y 10' },
     text: {
-      en: 'Income (Y) is on the x-axis and quantity demanded (Qd) on the y-axis. Income elasticity of demand (YED) = % change in Qd / % change in Y.',
-      ru: 'Доход (Y) отложен по горизонтальной оси, величина спроса (Qd) — по вертикальной. Доходная эластичность спроса (income elasticity of demand, YED) = % изменения Qd / % изменения Y.',
+      en: 'D1 is demand for a good when income is Y 10: at P 6 buyers want 24 units (point A). Income elasticity of demand (YED) = % change in Qd / % change in Y, measured at the same price.',
+      ru: 'D1 — спрос на благо при доходе Y 10: при P = 6 покупатели хотят 24 единицы (точка A). Доходная эластичность спроса (income elasticity of demand, YED) = % изменения Qd / % изменения Y при той же цене.',
     },
-    graph: { ...axes, curves: [] },
+    graph: { ...axes, curves: [d1], marks: [startA] },
   },
   {
-    title: { en: 'Normal good', ru: 'Нормальное благо' },
+    title: { en: 'Normal good: demand shifts right', ru: 'Нормальное благо: спрос сдвигается вправо' },
     text: {
-      en: 'For a normal good quantity rises as income rises. From Y 10 to Y 15 (+50%), Qd rises from 30 to 40 (+33.3%): YED = 33.3% / 50% = 0.67. The sign is positive, so the good is normal; a value between 0 and 1 means a necessity.',
-      ru: 'Для нормального блага величина спроса растёт с ростом дохода. При росте Y с 10 до 15 (+50%) Qd растёт с 30 до 40 (+33,3%): YED = 33,3% / 50% = 0,67. Знак положительный, значит благо нормальное; значение между 0 и 1 означает товар первой необходимости.',
+      en: 'Income doubles, from Y 10 to Y 20 (+100%). For a normal good demand rises at every price: D1 shifts right to D3. At P 6 quantity demanded rises from 24 to 40 (+66.7%): YED = 66.7% / 100% = 0.67. The sign is positive, so the good is normal; a value between 0 and 1 means a necessity.',
+      ru: 'Доход удваивается: с Y 10 до Y 20 (+100%). Для нормального блага спрос растёт при каждой цене: D1 сдвигается вправо, в D3. При P = 6 величина спроса растёт с 24 до 40 (+66,7%): YED = 66,7% / 100% = 0,67. Знак положительный, значит благо нормальное; значение между 0 и 1 означает товар первой необходимости.',
     },
-    graph: {
-      ...axes,
-      curves: [normal],
-      guides: [...guidesA, ...guidesB],
-      marks: [markA, markB],
-    },
+    graph: { ...axes, curves: [d1Old, d3], guides: [toB], marks: [oldA, normalB] },
   },
   {
-    title: { en: 'Inferior good', ru: 'Низшее благо' },
+    title: { en: 'Inferior good: demand shifts left', ru: 'Товар низшей категории: спрос сдвигается влево' },
     text: {
-      en: 'For an inferior good quantity falls as income rises. From Y 10 to Y 15 (+50%), Qd falls from 40 to 30 (-25%): YED = -25% / 50% = -0.5. The sign is negative, so the good is inferior.',
-      ru: 'Для низшего блага величина спроса падает с ростом дохода. При росте Y с 10 до 15 (+50%) Qd падает с 40 до 30 (-25%): YED = -25% / 50% = -0,5. Знак отрицательный, значит благо низшее.',
+      en: 'Income doubles, from Y 10 to Y 20 (+100%). For an inferior good demand falls at every price: D1 shifts left to D2. At P 6 quantity demanded falls from 24 to 12 (-50%): YED = -50% / 100% = -0.5. The sign is negative, so the good is inferior.',
+      ru: 'Доход удваивается: с Y 10 до Y 20 (+100%). Для товара низшей категории спрос падает при каждой цене: D1 сдвигается влево, в D2. При P = 6 величина спроса падает с 24 до 12 (-50%): YED = -50% / 100% = -0,5. Знак отрицательный, значит это товар низшей категории.',
     },
-    graph: {
-      ...axes,
-      curves: [inferior],
-      guides: [...guidesC, ...guidesD],
-      marks: [markC, markD],
-    },
+    graph: { ...axes, curves: [d1Old, d2], guides: [toC], marks: [oldA, inferiorC] },
   },
   {
-    title: { en: 'Both goods in one graph', ru: 'Оба блага на одном графике' },
+    title: { en: 'Summary: sign of YED and shift', ru: 'Итог: знак YED и сдвиг спроса' },
     text: {
-      en: 'The normal good slopes up (YED = 0.67) and the inferior good slopes down (YED = -0.5). Both are measured between Y 10 and Y 15. The sign of YED shows the type of good.',
-      ru: 'Нормальное благо идёт вверх (YED = 0,67), низшее благо — вниз (YED = -0,5). Оба значения измерены между Y 10 и Y 15. Знак YED показывает тип блага.',
+      en: 'A normal good has a positive YED (0.67): when income rises, demand shifts right to D3. An inferior good has a negative YED (-0.5): demand shifts left to D2. The sign of YED shows the type of good.',
+      ru: 'У нормального блага YED положительна (0,67): при росте дохода спрос сдвигается вправо, в D3. У товара низшей категории YED отрицательна (-0,5): спрос сдвигается влево, в D2. Знак YED показывает тип блага.',
     },
-    graph: {
-      ...axes,
-      curves: [normal, inferior],
-      marks: [markA, markB, markC, markD],
-    },
+    graph: { ...axes, curves: [d1, d3, d2], marks: [markA, markB, markC] },
   },
 ];
 
@@ -99,7 +76,7 @@ export default function Yed({ lang }: { lang: Lang }) {
   return (
     <StepPlayer
       lang={lang}
-      label={{ en: 'Income elasticity of demand: normal and inferior goods', ru: 'Доходная эластичность спроса: нормальное и низшее благо' }}
+      label={{ en: 'Income elasticity of demand: normal and inferior goods', ru: 'Доходная эластичность спроса: нормальное благо и товар низшей категории' }}
       steps={steps}
     />
   );

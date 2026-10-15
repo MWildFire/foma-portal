@@ -8,7 +8,8 @@ import { StepPlayer, fn, type AreaSpec, type CurveSpec, type GraphSpec, type Mar
 // Price 4 (E'): Qd 16, domestic supply 8, imports 8 = quota. CS 64, PS 16, rent 1 x 8 = 8, DWL 1 + 1 = 2.
 // The quota rent equals the tariff revenue of the tariff sim, so the two policies differ in who gets the rent.
 
-const D = fn(q => 12 - 0.5 * q, 0, 24, 1);
+// D stops a little above the axis: its label stands right of the end, and the shared Graph moves labels that end beyond x 320.
+const D = fn(q => 12 - 0.5 * q, 0, 21.5, 1);
 const S = fn(q => 0.5 * q, 0, 24, 1);
 const SQ: [number, number][] = [[0, 0], [6, 3], [14, 3], [16, 4]];
 
@@ -89,7 +90,9 @@ const priceRisesGraph: GraphSpec = {
   marks: [
     { id: 'qs', at: [8, 4], tone: 'supply' },
     { id: 'eprime', at: [16, 4], tone: 'ink', label: { en: "E'", ru: "E'" }, dx: 6, dy: -6 },
-    { id: 'imports', at: [12, 4], tone: 'ink', label: { en: 'imports 8', ru: 'импорт 8' }, dx: -28, dy: 13 },
+    // The strip between prices 3 and 4 is only 15 px high, so 'imports 8' stands under the world price line, below its dot
+    // (the same place as in the tariff sim), and covers neither the dot nor a line.
+    { id: 'imports', at: [12, 4], tone: 'ink', label: { en: 'imports 8', ru: 'импорт 8' }, dx: -28, dy: 29 },
   ],
 };
 

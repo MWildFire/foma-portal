@@ -6,7 +6,8 @@ import { StepPlayer, fn, type CurveSpec, type Step, type TickSpec } from './_lib
 // Substitutes (price of B rises): D2 = D1 shifted right by 6 units at every price, P = 15 - 0.5Q. At P 6, Q = 18.
 // Complements (price of B rises): D3 = D1 shifted left by 6 units at every price, P = 9 - 0.5Q. At P 6, Q = 6.
 const D1 = fn(q => 12 - 0.5 * q, 0, 24, 1);
-const D2 = fn(q => 15 - 0.5 * q, 0, 28, 1);
+// D2 stops a little above the axis: its label stands right of the end, and the shared Graph moves labels that end beyond x 320.
+const D2 = fn(q => 15 - 0.5 * q, 0, 27, 1);
 const D3 = fn(q => 9 - 0.5 * q, 0, 18, 1);
 
 const ticks = (values: number[]): TickSpec[] => values.map(value => ({ value, label: { en: String(value), ru: String(value) } }));

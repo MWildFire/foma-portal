@@ -1,5 +1,5 @@
 import type { Lang } from '../../contract/types';
-import { StepPlayer, fn, type CurveSpec, type MarkSpec, type Step, type TickSpec } from './_lib/graph';
+import { StepPlayer, fn, type CurveSpec, type GuideSpec, type MarkSpec, type Step, type TickSpec } from './_lib/graph';
 
 // Maximum price (price ceiling) of 3 on the market D: P = 12 - 0.5Q and S: P = 0.5Q. Free-market E is (Q 12, P 6).
 // At P = 3: Qd = 2 x (12 - 3) = 18 (point on D), Qs = 2 x 3 = 6 (point on S). Shortage = 18 - 6 = 12.
@@ -21,7 +21,11 @@ const axes = {
 const demand: CurveSpec = { id: 'd', points: D, tone: 'demand', label: { en: 'D', ru: 'D' } };
 const supply: CurveSpec = { id: 's', points: S, tone: 'supply', label: { en: 'S', ru: 'S' } };
 const E: MarkSpec = { id: 'E', at: [12, 6], tone: 'ink', label: { en: 'E', ru: 'E' }, dx: 2, dy: -27 };
-const ceiling = { id: 'max', from: [0, 3] as [number, number], to: [18, 3] as [number, number], tone: 'policy' as const };
+const ceilingLine: GuideSpec = { id: 'max', from: [0, 3], to: [18, 3], tone: 'policy', label: { en: 'max 3', ru: 'макс. 3' }, labelAt: 'start' };
+const shortage: CurveSpec = { id: 'short', points: [[6, 3], [18, 3]], tone: 'policy', width: 4, label: { en: 'shortage 12', ru: 'дефицит 12' } };
+// Both quantity labels sit under the ends of the shortage bar, so they stay clear of 'max 3' and of the DWL label.
+const qs: MarkSpec = { id: 'Qs', at: [6, 3], tone: 'supply', label: { en: 'Qs 6', ru: 'Qs 6' }, dx: 8, dy: 23 };
+const qd: MarkSpec = { id: 'Qd', at: [18, 3], tone: 'demand', label: { en: 'Qd 18', ru: 'Qd 18' }, dx: -32, dy: 23 };
 
 const steps: Step[] = [
   {
@@ -41,7 +45,7 @@ const steps: Step[] = [
     graph: {
       ...axes,
       curves: [demand, supply],
-      guides: [{ ...ceiling, label: { en: 'max 3', ru: 'макс. 3' }, labelAt: 'start' }],
+      guides: [ceilingLine],
       marks: [E],
     },
   },
@@ -53,37 +57,31 @@ const steps: Step[] = [
     },
     graph: {
       ...axes,
-      curves: [
-        demand,
-        supply,
-        { id: 'short', points: [[6, 3], [18, 3]], tone: 'policy', width: 4, label: { en: 'shortage 12', ru: 'дефицит 12' } },
-      ],
-      guides: [{ ...ceiling, dashed: true }],
-      marks: [
-        E,
-        { id: 'Qs', at: [6, 3], tone: 'supply', label: { en: 'Qs 6', ru: 'Qs 6' }, dx: -30, dy: -10 },
-        { id: 'Qd', at: [18, 3], tone: 'demand', label: { en: 'Qd 18', ru: 'Qd 18' }, dx: -32, dy: 23 },
-      ],
+      curves: [demand, supply, shortage],
+      guides: [ceilingLine],
+      marks: [E, qs, qd],
     },
   },
   {
     title: { en: 'Welfare loss (complete picture)', ru: 'Чистые потери (полная картина)' },
     text: {
-      en: 'Only 6 units are traded, so the trades between Q 6 and Q 12 are lost. The red triangle is the deadweight loss: 1/2 x 6 x 6 = 18.',
-      ru: 'Продаётся только 6 единиц, поэтому сделки между Q 6 и Q 12 теряются. Красный треугольник — это чистые потери (DWL): 1/2 x 6 x 6 = 18.',
+      en: 'The shortage is still 12 (Q 6 to Q 18), but only 6 units are traded, so the trades between Q 6 and Q 12 are lost. The red triangle is the deadweight loss: 1/2 x 6 x 6 = 18.',
+      ru: 'Дефицит остаётся 12 (от Q 6 до Q 18), но продаётся только 6 единиц, поэтому сделки между Q 6 и Q 12 теряются. Красный треугольник — это чистые потери (DWL): 1/2 x 6 x 6 = 18.',
     },
     graph: {
       ...axes,
-      curves: [demand, supply],
+      curves: [demand, supply, shortage],
       areas: [{ id: 'dwl', points: [[6, 9], [12, 6], [6, 3]], tone: 'loss' }],
       guides: [
-        { ...ceiling, dashed: true },
-        { id: 'dwl-leader', from: [12, 6], to: [12, 1.5], tone: 'loss', label: { en: 'DWL 18', ru: 'потери 18' }, labelAt: 'end' },
+        ceilingLine,
+        // The leader runs right from E, between S and D, so its label stays clear of 'Qd 18' under the shortage bar.
+        { id: 'dwl-leader', from: [12, 6], to: [14.2, 6], tone: 'loss', label: { en: 'DWL 18', ru: 'потери 18' }, labelAt: 'end' },
       ],
       marks: [
         E,
         { id: 'a', at: [6, 9], tone: 'demand' },
-        { id: 'b', at: [6, 3], tone: 'supply' },
+        qs,
+        qd,
       ],
     },
   },

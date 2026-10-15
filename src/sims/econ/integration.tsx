@@ -1,14 +1,26 @@
 import type { Lang } from '../../contract/types';
 import { StepPlayer, fn, type AreaSpec, type CurveSpec, type GuideSpec, type MarkSpec, type Step, type TickSpec } from './_lib/graph';
+import {
+  CREATION_CONSUMPTION,
+  CREATION_PRODUCTION,
+  DIVERSION,
+  PRICE_PARTNER,
+  PRICE_ROW,
+  PRICE_WITH_TARIFF,
+  TARIFF_REVENUE,
+  demandPrice,
+  supplyPrice,
+} from './integration-logic';
 
-// Domestic market. Demand Qd = 40 - 2P (P = 20 - 0.5Q); supply Qs = 2P - 4 (P = 2 + 0.5Q).
+// Domestic market. Demand Qd = 40 - 2P (P = 20 - 0.5Q); supply Qs = 2P - 4 (P = 2 + 0.5Q). The numbers and the areas are in
+// integration-logic.ts.
 // Prices: RoW (rest of the world) 4, partner 6, RoW with a tariff of 4 = 8.
 // Before the union: domestic price 8, Qs 12, Qd 24, imports 12 from RoW, tariff revenue 4 x 12 = 48.
 // After the union: price 6, Qs 8, Qd 28, imports 20 from the partner.
-// Trade creation: 4 units of domestic output replaced (production effect) and 4 units of extra consumption.
-// Trade diversion: 12 units move from the cheaper RoW (4) to the dearer partner (6): 12 x 2 = 24.
-const D = fn(q => 20 - 0.5 * q, 0, 28, 14);
-const S = fn(q => 2 + 0.5 * q, 0, 24, 12);
+// Trade creation: 4 units of domestic output replaced (production effect, the triangle below S) and 4 units of extra consumption.
+// Trade diversion: the 12 units imported from the cheaper RoW (4) before the union (Q 12 to 24) now come from the dearer partner (6): 12 x 2 = 24.
+const D = fn(demandPrice, 0, 28, 14);
+const S = fn(supplyPrice, 0, 24, 12);
 
 const ticks = (values: number[], labels?: string[]): TickSpec[] =>
   values.map((value, i) => ({ value, label: { en: labels?.[i] ?? String(value), ru: labels?.[i] ?? String(value) } }));
@@ -19,25 +31,27 @@ const axes = {
   xLabel: { en: 'Quantity (Q)', ru: 'Количество (Q)' },
   yLabel: { en: 'Price (P)', ru: 'Цена (P)' },
   xTicks: ticks([8, 12, 24, 28]),
-  yTicks: ticks([4, 6, 8]),
+  yTicks: ticks([PRICE_ROW, PRICE_PARTNER, PRICE_WITH_TARIFF]),
 };
 
 const demand: CurveSpec = { id: 'd', points: D, tone: 'demand', label: { en: 'D', ru: 'D' } };
 const supply: CurveSpec = { id: 's', points: S, tone: 'supply', label: { en: 'S', ru: 'S' } };
 
-const priceWithTariff: GuideSpec = { id: 'p8', from: [0, 8], to: [32, 8], tone: 'policy' };
-const priceWithTariffMuted: GuideSpec = { id: 'p8', from: [0, 8], to: [32, 8], tone: 'muted' };
-const pricePartner: GuideSpec = { id: 'p6', from: [0, 6], to: [32, 6], tone: 'alt' };
-const priceRoW: GuideSpec = { id: 'p4', from: [0, 4], to: [32, 4], tone: 'muted' };
+// Each price line is named at its left end, above the line (the S curve crosses the lines further right).
+const priceWithTariff: GuideSpec = { id: 'p8', from: [0, PRICE_WITH_TARIFF], to: [32, PRICE_WITH_TARIFF], tone: 'policy', label: { en: 'RoW + tariff 8', ru: 'RoW + тариф 8' }, labelAt: 'start' };
+const priceWithTariffMuted: GuideSpec = { id: 'p8', from: [0, PRICE_WITH_TARIFF], to: [32, PRICE_WITH_TARIFF], tone: 'muted', label: { en: 'RoW + tariff 8', ru: 'RoW + тариф 8' }, labelAt: 'start' };
+const pricePartner: GuideSpec = { id: 'p6', from: [0, PRICE_PARTNER], to: [32, PRICE_PARTNER], tone: 'alt', label: { en: 'partner 6', ru: 'партнёр 6' }, labelAt: 'start' };
+const priceRoW: GuideSpec = { id: 'p4', from: [0, PRICE_ROW], to: [32, PRICE_ROW], tone: 'ink', label: { en: 'RoW 4', ru: 'RoW 4' }, labelAt: 'start' };
 
-const tariffRevenue: AreaSpec = { id: 'tariff', points: [[12, 4], [24, 4], [24, 8], [12, 8]], tone: 'policy' };
-const creationProduction: AreaSpec = { id: 'creation-prod', points: [[8, 6], [12, 8], [8, 8]], tone: 'gain' };
-const creationConsumption: AreaSpec = { id: 'creation-cons', points: [[24, 6], [24, 8], [28, 6]], tone: 'gain' };
-const diversion: AreaSpec = { id: 'diversion', points: [[8, 4], [20, 4], [20, 6], [8, 6]], tone: 'loss' };
+const tariffRevenue: AreaSpec = { id: 'tariff', points: TARIFF_REVENUE, tone: 'policy' };
+const creationProduction: AreaSpec = { id: 'creation-prod', points: CREATION_PRODUCTION, tone: 'gain' };
+const creationConsumption: AreaSpec = { id: 'creation-cons', points: CREATION_CONSUMPTION, tone: 'gain' };
+const diversion: AreaSpec = { id: 'diversion', points: DIVERSION, tone: 'loss' };
 
-// Each label starts just right of its dot, inside open space between the price lines.
+// Each label starts just right of its dot, inside open space between the price lines. The diversion dot sits in the middle of
+// the diversion rectangle (Q 12 to 24).
 const creationMark: MarkSpec = { id: 'creation', at: [14, 7], tone: 'gain', label: { en: 'creation', ru: 'создание' }, dx: 8, dy: 4 };
-const diversionMark: MarkSpec = { id: 'diversion', at: [10, 5], tone: 'loss', label: { en: 'diversion', ru: 'отклонение' }, dx: 6, dy: 4 };
+const diversionMark: MarkSpec = { id: 'diversion', at: [14, 5], tone: 'loss', label: { en: 'diversion', ru: 'отклонение' }, dx: 6, dy: 4 };
 
 const steps: Step[] = [
   {
@@ -52,8 +66,8 @@ const steps: Step[] = [
       guides: [priceWithTariff, priceRoW],
       areas: [tariffRevenue],
       marks: [
-        { id: 'tariff', at: [18, 6], tone: 'policy', label: { en: 'tariff 48', ru: 'пошлина 48' }, dx: -30, dy: 14 },
-        { id: 'qs', at: [12, 8], tone: 'supply', label: { en: 'Qs 12', ru: 'Qs 12' }, dx: -38, dy: -8 },
+        { id: 'tariff', at: [18, 6], tone: 'policy', label: { en: 'tariff 48', ru: 'пошлина 48' }, dx: -30, dy: 17 },
+        { id: 'qs', at: [12, 8], tone: 'supply', label: { en: 'Qs 12', ru: 'Qs 12' }, dx: -18, dy: -12 },
         { id: 'qd', at: [24, 8], tone: 'demand', label: { en: 'Qd 24', ru: 'Qd 24' } },
       ],
     },

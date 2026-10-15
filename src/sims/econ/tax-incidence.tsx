@@ -75,7 +75,7 @@ const steps: Step[] = [
         leader('lb', [10, 7], [16, 5.6], 'demand', { en: 'buyers 67%', ru: 'покупатели 67%' }),
         leader('ls', [10, 5.5], [16, 3.8], 'supply', { en: 'sellers 33%', ru: 'продавцы 33%' }),
       ],
-      marks: [E, { id: 'E1', at: [10, 8], tone: 'policy', label: { en: 'E1', ru: 'E1' }, dx: -67, dy: -17 }],
+      marks: [E, { id: 'E1', at: [10, 8], tone: 'policy', label: { en: 'E1', ru: 'E1' }, dx: -34, dy: -9 }],
     },
   },
   {
@@ -110,7 +110,7 @@ const steps: Step[] = [
         leader('lb', [9.6, 7.2], [16, 5.6], 'demand', { en: 'buyers 80%', ru: 'покупатели 80%' }),
         leader('ls', [9.6, 5.7], [16, 3.8], 'supply', { en: 'sellers 20%', ru: 'продавцы 20%' }),
       ],
-      marks: [E, { id: 'E2', at: [9.6, 8.4], tone: 'policy', label: { en: 'E2', ru: 'E2' }, dx: -61, dy: -13 }],
+      marks: [E, { id: 'E2', at: [9.6, 8.4], tone: 'policy', label: { en: 'E2', ru: 'E2' }, dx: -34, dy: -9 }],
     },
   },
 ];
