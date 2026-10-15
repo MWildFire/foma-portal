@@ -12,12 +12,13 @@ export interface NextExam {
   remainingMs: number;           // to the start while upcoming, to the end while running
 }
 
+// The first exam on the schedule that has not finished yet. With extra time a sitting lasts 25% longer; with a
 // separate room it starts at the ACC2 time.
-export function nextExam(exams: ExamsFile, now: number, separateRoom = false): NextExam | null {
+export function nextExam(exams: ExamsFile, now: number, extraTime: boolean, separateRoom = false): NextExam | null {
   let best: NextExam | null = null;
   for (const exam of exams.papers) {
     const startMs = examStartMs(exam, separateRoom);
-    const endMs = examEndMs(exam, exams, separateRoom);
+    const endMs = examEndMs(exam, exams, extraTime, separateRoom);
     if (endMs <= now) continue;
     // An earlier ACC2 start can put a later paper of the file ahead of an earlier one, so pick the earliest start.
     if (best && startMs >= best.startMs) continue;

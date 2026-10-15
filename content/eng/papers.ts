@@ -2,7 +2,7 @@ import type { PaperGuide } from '../../src/contract/types';
 
 // Paper guides for the school mock. Durations must match data/exams.json (eng-p1 75 min, eng-p2 105 min).
 // Timed sets reuse the practice passages (Paper 1) and the prompts of the P2 bank (Paper 2) by id.
-// Timed sets keep the printed minutes.
+// Timed sets keep the standard minutes: the app adds the 25% access time when the setting is on.
 export const papers: PaperGuide[] = [
   {
     subject: 'eng',

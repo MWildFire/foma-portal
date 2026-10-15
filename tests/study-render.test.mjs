@@ -236,12 +236,12 @@ test('practice, timed mode: ?set= opens the set with its questions in order, tim
   assert.match(html, /Leave timed mode/);
 });
 
-test('practice, timed mode: legacy flag does not change printed minutes', async () => {
+test('practice, timed mode: extra time adds 25% and says so', async () => {
   const state = { version: 3, settings: { accessArrangements: { extraTime: true } } };
   const html = await view('PracticeView', { pack: pack() }, '/s/geo/practice?set=set-a', { state });
-  assert.match(html, /45:00/); // the school table: 45 minutes is 56 with extra time
-  assert.doesNotMatch(html, /Extra time/);
-  assert.ok(!html.includes('56:00'));
+  assert.match(html, /56:00/); // the school table: 45 minutes is 56 with extra time
+  assert.match(html, /Extra time is on: 45 min \+ 25% \(\+11 min\) = 56 min/);
+  assert.ok(!html.includes('45:00'));
 });
 
 test('practice, timed mode: a set that does not exist is reported, and the normal list stays', async () => {
@@ -304,13 +304,13 @@ test('practice in Russian', async () => {
   const html = await view('PracticeView', { pack: pack() }, '/s/geo/practice?set=set-a', { lang: 'ru', state });
   assert.match(html, /Практика/);
   assert.match(html, /Условие q4/);
-  assert.doesNotMatch(html, /Дополнительное время/);
-  assert.match(html, /45:00/);
+  assert.match(html, /Дополнительное время включено/);
+  assert.match(html, /56:00/);
 });
 
 test('practice, timed mode: an essay paper reminds the student to type the answer, in both languages', async () => {
   const html = await view('PracticeView', { pack: pack() }, '/s/geo/practice?set=set-a');
-  assert.match(html, /Practise typing your answer: in the exam you type \(access arrangement: typing\)\./);
+  assert.match(html, /Practise typing your answer: in the exam you type \(access arrangement: typing\)\. No extra time\./);
   const ru = await view('PracticeView', { pack: pack() }, '/s/geo/practice?set=set-a', { lang: 'ru' });
   assert.match(ru, /Тренируйся печатать ответ: на экзамене ты печатаешь/);
 });

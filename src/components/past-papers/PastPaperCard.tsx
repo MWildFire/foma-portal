@@ -21,13 +21,14 @@ export interface PastPaperCardProps {
   paper: PastPaperRef;
   topics: TopicMeta[];
   progress: PastPaperProgress | undefined;
+  extraTime: boolean;                  // the student's extra-time setting (Settings)
   onScore: (itemIndex: number, score: number) => void;
   onSolved: (date: string | undefined) => void;
 }
 
 // One past paper: its files as links to the IB site, our guide, the questions with a box for the marks you got,
 // and a mark for "solved". The question text stays on the IB site.
-export function PastPaperCard({ subject, paper, topics, progress, onScore, onSolved }: PastPaperCardProps) {
+export function PastPaperCard({ subject, paper, topics, progress, extraTime, onScore, onSolved }: PastPaperCardProps) {
   const { t, i18n } = useTranslation('subject');
   const lang = i18n.language;
   const title = sessionLabel(paper.session, lang);
@@ -35,8 +36,9 @@ export function PastPaperCard({ subject, paper, topics, progress, onScore, onSol
   const score = selfScore(paper, progress?.scores);
   const solved = progress?.solved;
   const files = [...paper.files].sort((a, b) => FILE_ORDER.indexOf(a.kind) - FILE_ORDER.indexOf(b.kind));
+  // The timer runs for the time the school's table gives with extra time, and for the printed time without it.
   const [timed, setTimed] = useState(false);
-  const allowance = setAllowanceMinutes({ subject, set: { paper: paper.paper, part: paper.part, minutes: paper.minutes }, exams: EXAMS });
+  const allowance = setAllowanceMinutes({ subject, set: { paper: paper.paper, part: paper.part, minutes: paper.minutes }, exams: EXAMS, extraTime });
 
   return (
     <article className="flex flex-col gap-4 rounded-lg border border-current/20 p-4">
@@ -53,7 +55,7 @@ export function PastPaperCard({ subject, paper, topics, progress, onScore, onSol
             {timed ? t('pastPapers.hideTimer') : t('pastPapers.solveOnTime')}
           </button>
           <span className="text-sm">
-            {t('pastPapers.allowance', { minutes: allowance })}
+            {allowance > paper.minutes ? t('pastPapers.allowanceExtra', { minutes: allowance }) : t('pastPapers.allowance', { minutes: allowance })}
           </span>
         </div>
         {typingReminderFor(subject, paper.paper) ? <p className="m-0 text-sm text-[var(--color-muted)]">{t('typing.hint', { ns: 'timing' })}</p> : null}

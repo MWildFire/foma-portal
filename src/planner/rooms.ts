@@ -1,4 +1,5 @@
-// Exam halls and clashes: overlapping sittings in the same room and on the same day.
+// Exam halls and clashes (PLAN.md §0). Two papers in the same hall on the same day cannot both be sat when their windows
+// (start to end, with the student's extra time) overlap. The clashes are computed from data/exams.json, not typed in.
 import type { ExamRoom } from './access.ts';
 import type { ExamPaper, ExamsFile } from './types.ts';
 import { examStartClock, examStartMs, sittingMinutes } from './calendar.ts';
@@ -10,7 +11,7 @@ export interface HallWindow {
   exam: ExamPaper;
   hall: Hall;
   start: string;                  // HH:MM, the student's own start in this hall
-  end: string;                    // HH:MM, start plus the sitting using the printed duration
+  end: string;                    // HH:MM, start plus the sitting with the student's extra time
   startMs: number;
   endMs: number;
 }
@@ -28,12 +29,12 @@ export function hallOf(exam: ExamPaper, room: ExamRoom): Hall {
   return exam.room === 'ACC2' || room === 'ACC2' ? 'ACC2' : 'SpHal2';
 }
 
-export function hallWindows(exams: ExamsFile, room: ExamRoom): HallWindow[] {
+export function hallWindows(exams: ExamsFile, room: ExamRoom, extraTime: boolean): HallWindow[] {
   return exams.papers.map(exam => {
     const hall = hallOf(exam, room);
     const separate = hall === 'ACC2';
     const start = examStartClock(exam, separate);
-    const minutes = sittingMinutes(exams, exam);
+    const minutes = sittingMinutes(exams, exam, extraTime);
     const startMs = examStartMs(exam, separate);
     return {
       exam,
@@ -48,8 +49,8 @@ export function hallWindows(exams: ExamsFile, room: ExamRoom): HallWindow[] {
 
 // Every pair of windows in the same hall on the same day that overlap. A window that ends exactly when the next one
 // starts is not a clash.
-export function hallClashes(exams: ExamsFile, room: ExamRoom): HallClash[] {
-  const windows = hallWindows(exams, room).sort((a, b) => a.startMs - b.startMs || a.exam.id.localeCompare(b.exam.id));
+export function hallClashes(exams: ExamsFile, room: ExamRoom, extraTime: boolean): HallClash[] {
+  const windows = hallWindows(exams, room, extraTime).sort((a, b) => a.startMs - b.startMs || a.exam.id.localeCompare(b.exam.id));
   const clashes: HallClash[] = [];
   for (let i = 0; i < windows.length; i++) {
     for (let j = i + 1; j < windows.length; j++) {

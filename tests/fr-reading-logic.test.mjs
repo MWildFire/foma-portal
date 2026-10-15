@@ -137,9 +137,9 @@ test('the timed sets are R1 to R3 and R4 to R6', () => {
   );
 });
 
-test('a timed run lasts the reading paper of data/exams.json: 45 minutes regardless of a legacy flag', () => {
+test('a timed run lasts the reading paper of data/exams.json: 56 minutes with extra time, 45 without', () => {
   assert.equal(readingExam(exams)?.minutes, 45);
-  assert.equal(timedRunMinutes(exams, true), 45);
+  assert.equal(timedRunMinutes(exams, true), 56);
   assert.equal(timedRunMinutes(exams, false), 45);
   assert.equal(timedRunMinutes({ ...exams, papers: [] }, true), 0);
 });

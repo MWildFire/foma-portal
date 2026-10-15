@@ -24,6 +24,10 @@
     "part": "Part: {{part}}",
     "questions": "Questions: {{n}}",
     "minutes": "Time: {{n}} min",
+    "extra": {
+      "on": "Extra time is on: {{base}} min + 25% (+{{extra}} min) = {{total}} min.",
+      "off": "Time is the printed time, as in the exam."
+    },
     "missing": "These questions are not in the question bank yet: {{ids}}.",
     "leave": "Leave timed mode",
     "leaveConfirm": "The clock is running. If you leave timed mode, the time is lost. Leave anyway?",
@@ -41,8 +45,7 @@
     "resume": "Resume",
     "reset": "Reset the timer",
     "warn": "5 minutes or less left. Start wrapping up.",
-    "over": "Time is up. Stop writing, then check your answers with the markscheme.",
-    "printed": "Time is the printed time, as in the exam."
+    "over": "Time is up. Stop writing, then check your answers with the markscheme."
   },
   "filters": {
     "heading": "Filters",

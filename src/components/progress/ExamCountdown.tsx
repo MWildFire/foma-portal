@@ -15,6 +15,7 @@ interface Props {
 }
 
 // Countdown to the nearest exam, with the time and the room from data/exams.json (Dubai time, room as written there).
+// The time is the student's own: the ACC2 start with a separate room, 25% longer with extra time.
 export function ExamCountdown({ next, lang, infos, headingLevel = 'h2' }: Props) {
   const { t } = useTranslation('exams');
   const { t: tp } = useTranslation('planner');
@@ -33,6 +34,7 @@ export function ExamCountdown({ next, lang, infos, headingLevel = 'h2' }: Props)
   const running = next.phase === 'running';
   const remaining = formatRemaining(tp, next.remainingMs);
   const name = `${subjectInfo(infos, exam.subject).name}, ${paperLabel(tp, exam.paper, exam.part)}`;
+  // With extra time the sitting (and so the countdown while it runs) is longer than the printed duration.
   const length = Math.round((next.endMs - next.startMs) / 60_000);
   return (
     <section className={`${CARD} p-4`} aria-label={t('countdown.next')}>
@@ -46,6 +48,7 @@ export function ExamCountdown({ next, lang, infos, headingLevel = 'h2' }: Props)
       {next.start !== exam.start && (
         <p className={`text-sm ${MUTED}`}>{t('countdown.separateRoom', { time: next.start, hall: exam.start })}</p>
       )}
+      {length !== exam.minutes && <p className={`text-sm ${MUTED}`}>{t('countdown.extraTime', { time: formatMinutes(tp, length) })}</p>}
       <p className="text-sm">{t('countdown.room', { room: exam.room })}</p>
       <p
         role="timer"
