@@ -21,7 +21,7 @@ test('the plan runs from today to the last exam and marks today', () => {
   assert.equal(dayOf(result, '2026-10-26').kind, 'exam');
   assert.equal(dayOf(result, '2026-10-14').kind, 'study');
   assert.equal(dayOf(result, '2026-10-14').weekday, 'wed');
-  assert.deepEqual(dayOf(result, '2026-10-14').focus, {en:'Geography; Diagnostic, maths; English',ru:'География; Диагностика, математика; Английский'});
+  assert.deepEqual(dayOf(result, '2026-10-14').focus, quotas.days.find(day => day.date === '2026-10-14').focus);
 });
 
 test('before the plan starts the first plan day leads; after the last exam nothing is left', () => {

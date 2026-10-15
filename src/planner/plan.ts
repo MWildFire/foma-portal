@@ -678,7 +678,8 @@ export function buildPlan(input: PlannerInput): Plan {
       minutes: blocks.reduce((sum, block) => sum + block.minutes, 0),
       doneMinutes: blocks.reduce((sum, block) => sum + (block.status === 'done' ? block.minutes : 0), 0),
       moved,
-      focus: date < today ? base.focus : focusForBlocks(blocks),
+      // R03 starts the derived focus on 16 Oct; keep the already recorded 14–15 Oct text.
+      focus: date < '2026-10-16' ? base.focus : focusForBlocks(blocks),
       exams: base.exams,
       eveOf: base.eve,
       blocks,
