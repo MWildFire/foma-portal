@@ -1,3 +1,4 @@
+import ReadableDiagram from '../readable-diagram';
 import { useState } from 'react';
 import type { Lang } from '../../contract/types';
 
@@ -98,7 +99,7 @@ export default function DirectionFieldLab({ lang }: { lang: Lang }) {
 
   return (
     <figure style={{ margin: 0 }}>
-      <svg viewBox={`0 0 ${WIDTH} ${HEIGHT}`} width="100%" style={{ maxWidth: WIDTH }} role="img" aria-label={t.label}>
+      <ReadableDiagram lang={lang}><svg viewBox={`0 0 ${WIDTH} ${HEIGHT}`} width="100%" style={{ maxWidth: WIDTH }} role="img" aria-label={t.label}>
         <line x1={X(0)} y1={Y(Y_MAX)} x2={X(0)} y2={Y(Y_MIN)} stroke="#c9ccd3" strokeWidth={1} />
         <line x1={LEFT} y1={Y(0)} x2={WIDTH - RIGHT} y2={Y(0)} stroke="#c9ccd3" strokeWidth={1} />
         {Y_TICKS.map(v => (
@@ -117,7 +118,7 @@ export default function DirectionFieldLab({ lang }: { lang: Lang }) {
         {path.map(([x, y], k) => (
           <circle key={k} cx={X(x)} cy={Y(y)} r={2.5} fill="#e0883a" />
         ))}
-      </svg>
+      </svg></ReadableDiagram>
       <figcaption style={{ fontSize: 13, lineHeight: 1.5 }}>
         {t.note}
         <br />

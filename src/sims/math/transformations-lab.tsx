@@ -35,7 +35,7 @@ const TEXT = {
     b: 'b: vertical translation (textbook: d)',
     p: 'p: vertical stretch (textbook: a; negative: reflection in the x-axis)',
     q: 'q: horizontal stretch, scale factor 1/q (textbook: b)',
-    flip: 'q negative (reflection in the y-axis)',
+    flip: 'q negative (reflection in x = a; the y-axis when a = 0)',
   },
   ru: {
     label: 'Синусоида и её преобразованный образ',
@@ -46,7 +46,7 @@ const TEXT = {
     b: 'b: сдвиг по вертикали (в учебнике: d)',
     p: 'p: растяжение по вертикали (в учебнике: a; отрицательное: отражение в оси x)',
     q: 'q: растяжение по горизонтали, коэффициент 1/q (в учебнике: b)',
-    flip: 'q отрицательно (отражение в оси y)',
+    flip: 'q отрицательно (отражение относительно x = a; ось y при a = 0)',
   },
 } as const;
 

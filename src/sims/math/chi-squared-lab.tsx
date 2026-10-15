@@ -1,3 +1,4 @@
+import ReadableDiagram from '../readable-diagram';
 import { useState } from 'react';
 import type { Lang } from '../../contract/types';
 
@@ -41,7 +42,7 @@ const TEXT = {
     cols: ['Автобус', 'Пешком', 'Машина'],
     expected: 'ожид. E',
     stat: 'Статистика χ²',
-    df: 'ν = (2 − 1)(3 − 1) = 2',
+    df: 'df = ν = (2 − 1)(3 − 1) = 2',
     p: 'p-значение (заштрихованная площадь)',
     alpha: 'Уровень значимости α',
     crit: 'Критическое значение',
@@ -79,7 +80,7 @@ export default function ChiSquaredLab({ lang }: { lang: Lang }) {
 
   return (
     <figure style={{ margin: 0 }}>
-      <figcaption style={{ fontSize: 13, marginBottom: 6 }}>{t.caption}</figcaption>
+      <figcaption style={{ fontSize: 13, marginBottom: 6 }}>{t.caption}<br />{lang === 'en' ? 'H0: year group and travel mode are independent. H1: they are associated.' : 'H0: класс и способ поездки независимы. H1: между ними есть связь.'}</figcaption>
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 8 }}>
         {obs.map((row, i) =>
           row.map((value, j) => (
@@ -100,7 +101,7 @@ export default function ChiSquaredLab({ lang }: { lang: Lang }) {
           )),
         )}
       </div>
-      <svg viewBox={`0 0 ${WIDTH} ${HEIGHT}`} width="100%" style={{ maxWidth: WIDTH, marginTop: 10 }} role="img" aria-label={t.label}>
+      <ReadableDiagram lang={lang}><svg viewBox={`0 0 ${WIDTH} ${HEIGHT}`} width="100%" style={{ maxWidth: WIDTH, marginTop: 10 }} role="img" aria-label={t.label}>
         <line x1={0} y1={BASE} x2={WIDTH} y2={BASE} stroke="currentColor" strokeWidth={1} />
         <path d={shade} fill="#e0883a" fillOpacity={0.45} />
         <path d={curve} fill="none" stroke="#4f6fd8" strokeWidth={2} />
@@ -112,7 +113,7 @@ export default function ChiSquaredLab({ lang }: { lang: Lang }) {
         <text x={xPos(stat) + 4} y={36} fontSize={11} fill="#e0883a">
           χ² = {stat.toFixed(3)}
         </text>
-      </svg>
+      </svg></ReadableDiagram>
       <div style={{ fontSize: 13, lineHeight: 1.6, marginTop: 6 }}>
         {t.stat}: {stat.toFixed(3)} · {t.df} · {t.p}: {p.toFixed(3)}
         <br />

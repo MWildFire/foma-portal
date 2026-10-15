@@ -1,3 +1,4 @@
+import ReadableDiagram from '../readable-diagram';
 import { useState } from 'react';
 import type { Lang } from '../../contract/types';
 
@@ -104,7 +105,7 @@ export default function RouteLab({ lang }: { lang: Lang }) {
         {button(t.postman, mode === 'postman', () => setMode('postman'))}
         {button(t.tsp, mode === 'tsp', () => setMode('tsp'))}
       </div>
-      <svg viewBox="0 0 320 230" width="100%" style={{ maxWidth: 320 }} role="img" aria-label={t.label}>
+      <ReadableDiagram lang={lang}><svg viewBox="0 0 320 230" width="100%" style={{ maxWidth: 320 }} role="img" aria-label={t.label}>
         {edges.map(([u, v, w]) => {
           const [x1, y1] = POS[u];
           const [x2, y2] = POS[v];
@@ -122,12 +123,12 @@ export default function RouteLab({ lang }: { lang: Lang }) {
             <text x={POS[x][0]} y={POS[x][1] + 4} textAnchor="middle" fontSize={13} fontWeight={600} fill="#222">{x}</text>
           </g>
         ))}
-      </svg>
+      </svg></ReadableDiagram>
       {mode === 'postman' ? (
         <div style={{ fontSize: 13, lineHeight: 1.6 }}>
           <div>{t.pairing}:</div>
           {PAIR_NAMES.map((name, i) => button(`${name}: ${ROWS[i].cost} → ${ROWS[i].route}`, pairing === i, () => setPairing(i)))}
-          <p style={{ margin: '6px 0' }}>{t.routeFor} {PAIR_NAMES[pairing]}: {P_TOTAL} + {ROWS[pairing].cost} = {ROWS[pairing].route} km</p>
+          <p style={{ margin: '6px 0' }}>{t.routeFor} {PAIR_NAMES[pairing]}: {P_TOTAL} + {ROWS[pairing].cost} = {ROWS[pairing].route} {lang === 'ru' ? 'км' : 'km'}</p>
         </div>
       ) : (
         <div style={{ fontSize: 13, lineHeight: 1.6 }}>

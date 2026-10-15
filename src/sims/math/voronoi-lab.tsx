@@ -1,3 +1,4 @@
+import ReadableDiagram from '../readable-diagram';
 import { useState } from 'react';
 import type { Lang } from '../../contract/types';
 
@@ -64,7 +65,7 @@ const TEXT = {
     vertex: 'Voronoi vertex (circumcentre)',
     radius: 'radius',
     none: 'the sites lie on one line, so there is no vertex',
-    note: 'Shaded: nearest site. Dashed: perpendicular bisectors (edges). Red dot: vertex.',
+    note: 'Shaded: nearest site. Dashed: construction bisectors; not all of each bisector is a cell edge. Red dot: vertex.',
   },
   ru: {
     label: 'Ячейки Вороного для трёх пунктов и их серединные перпендикуляры',
@@ -75,7 +76,7 @@ const TEXT = {
     vertex: 'Вершина Вороного (центр описанной окружности)',
     radius: 'радиус',
     none: 'пункты лежат на одной прямой, вершины нет',
-    note: 'Закрашено: ближайший пункт. Пунктир: серединные перпендикуляры (рёбра). Красная точка: вершина.',
+    note: 'Закрашено: ближайший пункт. Пунктир: вспомогательные серединные перпендикуляры; не вся прямая является ребром ячейки. Красная точка: вершина.',
   },
 } as const;
 
@@ -104,7 +105,7 @@ export default function VoronoiLab({ lang }: { lang: Lang }) {
 
   return (
     <figure style={{ margin: 0 }}>
-      <svg viewBox={`0 0 ${SIZE} ${SIZE}`} width="100%" style={{ maxWidth: SIZE }} role="img" aria-label={t.label}>
+      <ReadableDiagram lang={lang}><svg viewBox={`0 0 ${SIZE} ${SIZE}`} width="100%" style={{ maxWidth: SIZE }} role="img" aria-label={t.label}>
         {cells.map(cell => (
           <rect key={`${cell.col}-${cell.row}`} x={cell.col * CELL} y={cell.row * CELL} width={CELL} height={CELL} fill={COLOURS[cell.owner]} fillOpacity={0.2} />
         ))}
@@ -121,7 +122,7 @@ export default function VoronoiLab({ lang }: { lang: Lang }) {
           </g>
         ))}
         <circle cx={probeAt.x} cy={probeAt.y} r={3} fill="#111" />
-      </svg>
+      </svg></ReadableDiagram>
       <figcaption style={{ fontSize: 13, lineHeight: 1.5, marginTop: 6 }}>
         {t.nearest}: {NAMES[owner]}, {t.distance} {distance(probe, sites[owner]).toFixed(2)}
         <br />
