@@ -115,6 +115,7 @@ const steps: Step[] = [
         { id: 'qs', from: [9, 0], to: [9, 7.5], tone: 'ink' },
         { id: 'pc', from: [0, 7.5], to: [9, 7.5], tone: 'demand' },
         { id: 'pp', from: [0, 4.5], to: [9, 4.5], tone: 'supply' },
+        { id: 'tax', from: [4, 2], to: [4, 5], tone: 'policy', label: { en: 't = 3', ru: 't = 3' }, labelAt: 'start' },
       ],
       marks: [
         { id: 'E1', at: [9, 7.5], tone: 'policy', label: { en: 'E1', ru: 'E1' }, dx: -7, dy: -12 },

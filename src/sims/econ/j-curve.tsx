@@ -10,12 +10,13 @@ const tick = (value: number, text: string): TickSpec => ({ value, label: { en: t
 const curve = (to: number): CurveSpec => ({ id: 'b-' + to, points: fn(balance, 0, to, to * 4), tone: 'demand', width: 3 });
 
 const axes = {
+  showOrigin: false,
   xMax: 24,
   yMax: 15,
   xLabel: { en: 'Months after depreciation', ru: 'Месяцы после удешевления валюты' },
   yLabel: { en: 'Trade balance', ru: 'Торговый баланс' },
-  xTicks: [tick(6, '6'), tick(12, '12'), tick(18, '18'), tick(24, '24')],
-  yTicks: [tick(2, '−3'), tick(5, '0'), tick(8, '+3'), tick(11, '+6'), tick(14, '+9')],
+  xTicks: [tick(0, '0'), tick(6, '6'), tick(12, '12'), tick(18, '18'), tick(24, '24')],
+  yTicks: [tick(0, '−5'), tick(2, '−3'), tick(5, '0'), tick(8, '+3'), tick(11, '+6'), tick(14, '+9')],
 };
 
 const zeroLine: GuideSpec = { id: 'zero', from: [0, 5], to: [24, 5], tone: 'muted' };

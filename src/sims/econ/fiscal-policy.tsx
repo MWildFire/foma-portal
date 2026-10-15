@@ -68,7 +68,7 @@ const steps: Step[] = [
     title: { en: 'Multiplier effect', ru: 'Эффект мультипликатора (multiplier effect)' },
     text: {
       en: 'Induced spending in the later rounds doubles the first-round rise (multiplier 2, MPC 0.5). AD shifts right by 4 in total to AD3. Output rises from 8 to 10 and the price level from 7 to 9 (point B). Output rises by less than the shift of AD (2 against 4) because part of the extra demand goes into higher prices.',
-      ru: 'Наведённые расходы (induced spending) в последующих раундах удваивают первоначальный рост (мультипликатор 2, предельная склонность к потреблению MPC = 0.5). AD сдвигается вправо на 4 в целом, до AD3. Выпуск растёт с 8 до 10, а уровень цен — с 7 до 9 (точка B). Выпуск растёт меньше, чем сдвиг AD (2 против 4), потому что часть дополнительного спроса уходит в рост цен.',
+      ru: 'Наведённые расходы (induced spending) в последующих раундах удваивают первоначальный рост (мультипликатор 2, предельная склонность к потреблению MPC = 0,5). AD сдвигается вправо на 4 в целом, до AD3. Выпуск растёт с 8 до 10, а уровень цен — с 7 до 9 (точка B). Выпуск растёт меньше, чем сдвиг AD (2 против 4), потому что часть дополнительного спроса уходит в рост цен.',
     },
     graph: {
       ...axes,

@@ -2,12 +2,12 @@ import type { Lang } from '../../contract/types';
 import { StepPlayer, fn, type CurveSpec, type Step, type TickSpec } from './_lib/graph';
 
 // Public good, two people: A and B. Market demand is the VERTICAL sum of the two demand curves, because both use the same unit.
-// A: P = 12 - Q. B: P = 8 - 0.5Q. Sum: P = 20 - 1.5Q (valid up to Q 12). MC = 5.
+// A: P = 12 - Q. B: P = 8 - 0.5Q. Sum: P = max(12-Q, 0) + max(8-0.5Q, 0); after Q 12 only B contributes. MC = 5.
 // The sum meets MC at E: Q 10 (efficient). Only A pays, so the market stops where A's demand meets MC: Q 7 (under-provision).
 // Individual curves are listed from the right end to the left end, so their labels sit at the free top-left of the graph.
 const DA = fn(q => 12 - q, 0, 12, 12).reverse();
-const DB = fn(q => 8 - 0.5 * q, 0, 14, 14).reverse();
-const DSUM = fn(q => 20 - 1.5 * q, 0, 12, 24);
+const DB = fn(q => 8 - 0.5 * q, 0, 16, 16).reverse();
+const DSUM = fn(q => Math.max(12 - q, 0) + Math.max(8 - 0.5 * q, 0), 0, 16, 32);
 
 const ticks = (values: number[]): TickSpec[] => values.map(value => ({ value, label: { en: String(value), ru: String(value) } }));
 

@@ -18,7 +18,7 @@ const axes = {
   xLabel: { en: 'Unemployment (%)', ru: 'Безработица (%)' },
   yLabel: { en: 'Inflation (%)', ru: 'Инфляция (%)' },
   // 5 is the natural rate of unemployment, where LRPC stands; it is named on the axis in both languages.
-  xTicks: [...ticks([2, 4]), { value: 5, label: { en: '5 (NRU)', ru: '5 (ЕУ)' } }, ...ticks([6, 8])],
+  xTicks: [...ticks([2]), { value: 5, label: { en: '5 (NRU)', ru: '5 (ЕУ)' } }, ...ticks([8])],
   yTicks: ticks([2, 4, 6, 8, 10]),
 };
 

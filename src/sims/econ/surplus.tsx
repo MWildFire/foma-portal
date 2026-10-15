@@ -50,8 +50,9 @@ const steps: Step[] = [
     graph: {
       ...axes,
       curves,
+      guides: [{ id: 'price', from: [0, 6], to: [12, 6], tone: 'muted' }],
       areas: [{ id: 'cs', points: [[0, 12], [0, 6], [12, 6]], tone: 'gain' }],
-      marks: [{ id: 'CS', at: [1.5, 7.5], tone: 'gain', label: { en: 'CS', ru: 'CS' } }],
+      marks: [{ id: 'CS', dot: false, at: [1.5, 7.5], tone: 'gain', label: { en: 'CS', ru: 'CS' } }],
     },
   },
   {
@@ -63,8 +64,9 @@ const steps: Step[] = [
     graph: {
       ...axes,
       curves,
+      guides: [{ id: 'price', from: [0, 6], to: [12, 6], tone: 'muted' }],
       areas: [{ id: 'ps', points: [[0, 0], [0, 6], [12, 6]], tone: 'alt' }],
-      marks: [{ id: 'PS', at: [4, 4], tone: 'alt', label: { en: 'PS', ru: 'PS' } }],
+      marks: [{ id: 'PS', dot: false, at: [4, 4], tone: 'alt', label: { en: 'PS', ru: 'PS' } }],
     },
   },
   {
@@ -76,14 +78,16 @@ const steps: Step[] = [
     graph: {
       ...axes,
       curves,
+      guides: [{ id: 'price', from: [0, 6], to: [12, 6], tone: 'muted' }],
       areas: [
         { id: 'cs', points: [[0, 12], [0, 6], [12, 6]], tone: 'gain' },
         { id: 'ps', points: [[0, 0], [0, 6], [12, 6]], tone: 'alt' },
       ],
       marks: [
-        { id: 'CS', at: [1.5, 7.5], tone: 'gain', label: { en: 'CS 36', ru: 'CS 36' } },
-        { id: 'PS', at: [4, 4], tone: 'alt', label: { en: 'PS 36', ru: 'PS 36' } },
+        { id: 'CS', dot: false, at: [1.5, 7.5], tone: 'gain', label: { en: 'CS 36', ru: 'CS 36' } },
+        { id: 'PS', dot: false, at: [4, 4], tone: 'alt', label: { en: 'PS 36', ru: 'PS 36' } },
         { id: 'E', at: [12, 6], tone: 'ink', label: { en: 'E', ru: 'E' }, dx: 8, dy: -12 },
+        { id: 'ts', dot: false, at: [15, 9], label: { en: 'TS 72', ru: 'TS 72' } },
       ],
     },
   },

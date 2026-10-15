@@ -10,6 +10,7 @@ const LORENZ = fn(p => (p * p) / 100, 0, 100, 40);
 const ticks = (values: number[]): TickSpec[] => values.map(value => ({ value, label: { en: String(value), ru: String(value) } }));
 
 const axes = {
+  square: true,
   xMax: 100,
   yMax: 100,
   xLabel: { en: 'Cumulative % of population', ru: 'Накопленный % населения' },
@@ -26,8 +27,8 @@ const areaB: AreaSpec = { id: 'area-b', points: [...LORENZ, [100, 0]], tone: 'de
 const equalityMark: MarkSpec = { id: 'equality', at: [40, 40], tone: 'muted', label: { en: 'Equality', ru: 'Равенство' }, dx: -62, dy: -12 };
 const lorenzMark: MarkSpec = { id: 'lorenz', at: [60, 36], tone: 'demand', label: { en: 'Lorenz curve', ru: 'Кривая Лоренца' }, dx: 6, dy: 16 };
 const p50Mark: MarkSpec = { id: 'p50', at: [50, 25], tone: 'demand', label: { en: '50%: 25%', ru: '50%: 25%' }, dx: 6, dy: 16 };
-const markA: MarkSpec = { id: 'A', at: [50, 38], tone: 'alt', label: { en: 'A', ru: 'A' } };
-const markB: MarkSpec = { id: 'B', at: [80, 15], tone: 'demand', label: { en: 'B', ru: 'B' } };
+const markA: MarkSpec = { id: 'A', dot: false, at: [50, 38], tone: 'alt', label: { en: 'A', ru: 'A' } };
+const markB: MarkSpec = { id: 'B', dot: false, at: [80, 15], tone: 'demand', label: { en: 'B', ru: 'B' } };
 
 const steps: Step[] = [
   {
@@ -56,6 +57,18 @@ const steps: Step[] = [
         { id: 'p-v', from: [50, 0], to: [50, 25], tone: 'muted' },
       ],
       marks: [p50Mark, lorenzMark],
+    },
+  },
+  {
+    title: { en: 'Plotting quintiles', ru: 'Построение по квинтилям' },
+    text: {
+      en: 'For this illustrative curve, the five income shares from poorest to richest quintile are 4, 12, 20, 28, 36 percent (total 100%). Plot cumulative shares instead: (20, 4), (40, 16), (60, 36), (80, 64), (100, 100), starting at (0, 0). The smooth curve shown is y = x²/100; straight segments through only the quintile points give an approximation, not exactly the same Gini.',
+      ru: 'В этой условной модели доли дохода пяти квинтилей от беднейшего к богатейшему: 4, 12, 20, 28, 36 процентов (сумма 100%). На график наносят накопленные доли: (20; 4), (40; 16), (60; 36), (80; 64), (100; 100), начиная с (0; 0). Здесь показана гладкая кривая y = x²/100; отрезки только через квинтильные точки дают приближение, а не точно такой же коэффициент Джини.',
+    },
+    graph: {
+      ...axes,
+      curves: [equality, lorenz],
+      marks: [20, 40, 60, 80, 100].map((p, i) => ({ id: `q${i + 1}`, at: [p, p * p / 100] as [number, number], tone: 'demand' as const })),
     },
   },
   {

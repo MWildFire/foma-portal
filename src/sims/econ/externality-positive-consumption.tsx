@@ -18,7 +18,7 @@ const axes = {
   xLabel: { en: 'Quantity (Q)', ru: 'Количество (Q)' },
   yLabel: { en: 'Price (P)', ru: 'Цена (P)' },
   xTicks: [{ value: 9, label: { en: 'Qm 9', ru: 'Qm 9' } }, { value: 12, label: { en: 'Q* 12', ru: 'Q* 12' } }],
-  yTicks: ticks([4.5, 6, 7.5, 9, 12]),
+  yTicks: ticks([3, 4.5, 6, 7.5, 9, 12]),
 };
 
 const mpb: CurveSpec = { id: 'mpb', points: MPB, tone: 'demand', label: { en: 'MPB', ru: 'MPB' } };
@@ -26,7 +26,7 @@ const mpc: CurveSpec = { id: 'mpc', points: MPC, tone: 'supply', label: { en: 'M
 const msb: CurveSpec = { id: 'msb', points: MSB, tone: 'alt', label: { en: 'MSB', ru: 'MSB' } };
 
 // The welfare-loss label: a dot inside the triangle (9; 4.5), (9; 7.5), (12; 6) and the name next to it.
-const dwl: MarkSpec = { id: 'dwl', at: [10, 6.2], tone: 'loss', label: { en: 'DWL', ru: 'DWL' }, dx: 7, dy: -15 };
+const dwl: MarkSpec = { id: 'dwl', dot: false, at: [10, 6.2], tone: 'loss', label: { en: 'DWL 4.5', ru: 'DWL 4,5' }, dx: 7, dy: -15 };
 
 const steps: Step[] = [
   {
@@ -106,6 +106,7 @@ const steps: Step[] = [
       curves: [{ ...mpb, tone: 'muted', dashed: true }, mpc, { ...msb, points: fn(q => 12 - 0.5 * q, 0, 16, 1), tone: 'policy', label: { en: 'MSB with subsidy', ru: 'MSB с субсидией' } }],
       guides: [
         { id: 'qs', from: [12, 0], to: [12, 6], tone: 'ink' },
+        { id: 'pc', from: [0, 3], to: [12, 3], tone: 'demand', label: { en: 'Pc = 3', ru: 'Pc = 3' }, labelAt: 'end' },
         { id: 'sub', from: [4, 7], to: [4, 10], tone: 'policy', label: { en: 'subsidy 3', ru: 'субсидия 3' }, labelAt: 'end' },
       ],
       marks: [
