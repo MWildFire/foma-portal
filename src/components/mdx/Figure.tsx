@@ -3,8 +3,8 @@ import { findFigureUrl } from '../../lib/topic-assets';
 import { useBodyT, useTopicContext } from './context';
 import { MdxWarning } from './MdxWarning';
 
-// Every SVG that subjects ship in content/<subject>/**/assets/, as built URLs. Small files become data URLs.
-const ASSET_URLS = import.meta.glob<string>('/content/**/assets/*.svg', { query: '?url', import: 'default', eager: true });
+// Serve SVG files even when small: browsers block data URLs in a new full-size tab.
+const ASSET_URLS = import.meta.glob<string>('/content/**/assets/*.svg', { query: '?url&no-inline', import: 'default', eager: true });
 
 const ASSET_TEXTS = import.meta.glob<string>('/content/**/assets/*.svg', { query: '?raw', import: 'default', eager: true });
 
