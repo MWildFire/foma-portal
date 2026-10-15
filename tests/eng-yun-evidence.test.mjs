@@ -5,9 +5,9 @@ const read = (name, lang) => readFileSync(`content/eng/topics/${name}.${lang}.md
 for (const lang of ['en', 'ru']) {
   test(`Yun R03 ${lang}: likely three, spares and prior poems retain the IO warning`, () => {
     const t = read('w-yun-dong-ju', lang);
-    const titles = [...t.matchAll(/^#### (The Road|Self-Portrait|The Liver|The Cross|Prologue|Counting the Stars at Night|An Easily Written Poem|Confession)/gm)].map(m=>m[1]);
+    const titles = [...t.matchAll(/^#### \*\*(The Road|Self-Portrait|The Liver|The Cross|Prologue|Counting the Stars at Night|An Easily Written Poem|Confession)/gm)].map(m=>m[1]);
     assert.deepEqual(titles, ['The Road','Self-Portrait','The Liver','The Cross','Prologue','Counting the Stars at Night','An Easily Written Poem','Confession']);
-    assert.ok(t.indexOf('Individual Oral') < t.indexOf('#### The Road'));
+    assert.ok(t.indexOf('Individual Oral') < t.indexOf('#### **The Road'));
     assert.match(t, /K1/); assert.match(t, /C1/);
     assert.match(t, /1941-11-05/); assert.match(t, /1948/);
   });
