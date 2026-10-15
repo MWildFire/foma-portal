@@ -1,5 +1,5 @@
 import type { L, Lang } from '../../contract/types';
-import { StepFrame, type StepText } from './_lib/graph';
+import { GraphViewport, StepFrame, type StepText } from './_lib/graph';
 
 // Multiplier with MPC 0.8 (closed economy, no tax): k = 1 / (1 - 0.8) = 5.
 // An injection of 100 raises income by 100 in round 1, then 80, 64, 51, 41 ... Each round is 0.8 of the one before.
@@ -42,10 +42,10 @@ const TEXT = {
   xAxis: { en: 'Round of spending', ru: 'Раунд расходов' } as L,
   total: { en: 'total', ru: 'итого' } as L,
   limit: { en: 'limit 500', ru: 'предел 500' } as L,
-  limitBefore: { en: 'MPC 0.8: limit 500', ru: 'MPC 0.8: предел 500' } as L,
-  limitAfter: { en: 'MPC 0.5: limit 200', ru: 'MPC 0.5: предел 200' } as L,
-  formula: { en: 'k = 1 / (1 - 0.8) = 5', ru: 'k = 1 / (1 - 0.8) = 5' } as L,
-  formulaAfter: { en: 'k = 1 / (1 - 0.5) = 2', ru: 'k = 1 / (1 - 0.5) = 2' } as L,
+  limitBefore: { en: 'MPC 0.8: limit 500', ru: 'MPC 0,8: предел 500' } as L,
+  limitAfter: { en: 'MPC 0.5: limit 200', ru: 'MPC 0,5: предел 200' } as L,
+  formula: { en: 'k = 1 / (1 - 0.8) = 5', ru: 'k = 1 / (1 - 0,8) = 5' } as L,
+  formulaAfter: { en: 'k = 1 / (1 - 0.5) = 2', ru: 'k = 1 / (1 - 0,5) = 2' } as L,
 };
 
 // The legend names the colours of the bars; it stands in the empty part of the plot, above the bars.
@@ -53,9 +53,9 @@ interface LegendItem { key: string; colour: string; text: L; outline?: boolean }
 const LEGEND: Record<'injection' | 'induced' | 'saved' | 'total' | 'before', LegendItem> = {
   injection: { key: 'injection', colour: INJECTION, text: { en: 'round 1: the injection', ru: 'раунд 1: инъекция' } },
   induced: { key: 'induced', colour: INDUCED, text: { en: 'induced spending, later rounds', ru: 'наведённые расходы, следующие раунды' } },
-  saved: { key: 'saved', colour: SAVED, text: { en: 'saved: a leakage', ru: 'сбережения: утечка' } },
+  saved: { key: 'saved', colour: SAVED, text: { en: 'saved: a leakage', ru: 'сбережения: изъятие' } },
   total: { key: 'total', colour: TOTAL, text: { en: 'total after 8 rounds', ru: 'итого за 8 раундов' } },
-  before: { key: 'before', colour: SAVED, outline: true, text: { en: 'outline: rounds with MPC 0.8', ru: 'контур: раунды при MPC 0.8' } },
+  before: { key: 'before', colour: SAVED, outline: true, text: { en: 'outline: rounds with MPC 0.8', ru: 'контур: раунды при MPC 0,8' } },
 };
 
 function legendItems(scene: Scene): LegendItem[] {
@@ -73,7 +73,7 @@ function chart(index: number, lang: Lang) {
   const yValues = [0, 100, 200, 300, 400, 500];
 
   return (
-    <svg role="img" aria-label={lang === 'en' ? 'Bar chart of the rounds of spending' : 'Столбчатая диаграмма раундов расходов'} viewBox="0 0 360 260" width="100%" style={{ maxWidth: 420, display: 'block', color: 'var(--color-fg)' }}>
+    <GraphViewport lang={lang}><svg role="img" aria-label={lang === 'en' ? 'Bar chart of the rounds of spending' : 'Столбчатая диаграмма раундов расходов'} viewBox="0 0 360 260" width="100%" style={{ maxWidth: 420, display: 'block', color: 'var(--color-fg)' }}>
       <line x1={X0} y1={BASE} x2={344} y2={BASE} stroke="currentColor" strokeWidth={1.5} />
       <line x1={X0} y1={BASE} x2={X0} y2={20} stroke="currentColor" strokeWidth={1.5} />
       {yValues.map(value => (
@@ -144,7 +144,7 @@ function chart(index: number, lang: Lang) {
           <text x={xOf(8) + BAR_W / 2} y={BASE + 14} textAnchor="middle" fontSize={11} fill="currentColor">{TEXT.total[lang]}</text>
         </g>
       )}
-    </svg>
+    </svg></GraphViewport>
   );
 }
 
@@ -160,28 +160,28 @@ const steps: StepText[] = [
     title: { en: 'Second round', ru: 'Второй раунд' },
     text: {
       en: 'Households spend 80% of the extra income (MPC 0.8). The grey top, 20%, is saved: a leakage. So round 2 adds 80.',
-      ru: 'Домохозяйства тратят 80% дополнительного дохода (MPC 0.8). Серая часть, 20%, сберегается: это утечка (leakage). Поэтому второй раунд добавляет 80.',
+      ru: 'Домохозяйства тратят 80% дополнительного дохода (MPC 0,8). Серая часть, 20%, сберегается: это изъятие (leakage). Поэтому второй раунд добавляет 80.',
     },
   },
   {
     title: { en: 'Further rounds', ru: 'Следующие раунды' },
     text: {
       en: 'Each round is 0.8 times the one before: 64, then 51, then 41. The grey leakages take 20% each round, so the rounds get smaller.',
-      ru: 'Каждый раунд равен 0.8 от предыдущего: 64, затем 51, затем 41. Серые утечки забирают 20% в каждом раунде, поэтому раунды становятся меньше.',
+      ru: 'Каждый раунд равен 0,8 от предыдущего: 64, затем 51, затем 41. Серые изъятия забирают 20% в каждом раунде, поэтому раунды становятся меньше.',
     },
   },
   {
     title: { en: 'Total change in income', ru: 'Итоговое изменение дохода' },
     text: {
       en: 'The total tends to 500 = 5 x 100, because k = 1 / (1 - 0.8) = 5. After 8 rounds the sum is already 416.',
-      ru: 'Сумма стремится к 500 = 5 × 100, потому что k = 1 / (1 - 0.8) = 5. После 8 раундов сумма уже равна 416.',
+      ru: 'Сумма стремится к 500 = 5 × 100, потому что k = 1 / (1 - 0,8) = 5. После 8 раундов сумма уже равна 416.',
     },
   },
   {
-    title: { en: 'A larger leakage: MPC 0.5', ru: 'Большая утечка: MPC 0.5' },
+    title: { en: 'A larger leakage: MPC 0.5', ru: 'Большее изъятие: MPC 0,5' },
     text: {
-      en: 'Now MPC is 0.5, so half of each round is saved (grey). The rounds shrink faster: 100, 50, 25, 13, 6 (the outlines show the rounds for MPC 0.8). The multiplier is smaller: k = 1 / (1 - 0.5) = 2, so the total tends to 200, not 500.',
-      ru: 'Теперь MPC равна 0.5, поэтому половина каждого раунда сберегается (серая часть). Раунды уменьшаются быстрее: 100, 50, 25, 13, 6 (контуры показывают раунды при MPC 0.8). Мультипликатор меньше: k = 1 / (1 - 0.5) = 2, поэтому сумма стремится к 200, а не к 500.',
+      en: 'Now MPC is 0.5, so half of each round is saved (grey). The rounds shrink faster: 100, 50, 25, 13, 6 (the outlines show the rounds for MPC 0.8). Numbers label the filled bars at MPC 0.5. The multiplier is smaller: k = 1 / (1 - 0.5) = 2, so the total tends to 200, not 500.',
+      ru: 'Теперь MPC равна 0,5, поэтому половина каждого раунда сберегается (серая часть). Раунды уменьшаются быстрее: 100, 50, 25, 13, 6 (контуры показывают раунды при MPC 0,8). Числа относятся к закрашенным столбцам при MPC 0,5. Мультипликатор меньше: k = 1 / (1 - 0,5) = 2, поэтому сумма стремится к 200, а не к 500.',
     },
   },
 ];
@@ -190,7 +190,7 @@ export default function Multiplier({ lang }: { lang: Lang }) {
   return (
     <StepFrame
       lang={lang}
-      label={{ en: 'Multiplier: rounds of spending (injection 100; MPC 0.8, then 0.5)', ru: 'Мультипликатор: раунды расходов (инъекция 100; MPC 0.8, затем 0.5)' }}
+      label={{ en: 'Multiplier: rounds of spending (injection 100; MPC 0.8, then 0.5)', ru: 'Мультипликатор: раунды расходов (инъекция 100; MPC 0,8, затем 0,5)' }}
       steps={steps}
     >
       {index => chart(index, lang)}
