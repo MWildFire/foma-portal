@@ -1,6 +1,6 @@
 import type { Question } from '../../../../src/contract/types';
 
-const infographicUrl = new URL('../topics/assets/core-1-3-infographic.svg', import.meta.url).href;
+const infographicUrl = new URL('../topics/assets/core-1-3-infographic.svg?no-inline', import.meta.url).href;
 
 // Core 1.3 (challenges and opportunities). Original questions in IB style. Figures come from the UN DESA World
 // Population Prospects 2024 (Medium variant, 1 July population, age groups 0-14, 15-64 and 65+), the World Bank

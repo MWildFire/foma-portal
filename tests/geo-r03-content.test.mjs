@@ -31,7 +31,7 @@ test('Paper 2 retains at least three reachable ten-mark Section B tasks with rev
       if (!/section: 'B'/.test(block) || !/marks: 10,/.test(block)) continue;
       const id = block.match(/id: '([^']+)'/)[1];
       const source = readFileSync(file, 'utf8');
-      const asset = source.match(/new URL\('..\/topics\/assets\/([^']+\.svg)'/s)?.[1];
+      const asset = source.match(/new URL\('..\/topics\/assets\/([^']+\.svg)(?:\?no-inline)?'/s)?.[1];
       assert.ok(asset && existsSync(path.join(root, 'core/topics/assets', asset)), id + ' must link to a local infographic');
       assert.match(block, /Open infographic/);
       assert.match(block, /Открыть инфографику/);
@@ -48,5 +48,26 @@ test('Paper 2 retains at least three reachable ten-mark Section B tasks with rev
 test('every geography topic is explicitly in the mock scope', () => {
   for (const file of files(root).filter((p) => p.endsWith('.meta.ts'))) {
     assert.match(readFileSync(file, 'utf8'), /inMockScope:\s*'yes'/, file);
+  }
+});
+
+test('production packaging emits every Section B infographic as a browser-linkable SVG file', async () => {
+  const { build } = await import('vite');
+  const ids = ['core-1-1', 'core-1-2', 'core-1-3', 'core-2-2', 'core-3-1', 'core-3-3'];
+  const result = await build({
+    configFile: false,
+    logLevel: 'silent',
+    build: {
+      write: false,
+      rollupOptions: {
+        input: ids.map((id) => path.resolve(root, 'core/questions', id + '.ts')),
+        preserveEntrySignatures: 'strict',
+      },
+    },
+  });
+  const output = (Array.isArray(result) ? result : [result]).flatMap((item) => item.output);
+  for (const id of ids) {
+    assert.ok(output.some((item) => item.type === 'asset' && item.fileName.includes(id + '-infographic') && item.fileName.endsWith('.svg')),
+      id + ' must be a served SVG; inline data URLs cannot be opened by the lesson link renderer');
   }
 });

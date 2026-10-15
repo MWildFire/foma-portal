@@ -1,6 +1,6 @@
 import type { Question } from '../../../../src/contract/types';
 
-const infographicUrl = new URL('../topics/assets/core-1-1-infographic.svg', import.meta.url).href;
+const infographicUrl = new URL('../topics/assets/core-1-1-infographic.svg?no-inline', import.meta.url).href;
 
 // Topic core-1.1. Section A: five original questions (2 to 6 marks). Section B: one infographic question (10 marks).
 // Figures come from UN DESA WPP 2024 (Medium variant, 2023 values), UNDP HDR 2025 (HDI 2023) and the World Bank

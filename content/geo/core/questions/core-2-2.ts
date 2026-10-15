@@ -1,6 +1,6 @@
 import type { Question } from '../../../../src/contract/types';
 
-const infographicUrl = new URL('../topics/assets/core-2-2-infographic.svg', import.meta.url).href;
+const infographicUrl = new URL('../topics/assets/core-2-2-infographic.svg?no-inline', import.meta.url).href;
 
 // Core 2.2 (consequences of global climate change). Original questions in IB style. Figures come from the IPCC AR6
 // WG1 Summary for Policymakers (sections A.1.7 and A.4.3), the World Bank (2021 and 2022), the World Bank WDI (2024),

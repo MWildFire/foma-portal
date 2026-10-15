@@ -1,6 +1,6 @@
 import type { Question } from '../../../../src/contract/types';
 
-const infographicUrl = new URL('../topics/assets/core-3-3-infographic.svg', import.meta.url).href;
+const infographicUrl = new URL('../topics/assets/core-3-3-infographic.svg?no-inline', import.meta.url).href;
 
 // Syllabus core 3.3. Original questions in IB Geography SL Paper 2 style.
 // Figures: FAO Fisheries Circular No. 920 (1997) for the Peruvian anchoveta; Eurostat cei_wm011 (updated 30 March 2026) for the Section B data.

@@ -1,6 +1,6 @@
 import type { Question } from '../../../../src/contract/types';
 
-const infographicUrl = new URL('../topics/assets/core-1-2-infographic.svg', import.meta.url).href;
+const infographicUrl = new URL('../topics/assets/core-1-2-infographic.svg?no-inline', import.meta.url).href;
 
 // Core 1.2 (changing populations and places). Original questions in IB style. Figures come from the UN DESA
 // World Urbanization Prospects 2025 (summary, Annex Table A4, and File F02) and are checked by script.

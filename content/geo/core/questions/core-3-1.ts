@@ -1,6 +1,6 @@
 import type { Question } from '../../../../src/contract/types';
 
-const infographicUrl = new URL('../topics/assets/core-3-1-infographic.svg', import.meta.url).href;
+const infographicUrl = new URL('../topics/assets/core-3-1-infographic.svg?no-inline', import.meta.url).href;
 
 // Syllabus core 3.1. Original questions in IB Geography SL Paper 2 style. Figures checked against the sources in the cases and the topic meta.
 const topicIds = ['core-3-1-consumption-trends'];
