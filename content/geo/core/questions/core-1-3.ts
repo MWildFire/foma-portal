@@ -1,5 +1,7 @@
 import type { Question } from '../../../../src/contract/types';
 
+const infographicUrl = new URL('../topics/assets/core-1-3-infographic.svg', import.meta.url).href;
+
 // Core 1.3 (challenges and opportunities). Original questions in IB style. Figures come from the UN DESA World
 // Population Prospects 2024 (Medium variant, 1 July population, age groups 0-14, 15-64 and 65+), the World Bank
 // (total fertility rate and personal remittances) and SingStat; all arithmetic is checked by script.
@@ -111,8 +113,8 @@ export const questions: Question[] = [
     marks: 10,
     command: 'Using the infographic',
     stimulus: {
-      en: 'Infographic (figure in this topic): old-age dependency ratio, meaning people aged 65 and over per 100 people aged 15 to 64, for Japan, South Korea and Nigeria in 2024 and in 2050 (projected). Source: UN DESA, World Population Prospects 2024, Medium variant, 2024 and 2050 projection. The total fertility rate for 2024 is shown under each country.',
-      ru: 'Инфографика (рисунок в этой теме): коэффициент демографической нагрузки пожилыми, то есть число людей в возрасте 65 лет и старше на 100 человек в возрасте 15–64 лет, для Японии, Республики Корея и Нигерии в 2024 году и в 2050 году (прогноз). Источник: UN DESA, World Population Prospects 2024, вариант Medium, данные за 2024 год и прогноз на 2050 год. Суммарный коэффициент рождаемости за 2024 год показан под каждой страной.',
+      en: 'Infographic (figure in this topic): old-age dependency ratio, meaning people aged 65 and over per 100 people aged 15 to 64, for Japan, South Korea and Nigeria in 2024 and 2050 (both projected). Source: UN DESA, World Population Prospects 2024, Medium variant, 2024 and 2050 projection. The total fertility rate for 2024 is shown under each country.' + ' [Open infographic](' + infographicUrl + ')',
+      ru: 'Инфографика (рисунок в этой теме): коэффициент демографической нагрузки пожилыми, то есть число людей в возрасте 65 лет и старше на 100 человек в возрасте 15–64 лет, для Японии, Республики Корея и Нигерии в 2024 году и в 2050 году (прогноз). Источник: UN DESA, World Population Prospects 2024, вариант Medium, прогнозы на 2024 и 2050 годы. Суммарный коэффициент рождаемости за 2024 год показан под каждой страной.' + ' [Открыть инфографику](' + infographicUrl + ')',
     },
     prompt: {
       en: '(a) Using the infographic, describe the trend in the old-age dependency ratio for Nigeria between 2024 and 2050. [2 marks] (b) Calculate the number of people aged 15 to 64 for each person aged 65 and over in Japan in 2050. Compare your answer with South Korea in 2050. [3 marks] (c) Evaluate one policy that a government could use to respond to an old-age dependency ratio above 70 by 2050. [5 marks]',

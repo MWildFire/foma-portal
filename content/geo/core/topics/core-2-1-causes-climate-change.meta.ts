@@ -26,6 +26,7 @@ const topic: TopicMeta = {
   questionIds: ['core-2-1-a2', 'core-2-1-a3', 'core-2-1-a4', 'core-2-1-a5'],
   caseIds: ['core-2-1-case-mauna-loa', 'core-2-1-case-arctic-sea-ice', 'core-2-1-case-china'],
   sources: [
+    { kind: 'web', title: 'IPCC AR6 WG1 (2021), Figure 7.2: planetary and surface albedo', url: 'https://www.ipcc.ch/report/ar6/wg1/figures/chapter-7/figure-7-2/' },
     { kind: 'ib-guide', title: 'Geography guide (2017), core 2.1' },
     { kind: 'web', title: 'IPCC AR6 WG1, Summary for Policymakers (2021)', url: 'https://www.ipcc.ch/report/ar6/wg1/chapter/summary-for-policymakers/' },
     { kind: 'web', title: 'IPCC AR6 WG3, Summary for Policymakers (2022)', url: 'https://www.ipcc.ch/report/ar6/wg3/chapter/summary-for-policymakers/' },

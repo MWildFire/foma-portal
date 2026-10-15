@@ -1,6 +1,6 @@
 import type { CaseStudy } from '../../../../src/contract/types';
 
-// Case studies for G.4. Each figure was checked against the source in src (WebSearch / WebFetch, April-October 2026 check).
+// G.4 cases. R03 verified Nobis (2003), printed p. 703, from the rendered WIT PDF and OCR. Other cases retain their earlier source checks.
 export const cases: CaseStudy[] = [
   {
     id: 'g-curitiba-brt',

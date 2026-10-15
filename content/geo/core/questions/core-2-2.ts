@@ -1,5 +1,7 @@
 import type { Question } from '../../../../src/contract/types';
 
+const infographicUrl = new URL('../topics/assets/core-2-2-infographic.svg', import.meta.url).href;
+
 // Core 2.2 (consequences of global climate change). Original questions in IB style. Figures come from the IPCC AR6
 // WG1 Summary for Policymakers (sections A.1.7 and A.4.3), the World Bank (2021 and 2022), the World Bank WDI (2024),
 // the WHO fact sheet on climate change and health (2023), the UNDP Tuvalu Coastal Adaptation Project document (2016)
@@ -92,8 +94,8 @@ export const questions: Question[] = [
     marks: 10,
     command: 'Using the infographic',
     stimulus: {
-      en: 'Figure 1 (the infographic) shows the average rate of global mean sea-level rise, in millimetres per year, in three periods between 1901 and 2018, and the total rise over 1901–2018. Source: IPCC (2021), Climate Change 2021: The Physical Science Basis, Working Group I, Summary for Policymakers, section A.1.7.',
-      ru: 'На рисунке 1 (инфографика) показана средняя скорость роста среднего глобального уровня моря в миллиметрах в год за три периода между 1901 и 2018 годами, а также общий подъём за 1901–2018 годы. Источник: IPCC (2021), Climate Change 2021: The Physical Science Basis, Working Group I, Summary for Policymakers, раздел A.1.7.',
+      en: 'Figure 1 (the infographic) shows the average rate of global mean sea-level rise, in millimetres per year, in three periods between 1901 and 2018, and the total rise over 1901–2018. Source: IPCC (2021), Climate Change 2021: The Physical Science Basis, Working Group I, Summary for Policymakers, section A.1.7.' + ' [Open infographic](' + infographicUrl + ')',
+      ru: 'На рисунке 1 (инфографика) показана средняя скорость роста среднего глобального уровня моря в миллиметрах в год за три периода между 1901 и 2018 годами, а также общий подъём за 1901–2018 годы. Источник: IPCC (2021), Climate Change 2021: The Physical Science Basis, Working Group I, Summary for Policymakers, раздел A.1.7.' + ' [Открыть инфографику](' + infographicUrl + ')',
     },
     prompt: {
       en: '(a) Using Figure 1, describe the change in the average rate of global mean sea-level rise between 1901 and 2018. [2]\n(b) Calculate the percentage increase in the average rate of sea-level rise from 1901–1971 to 2006–2018, using the central values. Give your answer to one decimal place. [3]\n(c) Evaluate the extent to which faster sea-level rise threatens the water security of people living in low-lying river deltas. [5]',

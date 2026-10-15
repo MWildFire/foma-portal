@@ -68,7 +68,7 @@ const topic: TopicMeta = {
   questionIds: ['a1-sq1', 'a1-sq2', 'a1-sq3', 'a1-eq1', 'a1-eq2'],
   caseIds: ['a-rhine-basin', 'a-mekong-basin', 'a-amazon-basin', 'a-uae-wadi-floods-2024'],
   sources: [
-    { kind: 'ib-guide', title: 'Geography guide (2017), Option A: Freshwater', locator: 'A.1' },
+    { kind: 'ib-guide', title: 'Geography guide (2017), Option A: Freshwater', locator: 'A.1, p. 28' },
     { kind: 'thinkib', title: 'Option A: Drainage Basin Hydrology and Geomorphology (page 43413)', locator: 'The Water Budget; River Processes; Upper, Middle and Lower Course Landforms' },
   ],
   links: [

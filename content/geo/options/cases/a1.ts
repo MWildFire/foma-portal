@@ -40,8 +40,8 @@ export const cases: CaseStudy[] = [
     lat: 12.8,
     lng: 104.0,
     facts: {
-      en: 'The Mekong River Commission gives the basin a land area of 795,000 km² (Mekong River Commission, archived website, 2005–2009). Most of the rain in the Lower Mekong basin falls in the wet season, which typically runs from mid-May to October (Nature Sustainability, 2025). In the flood season the river pushes water back into Tonle Sap, and the lake’s surface grows from about 2,210 km² to about 13,260 km² (Nature Sustainability, 2025), roughly six times as large by our calculation. Between 1998 and 2018 the reverse flow into the lake fell by about 47% in a medium-flow year; a 2025 study attributes the drop to a lowering of the river bed caused by sand extraction and sediment held back upstream.',
-      ru: 'Комиссия по реке Меконг (MRC) указывает площадь бассейна 795 000 км² (архивный сайт Комиссии по реке Меконг, 2005–2009). В нижнем бассейне Меконга большая часть дождевых осадков выпадает в сезон дождей, который обычно длится с середины мая до октября (Nature Sustainability, 2025). В сезон паводка река направляет воду обратно в озеро Тонлесап, и его поверхность растёт примерно от 2 210 км² до 13 260 км² (Nature Sustainability, 2025), то есть примерно в шесть раз больше по нашему расчёту. С 1998 по 2018 год обратный сток в озеро сократился примерно на 47% в год средней водности; исследование 2025 года связывает это падение с понижением русла из-за добычи песка и задержания наносов выше по течению.',
+      en: 'The Mekong River Commission gives the basin a land area of 795,000 km² (Mekong River Commission, archived website, 2005–2009). Most of the rain in the Lower Mekong basin falls in the wet season, which typically runs from mid-May to October (Nature Sustainability, 2025). In the flood season the river pushes water back into Tonle Sap, and the lake’s surface grows from about 2,210 km² to about 13,260 km² (Nature Sustainability, 2025), roughly six times as large by our calculation. Quan et al. (2025, abstract and model scenarios) estimate about 47% less reverse flow under medium-flow conditions when comparing the riverbed in 1998 with the lower bed in 2018. This is a modelled effect of riverbed lowering associated with sand extraction and upstream sediment trapping, not a direct measurement of a 47% fall in every year.',
+      ru: 'Комиссия по реке Меконг (MRC) указывает площадь бассейна 795 000 км² (архивный сайт Комиссии по реке Меконг, 2005–2009). В нижнем бассейне Меконга большая часть дождевых осадков выпадает в сезон дождей, который обычно длится с середины мая до октября (Nature Sustainability, 2025). В сезон паводка река направляет воду обратно в озеро Тонлесап, и его поверхность растёт примерно от 2 210 км² до 13 260 км² (Nature Sustainability, 2025), то есть примерно в шесть раз больше по нашему расчёту. По модели Quan и соавторов (2025, аннотация и сценарии), при среднем расходе обратный сток уменьшается примерно на 47%, если сравнить русло 1998 года с пониженным руслом 2018 года. Это расчёт эффекта понижения русла, связанного с добычей песка и задержкой наносов выше по течению, а не прямое измерение падения на 47% в каждом году.',
     },
     usedFor: ['a1-drainage-basins'],
     src: [
@@ -52,7 +52,7 @@ export const cases: CaseStudy[] = [
       },
       {
         kind: 'web',
-        title: 'Nature Sustainability (2025): Sand-mining-driven reduction in Tonle Sap Lake’s critical flood pulse (2,210 and 13,260 km²: main text)',
+        title: 'Nature Sustainability (2025): Sand-mining-driven reduction in Tonle Sap Lake’s critical flood pulse (abstract: modelled 47% for medium flows; 2,210 and 13,260 km²: main text)',
         url: 'https://www.nature.com/articles/s41893-025-01677-8',
       },
     ],
