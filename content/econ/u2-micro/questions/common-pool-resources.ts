@@ -1,7 +1,7 @@
 import type { Question } from '../../../../src/contract/types';
 
 // Common pool resources questions. The calculation (econ-common-pool-resources-01) is checked by scripts/econ-checks/common-pool-resources.json.
-export const questions: Question[] = [
+export const questions: (Question & { inMockScope?: 'yes' | 'no' })[] = [
   {
     id: 'econ-common-pool-resources-01',
     subject: 'econ',
@@ -43,7 +43,7 @@ export const questions: Question[] = [
     id: 'econ-common-pool-resources-03',
     subject: 'econ',
     topicIds: ['common-pool-resources'],
-    paper: 'P1',
+    paper: 'P2',
     marks: 8,
     command: 'Evaluate',
     prompt: {

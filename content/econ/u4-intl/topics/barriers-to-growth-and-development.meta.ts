@@ -5,11 +5,11 @@ const topic: TopicMeta = {
   subject: 'econ',
   code: '4.9',
   title: { en: 'Barriers to economic growth and development', ru: 'Барьеры экономического роста и развития' },
-  papers: ['P1', 'P2', 'P3'],
+  papers: ['P2', 'P3'],
   order: 48,
   minutes: 40,
   priority: 1,
-  inMockScope: 'unknown',
+  inMockScope: 'no',
   outcomes: [
     { en: 'I can explain how low saving, low investment and low human capital form a vicious circle of poverty', ru: 'Могу объяснить, как низкие сбережения, инвестиции и человеческий капитал образуют порочный круг бедности' },
     { en: 'I can explain how weak institutions and corruption reduce investment and growth', ru: 'Могу объяснить, как слабые институты и коррупция снижают инвестиции и рост' },

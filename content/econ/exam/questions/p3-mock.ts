@@ -1,6 +1,6 @@
 import type { Question } from '../../../../src/contract/types';
 
-// EX-3 school mock: one policy question of 30 marks for the one-hour mock.
+// EX-3 school mock: one policy question of 32 marks for the one-hour mock.
 // Part (a) is 20 marks (calculations, an explanation and a diagram) and part (b) is 10 marks (a recommendation): the
 // same split as one question of the real Paper 3 from 2023. All numbers are invented and labelled as illustrative data.
 // The city (Maravel) is fictional. Rent is in AED thousand per month and quantities in thousand flats per month, so
@@ -13,7 +13,7 @@ export const questions: Question[] = [
     subject: 'econ',
     topicIds: ['government-taxes-subsidies-price-controls'],
     paper: 'P3',
-    marks: 30,
+    marks: 32,
     command: 'Recommend',
     stimulus: {
       en: 'Maravel is a city of 1.5 million people (illustrative data). Rents for one-bedroom flats in the city centre have risen sharply, and many low-income households cannot afford them. The city council is considering three options:\n' +
@@ -38,21 +38,23 @@ export const questions: Question[] = [
         '- Аренда 4,0: величина спроса 10, величина предложения 18',
     },
     prompt: {
-      en: '(a) Answer parts (i) to (vi) using the data. [20 marks]\n' +
+      en: '(a) Answer parts (i) to (vii) using the data. [22 marks]\n' +
         '(i) Identify the equilibrium rent and the equilibrium quantity of flats. [2 marks]\n' +
         '(ii) Calculate the shortage of flats at the rent ceiling of AED 2.5 thousand per month. [2 marks]\n' +
         '(iii) Calculate the percentage change in the quantity of flats supplied when the rent falls from AED 3.0 thousand to AED 2.5 thousand per month. [2 marks]\n' +
         '(iv) Calculate the change in the total monthly rent received by landlords when the ceiling is introduced. Count only the flats that are actually rented, and give your answer in AED million. [2 marks]\n' +
         '(v) Explain why a rent ceiling below the equilibrium rent can reduce the supply and the quality of flats over time. [4 marks]\n' +
         '(vi) Draw a diagram of the market for flats with the rent ceiling of AED 2.5 thousand per month. Label the equilibrium, the quantities demanded and supplied at the ceiling, the shortage and the quantity of flats rented. Then explain why fewer flats are rented than at equilibrium. [8 marks]\n' +
+        '(vii) Calculate PES when rent rises from AED 3.0 thousand to AED 3.5 thousand and quantity supplied rises from 14 to 16 thousand flats. [2 marks]\n' +
         '(b) Recommend one of the three options (A, B or C) for Maravel. Justify your recommendation with the data, discuss the trade-offs and the stakeholders, consider the timing and reach a judgement. [10 marks]',
-      ru: '(a) Ответьте на части (i)–(vi), используя данные. [20 баллов]\n' +
+      ru: '(a) Ответьте на части (i)–(vii), используя данные. [22 балла]\n' +
         '(i) Определите равновесную арендную плату и равновесное количество квартир. [2 балла]\n' +
         '(ii) Рассчитайте дефицит квартир при потолке арендной платы AED 2,5 тыс. в месяц. [2 балла]\n' +
         '(iii) Рассчитайте процентное изменение величины предложения квартир, если аренда снизится с AED 3,0 тыс. до AED 2,5 тыс. в месяц. [2 балла]\n' +
         '(iv) Рассчитайте изменение общей месячной арендной платы, которую получают арендодатели, при введении потолка. Учитывайте только фактически арендованные квартиры; ответ дайте в AED млн. [2 балла]\n' +
         '(v) Объясните, почему потолок арендной платы ниже равновесной может со временем снизить предложение и качество квартир. [4 балла]\n' +
         '(vi) Нарисуйте диаграмму рынка квартир с потолком арендной платы AED 2,5 тыс. в месяц. Подпишите равновесие, величины спроса и предложения при потолке, дефицит и количество арендованных квартир. Затем объясните, почему арендуется меньше квартир, чем при равновесии. [8 баллов]\n' +
+        '(vii) Рассчитайте PES при росте аренды с 3,0 до 3,5 тыс. AED и величины предложения с 14 до 16 тысяч квартир. [2 балла]\n' +
         '(b) Рекомендуйте один из трёх вариантов (A, B или C) для Маравела. Обоснуйте рекомендацию данными, обсудите компромиссы и заинтересованные стороны, учтите сроки и сформулируйте итоговое суждение. [10 баллов]',
     },
     markscheme: {
@@ -76,6 +78,7 @@ export const questions: Question[] = [
         '(a)(vi) 1 mark: tenants who get a flat pay less (AED 2.5 thousand instead of AED 3.0 thousand), but landlords lose rent.\n' +
         '(a)(vi) 1 mark: the trades that do not happen at the ceiling are a deadweight loss, shown as a triangle between the two curves from 12 to 14 thousand flats.\n' +
         '(a)(vi) 1 mark: at the ceiling landlords offer only 12 thousand flats, so only 12 thousand can be rented, although 16 thousand tenants want one.\n' +
+        '(a)(vii) 1 mark: PES = ((16 - 14) / 14) / ((3.5 - 3.0) / 3.0). 1 mark: 0.86 (inelastic).\n' +
         '(b) 1 mark: a clear recommendation of one option (A, B or C) in one sentence.\n' +
         '(b) 1 mark: the recommended option is specified, for example Option C: 4 thousand flats built over three years at a total cost of AED 1800 million.\n' +
         '(b) 1 mark: Option C raises the quantity supplied at AED 2.5 thousand from 12 to 16 thousand, which matches the 16 thousand flats demanded, so the shortage disappears; Option A leaves a shortage of 4 thousand flats.\n' +
@@ -106,6 +109,7 @@ export const questions: Question[] = [
         '(a)(vi) 1 балл: арендаторы, которые получили квартиру, платят меньше (AED 2,5 тыс. вместо AED 3,0 тыс.), но арендодатели теряют доход.\n' +
         '(a)(vi) 1 балл: сделки, которые не состоялись при потолке, — это чистые потери общества (deadweight loss), треугольник между кривыми от 12 до 14 тысяч квартир.\n' +
         '(a)(vi) 1 балл: при потолке арендодатели предлагают только 12 тысяч квартир, поэтому сдать можно только 12 тысяч, хотя 16 тысяч арендаторов хотят её снять.\n' +
+        '(a)(vii) 1 балл: PES = ((16 - 14) / 14) / ((3.5 - 3.0) / 3.0). 1 балл: 0,86 (неэластично).\n' +
         '(b) 1 балл: ясная рекомендация одного варианта (A, B или C) в одном предложении.\n' +
         '(b) 1 балл: рекомендация конкретна, например вариант C: 4 тысячи квартир за три года на AED 1800 млн.\n' +
         '(b) 1 балл: вариант C поднимает величину предложения при AED 2,5 тыс. с 12 до 16 тысяч, что совпадает с величиной спроса, поэтому дефицит исчезает; вариант A оставляет дефицит 4 тысячи квартир.\n' +

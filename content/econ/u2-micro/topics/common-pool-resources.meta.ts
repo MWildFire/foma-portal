@@ -5,7 +5,7 @@ const topic: TopicMeta = {
   subject: 'econ',
   code: '2.8',
   title: { en: 'Common pool resources', ru: 'Общие ресурсы (common pool resources)' },
-  papers: ['P1', 'P2', 'P3'],
+  papers: ['P2', 'P3'],
   order: 19,
   minutes: 35,
   priority: 1,
@@ -17,7 +17,7 @@ const topic: TopicMeta = {
     { en: 'I can calculate a quota per unit from a sustainable catch and the number of users', ru: 'Могу рассчитать квоту на единицу по устойчивому улову и числу пользователей' },
     { en: 'I can evaluate quotas, property rights, tradable permits and taxes for a shared resource', ru: 'Могу оценить квоты, права собственности, торгуемые разрешения и налоги для общего ресурса' },
   ],
-  termIds: [
+  termIds: ['carbon-tax', 
     'common-pool-resource', 'rivalry', 'non-excludability', 'tragedy-of-the-commons', 'open-access-equilibrium',
     'socially-optimal-use', 'harvest-quota', 'property-rights', 'tradable-permits', 'pigouvian-tax',
   ],

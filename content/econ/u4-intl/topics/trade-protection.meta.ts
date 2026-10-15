@@ -5,11 +5,11 @@ const topic: TopicMeta = {
   subject: 'econ',
   code: '4.2',
   title: { en: 'Types of trade protection', ru: 'Виды торговой защиты' },
-  papers: ['P1', 'P2', 'P3'],
+  papers: ['P2', 'P3'],
   order: 41,
   minutes: 60,
   priority: 1,
-  inMockScope: 'unknown',
+  inMockScope: 'no',
   outcomes: [
     { en: 'I can describe the main types of trade protection and what each is for', ru: 'Могу описать основные виды торговой защиты и их цели' },
     { en: 'I can show how a tariff changes price, quantity, surpluses, government revenue and welfare', ru: 'Могу показать, как тариф меняет цену, объём, излишки, выручку государства и благосостояние' },

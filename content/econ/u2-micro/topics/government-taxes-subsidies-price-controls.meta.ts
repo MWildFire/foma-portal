@@ -5,7 +5,7 @@ const topic: TopicMeta = {
   subject: 'econ',
   code: '2.7',
   title: { en: 'Government: taxes, subsidies and price controls', ru: 'Государство: налоги, субсидии и регулирование цен' },
-  papers: ['P1', 'P2', 'P3'],
+  papers: ['P2', 'P3'],
   order: 17,
   minutes: 60,
   priority: 1,

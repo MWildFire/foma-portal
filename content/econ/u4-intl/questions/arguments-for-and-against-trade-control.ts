@@ -1,8 +1,9 @@
 import type { Question } from '../../../../src/contract/types';
 
-export const questions: Question[] = [
+export const questions: (Question & { inMockScope?: 'yes' | 'no' })[] = [
   {
     id: 'econ-arguments-for-and-against-trade-control-01',
+    inMockScope: 'no',
     subject: 'econ',
     topicIds: ['arguments-for-and-against-trade-control'],
     paper: 'P2',
@@ -21,6 +22,7 @@ export const questions: Question[] = [
   },
   {
     id: 'econ-arguments-for-and-against-trade-control-02',
+    inMockScope: 'no',
     subject: 'econ',
     topicIds: ['arguments-for-and-against-trade-control'],
     paper: 'P1',
@@ -39,6 +41,7 @@ export const questions: Question[] = [
   },
   {
     id: 'econ-arguments-for-and-against-trade-control-03',
+    inMockScope: 'no',
     subject: 'econ',
     topicIds: ['arguments-for-and-against-trade-control'],
     paper: 'P1',

@@ -5,11 +5,11 @@ const topic: TopicMeta = {
   subject: 'econ',
   code: '4.3',
   title: { en: 'Arguments for and against trade control', ru: 'Аргументы за и против торговых ограничений' },
-  papers: ['P1', 'P2', 'P3'],
+  papers: ['P2', 'P3'],
   order: 42,
   minutes: 40,
   priority: 1,
-  inMockScope: 'unknown',
+  inMockScope: 'no',
   outcomes: [
     { en: 'I can explain the main arguments for trade control', ru: 'Могу объяснить основные аргументы в пользу торговых ограничений' },
     { en: 'I can explain the main arguments against trade control', ru: 'Могу объяснить основные аргументы против торговых ограничений' },

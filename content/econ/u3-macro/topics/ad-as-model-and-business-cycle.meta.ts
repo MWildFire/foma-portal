@@ -17,7 +17,7 @@ const topic: TopicMeta = {
     { en: 'I can draw an AD/AS diagram with an inflationary or a deflationary gap', ru: 'Могу нарисовать диаграмму AD/AS с инфляционным или дефляционным разрывом' },
     { en: 'I can analyse demand-side and supply-side shocks in the business cycle', ru: 'Могу проанализировать шоки спроса и шоки предложения в деловом цикле' },
   ],
-  termIds: [
+  termIds: ['aggregate-supply', 'trough', 'contraction', 'peak', 'expansion', 
     'aggregate-demand',
     'net-exports',
     'short-run-aggregate-supply',
