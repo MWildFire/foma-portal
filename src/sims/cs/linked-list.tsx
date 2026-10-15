@@ -1,3 +1,4 @@
+import ReadableDiagram from '../readable-diagram';
 import { useId, useState } from 'react';
 import type { Lang } from '../../contract/types';
 
@@ -249,7 +250,7 @@ export default function LinkedListSim(p: { lang: Lang }) {
       </div>
       <div className="overflow-x-auto rounded-md border border-[var(--color-border)] bg-[var(--color-card)] py-2">
         {/* The drawing scales down to the frame width, but to no less than 75 %; below that the frame scrolls sideways. */}
-        <svg viewBox={`0 0 ${W} 150`} width="100%" style={{ maxWidth: W, minWidth: Math.round(W * 0.75), height: 'auto' }} role="img" aria-label={t(`Linked list: ${listText}`, `Связный список: ${listText}`)} className="block">
+        <ReadableDiagram lang={p.lang} smallestFont={11}><svg viewBox={`0 0 ${W} 150`} width="100%" style={{ maxWidth: W, minWidth: Math.round(W * 0.75), height: 'auto' }} role="img" aria-label={t(`Linked list: ${listText}`, `Связный список: ${listText}`)} className="block">
           <text x={6} y={Y + 24} fontSize={12} style={{ fill: INK }}>head</text>
           <HArrow x1={42} x2={X0 - 2} y={Y + H / 2} />
           {ids.map((id, i) => {
@@ -276,7 +277,7 @@ export default function LinkedListSim(p: { lang: Lang }) {
           })}
           <rect x={endX} y={Y + 11} width={46} height={18} style={{ fill: 'var(--color-card)', stroke: INK }} />
           <text x={endX + 23} y={Y + 24} textAnchor="middle" fontSize={12} style={{ fill: INK }}>NULL</text>
-        </svg>
+        </svg></ReadableDiagram>
       </div>
       <ul className="m-0 flex list-none flex-wrap gap-x-4 gap-y-1 p-0 text-xs text-[var(--color-muted)]">
         <li className="flex items-center gap-1.5"><span aria-hidden="true" className="inline-block h-3 w-3 rounded-sm" style={{ background: CURRENT_FILL }} />{t('Shaded: current node of the traversal.', 'Выделено: текущий узел обхода.')}</li>

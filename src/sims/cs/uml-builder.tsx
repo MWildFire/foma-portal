@@ -1,3 +1,4 @@
+import ReadableDiagram from '../readable-diagram';
 import { useEffect, useId, useState, type ReactElement } from 'react';
 import type { Lang } from '../../contract/types';
 import { HEAD, LINE, NARROW_W, WIDE_W, comp, edge, layoutBoxes, type Box } from './uml-builder-logic';
@@ -116,7 +117,7 @@ const LEGEND: Msg = {
 // One column of boxes on narrow screens, so that the whole diagram fits without sideways scrolling.
 const NARROW_QUERY = '(max-width: 600px)';
 function useNarrow(): boolean {
-  const [narrow, setNarrow] = useState(() => window.matchMedia(NARROW_QUERY).matches);
+  const [narrow, setNarrow] = useState(() => typeof window !== 'undefined' && window.matchMedia(NARROW_QUERY).matches);
   useEffect(() => {
     const query = window.matchMedia(NARROW_QUERY);
     const update = () => setNarrow(query.matches);
@@ -242,7 +243,7 @@ export default function UmlBuilderSim(p: { lang: Lang }) {
       <div>
         <p className="font-medium">{t('Diagram', 'Диаграмма')}</p>
         <div className="overflow-x-auto rounded-md border border-[var(--color-border)] bg-[var(--color-card)]">
-          <svg viewBox={`0 0 ${W} ${height}`} width="100%" style={{ maxWidth: W, height: 'auto' }} role="img" className="block" aria-label={t(`Class diagram: ${d.classes.length} classes, ${d.rels.length} relationships`, `Диаграмма классов: классов ${d.classes.length}, связей ${d.rels.length}`)}>
+          <ReadableDiagram lang={p.lang} smallestFont={11}><svg viewBox={`0 0 ${W} ${height}`} width="100%" style={{ maxWidth: W, height: 'auto' }} role="img" className="block" aria-label={t(`Class diagram: ${d.classes.length} classes, ${d.rels.length} relationships`, `Диаграмма классов: классов ${d.classes.length}, связей ${d.rels.length}`)}>
             {d.classes.length === 0 && <text x={20} y={40} fontSize={13} style={{ fill: 'var(--color-muted)' }}>{t('No classes yet.', 'Классов пока нет.')}</text>}
             {d.rels.map((r, i) => {
               const a = byName.get(r.from.trim());
@@ -250,7 +251,7 @@ export default function UmlBuilderSim(p: { lang: Lang }) {
               return a && b && a !== b ? <RelShape key={i} r={r} a={a} b={b} /> : null;
             })}
             {d.classes.map((c, i) => <ClassBox key={i} c={c} b={boxes[i]} noName={t('(no name)', '(без имени)')} />)}
-          </svg>
+          </svg></ReadableDiagram>
         </div>
         <p className="mt-2 text-xs text-[var(--color-muted)]">{LEGEND[p.lang]}</p>
       </div>

@@ -26,36 +26,39 @@ test('for n = 2..4 the chain holds in its weak form; 2ⁿ is above n² from n = 
   assert.ok(f('o2n')(5) > f('on2')(5));
 });
 
-test('the exponential curve leaves the top between n = 8 and n = 9 and ends on the top edge', () => {
-  const { d, clipX } = curve(f('o2n'));
-  assert.ok(clipX >= xAt(8) && clipX <= xAt(9), `clip at x = ${clipX}`);
-  assert.ok(d.endsWith(`${clipX},${Y0}`), 'the path does not end on the top edge');
+test('linear and logarithmic scales keep the small curves clear of the axis at n = 8 and 64', () => {
+  for (const scale of ['linear', 'log']) {
+    for (const n of [8, 64]) {
+      assert.ok(Y1 - yAt(1, scale) >= 8, `${scale}: constant touches axis`);
+      assert.ok(yAt(1, scale) - yAt(Math.log2(n), scale) >= 8, `${scale}: curves merge at n=${n}`);
+    }
+  }
+  assert.ok(NMAX >= 64, 'both sample sizes must be visible');
 });
 
-test('the O(n²) curve leaves the top between n = 17 and n = 18', () => {
-  const { clipX } = curve(f('on2'));
-  assert.ok(clipX >= xAt(17) && clipX <= xAt(18), `clip at x = ${clipX}`);
-});
-
-test('only O(n²) and O(2ⁿ) leave the top within n = 1..50', () => {
-  const clipped = CLASSES.filter((c) => curve(c.f).clipX !== null).map((c) => c.id);
-  assert.deepEqual(clipped, ['on2', 'o2n']);
-});
-
-test('the y-axis runs from 0 to YMAX in even steps, and its top is at the top edge of the chart', () => {
+test('linear ticks and geometry stay linear; logarithmic distances encode ratios', () => {
   assert.equal(Y_TICKS[0], 0);
   assert.equal(Y_TICKS.at(-1), YMAX);
-  const steps = Y_TICKS.slice(1).map((v, i) => v - Y_TICKS[i]);
-  assert.ok(steps.every((s) => s === steps[0]), 'the ticks are not evenly spaced');
   assert.equal(yAt(0), Y1);
   assert.equal(yAt(YMAX), Y0);
+  assert.equal(yAt(5) - yAt(10), yAt(10) - yAt(15));
+  assert.ok(Math.abs((yAt(1, 'log') - yAt(2, 'log')) - (yAt(2, 'log') - yAt(4, 'log'))) < 1e-10);
 });
 
-test('at n = 50 the linear curve rises clearly above the axis, and O(1) and O(log n) are still apart', () => {
-  const lift = (v) => Y1 - yAt(v); // height above the axis, in SVG units
-  assert.ok(lift(f('on')(NMAX)) >= 30, `O(n) at n = 50 rises only ${lift(f('on')(NMAX)).toFixed(1)} units`);
-  const gap = yAt(1) - yAt(f('olog')(NMAX)); // SVG y grows downwards, so O(log n) is the higher point
-  assert.ok(gap >= 2, `O(1) and O(log n) at n = 50 are only ${gap.toFixed(1)} units apart`);
+test('curves clip at the plotted range without out-of-frame coordinates in either scale', () => {
+  for (const scale of ['linear', 'log']) {
+    for (const cls of CLASSES) {
+      const { d, clipX } = curve(cls.f, scale);
+      assert.ok(!/NaN|Infinity/.test(d), `${scale} ${cls.id}`);
+      for (const pt of d.slice(1).split(' L')) {
+        const [x,y] = pt.split(',').map(Number);
+        assert.ok(x >= xAt(1) && x <= xAt(NMAX));
+        assert.ok(y >= Y0 - 1e-9 && y <= Y1 + 1e-9, `${scale} ${cls.id}: ${y}`);
+      }
+      if (clipX !== null) assert.ok(d.endsWith(`${clipX},${Y0}`));
+    }
+  }
+  assert.deepEqual(CLASSES.filter(c => curve(c.f).clipX !== null).map(c => c.id), ['on', 'onlogn', 'on2', 'o2n']);
 });
 
 test('the table values for n = 10, 100 and 1000 are unchanged', () => {
