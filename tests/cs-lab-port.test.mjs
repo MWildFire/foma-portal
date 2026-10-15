@@ -3,10 +3,11 @@ import assert from 'node:assert/strict';
 import { mkdtempSync, mkdirSync, readFileSync, writeFileSync, cpSync, unlinkSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import path from 'node:path';
+import { tmpdir } from 'node:os';
 import { spawnSync } from 'node:child_process';
 
 function fixture() {
-  const dir = mkdtempSync('/tmp/foma-cslab/port-');
+  const dir = mkdtempSync(path.join(tmpdir(), 'foma-cslab-port-'));
   const root = path.join(dir, 'portal'), source = path.join(dir, 'source');
   mkdirSync(path.join(root, 'scripts'), {recursive: true});
   mkdirSync(source);
