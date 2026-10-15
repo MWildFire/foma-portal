@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {plan} from './planner-fixtures.mjs';
+import {plan,quotas} from './planner-fixtures.mjs';
 const names={geo:/geograph|geo\b|географ/i,math:/math|математ/i,econ:/econom|econ\b|эконом/i,cs:/computer|\bcs\b|информат/i,eng:/english|англий/i,fr:/french|француз/i};
 test('every subject promised by focus has a block, in EN and RU on every planning day',()=>{
  for(const day of plan('2026-10-14').days)for(const lang of ['en','ru']){
@@ -17,4 +17,8 @@ test('16 Oct promises and contains an economics diagnostic with the printed set 
 test('a reduced load or rest day never promises a missing diagnostic',()=>{
  const p=plan('2026-10-16',{state:{version:3,topics:{},terms:{},questions:{},blocks:{},settings:{accessArrangements:{},dailyLoadMinutes:{fri:0}}}});
  assert.doesNotMatch(JSON.stringify(p.days[0].focus),/diagnos|диагност/i);
+});
+
+test('R03 preserves the recorded focus of 14 and 15 October',()=>{
+ for(const date of ['2026-10-14','2026-10-15'])assert.deepEqual(plan(date).days[0].focus,quotas.days.find(d=>d.date===date).focus);
 });
