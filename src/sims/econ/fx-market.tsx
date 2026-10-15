@@ -59,7 +59,7 @@ const steps: Step[] = [
     title: { en: 'Demand for USD rises', ru: 'Спрос на USD растёт' },
     text: {
       en: 'If demand for USD rises (for example, to pay for imports priced in USD), D shifts right to D2. The new equilibrium E2 is at 4.5 AED per USD: the USD appreciates and the AED depreciates.',
-      ru: 'Если спрос на USD растёт (например, чтобы оплатить импорт в USD), кривая D сдвигается вправо до D2. Новое равновесие E2 — 4.5 AED за USD: USD дорожает (appreciation), а AED дешевеет (depreciation).',
+      ru: 'Если спрос на USD растёт (например, чтобы оплатить импорт в USD), кривая D сдвигается вправо до D2. Новое равновесие E2 — 4,5 AED за USD: USD дорожает (appreciation), а AED дешевеет (depreciation).',
     },
     graph: {
       ...axes,
@@ -71,7 +71,7 @@ const steps: Step[] = [
     title: { en: 'Supply of USD rises', ru: 'Предложение USD растёт' },
     text: {
       en: 'If the supply of USD rises (for example, from export earnings or capital inflows), S shifts right to S2. The new equilibrium E3 is at 3.5 AED per USD: the USD depreciates and the AED appreciates.',
-      ru: 'Если предложение USD растёт (например, из-за экспортной выручки или притока капитала), кривая S сдвигается вправо до S2. Новое равновесие E3 — 3.5 AED за USD: USD дешевеет (depreciation), а AED дорожает (appreciation).',
+      ru: 'Если предложение USD растёт (например, из-за экспортной выручки или притока капитала), кривая S сдвигается вправо до S2. Новое равновесие E3 — 3,5 AED за USD: USD дешевеет (depreciation), а AED дорожает (appreciation).',
     },
     graph: {
       ...axes,
@@ -83,7 +83,7 @@ const steps: Step[] = [
     title: { en: 'Complete picture', ru: 'Итоговая картина' },
     text: {
       en: 'Compared with E1 (4 AED per USD), a rise in demand for USD pushes the rate up to 4.5 (E2) and a rise in supply pushes it down to 3.5 (E3). A higher rate means the AED buys fewer USD.',
-      ru: 'По сравнению с E1 (4 AED за USD) рост спроса на USD поднимает курс до 4.5 (E2), а рост предложения снижает его до 3.5 (E3). Более высокий курс означает, что за AED можно купить меньше USD.',
+      ru: 'По сравнению с E1 (4 AED за USD) рост спроса на USD поднимает курс до 4,5 (E2), а рост предложения снижает его до 3,5 (E3). Более высокий курс означает, что за AED можно купить меньше USD.',
     },
     graph: {
       ...axes,
@@ -97,7 +97,7 @@ export default function FxMarket({ lang }: { lang: Lang }) {
   return (
     <StepPlayer
       lang={lang}
-      label={{ en: 'Foreign exchange market: demand and supply of USD', ru: 'Валютный рынок: спрос и предложение USD' }}
+      label={{ en: 'Illustrative floating exchange rate: demand and supply of USD', ru: 'Условный плавающий курс: спрос и предложение USD' }}
       steps={steps}
     />
   );

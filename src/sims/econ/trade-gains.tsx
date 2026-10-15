@@ -31,7 +31,7 @@ const steps: Step[] = [
     title: { en: 'Country A: production possibilities', ru: 'Страна A: производственные возможности (production possibilities)' },
     text: {
       en: 'PPC A is a straight line: Country A can make 12 cloth or 6 food. Giving up 1 cloth always costs 0.5 food, so the opportunity cost of cloth is constant. A produces 6 cloth and 3 food.',
-      ru: 'PPC A (кривая производственных возможностей) — прямая: страна A может выпустить 12 единиц ткани или 6 единиц продуктов. Отказ от 1 единицы ткани всегда стоит 0.5 единицы продуктов, поэтому альтернативная стоимость (opportunity cost) постоянна. A производит 6 ткани и 3 продукта.',
+      ru: 'PPC A (кривая производственных возможностей) — прямая: страна A может выпустить 12 единиц ткани или 6 единиц продуктов. Отказ от 1 единицы ткани всегда стоит 0,5 единицы продуктов, поэтому альтернативная стоимость (opportunity cost) постоянна. A производит 6 ед. ткани и 3 продукта.',
     },
     graph: {
       ...axes,
@@ -43,7 +43,7 @@ const steps: Step[] = [
     title: { en: 'Country B: a different slope', ru: 'Страна B: другой наклон' },
     text: {
       en: 'PPC B is steeper: B can make 4 cloth or 8 food. One cloth costs B 2 food, but one food costs B only 0.5 cloth, so B has a comparative advantage in food. B produces 2 cloth and 4 food.',
-      ru: 'PPC B круче: страна B может выпустить 4 единицы ткани или 8 единиц продуктов. Одна единица ткани стоит B 2 единицы продуктов, а одна единица продуктов — всего 0.5 единицы ткани, поэтому у B сравнительное преимущество (comparative advantage) в продуктах. B производит 2 ткани и 4 продукта.',
+      ru: 'PPC B круче: страна B может выпустить 4 единицы ткани или 8 единиц продуктов. Одна единица ткани стоит B 2 единицы продуктов, а одна единица продуктов — всего 0,5 единицы ткани, поэтому у B сравнительное преимущество (comparative advantage) в продуктах. B производит 2 ед. ткани и 4 продукта.',
     },
     graph: {
       ...axes,
@@ -55,7 +55,7 @@ const steps: Step[] = [
     title: { en: 'Each country specialises', ru: 'Каждая страна специализируется' },
     text: {
       en: 'Each country specialises where its comparative advantage lies: A makes only cloth (12) and B only food (8). Together they produce 12 cloth and 8 food.',
-      ru: 'Каждая страна специализируется там, где у неё сравнительное преимущество: A производит только ткань (12), B только продукты (8). Вместе они производят 12 ткани и 8 продуктов.',
+      ru: 'Каждая страна специализируется там, где у неё сравнительное преимущество: A производит только ткань (12), B только продукты (8). Вместе они производят 12 ед. ткани и 8 продуктов.',
     },
     graph: {
       ...axes,
@@ -70,7 +70,7 @@ const steps: Step[] = [
     title: { en: 'Trade lets both consume beyond their PPC', ru: 'Торговля: потребление за пределами PPC' },
     text: {
       en: 'With trade at 1 cloth for 1 food, A exports 6 cloth and imports 6 food, and B does the reverse. The consumption points A* (6 cloth, 6 food) and B* (6 cloth, 2 food) lie outside the PPC of each country.',
-      ru: 'При торговле по курсу 1 ткань за 1 продукт страна A экспортирует 6 ткани и импортирует 6 продуктов, а B делает наоборот. Точки потребления A* (6 ткани, 6 продуктов) и B* (6 ткани, 2 продукта) лежат за пределами собственной PPC каждой страны.',
+      ru: 'При торговле по курсу 1 единицу ткани за 1 единицу продуктов страна A экспортирует 6 ед. ткани и импортирует 6 продуктов, а B делает наоборот. Точки потребления A* (6 ед. ткани, 6 продуктов) и B* (6 ед. ткани, 2 продукта) лежат за пределами собственной PPC каждой страны.',
     },
     graph: {
       ...axes,
@@ -85,7 +85,7 @@ const steps: Step[] = [
     title: { en: 'Combined output rises', ru: 'Совокупный выпуск растёт' },
     text: {
       en: 'Without trade the two countries produce 8 cloth and 7 food (A 6 cloth and 3 food, B 2 cloth and 4 food). Specialised, they produce 12 cloth and 8 food: a gain of 4 cloth and 1 food.',
-      ru: 'Без торговли страны производят 8 ткани и 7 продуктов (A: 6 ткани и 3 продукта, B: 2 ткани и 4 продукта). Специализировавшись, они производят 12 ткани и 8 продуктов: прирост 4 ткани и 1 продукт.',
+      ru: 'Без торговли страны производят 8 ед. ткани и 7 продуктов (A: 6 ед. ткани и 3 продукта, B: 2 ед. ткани и 4 продукта). Специализировавшись, они производят 12 ед. ткани и 8 продуктов: прирост 4 ед. ткани и 1 продукт.',
     },
     graph: {
       ...axes,

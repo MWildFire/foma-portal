@@ -1,4 +1,4 @@
-import { useId, useState, type ReactNode } from 'react';
+import { useEffect, useRef, useId, useState, type ReactNode } from 'react';
 import type { L, Lang } from '../../../contract/types';
 
 // Shared building blocks for the Economics diagrams (src/sims/econ/*.tsx).
@@ -19,16 +19,18 @@ const COLOUR: Record<Tone, string> = {
   policy: '#a855f7',
   alt: '#14b8a6',
   ink: 'currentColor',
-  muted: '#94a3b8',
+  muted: 'var(--color-muted)',
 };
 
 export interface CurveSpec { id: string; points: Point[]; tone?: Tone; label?: L; dashed?: boolean; width?: number }
 export interface AreaSpec { id: string; points: Point[]; tone?: Tone }
 export interface GuideSpec { id: string; from: Point; to: Point; tone?: Tone; dashed?: boolean; label?: L; labelAt?: 'start' | 'end' }
-export interface MarkSpec { id: string; at: Point; tone?: Tone; label?: L; dx?: number; dy?: number }
+export interface MarkSpec { id: string; at: Point; tone?: Tone; label?: L; dx?: number; dy?: number; dot?: boolean }
 export interface TickSpec { value: number; label: L }
 
 export interface GraphSpec {
+  square?: boolean;
+  showOrigin?: boolean;
   xMax: number;
   yMax: number;
   xLabel: L;
@@ -58,7 +60,6 @@ const RIGHT = 16;
 const TOP = 14;
 const BOTTOM = 44;
 const PLOT_W = W - LEFT - RIGHT;
-const PLOT_H = H - TOP - BOTTOM;
 
 const UI = {
   back: { en: 'Back', ru: 'Назад' },
@@ -68,16 +69,39 @@ const UI = {
   of: { en: 'of', ru: 'из' },
 };
 
+// A 360-unit picture with 11-unit text needs at least 360 CSS pixels, even inside a narrow phone card.
+export function GraphViewport({ children, lang }: { children: ReactNode; lang: Lang }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const [scrolls, setScrolls] = useState(false);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const update = () => setScrolls(el.scrollWidth > el.clientWidth + 1);
+    const observer = new ResizeObserver(update);
+    observer.observe(el); update();
+    return () => observer.disconnect();
+  }, []);
+  return <div style={{ minWidth: 0, maxWidth: '100%' }}>
+    <div ref={ref} style={{ overflowX: 'auto', maxWidth: '100%' }} tabIndex={scrolls ? 0 : undefined}
+      role={scrolls ? 'region' : undefined} aria-label={scrolls ? (lang === 'ru' ? 'Диаграмма с прокруткой' : 'Scrollable diagram') : undefined}>
+      <div style={{ minWidth: 360 }}>{children}</div>
+    </div>
+    {scrolls && <p style={{ fontSize: 12, margin: '4px 0' }}>{lang === 'ru' ? 'Прокрутите диаграмму вбок →' : 'Scroll the diagram sideways →'}</p>}
+  </div>;
+}
+
 export function Graph({ spec, lang, label }: { spec: GraphSpec; lang: Lang; label: string }) {
+  const height = spec.square ? PLOT_W + TOP + BOTTOM : H;
+  const plotHeight = height - TOP - BOTTOM;
   const x = (v: number): number => LEFT + (v / spec.xMax) * PLOT_W;
-  const y = (v: number): number => TOP + PLOT_H - (v / spec.yMax) * PLOT_H;
+  const y = (v: number): number => TOP + plotHeight - (v / spec.yMax) * plotHeight;
   const path = (points: Point[]): string => points.map(([a, b]) => `${x(a).toFixed(1)},${y(b).toFixed(1)}`).join(' ');
   const originX = LEFT;
-  const originY = TOP + PLOT_H;
+  const originY = TOP + plotHeight;
   const colour = (tone?: Tone): string => COLOUR[tone ?? 'ink'];
 
   return (
-    <svg role="img" aria-label={label} viewBox={`0 0 ${W} ${H}`} width="100%" style={{ maxWidth: 420, display: 'block', color: 'var(--color-fg)' }}>
+    <GraphViewport lang={lang}><svg role="img" aria-label={label} viewBox={`0 0 ${W} ${height}`} width="100%" style={{ maxWidth: 420, display: 'block', color: 'var(--color-fg)' }}>
       {(spec.areas ?? []).map(area => (
         <polygon key={area.id} points={path(area.points)} fill={colour(area.tone)} fillOpacity={0.2} stroke="none" />
       ))}
@@ -86,9 +110,9 @@ export function Graph({ spec, lang, label }: { spec: GraphSpec; lang: Lang; labe
       <line x1={originX} y1={originY} x2={W - RIGHT} y2={originY} stroke="currentColor" strokeWidth={1.5} />
       <polygon points={`${originX},${TOP} ${originX - 4},${TOP + 8} ${originX + 4},${TOP + 8}`} fill="currentColor" />
       <polygon points={`${W - RIGHT},${originY} ${W - RIGHT - 8},${originY - 4} ${W - RIGHT - 8},${originY + 4}`} fill="currentColor" />
-      <text x={originX - 6} y={originY + 14} textAnchor="end" fontSize={12} fill="currentColor">0</text>
+      {spec.showOrigin !== false && <text x={originX - 6} y={originY + 14} textAnchor="end" fontSize={12} fill="currentColor">0</text>}
       <text x={W - RIGHT} y={originY + 30} textAnchor="end" fontSize={12} fill="currentColor">{spec.xLabel[lang]}</text>
-      <text transform={`translate(14 ${TOP + PLOT_H / 2}) rotate(-90)`} textAnchor="middle" fontSize={12} fill="currentColor">{spec.yLabel[lang]}</text>
+      <text transform={`translate(14 ${TOP + plotHeight / 2}) rotate(-90)`} textAnchor="middle" fontSize={12} fill="currentColor">{spec.yLabel[lang]}</text>
 
       {(spec.xTicks ?? []).map(tick => (
         <g key={`x${tick.value}`}>
@@ -109,7 +133,7 @@ export function Graph({ spec, lang, label }: { spec: GraphSpec; lang: Lang; labe
           <g key={guide.id}>
             <line x1={x(guide.from[0])} y1={y(guide.from[1])} x2={x(guide.to[0])} y2={y(guide.to[1])} stroke={colour(guide.tone)} strokeWidth={1.2} strokeDasharray={guide.dashed === false ? undefined : '4 3'} />
             {guide.label && (
-              <text x={x(at[0]) + 4} y={y(at[1]) - 5} fontSize={11} fill={colour(guide.tone)}>{guide.label[lang]}</text>
+              <text x={x(at[0]) + 4} y={y(at[1]) - 5} fontSize={11} fill="currentColor" stroke="var(--color-card)" strokeWidth={3} paintOrder="stroke">{guide.label[lang]}</text>
             )}
           </g>
         );
@@ -122,12 +146,12 @@ export function Graph({ spec, lang, label }: { spec: GraphSpec; lang: Lang; labe
         // below the point for a falling curve (the space under it is free), above it otherwise.
         const nearEdge = last !== undefined && x(last[0]) > W - RIGHT - 24;
         const falling = last !== undefined && before !== undefined && last[1] < before[1];
-        const below = nearEdge && falling && y(last[1]) < TOP + PLOT_H - 16;
+        const below = nearEdge && falling && y(last[1]) < TOP + plotHeight - 16;
         return (
           <g key={curve.id}>
             <polyline points={path(curve.points)} fill="none" stroke={colour(curve.tone)} strokeWidth={curve.width ?? 2.5} strokeDasharray={curve.dashed ? '6 4' : undefined} strokeLinejoin="round" />
             {curve.label && last && (
-              <text x={nearEdge ? x(last[0]) - 6 : x(last[0]) + 6} y={below ? y(last[1]) + 14 : y(last[1]) - 6} textAnchor={nearEdge ? 'end' : undefined} fontSize={12} fontWeight={600} fill={colour(curve.tone)}>{curve.label[lang]}</text>
+              <text x={nearEdge ? x(last[0]) - 6 : x(last[0]) + 6} y={below ? y(last[1]) + 14 : y(last[1]) - 6} textAnchor={nearEdge ? 'end' : undefined} fontSize={12} fontWeight={600} fill="currentColor" stroke="var(--color-card)" strokeWidth={3} paintOrder="stroke">{curve.label[lang]}</text>
             )}
           </g>
         );
@@ -135,13 +159,13 @@ export function Graph({ spec, lang, label }: { spec: GraphSpec; lang: Lang; labe
 
       {(spec.marks ?? []).map(mark => (
         <g key={mark.id}>
-          <circle cx={x(mark.at[0])} cy={y(mark.at[1])} r={4} fill={colour(mark.tone)} stroke="var(--color-card)" strokeWidth={1.5} />
+          {mark.dot !== false && <circle cx={x(mark.at[0])} cy={y(mark.at[1])} r={4} fill={colour(mark.tone)} stroke="var(--color-card)" strokeWidth={1.5} />}
           {mark.label && (
-            <text x={x(mark.at[0]) + (mark.dx ?? 6)} y={y(mark.at[1]) + (mark.dy ?? -7)} fontSize={12} fill={colour(mark.tone)}>{mark.label[lang]}</text>
+            <text x={x(mark.at[0]) + (mark.dx ?? 6)} y={y(mark.at[1]) + (mark.dy ?? -7)} fontSize={12} fill="currentColor" stroke="var(--color-card)" strokeWidth={3} paintOrder="stroke">{mark.label[lang]}</text>
           )}
         </g>
       ))}
-    </svg>
+    </svg></GraphViewport>
   );
 }
 

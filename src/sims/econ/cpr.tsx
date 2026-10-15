@@ -34,8 +34,8 @@ const msc: CurveSpec = { id: 'msc', points: MSC, tone: 'alt', label: { en: 'MSC'
 const em: MarkSpec = { id: 'Em', at: [12, 6], tone: 'ink', label: { en: 'Qm', ru: 'Qm' }, dx: 17, dy: 3 };
 const emMuted: MarkSpec = { ...em, tone: 'muted' };
 const es: MarkSpec = { id: 'Es', at: [9, 7.5], tone: 'ink', label: { en: 'Qopt', ru: 'Qopt' }, dx: -14, dy: -20 };
-// The welfare-loss label: a dot at the centre of the triangle and the name next to it.
-const dwl: MarkSpec = { id: 'dwl', at: [11, 7.6], tone: 'loss', label: { en: 'DWL', ru: 'DWL' }, dx: 10, dy: -5 };
+// The welfare-loss annotation has no data-point marker.
+const dwl: MarkSpec = { id: 'dwl', dot: false, at: [11, 7.6], tone: 'loss', label: { en: 'DWL 4.5', ru: 'DWL 4,5' }, dx: 10, dy: -5 };
 
 // Extension: effort (E) on the horizontal axis.
 const effortAxes = {
@@ -48,7 +48,7 @@ const effortAxes = {
 const yieldCurve: CurveSpec = { id: 'yield', points: fn(e => 12 * e - 0.5 * e * e, 0, 16, 32), tone: 'demand', label: { en: 'Total yield', ru: 'Общий улов' } };
 const tr: CurveSpec = { id: 'tr', points: TR, tone: 'demand', label: { en: 'TR', ru: 'TR' } };
 const tc: CurveSpec = { id: 'tc', points: TC, tone: 'supply', label: { en: 'TC', ru: 'TC' } };
-const profitLabel: MarkSpec = { id: 'profit', at: [8, 48], tone: 'policy', label: { en: 'profit 32', ru: 'прибыль 32' }, dx: 8, dy: -28 };
+const profitLabel: MarkSpec = { id: 'profit', dot: false, at: [8, 48], tone: 'policy', label: { en: 'profit 32', ru: 'прибыль 32' }, dx: 8, dy: -28 };
 
 const steps: Step[] = [
   {
@@ -162,10 +162,16 @@ const steps: Step[] = [
 
 export default function Cpr({ lang }: { lang: Lang }) {
   return (
+    <>
     <StepPlayer
       lang={lang}
       label={{ en: 'Common pool resource: overuse of a shared fish stock', ru: 'Общий ресурс: перелов общего запаса рыбы' }}
-      steps={steps}
+      steps={steps.slice(0, 4)}
     />
+    <details>
+      <summary>{lang === 'ru' ? 'Вне мока: MSY и модель TR/TC' : 'Outside the mock: MSY and the TR/TC model'}</summary>
+      <StepPlayer lang={lang} label={{ en: 'Optional extension: fishing effort', ru: 'Дополнение: усилие лова' }} steps={steps.slice(4)} />
+    </details>
+    </>
   );
 }

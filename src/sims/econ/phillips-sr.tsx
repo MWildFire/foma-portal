@@ -14,7 +14,7 @@ const axes = {
   yMax: 12,
   xLabel: { en: 'Unemployment (%)', ru: 'Безработица (%)' },
   yLabel: { en: 'Inflation (%)', ru: 'Инфляция (%)' },
-  xTicks: ticks([2, 4, 6, 8]),
+  xTicks: [...ticks([2, 8]), { value: 5, label: { en: '5 (NRU)', ru: '5 (NRU)' } }],
   yTicks: ticks([2, 4, 6, 8, 10]),
 };
 

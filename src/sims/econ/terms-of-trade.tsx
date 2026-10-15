@@ -64,7 +64,7 @@ const steps: Step[] = [
     title: { en: 'Year 1: export prices rise faster', ru: 'Год 1: экспортные цены растут быстрее' },
     text: {
       en: 'Export prices rise 20% (100 to 120) and import prices 5% (100 to 105): TOT = 120 / 105 × 100 = 114.3, so the terms of trade improve.',
-      ru: 'Цены экспорта выросли на 20% (с 100 до 120), цены импорта на 5% (до 105): TOT = 120 / 105 × 100 = 114.3, условия торговли улучшились.',
+      ru: 'Цены экспорта выросли на 20% (с 100 до 120), цены импорта на 5% (до 105): TOT = 120 / 105 × 100 = 114,3, условия торговли улучшились.',
     },
     graph: stepGraph(1),
   },
@@ -72,7 +72,7 @@ const steps: Step[] = [
     title: { en: 'Year 2: import prices catch up', ru: 'Год 2: цены импорта догоняют' },
     text: {
       en: 'Import prices catch up: they rise to 115 and export prices reach 125, so TOT = 125 / 115 × 100 = 108.7. The gain is smaller but the index stays above 100.',
-      ru: 'Цены импорта догоняют: 115, цены экспорта 125, поэтому TOT = 125 / 115 × 100 = 108.7. Выигрыш меньше, но индекс остаётся выше 100.',
+      ru: 'Цены импорта догоняют: 115, цены экспорта 125, поэтому TOT = 125 / 115 × 100 = 108,7. Выигрыш меньше, но индекс остаётся выше 100.',
     },
     graph: stepGraph(2),
   },
@@ -80,7 +80,7 @@ const steps: Step[] = [
     title: { en: 'Year 3: terms of trade worsen', ru: 'Год 3: условия торговли ухудшаются' },
     text: {
       en: 'Export prices fall to 110 while import prices rise to 120, so TOT = 110 / 120 × 100 = 91.7: exports buy fewer imports.',
-      ru: 'Цены экспорта падают до 110, цены импорта растут до 120, поэтому TOT = 110 / 120 × 100 = 91.7: экспорт покупает меньше импорта.',
+      ru: 'Цены экспорта падают до 110, цены импорта растут до 120, поэтому TOT = 110 / 120 × 100 = 91,7: экспорт покупает меньше импорта.',
     },
     graph: stepGraph(3),
   },

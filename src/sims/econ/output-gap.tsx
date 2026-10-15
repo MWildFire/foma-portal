@@ -23,8 +23,8 @@ const upShaft: CurveSpec = { id: 'up', points: [[8, 0.5], [10, 0.5]], tone: 'los
 const upHead: CurveSpec = { id: 'up-head', points: [[9.6, 0.9], [10, 0.5], [9.6, 0.1]], tone: 'loss', width: 2 };
 const downShaft: CurveSpec = { id: 'down', points: [[8, 0.5], [6, 0.5]], tone: 'alt', width: 2 };
 const downHead: CurveSpec = { id: 'down-head', points: [[6.4, 0.9], [6, 0.5], [6.4, 0.1]], tone: 'alt', width: 2 };
-const upMark: MarkSpec = { id: 'gap-up', at: [9, 0.5], tone: 'loss', label: { en: 'gap +2', ru: 'разрыв +2' }, dx: 8, dy: -12 };
-const downMark: MarkSpec = { id: 'gap-down', at: [6.5, 0.5], tone: 'alt', label: { en: 'gap -2', ru: 'разрыв -2' }, dx: -40, dy: -12 };
+const upMark: MarkSpec = { id: 'gap-up', dot: false, at: [9, 0.5], tone: 'loss', label: { en: 'gap +2', ru: 'разрыв +2' }, dx: 8, dy: -12 };
+const downMark: MarkSpec = { id: 'gap-down', dot: false, at: [6.5, 0.5], tone: 'alt', label: { en: 'gap -2', ru: 'разрыв -2' }, dx: -40, dy: -12 };
 
 const e0: MarkSpec = { id: 'e0', at: [8, 6], tone: 'ink', label: { en: 'E0', ru: 'E0' }, dx: 20, dy: 4 };
 const e0Muted: MarkSpec = { id: 'e0', at: [8, 6], tone: 'muted', label: { en: 'E0', ru: 'E0' }, dx: 20, dy: 4 };
@@ -36,6 +36,7 @@ const axes = {
   yMax: 14,
   xLabel: { en: 'Real GDP (Y)', ru: 'Реальный ВВП (Y)' },
   yLabel: { en: 'Price level (PL)', ru: 'Уровень цен (PL)' },
+  yTicks: ticks([4, 6, 8]),
 };
 
 const steps: Step[] = [

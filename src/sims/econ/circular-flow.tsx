@@ -1,5 +1,5 @@
 import type { L, Lang } from '../../contract/types';
-import { StepFrame, type StepText } from './_lib/graph';
+import { GraphViewport, StepFrame, type StepText } from './_lib/graph';
 
 // Circular flow of income with five sectors. Inner loop (blue): income from firms to households and spending from households
 // to firms. Leakages or withdrawals (red): savings to banks, taxes to government, imports to the rest of the world.
@@ -86,7 +86,7 @@ function diagram(index: number, lang: Lang) {
   const leakText = index === 2 ? OFF : LEAK;
 
   return (
-    <svg role="img" aria-label={lang === 'en' ? 'Circular flow of income' : 'Круговой поток дохода'} viewBox="0 0 360 290" width="100%" style={{ maxWidth: 420, display: 'block', color: 'var(--color-fg)' }}>
+    <GraphViewport lang={lang}><svg role="img" aria-label={lang === 'en' ? 'Circular flow of income' : 'Круговой поток дохода'} viewBox="0 0 360 290" width="100%" style={{ maxWidth: 420, display: 'block', color: 'var(--color-fg)' }}>
       <Flow path={[[248, 116], [112, 116]]} colour={INNER} />
       <Flow path={[[112, 134], [248, 134]]} colour={INNER} />
       <Tag x={180} y={110} anchor="middle" colour={INNER} text={FLOW_NAME.income[lang]} />
@@ -119,7 +119,7 @@ function diagram(index: number, lang: Lang) {
       {(Object.keys(BOX) as NodeKey[]).map(key => (
         <Node key={key} box={BOX[key]} text={NAME[key][lang]} />
       ))}
-    </svg>
+    </svg></GraphViewport>
   );
 }
 
@@ -149,7 +149,7 @@ const steps: StepText[] = [
     title: { en: 'Equilibrium', ru: 'Равновесие' },
     text: {
       en: 'Income is stable when leakages equal injections: S + T + M = I + G + X. Then national income is Y = C + I + G + (X - M).',
-      ru: 'Доход стабилен, когда утечки равны инъекциям: S + T + M = I + G + X. Тогда национальный доход равен Y = C + I + G + (X - M).',
+      ru: 'Доход стабилен, когда изъятия равны инъекциям: S + T + M = I + G + X. Тогда национальный доход равен Y = C + I + G + (X - M).',
     },
   },
 ];

@@ -1,5 +1,5 @@
 import type { L, Lang } from '../../contract/types';
-import { StepFrame, type StepText } from './_lib/graph';
+import { GraphViewport, StepFrame, type StepText } from './_lib/graph';
 
 // Balance of payments, USD bn, illustrative. Every entry is a net receipt of foreign currency: plus = money in, minus = money out.
 // Current account: goods -50, services +20, primary income +10, secondary income -5, so -25 (a deficit).
@@ -54,7 +54,7 @@ const fmt = (value: number): string => (value > 0 ? '+' + value : value < 0 ? '�
 function chart(index: number, lang: Lang) {
   const shown = SHOWN[index];
   return (
-    <svg
+    <GraphViewport lang={lang}><svg
       role="img"
       aria-label={lang === 'en' ? 'Bar chart of the balance of payments accounts' : 'Столбчатая диаграмма счетов платёжного баланса'}
       viewBox={`0 0 360 ${HEIGHT}`}
@@ -78,7 +78,7 @@ function chart(index: number, lang: Lang) {
           </g>
         );
       })}
-    </svg>
+    </svg></GraphViewport>
   );
 }
 
