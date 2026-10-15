@@ -19,6 +19,8 @@ import { ROUTES } from '../config/routes.ts';
 import { addDays, dateRange, weekdayOf } from './dates.ts';
 import { EXAM_EVENING_MINUTES, SUBJECT_IDS, examsOn, lastExamDate, lastExamOverall, sittingPapers, timedEntryMinutes } from './calendar.ts';
 import { paperBlockId, parseBlockId, practiceBlockId, recallBlockId, studyBlockId, timedBlockId, topicBlockId } from './blocks.ts';
+import { mockSubjects } from '../lib/mock-scope.ts';
+import { focusForBlocks } from './focus.ts';
 import { UNIT_MINUTES, addInterval, effectiveMinutes, firstGap, isCovered, topicQueue } from './queue.ts';
 import { buildRecall } from './recall.ts';
 import { shareFairly } from './share.ts';
@@ -88,6 +90,7 @@ interface Slot {
 export function buildPlan(input: PlannerInput): Plan {
   const { today, exams, quotas, state } = input;
   const settings = state.settings;
+  const scopedSubjects = mockSubjects(input.subjects, exams, today);
   const ext = (entry: TimedEntry): number => timedEntryMinutes(exams, entry);
 
   const lastOverall = lastExamOverall(exams);
@@ -117,7 +120,11 @@ export function buildPlan(input: PlannerInput): Plan {
   // Past papers (PLAN.md §5, step 7). A timed sitting gets the most recent past paper of its subject and paper that no
   // earlier timed sitting uses. The links are made in the order of the quotas file, so a block keeps its paper when the
   // plan is recalculated, and a block without a free paper simply has no link.
-  const pastRefs = input.pastPapers ?? [];
+  const excludedTopics = new Map(input.subjects.map(s => [s.id, new Set(s.topics.filter(t=>t.inMockScope==='no').map(t=>t.id))]));
+  const pastRefs = (input.pastPapers ?? []).filter(ref => {
+    const last = lastExamOf.get(ref.subject);
+    return (last && today > last) || ref.items.every(item => item.inMockScope !== false && item.topicIds.every(id => !excludedTopics.get(ref.subject)?.has(id)));
+  });
   const pastProgress = state.pastPapers;
   const timedLinks = new Map<string, PastPaperLink>();
   if (pastRefs.length > 0) {
@@ -249,7 +256,7 @@ export function buildPlan(input: PlannerInput): Plan {
 
   const runsBySubject = new Map<SubjectId, TopicRun[]>();
   const runByKey = new Map<string, TopicRun>();
-  for (const subject of input.subjects) {
+  for (const subject of scopedSubjects) {
     const runs: TopicRun[] = topicQueue(subject.topics).map((topic, index) => ({
       topic,
       key: `${subject.id}/${topic.id}`,
@@ -656,7 +663,7 @@ export function buildPlan(input: PlannerInput): Plan {
 
     let recall: RecallInfo | null = null;
     if (isToday && recallBlock) {
-      recall = buildRecall({ date, minutes: base.recall, subjects: input.subjects, active, state });
+      recall = buildRecall({ date, minutes: base.recall, subjects: scopedSubjects, active, state });
       const lead = recall.subjects[0]?.subject;
       if (lead) recallBlock.route = ROUTES.flashcards(lead);
     }
@@ -671,7 +678,7 @@ export function buildPlan(input: PlannerInput): Plan {
       minutes: blocks.reduce((sum, block) => sum + block.minutes, 0),
       doneMinutes: blocks.reduce((sum, block) => sum + (block.status === 'done' ? block.minutes : 0), 0),
       moved,
-      focus: base.focus,
+      focus: date < today ? base.focus : focusForBlocks(blocks),
       exams: base.exams,
       eveOf: base.eve,
       blocks,

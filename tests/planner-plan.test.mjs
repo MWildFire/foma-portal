@@ -21,7 +21,7 @@ test('the plan runs from today to the last exam and marks today', () => {
   assert.equal(dayOf(result, '2026-10-26').kind, 'exam');
   assert.equal(dayOf(result, '2026-10-14').kind, 'study');
   assert.equal(dayOf(result, '2026-10-14').weekday, 'wed');
-  assert.deepEqual(dayOf(result, '2026-10-14').focus, quotas.days[0].focus);
+  assert.deepEqual(dayOf(result, '2026-10-14').focus, {en:'Geography; Diagnostic, maths; English',ru:'География; Диагностика, математика; Английский'});
 });
 
 test('before the plan starts the first plan day leads; after the last exam nothing is left', () => {
@@ -152,13 +152,13 @@ test('queue order: in-scope first, then priority, then order', () => {
     topic('A', 2, 1, 'yes'),
     topic('B', 1, 5, 'yes'),
     topic('C', 1, 2, 'unknown'),
-    topic('D', 1, 1, 'no'),     // out of the mock scope: last, whatever its priority
+    topic('D', 1, 1, 'no'),     // out of the mock scope: never planned before the last exam
     topic('E', 3, 0, 'yes'),
   ];
   const result = plan('2026-10-14', { subjects: [{ id: 'geo', topics, termIds: null }] });
-  assert.deepEqual(blocksOf(dayOf(result, '2026-10-14'), 'geo').map(b => b.id), ['t:geo/C@0+25', 't:geo/B@0+25', 't:geo/A@0+10']);
+  assert.deepEqual(blocksOf(dayOf(result, '2026-10-14'), 'geo').map(b => b.id), ['t:geo/B@0+25', 't:geo/A@0+25', 't:geo/E@0+10']);
   const order = result.days.flatMap(d => blocksOf(d, 'geo')).filter(b => b.kind === 'topic').map(b => b.topicId);
-  assert.deepEqual([...new Set(order)], ['C', 'B', 'A', 'E', 'D']);
+  assert.deepEqual([...new Set(order)], ['B', 'A', 'E', 'C']);
 });
 
 test('a topic without an MDX body carries its links so the student can start anyway', () => {

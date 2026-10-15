@@ -1,6 +1,7 @@
 import { useCallback, useId, useMemo, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { filterMockTopics, questionInMock, filterMockSets } from '../../lib/mock-scope';
 import type { SubjectPack } from '../../contract/pack';
 import type { Lang, Question, TopicMeta } from '../../contract/types';
 import { useLocalProgress } from '../../hooks/useLocalProgress';
@@ -78,26 +79,29 @@ export function PracticeView({ pack, tracks = NO_TRACKS }: { pack: SubjectPack; 
   const listId = useId();
   const timedListId = useId();
 
+  const [showOutside,setShowOutside]=useState(false);
+  const scopeTopics=useMemo(()=>filterMockTopics(pack.topics,showOutside),[pack.topics,showOutside]);
+  const scopeQuestions=useMemo(()=>showOutside ? pack.questions : pack.questions.filter(q=>questionInMock(q,pack.topics)),[pack.questions,pack.topics,showOutside]);
   const topicIndex = useMemo(() => new Map(pack.topics.map(topic => [topic.id, topic] as const)), [pack.topics]);
-  const baseOptions = useMemo(() => filterOptions(pack.questions, pack.topics.map(topic => topic.id)), [pack.questions, pack.topics]);
+  const baseOptions = useMemo(() => filterOptions(scopeQuestions, scopeTopics.map(topic => topic.id)), [scopeQuestions, scopeTopics]);
   const filters = useMemo(() => filtersFromParams(params), [params]);
   const options = useMemo(() => withChosen(baseOptions, filters), [baseOptions, filters]);
   // Keyed by the three values, not by the object: a change of ?set= must not rebuild the list.
   const filtered = useMemo(
-    () => filterQuestions(pack.questions, filters),
-    [pack.questions, filters.paper, filters.topic, filters.command],
+    () => filterQuestions(scopeQuestions, filters),
+    [scopeQuestions, filters.paper, filters.topic, filters.command],
   );
 
-  const sets = useMemo(() => listTimedSets(pack.papers), [pack.papers]);
+  const sets = useMemo(() => filterMockSets(listTimedSets(pack.papers), pack.questions, pack.topics, showOutside), [pack.papers, pack.questions, pack.topics, showOutside]);
   const requestedSet = params.get('set') ?? '';
   const active = useMemo(() => sets.find(set => set.id === requestedSet), [sets, requestedSet]);
-  const inSet = useMemo(() => (active ? questionsOfSet(active, pack.questions) : null), [active, pack.questions]);
+  const inSet = useMemo(() => (active ? questionsOfSet(active, scopeQuestions) : null), [active, scopeQuestions]);
 
   // "To redo" is decided when the page opens, when the filters change, and when the student goes into or out of timed
   // mode. A rating given in between moves a question the next time, so the cards do not jump under the student's
   // finger while they read a markscheme. (The list is kept in state, not in a memo: a memo may be thrown away.)
   const progress = state.questions;
-  const snapshotKey = redoSnapshotKey(subject, filters, active?.id ?? '');
+  const snapshotKey = redoSnapshotKey(subject, filters, active?.id ?? '') + String(showOutside);
   const [snapshot, setSnapshot] = useState(() => ({ key: snapshotKey, ids: wrongIds(subject, filtered, progress) }));
   let redoIds = snapshot.ids;
   if (snapshot.key !== snapshotKey) {
@@ -139,6 +143,7 @@ export function PracticeView({ pack, tracks = NO_TRACKS }: { pack: SubjectPack; 
 
   return (
     <div className="study-page">
+      <button type="button" className="foma-btn" aria-pressed={showOutside} onClick={()=>setShowOutside(v=>!v)}>{t(showOutside ? 'mock.hide' : 'mock.show',{ns:'subject'})}</button>
       <TopicHero title={t('title')} intro={t('intro')} />
 
       {pack.questions.length === 0 ? (

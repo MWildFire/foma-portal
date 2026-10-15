@@ -115,5 +115,9 @@
     "hideTimer": "Hide the timer",
     "allowance": "Time: {{minutes}} min",
     "itemsSummary": "Questions and your marks ({{count}})"
+  },
+  "mock": {
+    "show": "Show non-mock topics",
+    "hide": "Show mock topics only"
   }
 }

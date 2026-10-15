@@ -1,4 +1,5 @@
-import { useId } from 'react';
+import { filterMockSets } from '../lib/mock-scope';
+import { useId, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import type { PaperGuide } from '../contract/types';
@@ -24,6 +25,7 @@ import '../components/subject/subject.css';
 function GuideSection({ guide, subject, lang }: { guide: PaperGuide; subject: string; lang: string }) {
   const { t } = useTranslation('paper');
   const base = useId();
+  const [showOutside,setShowOutside]=useState(false);
   const reading = 'font-reading max-w-[60ch] text-[1.0625rem] leading-relaxed';
   return (
     <article aria-labelledby={`${base}-title`} className="mb-12">
@@ -89,6 +91,7 @@ export function PaperPage() {
   const { t, i18n } = useTranslation(['paper', 'subject', 'common']);
   const [contentLang] = useContentLang();
   const base = useId();
+  const [showOutside,setShowOutside]=useState(false);
   const { progressOf, setScore, setSolved } = usePastPaperProgress(subject);
   const { pack, loading, failed, cause } = useSubject(subject);
   const guides = pack && isPaperKey(paper) ? guidesForPaper(pack.papers, paper) : [];
@@ -119,8 +122,9 @@ export function PaperPage() {
       ) : (
         <>
           <TopicHero title={t('title', { paper: paperName })} />
+          <button type="button" className="foma-btn" aria-pressed={showOutside} onClick={()=>setShowOutside(v=>!v)}>{t(showOutside ? 'mock.hide' : 'mock.show',{ns:'subject'})}</button>
           {guides.map((guide, index) => (
-            <GuideSection key={`${guide.part ?? ''}-${index}`} guide={guide} subject={subject} lang={shownLangs(contentLang)[0]} />
+            <GuideSection key={`${guide.part ?? ''}-${index}`} guide={{...guide,timedSets:filterMockSets(guide.timedSets,pack.questions,pack.topics,showOutside)}} subject={subject} lang={shownLangs(contentLang)[0]} />
           ))}
           {pastRefs.length > 0 ? (
             <section aria-labelledby={`${base}-past`} className="mt-8">

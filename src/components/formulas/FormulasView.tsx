@@ -1,4 +1,5 @@
-import { Fragment, useCallback, useId, useMemo } from 'react';
+import { filterMockResources } from '../../lib/mock-scope';
+import { Fragment, useCallback, useId, useMemo, useState } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { BookOpen, Check } from 'lucide-react';
@@ -24,9 +25,11 @@ export function FormulasView({ pack }: { pack: SubjectPack }) {
   const [params, setParams] = useSearchParams();
   const bookletOnly = params.get('booklet') === '1';
   const emptyId = useId();
+  const [showOutside,setShowOutside]=useState(false);
+  const scopeFormulas=useMemo(()=>filterMockResources(pack.formulas,pack.topics,'formulaIds',showOutside),[pack.formulas,pack.topics,showOutside]);
 
-  const inBooklet = useMemo(() => pack.formulas.filter(formula => formula.inBooklet === true), [pack.formulas]);
-  const shown = bookletOnly ? inBooklet : pack.formulas;
+  const inBooklet = useMemo(() => scopeFormulas.filter(formula => formula.inBooklet === true), [scopeFormulas]);
+  const shown = bookletOnly ? inBooklet : scopeFormulas;
   const topicsByFormula = useMemo(() => {
     const map = new Map<string, TopicMeta[]>();
     for (const topic of pack.topics) {
@@ -49,7 +52,7 @@ export function FormulasView({ pack }: { pack: SubjectPack }) {
   }, [setParams]);
 
   return (
-    <div className="study-page">
+    <div className="study-page"><button type="button" className="foma-btn" aria-pressed={showOutside} onClick={()=>setShowOutside(v=>!v)}>{t(showOutside ? 'mock.hide' : 'mock.show',{ns:'subject'})}</button>
       <TopicHero title={t('title')} intro={t('intro')} />
 
       {pack.formulas.length === 0 ? (

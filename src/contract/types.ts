@@ -36,6 +36,7 @@ export interface TopicMeta {
 export interface Term { id: string; term: L; def: L; syllabus: string; papers: PaperId[]; src: SourceRef; example?: L; pitfall?: L; sim?: SimId; }
 export interface Formula { id: string; tex: string; name: L; meaning: L; when: L; syllabus: string; inBooklet?: boolean; gdc?: L; units?: string; example?: L; }
 export interface Question {
+  inMockScope?: 'yes' | 'no' | 'unknown';
   id: string; subject: SubjectId; topicIds: string[]; paper: PaperId; section?: string;
   marks: number; command: string;            // IB command term
   prompt: L; stimulus?: L; markscheme: L; model?: L; hints?: L[];
