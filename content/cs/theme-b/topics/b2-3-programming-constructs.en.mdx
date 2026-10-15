@@ -48,7 +48,45 @@ print(passes)
 
 ## Visual
 
-Use the trace table below to step through the loop with x = 14: record x, the test and count on each pass. Then run the Python runner to check that your table matches the printed output.
+The trace-table simulator has two programs. Record values **after** the numbered line runs; an empty cell means that the variable does not exist yet. Output is filled only on the step that prints it. This follows the tracing method in Oxford Computer Science (2025), B2.1, pp. 344–345; the programs below are our own examples.
+
+**Program 1: no loop.**
+
+```python
+x = 3
+y = x * 2 + 1
+x = x + y
+print(x, y)
+```
+
+| Step | Line | x | y | Output |
+|---|---|---|---|---|
+| 1 | 1 | 3 |  |  |
+| 2 | 2 | 3 | 7 |  |
+| 3 | 3 | 10 | 7 |  |
+| 4 | 4 | 10 | 7 | 10 7 |
+
+**Program 2: a loop.** `range(1, 4)` gives 1, 2 and 3. At each visit to line 2, record the newly assigned value of i; at line 3, record the updated total. The simulator lists successful iterations, not the final exhausted-loop check.
+
+```python
+total = 0
+for i in range(1, 4):
+    total = total + i
+print(total)
+```
+
+| Step | Line | total | i | Output |
+|---|---|---|---|---|
+| 1 | 1 | 0 |  |  |
+| 2 | 2 | 0 | 1 |  |
+| 3 | 3 | 1 | 1 |  |
+| 4 | 2 | 1 | 2 |  |
+| 5 | 3 | 3 | 2 |  |
+| 6 | 2 | 3 | 3 |  |
+| 7 | 3 | 6 | 3 |  |
+| 8 | 4 | 6 | 3 | 6 |
+
+Choose the matching program below and reproduce its table before showing the answer. To check the output independently, paste the same program into the Python runner.
 
 <Sim id="cs.trace-table"/>
 
