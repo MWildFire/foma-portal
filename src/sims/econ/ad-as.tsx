@@ -21,8 +21,8 @@ const lras: CurveSpec = { id: 'lras', points: [[6, 0], [6, 11]], tone: 'ink', la
 // Drawn from the right end to the left end, so the label sits at the left end of the flat part.
 const keynes: CurveSpec = { id: 'keynes', points: [[6, 7], [0, 7]], tone: 'alt', dashed: true, label: { en: 'Keynes AS', ru: 'Кейнс AS' } };
 
-const e0: MarkSpec = { id: 'e0', at: [6, 7], tone: 'ink', label: { en: 'E0', ru: 'E0' }, dx: -18, dy: 26 };
-const e0Muted: MarkSpec = { id: 'e0', at: [6, 7], tone: 'muted', label: { en: 'E0', ru: 'E0' }, dx: -18, dy: 26 };
+const e0: MarkSpec = { id: 'e0', at: [6, 7], tone: 'ink', label: { en: 'E0', ru: 'E0' }, dx: -20, dy: 31 };
+const e0Muted: MarkSpec = { id: 'e0', at: [6, 7], tone: 'muted', label: { en: 'E0', ru: 'E0' }, dx: -20, dy: 31 };
 const e1: MarkSpec = { id: 'e1', at: [7, 8], tone: 'ink', label: { en: 'E1', ru: 'E1' }, dx: 16, dy: 4 };
 const e1Muted: MarkSpec = { id: 'e1', at: [7, 8], tone: 'muted', label: { en: 'E1', ru: 'E1' }, dx: 16, dy: 4 };
 const e2: MarkSpec = { id: 'e2', at: [6, 9], tone: 'ink', label: { en: 'E2', ru: 'E2' }, dx: 16, dy: 2 };
@@ -46,6 +46,7 @@ const steps: Step[] = [
       curves: [ad1, sras1, lras, keynes],
       marks: [e0],
       xTicks: ticks([6]),
+      yTicks: ticks([7]),
     },
   },
   {
@@ -57,9 +58,13 @@ const steps: Step[] = [
     graph: {
       ...axes,
       curves: [ad1Old, ad2, sras1, lras],
-      guides: [{ id: 'y7', from: [7, 0], to: [7, 8], tone: 'muted' }],
+      guides: [
+        { id: 'y7', from: [7, 0], to: [7, 8], tone: 'muted' },
+        { id: 'pl8', from: [0, 8], to: [7, 8], tone: 'muted' },
+      ],
       marks: [e0Muted, e1],
       xTicks: ticks([6, 7]),
+      yTicks: ticks([7, 8]),
     },
   },
   {
@@ -71,8 +76,10 @@ const steps: Step[] = [
     graph: {
       ...axes,
       curves: [ad2, sras1Old, sras2, lras],
+      guides: [{ id: 'pl9', from: [0, 9], to: [6, 9], tone: 'muted' }],
       marks: [e0Muted, e2],
       xTicks: ticks([6]),
+      yTicks: ticks([7, 9]),
     },
   },
   {
@@ -85,7 +92,8 @@ const steps: Step[] = [
       ...axes,
       curves: [ad1Old, ad2, sras1Old, sras2, lras, keynes],
       marks: [e0Muted, e1Muted, e2],
-      xTicks: ticks([6]),
+      xTicks: ticks([6, 7]),
+      yTicks: ticks([7, 8, 9]),
     },
   },
 ];

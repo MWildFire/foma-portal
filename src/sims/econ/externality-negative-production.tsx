@@ -1,5 +1,5 @@
 import type { Lang } from '../../contract/types';
-import { StepPlayer, fn, type CurveSpec, type Step, type TickSpec } from './_lib/graph';
+import { StepPlayer, fn, type CurveSpec, type MarkSpec, type Step, type TickSpec } from './_lib/graph';
 
 // Negative production externality (pollution). Demand is MPB = MSB: P = 12 - 0.5Q.
 // Supply is MPC: P = 0.5Q. External cost = 3 per unit, so MSC: P = 0.5Q + 3.
@@ -16,13 +16,22 @@ const axes = {
   yMax: 14,
   xLabel: { en: 'Quantity (Q)', ru: 'Количество (Q)' },
   yLabel: { en: 'Price (P)', ru: 'Цена (P)' },
-  xTicks: [{ value: 9, label: { en: 'Qopt 9', ru: 'Qopt 9' } }, { value: 12, label: { en: 'Qm 12', ru: 'Qm 12' } }],
+  // Only numbers on the Q axis; the names Qopt and Qm sit at the points Es and Em on the curves.
+  xTicks: ticks([9, 12]),
   yTicks: ticks([4.5, 6, 7.5, 9, 12]),
 };
 
 const mpb: CurveSpec = { id: 'mpb', points: D, tone: 'demand', label: { en: 'MPB = MSB', ru: 'MPB = MSB' } };
 const mpc: CurveSpec = { id: 'mpc', points: MPC, tone: 'supply', label: { en: 'MPC', ru: 'MPC' } };
 const msc: CurveSpec = { id: 'msc', points: MSC, tone: 'alt', label: { en: 'MSC', ru: 'MSC' } };
+
+// Market point Em (Qm 12) and socially optimal point Es (Qopt 9). The offsets keep each name clear of the curves, guides and dots:
+// Qm stands right of Em, between MPC above and MPB below; Qopt stands above Es, between MPB and MSC.
+const em: MarkSpec = { id: 'Em', at: [12, 6], tone: 'ink', label: { en: 'Qm', ru: 'Qm' }, dx: 17, dy: 3 };
+const emMuted: MarkSpec = { ...em, tone: 'muted' };
+const es: MarkSpec = { id: 'Es', at: [9, 7.5], tone: 'ink', label: { en: 'Qopt', ru: 'Qopt' }, dx: -14, dy: -20 };
+// The welfare-loss label: a dot inside the triangle (9; 7.5), (12; 9), (12; 6) and the name next to it.
+const dwl: MarkSpec = { id: 'dwl', at: [11, 7.6], tone: 'loss', label: { en: 'DWL', ru: 'DWL' }, dx: 10, dy: -5 };
 
 const steps: Step[] = [
   {
@@ -35,7 +44,7 @@ const steps: Step[] = [
       ...axes,
       curves: [mpb, mpc],
       guides: [{ id: 'qm', from: [12, 0], to: [12, 6], tone: 'muted' }],
-      marks: [{ id: 'Em', at: [12, 6], tone: 'ink' }],
+      marks: [em],
     },
   },
   {
@@ -51,7 +60,7 @@ const steps: Step[] = [
         { id: 'qm', from: [12, 0], to: [12, 6], tone: 'muted' },
         { id: 'gap', from: [6, 3], to: [6, 6], tone: 'alt' },
       ],
-      marks: [{ id: 'Em', at: [12, 6], tone: 'muted' }],
+      marks: [emMuted],
     },
   },
   {
@@ -67,17 +76,14 @@ const steps: Step[] = [
         { id: 'qs', from: [9, 0], to: [9, 7.5], tone: 'ink' },
         { id: 'ps', from: [0, 7.5], to: [9, 7.5], tone: 'muted' },
       ],
-      marks: [
-        { id: 'Es', at: [9, 7.5], tone: 'ink' },
-        { id: 'Em', at: [12, 6], tone: 'muted' },
-      ],
+      marks: [es, emMuted],
     },
   },
   {
     title: { en: 'Welfare loss', ru: 'Потери благосостояния' },
     text: {
-      en: 'The market makes 12, which is 3 more than Qopt = 9. The units from 9 to 12 cost society more than they are worth: the red triangle is the welfare loss, 1/2 x 3 x 3 = 4.5.',
-      ru: 'Рынок производит 12, то есть на 3 больше Qopt = 9. Единицы с 9 до 12 обходятся обществу дороже, чем стоят: красный треугольник — это потери благосостояния, 1/2 x 3 x 3 = 4.5.',
+      en: 'The market makes 12, which is 3 more than Qopt = 9. The units from 9 to 12 cost society more than they are worth: the red triangle is the welfare loss (DWL), 1/2 x 3 x 3 = 4.5.',
+      ru: 'Рынок производит 12, то есть на 3 больше Qopt = 9. Единицы с 9 до 12 обходятся обществу дороже, чем стоят: красный треугольник — это потери благосостояния (DWL), 1/2 x 3 x 3 = 4.5.',
     },
     graph: {
       ...axes,
@@ -86,12 +92,8 @@ const steps: Step[] = [
       guides: [
         { id: 'qs', from: [9, 0], to: [9, 7.5], tone: 'ink' },
         { id: 'ps', from: [0, 7.5], to: [9, 7.5], tone: 'muted' },
-        { id: 'dwl', from: [12, 6], to: [12, 1.5], tone: 'loss', label: { en: 'DWL 4.5', ru: 'потери 4.5' }, labelAt: 'end' },
       ],
-      marks: [
-        { id: 'Es', at: [9, 7.5], tone: 'ink' },
-        { id: 'Em', at: [12, 6], tone: 'muted' },
-      ],
+      marks: [es, emMuted, dwl],
     },
   },
   {
@@ -108,11 +110,7 @@ const steps: Step[] = [
         { id: 'pc', from: [0, 7.5], to: [9, 7.5], tone: 'demand' },
         { id: 'pp', from: [0, 4.5], to: [9, 4.5], tone: 'supply' },
       ],
-      marks: [
-        { id: 'Es', at: [9, 7.5], tone: 'ink' },
-        { id: 'Ep', at: [9, 4.5], tone: 'supply' },
-        { id: 'Em', at: [12, 6], tone: 'muted' },
-      ],
+      marks: [es, { id: 'Ep', at: [9, 4.5], tone: 'supply' }, emMuted],
     },
   },
 ];

@@ -1,5 +1,5 @@
 import type { Lang } from '../../contract/types';
-import { StepPlayer, fn, type CurveSpec, type Step, type TickSpec } from './_lib/graph';
+import { StepPlayer, fn, type CurveSpec, type MarkSpec, type Step, type TickSpec } from './_lib/graph';
 
 // Positive consumption externality (vaccination). Private demand is MPB: P = 9 - 0.5Q.
 // Supply is MPC = MSC (no production externality): P = 0.5Q. External benefit = 3 per unit, so MSB: P = 12 - 0.5Q.
@@ -24,6 +24,9 @@ const axes = {
 const mpb: CurveSpec = { id: 'mpb', points: MPB, tone: 'demand', label: { en: 'MPB', ru: 'MPB' } };
 const mpc: CurveSpec = { id: 'mpc', points: MPC, tone: 'supply', label: { en: 'MPC = MSC', ru: 'MPC = MSC' } };
 const msb: CurveSpec = { id: 'msb', points: MSB, tone: 'alt', label: { en: 'MSB', ru: 'MSB' } };
+
+// The welfare-loss label: a dot inside the triangle (9; 4.5), (9; 7.5), (12; 6) and the name next to it.
+const dwl: MarkSpec = { id: 'dwl', at: [10, 6.2], tone: 'loss', label: { en: 'DWL', ru: 'DWL' }, dx: 7, dy: -15 };
 
 const steps: Step[] = [
   {
@@ -77,20 +80,18 @@ const steps: Step[] = [
   {
     title: { en: 'Welfare loss', ru: 'Потери благосостояния' },
     text: {
-      en: 'Units from 9 to 12 bring more benefit to society than they cost, but buyers do not consume them. The red triangle is the welfare loss, 1/2 x 3 x 3 = 4.5.',
-      ru: 'Единицы с 9 до 12 приносят обществу больше пользы, чем стоят, но покупатели их не потребляют. Красный треугольник — это потери благосостояния, 1/2 x 3 x 3 = 4.5.',
+      en: 'Units from 9 to 12 bring more benefit to society than they cost, but buyers do not consume them. The red triangle is the welfare loss (DWL), 1/2 x 3 x 3 = 4.5.',
+      ru: 'Единицы с 9 до 12 приносят обществу больше пользы, чем стоят, но покупатели их не потребляют. Красный треугольник — это потери благосостояния (DWL), 1/2 x 3 x 3 = 4.5.',
     },
     graph: {
       ...axes,
       curves: [mpb, mpc, msb],
       areas: [{ id: 'loss', points: [[9, 4.5], [9, 7.5], [12, 6]], tone: 'loss' }],
-      guides: [
-        { id: 'qs', from: [12, 0], to: [12, 6], tone: 'ink' },
-        { id: 'dwl', from: [12, 6], to: [12, 11], tone: 'loss', label: { en: 'DWL 4.5', ru: 'потери 4.5' }, labelAt: 'end' },
-      ],
+      guides: [{ id: 'qs', from: [12, 0], to: [12, 6], tone: 'ink' }],
       marks: [
         { id: 'Es', at: [12, 6], tone: 'ink' },
         { id: 'Em', at: [9, 4.5], tone: 'muted' },
+        dwl,
       ],
     },
   },

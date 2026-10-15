@@ -104,10 +104,11 @@ const steps: Step[] = [
     },
     graph: {
       ...axes,
+      // MPB, MSB and MPC = MSC keep the style and labels of steps 1-4; E1 lies on MPB and S+t.
       curves: [
-        { ...mpb, tone: 'muted', dashed: true },
+        mpb,
         msb,
-        { ...mpc, tone: 'muted', dashed: true, label: undefined },
+        mpc,
         { id: 'st', points: SPLUS_T, tone: 'policy', label: { en: 'S+t', ru: 'S+t' } },
       ],
       guides: [
@@ -116,7 +117,7 @@ const steps: Step[] = [
         { id: 'pp', from: [0, 4.5], to: [9, 4.5], tone: 'supply' },
       ],
       marks: [
-        { id: 'E1', at: [9, 7.5], tone: 'policy' },
+        { id: 'E1', at: [9, 7.5], tone: 'policy', label: { en: 'E1', ru: 'E1' }, dx: -7, dy: -12 },
         { id: 'Sp', at: [9, 4.5], tone: 'supply' },
         { id: 'Em', at: [12, 6], tone: 'muted' },
       ],
