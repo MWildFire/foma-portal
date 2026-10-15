@@ -1,3 +1,4 @@
+import ReadableDiagram from '../readable-diagram';
 import { useState } from 'react';
 import type { CSSProperties } from 'react';
 import type { Lang } from '../../contract/types';
@@ -214,7 +215,7 @@ export default function EcologicalFootprint({ lang }: { lang: Lang }) {
       </div>
       {/* on a phone the chart scrolls sideways instead of shrinking its labels below readable size */}
       <div style={{ overflowX: 'auto' }}>
-      <svg role="img" aria-label={`${title}: ${modeName}, ${unitName}`} viewBox={`0 0 ${W} ${H}`} width="100%" style={{ maxWidth: W, minWidth: 560, display: 'block' }}>
+      <ReadableDiagram lang={lang}><svg role="img" aria-label={`${title}: ${modeName}, ${unitName}`} viewBox={`0 0 ${W} ${H}`} width="100%" style={{ maxWidth: W, minWidth: 560, display: 'block' }}>
         {ticks.map(v => (
           <g key={`tick-${v}`}>
             <line x1={LEFT} x2={W - 4} y1={BASE - v * scale} y2={BASE - v * scale} stroke={v === 0 ? '#6b7280' : '#d1d5db'} strokeWidth={v === 0 ? 1.2 : 1} />
@@ -239,7 +240,7 @@ export default function EcologicalFootprint({ lang }: { lang: Lang }) {
             </g>
           );
         })}
-      </svg>
+      </svg></ReadableDiagram>
       </div>
       {!perPerson && <p style={{ fontSize: 13, marginTop: 6 }}>{worldTotalNote}</p>}
 

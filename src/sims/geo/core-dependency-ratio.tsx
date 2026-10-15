@@ -1,3 +1,4 @@
+import ReadableDiagram from '../readable-diagram';
 import { useState } from 'react';
 import type { Lang } from '../../contract/types';
 
@@ -45,14 +46,12 @@ export default function DependencyRatio({ lang }: { lang: Lang }) {
           <input type="range" min={2} max={30} step={1} value={old} onChange={event => setOld(Number(event.target.value))} style={{ width: '100%' }} />
         </label>
       </div>
-      <svg role="img" aria-label={title} viewBox="0 0 360 64" width="100%" style={{ maxWidth: 520, display: 'block', marginTop: 16 }}>
+      <ReadableDiagram lang={lang}><svg role="img" aria-label={title} viewBox="0 0 360 64" width="100%" style={{ maxWidth: 520, display: 'block', marginTop: 16 }}>
         <rect x={0} y={14} width={(young / 100) * 360} height={30} fill="#3f6b8c" />
         <rect x={(young / 100) * 360} y={14} width={(working / 100) * 360} height={30} fill="#9aa5ad" />
         <rect x={((young + working) / 100) * 360} y={14} width={(old / 100) * 360} height={30} fill="#b4604a" />
-        <text x={(young / 200) * 360} y={36} textAnchor="middle" fontSize="12" fill="#ffffff">0–14</text>
-        <text x={((young + working / 2) / 100) * 360} y={36} textAnchor="middle" fontSize="12" fill="#ffffff">{ru ? '15–64 (трудоспособный возраст)' : '15–64 (working age)'}</text>
-        <text x={((young + working + old / 2) / 100) * 360} y={36} textAnchor="middle" fontSize="12" fill="#ffffff">65+</text>
-      </svg>
+      </svg></ReadableDiagram>
+      <p style={{ fontSize: 14 }}>{ru ? 'Синий: 0–14 лет; серый: 15–64 (трудоспособный возраст); коричневый: 65+.' : 'Blue: ages 0–14; grey: 15–64 (working age); brown: 65+.'}</p>
       <ul style={{ marginTop: 12, paddingLeft: 18 }}>
         <li>
           {ru ? 'Детская нагрузка = 0–14 ÷ 15–64 × 100 = ' : 'Child dependency = 0–14 ÷ 15–64 × 100 = '}

@@ -1,3 +1,4 @@
+import ReadableDiagram from '../readable-diagram';
 import { useState } from 'react';
 import type { Lang } from '../../contract/types';
 
@@ -67,7 +68,7 @@ export default function PushPull({ lang }: { lang: Lang }) {
         <Factors title={ru ? 'Факторы притяжения (место прибытия)' : 'Pull factors (destination)'} items={PULL} checked={pull} onToggle={toggle(pull, setPull)} lang={lang} />
         <Factors title={ru ? 'Промежуточные барьеры' : 'Intervening obstacles'} items={OBSTACLES} checked={obstacle} onToggle={toggle(obstacle, setObstacle)} lang={lang} />
       </div>
-      <svg role="img" aria-label={ru ? 'Схема потока миграции' : 'Migration flow diagram'} viewBox="0 0 400 120" width="100%" style={{ maxWidth: 520, display: 'block', margin: '14px auto 0' }}>
+      <ReadableDiagram lang={lang}><svg role="img" aria-label={ru ? 'Схема потока миграции' : 'Migration flow diagram'} viewBox="0 0 400 120" width="100%" style={{ maxWidth: 520, display: 'block', margin: '14px auto 0' }}>
         <defs>
           <marker id="push-pull-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" markerUnits="userSpaceOnUse" orient="auto">
             <path d="M 0 0 L 10 5 L 0 10 z" fill="#b4604a" />
@@ -83,7 +84,7 @@ export default function PushPull({ lang }: { lang: Lang }) {
         <text x={200} y={36} textAnchor="middle" fontSize="12" fill="currentColor">
           {ru ? `Сила потока: ${net > 0 ? `+${net}` : net}` : `Flow strength: ${net > 0 ? `+${net}` : net}`}
         </text>
-      </svg>
+      </svg></ReadableDiagram>
       <p style={{ marginTop: 12 }}>
         <strong>{ru ? 'Итог модели: ' : 'Model result: '}</strong>
         {verdict}

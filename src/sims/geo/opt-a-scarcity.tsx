@@ -1,3 +1,4 @@
+import ReadableDiagram from '../readable-diagram';
 import { useState } from 'react';
 import type { Lang } from '../../contract/types';
 
@@ -162,7 +163,7 @@ export default function OptAScarcitySim({ lang }: { lang: Lang }) {
         </div>
       </div>
 
-      <svg
+      <ReadableDiagram lang={lang}><svg
         viewBox="0 0 320 108"
         width="100%"
         role="img"
@@ -195,7 +196,7 @@ export default function OptAScarcitySim({ lang }: { lang: Lang }) {
         <text x={xAfter} y={102} fontSize="10" textAnchor={anchorOf(xAfter)} fill="currentColor">
           {ru ? 'после засухи' : 'after drought'}
         </text>
-      </svg>
+      </svg></ReadableDiagram>
 
       <p style={{ margin: '12px 0 0', fontSize: 13, lineHeight: 1.5 }}>
         <strong>{ru ? 'Формулы. ' : 'Formulas. '}</strong>

@@ -1,3 +1,4 @@
+import ReadableDiagram from '../readable-diagram';
 import { useState } from 'react';
 import type { CSSProperties } from 'react';
 import type { Lang } from '../../contract/types';
@@ -61,7 +62,7 @@ export default function CarbonCycle({ lang }: { lang: Lang }) {
       </div>
       {/* on a phone the diagram scrolls sideways instead of shrinking its labels below readable size */}
       <div style={{ overflowX: 'auto' }}>
-      <svg role="img" aria-label={title} viewBox="0 0 640 490" width="100%" style={{ maxWidth: 640, minWidth: 560, display: 'block' }}>
+      <ReadableDiagram lang={lang}><svg role="img" aria-label={title} viewBox="0 0 640 490" width="100%" style={{ maxWidth: 640, minWidth: 560, display: 'block' }}>
         <defs>
           <marker id="cc-arrow-natural" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
             <path d="M0,0 L10,5 L0,10 z" fill="#555555" />
@@ -147,7 +148,7 @@ export default function CarbonCycle({ lang }: { lang: Lang }) {
             <text x={360} y={484} fontSize={11} fill="currentColor">{t('human emissions and sinks, present', 'антропогенные потоки, настоящее время')}</text>
           </g>
         )}
-      </svg>
+      </svg></ReadableDiagram>
       </div>
 
       <ul style={{ marginTop: 12, paddingLeft: 18 }}>

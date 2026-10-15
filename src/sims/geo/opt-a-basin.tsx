@@ -1,3 +1,4 @@
+import ReadableDiagram from '../readable-diagram';
 import { useState } from 'react';
 import type { Lang } from '../../contract/types';
 
@@ -26,8 +27,7 @@ export default function OptABasinSim({ lang }: { lang: Lang }) {
   const quickFlow = (quickMm * area) / M3S_DIVISOR;
 
   const fmt = (value: number, digits = 1): string => {
-    const text = value.toFixed(digits);
-    return ru ? text.replace('.', ',') : text;
+    return value.toLocaleString(ru ? 'ru-RU' : 'en-US', { minimumFractionDigits: digits, maximumFractionDigits: digits }).replace('-', '−');
   };
   const shown = (value: number, digits = 0): string => (balanced ? fmt(value, digits) : '—');
   const signed = (value: number): string => (value > 0 ? `+${fmt(value, 0)}` : fmt(value, 0));
@@ -87,7 +87,7 @@ export default function OptABasinSim({ lang }: { lang: Lang }) {
         ))}
       </div>
 
-      <svg
+      <ReadableDiagram lang={lang}><svg
         viewBox="0 0 400 200"
         width="100%"
         role="img"
@@ -118,7 +118,7 @@ export default function OptABasinSim({ lang }: { lang: Lang }) {
         <text x={268} y={105} fontSize="10" fill="currentColor">{`${shown(quickMm)} ${unitMmShort}`}</text>
         <text x={268} y={128} fontSize="10" fill="currentColor">{ru ? 'базисный сток' : 'base flow'}</text>
         <text x={268} y={141} fontSize="10" fill="currentColor">{`${shown(baseMm)} ${unitMmShort}`}</text>
-      </svg>
+      </svg></ReadableDiagram>
 
       <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 14, marginTop: 12 }}>
         <tbody>
