@@ -18,3 +18,10 @@ test('figures keep at least 11px labels using their viewBox and smallest explici
  assert.equal(figureDisplayWidth('<svg viewBox="0 0 760 400"><text style="font-size: 8px">A</text></svg>'),1045);
  assert.equal(figureDisplayWidth('<svg width="900" height="400"></svg>'),900);
 });
+test('access instructions describe typing without pointing to a removed checking switch',()=>{
+ for(const lang of ['en','ru']){
+  const intro=JSON.parse(readFileSync(`src/i18n/${lang}/settings.json`,'utf8')).access.intro;
+  assert.match(intro,/typing/);
+  assert.doesNotMatch(intro,/switch below|переключатель ниже/i);
+ }
+});
