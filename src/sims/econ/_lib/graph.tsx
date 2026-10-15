@@ -107,7 +107,7 @@ export function Graph({ spec, lang, label }: { spec: GraphSpec; lang: Lang; labe
         const at = guide.labelAt === 'start' ? guide.from : guide.to;
         return (
           <g key={guide.id}>
-            <line x1={x(guide.from[0])} y1={y(guide.from[1])} x2={x(guide.to[0])} y2={y(guide.to[1])} stroke={colour(guide.tone)} strokeWidth={1.2} strokeDasharray="4 3" />
+            <line x1={x(guide.from[0])} y1={y(guide.from[1])} x2={x(guide.to[0])} y2={y(guide.to[1])} stroke={colour(guide.tone)} strokeWidth={1.2} strokeDasharray={guide.dashed === false ? undefined : '4 3'} />
             {guide.label && (
               <text x={x(at[0]) + 4} y={y(at[1]) - 5} fontSize={11} fill={colour(guide.tone)}>{guide.label[lang]}</text>
             )}
@@ -117,11 +117,17 @@ export function Graph({ spec, lang, label }: { spec: GraphSpec; lang: Lang; labe
 
       {(spec.curves ?? []).map(curve => {
         const last = curve.points[curve.points.length - 1];
+        const before = curve.points[curve.points.length - 2];
+        // The label sits right of the end point. Near the right edge it moves left of the point, so it stays in the picture:
+        // below the point for a falling curve (the space under it is free), above it otherwise.
+        const nearEdge = last !== undefined && x(last[0]) > W - RIGHT - 24;
+        const falling = last !== undefined && before !== undefined && last[1] < before[1];
+        const below = nearEdge && falling && y(last[1]) < TOP + PLOT_H - 16;
         return (
           <g key={curve.id}>
             <polyline points={path(curve.points)} fill="none" stroke={colour(curve.tone)} strokeWidth={curve.width ?? 2.5} strokeDasharray={curve.dashed ? '6 4' : undefined} strokeLinejoin="round" />
             {curve.label && last && (
-              <text x={x(last[0]) + 6} y={y(last[1]) - 6} fontSize={12} fontWeight={600} fill={colour(curve.tone)}>{curve.label[lang]}</text>
+              <text x={nearEdge ? x(last[0]) - 6 : x(last[0]) + 6} y={below ? y(last[1]) + 14 : y(last[1]) - 6} textAnchor={nearEdge ? 'end' : undefined} fontSize={12} fontWeight={600} fill={colour(curve.tone)}>{curve.label[lang]}</text>
             )}
           </g>
         );
