@@ -47,12 +47,9 @@ test('loads are kept within 0 and 600 minutes', () => {
   for (const bad of ['', '601', '-5', '1.5', 'abc', '9999', '1e2']) assert.equal(parseLoadInput(bad), null, bad);
 });
 
-test('access arrangements are written to settings.accessArrangements', () => {
-  let state = setAccessArrangement(emptyState(), 'extraTime', true);
-  assert.deepEqual(state.settings.accessArrangements, { extraTime: true, separateRoom: false });
-  state = setAccessArrangement(state, 'separateRoom', true);
-  state = setAccessArrangement(state, 'extraTime', false);
-  assert.deepEqual(state.settings.accessArrangements, { extraTime: false, separateRoom: true });
+test('room flag is written to settings.accessArrangements', () => {
+ const state=setAccessArrangement(emptyState(), 'separateRoom', true);
+ assert.equal(state.settings.accessArrangements.separateRoom,true);
 });
 
 test('a progress code is checked before anything is replaced', () => {

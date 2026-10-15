@@ -1,8 +1,7 @@
 import type { L, PaperId } from '../contract/types';
 import type { QuestionProgress, Rating } from './storage';
 
-// Rules of the practice page: filters (kept in the address), timed sets, the countdown, extra time and the
-// mistake log. Pure functions only. This file may import types only (the unit tests run it as plain
+// Practice filters, timed sets and mistake log. This file may import types only (tests run it as plain
 // TypeScript, without a bundler).
 
 export const PAPER_IDS: readonly PaperId[] = ['P1', 'P2', 'P3'];
@@ -173,12 +172,10 @@ export function questionsOfSet<Q extends { id: string }>(set: { questionIds: rea
 }
 
 // ---------------------------------------------------------------------------------------------------------------
-// Time and extra time
 
 /** The warning starts when this many seconds are left. */
 export const WARN_SECONDS = 5 * 60;
 
-// The time a timed set runs for, with or without extra time, comes from the school's table: src/components/practice/timing.ts.
 
 // 75 -> "01:15"; 3420 -> "57:00". Minutes are not wrapped into hours, so a 105-minute paper reads "105:00".
 export function formatClock(totalSeconds: number): string {
@@ -279,8 +276,7 @@ export function timerToStored(timer: TimerState, now: number): string {
 const finite = (value: unknown): value is number => typeof value === 'number' && Number.isFinite(value);
 
 // The countdown to continue with, or null when there is nothing usable: no value, damaged text, another length of
-// time (the set or the extra-time setting changed), too old, or numbers that make no sense. A countdown that was
-// running goes on from its end moment, and is over if that moment has passed.
+// time, stale data or invalid numbers. A running countdown continues from its saved end moment.
 export function timerFromStored(raw: string | null | undefined, totalMs: number, now: number): TimerState | null {
   if (!raw) return null;
   let data: unknown;
