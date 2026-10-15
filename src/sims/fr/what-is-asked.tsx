@@ -36,7 +36,10 @@ function tally(keys: string[], label: (key: string) => string): Row[] {
     .map(([key, n]) => ({ label: label(key), n }));
 }
 
-const titleOf = (lang: Lang) => (id: string): string => TITLES.get(id)?.[lang] ?? id;
+const titleOf = (lang: Lang) => (id: string): string => {
+  const title = TITLES.get(id)?.[lang] ?? id;
+  return lang === 'ru' ? title.replace(/^Письмо:/, 'Письменное задание:') : title;
+};
 
 const COPY = {
   en: {
@@ -66,22 +69,21 @@ const COPY = {
 };
 
 const list = { listStyle: 'none', margin: 0, padding: 0, display: 'grid', gap: 8 } as const;
-const row = { display: 'grid', gridTemplateColumns: 'minmax(0, 1fr) minmax(80px, 2fr) auto', gap: 12, alignItems: 'center' } as const;
-const track = { height: 8, borderRadius: 4, opacity: 0.18, background: 'currentColor', overflow: 'hidden' } as const;
-const fill = { display: 'block', height: '100%', background: 'currentColor' } as const;
+const row = { display: 'grid', gridTemplateColumns: 'minmax(0, 1fr) auto', gap: '6px 12px', alignItems: 'center' } as const;
+const track = { gridColumn: '1 / -1', height: 10, borderRadius: 4, background: 'var(--color-border)', overflow: 'hidden' } as const;
+const fill = { display: 'block', height: '100%', background: 'var(--color-accent)' } as const;
 const section = { display: 'grid', gap: 10, marginTop: 20 } as const;
 
-function Bars({ rows, total }: { rows: Row[]; total: number }) {
-  const max = Math.max(1, ...rows.map(item => item.n));
+export function Bars({ rows, total }: { rows: Row[]; total: number }) {
   return (
     <ul style={list}>
       {rows.map(item => (
         <li key={item.label} style={row}>
-          <span>{item.label}</span>
+          <span style={{ minWidth: 0, overflowWrap: 'anywhere' }}>{item.label}</span>
+          <span style={{ whiteSpace: 'nowrap', fontVariantNumeric: 'tabular-nums' }}>{item.n} / {total}</span>
           <span aria-hidden style={track}>
-            <span style={{ ...fill, width: `${(item.n / max) * 100}%` }} />
+            <span style={{ ...fill, width: `${total > 0 ? (item.n / total) * 100 : 0}%` }} />
           </span>
-          <span>{item.n} / {total}</span>
         </li>
       ))}
     </ul>

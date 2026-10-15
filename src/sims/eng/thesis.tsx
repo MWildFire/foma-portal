@@ -107,7 +107,7 @@ const CHECKS = [
     en: 'It is not a plot summary',
     ru: 'Это не пересказ сюжета',
     hint: { en: 'Drop the plot summary ("is about", "tells the story") and make a claim about how the works work.', ru: 'Уберите пересказ сюжета («is about», «tells the story») и сделайте утверждение о том, как работают произведения.' },
-    pass: (_a: string, _b: string, thesis: string) => !SUMMARY_PHRASES.some(phrase => thesis.toLowerCase().includes(phrase)),
+    pass: (_a: string, _b: string, thesis: string) => thesis.trim() !== '' && !SUMMARY_PHRASES.some(phrase => thesis.toLowerCase().includes(phrase)),
   },
 ];
 

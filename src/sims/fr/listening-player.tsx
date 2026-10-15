@@ -72,7 +72,7 @@ const COPY: Record<Lang, typeof EN> = {
 
 const button = { border: '1px solid currentColor', borderRadius: 6, padding: '4px 12px', background: 'transparent', color: 'inherit', cursor: 'pointer' } as const;
 const row = { display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: 8 } as const;
-const plain = { border: 0, margin: 0, padding: 0 } as const;
+const plain = { border: 0, margin: 0, padding: 0, minWidth: 0 } as const;
 
 // The choices of a true/false or letter item (a text item has none).
 function choices(item: FrQuestion, kind: AnswerKind): string[] {
@@ -167,7 +167,7 @@ export default function ListeningPlayer({ lang }: { lang: Lang }) {
   const result = score(items, responses);
 
   return (
-    <div style={{ display: 'grid', gap: 14 }}>
+    <div style={{ display: 'grid', gridTemplateColumns: 'minmax(0, 1fr)', gap: 14 }}>
       <p style={{ margin: 0 }}>
         <strong>{copy.title}</strong>
         <br />
@@ -175,9 +175,9 @@ export default function ListeningPlayer({ lang }: { lang: Lang }) {
       </p>
 
       <div style={row}>
-        <label>
+        <label style={{ minWidth: 0, maxWidth: '100%' }}>
           {copy.track}{' '}
-          <select value={track.id} onChange={e => chooseTrack(e.target.value)}>
+          <select style={{ minWidth: 0, maxWidth: '100%' }} value={track.id} onChange={e => chooseTrack(e.target.value)}>
             {TRACKS.map(item => <option key={item.id} value={item.id}>{item.title[lang]}</option>)}
           </select>
         </label>
@@ -200,7 +200,7 @@ export default function ListeningPlayer({ lang }: { lang: Lang }) {
       {loadError ? <p role="alert" style={{ margin: 0 }}>{copy.loadError}</p> : null}
       <audio key={track.id} ref={audioRef} src={track.audio} preload="auto" onEnded={onEnded} onError={() => setLoadError(true)} />
 
-      <ol style={{ ...plain, display: 'grid', gap: 12, listStyle: 'none' }}>
+      <ol style={{ ...plain, display: 'grid', gridTemplateColumns: 'minmax(0, 1fr)', gap: 12, listStyle: 'none' }}>
         {items.map((item, index) => {
           const expected = item.answer ?? '';
           const kind = answerKind(expected);
@@ -210,7 +210,7 @@ export default function ListeningPlayer({ lang }: { lang: Lang }) {
           return (
             <li key={item.id} style={{ border: `1px solid ${border}`, borderRadius: 8, padding: '8px 10px' }}>
               <fieldset style={{ ...plain, display: 'grid', gap: 6 }}>
-                <legend>
+                <legend style={{ maxWidth: '100%', whiteSpace: 'normal' }}>
                   <strong>{index + 1}. <span lang="fr" style={{ whiteSpace: 'pre-line' }}>{item.prompt.fr}</span></strong>
                 </legend>
                 <details>
