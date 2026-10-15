@@ -16,6 +16,8 @@ The <Term id="coefficient-of-determination"/> shows how much of the variation in
 
 ## Worked example
 
+This original sign-up dataset is separate from the lab below; its coefficients do not describe the lab’s revision-hours data.
+
 The number of sign-ups to a revision app, $y$ (in hundreds), after $x$ weeks is: $x$: 1, 2, 4, 8, 16; $y$: 4.4, 5.2, 7.9, 9.3, 11.6. The points rise quickly and then flatten, so a logarithmic model is worth trying.
 
 <Steps>
@@ -31,6 +33,8 @@ The number of sign-ups to a revision app, $y$ (in hundreds), after $x$ weeks is:
 <Sim id="math.regression-lab"/>
 
 Choose the revision data set and compare the straight line, the logarithmic curve and the quadratic curve. The lab shows $R^2$ and the sum of squared residuals for each model. The red bars are residuals: the curve that follows the points most closely has the smallest residuals and the largest $R^2$.
+
+The quadratic model is $y=ax^2+bx+c$: $a$ multiplies $x^2$, $b$ multiplies $x$, and $c$ is the constant, as in `QuadReg` (Oxford AI HL, ch. 6.2, pp. 248–249). For the lab’s Plants dataset, the fitted coefficients are $a\approx0.053571$, $b\approx0.907143$, $c=3.4$; the sum of squared residuals is $2.05714$. The lab rounds its coefficient display to two decimal places: retain full precision when calculating predictions.
 
 ## How it is examined
 

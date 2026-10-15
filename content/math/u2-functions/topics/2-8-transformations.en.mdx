@@ -35,7 +35,9 @@ Several transformations can be combined in one equation. Each point $(x, y)$ of 
 
 <Sim id="math.transformations-lab"/>
 
-The lab draws $f(x) = \sin x$ as a dashed grey curve and the transformed curve $y = p\,f(q(x - a)) + b$ as a blue curve. Change $a$ and $b$ to see pure translations, change $p$ to stretch or reflect vertically, and change $q$ to stretch horizontally. The checkbox makes $q$ negative, which reflects the curve in the $y$-axis. The orange point is the image of the maximum $\left(\frac{\pi}{2}, 1\right)$ of $\sin x$, so its position shows the image rule at work.
+The lab draws $f(x) = \sin x$ as a dashed grey curve and the transformed curve $y = p\,f(q(x - a)) + b$ as a blue curve. Set $p=q=1$ and change $a$ and $b$ to see pure translations, change $p$ to stretch or reflect vertically, and change $q$ to stretch horizontally. The checkbox reverses the sign of $q$: this reflects the current curve about $x=a$. When $a=0$, that is the $y$-axis; in general, the reflection comes before the horizontal translation. The orange point is the image of the maximum $\left(\frac{\pi}{2}, 1\right)$ of $\sin x$, so its position shows the image rule at work.
+
+The slider letters differ from the textbook model $y=a\sin(b(x-c))+d$ (Oxford AI HL, ch. 8.2, pp. 347–348): lab $p$ is textbook $a$, lab $q$ is textbook $b$, lab $a$ is textbook $c$, and lab $b$ is textbook $d$. Thus a point $(u,v)$ becomes $(a+u/q,\;pv+b)$ in the lab notation ($q\ne0$). The horizontal scale factor is $1/|q|$; a negative sign also produces a reflection.
 
 ## How it is examined
 

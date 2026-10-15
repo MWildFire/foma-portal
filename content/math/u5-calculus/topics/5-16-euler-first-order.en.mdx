@@ -45,6 +45,8 @@ Use Euler's method for $\dfrac{dy}{dx} = x - y$ with $y(0) = 1$ and $h = 0.2$, f
 
 The orange polygon is Euler's method from $(0, y_0)$ with the chosen step length, and the dashed curve is the exact solution. With the default settings ($dy/dx = x - y$, $y_0 = 1$, $h = 0.2$) the polygon reaches $0.655$ at $x = 1$, as in the worked example. Move the step slider towards $h = 0.05$ and watch the polygon approach the dashed curve.
 
+Read each segment as a value of $dy/dx=\Delta y/\Delta x$ in coordinate units, not as an angle measured on the screen (Oxford AI HL, ch. 11.5, pp. 519–522). The axes have different scales: a unit along $x$ is drawn much longer than a unit along $y$. A slope of 1 therefore does not appear at $45^\circ$; compare changes using the axis labels.
+
 ## How it is examined
 
 Marks are usually given for the method: one for the rule $y_{n+1} = y_n + h\,f(x_n, y_n)$ with the right numbers, one for carrying the values from one step to the next, and one for the final value to the required accuracy. Check the number of steps first: from $x = 0$ to $x = 1$ with $h = 0.2$ there are five steps. For an overestimate or underestimate, the reason is the curvature of the solution, not the size of the answer.
