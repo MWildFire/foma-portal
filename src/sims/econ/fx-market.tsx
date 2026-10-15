@@ -7,7 +7,9 @@ import { StepPlayer, fn, type CurveSpec, type GuideSpec, type MarkSpec, type Ste
 // Supply rises by 10 at every rate (S2: E = 1 + 0.1Q): E3 = (25, 3.5). USD depreciates, AED appreciates.
 const D1 = fn(q => 6 - 0.1 * q, 0, 36, 18);
 const S1 = fn(q => 2 + 0.1 * q, 0, 36, 18);
-const D2 = fn(q => 7 - 0.1 * q, 10, 38, 14);
+// D2 ends at the same output as the other three curves (36), so the four curve labels stand in one column right of the ends,
+// in the order of the ends (S1, S2, D2, D1). With D2 ending at 38 the label of D2 was moved below its end, onto the label of D.
+const D2 = fn(q => 7 - 0.1 * q, 10, 36, 13);
 const S2 = fn(q => 1 + 0.1 * q, 10, 36, 13);
 
 const ticks = (values: number[]): TickSpec[] => values.map(value => ({ value, label: { en: String(value), ru: String(value) } }));

@@ -1,5 +1,5 @@
 import type { Lang } from '../../contract/types';
-import { StepPlayer, fn, type AreaSpec, type CurveSpec, type GraphSpec, type MarkSpec, type Step, type TickSpec } from './_lib/graph';
+import { StepPlayer, fn, type AreaSpec, type CurveSpec, type GraphSpec, type GuideSpec, type MarkSpec, type Point, type Step, type TickSpec, type Tone } from './_lib/graph';
 
 // Export subsidy of 1 per unit. The country exports, so its world price (9) is above its autarky price (6).
 // Same domestic market as the tariff and quota sims: Qd = 24 - 2P, Qs = 2P, autarky E: P 6, Q 12.
@@ -26,6 +26,13 @@ const supply: CurveSpec = { id: 's', points: S, tone: 'supply', label: { en: 'S'
 const worldPrice: CurveSpec = { id: 'pw', points: [[0, 9], [24, 9]], tone: 'ink', dashed: true };
 const subsidyPrice: CurveSpec = { id: 'p10', points: [[0, 10], [24, 10]], tone: 'policy', width: 2 };
 
+// The two price lines are curves that run to the right edge of the plot, so they cannot carry a label there. Each label is a
+// guide of zero length: it draws no line, only the text, in the colour of its line. 'Pw + s = 10' stands above its line, in
+// the open space left of the point where S meets it; 'Pw = 9' stands below its line, right of the DWL label.
+const lineLabel = (id: string, at: Point, text: string, tone: Tone): GuideSpec => ({ id, from: at, to: at, tone, label: { en: text, ru: text } });
+const worldLabel = lineLabel('pw-label', [21.5, 7.9], 'Pw = 9', 'ink');
+const subsidyLabel = lineLabel('p10-label', [14, 10.3], 'Pw + s = 10', 'policy');
+
 const csFree: AreaSpec = { id: 'cs-free', points: [[0, 12], [0, 9], [6, 9]], tone: 'gain' };
 const psFree: AreaSpec = { id: 'ps-free', points: [[0, 0], [0, 9], [18, 9]], tone: 'gain' };
 const csSub: AreaSpec = { id: 'cs-sub', points: [[0, 12], [0, 10], [4, 10]], tone: 'gain' };
@@ -46,12 +53,13 @@ const freeTradeGraph: GraphSpec = {
   guides: [
     { id: 'q6', from: [6, 0], to: [6, 9], tone: 'muted' },
     { id: 'q18', from: [18, 0], to: [18, 9], tone: 'muted' },
+    worldLabel,
   ],
   marks: [
     eMark,
     { id: 'cs', at: [0.4, 9.4], tone: 'gain', label: { en: 'CS 9', ru: 'CS 9' }, dx: 8, dy: 4 },
     { id: 'ps', at: [2, 7], tone: 'gain', label: { en: 'PS 81', ru: 'PS 81' }, dx: 6, dy: 4 },
-    { id: 'exports', at: [12, 9], tone: 'ink', label: { en: 'exports 12', ru: 'экспорт 12' }, dx: -30, dy: 13 },
+    { id: 'exports', at: [12, 9], tone: 'ink', label: { en: 'exports 12', ru: 'экспорт 12' }, dx: -34, dy: -11 },
   ],
 };
 
@@ -60,10 +68,11 @@ const subsidyGraph: GraphSpec = {
   xTicks: [tick(4, '4'), tick(20, '20')],
   yTicks: [tick(9, 'Pw 9'), tick(10, 'P 10')],
   curves: [demand, supply, worldPrice, subsidyPrice],
+  guides: [worldLabel, subsidyLabel],
   marks: [
     { id: 'qd', at: [4, 10], tone: 'demand' },
     { id: 'qs', at: [20, 10], tone: 'supply' },
-    { id: 'exports', at: [12, 10], tone: 'ink', label: { en: 'exports 16', ru: 'экспорт 16' }, dx: -32, dy: -7 },
+    { id: 'exports', at: [12, 10], tone: 'ink', label: { en: 'exports 16', ru: 'экспорт 16' }, dx: -46, dy: -9 },
   ],
 };
 
@@ -72,7 +81,9 @@ const consumersLoseGraph: GraphSpec = {
   xTicks: [tick(4, '4'), tick(6, '6'), tick(20, '20')],
   yTicks: [tick(9, 'Pw 9'), tick(10, 'P 10')],
   curves: [demand, supply, worldPrice, subsidyPrice],
-  areas: [csSub, transfer],
+  // The red area is the whole CS loss of 5: the rectangle 4 that goes to producers and the triangle 1 that nobody receives.
+  areas: [csSub, transfer, dwlConsumption],
+  guides: [worldLabel, subsidyLabel],
   marks: [
     { id: 'cs-left', at: [4, 10], tone: 'gain', label: { en: 'CS 4', ru: 'CS 4' }, dx: 4, dy: -6 },
     { id: 'cs-lost', at: [0.4, 9.5], tone: 'loss', label: { en: 'CS −5', ru: 'CS −5' }, dx: 8, dy: 4 },
@@ -85,6 +96,7 @@ const producersGainGraph: GraphSpec = {
   yTicks: [tick(9, 'Pw 9'), tick(10, 'P 10')],
   curves: [demand, supply, worldPrice, subsidyPrice],
   areas: [psGain],
+  guides: [worldLabel, subsidyLabel],
   marks: [{ id: 'ps-gain', at: [7, 9.5], tone: 'gain', label: { en: 'PS +19', ru: 'PS +19' }, dx: 8, dy: 4 }],
 };
 
@@ -94,6 +106,7 @@ const completeGraph: GraphSpec = {
   yTicks: [tick(9, 'Pw 9'), tick(10, 'P 10')],
   curves: [demand, supply, worldPrice, subsidyPrice],
   areas: [csSub, transfer, psGain, dwlConsumption, cost, dwlProduction],
+  guides: [worldLabel, subsidyLabel],
   marks: [
     { id: 'cs-left', at: [4, 10], tone: 'gain', label: { en: 'CS 4', ru: 'CS 4' }, dx: 4, dy: -6 },
     { id: 'cs-lost', at: [0.4, 9.5], tone: 'loss', label: { en: 'CS −5', ru: 'CS −5' }, dx: 8, dy: 4 },

@@ -30,7 +30,7 @@ const steps: Step[] = [
     },
     graph: {
       ...axes,
-      curves: [{ id: 'ppc1', points: PPC1, tone: 'ink', label: { en: 'PPC1', ru: 'КПВ1' } }],
+      curves: [{ id: 'ppc1', points: PPC1, tone: 'ink', label: { en: 'PPC1', ru: 'PPC1' } }],
       guides: [
         { id: 'u-h', from: [0, 60], to: [40, 60], tone: 'muted' },
         { id: 'u-v', from: [40, 0], to: [40, 60], tone: 'muted' },
@@ -46,7 +46,7 @@ const steps: Step[] = [
     },
     graph: {
       ...axes,
-      curves: [{ id: 'ppc1', points: PPC1, tone: 'ink', label: { en: 'PPC1', ru: 'КПВ1' } }],
+      curves: [{ id: 'ppc1', points: PPC1, tone: 'ink', label: { en: 'PPC1', ru: 'PPC1' } }],
       guides: [
         { id: 'a-h', from: [0, 80], to: [60, 80], tone: 'muted' },
         { id: 'a-v', from: [60, 0], to: [60, 80], tone: 'muted' },
@@ -63,7 +63,7 @@ const steps: Step[] = [
     graph: {
       ...axes,
       curves: [
-        { id: 'ppc1', points: PPC1, tone: 'ink', label: { en: 'PPC1', ru: 'КПВ1' } },
+        { id: 'ppc1', points: PPC1, tone: 'ink', label: { en: 'PPC1', ru: 'PPC1' } },
         { id: 'arc-ba', points: ARC_BA, tone: 'alt', width: 4 },
         { id: 'arc-ac', points: ARC_AC, tone: 'policy', width: 4 },
       ],
@@ -78,19 +78,25 @@ const steps: Step[] = [
     title: { en: 'Outward shift', ru: 'Сдвиг кривой наружу' },
     text: {
       en: 'More resources or better technology shift the whole curve outwards, from PPC1 to PPC2. Output such as A2 (72 consumer, 96 capital goods) becomes possible.',
-      ru: 'Больше ресурсов или лучшая технология сдвигают всю кривую наружу: от КПВ1 к КПВ2. Становится возможным выпуск, например точка A2 (72 потребительских и 96 капитальных товара).',
+      ru: 'Больше ресурсов или лучшая технология сдвигают всю кривую наружу: от PPC1 к PPC2. Становится возможным выпуск, например точка A2 (72 потребительских и 96 капитальных товара).',
     },
     graph: {
       ...axes,
       curves: [
-        { id: 'ppc1', points: PPC1, tone: 'muted', dashed: true, label: { en: 'PPC1', ru: 'КПВ1' } },
+        { id: 'ppc1', points: PPC1, tone: 'muted', dashed: true, label: { en: 'PPC1', ru: 'PPC1' } },
         { id: 'ppc2', points: PPC2, tone: 'gain', width: 3 },
       ],
-      guides: [{ id: 'shift', from: [60, 80], to: [72, 96], tone: 'gain' }],
+      guides: [
+        { id: 'shift', from: [60, 80], to: [72, 96], tone: 'gain' },
+        // PPC2 ends on the right edge of the plot, where a curve label would be cut off, so its name is a guide of zero length:
+        // it draws no line, only the text 'PPC2' above the lower right part of the curve.
+        { id: 'ppc2-label', from: [108, 52.3], to: [108, 52.3], tone: 'gain', label: { en: 'PPC2', ru: 'PPC2' } },
+      ],
       marks: [
         { id: 'U', at: [40, 60], tone: 'loss', label: { en: 'U (idle)', ru: 'U (простой)' } },
-        { id: 'A', at: [60, 80], tone: 'muted', label: { en: 'A', ru: 'A' }, dx: 12, dy: 26 },
-        { id: 'A2', at: [72, 96], tone: 'gain', label: { en: 'A2 (PPC2)', ru: 'A2 (КПВ2)' } },
+        // The label of A sits left of the point, inside the curve, clear of the label of U (the Russian one is longer).
+        { id: 'A', at: [60, 80], tone: 'muted', label: { en: 'A', ru: 'A' }, dx: -22, dy: 8 },
+        { id: 'A2', at: [72, 96], tone: 'gain', label: { en: 'A2 (PPC2)', ru: 'A2 (PPC2)' } },
       ],
     },
   },

@@ -27,11 +27,12 @@ const curves: CurveSpec[] = [
 
 const baseLine: GuideSpec = { id: 'base', from: [0, 100], to: [4, 100], tone: 'muted' };
 
-// Permanent legend labels, placed where the three lines are clear of each other.
-const legend: MarkSpec[] = [
-  { id: 'l-px', at: [2, 125], tone: 'demand', label: { en: 'Px', ru: 'Px' }, dx: -6, dy: -9 },
-  { id: 'l-pm', at: [3, 120], tone: 'supply', label: { en: 'Pm', ru: 'Pm' }, dx: 6, dy: -7 },
-  { id: 'l-tot', at: [3, 91.7], tone: 'ink', label: { en: 'TOT', ru: 'TOT' }, dx: 6, dy: 14 },
+// Permanent names of the three lines, placed where the lines are clear of each other. Each name is a guide of zero length: it
+// draws no line and no dot, only the text, so it cannot be mistaken for the marker of the year in question.
+const legend: GuideSpec[] = [
+  { id: 'l-px', from: [1.86, 127.6], to: [1.86, 127.6], tone: 'demand', label: { en: 'Px', ru: 'Px' } },
+  { id: 'l-pm', from: [3.03, 121.3], to: [3.03, 121.3], tone: 'supply', label: { en: 'Pm', ru: 'Pm' } },
+  { id: 'l-tot', from: [3.03, 79.5], to: [3.03, 79.5], tone: 'ink', label: { en: 'TOT', ru: 'TOT' } },
 ];
 
 // The year in question: circles on the three lines and a dashed guide down to the axis.
@@ -47,7 +48,7 @@ function yearMarks(year: number): { marks: MarkSpec[]; guides: GuideSpec[] } {
 
 function stepGraph(year: number): GraphSpec {
   const { marks, guides } = yearMarks(year);
-  return { ...axes, curves, guides: [baseLine, ...guides], marks: [...legend, ...marks] };
+  return { ...axes, curves, guides: [baseLine, ...legend, ...guides], marks };
 }
 
 const steps: Step[] = [
