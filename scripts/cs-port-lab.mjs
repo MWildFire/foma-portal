@@ -1,20 +1,27 @@
 // Copies the FomaCS lesson site into public/cs-lab (served at /cs-lab/).
 // Removed on the way, so no school material reaches git: the teacher's official question cards, the banners that
 // point to them, and links to the school's private Google Site and Google Docs (the links carry a Google account index).
-// Usage: node scripts/cs-port-lab.mjs [path/to/FomaCS]
+// Usage: FOMACS_DIR=path/to/FomaCS node scripts/cs-port-lab.mjs [path/to/FomaCS]
 // The output is generated: change this script and rerun it instead of editing public/cs-lab by hand.
-// Our own changes live here too: asset edits (ASSET_EDITS), source corrections (CORRECTIONS) and the English lab
-// pages in scripts/cs-lab-overlay/pages (see pageFor). If a Russian source changes, its English page is not used
-// and the run exits with an error: translate the page again with scripts/cs-lab-bilingual.mjs.
-import { copyFileSync, existsSync, mkdirSync, readFileSync, readdirSync, rmSync, statSync, writeFileSync } from 'node:fs';
+// Portal-only edits live here: ASSET_EDITS, CORRECTIONS and the legacy bilingual pages.
+// R03 diagram fixes belong to FomaCS, including source-owned bilingual pages in .foma-port/pages.
+// A changed Russian source invalidates its translation before the generated lab is touched.
+import { existsSync, mkdirSync, readFileSync, readdirSync, rmSync, statSync, writeFileSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import { homedir } from 'node:os';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const source = path.resolve(process.argv[2] || path.join(homedir(), 'Projects', 'FomaCS'));
+const source = path.resolve(process.argv[2] || process.env.FOMACS_DIR || path.join(homedir(), 'Projects', 'FomaCS'));
 const target = path.join(root, 'public', 'cs-lab');
+// Refuse an old checkout before touching the last good generated lab.
+const marker = path.join(source, 'foma-port.json');
+let portVersion;
+try { portVersion = JSON.parse(readFileSync(marker, 'utf8')).portVersion; } catch { /* diagnosed below */ }
+if (portVersion !== 2) {
+  throw new Error('в FomaCS нет правок R03: слей ветку codex/foma-r03-lab (required portVersion: 2)');
+}
 
 // Banners that point to teacher material or to the school site are dropped as a whole.
 const BANNED_BANNER = [/sites\.google\.com/i, /docs\.google\.com/i, /Google Doc/i, /официальн/i, /экзамен-вопрос/i, /от преподавателя/i];
@@ -129,13 +136,13 @@ const OVERLAY_DIR = path.join(root, 'scripts', 'cs-lab-overlay', 'pages');
 const overlaysOn = process.env.CS_LAB_OVERLAY !== 'off';
 const sha256 = (text) => createHash('sha256').update(text).digest('hex');
 const pageFor = (rel, cleaned) => {
-  const overlay = path.join(OVERLAY_DIR, rel);
+  // R03 corrected bilingual pages belong to FomaCS, alongside their Russian originals.
+  const sourceOverlay = path.join(source, '.foma-port', 'pages', rel);
+  const overlay = existsSync(sourceOverlay) ? sourceOverlay : path.join(OVERLAY_DIR, rel);
   if (!overlaysOn || !existsSync(overlay)) return cleaned;
   const base = existsSync(`${overlay}.base`) ? readFileSync(`${overlay}.base`, 'utf8').trim() : '';
   if (base !== sha256(cleaned)) {
-    console.log(`  ${rel}: the Russian source changed, the English overlay is not used; translate the page again`);
-    process.exitCode = 1;
-    return cleaned;
+    throw new Error(`${rel}: the Russian source changed; update the bilingual overlay and its .base hash`);
   }
   console.log(`  ${rel}: English overlay`);
   return readFileSync(overlay, 'utf8');
@@ -214,8 +221,8 @@ function cleanHtml(html, rel) {
   return text;
 }
 
-rmSync(target, { recursive: true, force: true });
-mkdirSync(target, { recursive: true });
+// Prepare and validate every file before replacing any published lab files.
+const prepared = new Map();
 const files = listFiles(source);
 let cards = 0;
 for (const rel of files) {
@@ -224,26 +231,24 @@ for (const rel of files) {
     continue;
   }
   const from = path.join(source, rel);
-  const to = path.join(target, rel);
-  mkdirSync(path.dirname(to), { recursive: true });
   if (rel.endsWith('.html')) {
     const original = readFileSync(from, 'utf8');
     cards += (original.match(/<details class="question-card">/g) || []).length;
-    writeFileSync(to, pageFor(rel, cleanHtml(original, rel)), 'utf8');
+    prepared.set(rel, pageFor(rel, cleanHtml(original, rel)));
   } else {
     const edit = overlaysOn ? ASSET_EDITS.find((entry) => entry.file === rel) : undefined;
-    if (edit) writeFileSync(to, editAsset(readFileSync(from, 'utf8'), edit, rel), 'utf8');
-    else copyFileSync(from, to);
+    if (edit) prepared.set(rel, editAsset(readFileSync(from, 'utf8'), edit, rel));
+    else prepared.set(rel, readFileSync(from));
   }
 }
-console.log(`copied ${files.length} files from ${source} to ${path.relative(root, target)}; question cards removed: ${cards}`);
+console.log(`prepared ${prepared.size} files from ${source}; question cards removed: ${cards}`);
 
 // Residual check: nothing that points to school documents or to the teacher's questions may remain.
 // "Google Docs" as a product name in a list is fine; a quoted teacher document title is not.
 const residual = /docs\.google|sites\.google|authuser=|официальн|от преподавателя|Google Doc\s*[«"“]/i;
-const leftovers = files
-  .filter((rel) => /\.(html|js|css)$/.test(rel) && !DROPPED_PAGES.has(rel))
-  .flatMap((rel) => readFileSync(path.join(target, rel), 'utf8').split('\n')
+const leftovers = [...prepared.keys()]
+  .filter((rel) => /\.(html|js|css)$/.test(rel))
+  .flatMap((rel) => prepared.get(rel).toString().split('\n')
     .map((line, index) => ({ rel, line: index + 1, text: line.trim() }))
     .filter((entry) => residual.test(entry.text)));
 if (leftovers.length > 0) {
@@ -252,4 +257,11 @@ if (leftovers.length > 0) {
   process.exitCode = 1;
 } else {
   console.log('residual check: clean');
+  rmSync(target, { recursive: true, force: true });
+  for (const [rel, content] of prepared) {
+    const to = path.join(target, rel);
+    mkdirSync(path.dirname(to), { recursive: true });
+    writeFileSync(to, content);
+  }
+  console.log(`copied ${prepared.size} files to ${path.relative(root, target)}`);
 }
