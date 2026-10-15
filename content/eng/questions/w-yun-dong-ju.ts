@@ -2,69 +2,75 @@ import type { Question } from '../../../src/contract/types';
 
 export const questions: Question[] = [
   {
-    id: 'w-yun-dong-ju-1',
-    subject: 'eng',
-    topicIds: ['w-yun-dong-ju'],
-    paper: 'P2',
-    marks: 3,
-    command: 'Identify',
-    prompt: {
-      en: `Identify two moments, in two different poems, where the speaker sees himself or is judged. For each moment, give the poem, the stanza and the line, and say what the speaker comes to know about himself.`,
-      ru: `Укажите два момента в двух разных стихотворениях, где говорящий видит себя или его судят. Для каждого момента назовите стихотворение, строфу и строку и скажите, что говорящий узнаёт о себе.`,
+    "id": "w-yun-dong-ju-1",
+    "subject": "eng",
+    "topicIds": [
+      "w-yun-dong-ju"
+    ],
+    "paper": "P2",
+    "marks": 3,
+    "command": "Identify",
+    "prompt": {
+      "en": "Identify one image of a divided self in The Road and one in Self-Portrait. Give K and C locators and explain one difference.",
+      "ru": "Назовите по одному образу раздвоенного «я» в The Road и Self-Portrait. Укажите ссылки K и C и объясните одно различие."
     },
-    markscheme: {
-      en: `1 mark: names a moment in Self-Portrait where the speaker meets "that man" in the well, with stanza and line, such as stanza 2, line 2 (he hates the man and turns back) or stanza 3, line 1 (he pities him). 1 mark: names a second moment in a different poem, with stanza and line, such as Confession stanza 5, lines 2–3 (the back of a sad person appears in the mirror) or Confession stanza 1, lines 1–2 (the face remains in the bronze mirror). 1 mark: states what the speaker comes to know: the man he hates and pities is his own reflection, and in Confession he sees himself only from behind, as a sad figure.`,
-      ru: `1 балл: назван момент в Self-Portrait, где говорящий встречает «того человека» у колодца, со строфой и строкой, например строфа 2, строка 2 (он ненавидит человека и поворачивает назад) или строфа 3, строка 1 (ему его жаль). 1 балл: назван второй момент в другом стихотворении, со строфой и строкой, например Confession, строфа 5, строки 2–3 (в зеркале появляется спина грустного человека) или Confession, строфа 1, строки 1–2 (лицо остаётся в бронзовом зеркале). 1 балл: сказано, что говорящий узнаёт: человек, которого он ненавидит и жалеет, — его собственное отражение, а в Confession он видит себя только со спины, как грустную фигуру.`,
+    "markscheme": {
+      "en": "1: The Road K14 → C14, the self beyond the wall. 1: Self-Portrait K3 → C6 or K8 → C12–14, the man in the well. 1: explains a difference, such as inaccessible self versus visible but emotionally estranged reflection. Accept equivalent accurate references.",
+      "ru": "1: The Road K14 → C14, «я» за стеной. 1: Self-Portrait K3 → C6 либо K8 → C12–14, человек в колодце. 1: объяснено различие, например недоступное «я» и видимое, но эмоционально отчуждённое отражение. Принимайте другие точные ссылки."
     },
-    model: {
-      en: `In Self-Portrait the speaker looks into a well and sees "a man" there (stanza 2, line 1). He hates him and turns back (stanza 2, line 2), but on the way back he pities him (stanza 3, line 1). He comes to know that the man he judges is his own reflection, so hatred and pity belong to the same self. In Confession the speaker looks at his face in a rusted bronze mirror (stanza 1, lines 1–2). Later the mirror shows "the back of a sad person walking alone" (stanza 5, lines 2–3). He comes to know that he cannot see his own face, only a figure from behind, and that this figure is sad.`,
-      ru: `В Self-Portrait говорящий заглядывает в колодец и видит там «человека» (строфа 2, строка 1). Он ненавидит его и поворачивает назад (строфа 2, строка 2), но по дороге назад ему становится его жаль (строфа 3, строка 1). Он понимает, что человек, которого он судит, — его собственное отражение, поэтому ненависть и жалость относятся к одному и тому же «я». В Confession говорящий смотрит на своё лицо в ржавом бронзовом зеркале (строфа 1, строки 1–2). Позже зеркало показывает «спину грустного человека, идущего одного» (строфа 5, строки 2–3). Он понимает, что не видит собственного лица, а видит лишь фигуру со спины, и что эта фигура печальна.`,
+    "model": {
+      "en": "The Road locates part of the self beyond a wall (K14 → C14), so the search continues without recovery. Self-Portrait places a man in the well (K3 → C6); the observer can see him but cannot settle his feelings towards him. One image separates through an obstacle, the other through perspective.",
+      "ru": "The Road помещает часть «я» за стеной (K14 → C14), поэтому поиск продолжается без обретения. Self-Portrait показывает человека в колодце (K3 → C6): наблюдатель видит его, но не может определиться с отношением. Один образ разделяет преградой, другой — перспективой."
     },
-    origin: 'original',
-    minutes: 5,
+    "origin": "original",
+    "minutes": 5
   },
   {
-    id: 'w-yun-dong-ju-2',
-    subject: 'eng',
-    topicIds: ['w-yun-dong-ju'],
-    paper: 'P2',
-    marks: 5,
-    command: 'Analyse',
-    prompt: {
-      en: `Analyse how the repetition in Self-Portrait (stanzas 2–4) builds a change in the speaker's feeling towards the man in the well. Give the stanza and line for each reference.`,
-      ru: `Проанализируйте, как повтор в Self-Portrait (строфы 2–4) создаёт изменение чувства говорящего к человеку у колодца. Для каждой ссылки укажите строфу и строку.`,
+    "id": "w-yun-dong-ju-2",
+    "subject": "eng",
+    "topicIds": [
+      "w-yun-dong-ju"
+    ],
+    "paper": "P2",
+    "marks": 5,
+    "command": "Analyse",
+    "prompt": {
+      "en": "Analyse how departure and return in Self-Portrait change judgement without changing the reflected man. Use the line scheme of this topic.",
+      "ru": "Проанализируйте, как уходы и возвращения в Self-Portrait меняют оценку, не меняя отражённого человека. Используйте нумерацию этой темы."
     },
-    markscheme: {
-      en: `1 mark: identifies the repeated action of hating the man and turning back (stanza 2, line 2; stanza 4, line 1) as the pattern that structures stanzas 2–4. 1 mark: identifies the shift to pity while going back (stanza 3, line 1). 1 mark: explains that the image stays the same ("the man is still there, just as he was", stanza 3, line 2), so the change lies in the speaker's feeling and not in the water. 1 mark: explains that stanza 4 ends in affection ("that man becomes dear to me", stanza 4, line 2), so the repetition moves the feeling from hate to affection rather than to a settled view. 1 mark: evaluates the effect on the reader, who feels the back-and-forth of self-judgement, so the speaker's identity remains unsettled.`,
-      ru: `1 балл: назван повторяющийся ход «ненавидит человека и поворачивает назад» (строфа 2, строка 2; строфа 4, строка 1) как схема, на которой держатся строфы 2–4. 1 балл: назван сдвиг к жалости на обратном пути (строфа 3, строка 1). 1 балл: объяснено, что образ остаётся тем же («человек всё ещё там, таким же, каким был», строфа 3, строка 2), поэтому меняется чувство говорящего, а не вода. 1 балл: объяснено, что строфа 4 заканчивается привязанностью («тот человек становится мне дорог», строфа 4, строка 2), так что повтор ведёт чувство от ненависти к привязанности, а не к устоявшемуся взгляду. 1 балл: оценён эффект на читателя, который ощущает качание самосуда; поэтому идентичность говорящего остаётся неустойчивой.`,
+    "markscheme": {
+      "en": "1: hatred and departure, K4 → C7. 1: pity and return, K5 → C8–9. 1: renewed hatred then longing, K6–7 → C10–11. 1: connects repetition to the unchanged image, not a physical transformation. 1: evaluates the final memory simile, K8 → C12–14, as unresolved distance. Do not require an explicit first-person pronoun: the class translation uses he.",
+      "ru": "1: ненависть и уход, K4 → C7. 1: жалость и возвращение, K5 → C8–9. 1: новая ненависть, затем тоска, K6–7 → C10–11. 1: повтор связан с неизменностью отражения, а не физическим превращением. 1: оценён финальный образ воспоминания, K8 → C12–14, как неразрешённая дистанция. Не требуйте местоимения первого лица: перевод класса использует he."
     },
-    model: {
-      en: `The repetition builds a movement of feeling. In stanza 2 the speaker hates the man in the well and turns back (stanza 2, line 2). Going back in stanza 3, he pities him (stanza 3, line 1), but when he looks again the man is still there, just as he was (stanza 3, line 2). The same action returns in stanza 4: he hates him again and turns back (stanza 4, line 1), and then the return brings affection, because the man becomes dear to him (stanza 4, line 2). The image never changes, only the feeling does, and each return shows a new feeling. The reader feels this back-and-forth, so the speaker's self-judgement never settles.`,
-      ru: `Повтор создаёт движение чувства. В строфе 2 говорящий ненавидит человека у колодца и поворачивает назад (строфа 2, строка 2). На обратном пути в строфе 3 ему становится его жаль (строфа 3, строка 1), но когда он смотрит снова, человек всё ещё там, таким же, каким был (строфа 3, строка 2). То же действие возвращается в строфе 4: он снова ненавидит его и поворачивает назад (строфа 4, строка 1), а затем возвращение приносит привязанность: человек становится ему дорог (строфа 4, строка 2). Образ не меняется, меняется только чувство, и каждое возвращение показывает новое чувство. Читатель ощущает это качание, поэтому самосуд говорящего так и не успокаивается.`,
+    "model": {
+      "en": "The first departure follows hatred (K4 → C7), but distance brings pity and a return (K5 → C8–9). The man is unchanged. Another departure leads to longing (K6–7 → C10–11), so repetition changes the observer rather than the image. The final comparison with memory (K8 → C12–14) keeps the figure emotionally distant; it does not establish permanent reconciliation.",
+      "ru": "Первый уход вызван ненавистью (K4 → C7), но расстояние приносит жалость и возвращение (K5 → C8–9). Человек не изменился. Ещё один уход ведёт к тоске (K6–7 → C10–11), поэтому повтор меняет наблюдателя, а не образ. Финальное сравнение с воспоминанием (K8 → C12–14) сохраняет эмоциональную дистанцию и не доказывает окончательного примирения."
     },
-    origin: 'original',
-    minutes: 12,
+    "origin": "original",
+    "minutes": 12
   },
   {
-    id: 'w-yun-dong-ju-3',
-    subject: 'eng',
-    topicIds: ['w-yun-dong-ju'],
-    paper: 'P2',
-    marks: 5,
-    command: 'Evaluate',
-    prompt: {
-      en: `Evaluate the extent to which Confession presents identity as shaped by the judgement of others. Refer to stanzas 1–5, and give the stanza and line for each reference.`,
-      ru: `Оцените, в какой степени Confession показывает идентичность, сформированную суждением других людей. Опирайтесь на строфы 1–5 и для каждой ссылки укажите строфу и строку.`,
+    "id": "w-yun-dong-ju-3",
+    "subject": "eng",
+    "topicIds": [
+      "w-yun-dong-ju"
+    ],
+    "paper": "P2",
+    "marks": 5,
+    "command": "Evaluate",
+    "prompt": {
+      "en": "Evaluate the claim that The Liver simply praises obedience. Use the eagle and the turtle, with line references.",
+      "ru": "Оцените утверждение, что The Liver просто восхваляет подчинение. Используйте образы орла и черепахи со ссылками на строки."
     },
-    markscheme: {
-      en: `1 mark: a judgement of degree, such as "to a limited extent", rather than a simple yes or no. 1 mark: shows that much of the judgement is the speaker's own: "why is it so shameful?" (stanza 1, line 4) and "why did I make such a shameful confession?" (stanza 3, line 4). 1 mark: identifies the mirror as the nearest thing to an outside judge (stanza 1, lines 1–2; stanza 4), and notes that it shows rather than speaks. 1 mark: explains that the "relic of some dynasty" (stanza 1, line 3) places judgement in history, not in a person who judges the speaker. 1 mark: evaluates the limit and the effect: no other person speaks in the poem, and the reader sees a sad figure from behind (stanza 5, lines 2–3), so identity is shaped mainly by self-judgement and by what the speaker cannot see of himself.`,
-      ru: `1 балл: суждение о степени, например «в ограниченной степени», а не простое «да» или «нет». 1 балл: показано, что большая часть суждения принадлежит самому говорящему: «почему оно так постыдно?» (строфа 1, строка 4) и «зачем я сделал такое постыдное признание?» (строфа 3, строка 4). 1 балл: зеркало названо ближайшим подобием внешнего судьи (строфа 1, строки 1–2; строфа 4), и отмечено, что оно показывает, а не говорит. 1 балл: объяснено, что «реликвия какой-то династии» (строфа 1, строка 3) переносит суд в историю, а не на человека, который судит говорящего. 1 балл: оценены ограничение и эффект: в стихотворении никто другой не говорит, а читатель видит грустную фигуру со спины (строфа 5, строки 2–3), поэтому идентичность формируется в основном самосудом и тем, чего говорящий не видит в себе.`,
+    "markscheme": {
+      "en": "1: qualified judgement. 1: guarding the liver, K4 → C4. 1: inviting the eagle, K5–8 → C5–8. 1: refusing the turtle, K9–10 → C9–11. 1: explains the paradox as selective commitment, preserving ambiguity rather than assigning each animal a fixed political identity.",
+      "ru": "1: вывод с оговорками. 1: охрана печени, K4 → C4. 1: приглашение орлу, K5–8 → C5–8. 1: отказ черепахе, K9–10 → C9–11. 1: парадокс объяснён как избирательное обязательство с сохранением неоднозначности, без жёсткого политического шифра для каждого животного."
     },
-    model: {
-      en: `To a limited extent. Most of the judgement belongs to the speaker. He asks why his face is so shameful (stanza 1, line 4) and why he made such a shameful confession at a young age (stanza 3, line 4). No other person speaks. The mirror is the nearest outside judge, but it only shows: the speaker polishes it with his palms and soles (stanza 4) and sees "the back of a sad person" (stanza 5, lines 2–3). The face is also "a relic of some dynasty" (stanza 1, line 3), so the past shapes the self, yet no one in the poem judges him. Others shape his identity only indirectly, through history and an image he cannot control.`,
-      ru: `В ограниченной степени. Большая часть суждения в Confession принадлежит самому говорящему. Он спрашивает, почему его лицо так постыдно (строфа 1, строка 4), и почему в юном возрасте сделал такое постыдное признание (строфа 3, строка 4). Никто другой не говорит. Зеркало — ближайшее подобие внешнего судьи, но оно только показывает: говорящий протирает его ладонями и подошвами (строфа 4) и видит «спину грустного человека» (строфа 5, строки 2–3). Лицо также названо «реликвией какой-то династии» (строфа 1, строка 3), поэтому прошлое формирует «я», но в стихотворении никто не назван судьёй. Другие люди влияют на идентичность лишь косвенно: через историю и образ, которым он не может управлять.`,
+    "model": {
+      "en": "The claim is too broad. Guarding the liver (K4 → C4) conflicts with inviting the eagle to consume it (K5–8 → C5–8), creating a paradox of protection and chosen loss. The refusal of the turtle (K9–10 → C9–11) shows that the speaker can reject a demand. The poem tests which cost to accept, rather than making every obedience virtuous.",
+      "ru": "Утверждение слишком широко. Охрана печени (K4 → C4) противоречит приглашению орлу пожирать её (K5–8 → C5–8), создавая парадокс защиты и выбранной утраты. Отказ черепахе (K9–10 → C9–11) показывает способность отвергнуть требование. Стихотворение испытывает выбор принимаемой цены, а не объявляет любое подчинение добродетелью."
     },
-    origin: 'original',
-    minutes: 12,
-  },
+    "origin": "original",
+    "minutes": 12
+  }
 ];
