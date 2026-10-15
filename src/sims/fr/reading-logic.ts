@@ -33,8 +33,7 @@ export type AnswerKind = 'truefalse' | 'letter' | 'english' | 'french' | 'none';
 export interface PromptOption { letter: string; label: string }
 export interface SplitPrompt { stem: string; options: PromptOption[] }
 
-// The timed run is the reading paper of data/exams.json (fr-p2r). Its length comes from setAllowanceMinutes: the printed
-// time, or the school's figure with extra time (accessMinutes: 45 → 56). No minutes are typed in here.
+// The reading run uses the printed duration from data/exams.json (fr-p2r).
 export const READING_EXAM_ID = 'fr-p2r';
 export const TRUE_FALSE = ['vrai', 'faux', 'non mentionné'];
 
@@ -43,14 +42,13 @@ export function readingExam(exams: ExamsFile): ExamPaper | undefined {
 }
 
 // The minutes of a timed run; 0 when data/exams.json has no reading paper.
-export function timedRunMinutes(exams: ExamsFile, extraTime: boolean): number {
+export function timedRunMinutes(exams: ExamsFile): number {
   const paper = readingExam(exams);
   if (!paper) return 0;
   return setAllowanceMinutes({
     subject: paper.subject,
     set: { paper: paper.paper, part: paper.part, minutes: paper.minutes },
     exams,
-    extraTime,
   });
 }
 

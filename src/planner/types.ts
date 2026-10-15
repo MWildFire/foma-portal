@@ -24,16 +24,14 @@ export interface ExamPaper {
 }
 
 export interface ExamAccess {
-  extraTime: number;              // 0.25 = 25% on top of the printed length
+  typing: boolean;
   room: string;                   // the student's room as the school gives it ('tbd' until it is known)
-  noExtraTime: string[];          // ids of papers without extra time (the French listening)
 }
 
 export interface ExamsFile {
   timezone: string;
   defaultRoom: string;
   papers: ExamPaper[];            // sorted by date, then start time
-  accessMinutes: Record<string, number>;   // paper minutes -> minutes with extra time (the school's table)
   access: ExamAccess;
 }
 

@@ -14,7 +14,6 @@ import './practice.css';
 //
 // It returns two elements: the clock (this one sticks to the top of the screen while the questions scroll under
 // it, so it is kept small) and the buttons under it. The parent gives it a `key` made of the set and the allowed
-// minutes, so a different set or a changed extra-time setting starts a fresh clock. The state is saved in
 // localStorage under `storageKey`, so a reload does not lose a running paper.
 export function Clock({ minutes, storageKey }: { minutes: number; storageKey: string }) {
   const { t } = useTranslation('practice');

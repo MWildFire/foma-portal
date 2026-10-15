@@ -38,8 +38,8 @@ test('the diagnostic block links to the practice set, with the printed minutes, 
   assert.deepEqual(block.title, quotas.days[0].timed.find(item => item.set === SET).title);
 });
 
-test('with extra time the diagnostic runs 56 minutes, the school table value for 45', () => {
-  assert.equal(diagnosticBlock(withExtraTime).minutes, 56);
+test('legacy flag leaves the diagnostic at 45 minutes', () => {
+  assert.equal(diagnosticBlock(withExtraTime).minutes, 45);
 });
 
 test('a timed set never scales with the load of the day: the diagnostic keeps its 45 minutes at 75', () => {

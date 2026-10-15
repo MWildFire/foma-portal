@@ -76,7 +76,6 @@ export function PastPapersPage() {
                   paper={paper}
                   topics={pack.topics}
                   progress={state.pastPapers[key]}
-                  extraTime={state.settings.accessArrangements.extraTime}
                   onScore={(itemIndex, score) => setScore(key, itemIndex, score)}
                   onSolved={date => setSolved(key, date)}
                 />

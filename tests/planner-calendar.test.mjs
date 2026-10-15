@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import {
-  eveExams, examEndMs, examStartMs, examsOn, extendedMinutes, lastExamDate, lastExamOverall, parseExams, parseQuotas, sittingPapers,
+  eveExams, examEndMs, examStartMs, examsOn, lastExamDate, lastExamOverall, parseExams, parseQuotas, sittingPapers,
 } from '../src/planner/calendar.ts';
 import { dubaiEpoch } from '../src/planner/dates.ts';
 
@@ -37,19 +37,16 @@ test('exams are looked up by day, and the eve of an exam is the day before it', 
   assert.deepEqual(sittingPapers(exams, 'geo', '2026-10-27').map(p => p.paper), ['P2']);
 });
 
-test('extra time follows the school table and falls back to 25% rounded', () => {
-  assert.equal(extendedMinutes(exams, 120), 150);
-  assert.equal(extendedMinutes(exams, 75), 94);
-  assert.equal(extendedMinutes(exams, 45), 56);
-  assert.equal(extendedMinutes(exams, 80), 100); // not in the table: 80 * 1.25
-  assert.equal(extendedMinutes({ ...exams, accessMinutes: {} }, 90), 113); // 112.5 rounds up
+test('schedule has typing and no legacy duration table',()=>{
+ assert.deepEqual(exams.access,{room:'tbd',typing:true});
+ assert.equal(exams.accessMinutes,undefined);
 });
 
 test('exam start and end are Dubai instants', () => {
   const geoP1 = exams.papers.find(p => p.id === 'geo-p1');
   assert.equal(examStartMs(geoP1), dubaiEpoch('2026-10-26', '13:30'));
   assert.equal(examEndMs(geoP1, exams, false), dubaiEpoch('2026-10-26', '15:00'));
-  assert.equal(examEndMs(geoP1, exams, true), dubaiEpoch('2026-10-26', '13:30') + 113 * 60_000);
+  assert.equal(examEndMs(geoP1, exams, false), dubaiEpoch('2026-10-26', '13:30') + 90 * 60_000);
 });
 
 test('plan-quotas.json is parsed: one entry per day with the subjects in file order', () => {

@@ -12,7 +12,7 @@ import type { Lang } from '../contract/types';
 import { UPDATE_EVENT, WEEKDAYS, type GlobalState, type Weekday } from '../lib/storage';
 import { applyProgress, collectProgress, encodeProgress } from '../lib/transfer';
 import { EXAM_ROOMS, accessChoiceOf } from '../planner/access';
-import { setAccessArrangement, setDailyLoad, setExamRoom } from '../planner/actions';
+import { setDailyLoad, setExamRoom } from '../planner/actions';
 import { examStartClock } from '../planner/calendar';
 import { EXAMS } from '../planner/data';
 import { capitalize, formatDate, formatInstant, weekdayName } from '../planner/format';
@@ -59,27 +59,12 @@ function AccessSection({ state, update }: { state: GlobalState; update: Update }
   const { t: ta } = useTranslation('access');
   const { t: tp } = useTranslation('planner');
   const lang: Lang = i18n.language.startsWith('ru') ? 'ru' : 'en';
-  const { extraTime, room } = accessChoiceOf(state.settings.accessArrangements);
+  const { room } = accessChoiceOf(state.settings.accessArrangements);
   const infos = useMemo(() => subjectInfos(lang), [lang]);
   return (
     <Section id="settings-access" title={t('access.title')}>
       <p className={`mt-1 text-sm ${MUTED}`}>{t('access.intro')}</p>
 
-      <label className="mt-2 flex min-h-[44px] cursor-pointer items-start gap-3 py-2">
-        <input
-          type="checkbox"
-          checked={extraTime}
-          onChange={event => {
-            const value = event.target.checked;
-            update(current => setAccessArrangement(current, 'extraTime', value));
-          }}
-          className="mt-1 h-5 w-5 shrink-0 accent-[var(--color-accent)]"
-        />
-        <span className="min-w-0">
-          <span className="block font-medium">{t('access.extraTime.label')}</span>
-          <span className={`block text-sm ${MUTED}`}>{t('access.extraTime.hint')}</span>
-        </span>
-      </label>
 
       <fieldset className="mt-3 min-w-0 border-0 p-0">
         <legend className="font-medium">{ta('room.label')}</legend>

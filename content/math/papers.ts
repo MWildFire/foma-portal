@@ -134,7 +134,7 @@ export const papers: PaperGuide[] = [
         id: 'p3-task',
         title: { en: 'One task, 28 marks', ru: 'Одно задание, 28 баллов' },
         questionIds: ['q-p3-06'],
-        minutes: 45,
+        minutes: 39,
       },
       {
         id: 'p3-full',

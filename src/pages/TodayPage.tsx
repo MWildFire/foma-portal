@@ -42,8 +42,8 @@ function TodayBody({ plan, state, update, today, lang }: PlanReady) {
   const { t: tp } = useTranslation('planner');
   usePageTitle(tc('nav.today'), tc('brand'));
   useScrollToTop();
-  const { extraTime, separateRoom } = state.settings.accessArrangements;
-  const { next } = useExamCountdown(extraTime, separateRoom);
+  const { separateRoom } = state.settings.accessArrangements;
+  const { next } = useExamCountdown(separateRoom);
   const timer = useStudyTimer();
   const infos = useMemo(() => subjectInfos(lang), [lang]);
 
@@ -91,7 +91,6 @@ function TodayBody({ plan, state, update, today, lang }: PlanReady) {
     for (const block of first.blocks) if (block.subject) minutes.set(block.subject, (minutes.get(block.subject) ?? 0) + block.minutes);
     return [...minutes].map(([subject, total]) => `${subjectInfo(infos, subject).name} ${formatMinutes(tp, total)}`).join(' · ');
   }, [plan, infos, tp]);
-  const hasTimed = day?.blocks.some(b => b.kind === 'timed') ?? false;
   const allDone = day !== null && day.minutes > 0 && day.doneMinutes >= day.minutes;
 
   return (
@@ -176,7 +175,6 @@ function TodayBody({ plan, state, update, today, lang }: PlanReady) {
               </Note>
             )}
             {day.moved > 0 && <Note>{t('notes.moved', { time: formatMinutes(tp, day.moved) })}</Note>}
-            {extraTime && hasTimed && <Note>{t('notes.extraTime')}</Note>}
             {day.kind === 'rest' && <Note>{t('empty.rest')}</Note>}
           </div>
 

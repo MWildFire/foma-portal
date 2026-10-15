@@ -1,9 +1,6 @@
 {
-  "extra": {
-    "none": "Extra time does not apply to listening. The set lasts {{base}} minutes."
-  },
   "typing": {
-    "hint": "Practise typing your answer: in the exam you type (access arrangement: typing). No extra time."
+    "hint": "Practise typing your answer: in the exam you type (access arrangement: typing)."
   },
   "listening": {
     "hint": "Each recording plays twice, with a pause between the plays, as in the exam. Repeat plays the current recording again from the start.",
