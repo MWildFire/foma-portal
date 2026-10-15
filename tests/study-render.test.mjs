@@ -148,6 +148,16 @@ const inOrder = (html, first, second) => html.indexOf(first) !== -1 && html.inde
 
 // ---- practice
 
+test('practice results count only questions in the selected mock scope',async()=>{
+ const p=pack();p.topics[1].inMockScope='no';
+ const state={questions:{'geo/q1':{rating:'right',at:'2026-10-14'},'geo/q2':{rating:'wrong',at:'2026-10-14'}}};
+ const html=await view('PracticeView',{pack:p},'/s/geo/practice',{state});
+ assert.match(html,/<dt>Questions<\/dt><dd>2<\/dd>/);
+ assert.match(html,/<dt>Right<\/dt><dd>1<\/dd>/);
+ assert.match(html,/<dt>Wrong<\/dt><dd>0<\/dd>/);
+ assert.match(html,/<dt>Not rated yet<\/dt><dd>1<\/dd>/);
+});
+
 test('practice, example subject: the questions are shown and the markscheme is hidden', async () => {
   const html = await page('PracticePage', '/s/:subject/practice', '/s/_example/practice');
   assert.ok(example.questions.length > 0, 'the example subject has questions');

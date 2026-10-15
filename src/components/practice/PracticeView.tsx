@@ -109,7 +109,7 @@ export function PracticeView({ pack, tracks = NO_TRACKS }: { pack: SubjectPack; 
     setSnapshot({ key: snapshotKey, ids: redoIds });
   }
   const parts = useMemo(() => splitRedo(filtered, redoIds), [filtered, redoIds]);
-  const counts = ratingCounts(subject, pack.questions, progress);
+  const counts = ratingCounts(subject, scopeQuestions, progress);
 
   const topicTitle = useCallback((id: string): string => {
     const topic = topicIndex.get(id);
