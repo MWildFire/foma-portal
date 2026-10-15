@@ -1,0 +1,72 @@
+{
+  "checks": [
+    {
+      "question": "mock-hl-negative-consumption",
+      "fn": "triangle",
+      "args": {
+        "base": 4,
+        "height": 6
+      },
+      "roles": {
+        "base": "4 thousand units",
+        "height": "AED 6 per unit"
+      }
+    },
+    {
+      "question": "mock-hl-positive-production",
+      "fn": "triangle",
+      "args": {
+        "base": 5,
+        "height": 8
+      },
+      "roles": {
+        "base": "5 thousand units",
+        "height": "AED 8 per unit"
+      }
+    },
+    {
+      "question": "mock-hl-positive-consumption",
+      "fn": "triangle",
+      "args": {
+        "base": 6,
+        "height": 4
+      },
+      "roles": {
+        "base": "6 thousand units",
+        "height": "AED 4 per unit"
+      }
+    },
+    {
+      "question": "mock-hl-indirect-tax",
+      "fn": "tax_inclusive",
+      "args": {
+        "expenditure": 105,
+        "rate": 5
+      },
+      "roles": {
+        "expenditure": "AED 105 including",
+        "rate": "5% indirect tax"
+      }
+    },
+    {
+      "question": "mock-hl-tax-rates",
+      "fn": "two_band_tax",
+      "args": {
+        "first_band": 20000,
+        "first_rate": 10,
+        "second_band": 10000,
+        "second_rate": 20
+      },
+      "roles": {
+        "first_band": "next AED 20000",
+        "first_rate": "at 10%",
+        "second_band": "remaining AED 10000",
+        "second_rate": "at 20%"
+      },
+      "expect_in": [
+        "markscheme.en",
+        "markscheme.ru"
+      ]
+    }
+  ]
+}

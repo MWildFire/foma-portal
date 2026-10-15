@@ -5,11 +5,11 @@ const topic: TopicMeta = {
   subject: 'econ',
   code: '4.7',
   title: { en: 'Sustainable development', ru: 'Устойчивое развитие' },
-  papers: ['P1', 'P2', 'P3'],
+  papers: ['P2', 'P3'],
   order: 46,
   minutes: 40,
   priority: 2,
-  inMockScope: 'unknown',
+  inMockScope: 'no',
   outcomes: [
     { en: 'I can define sustainable development and explain its economic, social and environmental dimensions', ru: 'Могу определить устойчивое развитие и объяснить его экономическое, социальное и экологическое измерения' },
     { en: 'I can explain why environmental damage is a market failure and how carbon pricing corrects it', ru: 'Могу объяснить, почему экологический ущерб — провал рынка и как углеродная цена его исправляет' },

@@ -5,7 +5,7 @@ const topic: TopicMeta = {
   subject: 'econ',
   code: '2.11',
   title: { en: 'Monopoly and natural monopoly', ru: 'Монополия и естественная монополия (natural monopoly)' },
-  papers: ['P1', 'P2', 'P3'],
+  papers: ['P2', 'P3'],
   hl: true,
   order: 22,
   minutes: 50,

@@ -17,7 +17,7 @@ const topic: TopicMeta = {
     { en: 'I can draw and explain the short-run and long-run Phillips curve', ru: 'Могу нарисовать и объяснить краткосрочную и долгосрочную кривую Филлипса' },
     { en: 'I can explain the trade-offs between macroeconomic objectives', ru: 'Могу объяснить компромиссы между макроэкономическими целями' },
   ],
-  termIds: [
+  termIds: ['economic-growth', 'disinflation', 'deflation', 'seasonal-unemployment', 
     'consumer-price-index',
     'inflation',
     'demand-pull-inflation',

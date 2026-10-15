@@ -5,7 +5,7 @@ const topic: TopicMeta = {
   subject: 'econ',
   code: '2.5',
   title: { en: 'Price elasticity of demand', ru: 'Ценовая эластичность спроса' },
-  papers: ['P1', 'P2', 'P3'],
+  papers: ['P2', 'P3'],
   order: 14,
   minutes: 50,
   priority: 1,

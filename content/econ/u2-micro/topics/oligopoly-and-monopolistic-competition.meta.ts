@@ -5,7 +5,7 @@ const topic: TopicMeta = {
   subject: 'econ',
   code: '2.11',
   title: { en: 'Oligopoly and monopolistic competition', ru: 'Олигополия и монополистическая конкуренция' },
-  papers: ['P1', 'P2', 'P3'],
+  papers: ['P2', 'P3'],
   hl: true,
   order: 23,
   minutes: 50,

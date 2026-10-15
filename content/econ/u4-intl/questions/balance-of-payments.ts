@@ -1,8 +1,9 @@
 import type { Question } from '../../../../src/contract/types';
 
-export const questions: Question[] = [
+export const questions: (Question & { inMockScope?: 'yes' | 'no' })[] = [
   {
     id: 'econ-balance-of-payments-01',
+    inMockScope: 'no',
     subject: 'econ',
     topicIds: ['balance-of-payments'],
     paper: 'P2',
@@ -22,6 +23,7 @@ export const questions: Question[] = [
   },
   {
     id: 'econ-balance-of-payments-02',
+    inMockScope: 'no',
     subject: 'econ',
     topicIds: ['balance-of-payments'],
     paper: 'P2',
@@ -41,6 +43,7 @@ export const questions: Question[] = [
   },
   {
     id: 'econ-balance-of-payments-03',
+    inMockScope: 'no',
     subject: 'econ',
     topicIds: ['balance-of-payments'],
     paper: 'P2',
@@ -60,6 +63,7 @@ export const questions: Question[] = [
   },
   {
     id: 'econ-balance-of-payments-04',
+    inMockScope: 'no',
     subject: 'econ',
     topicIds: ['balance-of-payments'],
     paper: 'P2',
@@ -79,6 +83,7 @@ export const questions: Question[] = [
   },
   {
     id: 'econ-balance-of-payments-05',
+    inMockScope: 'no',
     subject: 'econ',
     topicIds: ['balance-of-payments'],
     paper: 'P2',
@@ -98,6 +103,7 @@ export const questions: Question[] = [
   },
   {
     id: 'econ-balance-of-payments-06',
+    inMockScope: 'no',
     subject: 'econ',
     topicIds: ['balance-of-payments'],
     paper: 'P1',
@@ -116,6 +122,7 @@ export const questions: Question[] = [
   },
   {
     id: 'econ-balance-of-payments-07',
+    inMockScope: 'no',
     subject: 'econ',
     topicIds: ['balance-of-payments'],
     paper: 'P1',
@@ -134,6 +141,7 @@ export const questions: Question[] = [
   },
   {
     id: 'econ-balance-of-payments-08',
+    inMockScope: 'no',
     subject: 'econ',
     topicIds: ['balance-of-payments'],
     paper: 'P1',

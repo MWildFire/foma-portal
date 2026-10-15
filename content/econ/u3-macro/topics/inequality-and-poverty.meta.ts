@@ -16,7 +16,7 @@ const topic: TopicMeta = {
     { en: 'I can distinguish absolute poverty from relative poverty', ru: 'Могу различать абсолютную и относительную бедность' },
     { en: 'I can evaluate policies that reduce inequality, including their trade-offs with efficiency', ru: 'Могу оценивать меры по снижению неравенства, включая их компромисс с эффективностью' },
   ],
-  termIds: [
+  termIds: ['progressive-tax', 'proportional-tax', 'regressive-tax', 'average-tax-rate', 'indirect-tax', 'marginal-tax-rate', 'direct-tax', 
     'income-inequality',
     'wealth-inequality',
     'lorenz-curve',
@@ -32,7 +32,7 @@ const topic: TopicMeta = {
   ],
   formulaIds: ['gini'],
   sims: ['econ.lorenz'],
-  questionIds: [
+  questionIds: ['econ-equity-and-market-failure-01', 'econ-equity-and-market-failure-02', 'econ-equity-and-market-failure-03', 'econ-equity-and-market-failure-04', 'mock-hl-lorenz', 'mock-hl-indirect-tax', 'mock-hl-tax-rates', 
     'econ-inequality-and-poverty-01',
     'econ-inequality-and-poverty-02',
     'econ-inequality-and-poverty-03',

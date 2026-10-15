@@ -1,6 +1,6 @@
 import type { Question } from '../../../../src/contract/types';
 
-export const questions: Question[] = [
+export const questions: (Question & { inMockScope?: 'yes' | 'no' })[] = [
   {
     id: 'econ-asymmetric-information-01',
     subject: 'econ',
@@ -24,7 +24,7 @@ export const questions: Question[] = [
     id: 'econ-asymmetric-information-02',
     subject: 'econ',
     topicIds: ['asymmetric-information'],
-    paper: 'P1',
+    paper: 'P2',
     marks: 4,
     command: 'Distinguish',
     prompt: {
@@ -42,7 +42,7 @@ export const questions: Question[] = [
     id: 'econ-asymmetric-information-03',
     subject: 'econ',
     topicIds: ['asymmetric-information'],
-    paper: 'P1',
+    paper: 'P2',
     marks: 8,
     command: 'Evaluate',
     prompt: {

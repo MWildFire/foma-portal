@@ -1,8 +1,9 @@
 import type { Question } from '../../../../src/contract/types';
 
-export const questions: Question[] = [
+export const questions: (Question & { inMockScope?: 'yes' | 'no' })[] = [
   {
     id: 'econ-oligopoly-and-monopolistic-competition-01',
+    inMockScope: 'no',
     subject: 'econ',
     topicIds: ['oligopoly-and-monopolistic-competition'],
     paper: 'P2',
@@ -22,6 +23,7 @@ export const questions: Question[] = [
   },
   {
     id: 'econ-oligopoly-and-monopolistic-competition-02',
+    inMockScope: 'no',
     subject: 'econ',
     topicIds: ['oligopoly-and-monopolistic-competition'],
     paper: 'P2',
@@ -41,6 +43,7 @@ export const questions: Question[] = [
   },
   {
     id: 'econ-oligopoly-and-monopolistic-competition-03',
+    inMockScope: 'no',
     subject: 'econ',
     topicIds: ['oligopoly-and-monopolistic-competition'],
     paper: 'P1',
@@ -59,6 +62,7 @@ export const questions: Question[] = [
   },
   {
     id: 'econ-oligopoly-and-monopolistic-competition-04',
+    inMockScope: 'no',
     subject: 'econ',
     topicIds: ['oligopoly-and-monopolistic-competition'],
     paper: 'P1',
