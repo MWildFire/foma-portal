@@ -36,7 +36,7 @@ export const questions: Question[] = [
     command: 'Evaluate',
     prompt: {
       en: 'Using the original paragraph supplied with this question, name two authorial choices: one about the sentences, and one about the setting or the objects. Evaluate which of the two does more to show the hiding, and give a reason for your judgement.',
-      ru: 'По авторскому учебному абзацу, приведённому в этом задании на английском, назовите два авторских решения: один связан с предложениями, другой — с обстановкой или предметами. Оцените, какой из них в большей степени показывает сокрытие, и обоснуйте своё суждение.',
+      ru: 'По авторскому учебному абзацу, приведённому в этом задании на английском, назовите два авторских решения: одно связано с построением предложений, другое — с обстановкой или предметами. Оцените, какое из них в большей степени показывает сокрытие, и обоснуйте своё суждение.',
     },
     markscheme: {
       en: '1 mark: names a choice about the sentences, for example the short first sentence, or the actions joined by "then" and "and". 1 mark: names a choice about the setting or the objects, for example the kitchen table or the sugar bowl. 1 mark: makes a judgement about which one does more, with a clear criterion (what the reader can see). Either choice can be defended with close evidence; do not require the sugar bowl to win. 1 mark: gives a reason that follows from the paragraph, for example: the sugar bowl turns the hiding into a visible act, while the sentence rhythm only sounds calm.',
