@@ -1,3 +1,4 @@
+import { filterMockResources } from '../../lib/mock-scope';
 import { useCallback, useDeferredValue, useEffect, useId, useMemo, useRef, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
@@ -28,6 +29,8 @@ export function GlossaryView({ pack }: { pack: SubjectPack }) {
   // The text language (EN, RU or both) is the same choice as on the topic pages.
   const [contentLang, setContentLang] = useContentLang();
   const subject = pack.meta.id;
+  const [showOutside,setShowOutside]=useState(false);
+  const scopeTerms=useMemo(()=>filterMockResources(pack.terms,pack.topics,'termIds',showOutside),[pack.terms,pack.topics,showOutside]);
   const [state, update] = useLocalProgress();
   const [params, setParams] = useSearchParams();
   const mode: 'list' | 'cards' = params.get('mode') === 'cards' ? 'cards' : 'list';
@@ -40,11 +43,11 @@ export function GlossaryView({ pack }: { pack: SubjectPack }) {
   const deferredQuery = useDeferredValue(query);
 
   const stats = useMemo(
-    () => deckStats(subject, pack.terms.map(term => term.id), state.terms, today),
-    [subject, pack.terms, state.terms, today],
+    () => deckStats(subject, scopeTerms.map(term => term.id), state.terms, today),
+    [subject, scopeTerms, state.terms, today],
   );
-  const sorted = useMemo(() => sortTerms(pack.terms), [pack.terms]);
-  const papers = useMemo(() => termPapers(pack.terms), [pack.terms]);
+  const sorted = useMemo(() => sortTerms(scopeTerms), [scopeTerms]);
+  const papers = useMemo(() => termPapers(scopeTerms), [scopeTerms]);
   const visible = useMemo(() => filterTerms(sorted, { query: deferredQuery, paper }), [sorted, deferredQuery, paper]);
   const topicsByTerm = useMemo(() => {
     const map = new Map<string, TopicMeta[]>();
@@ -105,7 +108,7 @@ export function GlossaryView({ pack }: { pack: SubjectPack }) {
   ];
 
   return (
-    <div className="study-page">
+    <div className="study-page"><button type="button" className="foma-btn" aria-pressed={showOutside} onClick={()=>setShowOutside(v=>!v)}>{t(showOutside ? 'mock.hide' : 'mock.show',{ns:'subject'})}</button>
       <TopicHero title={t('title')} intro={t('intro')} />
 
       {pack.terms.length === 0 ? (

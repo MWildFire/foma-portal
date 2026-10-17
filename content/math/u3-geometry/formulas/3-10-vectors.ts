@@ -10,8 +10,8 @@ export const formulas: Formula[] = [
       ru: 'Длина вектора v = v1 i + v2 j + v3 k. В двумерном случае слагаемое v3 опускается.',
     },
     when: {
-      en: 'Finding the length of a vector, or the distance between two points.',
-      ru: 'Поиск длины вектора или расстояния между двумя точками.',
+      en: 'Use an orthonormal basis and a common component unit to find a vector’s length or the distance between two points.',
+      ru: 'Для длины вектора или расстояния между точками используй ортонормированный базис и общую единицу компонент.',
     },
     syllabus: '3.10',
     inBooklet: true,

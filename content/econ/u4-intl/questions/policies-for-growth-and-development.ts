@@ -1,8 +1,9 @@
 import type { Question } from '../../../../src/contract/types';
 
-export const questions: Question[] = [
+export const questions: (Question & { inMockScope?: 'yes' | 'no' })[] = [
   {
     id: 'econ-policies-for-growth-and-development-01',
+    inMockScope: 'no',
     subject: 'econ',
     topicIds: ['policies-for-growth-and-development'],
     paper: 'P2',
@@ -21,24 +22,26 @@ export const questions: Question[] = [
   },
   {
     id: 'econ-policies-for-growth-and-development-02',
+    inMockScope: 'no',
     subject: 'econ',
     topicIds: ['policies-for-growth-and-development'],
     paper: 'P1',
     marks: 10,
-    command: 'Evaluate',
+    command: 'Explain',
     prompt: {
-      en: 'Evaluate the use of microfinance to reduce poverty in a low-income country.',
-      ru: 'Оцените использование микрофинансирования для снижения бедности в стране с низким доходом.',
+      en: "Explain how access to microcredit could help a small business without conventional collateral, and why the loan may fail to increase the borrower’s disposable income. Use the hypothetical monthly figures: extra sales600, extra non-finance costs400 and loan-related cash payments250; assume all three refer to the same month. Write a connected 10-mark explanation: 2 minutes to plan, 15 to write and 3 to check.",
+      ru: "Объясни, как доступ к микрокредиту может помочь малому бизнесу без обычного залога и почему кредит может не увеличить располагаемый денежный доход заёмщика. Используй условные месячные данные: дополнительная выручка600, дополнительные нефинансовые затраты400, платежи по кредиту250. Все суммы относятся к одному месяцу. Напиши связный ответ на 10 баллов: 2 минуты на план, 15 на текст и 3 на проверку.",
     },
     markscheme: {
-      en: '1 mark: defines microfinance as small loans and savings services for poor people without access to ordinary banks. 1 mark: explains the market failure: banks do not lend to people without collateral because small loans are costly to make. 1 mark: explains a benefit, such as extra income for small businesses. 1 mark: explains a benefit for women borrowers, such as more control over household spending. 1 mark: explains a limitation: high interest rates can lead to over-indebtedness. 1 mark: explains that many loans finance survival businesses that may not create jobs or raise incomes much. 1 mark: notes the mixed evidence on how much microfinance reduces poverty. 1 mark: uses an example, such as group lending in Bangladesh, to support a point. 1 mark: evaluates the short run and the long run: quick income effects, but limited growth without infrastructure and education. 1 mark: makes a supported judgement on whether microfinance is a main policy or a complement to others.',
-      ru: '1 балл: определяет микрофинансирование как небольшие кредиты и сберегательные услуги для бедных людей без доступа к обычным банкам. 1 балл: объясняет провал рынка: банки не выдают кредиты без залога, потому что мелкие займы дороги в обслуживании. 1 балл: объясняет выгоду, например дополнительный доход малого бизнеса. 1 балл: объясняет выгоду для заёмщиц-женщин, например больший контроль над расходами домохозяйства. 1 балл: объясняет ограничение: высокие процентные ставки могут привести к долговой перегрузке. 1 балл: объясняет, что многие займы идут на бизнес для выживания, который может не создавать рабочих мест и мало повышать доходы. 1 балл: отмечает противоречивые данные о том, насколько микрофинансирование снижает бедность. 1 балл: использует пример, например групповое кредитование в Бангладеш, чтобы подкрепить мысль. 1 балл: оценивает краткосрочный и долгосрочный эффекты: быстрый рост доходов, но ограниченный рост без инфраструктуры и образования. 1 балл: делает обоснованное суждение о том, является ли микрофинансирование основной политикой или дополнением к другим мерам.',
+      en: "Explain microcredit as small loans for borrowers with limited conventional access. Financing tools or working capital can allow productive activity and additional sales; group guarantees or other methods may address lack of conventional collateral but do not remove risk. Use the stated cash-flow example: extra operating surplus600−400=200 before loan payments; extra cash after the250 payment is−50. Repayment can include principal as well as interest, so this is cash flow, not a claim that all250 is an expense in profit accounting. A loan can be repaid without proving that poverty fell; demand, skills, terms, health and infrastructure affect outcomes. Explain why complementary services may matter. Do not claim all microloans raise income or all borrowers are women. Content: actual Tragakes printed627–628, access/uses/risks. Holistic levels, in our own words: 0 no relevant response; 1–2 very limited understanding; 3–4 relevant theory described; 5–6 partly developed explanation with some suitable terms; 7–8 clear explanation focused on the question with mostly accurate terms; 9–10 full, accurate connected explanation with appropriate terminology throughout. Use a diagram where it helps the explanation; this question does not require one. These are original Paper 1(a)-style exercises, not full papers. No real-world case or evaluative verdict is required. Level framework: actual M25 HL P1 TZ1 markscheme, p.3.",
+      ru: "Определи микрокредит как небольшой заём для людей с ограниченным доступом к обычному кредитованию. Финансирование инструмента или оборотных средств может открыть возможность производить и получать дополнительную выручку; групповые гарантии или другие способы способны заменить обычный залог, но не устраняют риск. По данным дополнительный операционный остаток600−400=200 до кредитных платежей; денежный остаток после платежа250 равен−50. Платёж может включать основной долг и проценты, поэтому это денежный поток, а не утверждение, что все250 — расход при расчёте прибыли. Возврат кредита сам по себе не доказывает снижение бедности; результат зависит от спроса, навыков, условий займа, здоровья и инфраструктуры. Объясни роль дополняющих услуг. Нельзя утверждать, что любой микрокредит повышает доход или что все заёмщики — женщины. Содержание: фактически прочитанные Tragakes, печатные с.627–628, о доступе, применении и рисках. Уровни, своими словами: 0 — нет ответа по существу; 1–2 — понимание почти не проявлено; 3–4 — нужная теория описана; 5–6 — объяснение частично развито, есть уместные термины; 7–8 — ясное объяснение по вопросу с в основном точными терминами; 9–10 — полное, точное и связное объяснение с уместными терминами во всём ответе. Диаграмма допустима, если помогает, но здесь не обязательна. Это авторские упражнения в формате части (a) Paper 1, а не полные работы. Реальный кейс и оценочный вывод не требуются. Основа уровней — фактическая схема M25 HL P1 TZ1, с.3.",
     },
     origin: 'original',
-    minutes: 15,
+    minutes: 20,
   },
   {
     id: 'econ-policies-for-growth-and-development-03',
+    inMockScope: 'no',
     subject: 'econ',
     topicIds: ['policies-for-growth-and-development'],
     paper: 'P3',

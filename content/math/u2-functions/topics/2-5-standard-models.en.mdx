@@ -1,6 +1,6 @@
 ## Big idea
 
-Many real quantities follow one of a few standard shapes: a straight line for a steady rate, a parabola for a single peak or dip, a curve that levels off for a quantity moving towards a limit, a power law for direct and inverse variation, a cubic for two turning points, and a wave for a repeating cycle. Recognise the shape, read the parameters from the context, and the model is ready to use.
+Many real quantities follow one of a few standard shapes: a straight line for a steady rate, a parabola for a single peak or dip, a curve that levels off for a quantity moving towards a limit, a power law for direct and inverse variation, a cubic for up to two turning points, and a wave for a repeating cycle. Recognise the shape, read the parameters from the context, then check the fitted model, its domain and limitations before using it.
 
 ## Explanation
 
@@ -8,11 +8,11 @@ Choose the family from the shape of the data or from the wording of the context,
 
 A linear model $y = mx + c$ has a constant gradient $m$, the change in $y$ for each unit increase in $x$, and a $y$-intercept $c$, the value when $x = 0$.
 
-A quadratic model has one turning point. The <Term id="standard-quadratic-vertex"/> is the point $(h, k)$ in the vertex form below, and the axis of symmetry is the vertical line $x = h$. A positive $a$ gives a minimum and a negative $a$ gives a maximum. Use the vertex for the maximum or minimum, and the zeros for the times or distances at which the model is zero.
+A quadratic model with nonzero quadratic coefficient has one turning point on its full real domain; a contextual restriction may exclude it. The <Term id="standard-quadratic-vertex"/> is the point $(h, k)$ in the vertex form below, and the axis of symmetry is the vertical line $x = h$. A positive $a$ gives a minimum and a negative $a$ gives a maximum. Use the vertex for the maximum or minimum, and the zeros for the times or distances at which the model is zero.
 
 <Formula id="standard-quadratic-vertex-form"/>
 
-An exponential model $y = k \cdot a^{x} + c$ approaches a horizontal line. The <Term id="standard-exponential-asymptote"/> is $y = c$. The $y$-intercept is $k + c$. With $0 < a < 1$ the values decay towards $c$; with $a > 1$ and $k > 0$ they grow, and as $x$ tends to minus infinity they approach $c$.
+For a nonconstant exponential model $y=k\cdot a^x+c$, assume $a>0$, $a\neq1$ and $k\neq0$. It approaches a horizontal line. The <Term id="standard-exponential-asymptote"/> is $y = c$. The $y$-intercept is $k + c$. For $k>0$, values decrease towards $c$ as $x\to+\infty$ when $0<a<1$; with $a>1$ they increase and approach $c$ as $x\to-\infty$. A negative $k$ reverses these directions: for example, $-2(0.5)^x+3$ increases towards3. At $k=0$ or $a=1$, the rule is constant rather than a nonconstant exponential curve.
 
 <Formula id="standard-exponential-model"/>
 
@@ -20,9 +20,9 @@ A power model $y = ax^{n}$ with integer $n$ describes <Term id="standard-direct-
 
 <Formula id="standard-power-variation"/>
 
-A cubic $y = ax^3 + bx^2 + cx + d$ has at most two turning points and at most three zeros. Read its key features with the methods from the previous topic and the GDC.
+A cubic $y=ax^3+bx^2+cx+d$ with $a\neq0$ has at most two turning points and at most three zeros. Read its key features with the methods from the previous topic and the GDC.
 
-A sinusoidal model $y = a\sin(bx) + d$ repeats its pattern. The <Term id="standard-sinusoidal-amplitude"/> is $|a|$. Its midline is $y = d$, its maximum is $d + |a|$, its minimum is $d - |a|$, and its period is $2\pi/b$. A cosine model has the same features but starts at a maximum when $a > 0$.
+For $a\neq0$, $b\neq0$ and radian input, a sinusoidal model $y=a\sin(bx)+d$ repeats its pattern. The <Term id="standard-sinusoidal-amplitude"/> is $|a|$. Its midline is $y = d$, its maximum is $d + |a|$, its minimum is $d - |a|$, and its period is $2\pi/|b|$. A cosine model has the same features but starts at a maximum when $a > 0$.
 
 <Formula id="standard-sinusoidal-model"/>
 
@@ -52,14 +52,14 @@ Sketch a decreasing curve. It starts at $(0, 80)$, falls steeply at first and th
 
 Questions ask you to identify a family, read its parameters and use the model. A typical mark scheme gives M1 for a correct substitution or equation, A1 for each value to the required accuracy, and R1 for a statement about an asymptote, an amplitude or the meaning of a parameter. Words such as "approaches" or "never" need a reason from the equation, such as the asymptote or the sign of $k \cdot a^{t}$.
 
-<Callout kind="exam">Name the family (linear, quadratic, cubic, exponential, power or sinusoidal) before you substitute values. A correct number without a named model can lose the method mark.</Callout>
+<Callout kind="exam">Name the family (linear, quadratic, cubic, exponential, power or sinusoidal) before you substitute values. Explain the chosen family when asked; there is no universal requirement to name it for every numerical substitution.</Callout>
 
 ## Common mistakes
 
 <Callout kind="mistake">Taking the asymptote of $k \cdot a^{x} + c$ to be $y = k$ instead of $y = c$.</Callout>
 
-- Taking the period of $\sin(bx)$ to be $b$ instead of $2\pi/b$.
-- Reading the amplitude as the maximum value. The amplitude is $|a|$, half the range.
+- Taking the period of $\sin(bx)$ to be $b$ instead of $2\pi/|b|$.
+- Reading the amplitude as the maximum value. The amplitude is $|a|$, half the difference between full-cycle maximum and minimum.
 - Writing that inverse variation $y = a/x$ is defined at $x = 0$. It is not, because $x \neq 0$.
 
 ## Check yourself
@@ -77,5 +77,5 @@ Questions ask you to identify a family, read its parameters and use the model. A
 - Quadratic: vertex $(h, k)$ and axis $x = h$; $a > 0$ gives a minimum and $a < 0$ a maximum.
 - Exponential $k \cdot a^{x} + c$: horizontal asymptote $y = c$ and $y$-intercept $k + c$.
 - Power $ax^{n}$: direct variation for $n = 1$, inverse variation for $n = -1$.
-- Sinusoidal $a\sin(bx) + d$: amplitude $|a|$, period $2\pi/b$, midline $y = d$.
+- Sinusoidal $a\sin(bx) + d$: amplitude $|a|$, period $2\pi/|b|$ for nonzero $a,b$ and radians, midline $y=d$.
 - A cubic has at most two turning points; use the GDC for its key features.

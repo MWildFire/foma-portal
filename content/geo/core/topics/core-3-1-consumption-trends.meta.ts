@@ -34,7 +34,7 @@ const topic: TopicMeta = {
     'core-resource-productivity',
   ],
   sims: ['geo.core-ecological-footprint'],
-  questionIds: ['core-3-1-a2', 'core-3-1-a3', 'core-3-1-a4', 'core-3-1-a5'],
+  questionIds: ['core-3-1-a6', 'core-3-1-a2', 'core-3-1-a3', 'core-3-1-a4', 'core-3-1-a5'],
   caseIds: [
     'core-3-1-case-drc-cobalt',
     'core-3-1-case-brazil-soy',

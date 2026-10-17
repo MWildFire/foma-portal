@@ -59,7 +59,10 @@ const topic: TopicMeta = {
   questionIds: ['g3-sq1', 'g3-sq2', 'g3-sq3', 'g3-eq1', 'g3-eq2'],
   caseIds: ['g-mumbai-floods-2005', 'g-jakarta-subsidence', 'g-kibera', 'g-phoenix-heat'],
   sources: [
-    { kind: 'ib-guide', title: 'Geography guide (2017), Option G: Urban environments', locator: 'G.3' },
+    {"kind": "web", "title": "India Meteorological Department, Weather in India: Monsoon season 2005, MAUSAM 57(3), 2006", "url": "https://mausamjournal.imd.gov.in/index.php/MAUSAM/article/download/495/398/1596", "locator": "p. 565, Figure 14 and section 12.1; PDF p. 39: spatially different station rainfall"},
+    {"kind": "web", "title": "IPCC AR6 WGII, Chapter 6, Cities, Settlements and Key Infrastructure (2022)", "url": "https://www.ipcc.ch/report/ar6/wg2/downloads/report/IPCC_AR6_WGII_Chapter06.pdf", "locator": "p. 909, Executive Summary: disproportionate impacts on economically and socially marginalised communities"},
+    {"kind": "web", "title": "IIT Bombay, Why do we not mitigate urban flood risk even though we have a scientific understanding and technological capability to do so?", "url": "https://rnd.iitb.ac.in/node/1438", "locator": "Research summary by D. Parthasarathy: coordination, inequality and governance; not a quantified attribution of 2005 losses"},
+    { kind: 'ib-guide', title: 'Geography guide (2017), Option G: Urban environments', locator: 'G.3, p. 41' },
     { kind: 'thinkib', title: 'Option G: Urban Environments (pages 37520, 37586, 37591)', locator: 'Urban Environmental and Social Stress; Urban Micro-climates; Managing Urban Social Deprivation and Crime' },
   ],
   links: [

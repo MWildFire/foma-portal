@@ -16,3 +16,6 @@ ops/sources/*
 *.tsbuildinfo
 *.tfplan
 *.tfvars.json
+# Local working artifacts
+cache/
+tmp/

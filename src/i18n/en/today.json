@@ -7,17 +7,16 @@
     "title": "Today's plan"
   },
   "notes": {
-    "exam": "Exam day: only the evening is planned, after your exam.",
-    "eve": "Tomorrow: {{papers}}. In these subjects today is exam prep only, no new topics.",
+    "exam": "Exam day: choose a suitable time outside your papers. Personal availability is unconfirmed; do not shorten a full paper.",
+    "eve": "Tomorrow: {{papers}}. Check the exam times and leave time for rest.",
     "moved": "{{time}} of unfinished work has moved here from earlier days.",
-    "extraTime": "Timed papers include your 25% extra time.",
     "allDone": "Everything planned for today is done. Well done!",
     "separateRoomUnknown": "Separate room (ACC2): the schedule gives no separate start for your next exam ({{time}}, room {{room}}). Check with the exams office."
   },
   "empty": {
     "finished": {
-      "title": "All exams are done",
-      "text": "Every subject has had its last mock exam. Well done! The plan is complete."
+      "title": "Preparation period ended",
+      "text": "The final exam has ended. Your history and learning materials remain available."
     },
     "nothing": {
       "title": "Nothing planned for today",

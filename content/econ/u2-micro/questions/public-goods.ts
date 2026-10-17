@@ -1,9 +1,10 @@
 import type { Question } from '../../../../src/contract/types';
 
 // Public goods questions. The calculation (econ-public-goods-01) is checked by scripts/econ-checks/public-goods.json.
-export const questions: Question[] = [
+export const questions: (Question & { inMockScope?: 'yes' | 'no' })[] = [
   {
     id: 'econ-public-goods-01',
+    inMockScope: 'no',
     subject: 'econ',
     topicIds: ['public-goods'],
     paper: 'P2',
@@ -41,6 +42,7 @@ export const questions: Question[] = [
   },
   {
     id: 'econ-public-goods-03',
+    inMockScope: 'no',
     subject: 'econ',
     topicIds: ['public-goods'],
     paper: 'P2',
@@ -61,7 +63,7 @@ export const questions: Question[] = [
     id: 'econ-public-goods-04',
     subject: 'econ',
     topicIds: ['public-goods'],
-    paper: 'P1',
+    paper: 'P2',
     marks: 8,
     command: 'Discuss',
     prompt: {

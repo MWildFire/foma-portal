@@ -1,7 +1,9 @@
+import { PreparationReadiness } from '../components/planner/PreparationReadiness';
 import { AlertTriangle, ArrowRightLeft, ChevronDown, Circle, CircleCheck, Info } from 'lucide-react';
 import { useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { ActivityDetails, DailyBudget, CompletionHistory } from '../components/planner/DailyActivity';
 import { describeBlock, formatMinutes, paperLabel } from '../components/planner/labels';
 import { subjectInfo, subjectInfos, type SubjectInfo } from '../components/planner/subjects';
 import { usePageTitle, useScrollToTop } from '../components/planner/usePageTitle';
@@ -64,6 +66,7 @@ function BlockRow({ block, lang }: { block: PlanBlock; lang: Lang }) {
         <Link to={block.route} className="break-words font-medium">
           {text.title}
         </Link>
+        {block.activity && <ActivityDetails activity={block.activity} maintenance={block.maintenance} lang={lang} />}
         {detail && (
           // A timed paper's note comes from data/plan-quotas.json, which is written in English.
           <p lang={block.kind === 'timed' ? 'en' : undefined} className={`break-words text-sm ${MUTED}`}>
@@ -87,6 +90,7 @@ function DayBody({ day, lang, infos }: { day: PlanDay; lang: Lang; infos: Infos 
 
   return (
     <div className="space-y-4 border-t border-[var(--color-border)] px-3 pb-3 pt-3 sm:px-4">
+      <DailyBudget day={day} lang={lang} />
       {day.exams.length > 0 && (
         <div>
           <h3 className="text-sm font-semibold">{t('day.examsTitle')}</h3>
@@ -168,6 +172,7 @@ function DaySummary({ day, lang, infos }: { day: PlanDay; lang: Lang; infos: Inf
               ? formatMinutes(tp, day.minutes)
               : t('day.nothing')}
       </span>
+      {day.budget.status !== 'fits' && <span className="block font-semibold">{lang === 'ru' ? 'Бюджет времени не согласован' : 'Time budget unresolved'}</span>}
       {exams && <span className="block break-words text-sm">{t('day.exams', { papers: exams })}</span>}
       {eve && <span className="block break-words text-sm">{t('day.eve', { papers: eve })}</span>}
     </span>
@@ -221,6 +226,8 @@ function PlanBody({ plan, today, lang }: PlanReady) {
           </p>
         )}
       </header>
+      <CompletionHistory history={plan.completedHistory} lang={lang} />
+      <PreparationReadiness lang={lang} />
 
       {plan.days.length === 0 ? (
         <div className={`${CARD} p-4`}>

@@ -9,8 +9,8 @@ export const terms: Term[] = [
       ru: 'коэффициент ранговой корреляции Спирмена (Spearman\'s rank correlation coefficient)',
     },
     def: {
-      en: 'A correlation coefficient from −1 to 1, calculated as Pearson\'s coefficient for the ranks of the data. It measures how consistently one variable rises or falls with the other, whether or not the link is a straight line.',
-      ru: 'Коэффициент корреляции от −1 до 1, вычисляемый как коэффициент Пирсона для рангов данных. Он показывает, насколько согласованно одна величина растёт или убывает вместе с другой, даже если связь не прямолинейна.',
+      en: 'A correlation coefficient from −1 to 1, calculated as Pearson\'s coefficient for the ranks of the data. It is undefined if either rank list is constant. It measures how consistently one variable rises or falls with the other, whether or not the link is a straight line.',
+      ru: 'Коэффициент корреляции от −1 до 1, вычисляемый как коэффициент Пирсона для рангов данных. Если один из списков рангов постоянен, коэффициент не определён. Он показывает, насколько согласованно одна величина растёт или убывает вместе с другой, даже если связь не прямолинейна.',
     },
     syllabus: '4.10',
     papers: ['P1', 'P2', 'P3'],
@@ -41,8 +41,8 @@ export const terms: Term[] = [
       ru: 'влияние выброса на корреляцию (effect of an outlier on correlation)',
     },
     def: {
-      en: 'An extreme point can change Pearson\'s $r$ a great deal, because its actual value enters the calculation. Spearman\'s $r_s$ uses only ranks, so the size of that value matters much less than its position in the order.',
-      ru: 'Экстремальная точка может сильно изменить коэффициент Пирсона $r$, потому что в расчёт входит её реальное значение. Коэффициент $r_s$ использует только ранги, поэтому величина такого значения влияет гораздо меньше, чем её место в порядке.',
+      en: 'An extreme point can change Pearson\'s $r$ a great deal, because its actual value enters the calculation. Spearman\'s $r_s$ uses only ranks, so changing a value without changing its rank has no effect; changing its rank can still affect the result.',
+      ru: 'Экстремальная точка может сильно изменить коэффициент Пирсона $r$, потому что в расчёт входит её реальное значение. Коэффициент $r_s$ использует только ранги, поэтому изменение величины без изменения ранга не влияет на результат; изменение ранга всё же может повлиять.',
     },
     syllabus: '4.10',
     papers: ['P1', 'P2', 'P3'],

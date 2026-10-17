@@ -1,3 +1,4 @@
+import ReadableDiagram from '../readable-diagram';
 import { useState } from 'react';
 import type { Lang } from '../../contract/types';
 
@@ -34,9 +35,9 @@ const NEXT_LOWER: Record<Category, number | null> = {
 };
 
 const NAMES: Record<Category, { en: string; ru: string }> = {
-  none: { en: 'no water stress (above 1,700)', ru: 'водного стресса нет (выше 1 700)' },
-  stress: { en: 'water stress (1,000 to 1,700)', ru: 'водный стресс (1 000–1 700)' },
-  scarcity: { en: 'water scarcity (500 to 1,000)', ru: 'водный дефицит (500–1 000)' },
+  none: { en: 'no water stress (at least 1,700)', ru: 'водного стресса нет (не менее 1 700)' },
+  stress: { en: 'water stress (1,000 to below 1,700)', ru: 'водный стресс (от 1 000 до менее 1 700)' },
+  scarcity: { en: 'water scarcity (500 to below 1,000)', ru: 'водный дефицит (от 500 до менее 1 000)' },
   absolute: { en: 'absolute scarcity (below 500)', ru: 'абсолютный дефицит (ниже 500)' },
 };
 
@@ -62,7 +63,7 @@ export default function OptAScarcitySim({ lang }: { lang: Lang }) {
   const [resources, setResources] = useState(60); // km³ per year
   const [farming, setFarming] = useState(72); // % of withdrawals used for farming
   const [drought, setDrought] = useState(0); // % fall in renewable resources
-  const [withdrawal, setWithdrawal] = useState(17.6); // % of renewable water withdrawn: world 2023, FAO SDG indicator 6.4.2
+  const [withdrawal, setWithdrawal] = useState(20); // illustrative % of total renewable resources; NOT the FAO stress indicator denominator
 
   // Decimal comma and grouped thousands in Russian; decimal point and commas in English.
   const fmt = (value: number, digits = 0): string => {
@@ -92,7 +93,7 @@ export default function OptAScarcitySim({ lang }: { lang: Lang }) {
     { key: 'population', en: 'Population (million people)', ru: 'Население (млн человек)', min: 5, max: 1500, step: 1, value: population, set: setPopulation },
     { key: 'resources', en: 'Renewable water resources (km³ per year)', ru: 'Возобновляемые водные ресурсы (км³ в год)', min: 5, max: 1000, step: 1, value: resources, set: setResources },
     { key: 'farming', en: 'Share of withdrawals used for farming (%)', ru: 'Доля изъятой воды на сельское хозяйство (%)', min: 0, max: 100, step: 1, value: farming, set: setFarming },
-    { key: 'withdrawal', en: 'Water withdrawals, % of renewable water (world 2023: 17.6)', ru: 'Изъятия воды, % от возобновляемых ресурсов (мир, 2023: 17,6)', min: 0, max: 100, step: 0.1, value: withdrawal, set: setWithdrawal, digits: 1 },
+    { key: 'withdrawal', en: 'Assumed withdrawals, % of total renewable water', ru: 'Условные изъятия, % всех возобновляемых ресурсов', min: 0, max: 100, step: 0.1, value: withdrawal, set: setWithdrawal, digits: 1 },
     { key: 'drought', en: 'Drought: fall in renewable resources (%)', ru: 'Засуха: снижение водных ресурсов (%)', min: 0, max: 80, step: 1, value: drought, set: setDrought },
   ];
 
@@ -150,7 +151,7 @@ export default function OptAScarcitySim({ lang }: { lang: Lang }) {
           <strong>{ru ? NAMES[categoryAfter].ru : NAMES[categoryAfter].en}</strong>
         </div>
         <div>
-          {ru ? 'Дальнейшее снижение ресурсов до следующей категории: ' : 'Further fall in resources to the next category: '}
+          {ru ? 'Приближённое снижение до следующего порога (для перехода нужно чуть больше): ' : 'Approximate fall to the next threshold (slightly more crosses it): '}
           <strong>{furtherFall === null ? '—' : `${fmt(furtherFall, 1)}%`}</strong> {furtherText}
         </div>
         <div style={{ marginTop: 6, fontSize: 14 }}>
@@ -162,7 +163,7 @@ export default function OptAScarcitySim({ lang }: { lang: Lang }) {
         </div>
       </div>
 
-      <svg
+      <ReadableDiagram lang={lang}><svg
         viewBox="0 0 320 108"
         width="100%"
         role="img"
@@ -195,7 +196,7 @@ export default function OptAScarcitySim({ lang }: { lang: Lang }) {
         <text x={xAfter} y={102} fontSize="10" textAnchor={anchorOf(xAfter)} fill="currentColor">
           {ru ? 'после засухи' : 'after drought'}
         </text>
-      </svg>
+      </svg></ReadableDiagram>
 
       <p style={{ margin: '12px 0 0', fontSize: 13, lineHeight: 1.5 }}>
         <strong>{ru ? 'Формулы. ' : 'Formulas. '}</strong>
@@ -212,8 +213,8 @@ export default function OptAScarcitySim({ lang }: { lang: Lang }) {
       <p style={{ margin: '8px 0 0', fontSize: 13, lineHeight: 1.5 }}>
         <strong>{ru ? 'Доля сельского хозяйства. ' : 'Farming share. '}</strong>
         {ru
-          ? 'Разбиение иллюстративное. По данным FAO за 2023 год, в мире на сельское хозяйство приходилось 72% изъятой воды, на промышленность 15%, на услуги 13%. Разбиение применено к изъятиям: изъятия = ресурсы после засухи × доля изъятий (по умолчанию 17,6% — мировой уровень, FAO, 2023 год). Это не измеренный забор воды.'
-          : 'The split is illustrative. In FAO data for 2023, farming took 72% of withdrawals worldwide, industry 15% and services 13%. The split applies these shares to withdrawals: withdrawals = resources after the drought × withdrawal share (default 17.6%, the world figure for 2023, FAO). It is not a measured withdrawal.'}
+          ? 'Разбиение иллюстративное. По данным FAO за 2023 год, в мире на сельское хозяйство приходилось 72% изъятой воды, на промышленность 15%, на услуги 13%. Разбиение применено к изъятиям: изъятия = ресурсы после засухи × условная доля изъятий (по умолчанию 20%). Это не измеренный забор и не расчёт SDG6.4.2 FAO: его знаменатель — возобновляемые ресурсы за вычетом экологических потребностей в воде. Мировой показатель FAO 17,6% за 2023 нельзя применять ко всем ресурсам без этой поправки.'
+          : 'The split is illustrative. In FAO data for 2023, farming took 72% of withdrawals worldwide, industry 15% and services 13%. The split applies these shares to withdrawals: withdrawals = resources after the drought × assumed withdrawal share (20% by default). This is not a measured withdrawal or FAO’s SDG6.4.2 calculation: that indicator subtracts environmental water requirements from renewable resources in its denominator. FAO reports global stress of 17.6% in 2023; it cannot be applied to total renewable water without that adjustment.'}
       </p>
       <p style={{ margin: '8px 0 0', fontSize: 13, lineHeight: 1.5 }}>
         <strong>{ru ? 'Источники. ' : 'Sources. '}</strong>
@@ -224,8 +225,8 @@ export default function OptAScarcitySim({ lang }: { lang: Lang }) {
       <p style={{ margin: '8px 0 0', fontSize: 13, lineHeight: 1.5 }}>
         <strong>{ru ? 'Что заметить. ' : 'What to notice. '}</strong>
         {ru
-          ? 'Это помогает с вопросами «объясните» и «обсудите» о дефиците воды, например: «Объясните, как засуха может перевести страну из водного стресса в водный дефицит». Сначала определите категорию по цифре на человека, затем скажите, насколько засуха сдвигает страну, проверьте физический или экономический тест и закончите примером с названием места. Сельское хозяйство забирает больше всего воды, поэтому последствия засухи часто видны сначала в земледелии.'
-          : 'This helps with "explain" and "discuss" questions on water scarcity, for example: "Explain how a drought can move a country from water stress to water scarcity." Read the category from the figure per person, then say how far a drought moves the country, apply the physical or economic test, and finish with a named case study. Farming takes most of the water, so drought effects often show up in farming first.'}
+          ? 'Это помогает с вопросами «объясните» и «обсудите» о дефиците воды, например: «Объясните, как засуха может перевести страну из водного стресса в водный дефицит». Сначала определите категорию по цифре на человека, затем скажите, насколько засуха сдвигает страну, проверьте физический или экономический тест и закончите примером с названием места. В мире на сельское хозяйство приходится наибольшая доля изъятий. Прежде чем решать, какой сектор пострадает первым, проверьте местные орошение, запасы и правила распределения.'
+          : 'This helps with "explain" and "discuss" questions on water scarcity, for example: "Explain how a drought can move a country from water stress to water scarcity." Read the category from the figure per person, then say how far a drought moves the country, apply the physical or economic test, and finish with a named case study. Farming takes the largest share of withdrawals globally. Check local irrigation, storage and allocation before deciding which sector is affected first.'}
       </p>
     </div>
   );

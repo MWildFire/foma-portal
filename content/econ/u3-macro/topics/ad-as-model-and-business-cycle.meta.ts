@@ -17,7 +17,7 @@ const topic: TopicMeta = {
     { en: 'I can draw an AD/AS diagram with an inflationary or a deflationary gap', ru: 'Могу нарисовать диаграмму AD/AS с инфляционным или дефляционным разрывом' },
     { en: 'I can analyse demand-side and supply-side shocks in the business cycle', ru: 'Могу проанализировать шоки спроса и шоки предложения в деловом цикле' },
   ],
-  termIds: [
+  termIds: ['aggregate-supply', 'trough', 'contraction', 'peak', 'expansion',
     'aggregate-demand',
     'net-exports',
     'short-run-aggregate-supply',
@@ -36,9 +36,8 @@ const topic: TopicMeta = {
     'econ-ad-as-model-and-business-cycle-02',
     'econ-ad-as-model-and-business-cycle-03',
     'econ-ad-as-model-and-business-cycle-04',
-    'econ-ad-as-model-and-business-cycle-05',
-  ],
-  sources: [{ kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 3.2' }],
+    'econ-ad-as-model-and-business-cycle-05',  'r06-econ-12', 'r06-econ-13'],
+  sources: [{ kind: 'textbook', title: 'Ellie Tragakes, Economics for the IB Diploma (2020)', locator: 'printed pp.287–288, three Keynesian segments and Yp versus Ymax' }, { kind: 'web', title: 'Д. М. Радичка, Макроэкономика (ОмГА, 2016), §4.3, стр.46–47: три участка AS и недозагрузка', url: 'https://lib.omga.su/files/r/radichka_makro_econ.pdf', locator: 'PDF pp.46–47; printed pp.46–47; Russian terminology, not the school Yp/Ymax convention' }, { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 3.2' }],
 };
 
 export default topic;

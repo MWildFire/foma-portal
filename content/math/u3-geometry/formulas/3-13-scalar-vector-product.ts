@@ -6,8 +6,8 @@ export const formulas: Formula[] = [
     tex: '\\mathbf{v}\\cdot\\mathbf{w}=|\\mathbf{v}|\\,|\\mathbf{w}|\\cos\\theta',
     name: { en: 'Scalar product and the angle between vectors', ru: 'Скалярное произведение и угол между векторами (Scalar product and the angle between vectors)' },
     meaning: {
-      en: 'The scalar product of v and w equals the product of their magnitudes and the cosine of the angle between them.',
-      ru: 'Скалярное произведение v и w равно произведению их модулей на косинус угла между ними.',
+      en: 'For nonzero vectors (so the angle is defined), the scalar product of v and w equals the product of their magnitudes and the cosine of the angle between them.',
+      ru: 'Для ненулевых векторов, когда угол определён, скалярное произведение v и w равно произведению их модулей на косинус угла между ними.',
     },
     when: {
       en: 'Finding the angle between two vectors, or testing whether they are perpendicular.',
@@ -25,8 +25,8 @@ export const formulas: Formula[] = [
       ru: 'Перемножьте соответствующие компоненты и сложите результаты. На плоскости используются только первые две компоненты.',
     },
     when: {
-      en: 'Calculating a scalar product when the vectors are given by their components.',
-      ru: 'Вычисление скалярного произведения, если векторы заданы своими компонентами.',
+      en: 'Requires an orthonormal coordinate basis. Calculating a scalar product from vector components.',
+      ru: 'Требуется ортонормированный координатный базис. Вычисление скалярного произведения по компонентам векторов.',
     },
     syllabus: '3.13',
     inBooklet: true,
@@ -59,8 +59,8 @@ export const formulas: Formula[] = [
       ru: 'Каждая компонента — разность двух произведений компонент v и w. Результат перпендикулярен и v, и w.',
     },
     when: {
-      en: 'Calculating the vector product of two vectors given by their components.',
-      ru: 'Вычисление векторного произведения двух векторов, заданных компонентами.',
+      en: 'Requires a right-handed orthonormal basis in three dimensions. Calculating the vector product from components; for parallel or zero factors the result is zero and has no direction.',
+      ru: 'Требуется правый ортонормированный базис в трёхмерном пространстве. Вычисление векторного произведения по компонентам; для коллинеарных или нулевых множителей результат нулевой и не имеет направления.',
     },
     syllabus: '3.13',
     inBooklet: true,

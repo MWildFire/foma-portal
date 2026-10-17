@@ -40,8 +40,8 @@ export const terms: Term[] = [
     id: 'core-water-withdrawal',
     term: { en: 'water withdrawal', ru: 'забор воды (water withdrawal)' },
     def: {
-      en: 'The volume of water taken from a river, lake or aquifer for use. Part of it is consumed, for example by evaporation or by becoming part of a product, and the rest returns to the source.',
-      ru: 'Объём воды, взятой из реки, озера или водоносного горизонта для использования. Часть воды расходуется (например, испаряется или становится частью продукта), остальное возвращается в источник.',
+      en: 'The volume of water taken from a river, lake or aquifer for use. Part of it is consumed, for example by evaporation or by becoming part of a product, and some returns as return flow. Its destination, timing and quality depend on the system boundary; it need not return to the same source.',
+      ru: 'Объём воды, взятой из реки, озера или водоносного горизонта для использования. Часть воды расходуется (например, испаряется или становится частью продукта), часть возвращается в виде возвратного стока. Куда, когда и какого качества вернётся вода, зависит от системы; возврат в тот же источник не гарантирован.',
     },
     syllabus: 'core-3.2',
     papers: ['P2'],
@@ -55,12 +55,12 @@ export const terms: Term[] = [
     id: 'core-water-stress',
     term: { en: 'water stress', ru: 'водный стресс (water stress)' },
     def: {
-      en: 'A situation in which demand for water is high relative to the supply available. It is measured by freshwater withdrawals as a proportion of available freshwater resources (SDG indicator 6.4.2).',
-      ru: 'Ситуация, когда спрос на воду велик по сравнению с имеющимся запасом. Измеряется долей забора пресной воды в имеющихся пресноводных ресурсах (индикатор ЦУР 6.4.2).',
+      en: 'A situation in which demand is high relative to available water. SDG 6.4.2 measures total freshwater withdrawals / (total renewable freshwater resources − environmental flow requirements) × 100. Water needed to sustain ecosystems is reserved in the denominator; the denominator must be positive.',
+      ru: 'Высокая нагрузка на водные ресурсы относительно доступного объёма. Индикатор ЦУР 6.4.2 = общий забор пресной воды / (возобновляемые пресноводные ресурсы − экологические потребности в стоке) × 100. Из знаменателя исключают воду, необходимую экосистемам; знаменатель должен быть положительным.',
     },
     syllabus: 'core-3.2',
     papers: ['P2'],
-    src,
+    src: {"kind": "web", "title": "FAO SDG indicator 6.4.2; official EN/RU definition including environmental flow requirements", "url": "https://www.fao.org/sustainable-development-goals-data-portal/data/indicators/642-water-stress/en"},
     pitfall: {
       en: 'Water stress describes the balance of demand and supply, so a country with high rainfall can still be under water stress if its demand is high.',
       ru: 'Водный стресс описывает баланс спроса и предложения: страна с большим количеством осадков может испытывать водный стресс, если её спрос высок.',
@@ -85,8 +85,8 @@ export const terms: Term[] = [
     id: 'core-deforestation',
     term: { en: 'deforestation', ru: 'обезлесение (deforestation)' },
     def: {
-      en: 'The permanent clearance of forest for another land use, such as farmland, ranching, plantations, mining or roads, so that the land is no longer forest.',
-      ru: 'Постоянная вырубка леса ради другого вида использования земли (пашня, пастбища, плантации, добыча полезных ископаемых, дороги), после которой участок перестаёт быть лесом.',
+      en: 'The permanent clearance of forest for another land use, such as farmland, ranching, agricultural plantations such as oil palm, mining or roads, so that the land is no longer forest.',
+      ru: 'Постоянная вырубка леса ради другого вида использования земли (пашня, пастбища, сельскохозяйственные плантации, например масличной пальмы, добыча полезных ископаемых, дороги), после которой участок перестаёт быть лесом.',
     },
     syllabus: 'core-3.2',
     papers: ['P2'],
@@ -145,15 +145,15 @@ export const terms: Term[] = [
     id: 'core-supply-shock',
     term: { en: 'supply shock', ru: 'шок предложения (supply shock)' },
     def: {
-      en: 'A sudden, unexpected event that cuts the supply of a good or resource, such as war, drought, disease or an export ban, and pushes its price up.',
-      ru: 'Внезапное, непредвиденное событие, которое сокращает предложение товара или ресурса (война, засуха, болезнь или запрет экспорта) и ведёт к росту его цены.',
+      en: 'An unexpected change in the supply of a good or resource. An adverse shock, such as drought or a disrupted trade route, reduces supply and tends to raise price; a favourable productivity shock can increase supply and tend to lower price, other things equal.',
+      ru: 'Непредвиденное изменение предложения товара или ресурса. Неблагоприятный шок, например засуха или нарушение торгового маршрута, сокращает предложение и обычно повышает цену; благоприятный скачок производительности может увеличить предложение и снизить цену при прочих равных условиях.',
     },
     syllabus: 'core-3.2',
     papers: ['P2'],
-    src,
+    src: {"kind": "web", "title": "Bank of England, Megan Greene (2025), positive and negative supply shocks", "url": "https://www.bankofengland.co.uk/speech/2025/september/megan-greene-university-of-glasgow-business-school"},
     pitfall: {
-      en: 'A rise in demand is not a supply shock: a supply shock shifts the supply curve to the left.',
-      ru: 'Рост спроса — не шок предложения: шок предложения сдвигает кривую предложения влево.',
+      en: 'A change in demand is distinct. An adverse supply shock shifts supply left; a favourable one shifts it right. The war and drought examples in this lesson are adverse shocks.',
+      ru: 'Изменение спроса — другое явление. Неблагоприятный шок сдвигает предложение влево, благоприятный — вправо. Война и засуха в этой теме — примеры неблагоприятных шоков.',
     },
   },
   {

@@ -1,3 +1,4 @@
+import { policyBrief } from '../cases/r06-policy.ts';
 import type { Question } from '../../../../src/contract/types';
 
 // EX-1a: P1 essays 01 to 10 (Economics HL school mock, extended response, 25 marks).
@@ -5,9 +6,10 @@ import type { Question } from '../../../../src/contract/types';
 // The five evaluation marks in part (b) follow the three bands: limited, appropriate, effective and balanced reasoning.
 // Essays 01 and 02 have a full model answer. The essays need no calculations, so there are no check entries.
 
-export const questions: Question[] = [
+export const questions: (Question & { inMockScope?: 'yes' | 'no' })[] = [
   {
     id: 'p1-essay-01',
+    inMockScope: 'no',
     subject: 'econ',
     topicIds: ['government-taxes-subsidies-price-controls', 'price-elasticity-of-demand'],
     paper: 'P1',
@@ -104,6 +106,7 @@ export const questions: Question[] = [
   },
   {
     id: 'p1-essay-02',
+    inMockScope: 'no',
     subject: 'econ',
     topicIds: ['externalities', 'government-taxes-subsidies-price-controls'],
     paper: 'P1',
@@ -200,6 +203,7 @@ export const questions: Question[] = [
   },
   {
     id: 'p1-essay-03',
+    inMockScope: 'no',
     subject: 'econ',
     topicIds: ['monopoly-and-natural-monopoly'],
     paper: 'P1',
@@ -286,6 +290,7 @@ export const questions: Question[] = [
   },
   {
     id: 'p1-essay-04',
+    inMockScope: 'no',
     subject: 'econ',
     topicIds: ['oligopoly-and-monopolistic-competition'],
     paper: 'P1',
@@ -372,6 +377,7 @@ export const questions: Question[] = [
   },
   {
     id: 'p1-essay-05',
+    inMockScope: 'no',
     subject: 'econ',
     topicIds: ['asymmetric-information'],
     paper: 'P1',
@@ -458,6 +464,7 @@ export const questions: Question[] = [
   },
   {
     id: 'p1-essay-06',
+    inMockScope: 'no',
     subject: 'econ',
     topicIds: ['public-goods', 'common-pool-resources'],
     paper: 'P1',
@@ -544,6 +551,7 @@ export const questions: Question[] = [
   },
   {
     id: 'p1-essay-07',
+    inMockScope: 'no',
     subject: 'econ',
     topicIds: ['competitive-market-equilibrium', 'government-taxes-subsidies-price-controls'],
     paper: 'P1',
@@ -630,6 +638,7 @@ export const questions: Question[] = [
   },
   {
     id: 'p1-essay-08',
+    inMockScope: 'no',
     subject: 'econ',
     topicIds: ['income-and-cross-elasticity', 'price-elasticity-of-demand'],
     paper: 'P1',
@@ -716,6 +725,8 @@ export const questions: Question[] = [
   },
   {
     id: 'p1-essay-09',
+    // Mixed measurement/welfare question: retain in the wider library, outside the adopted checklist subset.
+    inMockScope: 'no',
     subject: 'econ',
     topicIds: ['measuring-economic-activity', 'ad-as-model-and-business-cycle'],
     paper: 'P1',
@@ -802,6 +813,7 @@ export const questions: Question[] = [
   },
   {
     id: 'p1-essay-10',
+    stimulus: policyBrief,
     subject: 'econ',
     topicIds: ['multiplier', 'fiscal-policy'],
     paper: 'P1',

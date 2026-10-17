@@ -210,7 +210,7 @@
   // ---------- Table rendering ----------
   function renderBase(tbody, rows, headers, fkCol) {
     const lang = L();
-    let html = '<thead><tr>';
+    let html = '<div class="table-scroll"><table class="dbtable"><thead><tr>';
     headers.forEach(h => { html += '<th>' + escapeHtml(h) + '</th>'; });
     if (editMode) html += '<th style="width:48px">&nbsp;</th>';
     html += '</tr></thead><tbody>';
@@ -235,7 +235,7 @@
       html += '<tfoot><tr><td colspan="' + (headers.length + 1) + '" style="text-align:right">' +
         '<button class="btn btn-ghost btn-sm" data-add>+ ' + tr('Add row', 'Добавить строку') + '</button></td></tr></tfoot>';
     }
-    tbody.innerHTML = html;
+    tbody.innerHTML = html + '</table></div>';
   }
 
   function renderTables() {

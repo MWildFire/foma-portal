@@ -1,3 +1,4 @@
+import ReadableDiagram from '../readable-diagram';
 import { useState, type PointerEvent } from 'react';
 import type { Lang } from '../../contract/types';
 
@@ -83,7 +84,7 @@ export default function TangentOptimisationLab({ lang }: { lang: Lang }) {
 
   return (
     <figure style={{ margin: 0 }}>
-      <svg
+      <ReadableDiagram lang={lang}><svg
         viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
         width="100%"
         style={{ maxWidth: WIDTH, touchAction: 'none', cursor: 'ew-resize' }}
@@ -103,13 +104,13 @@ export default function TangentOptimisationLab({ lang }: { lang: Lang }) {
         ))}
         <circle cx={px(x)} cy={LINE_Y} r={6} fill="#333" />
         {[-1, 1, 3, 5].map(v => (
-          <text key={v} x={px(v)} y={LINE_Y + 20} fontSize={10} textAnchor={v === X_MIN ? 'start' : v === X_MAX ? 'end' : 'middle'}>{v}</text>
+          <text key={v} x={px(v)} y={LINE_Y + 20} fontSize={10} textAnchor={v === X_MIN ? 'start' : v === X_MAX ? 'end' : 'middle'} fill="currentColor">{v}</text>
         ))}
-      </svg>
+      </svg></ReadableDiagram>
       <figcaption style={{ fontSize: 13, lineHeight: 1.5 }}>
-        <span style={{ color: BLUE }}>■ {t.curve}</span>{' · '}
-        <span style={{ color: ORANGE }}>■ {t.tangent}</span>{' · '}
-        <span style={{ color: GREEN }}>■ {t.chord}</span>
+        <span><span aria-hidden="true" style={{ color: BLUE }}>■</span> {t.curve}</span>{' · '}
+        <span><span aria-hidden="true" style={{ color: ORANGE }}>■</span> {t.tangent}</span>{' · '}
+        <span><span aria-hidden="true" style={{ color: GREEN }}>■</span> {t.chord}</span>
         <br />
         {t.fx} = {fx.toFixed(2)} · {t.slope} = {slope.toFixed(2)} · {t.chordSlope} = {chord.toFixed(2)}
         <br />

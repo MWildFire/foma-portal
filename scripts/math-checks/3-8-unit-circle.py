@@ -40,3 +40,6 @@ CHECKS = [
     ('q-3-8-02', Q02, None),
     ('q-3-8-03', Q03, None),
 ]
+
+# R03: tangent extends beyond the unit circle; degrees and radians agree.
+CHECKS.append(('we-r03-tangent-120', __import__('math').tan(2 * __import__('math').pi / 3), '-1.732'))

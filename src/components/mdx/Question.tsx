@@ -42,7 +42,7 @@ export function Question({ id }: { id?: string }) {
   };
 
   return (
-    <div role="group" className="foma-card foma-question" lang={lang} aria-label={t('question.label')}>
+    <div role="group" className="foma-card foma-question" data-question-id={question.id} lang={lang} aria-label={t('question.label')}>
       <p className="foma-kind">
         <CircleHelp size={14} aria-hidden="true" />
         {t('question.label')}

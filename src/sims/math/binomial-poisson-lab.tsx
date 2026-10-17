@@ -1,3 +1,4 @@
+import ReadableDiagram from '../readable-diagram';
 import { useState } from 'react';
 import type { Lang } from '../../contract/types';
 import { binomialPmf, poissonPmf, windowMax, xTicks } from './binomial-poisson-logic';
@@ -22,7 +23,7 @@ const TEXT = {
     mean: 'Mean np',
     varBinomial: 'Variance np(1 − p)',
     varPoisson: 'Variance np',
-    note: 'For large n and small p the two sets of bars almost coincide.',
+    note: 'Binomial trials are independent, with the same success probability and a fixed n. Poisson(np) is an approximation, not an identity: the rare-event limit holds as n grows and p falls with np fixed. Bars outside the displayed window are omitted.',
   },
   ru: {
     label: 'Биномиальное и пуассоновское распределения с одинаковым средним',
@@ -33,7 +34,7 @@ const TEXT = {
     mean: 'Среднее np',
     varBinomial: 'Дисперсия np(1 − p)',
     varPoisson: 'Дисперсия np',
-    note: 'При большом n и малом p два набора столбиков почти совпадают.',
+    note: 'Биномиальная модель предполагает независимые испытания с одинаковой вероятностью успеха и фиксированным n. Po(np) — приближение, не тождество: предел редких событий получают при росте n и снижении p с фиксированным np. Столбики за пределами окна не показаны.',
   },
 } as const;
 
@@ -54,7 +55,7 @@ export default function BinomialPoissonLab({ lang }: { lang: Lang }) {
 
   return (
     <figure style={{ margin: 0 }}>
-      <svg viewBox={`0 0 ${WIDTH} ${HEIGHT}`} width="100%" style={{ maxWidth: WIDTH }} role="img" aria-label={t.label}>
+      <ReadableDiagram lang={lang}><svg viewBox={`0 0 ${WIDTH} ${HEIGHT}`} width="100%" style={{ maxWidth: WIDTH }} role="img" aria-label={t.label}>
         <line x1={0} y1={BASE} x2={WIDTH} y2={BASE} stroke="currentColor" strokeWidth={1} />
         {binomial.map((value, x) => (
           <rect
@@ -90,7 +91,7 @@ export default function BinomialPoissonLab({ lang }: { lang: Lang }) {
         <text x={LEFT} y={TOP - 6} fontSize={11} fill="currentColor">
           P(X = x)
         </text>
-      </svg>
+      </svg></ReadableDiagram>
       <figcaption style={{ fontSize: 13, lineHeight: 1.5 }}>
         <span style={{ color: '#4f6fd8' }}>■ {t.binomial}</span>{' · '}
         <span style={{ color: '#e0883a' }}>■ {t.poisson}</span>

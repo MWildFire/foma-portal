@@ -12,7 +12,7 @@ const topic = (id, order, priority, inMockScope, minutes = 25) => ({
   termIds: [], questionCount: 0, links: [], ready: { en: false, ru: false },
 });
 
-test('topic queue: in-scope (yes or unknown) first, then priority, then order', () => {
+test('topic queue: yes, then unknown, then no, then priority, then order', () => {
   const queue = topicQueue([
     topic('out-of-scope', 1, 1, 'no'),
     topic('later', 9, 1, 'yes'),
@@ -21,7 +21,7 @@ test('topic queue: in-scope (yes or unknown) first, then priority, then order', 
     topic('p1-first', 3, 1, 'yes'),
     topic('p3', 1, 3, 'yes'),
   ]);
-  assert.deepEqual(queue.map(t => t.id), ['unknown-scope', 'p1-first', 'later', 'p2-first', 'p3', 'out-of-scope']);
+  assert.deepEqual(queue.map(t => t.id), ['p1-first', 'later', 'p2-first', 'p3', 'unknown-scope', 'out-of-scope']);
 });
 
 test('topic queue is stable and does not mutate its input', () => {

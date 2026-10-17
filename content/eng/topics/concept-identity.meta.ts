@@ -18,7 +18,7 @@ const topic: TopicMeta = {
   ],
   termIds: ['narrator', 'first-person-narration', 'lyric-persona', 'protagonist', 'interior-monologue', 'foil'],
   questionIds: ['chk-concept-identity-1', 'chk-concept-identity-2'],
-  sources: [{ kind: 'own', title: 'Own wording' }],
+  sources: [{ kind: 'web', title: 'IB Language A: literature guide, first assessment 2026, PDF34–35 / printed28–29: seven concepts, actual text read through the official examiner link', url: 'https://xmltwo.ibo.org/publications/EAD/2026_EN/GR1/GR1-A-Lit_EN_24.pdf' }, { kind: 'own', title: 'Own wording' }],
 };
 
 export default topic;

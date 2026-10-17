@@ -17,6 +17,7 @@ const topic: TopicMeta = {
     { en: 'I can discuss digital life, artificial intelligence and the safety of devices and data', ru: 'Могу обсуждать цифровую жизнь, искусственный интеллект и безопасность устройств и данных' },
   ],
   termIds: [
+    'v-school-006', 'v-school-007',
     'v-t3-001', 'v-t3-002', 'v-t3-003', 'v-t3-004', 'v-t3-005', 'v-t3-006', 'v-t3-007', 'v-t3-008', 'v-t3-009', 'v-t3-010',
     'v-t3-011', 'v-t3-012', 'v-t3-013', 'v-t3-014', 'v-t3-015', 'v-t3-016', 'v-t3-017', 'v-t3-018', 'v-t3-019', 'v-t3-020',
     'v-t3-021', 'v-t3-022', 'v-t3-023', 'v-t3-024', 'v-t3-025', 'v-t3-026', 'v-t3-027', 'v-t3-028', 'v-t3-029', 'v-t3-030',

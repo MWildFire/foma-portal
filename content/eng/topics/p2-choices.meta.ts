@@ -18,7 +18,7 @@ const topic: TopicMeta = {
   ],
   termIds: ['narrator', 'focalisation', 'free-indirect-discourse', 'unreliable-narrator', 'setting', 'imagery', 'syntax', 'foreshadowing', 'diction'],
   questionIds: ['p2-q06', 'p2-q07', 'p2-q08', 'p2-q09', 'p2-q10', 'p1-joyce-araby', 'chk-p2-choices-1', 'chk-p2-choices-2'],
-  sources: [{ kind: 'own', title: 'Own wording' }],
+  sources: [{ kind: 'web', title: 'Joyce, Araby in Dubliners, Gutenberg2814: youthful retrospection and the marketing-street passage; actual primary context checked', url: 'https://www.gutenberg.org/files/2814/2814-h/2814-h.htm' }, { kind: 'web', title: 'IB Examiner Instructions2026, LanguageA, P2B1: broader authorial choices and quality rather than a technique quota', url: 'https://ibpublishing.ibo.org/exinst/apps/exinst/index.html?chapter=1&doc=EX_instructions_2026_e&part=8' }, { kind: 'own', title: 'Own wording' }],
 };
 
 export default topic;

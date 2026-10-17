@@ -10,8 +10,8 @@ export const formulas: Formula[] = [
       ru: 'Сложите каждое значение X, умноженное на его вероятность.',
     },
     when: {
-      en: 'Finding the long-run average of a random outcome, such as the average prize in a game.',
-      ru: 'Поиск среднего значения случайного исхода в длительной серии испытаний, например среднего выигрыша в игре.',
+      en: 'For finite support, or an absolutely convergent expectation sum, finding the mean of a random outcome, such as the average prize in a game.',
+      ru: 'При конечном числе значений либо абсолютно сходящейся сумме — поиск среднего значения случайного исхода, например среднего выигрыша в игре.',
     },
     syllabus: '4.7',
     inBooklet: true,
@@ -25,8 +25,8 @@ export const formulas: Formula[] = [
       ru: 'Вероятности всех возможных значений X в сумме дают 1, так как одно из этих значений обязательно наступит.',
     },
     when: {
-      en: 'Checking that a table is a valid probability distribution, or finding a missing probability.',
-      ru: 'Проверка, что таблица является распределением вероятностей, или нахождение недостающей вероятности.',
+      en: 'For distinct values covering the finite support, probabilities must sum to1 and each lie in[0,1]. Check both conditions, or use them to find a missing probability.',
+      ru: 'Для различных значений, охватывающих конечное распределение, сумма вероятностей равна1, а каждая лежит в[0,1]. Проверь оба условия или используй их для поиска недостающей вероятности.',
     },
     syllabus: '4.7',
     inBooklet: false,
@@ -37,7 +37,7 @@ export const formulas: Formula[] = [
     name: { en: 'Expected net gain of a game', ru: 'Ожидаемый чистый выигрыш в игре (Expected net gain of a game)' },
     meaning: {
       en: 'G is the net gain: the prize X minus the cost c of playing. The game is fair when E(G) = 0.',
-      ru: 'G — чистый выигрыш: приз X минус стоимость игры c. Игра честная, когда E(G) = 0.',
+      ru: 'G — чистый выигрыш: приз X минус стоимость игры c. Игра справедлива по математическому ожиданию, когда E(G) = 0.',
     },
     when: {
       en: 'Deciding whether a game or a decision is worth taking on average.',

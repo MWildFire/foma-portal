@@ -4,9 +4,9 @@ A survey is useful only when its data are valid (they measure the intended thing
 
 ## Explanation
 
-Good data collection starts with the sample and the questions. A random or stratified sample of the whole population represents it far better than a convenience sample of friends. Choose variables that answer the research question, and word the questions so that they do not lead the respondent. A pilot test on a few people shows confusing questions before the main survey.
+Good data collection starts with the sample and the questions. Probability sampling from a frame covering the population reduces selection bias compared with a convenience sample of friends; non-response and measurement errors still matter. Choose variables that answer the research question, and word the questions so that they do not lead the respondent. A pilot test on a few people shows confusing questions before the main survey.
 
-<Term id="reliability-of-questionnaire"/> means that the questionnaire gives consistent results when it is used again under the same conditions. A common check is test–retest: give the same questionnaire twice and compare the answers. For numerical scores, use the correlation between the two sets, Pearson's $r$ or Spearman's $r_s$. For categorical answers, use a chi-squared test of association, as in topic 4.11.
+<Term id="reliability-of-questionnaire"/> means that the questionnaire gives consistent results when it is used again under the same conditions. A common check is test–retest: give the same questionnaire twice and compare the answers. For numerical scores, use the correlation between the two sets, Pearson's $r$ or Spearman's $r_s$. For categorical answers, a chi-squared test can examine association, as in topic 4.11, but association is not agreement. If every yes response becomes no and every no becomes yes, association can be perfect while no answer agrees. Also compare paired agreement directly.
 
 <Term id="validity-of-questionnaire"/> means that it measures what it is meant to measure. Compare the results with an independent criterion, such as marks from a school test, or ask experts to judge the content. A strong association with the criterion supports validity, but no single number proves it.
 
@@ -35,13 +35,11 @@ A school measures the heights of 100 students and groups them into four classes.
 
 ## Visual
 
-<Callout kind="tip">Sketch the observed counts as bars and mark the expected counts on the same axes. A bar far above or below its expected height shows where the model fails. In the chi-squared sum, each class contributes $(O-E)^2/E$, so the largest contribution points to the class that disagrees most with the model.</Callout>
+<Callout kind="tip">Sketch the observed counts as bars and mark the expected counts on the same axes. A bar far above or below its expected height identifies a discrepancy; a discrepancy alone does not establish model failure. In the chi-squared sum, each class contributes $(O-E)^2/E$, so the largest contribution points to the class that disagrees most with the model.</Callout>
 
 ## How it is examined
 
-Expect Explain and Determine parts. An explanation needs a reason tied to validity, reliability or bias, not a general statement such as "the survey is good". Numerical parts ask for expected frequencies, the statistic and the degrees of freedom, and the conclusion must be written in context. Marks are most often lost on the degrees of freedom: after a parameter is estimated, $\nu = k - 1 - p$, not $k - 1$. For reliability, name the comparison (test–retest with a correlation or a chi-squared test of association); for validity, name the criterion.
-
-<Callout kind="exam">A P2 question on survey design usually has one explanation part about bias or validity. Prepare one precise sentence for each common source of bias: non-response, self-selection and leading questions.</Callout>
+Explain validity, reliability or selection bias using a concrete feature of the survey. Reliability concerns consistency or agreement; association alone can be misleading. For goodness of fit, show exhaustive disjoint classes, adequate expected counts and degrees of freedom after pooling and parameter estimation. Interpret the statistical decision without declaring a model proved.
 
 ## Common mistakes
 
@@ -61,8 +59,8 @@ Expect Explain and Determine parts. An explanation needs a reason tied to validi
 
 ## Summary
 
-- A survey is valid when it measures the intended variable on a sample that represents the population; random and stratified samples beat convenience samples.
-- Reliability means consistent results on repetition; test it with a second administration and a correlation or a chi-squared test of association.
+- A survey is valid when it measures the intended variable on a sample that represents the population; probability sampling reduces selection bias but does not guarantee a representative realised sample.
+- Reliability means consistent results on repetition; test it with a second administration and agreement measures as well as any correlation or association test.
 - Validity is judged against an independent criterion or expert opinion, not by one number.
 - Group numerical data into non-overlapping classes before a chi-squared test, and combine classes until every expected frequency is at least 5.
 - Each parameter estimated from the sample reduces the degrees of freedom: $\nu = k - 1 - p$.

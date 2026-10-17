@@ -1,3 +1,4 @@
+import ReadableDiagram from '../readable-diagram';
 import { useState } from 'react';
 import type { CSSProperties } from 'react';
 import type { Lang } from '../../contract/types';
@@ -43,7 +44,7 @@ const COUNTRIES_WITH_FOOTPRINT = 183;
 const QATAR_CONSUMPTION_PC = 12.06;
 
 // Footprint ÷ biocapacity, computed from the file's totals. Both are NFA totals, so this equals the ratio of the
-// per-person values up to rounding. A ratio above 1 means the footprint is above the biocapacity: ecological overshoot.
+// per-person values up to rounding. A national production ratio above 1 is a production-pressure comparison, not the usual consumption-based ecological deficit. Global production and consumption footprints coincide, so the world ratio measures global overshoot.
 const ratio = (c: Country) => c.efTot / c.bcTot;
 const isOvershoot = (c: Country) => ratio(c) > 1;
 const worldCarbonShare = WORLD_CARBON_GHA / WORLD.efTot;
@@ -106,8 +107,8 @@ export default function EcologicalFootprint({ lang }: { lang: Lang }) {
   const title = t('Ecological footprint and biocapacity, 2023', 'Экологический след и биоёмкость, 2023 г.');
   const modeName = perPerson ? t('per person', 'на человека') : t('total for the country', 'всего по стране');
   const unitName = perPerson ? t('gha per person', 'gha на человека') : t('million gha', 'млн gha');
-  const overLabel = t('overshoot', 'перерасход');
-  const reserveLabel = t('reserve', 'резерв');
+  const overLabel = t('production > capacity', 'производство > биоёмкость');
+  const reserveLabel = t('capacity ≥ production', 'биоёмкость ≥ производства');
   const overList = COUNTRIES.filter(isOvershoot).map(name);
   const reserveList = COUNTRIES.filter(c => !isOvershoot(c)).map(name);
   const topPc = COUNTRIES.reduce((a, b) => (b.efPc > a.efPc ? b : a));
@@ -118,8 +119,8 @@ export default function EcologicalFootprint({ lang }: { lang: Lang }) {
   const worldCarbonPct = Math.round(worldCarbonShare * 100);
 
   const intro = t(
-    "The footprint of production is the land and sea area, in global hectares (gha), that a country's production needs: crops, grazing, timber, fish, built-up land and the forest needed to absorb CO₂ from fossil fuels and cement. The footprint of consumption counts the same land for what a country uses, including imports and exports; this chart uses production. Biocapacity is the productive land and sea the country has. Data year 2023, from the 2026 edition of the National Footprint and Biocapacity Accounts.",
-    'След производства — площадь суши и моря в глобальных гектарах (gha), которую требует производство страны: посевы, пастбища, древесина, рыба, застроенные территории и лес для поглощения CO₂ от сжигания топлива и производства цемента. След потребления считает ту же площадь для того, что страна потребляет, с учётом импорта и экспорта; на этой диаграмме — след производства. Биоёмкость — продуктивные суша и море, которые есть в стране. Год данных — 2023, издание 2026 года.',
+    "The footprint of production is the land and sea area, in global hectares (gha), that a country's production needs: crops, grazing, timber, fish, built-up land and the forest needed to absorb CO₂ from fossil fuels and cement. Consumption footprint = production footprint + the footprint embodied in imports − that embodied in exports. This chart uses production; a national production ratio is not a consumption-based ecological deficit. Biocapacity is the productive land and sea the country has. Data year 2023, from the 2026 edition of the National Footprint and Biocapacity Accounts.",
+    'След производства — площадь суши и моря в глобальных гектарах (gha), которую требует производство страны: посевы, пастбища, древесина, рыба, застроенные территории и лес для поглощения CO₂ от сжигания топлива и производства цемента. След потребления равен следу производства плюс след импорта минус след экспорта. Здесь показано производство; его отношение к биоёмкости не равно обычному дефициту, рассчитанному по потреблению. Биоёмкость — продуктивные суша и море, которые есть в стране. Год данных — 2023, издание 2026 года.',
   );
 
   const worldTotalNote = t(
@@ -133,13 +134,13 @@ export default function EcologicalFootprint({ lang }: { lang: Lang }) {
   );
 
   const overshootText = t(
-    `Ecological overshoot (footprint above biocapacity): ${overList.join(', ')}. That is ${overList.length} of the ${COUNTRIES.length} countries, and the world too (ratio ${num(worldRatio, 1)}).`,
-    `Экологический перерасход (след больше биоёмкости): ${overList.join(', ')}. Это ${overList.length} из ${COUNTRIES.length} стран, а также мир (отношение ${num(worldRatio, 1)}).`,
+    `Production footprint above domestic biocapacity: ${overList.join(', ')}. That is ${overList.length} of the ${COUNTRIES.length} countries; global overshoot is measured separately by the world ratio (${num(worldRatio, 1)}).`,
+    `След производства выше внутренней биоёмкости: ${overList.join(', ')}. Это ${overList.length} из ${COUNTRIES.length} стран; глобальный перерасход отдельно показывает отношение для мира (${num(worldRatio, 1)}).`,
   );
 
   const reserveText = t(
-    `Biocapacity above footprint (reserve): ${reserveList.join(', ')}.`,
-    `Биоёмкость больше следа (резерв): ${reserveList.join(', ')}.`,
+    `Domestic biocapacity at least as large as production footprint: ${reserveList.join(', ')}.`,
+    `Внутренняя биоёмкость не ниже следа производства: ${reserveList.join(', ')}.`,
   );
 
   const highestText = t(
@@ -170,8 +171,8 @@ export default function EcologicalFootprint({ lang }: { lang: Lang }) {
 
   const notShownItems = [
     t(
-      `Biocapacity is not sustainability. Brazil's reserve (${num(BRAZIL.bcPc, 2)} gha of biocapacity against a footprint of ${num(BRAZIL.efPc, 2)} gha per person) shows the area of land and sea, not how well they are managed. Soil loss, water use, pollution and biodiversity loss are not counted.`,
-      `Биоёмкость — не то же, что устойчивость. Резерв Бразилии (${num(BRAZIL.bcPc, 2)} gha биоёмкости при следе ${num(BRAZIL.efPc, 2)} gha на человека) показывает площадь суши и моря, но не то, как ими управляют. Потеря почв, расход воды, загрязнение и потеря биоразнообразия не учтены.`,
+      `Biocapacity is not sustainability. Brazil's production comparison (${num(BRAZIL.bcPc, 2)} gha of biocapacity against a footprint of ${num(BRAZIL.efPc, 2)} gha per person) shows the area of land and sea, not how well they are managed. Soil loss, water use, pollution and biodiversity loss are not counted.`,
+      `Биоёмкость — не то же, что устойчивость. Сравнение производства Бразилии (${num(BRAZIL.bcPc, 2)} gha биоёмкости при следе ${num(BRAZIL.efPc, 2)} gha на человека) показывает площадь суши и моря, но не то, как ими управляют. Потеря почв, расход воды, загрязнение и потеря биоразнообразия не учтены.`,
     ),
     t(
       "The account is an estimate built from United Nations and other statistics, and data quality varies. In this edition the UAE's consumption footprint is not published, and 2024 and 2025 are marked as estimates, so the chart uses 2023.",
@@ -214,7 +215,7 @@ export default function EcologicalFootprint({ lang }: { lang: Lang }) {
       </div>
       {/* on a phone the chart scrolls sideways instead of shrinking its labels below readable size */}
       <div style={{ overflowX: 'auto' }}>
-      <svg role="img" aria-label={`${title}: ${modeName}, ${unitName}`} viewBox={`0 0 ${W} ${H}`} width="100%" style={{ maxWidth: W, minWidth: 560, display: 'block' }}>
+      <ReadableDiagram lang={lang}><svg role="img" aria-label={`${title}: ${modeName}, ${unitName}`} viewBox={`0 0 ${W} ${H}`} width="100%" style={{ maxWidth: W, minWidth: 560, display: 'block' }}>
         {ticks.map(v => (
           <g key={`tick-${v}`}>
             <line x1={LEFT} x2={W - 4} y1={BASE - v * scale} y2={BASE - v * scale} stroke={v === 0 ? '#6b7280' : '#d1d5db'} strokeWidth={v === 0 ? 1.2 : 1} />
@@ -235,16 +236,16 @@ export default function EcologicalFootprint({ lang }: { lang: Lang }) {
               <text x={cx - BAR / 2 - 2} y={BASE - efH - 4} textAnchor="middle" fontSize={11} fill="currentColor">{num(efVal, digits)}</text>
               <text x={cx + BAR / 2 + 2} y={BASE - bcH - 4} textAnchor="middle" fontSize={11} fill="currentColor">{num(bcVal, digits)}</text>
               <text x={cx} y={BASE + 16} textAnchor="middle" fontSize={12} fontWeight="bold" fill="currentColor">{name(c)}</text>
-              <text x={cx} y={BASE + 31} textAnchor="middle" fontSize={11} fill={over ? OVER_COLOR : RESERVE_COLOR}>{over ? overLabel : reserveLabel}</text>
+              <text x={cx} y={BASE + 31} textAnchor="middle" fontSize={11} fill={over ? OVER_COLOR : RESERVE_COLOR}>{`${num(ratio(c), 1)}×`}</text>
             </g>
           );
         })}
-      </svg>
+      </svg></ReadableDiagram>
       </div>
       {!perPerson && <p style={{ fontSize: 13, marginTop: 6 }}>{worldTotalNote}</p>}
 
       <p style={{ marginTop: 12 }}>
-        <strong>{t('Per person, 2023: footprint, biocapacity and their ratio', 'На человека, 2023 г.: след, биоёмкость и их отношение')}</strong>
+        <strong>{t('Per person, 2023: production footprint, biocapacity and their ratio', 'На человека, 2023 г.: след производства, биоёмкость и их отношение')}</strong>
       </p>
       <div style={{ overflowX: 'auto' }}>
         <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 13 }}>
@@ -254,7 +255,7 @@ export default function EcologicalFootprint({ lang }: { lang: Lang }) {
               <th style={headCell}>{t('Footprint, gha per person', 'След, gha на человека')}</th>
               <th style={headCell}>{t('Biocapacity, gha per person', 'Биоёмкость, gha на человека')}</th>
               <th style={headCell}>{t('Footprint ÷ biocapacity', 'След ÷ биоёмкость')}</th>
-              <th style={{ ...headCell, textAlign: 'left' }}>{t('Status', 'Статус')}</th>
+              <th style={{ ...headCell, textAlign: 'left' }}>{t('Production comparison', 'Сравнение производства')}</th>
             </tr>
           </thead>
           <tbody>
@@ -265,7 +266,7 @@ export default function EcologicalFootprint({ lang }: { lang: Lang }) {
                 <td style={bodyCell}>{num(c.bcPc, 2)}</td>
                 <td style={bodyCell}>{num(ratio(c), 1)}</td>
                 <td style={{ ...bodyCell, textAlign: 'left', color: isOvershoot(c) ? OVER_COLOR : RESERVE_COLOR }}>
-                  {isOvershoot(c) ? t('Overshoot', 'Перерасход') : t('Reserve', 'Резерв')}
+                  {isOvershoot(c) ? overLabel : reserveLabel}
                 </td>
               </tr>
             ))}
@@ -300,7 +301,11 @@ export default function EcologicalFootprint({ lang }: { lang: Lang }) {
         ))}
       </ul>
 
-      <p style={{ marginTop: 10, fontSize: 13, opacity: 0.8 }}>{sourcesText}</p>
+      <p style={{ marginTop: 10, fontSize: 13, opacity: 0.8 }}>{sourcesText}{' '}
+        <a href="https://footprint.info.yorku.ca/data-2/" target="_blank" rel="noreferrer">{t('Lo et al., 2026: original data and release notes', 'Lo и др., 2026: исходные данные и описание выпуска')}</a>{'. '}
+        <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noreferrer">CC BY-SA 4.0</a>{'. '}
+        {t('Adaptation: selected countries, production comparison, rounded chart and recalculated ratios.', 'Адаптация: выбор стран, сравнение производства, округление для графика и пересчёт отношений.')}
+      </p>
     </div>
   );
 }

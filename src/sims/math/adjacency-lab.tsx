@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import ReadableDiagram from '../readable-diagram';
+import { useState, type ReactNode } from 'react';
 import type { Lang } from '../../contract/types';
 
 // The five-vertex graph of the walks topic, with fixed vertex positions. The adjacency matrix A is built from
@@ -48,7 +49,7 @@ const TEXT = {
 
 const cell = { padding: '2px 6px', textAlign: 'center' as const };
 
-function Grid({ matrix, row, col, caption }: { matrix: Matrix; row: number; col: number; caption: string }) {
+function Grid({ matrix, row, col, caption }: { matrix: Matrix; row: number; col: number; caption: ReactNode }) {
   return (
     <table style={{ borderCollapse: 'collapse', fontSize: 13 }}>
       <caption style={{ textAlign: 'left', fontWeight: 600 }}>{caption}</caption>
@@ -85,7 +86,7 @@ export default function AdjacencyLab({ lang }: { lang: Lang }) {
 
   return (
     <figure style={{ margin: 0 }}>
-      <svg viewBox="0 0 380 220" width="100%" style={{ maxWidth: 380 }} role="img" aria-label={t.label}>
+      <ReadableDiagram lang={lang}><svg viewBox="0 0 380 220" width="100%" style={{ maxWidth: 380 }} role="img" aria-label={t.label}>
         {EDGES.map(([u, v]) => (
           <line key={`${LABELS[u]}${LABELS[v]}`} x1={POS[u][0]} y1={POS[u][1]} x2={POS[v][0]} y2={POS[v][1]}
             stroke="currentColor" strokeWidth={1.5} />
@@ -94,17 +95,17 @@ export default function AdjacencyLab({ lang }: { lang: Lang }) {
           const picked = i === from || i === to;
           return (
             <g key={LABELS[i]}>
-              <circle cx={x} cy={y} r={15} fill={picked ? '#4f6fd8' : 'none'} stroke="currentColor" strokeWidth={1.5} />
+              <circle cx={x} cy={y} r={15} fill={picked ? '#4f6fd8' : 'var(--color-bg)'} stroke="currentColor" strokeWidth={1.5} />
               <text x={x} y={y + 5} textAnchor="middle" fontSize={14} fill={picked ? '#ffffff' : 'currentColor'}>
                 {LABELS[i]}
               </text>
             </g>
           );
         })}
-      </svg>
+      </svg></ReadableDiagram>
       <div style={{ display: 'flex', flexWrap: 'wrap', gap: 16, margin: '8px 0' }}>
         <Grid matrix={ADJ} row={from} col={to} caption={t.matrix} />
-        <Grid matrix={POWERS[k - 1]} row={from} col={to} caption={`A^${k}`} />
+        <Grid matrix={POWERS[k - 1]} row={from} col={to} caption={<>A<sup>{k}</sup></>} />
       </div>
       <label style={{ display: 'inline-block', marginRight: 16 }}>
         {t.start}{' '}

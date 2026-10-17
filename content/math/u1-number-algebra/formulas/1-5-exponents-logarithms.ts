@@ -6,8 +6,8 @@ export const formulas: Formula[] = [
     tex: 'a^{m}\\times a^{n}=a^{m+n},\\qquad \\dfrac{a^{m}}{a^{n}}=a^{m-n},\\qquad \\left(a^{m}\\right)^{n}=a^{mn}',
     name: { en: 'Laws of integer exponents', ru: 'Законы степеней с целым показателем (Laws of integer exponents)' },
     meaning: {
-      en: 'Powers of the same base multiply by adding the exponents, divide by subtracting the exponents, and raise to a power by multiplying the exponents.',
-      ru: 'Степени с одним основанием перемножаются сложением показателей, делятся вычитанием показателей и возводятся в степень умножением показателей.',
+      en: 'For a positive base, the laws hold for real exponents. For a nonzero negative base, restrict these laws here to integer exponents. Powers of the same base multiply by adding the exponents, divide by subtracting the exponents, and raise to a power by multiplying the exponents.',
+      ru: 'Для положительного основания законы верны при действительных показателях; для отрицательного ненулевого основания здесь ограничимся целыми показателями. Степени с одним основанием перемножаются сложением показателей, делятся вычитанием показателей и возводятся в степень умножением показателей.',
     },
     when: {
       en: 'Simplifying an expression written as powers of one base, before evaluating it.',
@@ -29,8 +29,8 @@ export const formulas: Formula[] = [
       ru: 'Ненулевое число в нулевой степени равно 1. Отрицательный показатель даёт обратную величину степени с положительным показателем.',
     },
     when: {
-      en: 'An expression contains a zero or negative exponent, for example after a smaller power is divided by a larger one.',
-      ru: 'В выражении есть нулевой или отрицательный показатель, например после деления меньшей степени на большую.',
+      en: 'Here use integer n for a nonzero real base; for general real exponents require a positive base. Apply the reciprocal rule when a zero or negative exponent occurs.',
+      ru: 'Здесь для ненулевого действительного основания бери целое n; для произвольных действительных показателей нужно положительное основание. Правило обратной степени применяют при нулевом или отрицательном показателе.',
     },
     syllabus: '1.5',
     inBooklet: false,
@@ -48,8 +48,8 @@ export const formulas: Formula[] = [
       ru: 'Логарифм отменяет свою степень: $10^{\\log_{10}x}=x$ и $e^{\\ln x}=x$. Логарифм по основанию 10 от степени 10 возвращает показатель, а $\\ln$ делает то же для степени e.',
     },
     when: {
-      en: 'Solving $10^{x}=a$ or $e^{x}=b$ for x, or checking a logarithm by raising the base to it. The booklet has the general form $a^{x} = b \\Leftrightarrow x = \\log_a b$ (page 3); the two identities above are its special cases.',
-      ru: 'Решение $10^{x}=a$ или $e^{x}=b$ относительно x, а также проверка логарифма возведением основания в найденную степень. В формульной книжке есть общая форма $a^{x} = b \\Leftrightarrow x = \\log_a b$ (стр. 3); два тождества выше — её частные случаи.',
+      en: 'Solving $10^{x}=a$ or $e^{x}=b$ for x, or checking a logarithm by raising the base to it. The booklet has the general form $a^{x} = b \\Leftrightarrow x = \\log_a b$ (page 3), for $a>0$, $a≠1$ and $b>0$; the two identities above are its special cases.',
+      ru: 'Решение $10^{x}=a$ или $e^{x}=b$ относительно x, а также проверка логарифма возведением основания в найденную степень. В формульной книжке есть общая форма $a^{x} = b \\Leftrightarrow x = \\log_a b$ (стр. 3), при $a>0$, $a≠1$ и $b>0$; два тождества выше — её частные случаи.',
     },
     syllabus: '1.5',
     inBooklet: false,

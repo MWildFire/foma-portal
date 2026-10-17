@@ -28,12 +28,12 @@ export const questions: Question[] = [
     marks: 3,
     command: 'Calculate',
     prompt: {
-      en: 'In a country, nominal GDP is AED 1365 bn and real GDP is AED 1300 bn (base year = 100). Calculate the GDP deflator. Give your answer to one decimal place.',
-      ru: 'В стране номинальный ВВП равен 1365 млрд AED, а реальный ВВП 1300 млрд AED (базовый год = 100). Рассчитайте дефлятор ВВП. Ответ дайте с одним знаком после запятой.',
+      en: 'In a country, nominal GDP is AED 1365 bn and real GDP is AED 1300 bn at base-year prices. Calculate the GDP deflator (base year = 100). Give your answer to one decimal place and interpret its value relative to the base year. Does it mean every individual price changed by the same percentage?',
+      ru: 'В стране номинальный ВВП равен 1365 млрд AED, а реальный ВВП 1300 млрд AED в ценах базового года. Рассчитайте дефлятор ВВП (базовый год = 100). Ответ дайте с одним знаком после запятой и объясните его значение по отношению к базовому году. Означает ли результат, что каждая отдельная цена изменилась на одинаковый процент?',
     },
     markscheme: {
-      en: '1 mark: GDP deflator = nominal GDP / real GDP x 100. 1 mark: 1365 / 1300 x 100 = 105.0. 1 mark: a deflator of 105.0 means prices are 5% higher than in the base year.',
-      ru: '1 балл: дефлятор ВВП = номинальный ВВП / реальный ВВП x 100. 1 балл: 1365 / 1300 x 100 = 105,0. 1 балл: дефлятор 105,0 означает, что цены на 5% выше, чем в базовом году.',
+      en: '1 mark: GDP deflator = nominal GDP / real GDP x 100. 1 mark: 1365 / 1300 x 100 = 105.0. 1 mark: a deflator of 105.0 means the aggregate GDP price index is 5% above its base-year value; individual prices need not all have risen by 5%.',
+      ru: '1 балл: дефлятор ВВП = номинальный ВВП / реальный ВВП x 100. 1 балл: 1365 / 1300 x 100 = 105,0. 1 балл: дефлятор 105,0 означает, что совокупный индекс цен ВВП на 5% выше базового уровня; отдельные цены не обязаны вырасти ровно на 5%.',
     },
     answer: '105.0',
     origin: 'original',

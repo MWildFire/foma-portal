@@ -100,15 +100,15 @@ export const terms: Term[] = [
     id: 'core-afforestation',
     term: { en: 'afforestation', ru: 'облесение (afforestation)' },
     def: {
-      en: 'Human-induced creation of forest on land that has had no forest for at least 50 years, for example by planting or seeding trees on former farmland or grassland; the growing trees absorb CO2 and store carbon.',
-      ru: 'Создание леса человеком на земле, которая не была покрыта лесом не менее 50 лет, например посадкой или посевом деревьев на бывших пашнях и пастбищах; растущие деревья поглощают CO2 и накапливают углерод.',
+      en: 'Establishing forest by planting or deliberate seeding on land previously classified as non-forest (FAO FRA terminology). Growing trees remove CO2 and accumulate carbon.',
+      ru: 'Создание леса посадкой или целенаправленным посевом на земле, которая до этого не относилась к лесу (терминология ФАО FRA). Растущие деревья поглощают CO2 и накапливают углерод.',
     },
     syllabus: 'core-2.3',
     papers: ['P2'],
-    src,
+    src: {"kind": "web", "title": "FAO FRA 2015 Terms and Definitions, pp.5–6; Kyoto decision 16/CMP.1 annex 1(b) is a separate accounting domain; IPCC AR6 WGIII 7.4.5.3 for wood-product carbon", "url": "https://www.fao.org/4/ap862e/ap862e00.pdf"},
     pitfall: {
-      en: 'Afforestation is not reforestation, which replants land that was forest recently. Trees store carbon only while they survive and are not cleared.',
-      ru: 'Облесение — не лесовосстановление, при котором заново сажают лес на земле, где он недавно был. Деревья накапливают углерод, только пока живут и их не вырубают.',
+      en: 'FAO distinguishes reforestation on land still classified as forest. The 50-year non-forest threshold belongs specifically to Kyoto accounting (decision 16/CMP.1, annex 1(b)). Carbon can persist in deadwood, soil and harvested wood products; burning and decay can release it. Forest permanence and competition for land still matter.',
+      ru: 'В терминологии ФАО лесовосстановление происходит на земле, которая продолжает относиться к лесу. Порог 50 лет без леса относится именно к киотскому учёту (решение 16/CMP.1, приложение 1(b)). Углерод может сохраняться в мёртвой древесине, почве и изделиях, а при горении и разложении — высвобождаться. Долговременная сохранность и конкуренция за землю остаются важны.',
     },
   },
   {
@@ -230,5 +230,29 @@ export const terms: Term[] = [
       en: 'The principle does not divide responsibility equally. It links responsibility to historic emissions and capability, which is why it is contested in negotiations.',
       ru: 'Принцип не делит ответственность поровну. Он связывает её с историческими выбросами и возможностями, поэтому на переговорах его оспаривают.',
     },
+  },
+  {
+    id: "core-carbon-offset",
+    term: {
+      en: "carbon offset",
+      ru: "компенсация выбросов (carbon offset)"
+    },
+    def: {
+      en: "A claimed reduction or removal outside the emitting activity, credited to compensate for emissions. It differs from an allowance that permits emissions inside a cap.",
+      ru: "Заявленное сокращение или удаление парниковых газов за пределами самой деятельности, засчитываемое в компенсацию выбросов. Отличается от квоты, разрешающей выброс внутри лимита."
+    },
+    syllabus: "core-2.3",
+    papers: [
+      "P2"
+    ],
+    src: {
+      kind: "web",
+      title: "UN, Integrity Matters (2022), value-chain reductions and carbon credits",
+      url: "https://www.un.org/en/climatechange/high-level-expert-group"
+    },
+    pitfall: {
+      en: "Check additionality, durable storage, leakage and double counting; purchasing a credit does not itself eliminate the buyer’s gross emissions.",
+      ru: "Проверяйте дополнительность, сохранность углерода, перенос выбросов и двойной учёт; сама покупка кредита не устраняет фактические выбросы покупателя."
+    }
   },
 ];

@@ -20,7 +20,7 @@ The <Term id="arithmetic-series"/> is the sum of the first $n$ terms. Pairing th
 
 <Term id="sigma-notation-arithmetic"/> writes the same sum compactly: $\sum_{k=1}^{n} u_k$ means add the terms for $k = 1, 2, \dots, n$.
 
-Real data are rarely exactly arithmetic. A straight-line model $u_n = u_1 + (n-1)d$ is an approximation: compare its values with the actual ones, and treat predictions far beyond the data with caution.
+Applied data may only approximately follow an arithmetic pattern. A straight-line model $u_n = u_1 + (n-1)d$ is an approximation: compare its values with the actual ones, and treat predictions far beyond the data with caution.
 
 <Callout kind="gdc">On a Calculator page, `seq(5+3*(n-1),n,1,10)` lists the first 10 terms for $u_1 = 5$ and $d = 3$, so you can check the common difference, and `sum(seq(5+3*(n-1),n,1,10))` gives $S_{10} = 185$. Check the sum with the formula for $S_n$.</Callout>
 
@@ -40,17 +40,17 @@ Next, evaluate $\sum_{k=1}^{4}(2k+1)$ by substituting each value of $k$.
 <Step>Add them, or use the formula: $S_4 = \dfrac{4}{2}(3 + 9) = 24$.</Step>
 </Steps>
 
-<Reveal title="Why does the sum formula use the first and last terms?">Pair the first term with the last, the second with the second-last, and so on. Each pair has the same total $u_1 + u_n$, and there are $n/2$ pairs, so the sum is $\frac{n}{2}(u_1 + u_n)$.</Reveal>
+<Reveal title="Why does the sum formula use the first and last terms?">Write the sum once forwards and once backwards, then add corresponding columns. There are $n$ columns, each totalling $u_1+u_n$, so $2S_n=n(u_1+u_n)$. This proof also works for odd $n$; pairing the original list alone would leave a middle term.</Reveal>
 
 ## Visual
 
-<Callout kind="tip">Plot $u_n$ against $n$: the points of an arithmetic sequence lie on one straight line. The gradient of that line is the common difference $d$, and the points rise by the same height at each step. If the points curve, or the steps change size, the sequence is not arithmetic, and a straight-line model will only fit approximately.</Callout>
+<Callout kind="tip">Plot $u_n$ against $n$: the points of an arithmetic sequence lie on one straight line. The gradient of that line is the common difference $d$, and successive points change by the same signed amount: they rise for $d>0$, fall for $d<0$ and remain level for $d=0$. If the points curve, or the steps change size, the sequence is not arithmetic, and a straight-line model will only fit approximately.</Callout>
 
 ## How it is examined
 
-Find and Calculate questions give a mark for identifying $d$ or choosing the correct formula, a mark for substituting into it, and a mark for the final value. Show that questions need the test that $u_{n+1} - u_n$ is the same for every $n$. Context questions also need an interpretation of the answer, for example what the model predicts for a named week, and a comment on how far the model can be trusted.
+Use the specific question’s markscheme; there is no universal mark for each of identifying $d$, substitution and the final value. Show the chosen formula and substitutions so the reasoning is reviewable. Show that questions need the test that $u_{n+1} - u_n$ is the same for every $n$. Context questions also need an interpretation of the answer, for example what the model predicts for a named week, and a comment on how far the model can be trusted.
 
-<Callout kind="exam">Read the command and the wording carefully: $u_n$ is one term, and $S_n$ is the sum of the first $n$ terms. Answering the wrong quantity usually costs all the marks for the answer.</Callout>
+<Callout kind="exam">Read the command and the wording carefully: $u_n$ is one term, and $S_n$ is the sum of the first $n$ terms. A response to the wrong quantity may lose accuracy or interpretation credit; method credit depends on the actual markscheme.</Callout>
 
 ## Common mistakes
 
@@ -68,11 +68,13 @@ Find and Calculate questions give a mark for identifying $d$ or choosing the cor
 
 <Question id="q-1-2-03"/>
 
+<Question id="r06-sigma"/>
+
 ## Summary
 
 - An arithmetic sequence has a constant common difference, $d = u_{n+1} - u_n$.
 - $u_n = u_1 + (n-1)d$ gives any term, and $S_n = \dfrac{n}{2}(2u_1 + (n-1)d)$ gives the sum of the first $n$ terms.
 - $S_n = \dfrac{n}{2}(u_1 + u_n)$ is the same sum when the last term is known.
 - Sigma notation $\sum_{k=1}^{n} u_k$ writes the sum compactly; substitute each value of $k$.
-- From $k = a$ to $k = b$ there are $b - a + 1$ terms.
+- For integer limits $a\le b$, from $k=a$ to $k=b$ inclusive there are $b-a+1$ terms.
 - A linear model is an approximation: compare it with the actual data before trusting its predictions.

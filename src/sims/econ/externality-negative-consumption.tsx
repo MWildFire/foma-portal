@@ -60,8 +60,8 @@ const steps: Step[] = [
   {
     title: { en: 'Socially optimal quantity', ru: 'Социально оптимальный объём' },
     text: {
-      en: 'The socially optimal output is where MSB = MPC: 9 - 0.5Q = 0.5Q, so Q* = 9 at P = 4.5. Consumption should be 9, not 12.',
-      ru: 'Оптимальный объём (socially optimal) там, где MSB = MPC: 9 - 0.5Q = 0.5Q, то есть Q* = 9 при P = 4.5. Потребление должно быть 9, а не 12.',
+      en: 'The socially optimal output is where MSB = MPC: 9 - 0.5Q = 0.5Q, so Q* = 9 and the common MSB/MSC height is 4.5. This is not necessarily the price paid by consumers under an implementing policy: the tax step distinguishes the two prices.',
+      ru: 'Оптимальный объём (socially optimal) там, где MSB = MPC: 9 - 0.5Q = 0.5Q, то есть Q* = 9, а общая высота MSB и MSC равна 4,5. Это не обязательно цена покупателя при реализации политики: на шаге налога различаются две цены.',
     },
     graph: {
       ...axes,
@@ -115,6 +115,7 @@ const steps: Step[] = [
         { id: 'qs', from: [9, 0], to: [9, 7.5], tone: 'ink' },
         { id: 'pc', from: [0, 7.5], to: [9, 7.5], tone: 'demand' },
         { id: 'pp', from: [0, 4.5], to: [9, 4.5], tone: 'supply' },
+        { id: 'tax', from: [4, 2], to: [4, 5], tone: 'policy', label: { en: 't = 3', ru: 't = 3' }, labelAt: 'start' },
       ],
       marks: [
         { id: 'E1', at: [9, 7.5], tone: 'policy', label: { en: 'E1', ru: 'E1' }, dx: -7, dy: -12 },

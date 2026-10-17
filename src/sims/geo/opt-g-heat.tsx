@@ -1,4 +1,6 @@
+import ReadableDiagram from '../readable-diagram';
 import { useState } from 'react';
+import { coverageShare } from './opt-g-heat-logic';
 import type { Lang } from '../../contract/types';
 
 // Illustrative model, not data. A transect runs from the rural edge (x = 0) to the city centre (x = 1).
@@ -52,9 +54,9 @@ export default function OptGHeatSim({ lang }: { lang: Lang }) {
   };
 
   const controls: { key: string; min: number; max: number; step: number; value: number; set: (v: number) => void; en: string; ru: string }[] = [
-    { key: 'green', min: 0, max: 100, step: 1, value: green, set: setGreen, en: 'Vegetation cover in the centre (%)', ru: 'Растительность в центре (%)' },
+    { key: 'green', min: 0, max: 100, step: 1, value: green, set: v => setGreen(coverageShare(v, density)), en: 'Vegetation cover in the centre (%)', ru: 'Растительность в центре (%)' },
     { key: 'albedo', min: 5, max: 50, step: 1, value: albedo, set: setAlbedo, en: 'Albedo of the centre surfaces (%)', ru: 'Альбедо поверхностей в центре (%)' },
-    { key: 'density', min: 0, max: 100, step: 1, value: density, set: setDensity, en: 'Built-up density in the centre (%)', ru: 'Плотность застройки в центре (%)' },
+    { key: 'density', min: 0, max: 100, step: 1, value: density, set: v => setDensity(coverageShare(v, green)), en: 'Built-up density in the centre (%)', ru: 'Плотность застройки в центре (%)' },
     { key: 'wind', min: 0, max: 10, step: 0.5, value: wind, set: setWind, en: 'Wind speed (m/s)', ru: 'Скорость ветра (м/с)' },
   ];
 
@@ -68,6 +70,7 @@ export default function OptGHeatSim({ lang }: { lang: Lang }) {
         {ru ? 'Условная модель, не реальные данные.' : 'Illustrative model, not real data.'}
       </p>
 
+      <p style={{ fontSize: 13 }}>{ru ? 'Застройка и растительность вместе занимают не больше 100% поверхности; альбедо — отдельное свойство.' : 'Built-up land and vegetation together occupy at most 100% of the surface; albedo is a separate property.'}</p>
       <div>
         {controls.map(control => (
           <label key={control.key} style={{ display: 'block', marginBottom: 10 }}>
@@ -95,7 +98,7 @@ export default function OptGHeatSim({ lang }: { lang: Lang }) {
         <strong>{fmt(centre)} °C</strong>
       </p>
 
-      <svg viewBox="0 0 320 180" width="100%" role="img" aria-label={label} style={{ display: 'block', maxWidth: 360 }}>
+      <ReadableDiagram lang={lang}><svg viewBox="0 0 320 180" width="100%" role="img" aria-label={label} style={{ display: 'block', maxWidth: 360 }}>
         {TICKS.map(tick => (
           <g key={tick}>
             <line x1={LEFT} y1={yOf(tick)} x2={RIGHT} y2={yOf(tick)} stroke="currentColor" strokeWidth={1} opacity={0.12} />
@@ -111,7 +114,7 @@ export default function OptGHeatSim({ lang }: { lang: Lang }) {
         <polyline points={line} fill="none" stroke="currentColor" strokeWidth={2.5} strokeLinejoin="round" />
         <text x={LEFT} y={170} fontSize="11" fill="currentColor">{ru ? 'Сельская окраина' : 'Rural edge'}</text>
         <text x={RIGHT} y={170} fontSize="11" textAnchor="end" fill="currentColor">{ru ? 'Центр' : 'Centre'}</text>
-      </svg>
+      </svg></ReadableDiagram>
 
       <p style={{ margin: '10px 0 0', fontSize: 13, lineHeight: 1.5 }}>
         {ru

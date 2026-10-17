@@ -36,12 +36,12 @@ export const formulas: Formula[] = [
     tex: 'E_{n+1}=\\left(1+h^{2}\\omega^{2}\\right)E_{n},\\qquad E_{n}=\\omega^{2}x_{n}^{2}+v_{n}^{2}',
     name: { en: 'Energy growth in Euler steps for simple harmonic motion', ru: 'Рост энергии при шагах Эйлера для простого гармонического движения (Energy growth in Euler steps for simple harmonic motion)' },
     meaning: {
-      en: 'For d²x/dt² = −ω²x, one Euler step multiplies E = ω²x² + v² by 1 + h²ω². The amplitude therefore grows at every step.',
-      ru: 'Для d²x/dt² = −ω²x один шаг Эйлера умножает E = ω²x² + v² на 1 + h²ω². Поэтому амплитуда растёт на каждом шаге.',
+      en: 'For undamped d²x/dt² = −ω²x with ω > 0 and h > 0, one Euler step multiplies E = ω²x² + v² by 1 + h²ω². For a nonzero state, the amplitude measure sqrt(E)/ω therefore grows at every step. The equilibrium x = v = 0 stays at zero.',
+      ru: 'Для незатухающего движения d²x/dt² = −ω²x при ω > 0 и h > 0 один шаг Эйлера умножает E = ω²x² + v² на 1 + h²ω². Для ненулевого состояния мера амплитуды sqrt(E)/ω растёт на каждом шаге. Равновесие x = v = 0 остаётся нулевым.',
     },
     when: {
-      en: 'Checking how Euler steps behave on oscillations, where the exact energy is constant.',
-      ru: 'Проверка поведения шагов Эйлера на колебаниях, где точная энергия постоянна.',
+      en: 'Checking Euler steps for undamped simple harmonic motion, whose exact energy is constant. This identity does not apply to a damped oscillator.',
+      ru: 'Проверка шагов Эйлера для незатухающих гармонических колебаний, точная энергия которых постоянна. Это тождество не применяется к затухающему осциллятору.',
     },
     syllabus: '5.18',
     inBooklet: false,

@@ -13,7 +13,7 @@ const topic: TopicMeta = {
   order: 41,
   minutes: 60,
   priority: 2,
-  inMockScope: 'unknown',
+  inMockScope: 'no',
   outcomes: [
     {
       en: 'I can decide from the vertex degrees whether a graph has an Eulerian trail or circuit, and find a Hamiltonian cycle',
@@ -33,6 +33,7 @@ const topic: TopicMeta = {
   sims: ['math.mst-lab', 'math.route-lab'],
   questionIds: ['q-3-16-01', 'q-3-16-02', 'q-3-16-03'],
   sources: [
+    { kind: 'school', title: 'Topic list for Mock Oct 26 — Applications and Interpretation HL (9 October 2026)', locator: 'Oxford chapters 1–8, 13, 14; mapped to the syllabus in G2-math R03' },
     {
       kind: 'web',
       title: 'IB Mathematics AI, first assessment 2021: public summary, not checked against the official guide',

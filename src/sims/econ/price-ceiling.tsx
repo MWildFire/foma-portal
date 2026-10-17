@@ -39,8 +39,8 @@ const steps: Step[] = [
   {
     title: { en: 'Maximum price of 3', ru: 'Максимальная цена 3' },
     text: {
-      en: 'A maximum price (price ceiling) of 3 is set below the equilibrium price of 6. Sellers may not charge more than 3, so the price stays at 3.',
-      ru: 'Установлена максимальная цена (price ceiling) 3, ниже равновесной цены 6. Продавцы не могут брать больше 3, поэтому цена остаётся на уровне 3.',
+      en: 'A maximum price (price ceiling) of 3 is set below the equilibrium price of 6. Legal prices may not exceed 3; this diagram assumes enforcement and transactions at the ceiling.',
+      ru: 'Установлена максимальная цена (price ceiling) 3, ниже равновесной цены 6. Законная цена не должна превышать 3; диаграмма предполагает соблюдение ограничения и сделки по верхней границе.',
     },
     graph: {
       ...axes,
@@ -65,8 +65,8 @@ const steps: Step[] = [
   {
     title: { en: 'Welfare loss (complete picture)', ru: 'Чистые потери (полная картина)' },
     text: {
-      en: 'The shortage is still 12 (Q 6 to Q 18), but only 6 units are traded, so the trades between Q 6 and Q 12 are lost. The red triangle is the deadweight loss: 1/2 x 6 x 6 = 18.',
-      ru: 'Дефицит остаётся 12 (от Q 6 до Q 18), но продаётся только 6 единиц, поэтому сделки между Q 6 и Q 12 теряются. Красный треугольник — это чистые потери (DWL): 1/2 x 6 x 6 = 18.',
+      en: 'The shortage is still 12 (Q 6 to Q 18), but only 6 units are traded, so the trades between Q 6 and Q 12 are lost. Assuming the six units go to the buyers with highest willingness to pay, the lost-surplus triangle is 1/2 x 6 x 6 = 18. Inefficient rationing or search costs can add further losses; this is not an unconditional estimate for every price ceiling.',
+      ru: 'Дефицит остаётся 12 (от Q 6 до Q 18), но продаётся только 6 единиц, поэтому сделки между Q 6 и Q 12 теряются. Если шесть единиц получают покупатели с наибольшей готовностью платить, треугольник утраченного излишка равен 1/2 x 6 x 6 = 18. Неэффективное распределение или издержки поиска могут добавить потери; это не безусловная оценка любого потолка цены.',
     },
     graph: {
       ...axes,

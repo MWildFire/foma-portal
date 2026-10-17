@@ -10,8 +10,8 @@ export const formulas: Formula[] = [
       ru: 'Стоимость через $n$ лет вклада $PV$ под $r\\%$ годовых при $k$ начислениях процентов в год. Для ежегодного начисления $k = 1$, для ежемесячного $k = 12$.',
     },
     when: {
-      en: 'A deposit or a debt that grows by compound interest, where $r$ is the nominal annual rate.',
-      ru: 'Вклад или долг, который растёт за счёт сложных процентов; $r$ — номинальная годовая ставка.',
+      en: 'A deposit or a debt that grows by compound interest, where $r$ is the fixed nominal annual rate, $k$ a positive integer and $kn$ the number of complete periods; no other cash flows or charges.',
+      ru: 'Вклад или долг, который растёт за счёт сложных процентов; $r$ — постоянная номинальная годовая ставка, $k$ — положительное целое, $kn$ — число полных периодов; других денежных потоков и комиссий нет.',
     },
     syllabus: '1.4',
     inBooklet: true,
@@ -29,8 +29,8 @@ export const formulas: Formula[] = [
       ru: 'Стоимость через $n$ лет равна $V_n$, где $V_0$ — стоимость на начало, а $r\\%$ — процент, теряемый каждый год.',
     },
     when: {
-      en: 'The value falls each year by the same percentage of its value at the start of that year.',
-      ru: 'Стоимость каждый год уменьшается на один и тот же процент от стоимости на начало года.',
+      en: 'For $V_0>0$, $0<r<100$ and a nonnegative integer $n$: the value falls each year by the same percentage of its value at the start of that year.',
+      ru: 'При $V_0>0$, $0<r<100$ и неотрицательном целом $n$ стоимость каждый год уменьшается на один и тот же процент от стоимости на начало года.',
     },
     syllabus: '1.4',
     inBooklet: false,
@@ -48,8 +48,8 @@ export const formulas: Formula[] = [
       ru: 'Фиксированный процент $r$, теряемый каждый год, найденный по стоимости на начало $V_0$ и стоимости $V_n$ через $n$ лет.',
     },
     when: {
-      en: 'Finding the rate when the starting value and the value after $n$ years are known.',
-      ru: 'Поиск ставки, когда известны стоимость на начало и стоимость через $n$ лет.',
+      en: 'For $V_0>0$, $n>0$ and $0<V_n<V_0$, finding a constant depreciation rate from the starting and ending values.',
+      ru: 'При $V_0>0$, $n>0$ и $0<V_n<V_0$ — поиск постоянного процента снижения по начальной и конечной стоимости.',
     },
     syllabus: '1.4',
     inBooklet: false,

@@ -1,11 +1,11 @@
 import type { Question } from '../../../../src/contract/types';
 
-export const questions: Question[] = [
+export const questions: (Question & { inMockScope?: 'yes' | 'no' })[] = [
   {
     id: 'econ-what-is-economics-01',
     subject: 'econ',
     topicIds: ['what-is-economics'],
-    paper: 'P1',
+    paper: 'P2',
     marks: 2,
     command: 'Define',
     prompt: {
@@ -23,7 +23,7 @@ export const questions: Question[] = [
     id: 'econ-what-is-economics-02',
     subject: 'econ',
     topicIds: ['what-is-economics'],
-    paper: 'P1',
+    paper: 'P2',
     marks: 3,
     command: 'Explain',
     prompt: {
@@ -45,8 +45,8 @@ export const questions: Question[] = [
     marks: 4,
     command: 'Draw',
     prompt: {
-      en: 'Draw a production possibility curve with consumer goods on the horizontal axis and capital goods on the vertical axis. Label a point U inside the curve that shows unemployment. Then draw an outward shift of the curve and label it.',
-      ru: 'Нарисуйте кривую производственных возможностей: потребительские товары по горизонтальной оси, капитальные по вертикальной. Подпишите точку U внутри кривой, которая показывает безработицу. Затем нарисуйте сдвиг кривой наружу и подпишите его.',
+      en: 'Assume increasing opportunity costs. Draw a production possibility curve with consumer goods on the horizontal axis and capital goods on the vertical axis. Label a point U inside the curve that shows unemployment. Then draw an outward shift of the curve and label it.',
+      ru: 'Предположите возрастающие альтернативные издержки. Нарисуйте кривую производственных возможностей: потребительские товары по горизонтальной оси, капитальные по вертикальной. Подпишите точку U внутри кривой, которая показывает безработицу. Затем нарисуйте сдвиг кривой наружу и подпишите его.',
     },
     markscheme: {
       en: '1 mark: both axes are labelled (consumer goods horizontal, capital goods vertical). 1 mark: a curve that bows outwards from the vertical axis to the horizontal axis. 1 mark: a point U inside the curve, labelled as unemployment or underproduction. 1 mark: a second curve outside the first, labelled as an outward shift from more resources or better technology.',

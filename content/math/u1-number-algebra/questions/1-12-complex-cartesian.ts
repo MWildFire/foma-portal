@@ -28,8 +28,8 @@ export const questions: Question[] = [
     marks: 4,
     command: 'Find',
     prompt: {
-      en: 'The complex number z = 5 - 12i is shown on an Argand diagram. Find the modulus of z, and the principal argument of z in degrees. Give both answers correct to 2 decimal places.',
-      ru: 'Комплексное число z = 5 - 12i отмечено на диаграмме Аргана. Найдите модуль z и главное значение аргумента z в градусах. Оба ответа дайте с точностью до 2 знаков после запятой.',
+      en: 'Let z = 5 - 12i. Sketch its position on an Argand diagram. Find the modulus of z, and the principal argument of z in degrees. Give both answers correct to 2 decimal places.',
+      ru: 'Пусть z = 5 - 12i. Отметьте его положение на диаграмме Аргана. Найдите модуль z и главное значение аргумента z в градусах. Оба ответа дайте с точностью до 2 знаков после запятой.',
     },
     markscheme: {
       en: 'M1: |z| = sqrt(5^2 + (-12)^2). A1: |z| = 13.00. M1: z lies in the fourth quadrant, so arg z = -arctan(12/5). A1: arg z = -67.38 degrees (2 decimal places).',

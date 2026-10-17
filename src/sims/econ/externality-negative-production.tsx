@@ -31,7 +31,7 @@ const em: MarkSpec = { id: 'Em', at: [12, 6], tone: 'ink', label: { en: 'Qm', ru
 const emMuted: MarkSpec = { ...em, tone: 'muted' };
 const es: MarkSpec = { id: 'Es', at: [9, 7.5], tone: 'ink', label: { en: 'Qopt', ru: 'Qopt' }, dx: -14, dy: -20 };
 // The welfare-loss label: a dot inside the triangle (9; 7.5), (12; 9), (12; 6) and the name next to it.
-const dwl: MarkSpec = { id: 'dwl', at: [11, 7.6], tone: 'loss', label: { en: 'DWL', ru: 'DWL' }, dx: 10, dy: -5 };
+const dwl: MarkSpec = { id: 'dwl', dot: false, at: [11, 7.6], tone: 'loss', label: { en: 'DWL 4.5', ru: 'DWL 4,5' }, dx: 10, dy: -5 };
 
 const steps: Step[] = [
   {
@@ -58,7 +58,7 @@ const steps: Step[] = [
       curves: [mpb, mpc, msc],
       guides: [
         { id: 'qm', from: [12, 0], to: [12, 6], tone: 'muted' },
-        { id: 'gap', from: [6, 3], to: [6, 6], tone: 'alt' },
+        { id: 'gap', from: [6, 3], to: [6, 6], tone: 'alt', label: { en: 'cost 3', ru: 'издержка 3' }, labelAt: 'start' },
       ],
       marks: [emMuted],
     },

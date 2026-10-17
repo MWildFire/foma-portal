@@ -15,7 +15,7 @@ export const terms: Term[] = [
   },
   {
     id: 'sector-of-circle',
-    term: { en: 'sector of a circle', ru: 'сектор окружности (sector of a circle)' },
+    term: { en: 'sector of a circle', ru: 'сектор круга (sector of a circle)' },
     def: {
       en: 'The region enclosed by two radii and the arc between their endpoints. For a central angle $\\theta$ in degrees, its area is the fraction $\\dfrac{\\theta}{360}$ of the whole area $\\pi r^{2}$.',
       ru: 'Область, ограниченная двумя радиусами и дугой между их концами. Для центрального угла $\\theta$ в градусах её площадь равна доле $\\dfrac{\\theta}{360}$ площади круга $\\pi r^{2}$.',

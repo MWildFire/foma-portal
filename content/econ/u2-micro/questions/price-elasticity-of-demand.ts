@@ -1,6 +1,6 @@
 import type { Question } from '../../../../src/contract/types';
 
-export const questions: Question[] = [
+export const questions: (Question & { inMockScope?: 'yes' | 'no' })[] = [
   {
     id: 'econ-price-elasticity-of-demand-01',
     subject: 'econ',
@@ -100,7 +100,7 @@ export const questions: Question[] = [
     id: 'econ-price-elasticity-of-demand-06',
     subject: 'econ',
     topicIds: ['price-elasticity-of-demand'],
-    paper: 'P1',
+    paper: 'P2',
     marks: 4,
     command: 'Explain',
     prompt: {
@@ -118,16 +118,16 @@ export const questions: Question[] = [
     id: 'econ-price-elasticity-of-demand-07',
     subject: 'econ',
     topicIds: ['price-elasticity-of-demand'],
-    paper: 'P1',
+    paper: 'P2',
     marks: 6,
     command: 'Explain',
     prompt: {
-      en: 'A firm sells a product with inelastic demand. Explain how this information could guide its decision to raise the price, and explain two reasons why the decision could still be wrong.',
-      ru: 'Фирма продаёт товар с неэластичным спросом. Объясните, как эта информация может помочь ей решить, повышать ли цену, и объясните две причины, по которым это решение всё равно может оказаться ошибочным.',
+      en: 'A firm sells a product with inelastic demand. Explain how this information could guide its decision to make a small price rise, and explain two reasons why the decision could still be wrong.',
+      ru: 'Фирма продаёт товар с неэластичным спросом. Объясните, как эта информация может помочь ей принять решение о небольшом повышении цены, и объясните две причины, по которым это решение всё равно может оказаться ошибочным.',
     },
     markscheme: {
-      en: '1 mark: PED is inelastic, so the absolute value is below 1. 1 mark: quantity falls by a smaller percentage than the price rises. 1 mark: total revenue therefore rises, which supports the price rise. 1 mark: reason 1: revenue is not profit, because higher costs or lower sales volume can cut profit. 1 mark: reason 2: demand may become more elastic over time, as buyers find substitutes. 1 mark: development: the PED estimate may be inaccurate, so the actual fall in sales may be larger than the firm expects.',
-      ru: '1 балл: PED неэластичен, поэтому модуль меньше 1. 1 балл: величина спроса падает на меньший процент, чем растёт цена. 1 балл: общая выручка поэтому растёт, что подтверждает повышение цены. 1 балл: причина 1: выручка — не прибыль, так как рост издержек или снижение объёма продаж может уменьшить прибыль. 1 балл: причина 2: спрос может стать более эластичным со временем, когда покупатели найдут заменители. 1 балл: развитие: оценка PED может быть неточной, поэтому фактическое падение продаж может оказаться больше ожидаемого.',
+      en: '1 mark: PED is inelastic, so the absolute value is below 1. 1 mark: quantity falls by a smaller percentage than the price rises. 1 mark: for a sufficiently small rise within the inelastic range, revenue rises; for a finite proposed change verify the two P × Q products. 1 mark: reason 1: revenue is not profit, because higher costs or lower sales volume can cut profit. 1 mark: reason 2: demand may become more elastic over time, as buyers find substitutes. 1 mark: development: the PED estimate may be inaccurate, so the actual fall in sales may be larger than the firm expects.',
+      ru: '1 балл: PED неэластичен, поэтому модуль меньше 1. 1 балл: величина спроса падает на меньший процент, чем растёт цена. 1 балл: достаточно небольшое повышение в неэластичном диапазоне увеличивает выручку; для конечного предложенного изменения нужно проверить оба произведения P × Q. 1 балл: причина 1: выручка — не прибыль, так как рост издержек или снижение объёма продаж может уменьшить прибыль. 1 балл: причина 2: спрос может стать более эластичным со временем, когда покупатели найдут заменители. 1 балл: развитие: оценка PED может быть неточной, поэтому фактическое падение продаж может оказаться больше ожидаемого.',
     },
     origin: 'original',
     minutes: 8,

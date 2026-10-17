@@ -29,14 +29,15 @@ const steps: Step[] = [
   {
     title: { en: 'Symmetric information', ru: 'Симметричная информация' },
     text: {
-      en: 'When buyers can judge quality, demand D1 meets supply S1 at E1: 8 cars trade at a price of 10. Good cars sell for their true value.',
-      ru: 'Когда покупатели могут оценить качество, спрос D1 пересекает предложение S1 в точке E1: продаётся 8 автомобилей по цене 10. Хорошие автомобили продаются по своей реальной стоимости.',
+      en: 'When buyers can judge quality, demand D1 meets supply S1 at E1: 8 cars trade at a price of 10. These are hypothetical aggregate curves: known quality can be reflected in willingness to pay; the equilibrium price is not an objective measure of a car’s “true value”.',
+      ru: 'Когда покупатели могут оценить качество, спрос D1 пересекает предложение S1 в точке E1: продаётся 8 автомобилей по цене 10. Кривые условные и агрегированные: известное качество может отражаться в готовности платить; равновесная цена не измеряет объективную «реальную стоимость» автомобиля.',
     },
     graph: {
       ...axes,
       curves: [d1, s1],
       guides: [
         { id: 'q1', from: [0, 10], to: [8, 10], tone: 'muted' },
+        { id: 'q1-v', from: [8, 0], to: [8, 10], tone: 'muted' },
       ],
       marks: [{ id: 'e1', at: [8, 10], tone: 'ink', label: { en: 'E1', ru: 'E1' }, dx: -6, dy: 18 }],
       xTicks: ticks([8]),
@@ -68,7 +69,7 @@ const steps: Step[] = [
     graph: {
       ...axes,
       curves: [d1Old, d2, s1Old, s2],
-      guides: [{ id: 'x2', from: [5, 0], to: [5, 9], tone: 'ink' }],
+      guides: [{ id: 'x2', from: [5, 0], to: [5, 9], tone: 'ink' }, { id: 'p2', from: [0, 9], to: [5, 9], tone: 'muted' }],
       marks: [
         { id: 'e1', at: [8, 10], tone: 'muted', label: { en: 'E1', ru: 'E1' }, dx: -6, dy: 18 },
         { id: 'e2', at: [5, 9], tone: 'ink', label: { en: 'E2 (Q 5)', ru: 'E2 (Q 5)' }, dx: -66, dy: 4 },

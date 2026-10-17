@@ -6,8 +6,8 @@ export const terms: Term[] = [
     id: 'vector-equation-of-line',
     term: { en: 'vector equation of a line', ru: 'векторное уравнение прямой (vector equation of a line)' },
     def: {
-      en: 'The formula r = a + λb that gives the position vector r of every point on a line. Here a points to a known point on the line, b is a direction vector and λ is a real parameter.',
-      ru: 'Формула r = a + λb, которая задаёт вектор положения r любой точки прямой. Здесь a — вектор положения известной точки прямой, b — направляющий вектор, λ — действительный параметр.',
+      en: 'The formula r = a + λb that gives the position vector r of every point on a line. Here a points to a known point on the line, b is a nonzero direction vector and λ is a real parameter.',
+      ru: 'Формула r = a + λb, которая задаёт вектор положения r любой точки прямой. Здесь a — вектор положения известной точки прямой, b — ненулевой направляющий вектор, λ — действительный параметр.',
     },
     syllabus: '3.11',
     papers: ['P1', 'P2', 'P3'],

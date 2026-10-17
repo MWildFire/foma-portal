@@ -52,8 +52,8 @@ export const terms: Term[] = [
       ru: 'Инфляция, вызванная ростом совокупного спроса быстрее возможностей экономики производить: фирмы повышают цены, когда спрос превышает выпуск.',
     },
     example: {
-      en: 'Household spending rises 8% while output can grow only 2%, so the excess demand pushes prices up.',
-      ru: 'Расходы домохозяйств выросли на 8%, а выпуск — только на 2%, поэтому избыток спроса толкает цены вверх.',
+      en: 'In an AD/AS illustration with upward-sloping SRAS, higher consumption shifts AD right: the equilibrium price level and real output rise. The inflation rate cannot be calculated from the consumption change alone.',
+      ru: 'В учебной модели AD/AS при восходящей SRAS рост потребления сдвигает AD вправо: равновесные уровень цен и реальный выпуск растут. По одному изменению потребления рассчитать темп инфляции нельзя.',
     },
     pitfall: {
       en: 'Demand-pull inflation starts on the demand side: aggregate demand shifts right, not short-run supply left.',
@@ -71,8 +71,8 @@ export const terms: Term[] = [
       ru: 'Инфляция, вызванная ростом издержек производства, например зарплат, энергии или налогов, из-за которого краткосрочное совокупное предложение сдвигается влево.',
     },
     example: {
-      en: 'A 20% rise in energy costs makes firms raise their prices, so the price level rises while output falls.',
-      ru: 'Рост цен на энергию на 20% заставляет фирмы повышать цены, поэтому уровень цен растёт, а выпуск падает.',
+      en: 'In an AD/AS illustration with unchanged AD, higher energy costs shift SRAS left: the equilibrium price level rises and real output falls. A 20% energy-cost increase does not imply a 20% rise in all prices.',
+      ru: 'В учебной модели AD/AS при неизменном AD рост затрат на энергию сдвигает SRAS влево: равновесный уровень цен растёт, а реальный выпуск падает. Подорожание энергии на 20% не означает роста всех цен на 20%.',
     },
     pitfall: {
       en: 'A rise in costs does not always mean inflation: if firms absorb it in lower profits, prices can stay stable.',
@@ -86,20 +86,20 @@ export const terms: Term[] = [
     id: 'unemployment',
     term: { en: 'unemployment', ru: 'безработица (unemployment)' },
     def: {
-      en: 'Working-age people who have no job, could start work straight away, and are actively looking for one.',
-      ru: 'Люди трудоспособного возраста, у которых нет работы, которые могут начать работать сразу и активно ищут её.',
+      en: 'People within the survey’s age coverage who are not employed, are available to start work and are actively seeking it in the specified reference periods.',
+      ru: 'Люди обследуемого возраста, которые не имеют работы, ищут её и готовы приступить к ней в установленные периоды наблюдения.',
     },
     example: {
       en: 'Of the 2000 thousand people in the labour force, 120 thousand are unemployed, so the rate is 6.0%.',
       ru: 'Из 2000 тыс. человек в рабочей силе 120 тыс. безработны, поэтому уровень безработицы составляет 6,0%.',
     },
     pitfall: {
-      en: 'Students, retired people and those who have stopped looking for work are not unemployed: they are outside the labour force.',
-      ru: 'Студенты, пенсионеры и те, кто перестал искать работу, не являются безработными: они находятся вне рабочей силы.',
+      en: 'Student or pensioner status does not exclude a person: those employed count as employed, and those without employment who seek and are available can count as unemployed. Those neither employed nor meeting the unemployment criteria are outside the labour force.',
+      ru: 'Статус студента или пенсионера не исключает человека: работающие относятся к занятым, а не имеющие работы, ищущие её и готовые приступить могут относиться к безработным. Вне рабочей силы — те, кто не занят и не выполняет критерии безработного.',
     },
     syllabus: '3.3',
     papers: ['P1', 'P2', 'P3'],
-    src: { kind: 'textbook', title: book, locator: 'ch. 10, p. 298' },
+    src: { kind: 'web', title: 'ILO — Labour force', url: 'https://www.ilo.org/resource/labour-force', locator: 'Activity/status priority and strict unemployment definition in specified reference periods' },
   },
   {
     id: 'frictional-unemployment',
@@ -109,8 +109,8 @@ export const terms: Term[] = [
       ru: 'Краткосрочная безработица, которая возникает, когда работники переходят между работами или впервые выходят на рынок труда и ищут подходящую работу.',
     },
     example: {
-      en: 'A graduate spends 2 months searching for her first job, so she is frictionally unemployed for those months.',
-      ru: 'Выпускница 2 месяца ищет первую работу, поэтому эти месяцы она находится во фрикционной безработице.',
+      en: 'A graduate without employment is available to start and actively searches for her first job for 2 months; she is frictionally unemployed during that search.',
+      ru: 'Выпускница без работы готова приступить к ней и 2 месяца активно ищет первое место; в этот период поиска она относится к фрикционно безработным.',
     },
     pitfall: {
       en: 'Frictional unemployment is normal and unavoidable; it does not by itself signal a recession.',
@@ -162,12 +162,12 @@ export const terms: Term[] = [
     id: 'phillips-curve',
     term: { en: 'Phillips curve', ru: 'кривая Филлипса (Phillips curve)' },
     def: {
-      en: 'A curve showing the relationship between inflation and unemployment: the short-run curve slopes down, and the long-run curve is vertical at the natural rate.',
-      ru: 'Кривая, показывающая связь между инфляцией и безработицей: краткосрочная кривая убывает, а долгосрочная вертикальна на уровне естественной безработицы.',
+      en: 'A model of inflation and unemployment: with expectations and supply conditions given, the short-run curve slopes down; with expectations fully adjusted, the long-run curve is vertical at a given natural rate.',
+      ru: 'Модель связи инфляции и безработицы: при заданных ожиданиях и условиях предложения краткосрочная кривая убывает; после полного приспособления ожиданий долгосрочная кривая вертикальна на заданном естественном уровне.',
     },
     example: {
-      en: 'At 4% unemployment inflation is 5%; if unemployment falls to 3%, short-run inflation rises to 6%.',
-      ru: 'При безработице 4% инфляция составляет 5%; если безработица падает до 3%, краткосрочная инфляция растёт до 6%.',
+      en: 'Illustrative model with expected inflation 4% and natural unemployment 5%: inflation = 4 + (5 − unemployment). At unemployment 4%, inflation is 5%; at unemployment 3%, it is 6%. This is not country data.',
+      ru: 'Учебная модель: ожидаемая инфляция 4%, естественный уровень безработицы 5%; инфляция = 4 + (5 − безработица). При безработице 4% инфляция равна 5%, а при безработице 3% — 6%. Это не данные конкретной страны.',
     },
     pitfall: {
       en: 'The Phillips curve is not a fixed menu: expected inflation shifts the short-run curve, and the long run offers no trade-off.',
@@ -176,7 +176,7 @@ export const terms: Term[] = [
     syllabus: '3.3',
     papers: ['P1', 'P2', 'P3'],
     sim: 'econ.phillips-sr',
-    src: { kind: 'textbook', title: book, locator: 'ch. 10, p. 323' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 10, pp. 325–327' },
   },
   {
     id: 'natural-rate-of-unemployment',

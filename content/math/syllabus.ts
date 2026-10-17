@@ -42,7 +42,7 @@ export const syllabus: SyllabusItem[] = [
   { code: '3.1', title: { en: '3D distance, volume and surface area; angles between lines and planes', ru: 'Расстояние в 3D, объём и площадь поверхности; углы между прямыми и плоскостями' }, papers: [...P] },
   { code: '3.2', title: { en: 'Right-angled trigonometry, sine and cosine rules, area of a triangle', ru: 'Тригонометрия прямоугольного треугольника, теоремы синусов и косинусов, площадь' }, papers: [...P] },
   { code: '3.3', title: { en: 'Applications of trigonometry: elevation, depression, labelled diagrams', ru: 'Применения тригонометрии: углы возвышения и понижения, чертежи' }, papers: [...P] },
-  { code: '3.4', title: { en: 'Arc length and sector area of a circle', ru: 'Длина дуги и площадь сектора окружности' }, papers: [...P] },
+  { code: '3.4', title: { en: 'Arc length and sector area of a circle', ru: 'Длина дуги и площадь сектора круга' }, papers: [...P] },
   { code: '3.5', title: { en: 'Perpendicular bisectors', ru: 'Серединные перпендикуляры' }, papers: [...P] },
   { code: '3.6', title: { en: 'Voronoi diagrams and nearest-neighbour interpolation', ru: 'Диаграммы Вороного и интерполяция по ближайшему соседу' }, papers: [...P] },
   // Topic 3 - Geometry and trigonometry (HL)

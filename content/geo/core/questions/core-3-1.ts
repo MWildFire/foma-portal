@@ -1,5 +1,8 @@
 import type { Question } from '../../../../src/contract/types';
 
+const infographicUrl = new URL('../topics/assets/core-3-1-infographic.svg?no-inline', import.meta.url).href;
+const infographicRuUrl = new URL('../topics/assets/core-3-1-infographic.ru.svg?no-inline', import.meta.url).href;
+
 // Syllabus core 3.1. Original questions in IB Geography SL Paper 2 style. Figures checked against the sources in the cases and the topic meta.
 const topicIds = ['core-3-1-consumption-trends'];
 
@@ -52,8 +55,8 @@ export const questions: Question[] = [
     marks: 4,
     command: 'Calculate',
     prompt: {
-      en: 'Global Footprint Network reports that Earth Overshoot Day 2026 fell on 30 July. Calculate the day of the year for 30 July 2026, counting 1 January as day 1 (2026 is not a leap year). Then calculate the number of Earths of demand that this date implies, using the ratio of 365 days to that day number, and state what the result means for the planet’s biocapacity.',
-      ru: 'Global Footprint Network сообщает, что День перерасхода ресурсов Земли (Earth Overshoot Day) в 2026 году пришёлся на 30 июля. Рассчитайте номер этого дня в году, считая 1 января первым днём (2026 год не високосный). Затем рассчитайте, сколько «Земель» потребления подразумевает эта дата, используя отношение 365 дней к номеру дня, и объясните, что полученный результат означает для биоёмкости планеты.',
+      en: 'Global Footprint Network reports that Earth Overshoot Day 2026 fell on 30 July. Calculate the day of the year for 30 July 2026, counting 1 January as day 1 (2026 is not a leap year). Then calculate the number of Earths of demand that this date implies, using the ratio of 365 days to that day number, state what the result means for the planet’s biocapacity, and give one limitation arising from the data vintage/estimation.',
+      ru: 'Global Footprint Network сообщает, что День перерасхода ресурсов Земли (Earth Overshoot Day) в 2026 году пришёлся на 30 июля. Рассчитайте номер этого дня в году, считая 1 января первым днём (2026 год не високосный). Затем рассчитайте, сколько «Земель» потребления подразумевает эта дата, используя отношение 365 дней к номеру дня, объясните, что полученный результат означает для биоёмкости планеты, и назовите одно ограничение из-за давности или оценочного характера данных.',
     },
     markscheme: {
       en: '1 mark: day 211 (31 + 28 + 31 + 30 + 31 + 30 + 30); 1 mark: 365 ÷ 211 = 1.73 Earths, so the footprint is 1.73 times the biocapacity; 1 mark: meaning: demand in 2026 equals 1.73 years of the planet’s regeneration, so the footprint is larger than the biocapacity (ecological overshoot); 1 mark: limitation: GFN has complete data only to 2023, and its 2024 and 2025 figures are partly estimated, so the date is an estimate (Global Footprint Network, June 2026). Accept 211 ÷ 365 = 0.58 as a route if it is explained.',
@@ -111,8 +114,8 @@ export const questions: Question[] = [
     marks: 10,
     command: 'Using the infographic',
     stimulus: {
-      en: 'Figure 1 (infographic) shows energy use per person, in kilograms of oil equivalent, for high-income, middle-income and low-income country groups in 2000 and 2024. Source: World Bank, World Development Indicators, indicator EG.USE.PCAP.KG.OE (data to 2024).',
-      ru: 'Рисунок 1 (инфографика) показывает потребление энергии на человека в килограммах нефтяного эквивалента для групп стран с высоким, средним и низким доходом в 2000 и 2024 годах. Источник: Всемирный банк, World Development Indicators, индикатор EG.USE.PCAP.KG.OE (данные до 2024 года).',
+      en: 'Figure 1 (infographic) shows energy use per person, in kilograms of oil equivalent, for high-income, middle-income and low-income country groups in 2000 and 2024. Source: World Bank, World Development Indicators, indicator EG.USE.PCAP.KG.OE (data to 2024).' + ' [Open infographic](' + infographicUrl + ')',
+      ru: 'Рисунок 1 (инфографика) показывает потребление энергии на человека в килограммах нефтяного эквивалента для групп стран с высоким, средним и низким доходом в 2000 и 2024 годах. Источник: Всемирный банк, World Development Indicators, индикатор EG.USE.PCAP.KG.OE (данные до 2024 года).' + ' [Открыть инфографику](' + infographicRuUrl + ')',
     },
     prompt: {
       en: '(a) Using the infographic, describe the change in energy use per person for each of the three income groups between 2000 and 2024. [3]\n\n(b) Calculate the percentage change in energy use per person for middle-income countries between 2000 and 2024. Also calculate how many times greater energy use per person was in high-income countries than in low-income countries in 2024. Show your working. [3]\n\n(c) Evaluate the claim that rising affluence is the main reason why energy use per person has grown in middle-income countries. [4]',
@@ -125,4 +128,25 @@ export const questions: Question[] = [
     origin: 'original',
     minutes: 12,
   },
+{
+  "id": "core-3-1-a6",
+  "subject": "geo",
+  "topicIds": [
+    "core-3-1-consumption-trends"
+  ],
+  "paper": "P2",
+  "section": "A",
+  "marks": 6,
+  "command": "Calculate",
+  "prompt": {
+    "en": "Use this hypothetical comparison of equal100-unit energy services:A obtains70units from hydrocarbons and 30from low-carbon sources;B obtains40and60. (a) Calculate the change in low-carbon share in percentage points.[2] (b) Explain why rising incomes may change diets and their embedded water demand.[2] (c) Explain why neither leaving the extreme-poverty line nor increasing the low-carbon share proves that all resource impacts have disappeared.[2]",
+    "ru": "Условное сравнение одной услуги объёмом 100 единиц:A получает70единиц из углеводородов и 30 из низкоуглеродных источников,B — 40 и 60. (a) Рассчитай изменение низкоуглеродной доли в процентных пунктах.[2] (b) Объясни,почему рост дохода может менять питание и спрос на виртуальную воду.[2] (c) Объясни,почему выход из крайней бедности и рост низкоуглеродной доли не доказывают исчезновения всех ресурсных последствий.[2]"
+  },
+  "markscheme": {
+    "en": "(a)1:30/100×100=30% and60/100×100=60%;1:increase30percentagepoints (100% relative increase is a different statistic). (b)1:greater purchasing power can increase demand for meat/dairy or other varied foods;1:feed/crops/processing require water along the chain,with effects depending on production and local scarcity;not simply water inside food. (c)1:crossing a poverty threshold is not a universal middle-class classification or equal access;1:low-carbon operational electricity still needs materials/land/grids and may use cooling/reservoir water;shares alone cannot calculate life-cycle impact. Source mechanisms:FAO 2020 Increased water demand;IPCC 2022 WGIII 17.3.3.2. Hypothetical numbers independently calculated.",
+    "ru": "(a)1:30/100×100=30%,60/100×100=60%;1:рост на 30 процентных пунктов (относительный рост100% — другой показатель). (b)1:покупательная способность может поддержать спрос на мясо,молочные продукты и разнообразное питание;1:корма,растениеводство,переработка используют воду в цепочке,а последствия зависят от технологии и местного дефицита;это не просто жидкость внутри еды. (c)1:переход черты бедности не означает универсального среднего класса или равного доступа;1:низкоуглеродной генерации тоже нужны материалы,земля и сети,иногда охлаждение/водохранилища;доли не дают полного эффекта жизненного цикла. Механизмы:ФАО 2020,спрос на воду;IPCC 2022 WGIII 17.3.3.2. Условные числа пересчитаны независимо."
+  },
+  "origin": "original",
+  "minutes": 8
+},
 ];

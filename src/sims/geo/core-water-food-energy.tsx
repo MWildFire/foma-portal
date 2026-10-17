@@ -1,3 +1,4 @@
+import ReadableDiagram from '../readable-diagram';
 import { useState } from 'react';
 import type { CSSProperties } from 'react';
 import type { Lang } from '../../contract/types';
@@ -312,7 +313,7 @@ export default function WaterFoodEnergy({ lang }: { lang: Lang }) {
 
       {/* on a phone the diagram scrolls sideways instead of shrinking its labels below readable size */}
       <div style={{ overflowX: 'auto' }}>
-      <svg role="img" aria-label={title} viewBox="0 0 640 560" width="100%" style={{ maxWidth: 640, minWidth: 560, display: 'block' }}>
+      <ReadableDiagram lang={lang}><svg role="img" aria-label={title} viewBox="0 0 640 560" width="100%" style={{ maxWidth: 640, minWidth: 560, display: 'block' }}>
         <defs>
           <marker
             id="wfe-arrow"
@@ -410,7 +411,7 @@ export default function WaterFoodEnergy({ lang }: { lang: Lang }) {
             </g>
           );
         })}
-      </svg>
+      </svg></ReadableDiagram>
       </div>
 
       <p style={{ marginTop: 12, fontSize: 14 }}>
@@ -445,7 +446,7 @@ export default function WaterFoodEnergy({ lang }: { lang: Lang }) {
         <li>
           {t(
             'Trade-offs and synergies. Some links compete, such as biofuels and food, while others can help: wind and solar PV need very little water (IEA, Water-Energy Nexus, WEO-2016 special report). Shocks rarely act alone, since a drought or heatwave can hit water, food and energy at the same time.',
-            'Компромиссы и синергия. Одни связи конкурируют, например биотопливо и продовольствие, а другие могут помогать: ветровой и солнечной энергетике почти не нужна вода (IEA, Water-Energy Nexus, специальный доклад WEO-2016). Потрясения редко действуют поодиночке: засуха или жара могут одновременно ударить по воде, продовольствию и энергии.',
+            'Компромиссы и синергия. Одни связи конкурируют, например биотопливо и продовольствие, а другие могут помогать: ветровой и солнечной фотоэлектрической энергетике (PV) требуется мало воды при эксплуатации (IEA, Water-Energy Nexus, специальный доклад WEO-2016). Потрясения редко действуют поодиночке: засуха или жара могут одновременно ударить по воде, продовольствию и энергии.',
           )}
         </li>
         <li>

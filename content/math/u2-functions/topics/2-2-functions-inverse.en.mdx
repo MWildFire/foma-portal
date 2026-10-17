@@ -1,61 +1,63 @@
 ## Big idea
 
-A function gives exactly one output for each allowed input. An inverse function runs the rule backwards, and its graph is the reflection of the original graph in the line $y = x$.
+A function assigns exactly one output to each input in its domain. An inverse reverses a one-to-one function, with the original range as its domain. Its graph reflects the original graph in $y=x$.
 
 ## Explanation
 
-A <Term id="function-single-output"/> gives exactly one output for each allowed input. The letter names the function and the variable names the input: $f(x)$, $v(t)$ and $C(n)$ are read as "f of x", "v of t" and "C of n".
+A <Term id="function-single-output"/> gives one output for each allowed input. In $f(x)$, the letter $f$ names the function and $x$ is its argument; $f(x)$ is the corresponding output. Different inputs may have the same output, so not every function has an inverse on its whole domain.
 
-The <Term id="domain-and-range-of-function"/> describe the inputs and outputs. The domain is the set of allowed inputs, and the range is the set of outputs that actually occur. A context can narrow the domain: a time $t$ cannot be negative, so $t \ge 0$. For example, $f(x) = \sqrt{x - 2}$ has domain $x \ge 2$ and range $f(x) \ge 0$.
+The <Term id="domain-and-range-of-function"/> describe allowed inputs and outputs actually attained. For $f(x)=\sqrt{x-2}$ on its maximal real domain, the domain is $[2,\infty)$ and the range is $[0,\infty)$. Context may restrict these sets further. Elapsed time from a stated start is nonnegative; a signed time coordinate relative to another reference can be negative. Counts of individual objects are integers unless a continuous approximation is explicitly used.
 
-The <Term id="inverse-function-reflection"/> $f^{-1}$ exists when each output comes from exactly one input. To find it, write $y = f(x)$, swap $x$ and $y$, and solve for $y$. The inverse undoes the function:
+The <Term id="inverse-function-reflection"/> $f^{-1}$ exists as a function from the range of $f$ back to its domain when $f$ is one-to-one: each attained output comes from exactly one input. For example, $x^2$ on all real numbers is not one-to-one, since $2$ and $-2$ both give4. Restricting its domain to $x\ge0$ gives the inverse $\sqrt{x}$.
 
 <Formula id="inverse-composition-identity"/>
 
-For a linear function $f(x) = ax + b$ with $a \neq 0$, the inverse is $f^{-1}(x) = \dfrac{x - b}{a}$.
+For $f(x)=ax+b$ with $a\neq0$, write $y=ax+b$, interchange the variables to obtain $x=ay+b$, then solve for $y=(x-b)/a$.
 
 <Formula id="inverse-linear-function"/>
 
-The inverse of $f(x) = e^x$ is $f^{-1}(x) = \ln x$ for $x > 0$, because the logarithm undoes the exponential.
+The function $e^x$ maps all real numbers one-to-one onto the positive numbers. Its inverse is $\ln x$, whose domain is $x>0$ and range is all real numbers.
 
 <Formula id="inverse-exponential-log"/>
 
-<Callout kind="define">Inverse function: if $f(b) = a$, then $f^{-1}(a) = b$. The domain of $f^{-1}$ is the range of $f$, and the graph of $f^{-1}$ is the reflection of the graph of $f$ in the line $y = x$.</Callout>
+<Callout kind="define">If $f(b)=a$, an inverse gives $f^{-1}(a)=b$. The domain of $f^{-1}$ is the range of $f$, and its range is the domain of $f$. These sets are part of the answer.</Callout>
 
-A point $(a, b)$ on the graph of $f$ becomes the point $(b, a)$ on the graph of $f^{-1}$. A point on the line $y = x$, such as $(c, c)$, does not move.
+A point $(a,b)$ on the original graph becomes $(b,a)$ on the inverse graph. A point $(c,c)$ stays fixed under this reflection; this does not mean every point on $y=x$ lies on either graph.
 
-<Callout kind="gdc">On a Graphs page, enter $f(x)$ and $x$ as two functions with `Menu → Graph Entry/Edit → Function` to see the reflection in $y = x$. To find $f^{-1}(a)$ numerically, solve $f(x) = a$ on a Calculator page with `Menu → Algebra → Numerical Solve`. Or graph $f$ together with the line $y = a$ and use `Menu → Analyze Graph → Intersection`, setting a lower and an upper bound: the $x$-coordinate of the intersection is $f^{-1}(a)$.</Callout>
+<Callout kind="gdc">On a Graphs page, plot $f(x)$, its derived inverse with the appropriate domain, and the line $y=x$ to compare the reflected graphs. To find an inverse value $f^{-1}(a)$, solve $f(x)=a$ over the original domain using Numerical Solve, or intersect $y=f(x)$ with $y=a$. Verify that the solution is unique in that domain; one numerical result alone does not prove uniqueness.</Callout>
 
 ## Worked example
 
-A market stall's cost, in AED, of making $n$ tote bags is $C(n) = 4.5n + 12$ for $n \ge 0$.
+A hypothetical cost model for making $n$ bags is $C(n)=4.5n+12$ AED for nonnegative integer $n$. First extend it to a continuous model $\widetilde C(x)=4.5x+12$ for real $x\ge0$, then use it to analyse a budget of 100 AED.
 
 <Steps>
-<Step>$C(20) = 4.5 \times 20 + 12 = 102$, so 20 bags cost AED 102.</Step>
-<Step>Write $y = 4.5x + 12$, swap $x$ and $y$ and solve for $y$: $x = \dfrac{y - 12}{4.5}$. So $C^{-1}(x) = \dfrac{x - 12}{4.5}$.</Step>
-<Step>$C^{-1}(100) = \dfrac{100 - 12}{4.5} = 19.56$ (to 2 decimal places). The number of bags is a whole number, so 19 bags is the most that can be made for AED 100; 19 bags cost AED 97.5.</Step>
+<Step>$C(20)=4.5\times20+12=102$: twenty bags cost 102 AED.</Step>
+<Step>For the continuous extension, $y=4.5x+12$ becomes $x=4.5y+12$ after interchanging variables. Thus $\widetilde C^{-1}(x)=(x-12)/4.5$ for $x\ge12$.</Step>
+<Step>$\widetilde C^{-1}(100)=88/4.5\approx19.56$. This is a continuous budget threshold, not an attainable count or an inverse value of the original discrete function:100 is not in the discrete range of $C$.</Step>
+<Step>Solve $4.5n+12\le100$ with integer $n\ge0$. The largest possible count is19. Check $C(19)=97.5\le100$ and $C(20)=102>100$.</Step>
 </Steps>
 
-<Reveal title="Why not round 19.56 up to 20?">Twenty bags cost $C(20) = 102$ AED, which is above AED 100. Rounding the inverse up would give a plan the budget cannot pay for.</Reveal>
+<Reveal title="Why not round the continuous threshold up?">The budget condition is an inequality, not ordinary nearest rounding. Twenty bags exceed the budget. Checking the neighbouring integer counts establishes that19 is the greatest feasible count.</Reveal>
 
 ## Visual
 
-Draw $y = f(x)$ and the line $y = x$ on the same axes. The graph of $f^{-1}$ is the mirror image of the first graph in the diagonal $y = x$. For example, if $(2, 7)$ lies on $y = f(x)$, then $(7, 2)$ lies on $y = f^{-1}(x)$. A point on $y = x$, such as $(3, 3)$, stays where it is.
+Reflect each graph point in $y=x$ by interchanging its coordinates. The discrete cost graph consists of separate points; its inverse also consists of separate points. The continuous extension is a line restricted to $x\ge0$, and its inverse is a line restricted to inputs at least 12. Keep that distinction when using the graph to read a budget threshold.
 
-<Callout kind="tip">Check your inverse: substitute $f^{-1}(x)$ into $f$ and simplify. If the result is $x$ for every $x$ in the domain, the inverse is correct.</Callout>
+<Callout kind="tip">Check both compositions with the correct sets: $f^{-1}(f(x))=x$ for $x$ in the original domain, and $f(f^{-1}(y))=y$ for $y$ in the original range. Checking only a few values is useful for detecting errors but is not a proof for an entire domain.</Callout>
 
 ## How it is examined
 
-Write down, Find and Show that questions test both the method and the answer. The method mark is for swapping $x$ and $y$, or for writing $f(x) = a$ and solving it; the accuracy mark is for the value. Explain questions ask you to justify a restriction of the domain from the context, and the reasoning mark is for the reason, such as "time cannot be negative".
+State the relevant domains and ranges, show the algebra or numerical equation, and interpret the result in context. A restriction must have a specific reason. Exact method and reasoning marks depend on the individual question.
 
-<Callout kind="exam">Check every answer against the domain and the context. A negative time or a fractional number of bags cannot be the answer, even when the algebra gives it.</Callout>
+<Callout kind="exam">Check what the variable represents. A discrete count must be an integer; a signed time coordinate can be negative, while elapsed time from the stated start cannot. An inverse input must belong to the original range.</Callout>
 
 ## Common mistakes
 
-<Callout kind="mistake">Writing $f^{-1}(x) = \dfrac{1}{f(x)}$. The inverse function is not the reciprocal of $f$.</Callout>
-- Reflecting the graph in the x-axis instead of in the line $y = x$.
-- Forgetting that the domain of $f^{-1}$ is the range of $f$, and giving a value outside it.
-- Accepting an algebraic answer that is impossible in context, such as a negative time or a non-whole number of bags.
+<Callout kind="mistake">The inverse $f^{-1}(x)$ is not the reciprocal $1/f(x)$. For $f(x)=2x$, the inverse is $x/2$, whereas the reciprocal is $1/(2x)$ where defined.</Callout>
+
+- Claiming an inverse on a domain where two inputs have the same output.
+- Reflecting in an axis instead of $y=x$.
+- Omitting the inverse domain or confusing a continuous approximation with a discrete attainable value.
 
 ## Check yourself
 
@@ -65,11 +67,12 @@ Write down, Find and Show that questions test both the method and the answer. Th
 
 <Question id="q-2-2-03"/>
 
+<Question id="r06-functions"/>
+
 ## Summary
 
-- A function gives one output for each input; $f(x)$ names the function and the input.
-- The domain is the set of allowed inputs and the range is the set of outputs; context can narrow the domain.
-- $f^{-1}$ reverses $f$: if $f(b) = a$, then $f^{-1}(a) = b$.
-- To find an inverse, write $y = f(x)$, swap $x$ and $y$, and solve for $y$.
-- The graph of $f^{-1}$ is the reflection of the graph of $f$ in the line $y = x$.
-- Check the final answer against the domain and the context.
+- A function assigns one output to each allowed input; one-to-one means different inputs give different outputs.
+- An inverse reverses a one-to-one function from its range to its domain.
+- Interchanging coordinates reflects a graph in $y=x$.
+- Check both compositions and their domains.
+- Distinguish an exact discrete inverse from a continuous budget threshold.

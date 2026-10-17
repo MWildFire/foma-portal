@@ -6,8 +6,8 @@ export const terms: Term[] = [
     id: 'standard-form',
     term: { en: 'standard form', ru: 'стандартный вид (standard form)' },
     def: {
-      en: 'A way of writing a number as $a \\times 10^{k}$, where $1 \\le a < 10$ and $k$ is an integer. It keeps very large and very small numbers short and easy to compare.',
-      ru: 'Запись числа в виде $a \\times 10^{k}$, где $1 \\le a < 10$ и $k$ — целое число. Так удобно записывать очень большие и очень малые числа и сравнивать их.',
+      en: 'For a positive number, a representation as $a \\times 10^{k}$, where $1 \\le a < 10$ and $k$ is an integer. It keeps very large and very small numbers short and easy to compare.',
+      ru: 'Запись положительного числа в виде $a \\times 10^{k}$, где $1 \\le a < 10$ и $k$ — целое число. Так удобно записывать очень большие и очень малые числа и сравнивать их.',
     },
     syllabus: '1.1',
     papers: ['P1', 'P2', 'P3'],
@@ -21,8 +21,8 @@ export const terms: Term[] = [
     id: 'standard-form-mantissa',
     term: { en: 'mantissa in standard form', ru: 'мантисса в стандартном виде (mantissa in standard form)' },
     def: {
-      en: 'The number $a$ in standard form $a \\times 10^{k}$, also called the coefficient. It always satisfies $1 \\le a < 10$.',
-      ru: 'Число $a$ в стандартном виде $a \\times 10^{k}$, которое также называют коэффициентом. Оно всегда удовлетворяет условию $1 \\le a < 10$.',
+      en: 'The number $a$ in standard form $a \\times 10^{k}$, also called the coefficient. For a positive value it satisfies $1 \\le a < 10$.',
+      ru: 'Число $a$ в стандартном виде $a \\times 10^{k}$, которое также называют коэффициентом. Для положительного значения оно удовлетворяет условию $1 \\le a < 10$.',
     },
     syllabus: '1.1',
     papers: ['P1', 'P2', 'P3'],
@@ -30,13 +30,13 @@ export const terms: Term[] = [
   },
   {
     id: 'standard-form-order',
-    term: { en: 'order of magnitude', ru: 'порядок величины (order of magnitude)' },
+    term: { en: 'standard-form exponent (order convention)', ru: 'показатель стандартной записи (standard-form exponent)' },
     def: {
-      en: 'The power of ten $k$ in the standard form $a \\times 10^{k}$. It gives a rough size of the number, which is useful when comparing quantities.',
-      ru: 'Степень десятки $k$ в стандартном виде $a \\times 10^{k}$. Она даёт грубый масштаб числа, что удобно при сравнении величин.',
+      en: 'The integer exponent $k$ in the normalised standard form of a positive number, $a \\times 10^{k}$. This is the exponent convention used here; order-of-magnitude terminology can use other rounding conventions, so follow the definition stated in the question.',
+      ru: 'Целый показатель $k$ в нормализованной стандартной записи положительного числа $a \\times 10^{k}$. Здесь используется соглашение о показателе записи; термин «порядок величины» может иметь другие соглашения об округлении, поэтому следуйте определению в задаче.',
     },
     syllabus: '1.1',
     papers: ['P1', 'P2', 'P3'],
-    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 1.1, p. 10' },
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 1.1, p. 9: normalised standard-form definition' },
   },
 ];

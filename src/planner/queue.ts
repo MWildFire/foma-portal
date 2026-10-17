@@ -5,9 +5,9 @@ export const UNIT_MINUTES = 25;   // one Pomodoro: the size of a first-pass chun
 export const MIN_SLICE = 5;       // the smallest block the planner hands out
 
 const priorityOf = (topic: PlannerTopic): number => (topic.priority === 1 || topic.priority === 2 || topic.priority === 3 ? topic.priority : 3);
-const scopeRank = (topic: PlannerTopic): number => (topic.inMockScope === 'no' ? 1 : 0);
+const scopeRank = (topic: PlannerTopic): number => (topic.inMockScope === 'yes' ? 0 : topic.inMockScope === 'unknown' ? 1 : 2);
 
-// `yes` and `unknown` come before `no`; then priority 1..3; then the author's order; the id breaks ties.
+// `yes` comes before `unknown`, then `no`; then priority 1..3; then the author's order; the id breaks ties.
 export function topicQueue(topics: PlannerTopic[]): PlannerTopic[] {
   return [...topics].sort((a, b) =>
     scopeRank(a) - scopeRank(b)

@@ -65,6 +65,8 @@ const topic: TopicMeta = {
   caseIds: ['g-curitiba-brt', 'g-copenhagen-cycling', 'g-vauban-freiburg', 'g-masdar-city'],
   sims: ['geo.opt-g-transport'],
   sources: [
+    {"kind": "web", "title": "City of Freiburg, Quartier Vauban", "url": "https://www.freiburg.de/pb/208732.html?fontZoom=L", "locator": "Former military site; Verkehrskonzept: explicitly car-reduced, with differing road/access arrangements"},
+    {"kind": "web", "title": "IRENA, Headquarters in Masdar City factsheet (2015)", "url": "https://www.irena.org/-/media/Files/IRENA/Agency/Factsheet/IRENA_Headquarters_Factsheet.pdf", "locator": "p. 1, March 2015 move; Building Facts: passive design and energy-management claims, not a citywide net-zero measure"},
     { kind: 'ib-guide', title: 'Geography guide (2017), Option G: Urban environments', locator: 'G.4' },
     { kind: 'thinkib', title: 'Option G: Urban Environments (pages 37521, 37639, 37641, 37654, 37666)', locator: 'Sustainable Urban Systems; Urban Growth; Resilient Cities; Ecocity Design and Environmental Strategies; Smart Cities' },
   ],

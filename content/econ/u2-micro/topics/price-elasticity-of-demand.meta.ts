@@ -5,7 +5,7 @@ const topic: TopicMeta = {
   subject: 'econ',
   code: '2.5',
   title: { en: 'Price elasticity of demand', ru: 'Ценовая эластичность спроса' },
-  papers: ['P1', 'P2', 'P3'],
+  papers: ['P2', 'P3'],
   order: 14,
   minutes: 50,
   priority: 1,
@@ -37,8 +37,7 @@ const topic: TopicMeta = {
     'econ-price-elasticity-of-demand-04',
     'econ-price-elasticity-of-demand-05',
     'econ-price-elasticity-of-demand-06',
-    'econ-price-elasticity-of-demand-07',
-  ],
+    'econ-price-elasticity-of-demand-07',  'r06-econ-04'],
   sources: [{ kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 2.5' }],
 };
 

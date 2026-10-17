@@ -26,14 +26,14 @@ const mpc: CurveSpec = { id: 'mpc', points: MPC, tone: 'supply', label: { en: 'M
 const msc: CurveSpec = { id: 'msc', points: MSC, tone: 'alt', label: { en: 'MSC', ru: 'MSC' } };
 
 // The welfare-loss label: a dot inside the triangle (9; 7.5), (9; 4.5), (12; 6) and the name next to it.
-const dwl: MarkSpec = { id: 'dwl', at: [10, 6.2], tone: 'loss', label: { en: 'DWL', ru: 'DWL' }, dx: 7, dy: -15 };
+const dwl: MarkSpec = { id: 'dwl', dot: false, at: [10, 6.2], tone: 'loss', label: { en: 'DWL 4.5', ru: 'DWL 4,5' }, dx: 7, dy: -15 };
 
 const steps: Step[] = [
   {
     title: { en: 'Private market', ru: 'Частный рынок' },
     text: {
-      en: 'Firms see only their private costs (MPC). The benefit is private too, so MPB = MSB. The market settles at Qm = 9 and P = 7.5, where MPB = MPC.',
-      ru: 'Фирмы видят только частные издержки (MPC). Выгода тоже частная, поэтому MPB = MSB. Рынок уравновешивается при Qm = 9 и P = 7.5, где MPB = MPC.',
+      en: 'Firms see only their private costs (MPC). There is no consumption externality, so MPB = MSB; the production spillover will be represented on the cost side. The market settles at Qm = 9 and P = 7.5, where MPB = MPC.',
+      ru: 'Фирмы видят только частные издержки (MPC). Внешнего эффекта потребления нет, поэтому MPB = MSB; производственный внешний эффект далее учтён со стороны издержек. Рынок уравновешивается при Qm = 9 и P = 7.5, где MPB = MPC.',
     },
     graph: {
       ...axes,
@@ -108,6 +108,7 @@ const steps: Step[] = [
         { id: 'qs', from: [12, 0], to: [12, 6], tone: 'ink' },
         { id: 'pc', from: [0, 6], to: [12, 6], tone: 'demand' },
         { id: 'pp', from: [0, 9], to: [12, 9], tone: 'supply' },
+        { id: 'subsidy', from: [4, 2], to: [4, 5], tone: 'policy', label: { en: 's = 3', ru: 's = 3' }, labelAt: 'start' },
       ],
       marks: [
         { id: 'Es', at: [12, 6], tone: 'ink' },

@@ -6,8 +6,8 @@ export const terms: Term[] = [
     id: 'half-life-model',
     term: { en: 'half-life', ru: 'период полураспада (half-life)' },
     def: {
-      en: 'For exponential decay $N=N_0e^{-kt}$, the time $T$ after which the amount has halved. It equals $T=\\dfrac{\\ln 2}{k}$ and does not depend on $N_0$.',
-      ru: 'Для экспоненциального убывания $N=N_0e^{-kt}$ — время $T$, за которое величина уменьшается вдвое. Оно равно $T=\\dfrac{\\ln 2}{k}$ и не зависит от $N_0$.',
+      en: 'For exponential decay $N=N_0e^{-kt}$ with $N_0>0$ and $k>0$, the time $T$ after which the amount has halved. It equals $T=\\dfrac{\\ln 2}{k}$ and does not depend on $N_0$.',
+      ru: 'Для экспоненциального убывания $N=N_0e^{-kt}$ при $N_0>0$ и $k>0$ — время $T$, за которое величина уменьшается вдвое. Оно равно $T=\\dfrac{\\ln 2}{k}$ и не зависит от $N_0$.',
     },
     syllabus: '2.9',
     papers: ['P1', 'P2', 'P3'],
@@ -21,8 +21,8 @@ export const terms: Term[] = [
     id: 'logistic-model',
     term: { en: 'logistic model', ru: 'логистическая модель (logistic model)' },
     def: {
-      en: 'A model $y=\\dfrac{L}{1+Ce^{-kx}}$ whose graph is S-shaped. It grows fastest near its middle and levels off at the upper limit $L$.',
-      ru: 'Модель $y=\\dfrac{L}{1+Ce^{-kx}}$, график которой имеет форму буквы S. Величина растёт быстрее всего в середине и выходит на верхний предел $L$.',
+      en: 'A model $y=\\dfrac{L}{1+Ce^{-kx}}$ with $L>0$, $C>0$ and $k>0$, whose graph is S-shaped. It grows fastest near its middle and levels off at the upper limit $L$.',
+      ru: 'Модель $y=\\dfrac{L}{1+Ce^{-kx}}$, при $L>0$, $C>0$ и $k>0$: её график имеет форму буквы S. Величина растёт быстрее всего в середине и выходит на верхний предел $L$.',
     },
     syllabus: '2.9',
     papers: ['P1', 'P2', 'P3'],
@@ -38,7 +38,7 @@ export const terms: Term[] = [
     },
     syllabus: '2.9',
     papers: ['P1', 'P2', 'P3'],
-    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 7.5, p. 332' },
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 7 summary, p. 332' },
     pitfall: {
       en: 'The limit $L$ is not the starting value. The starting value is $\\dfrac{L}{1+C}$, which is below $L$.',
       ru: 'Предел $L$ — не начальное значение. Начальное значение равно $\\dfrac{L}{1+C}$ и меньше $L$.',
@@ -48,15 +48,15 @@ export const terms: Term[] = [
     id: 'piecewise-model',
     term: { en: 'piecewise model', ru: 'кусочно заданная модель (piecewise model)' },
     def: {
-      en: 'A model that uses a different formula on each interval of its domain. It is continuous when the formulas give the same value at each shared boundary.',
-      ru: 'Модель, которая использует разную формулу на каждом промежутке области определения. Она непрерывна, если формулы дают одинаковое значение в каждой общей границе.',
+      en: 'A model with different rules on specified parts of its domain. State which endpoints are included. A jump is allowed; continuity is an additional requirement only when specified or justified by the context.',
+      ru: 'Модель с разными правилами на указанных частях области определения. Укажи принадлежность граничных точек. Скачок допустим; непрерывность — дополнительное условие, которое должно быть задано или обосновано контекстом.',
     },
     syllabus: '2.9',
     papers: ['P1', 'P2', 'P3'],
-    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 4.2, p. 165' },
+    src: { kind: 'web', title: 'OpenStax Calculus Volume 1', locator: '§1.2, piecewise-defined functions and domains', url: 'https://openstax.org/books/calculus-volume-1/pages/1-2-basic-classes-of-functions' },
     pitfall: {
-      en: 'Write the interval conditions so that no value belongs to two pieces, for example $0 \\le t < 3$ and $t \\ge 3$.',
-      ru: 'Записывайте условия промежутков так, чтобы ни одно значение не попадало в два куска, например $0 \\le t < 3$ и $t \\ge 3$.',
+      en: 'Every input must have one output. Overlapping rules must agree; a simple alternative is non-overlapping intervals, for example $0 \\le t < 3$ and $t \\ge 3$.',
+      ru: 'Каждому аргументу соответствует одно значение. На пересечении областей правила должны согласоваться; проще задать промежутки без наложения, например $0 \\le t < 3$ и $t \\ge 3$.',
     },
   },
 ];

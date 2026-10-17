@@ -10,8 +10,8 @@ export const formulas: Formula[] = [
       ru: 'l — длина дуги, r — радиус, θ — центральный угол в градусах.',
     },
     when: {
-      en: 'The central angle is given in degrees.',
-      ru: 'Центральный угол задан в градусах.',
+      en: 'Use a nonnegative central angle in degrees; for an ordinary single sector or arc take 0≤θ≤360°. A signed negative angle needs its magnitude for geometric length or area.',
+      ru: 'Используй неотрицательный центральный угол в градусах; для обычной дуги или сектора бери 0≤θ≤360°. У отрицательного ориентированного угла для геометрической длины или площади нужен модуль.',
     },
     syllabus: '3.4',
     inBooklet: true,
@@ -29,8 +29,8 @@ export const formulas: Formula[] = [
       ru: 'A — площадь сектора, r — радиус, θ — центральный угол в градусах.',
     },
     when: {
-      en: 'The central angle is given in degrees.',
-      ru: 'Центральный угол задан в градусах.',
+      en: 'Use a nonnegative central angle in degrees; for an ordinary single sector or arc take 0≤θ≤360°. A signed negative angle needs its magnitude for geometric length or area.',
+      ru: 'Используй неотрицательный центральный угол в градусах; для обычной дуги или сектора бери 0≤θ≤360°. У отрицательного ориентированного угла для геометрической длины или площади нужен модуль.',
     },
     syllabus: '3.4',
     inBooklet: true,
@@ -48,8 +48,8 @@ export const formulas: Formula[] = [
       ru: 'l — длина дуги, r — радиус, θ — центральный угол в радианах.',
     },
     when: {
-      en: 'The central angle is given in radians, as in the formula booklet. Radians are the subject of topic 3.7.',
-      ru: 'Центральный угол задан в радианах, как в сборнике формул IB. Радианы изучают в теме 3.7.',
+      en: 'Use a nonnegative central angle in radians, as in the formula booklet; an ordinary sector has 0≤θ≤2π. For geometric length or area, use the magnitude of a signed angle. Radians are the subject of topic 3.7.',
+      ru: 'Используй неотрицательный центральный угол в радианах, как в сборнике формул IB; для обычного сектора 0≤θ≤2π. Для геометрической длины или площади берут модуль ориентированного угла. Радианы изучают в теме 3.7.',
     },
     syllabus: '3.4',
     inBooklet: true,
@@ -67,8 +67,8 @@ export const formulas: Formula[] = [
       ru: 'A — площадь сектора, r — радиус, θ — центральный угол в радианах.',
     },
     when: {
-      en: 'The central angle is given in radians, as in the formula booklet.',
-      ru: 'Центральный угол задан в радианах, как в сборнике формул IB.',
+      en: 'Use a nonnegative central angle in radians, as in the formula booklet; an ordinary sector has 0≤θ≤2π. For geometric length or area, use the magnitude of a signed angle.',
+      ru: 'Используй неотрицательный центральный угол в радианах, как в сборнике формул IB; для обычного сектора 0≤θ≤2π. Для геометрической длины или площади берут модуль ориентированного угла.',
     },
     syllabus: '3.4',
     inBooklet: true,

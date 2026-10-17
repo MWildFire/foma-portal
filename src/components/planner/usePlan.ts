@@ -43,8 +43,8 @@ export function usePlan() {
   const today = dubaiToday(now);
   const content = usePlannerContent();
   const plan = useMemo(
-    () => (content ? buildPlan({ today, exams: EXAMS, quotas: QUOTAS, subjects: content.subjects, state, pastPapers: content.pastPapers }) : null),
-    [today, state, content],
+    () => (content ? buildPlan({ today, now, exams: EXAMS, quotas: QUOTAS, subjects: content.subjects, state, pastPapers: content.pastPapers }) : null),
+    [today, now, state, content],
   );
   return { plan, state, update, now, today, lang };
 }

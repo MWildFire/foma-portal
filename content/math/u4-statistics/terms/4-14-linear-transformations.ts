@@ -43,23 +43,23 @@ export const terms: Term[] = [
     papers: ['P1', 'P2', 'P3'],
     src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 13.5, p. 602' },
     pitfall: {
-      en: 'Variances of a difference add: $\\operatorname{Var}(X - Y) = \\operatorname{Var}(X) + \\operatorname{Var}(Y)$ for independent $X$ and $Y$. Never subtract the variances.',
-      ru: 'Дисперсии разности складываются: $\\operatorname{Var}(X - Y) = \\operatorname{Var}(X) + \\operatorname{Var}(Y)$ для независимых $X$ и $Y$. Дисперсии никогда не вычитают.',
+      en: 'Variances of a difference add: $\\operatorname{Var}(X - Y) = \\operatorname{Var}(X) + \\operatorname{Var}(Y)$ for independent $X$ and $Y$. If the variables are dependent, include covariance instead of applying this independent-case formula.',
+      ru: 'Дисперсии разности складываются: $\\operatorname{Var}(X - Y) = \\operatorname{Var}(X) + \\operatorname{Var}(Y)$ для независимых $X$ и $Y$. Если величины зависимы, учтите ковариацию вместо применения этой формулы для независимого случая.',
     },
   },
   {
     id: 'unbiased-estimator',
     term: { en: 'unbiased estimator', ru: 'несмещённая оценка (unbiased estimator)' },
     def: {
-      en: 'An estimator whose expected value equals the population parameter it estimates. The sample mean $\\bar{X}$ is unbiased for $\\mu$, and the sample variance $s_{n-1}^{2}$, with divisor $n - 1$, is unbiased for $\\sigma^{2}$.',
-      ru: 'Оценка, математическое ожидание которой равно оцениваемому параметру генеральной совокупности. Выборочное среднее $\\bar{X}$ — несмещённая оценка $\\mu$, а выборочная дисперсия $s_{n-1}^{2}$ с делителем $n - 1$ — несмещённая оценка $\\sigma^{2}$.',
+      en: 'An estimator whose expected value equals the population parameter it estimates. For independent identically distributed observations with finite variance and n>1, the sample mean $\\bar{X}$ is unbiased for $\\mu$, and the sample variance $s_{n-1}^{2}$, with divisor $n - 1$, is unbiased for $\\sigma^{2}$.',
+      ru: 'Оценка, математическое ожидание которой равно оцениваемому параметру генеральной совокупности. Для независимых одинаково распределённых наблюдений с конечной дисперсией при n>1 выборочное среднее $\\bar{X}$ — несмещённая оценка $\\mu$, а выборочная дисперсия $s_{n-1}^{2}$ с делителем $n - 1$ — несмещённая оценка $\\sigma^{2}$.',
     },
     syllabus: '4.14',
     papers: ['P1', 'P2', 'P3'],
     src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 14.3, p. 643' },
     pitfall: {
-      en: 'Dividing the sum of squared deviations by $n$ instead of $n - 1$ gives a biased estimate of $\\sigma^{2}$ that is too small on average.',
-      ru: 'Деление суммы квадратов отклонений на $n$ вместо $n - 1$ даёт смещённую оценку $\\sigma^{2}$, которая в среднем занижена.',
+      en: 'Dividing the sum of squared deviations by $n$ instead of $n - 1$ has expectation (n−1)σ²/n: it is too small on average when σ²>0, and remains zero when σ²=0.',
+      ru: 'Деление суммы квадратов отклонений на $n$ вместо $n - 1$ даёт математическое ожидание (n−1)σ²/n: при σ²>0 оно занижено, а при σ²=0 остаётся нулевым.',
     },
   },
 ];

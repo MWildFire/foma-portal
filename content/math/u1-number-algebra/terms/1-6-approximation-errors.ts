@@ -6,8 +6,8 @@ export const terms: Term[] = [
     id: 'significant-figures',
     term: { en: 'significant figures (s.f.)', ru: 'значащие цифры (significant figures (s.f.))' },
     def: {
-      en: 'The digits of a number that can be determined accurately, so they show how precise the value is. Rounding to $n$ significant figures (s.f.) keeps the first $n$ of these digits and rounds the rest, for example 0.0047 has two significant figures.',
-      ru: 'Цифры числа, которые можно определить точно, поэтому они показывают, насколько точно известно значение. При округлении до $n$ значащих цифр (s.f.) сохраняются первые $n$ таких цифр, а остальные округляются; например, у числа 0,0047 две значащие цифры.',
+      en: 'Digits retained to express a value at a stated precision; this convention does not prove that the measurement is accurate. Rounding to $n$ significant figures (s.f.) keeps the first $n$ of these digits and rounds the rest, for example 0.0047 has two significant figures.',
+      ru: 'Цифры, сохраняемые при записи значения с указанной точностью; такая запись сама по себе не доказывает правильности измерения. При округлении до $n$ значащих цифр (s.f.) сохраняются первые $n$ таких цифр, а остальные округляются; например, у числа 0,0047 две значащие цифры.',
     },
     syllabus: '1.6',
     papers: ['P1', 'P2', 'P3'],
@@ -21,8 +21,8 @@ export const terms: Term[] = [
     id: 'bounds-of-rounded-value',
     term: { en: 'upper and lower bounds', ru: 'верхняя и нижняя границы (upper and lower bounds)' },
     def: {
-      en: 'If a value $M$ is correct to the unit $u$, the exact value $V$ satisfies $M - 0.5u \\le V < M + 0.5u$. The two ends of this range are the lower and upper bounds.',
-      ru: 'Если значение $M$ верно с точностью до единицы $u$, то точное значение $V$ удовлетворяет неравенству $M - 0{,}5u \\le V < M + 0{,}5u$. Два конца этого промежутка — нижняя и верхняя границы.',
+      en: 'For a nonnegative value $M$ rounded to the nearest unit $u$ with midpoint ties upwards, the exact value $V$ satisfies $M - 0.5u \\le V < M + 0.5u$. Intersect this interval with any physical restriction: if the measured quantity cannot be negative and rounds to zero, its feasible lower bound is zero.',
+      ru: 'Для неотрицательного $M$, округлённого к ближайшей единице $u$ с серединой вверх точное значение $V$ удовлетворяет неравенству $M - 0{,}5u \\le V < M + 0{,}5u$. Пересеки этот промежуток с физическими ограничениями: если измеряемая величина неотрицательна и округляется до нуля, её нижняя допустимая граница равна нулю.',
     },
     syllabus: '1.6',
     papers: ['P1', 'P2', 'P3'],
@@ -36,8 +36,8 @@ export const terms: Term[] = [
     id: 'percentage-error',
     term: { en: 'percentage error', ru: 'процентная погрешность (percentage error)' },
     def: {
-      en: 'The difference between an approximate value and the exact value, divided by the exact value and written as a percentage. The difference is taken as a positive number.',
-      ru: 'Разность между приближённым и точным значением, делённая на точное значение и выраженная в процентах. Разность берётся положительной.',
+      en: 'Here the absolute error magnitude: absolute difference divided by the absolute nonzero exact value, times 100%. A signed percentage error is a different convention used in the booklet.',
+      ru: 'Здесь абсолютная величина ошибки: модуль разности делят на модуль ненулевого точного значения и умножают на 100%. Процентная погрешность со знаком — другое соглашение, используемое в книжке формул.',
     },
     syllabus: '1.6',
     papers: ['P1', 'P2', 'P3'],

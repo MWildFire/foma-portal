@@ -27,7 +27,7 @@ const topic: TopicMeta = {
   termIds: ['normal-bell-curve', 'normal-standardised-score', 'normal-inverse-calculation'],
   formulaIds: ['normal-standardisation-formula', 'normal-density-formula', 'normal-inverse-formula'],
   sims: ['math.normal-lab'],
-  questionIds: ['q-4-9-01', 'q-4-9-02', 'q-4-9-03'],
+  questionIds: ['q-4-9-01', 'q-4-9-02', 'q-4-9-03', 'r06-normal-poisson'],
   sources: [
     {
       kind: 'web',

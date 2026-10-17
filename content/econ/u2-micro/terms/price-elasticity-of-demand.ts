@@ -36,8 +36,8 @@ export const terms: Term[] = [
       ru: 'Цена хлеба выросла на 10%, величина спроса упала на 5%, поэтому PED = -5 / 10 = -0,50.',
     },
     pitfall: {
-      en: 'The slope is the change in quantity per unit of price, while elasticity uses percentage changes, so the two are not the same.',
-      ru: 'Наклон и эластичность не совпадают: наклон — это изменение количества на единицу цены, а эластичность использует процентные изменения.',
+      en: 'With price vertical and quantity horizontal, the drawn slope is ΔP/ΔQ. Elasticity uses percentage changes in Q relative to P, so it is not the drawn slope or its inverse alone.',
+      ru: 'При цене по вертикали и количестве по горизонтали наклон рисунка равен ΔP/ΔQ. Эластичность сравнивает процентные изменения Q и P, поэтому не равна ни этому наклону, ни просто обратной ему величине.',
     },
     syllabus: '2.5',
     papers: ['P1', 'P2', 'P3'],
@@ -146,8 +146,8 @@ export const terms: Term[] = [
     id: 'necessity-good',
     term: { en: 'necessity good', ru: 'товар первой необходимости (necessity good)' },
     def: {
-      en: 'A good that people buy even when prices rise or incomes fall, so its demand is relatively unresponsive: PED is inelastic and YED is between 0 and 1.',
-      ru: 'Товар, который люди покупают даже при росте цен или падении доходов; спрос на него мало реагирует, поэтому PED неэластичен, а YED между 0 и 1.',
+      en: 'In the income-elasticity classification, a normal good with 0 < YED < 1: purchases rise less than proportionately with income. Necessities often have relatively inelastic price demand, but the YED classification alone does not determine PED.',
+      ru: 'В классификации по доходу — нормальное благо с 0 < YED < 1: покупки растут медленнее дохода. Спрос на необходимые товары часто малоэластичен по цене, но одна классификация YED не определяет PED.',
     },
     example: {
       en: 'Basic bread: a 10% price rise cuts quantity demanded by only 3%, so PED = -3 / 10 = -0.30.',

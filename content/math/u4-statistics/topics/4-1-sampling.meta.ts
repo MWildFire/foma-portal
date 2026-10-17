@@ -26,7 +26,7 @@ const topic: TopicMeta = {
   ],
   termIds: ['population-and-sample', 'random-sample-technique', 'selection-bias'],
   formulaIds: ['sample-mean-estimate', 'sample-proportion-estimate'],
-  questionIds: ['q-4-1-01', 'q-4-1-02', 'q-4-1-03'],
+  questionIds: ['q-4-1-01', 'q-4-1-02', 'q-4-1-03', 'r06-data-design'],
   sources: [
     {
       kind: 'web',

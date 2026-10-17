@@ -20,8 +20,8 @@ const topic: TopicMeta = {
       ru: 'Могу сказать, когда r_s уместнее коэффициента Пирсона, например для ранговых или монотонных данных',
     },
     {
-      en: 'I can explain why one outlier changes Pearson\'s r much more than Spearman\'s r_s',
-      ru: 'Могу объяснить, почему один выброс меняет коэффициент Пирсона гораздо сильнее, чем r_s',
+      en: 'I can compare how an outlier affects Pearson\'s r and Spearman\'s r_s in a given dataset, explaining the roles of magnitudes and ranks',
+      ru: 'Могу сравнить влияние выброса на коэффициенты Пирсона r и Спирмена r_s в данном наборе данных и объяснить роль величин и рангов',
     },
   ],
   termIds: ['spearman-rank-correlation', 'monotonic-association', 'outlier-effect-on-correlation'],

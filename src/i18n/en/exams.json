@@ -11,14 +11,12 @@
     "room": "Room: {{room}}",
     "untilStart": "until it starts",
     "untilEnd": "until it ends",
-    "extraTime": "With your 25% extra time: {{time}}.",
     "separateRoom": "Separate room (ACC2) starts at {{time}}; the main hall at {{hall}}."
   },
   "access": {
     "title": "Access arrangements",
-    "extraTime": "25% extra time",
     "change": "Change in Settings",
-    "typing": "Your access arrangement is typing: you type your answers on the computer. There is no extra time."
+    "typing": "Your access arrangement is typing: you type your answers on the computer."
   },
   "status": {
     "finished": "Finished",
@@ -29,12 +27,10 @@
     "duration": "Duration",
     "room": "Room",
     "separateRoom": "Separate room",
-    "extraTime": "Extra time",
     "note": "Schedule note"
   },
   "separateStart": "ACC2, starts at {{time}}",
   "noSeparateStart": "no separate start time in the schedule",
   "printedTime": "Printed time",
-  "withExtraTime": "With extra time (+25%)",
   "paperGuide": "Paper guide"
 }

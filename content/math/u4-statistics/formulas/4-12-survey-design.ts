@@ -10,8 +10,8 @@ export const formulas: Formula[] = [
       ru: 'k — число классов в тесте, p — число параметров, оценённых по выборке. Единица вычитается, потому что сумма частот фиксирована.',
     },
     when: {
-      en: 'Goodness-of-fit test in which the fitted model uses the sample mean or the sample standard deviation.',
-      ru: 'Тест согласия, в котором модель подбирается по выборочному среднему или выборочному стандартному отклонению.',
+      en: 'Use the number k of final classes after any pooling, with k−1−p>0, for the school fitted goodness-of-fit procedure. Subtract parameters estimated from these data; check sampling and expected-frequency conditions.',
+      ru: 'В школьной процедуре подогнанного критерия согласия k — число итоговых классов после объединения; нужно k−1−p>0. Вычитай число параметров, оценённых по этим данным; проверь отбор и ожидаемые частоты.',
     },
     syllabus: '4.12',
     inBooklet: false,
@@ -29,8 +29,8 @@ export const formulas: Formula[] = [
       ru: 'Ожидаемое число наблюдений с x_i событиями, когда среднее распределения Пуассона оценено выборочным средним.',
     },
     when: {
-      en: 'Goodness-of-fit test for counts, after the mean has been estimated from the data.',
-      ru: 'Тест согласия для подсчётов, когда среднее оценено по данным.',
+      en: 'For a positive fitted mean, use this expression; an all-zero sample is a degenerate case, not a regular chi-square fit. For a pooled class, sum probabilities of all included counts before multiplying by n. Goodness-of-fit test for counts, after the mean has been estimated from the data.',
+      ru: 'При положительном оценённом среднем используй эту запись; полностью нулевая выборка — вырожденный случай, а не обычная проверка χ². Для объединённого класса сначала сложи вероятности всех включённых значений, затем умножь на n. Тест согласия для подсчётов, когда среднее оценено по данным.',
     },
     syllabus: '4.12',
     inBooklet: false,
@@ -48,8 +48,8 @@ export const formulas: Formula[] = [
       ru: 'Ожидаемое число наблюдений в классе от a_i до b_i, когда величина моделируется нормальным распределением с выборочными средним и дисперсией.',
     },
     when: {
-      en: 'Goodness-of-fit test for continuous data after the data have been grouped into classes.',
-      ru: 'Тест согласия для непрерывных данных, разбитых на классы.',
+      en: 'For s>0 and classes covering the full normal support (including end tails), calculate probabilities for the grouped-data goodness-of-fit test; pool when needed.',
+      ru: 'При s>0 и классах, охватывающих всю нормальную прямую, включая крайние хвосты, находи вероятности для критерия согласия; при необходимости объединяй классы.',
     },
     syllabus: '4.12',
     inBooklet: false,
@@ -67,8 +67,8 @@ export const formulas: Formula[] = [
       ru: 'Переводит границу x класса в z-оценку, чтобы вероятность попадания в класс находилась по стандартному нормальному распределению.',
     },
     when: {
-      en: 'Finding the normal probability of a class by hand, or checking a GDC result.',
-      ru: 'Нахождение нормальной вероятности класса вручную или проверка результата калькулятора.',
+      en: 'Requires sigma>0. Finding the normal probability of a class by hand, or checking a GDC result.',
+      ru: 'Требуется σ>0. Нахождение нормальной вероятности класса вручную или проверка результата калькулятора.',
     },
     syllabus: '4.12',
     inBooklet: false,

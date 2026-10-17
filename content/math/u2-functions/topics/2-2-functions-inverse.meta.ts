@@ -26,7 +26,7 @@ const topic: TopicMeta = {
   ],
   termIds: ['function-single-output', 'domain-and-range-of-function', 'inverse-function-reflection'],
   formulaIds: ['inverse-composition-identity', 'inverse-linear-function', 'inverse-exponential-log'],
-  questionIds: ['q-2-2-01', 'q-2-2-02', 'q-2-2-03'],
+  questionIds: ['q-2-2-01', 'q-2-2-02', 'q-2-2-03', 'r06-functions'],
   sources: [
     {
       kind: 'web',

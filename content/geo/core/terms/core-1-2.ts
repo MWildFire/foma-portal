@@ -17,16 +17,16 @@ export const terms: Term[] = [
     papers: ['P2'],
     src,
     pitfall: {
-      en: 'Urbanisation is a share, so it can rise even when the total population falls.',
-      ru: 'Урбанизация — это доля, поэтому она может расти, даже если общая численность населения падает.',
+      en: 'Urbanisation is an increase in the urban share; it can occur even when total population falls.',
+      ru: 'Урбанизация — рост городской доли населения; она возможна и при сокращении общей численности населения.',
     },
   },
   {
     id: 'core-urban-growth',
     term: { en: 'urban growth', ru: 'рост городского населения (urban growth)' },
     def: {
-      en: 'The absolute increase in the number of people living in towns and cities, from natural increase and migration.',
-      ru: 'Абсолютное увеличение числа людей, живущих в городах, за счёт естественного прироста и миграции.',
+      en: 'An increase in the number of urban residents. Natural change, net migration and reclassification or boundary changes can affect that number.',
+      ru: 'Увеличение числа городских жителей. На него влияют естественное движение, чистая миграция, изменение границ и переклассификация поселений.',
     },
     syllabus: 'core-1.2',
     papers: ['P2'],
@@ -55,12 +55,12 @@ export const terms: Term[] = [
     id: 'core-informal-settlement',
     term: { en: 'informal settlement', ru: 'неформальное поселение (informal settlement)' },
     def: {
-      en: 'Housing built on land that residents do not legally own or rent, often without secure tenure and with poor access to water, sanitation and electricity.',
-      ru: 'Жильё, построенное на земле, которую жители юридически не владеют и не арендуют, часто без надёжных прав на землю и с плохим доступом к воде, канализации и электричеству.',
+      en: 'A residential area with insecure tenure over land or housing, often with gaps in formal services and housing that may not meet planning or building rules. It can include informal rental housing, not only squatting.',
+      ru: 'Жилой район с незащищёнными правами на землю или жильё, часто с недостатком официальных услуг и застройкой, которая может не соответствовать градостроительным нормам. Он может включать неформальную аренду, а не только самозахват.',
     },
     syllabus: 'core-1.2',
     papers: ['P2'],
-    src,
+    src: { kind: 'web', title: 'UN-Habitat, SDG indicator 11.1.1 metadata (2021-12-20)', url: 'https://unstats.un.org/sdgs/metadata/files/Metadata-11-01-01.pdf', locator: 'pp. 5–6, Informal Settlements: insecure tenure, informal rental, services and planning' },
   },
   {
     id: 'core-rural-urban-migration',
@@ -116,8 +116,8 @@ export const terms: Term[] = [
     id: 'core-counter-urbanisation',
     term: { en: 'counter-urbanisation', ru: 'контрурбанизация (counter-urbanisation)' },
     def: {
-      en: 'The movement of people from large cities to smaller towns and rural areas, often within commuting distance of the city.',
-      ru: 'Переселение людей из крупных городов в небольшие города и сельскую местность, часто в пределах доступности для ежедневных поездок в город.',
+      en: 'Population movement from large urban centres towards smaller settlements and rural areas. Distinguish this wider deconcentration from simply moving within a city to its expanding suburbs.',
+      ru: 'Переселение из крупных городских центров в меньшие поселения и сельскую местность. Такое рассредоточение нужно отличать от простого переезда внутри растущей городской зоны в её пригороды.',
     },
     syllabus: 'core-1.2',
     papers: ['P2'],
@@ -131,8 +131,8 @@ export const terms: Term[] = [
     id: 'core-rural-depopulation',
     term: { en: 'rural depopulation', ru: 'сельское обезлюдение (rural depopulation)' },
     def: {
-      en: 'A fall in the population of a rural area caused by out-migration and sometimes by natural decrease, when deaths exceed births.',
-      ru: 'Снижение численности населения сельской местности из-за миграции за её пределы, а иногда из-за естественной убыли, когда смертей больше, чем рождений.',
+      en: 'A decrease in the number of rural residents. It can result from net out-migration, natural decrease or both; changes in settlement classification can also alter the recorded rural total.',
+      ru: 'Снижение численности сельских жителей. Причинами могут быть миграционный отток, естественная убыль или их сочетание; изменение статуса поселений тоже может менять учитываемую численность сельского населения.',
     },
     syllabus: 'core-1.2',
     papers: ['P2'],

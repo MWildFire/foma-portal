@@ -6,8 +6,8 @@ export const formulas: Formula[] = [
     tex: '\\text{Budget balance} = T - G',
     name: { en: 'Budget balance', ru: 'Бюджетный баланс (budget balance)' },
     meaning: {
-      en: 'Tax revenue minus government spending: a positive result is a surplus, a negative result is a deficit.',
-      ru: 'Налоговые поступления минус государственные расходы: положительный результат означает профицит, отрицательный — дефицит.',
+      en: 'Total government revenue T minus total expenditure G: positive is surplus, negative is deficit. If only taxes are supplied, the toy exercise assumes no other revenues; budget expenditure includes transfers/interest, unlike the purchases-only G in GDP.',
+      ru: 'Все доходы бюджета T минус все расходы G: положительный итог — профицит, отрицательный — дефицит. Если даны только налоги, учебная задача предполагает отсутствие других доходов; расходы бюджета включают трансферты и проценты, в отличие от закупок G в ВВП.',
     },
     when: {
       en: 'Any question about the government budget in one year, to find out whether it runs a surplus or a deficit.',

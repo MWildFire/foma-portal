@@ -6,8 +6,8 @@ export const formulas: Formula[] = [
     tex: 'x=a\\times 10^{k},\\quad 1\\le a<10,\\ k\\in\\mathbb{Z}',
     name: { en: 'Standard form', ru: 'Стандартный вид (Standard form)' },
     meaning: {
-      en: 'Any positive number can be written as a number $a$ between 1 and 10 times an integer power of ten.',
-      ru: 'Любое положительное число можно записать как число $a$ от 1 до 10, умноженное на целую степень десяти.',
+      en: 'Any positive number can be written as a coefficient $a$ with $1 \\le a < 10$, multiplied by an integer power of ten.',
+      ru: 'Любое положительное число можно записать как коэффициент $a$ при $1 \\le a < 10$, умноженный на целую степень десяти.',
     },
     when: {
       en: 'Writing very large or very small quantities, and comparing their sizes.',
@@ -16,8 +16,8 @@ export const formulas: Formula[] = [
     syllabus: '1.1',
     inBooklet: false,
     example: {
-      en: 'The speed of light is about 300000000 m/s, which is 3 × 10^8 m/s in standard form.',
-      ru: 'Скорость света примерно 300000000 м/с, что в стандартном виде равно 3 × 10^8 м/с.',
+      en: 'The speed of light in vacuum is about 300000000 m/s, which is 3 × 10^8 m/s in standard form.',
+      ru: 'Скорость света в вакууме примерно 300000000 м/с, что в стандартном виде равно 3 × 10^8 м/с.',
     },
   },
   {

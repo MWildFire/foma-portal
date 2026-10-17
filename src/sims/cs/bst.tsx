@@ -226,13 +226,14 @@ export default function BstSim(p: { lang: Lang }) {
                 <circle cx={X(q)} cy={Y(q)} r={R} strokeWidth={1.5} style={{ fill: q.value === hit ? FOUND : onPath.has(q.value) ? PATH : 'var(--color-card)', stroke: INK }} />
                 <text x={X(q)} y={Y(q) + 4} textAnchor="middle" fontSize={12} style={{ fill: INK }}>{q.value}</text>
                 {ord > 0 && (
-                  <text x={X(q) + R - 2} y={Y(q) - R + 4} fontSize={10} style={{ fill: 'var(--color-accent)' }}>{ord}</text>
+                  <text x={X(q) + R - 2} y={Y(q) - R + 4} fontSize={11} style={{ fill: 'var(--color-accent)' }}>{ord}</text>
                 )}
               </g>
             );
           })}
         </svg>
       </div>
+      <p className="text-xs text-[var(--color-muted)]">{t('If the tree is wider than the frame, scroll inside it →', 'Если дерево шире рамки, прокрутите его внутри →')}</p>
       <p aria-live="polite" className={`min-h-[3rem] rounded-md border px-3 py-2 ${status?.error ? 'border-[#c5221f]' : 'border-[var(--color-border)]'}`}>
         {status && (
           <>

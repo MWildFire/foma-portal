@@ -36,6 +36,8 @@ Take $\dfrac{dy}{dx} = x - y$ and the solution curve through $(0, 1)$. The curve
 
 The lab draws the slope field of one of three equations on $0 \le x \le 1$, with the Euler polygon from the starting point $(0, y_0)$ in orange and the exact solution dashed. Choose $dy/dx = y\left(1 - \dfrac{y}{4}\right)$ and move the starting value from 0 to 5: every curve with $y_0 > 0$ moves towards $y = 4$, and the curve with $y_0 = 0$ stays at 0.
 
+Read each segment as a value of $dy/dx=\Delta y/\Delta x$ in coordinate units, not as an angle measured on the screen (Oxford AI HL, ch. 11.5, pp. 519–522). The axes have different scales: a unit along $x$ is drawn much longer than a unit along $y$. A slope of 1 therefore does not appear at $45^\circ$; compare changes using the axis labels.
+
 ## How it is examined
 
 Write down and State ask for a value or feature that you read from the field, usually with a short reason. Find and Determine ask for a number, usually after substituting into $f(x, y)$, so show the substitution. Sketch asks for a curve through the given point that follows the segments; mark the point and any equilibrium value the question names. Marks are lost for a gradient with the wrong sign, for a curve that ignores the segments, and for claiming an equilibrium from a single horizontal segment.
@@ -48,7 +50,7 @@ Write down and State ask for a value or feature that you read from the field, us
 
 - Treating a zero gradient at one point as an equilibrium. A value $c$ is an equilibrium only when $f(x, c) = 0$ for every $x$. For $dy/dx = x - y$ the gradient is zero along the line $y = x$, which is not a horizontal line.
 - Sketching a curve that does not follow the segments, for example one with a corner where the field is smooth.
-- Drawing solution curves that cross. Two different solution curves cannot share a point, so a crossing means the sketch is wrong.
+- Drawing crossing solution curves where the initial-value problem has a unique solution. A sufficient local condition is that $f$ and $\partial f/\partial y$ are continuous near the point; the smooth examples here satisfy this. Under uniqueness, two different solutions cannot share a point on their common interval. Without uniqueness, solutions may meet or cross.
 
 ## Check yourself
 

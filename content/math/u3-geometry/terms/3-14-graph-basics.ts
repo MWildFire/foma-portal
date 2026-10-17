@@ -6,8 +6,8 @@ export const terms: Term[] = [
     id: 'graph-vertex-degree',
     term: { en: 'degree of a vertex', ru: 'степень вершины (degree of a vertex)' },
     def: {
-      en: 'The number of edges that meet a vertex, written $\\deg(v)$. In a simple graph each edge adds 1 to the degree of each of its two end vertices.',
-      ru: 'Число рёбер, инцидентных вершине, записывается $\\deg(v)$. В простом графе каждое ребро добавляет 1 к степени каждого из двух своих концов.',
+      en: 'The number of incident edge ends at a vertex of an undirected graph, written $\\deg(v)$. An ordinary edge contributes 1 at each end vertex; a loop has both ends at the same vertex and contributes 2 there.',
+      ru: 'Число концов рёбер, инцидентных вершине неориентированного графа, записывается $\\deg(v)$. Обычное ребро даёт по 1 каждой концевой вершине; оба конца петли находятся в одной вершине, поэтому петля даёт ей 2.',
     },
     syllabus: '3.14',
     papers: ['P1', 'P2', 'P3'],

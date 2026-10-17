@@ -1,14 +1,14 @@
 ## Big idea
 
-Statistics uses a sample to learn about a whole population. A sample is useful only if it is chosen fairly: a random sample lets the sample results estimate population values, while a biased sample gives consistently wrong answers, however large it is.
+Statistics uses a sample to learn about a whole population. A well-designed probability sample supports estimates of population quantities. Random sampling still has sampling variation and does not automatically remove nonresponse or measurement errors. Increasing sample size does not by itself repair a biased selection method.
 
 ## Explanation
 
-The <Term id="population-and-sample"/> is the whole group you want to know about, for example all 900 students of a school. A sample is the part of it that you actually measure. Data are the values you record: discrete data are counted (the number of siblings in a family), and continuous data are measured on a scale (height in centimetres, journey time in minutes).
+The <Term id="population-and-sample"/> is the whole group you want to know about, for example all 900 students of a school. A sample is the part of it that you actually measure. Data are the values you record: qualitative data record categories; quantitative data record numbers. A discrete variable takes separate possible values (such as a sibling count); a continuous variable can vary throughout an interval (such as height). Rounding a height to centimetres does not turn the underlying height variable into a count.
 
-A sample should be chosen by <Term id="random-sample-technique"/>, so that every member of the population has a known, non-zero chance of being selected. Random choice does not make one particular sample typical, but it means that differences from the population come from chance, and their size can be judged.
+For a simple random sample of fixed size n, every subset of n distinct members is equally likely. Every member then has inclusion probability n/N. Random choice does not ensure that a particular sample is typical. Other probability designs can use unequal inclusion probabilities and require appropriate weighting; an unweighted mean or proportion is not automatically unbiased for every such design. <Term id="random-sample-technique"/>
 
-A sample chosen by convenience can carry <Term id="selection-bias"/>, a systematic difference from the population. Interviewing the first students through the school gate, or taking responses to an online poll from one group only, gives biased samples. Bias does not shrink as the sample grows, because it comes from the method, not from the number of people.
+A sample chosen by convenience can carry <Term id="selection-bias"/>, a systematic difference from the population. Interviewing the first students through the school gate, or taking responses to an online poll from one group only, can exclude groups or over-represent people with particular characteristics. This creates a risk of selection bias, whose direction needs contextual evidence. One observed discrepancy does not establish systematic bias; simply taking more responses does not repair the exclusion mechanism.
 
 Sample statistics estimate population values. The sample mean estimates the population mean:
 
@@ -18,11 +18,11 @@ $$
 
 <Formula id="sample-mean-estimate"/>
 
-The sample proportion estimates the population proportion, so a proportion from a random sample can be scaled up to the whole population. <Formula id="sample-proportion-estimate"/>
+The sample proportion estimates the population proportion, so for a simple random sample with accurate responses it can be scaled up to estimate a population count. Unequal-probability designs need appropriate weights. <Formula id="sample-proportion-estimate"/>
 
 An outlier is a value that lies far from the rest of the data. Check it before you use it: it may be a recording error, or a real but unusual member of the population. Do not delete it silently.
 
-<Callout kind="define">Random sample: a sample in which every member of the population has a known, non-zero chance of being selected, so that chance alone decides who is included.</Callout>
+<Callout kind="define">Simple random sample of fixed size n: every subset of n distinct population members is equally likely. This gives every member the same inclusion probability n/N.</Callout>
 
 <Callout kind="gdc">On a Calculator page, type `randInt(1,900,50)` to draw 50 random numbers from 1 to 900, one for each student in a list numbered 1 to 900. Numbers can repeat, so discard a repeated number and draw again. In Lists & Spreadsheet, `Data → Random → Integer` puts random integers in a column, and `ctrl+R` draws a new set.</Callout>
 
@@ -33,20 +33,20 @@ A random sample of 50 students from a school of 900 students is asked whether th
 <Steps>
 <Step>Sample proportion: $\hat{p} = \dfrac{15}{50} = 0.300$.</Step>
 <Step>Estimate for the school: $0.300 \times 900 = 270$ students.</Step>
-<Step>The first 50 students to arrive at the gate give $\hat{p} = \dfrac{22}{50} = 0.440$. This is $0.440 - 0.300 = 0.140$ higher than the estimate from the random sample, which shows bias in the gate sample.</Step>
+<Step>The first 50 students to arrive at the gate give $\hat{p} = \dfrac{22}{50} = 0.440$. This is $0.440 - 0.300 = 0.140$ higher than the estimate from the random sample, a difference of 14 percentage points between these two estimates. This alone does not prove bias: the random-sample estimate is not the known population truth, and sampling variation can also produce different proportions.</Step>
 </Steps>
 
-<Reveal title="Why does a bigger gate sample not fix this?">Taking 500 students from the gate instead of 50 reduces the random variation, but early arrivals are still over-represented. The estimate settles on the wrong value, so the error is bias, not chance.</Reveal>
+<Reveal title="Why does a bigger gate sample not fix this?">A larger sample can reduce sampling variation under an appropriate design, but does not automatically remove systematic exclusion. If early arrival is related to the property studied, selecting only early arrivals can bias the estimate. Its direction cannot be inferred from these two samples alone; check the sampling frame, inclusion and response patterns.</Reveal>
+
+<Reveal title="Do equal individual probabilities prove simple random sampling?">No. For four people labelled 1–4, choose either the pair $\{1,2\}$ or the pair $\{3,4\}$, each with probability $1/2$. Every person has inclusion probability $1/2$, but four of the six possible pairs can never be chosen. A simple random sample of size 2 would give each of the six pairs probability $1/6$.</Reveal>
 
 ## Visual
 
-<Callout kind="tip">Sketch the population as a rectangle of dots and mark your sample on it. A random sample is spread evenly over the rectangle. A biased sample clusters in one area, such as the gate, and its estimate leans towards that area.</Callout>
+<Callout kind="tip">Sketch the population as a rectangle of dots and mark your sample on it. A simple random sample may look uneven or clustered by chance. A visual cluster does not establish bias. To assess a method, identify who can be selected and whether inclusion or response is related to the quantity being estimated.</Callout>
 
 ## How it is examined
 
-Sampling questions ask you to name the population, choose a suitable sampling method, or explain bias in the context of the data. Estimate questions reward the correct sample statistic first, then the scaling to the population. Explanations lose marks when they call a sample biased without the reason, such as who was left out.
-
-<Callout kind="exam">When asked to comment on a sample, name the population, give the source of the bias in one phrase, and say which way the estimate is likely to be wrong.</Callout>
+For Estimate, show the sample proportion or mean and scale it to the population only when the sampling design justifies that inference. For Explain, identify the selection mechanism and a plausible risk of bias; do not infer systematic bias from one difference between samples. Distinguish an estimate from an exact population total.
 
 ## Common mistakes
 
@@ -64,11 +64,13 @@ Sampling questions ask you to name the population, choose a suitable sampling me
 
 <Question id="q-4-1-03"/>
 
+<Question id="r06-data-design"/>
+
 ## Summary
 
 - The population is the whole group of interest; the sample is the part you measure.
-- A random sample gives every member of the population a known, non-zero chance of selection.
+- In a simple random sample of fixed size, every subset of that size is equally likely.
 - Bias is a systematic error from the sampling method, and a larger sample does not remove it.
-- Discrete data are counted, continuous data are measured, and outliers are checked before use.
+- Discrete variables take separate values; continuous variables vary over intervals; inspect outliers before using or excluding them.
 - The sample mean and the sample proportion estimate the population mean and proportion.
 - Scale an estimated proportion by the population size to estimate a count.

@@ -7,8 +7,8 @@ import { collectProgress, encodeProgress } from '../src/lib/transfer.ts';
 import { dayOf, emptyState, plan } from './planner-fixtures.mjs';
 
 test('the default loads are the ones of PLAN.md', () => {
-  assert.deepEqual(DEFAULT_DAILY_LOAD, { mon: 150, tue: 150, wed: 150, thu: 150, fri: 120, sat: 270, sun: 270 });
-  assert.equal(effectiveLoad({}, 'sat'), 270);
+  assert.deepEqual(DEFAULT_DAILY_LOAD, { mon: 240, tue: 240, wed: 240, thu: 240, fri: 240, sat: 240, sun: 240 });
+  assert.equal(effectiveLoad({}, 'sat'), 240);
   assert.equal(effectiveLoad({ sat: 180 }, 'sat'), 180);
   assert.equal(effectiveLoad({ sat: 0 }, 'sat'), 0, 'zero is a real choice: a rest day');
 });
@@ -47,12 +47,9 @@ test('loads are kept within 0 and 600 minutes', () => {
   for (const bad of ['', '601', '-5', '1.5', 'abc', '9999', '1e2']) assert.equal(parseLoadInput(bad), null, bad);
 });
 
-test('access arrangements are written to settings.accessArrangements', () => {
-  let state = setAccessArrangement(emptyState(), 'extraTime', true);
-  assert.deepEqual(state.settings.accessArrangements, { extraTime: true, separateRoom: false });
-  state = setAccessArrangement(state, 'separateRoom', true);
-  state = setAccessArrangement(state, 'extraTime', false);
-  assert.deepEqual(state.settings.accessArrangements, { extraTime: false, separateRoom: true });
+test('room flag is written to settings.accessArrangements', () => {
+ const state=setAccessArrangement(emptyState(), 'separateRoom', true);
+ assert.equal(state.settings.accessArrangements.separateRoom,true);
 });
 
 test('a progress code is checked before anything is replaced', () => {

@@ -25,11 +25,11 @@ export const formulas: Formula[] = [
       ru: 'Для целого $n$ производная $a x^{n}$ равна $a n x^{n-1}$. Многочлен дифференцируется почленно.',
     },
     when: {
-      en: 'Finding the gradient function of a polynomial before solving $f\'(x)=0$. The booklet (page 11) has the power rule for $x^{n}$ alone, without the constant factor $a$.',
-      ru: 'Нахождение функции градиента многочлена перед решением $f\'(x)=0$. В книжке (стр. 11) есть правило для $x^{n}$ без постоянного множителя $a$.',
+      en: 'Finding the gradient function of a polynomial before solving $f\'(x)=0$. The booklet (page 11, SL 5.3) gives $f(x)=x^{n} \\Rightarrow f^{\\prime}(x)=nx^{n-1}$; carry the constant factor $a$ outside the derivative.',
+      ru: 'Нахождение функции градиента многочлена перед решением $f\'(x)=0$. В книжке (стр. 11, SL 5.3) дано $f(x)=x^{n} \\Rightarrow f^{\\prime}(x)=nx^{n-1}$; постоянный множитель $a$ выносится за знак производной.',
     },
     syllabus: '5.6',
-    inBooklet: false,
+    inBooklet: true,
     example: {
       en: 'For f(x) = x^3 - 6x^2 + 9x + 1, the gradient is 3x^2 - 12x + 9.',
       ru: 'Для f(x) = x^3 - 6x^2 + 9x + 1 градиент равен 3x^2 - 12x + 9.',

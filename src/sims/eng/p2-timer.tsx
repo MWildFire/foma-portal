@@ -1,11 +1,9 @@
 import { useEffect, useState } from 'react';
 import { setAllowanceMinutes } from '../../components/practice/timing';
-import { useLocalProgress } from '../../hooks/useLocalProgress';
 import { EXAMS } from '../../planner/data';
 import type { Lang } from '../../contract/types';
 
-// Paper 2 timing. The printed length and the sitting with extra time come from data/exams.json (the school's accessMinutes
-// table: 105 becomes 131), not from this file. Planning, checking and the spare minutes are fixed; writing gets the rest.
+// Printed duration comes from the school schedule; writing gets the time left after planning and checking.
 const PLAN_MINUTES = 10;
 const CHECK_MINUTES = 10;
 const SPARE_MINUTES = 5;
@@ -16,12 +14,12 @@ const STAGES = [
     ru: { name: 'План', tips: ['Прочитайте задание дважды и подчеркните ключевые слова.', 'Выберите два произведения и объясните, почему каждое подходит к заданию.', 'Напишите тезис и три пункта сравнения.'] },
   },
   {
-    en: { name: 'Write', tips: ['One comparison point per paragraph.', 'In every paragraph, compare the choices of the two writers.', 'Keep the last 10 minutes for checking.'] },
-    ru: { name: 'Письмо', tips: ['Один пункт сравнения на абзац.', 'В каждом абзаце сравнивайте решения двух авторов.', 'Последние 10 минут оставьте на проверку.'] },
+    en: { name: 'Write', tips: ['One comparison point per paragraph.', 'Keep explicit comparative connections across the argument.', 'Keep the last 10 minutes for checking.'] },
+    ru: { name: 'Письмо', tips: ['Один пункт сравнения на абзац.', 'Поддерживайте явные сравнительные связи в аргументе.', 'Последние 10 минут оставьте на проверку.'] },
   },
   {
-    en: { name: 'Check', tips: ['Does the conclusion answer the prompt, or only summarise?', 'Are the quotations short, exact and linked to a technique?', 'Does every paragraph still compare, rather than describe?'] },
-    ru: { name: 'Проверка', tips: ['Отвечает ли вывод на задание, или он только пересказывает?', 'Короткие ли цитаты, точны ли они и связаны ли с приёмом?', 'Сравнивает ли каждый абзац, а не описывает ли?'] },
+    en: { name: 'Check', tips: ['Does the conclusion answer the prompt, or only summarise?', 'Are references accurate and relevant? If quoting, is the wording exact?', 'Does the argument develop comparison rather than two unrelated summaries?'] },
+    ru: { name: 'Проверка', tips: ['Отвечает ли вывод на задание, или он только пересказывает?', 'Точны ли отсылки и связаны ли они с вопросом? Если есть цитаты, сохранены ли слова?', 'Развивает ли аргумент сравнение вместо двух несвязанных пересказов?'] },
   },
 ];
 
@@ -39,7 +37,7 @@ const LABELS = {
     reset: 'Reset this stage',
     spare: `Spare: ${SPARE_MINUTES} minutes for a slow start or a longer check.`,
     done: 'Time for this stage is up. Move on to the next one.',
-    total: (total: number, printed: number) => (total > printed ? `Total: ${total} minutes (${printed} + access time)` : `Total: ${printed} minutes`),
+    total: (total: number) => `Total: ${total} min`,
     stage: 'Stage',
   },
   ru: {
@@ -50,7 +48,7 @@ const LABELS = {
     reset: 'Сбросить этап',
     spare: `Запас: ${SPARE_MINUTES} минут на медленный старт или более долгую проверку.`,
     done: 'Время этапа вышло. Переходите к следующему.',
-    total: (total: number, printed: number) => (total > printed ? `Всего: ${total} мин (${printed} + доп. время)` : `Всего: ${printed} мин`),
+    total: (total: number) => `Всего: ${total} мин`,
     stage: 'Этап',
   },
 };
@@ -61,22 +59,20 @@ function clock(seconds: number): string {
   return `${String(minutes).padStart(2, '0')}:${String(rest).padStart(2, '0')}`;
 }
 
-// The printed length of English Paper 2 and the minutes of the sitting, with or without extra time.
-function paperSitting(extraTime: boolean): { printed: number; total: number } {
+function paperSitting(): { printed: number; total: number } {
   const paper = EXAMS.papers.find(exam => exam.subject === 'eng' && exam.paper === 'P2');
   if (!paper) throw new Error('data/exams.json has no English Paper 2');
-  const total = setAllowanceMinutes({ subject: 'eng', set: { paper: paper.paper, minutes: paper.minutes }, exams: EXAMS, extraTime });
+  const total = setAllowanceMinutes({ subject: 'eng', set: { paper: paper.paper, minutes: paper.minutes }, exams: EXAMS });
   return { printed: paper.minutes, total };
 }
 
 export default function P2Timer({ lang }: { lang: Lang }) {
-  const [state] = useLocalProgress();
-  const sitting = paperSitting(state.settings.accessArrangements.extraTime);
+  const sitting = paperSitting();
   // A different sitting length starts a fresh timer.
   return <StageTimer key={sitting.total} lang={lang} printed={sitting.printed} total={sitting.total} />;
 }
 
-function StageTimer({ lang, printed, total }: { lang: Lang; printed: number; total: number }) {
+function StageTimer({ lang, total }: { lang: Lang; printed: number; total: number }) {
   const labels = LABELS[lang];
   const minutes = stageMinutes(total);
   const [index, setIndex] = useState(0);
@@ -154,7 +150,7 @@ function StageTimer({ lang, printed, total }: { lang: Lang; printed: number; tot
         ))}
       </ul>
       <p style={{ margin: '0.75rem 0 0', fontSize: '0.875rem', color: 'var(--color-muted)' }}>
-        {labels.total(total, printed)}. {labels.spare}
+        {labels.total(total)}. {labels.spare}
       </p>
     </section>
   );

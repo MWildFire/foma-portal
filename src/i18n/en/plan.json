@@ -1,10 +1,10 @@
 {
   "range": "From {{from}} to {{to}}. Days in the plan: {{days}}.",
   "summary": {
-    "planned": "Planned from today: {{time}}.",
+    "planned": "Activity workload from today: {{time}} (excluding buffers).",
     "doneToday": "Done today: {{time}}.",
     "beforeStart": "The plan starts on {{date}}.",
-    "howItWorks": "The plan is recalculated every time you open the portal. Work you did not finish moves to the next day that has time for that subject, and a day can grow by at most 15%. On the day before an exam, that subject gets only preparation for the paper, no new topics; the other subjects carry on as planned. After its last exam a subject leaves the plan."
+    "howItWorks": "Every calendar day has four 60-minute self-study sessions: economics, maths, geography and English. Up to four optional 15-minute transfer tasks extend the day to five hours. Tutors and breaks are excluded. Workload, completed work, daily quota and remaining clock ceiling are separate. Past hours and exam sittings are excluded; conflicts never create fictional completion or catch-up debt. Earlier progress is retained. Preparation stops at the final paper’s start; the plan closes at its confirmed end for the selected room."
   },
   "debt": {
     "title": "Catching up: {{time}} from earlier days",
@@ -21,8 +21,8 @@
     "settings": "Open Settings"
   },
   "finished": {
-    "title": "The plan is complete",
-    "text": "All the exams are behind you. There is nothing left to plan."
+    "title": "Preparation period ended",
+    "text": "The final exam has ended. No new preparation debt is created; the library and history remain available."
   },
   "expandAll": "Open all days",
   "collapseAll": "Close all days",
@@ -40,7 +40,7 @@
     "examsTitle": "Exams on this day",
     "room": "room {{room}}",
     "focus": "Focus",
-    "restText": "This weekday is set to 0 minutes in Settings, so nothing is planned.",
+    "restText": "With a zero budget, all four activities remain visible with a time conflict.",
     "empty": "Nothing is planned for this day.",
     "openToday": "Go to Today"
   }

@@ -18,7 +18,7 @@ const axes = {
   xLabel: { en: 'Unemployment (%)', ru: 'Безработица (%)' },
   yLabel: { en: 'Inflation (%)', ru: 'Инфляция (%)' },
   // 5 is the natural rate of unemployment, where LRPC stands; it is named on the axis in both languages.
-  xTicks: [...ticks([2, 4]), { value: 5, label: { en: '5 (NRU)', ru: '5 (ЕУ)' } }, ...ticks([6, 8])],
+  xTicks: [...ticks([2]), { value: 5, label: { en: '5 (NRU)', ru: '5 (ЕУ)' } }, ...ticks([8])],
   yTicks: ticks([2, 4, 6, 8, 10]),
 };
 
@@ -46,8 +46,8 @@ const steps: Step[] = [
   {
     title: { en: 'Long-run curve', ru: 'Долгосрочная кривая' },
     text: {
-      en: 'The long-run Phillips curve (LRPC) is vertical at the natural rate of unemployment (NRU), 5%. In the long run unemployment returns to 5% whatever the inflation rate.',
-      ru: 'Долгосрочная кривая Филлипса (long-run Phillips curve, LRPC) вертикальна на естественном уровне безработицы (ЕУ), 5%. В долгосрочном периоде безработица возвращается к 5% при любом уровне инфляции.',
+      en: 'The long-run Phillips curve (LRPC) is vertical at the natural rate of unemployment (NRU), 5%. The model assumes a fixed natural rate of 5%; it is not an observed universal constant. Structural changes can move that rate. With expectations adjusted, the model has no permanent inflation–unemployment trade-off.',
+      ru: 'Долгосрочная кривая Филлипса (long-run Phillips curve, LRPC) вертикальна на естественном уровне безработицы (ЕУ), 5%. В модели естественный уровень принят постоянным и равным 5%; это не наблюдаемая универсальная константа. Структурные изменения могут его сдвинуть. После приспособления ожиданий постоянного компромисса инфляции и безработицы в модели нет.',
     },
     graph: {
       ...axes,
@@ -80,8 +80,8 @@ const steps: Step[] = [
   {
     title: { en: 'Back to the natural rate', ru: 'Возврат к естественной безработице' },
     text: {
-      en: 'Expected inflation rises to 4%, so SRPC2 applies. When demand returns to normal, unemployment goes back to 5% at C. Inflation stays at 4%: the lower unemployment was only temporary.',
-      ru: 'Ожидаемая инфляция растёт до 4%, и теперь действует SRPC2. Когда спрос возвращается к норме, безработица снова становится 5% (точка C). Инфляция остаётся на уровне 4%: снижение безработицы было лишь временным.',
+      en: 'Expected inflation rises to 4%, so SRPC2 applies. Nominal wages adjust to the higher expected inflation, removing the temporary real-wage advantage; in this model unemployment returns to 5% at C. Inflation stays at 4%: the lower unemployment was only temporary.',
+      ru: 'Ожидаемая инфляция растёт до 4%, и теперь действует SRPC2. Номинальная зарплата приспосабливается к более высокой ожидаемой инфляции, устраняя временное снижение реальной зарплаты; в этой модели безработица возвращается к 5% (точка C). Инфляция остаётся на уровне 4%: снижение безработицы было лишь временным.',
     },
     graph: {
       ...axes,

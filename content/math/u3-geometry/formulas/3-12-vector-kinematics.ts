@@ -6,12 +6,12 @@ export const formulas: Formula[] = [
     tex: '\\mathbf{r}(t)=\\mathbf{r}_0+t\\,\\mathbf{v}',
     name: { en: 'Position with constant velocity', ru: 'Положение при постоянной скорости (Position with constant velocity)' },
     meaning: {
-      en: 'r0 is the position at t = 0 and v is the constant velocity vector. The path is a straight line through r0.',
-      ru: 'r0 — положение в момент t = 0, v — постоянный вектор скорости. Путь — прямая линия через точку r0.',
+      en: 'r0 is the position at t = 0 and v is constant. If v is zero, the trajectory is the point r0. For nonzero v it is a segment on a finite closed time interval, a ray for t >= 0, or a line when t ranges over all real numbers.',
+      ru: 'r0 — положение в момент t = 0, v — постоянный вектор скорости. При нулевом v траектория — точка r0. При ненулевом v это отрезок на конечном замкнутом промежутке времени, луч при t >= 0 или прямая при всех вещественных t.',
     },
     when: {
-      en: 'Linear motion with constant velocity in two or three dimensions. The booklet gives $\\mathbf{r} = \\mathbf{a} + \\lambda\\mathbf{b}$ (page 8), with $\\lambda$ in place of $t$.',
-      ru: 'Прямолинейное движение с постоянной скоростью на плоскости или в пространстве. В книжке есть $\\mathbf{r} = \\mathbf{a} + \\lambda\\mathbf{b}$ (стр. 8), где вместо $t$ стоит $\\lambda$.',
+      en: 'Constant velocity in two or three dimensions, including rest. The booklet gives the vector line $\\mathbf{r} = \\mathbf{a} + \\lambda\\mathbf{b}$ (page 8); a line requires nonzero $\\mathbf{b}$, and a motion model also specifies the allowed times.',
+      ru: 'Постоянная скорость на плоскости или в пространстве, включая покой. В книжке векторная прямая записана как $\\mathbf{r} = \\mathbf{a} + \\lambda\\mathbf{b}$ (стр. 8); для прямой нужно ненулевое $\\mathbf{b}$, а модель движения также задаёт допустимое время.',
     },
     syllabus: '3.12',
     inBooklet: false,

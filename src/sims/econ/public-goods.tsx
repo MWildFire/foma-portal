@@ -2,12 +2,12 @@ import type { Lang } from '../../contract/types';
 import { StepPlayer, fn, type CurveSpec, type Step, type TickSpec } from './_lib/graph';
 
 // Public good, two people: A and B. Market demand is the VERTICAL sum of the two demand curves, because both use the same unit.
-// A: P = 12 - Q. B: P = 8 - 0.5Q. Sum: P = 20 - 1.5Q (valid up to Q 12). MC = 5.
-// The sum meets MC at E: Q 10 (efficient). Only A pays, so the market stops where A's demand meets MC: Q 7 (under-provision).
+// A: P = 12 - Q. B: P = 8 - 0.5Q. Sum: P = max(12-Q, 0) + max(8-0.5Q, 0); after Q 12 only B contributes. MC = 5.
+// The sum meets MC at E: Q 10 (efficient). In this illustrative voluntary-payment arrangement only A pays, so provision stops where A's demand meets MC: Q 7 (under-provision).
 // Individual curves are listed from the right end to the left end, so their labels sit at the free top-left of the graph.
 const DA = fn(q => 12 - q, 0, 12, 12).reverse();
-const DB = fn(q => 8 - 0.5 * q, 0, 14, 14).reverse();
-const DSUM = fn(q => 20 - 1.5 * q, 0, 12, 24);
+const DB = fn(q => 8 - 0.5 * q, 0, 16, 16).reverse();
+const DSUM = fn(q => Math.max(12 - q, 0) + Math.max(8 - 0.5 * q, 0), 0, 16, 32);
 
 const ticks = (values: number[]): TickSpec[] => values.map(value => ({ value, label: { en: String(value), ru: String(value) } }));
 
@@ -29,8 +29,8 @@ const steps: Step[] = [
   {
     title: { en: 'Individual demand', ru: 'Индивидуальный спрос' },
     text: {
-      en: 'Each curve shows what one person would pay for each unit. A starts at 12 and B at 8, so A values the good more.',
-      ru: 'Каждая кривая показывает, сколько один человек заплатил бы за каждую единицу. Спрос A начинается с 12, спрос B с 8, поэтому A ценит благо выше.',
+      en: 'Each curve shows what one person would pay for each unit. A values the first unit more (12 versus 8), but the marginal valuations cross at Q = 8; B values additional units more above that quantity.',
+      ru: 'Каждая кривая показывает, сколько один человек заплатил бы за каждую единицу. Первую единицу A оценивает выше (12 против 8), но предельные оценки пересекаются при Q = 8; при большем Q следующую единицу выше оценивает B.',
     },
     // The price axis carries the values that the step texts name: 12 and 8 here, 6, 8 and 14 in step 2, MC = 5 later.
     graph: { ...axes, curves: indiv, yTicks: ticks([8, 12]) },
@@ -57,8 +57,8 @@ const steps: Step[] = [
   {
     title: { en: 'Efficient quantity', ru: 'Эффективный объём' },
     text: {
-      en: 'Efficient output is where total benefit equals marginal cost (MC = 5). The sum meets MC at E, so Qopt = 10 is efficient.',
-      ru: 'Эффективный объём там, где общая выгода равна предельным издержкам (marginal cost, MC = 5). Сумма пересекает MC в точке E, поэтому Qopt = 10 — эффективный объём.',
+      en: 'Efficient output is where the sum of individual marginal benefits equals marginal cost (MC = 5). The sum meets MC at E, so Qopt = 10 is efficient.',
+      ru: 'Эффективный объём там, где сумма индивидуальных предельных выгод равна предельным издержкам (marginal cost, MC = 5). Сумма пересекает MC в точке E, поэтому Qopt = 10 — эффективный объём.',
     },
     graph: {
       ...axes,
@@ -72,8 +72,8 @@ const steps: Step[] = [
   {
     title: { en: 'Market under-provision', ru: 'Недопроизводство на рынке' },
     text: {
-      en: 'Free riders can use the good without paying. Only A pays, so the market stops at Qm = 7, where A demand meets MC. That is 3 units below the efficient Qopt = 10.',
-      ru: 'Безбилетники (free riders) пользуются благом, не платя. Платит только A, поэтому рынок останавливается на Qm = 7, где спрос A пересекает MC. Это на 3 единицы меньше эффективного Qopt = 10.',
+      en: 'Free riders can use the good without paying. In this illustrative voluntary-payment arrangement only A pays, so provision stops at Qm = 7, where A demand meets MC. That is 3 units below the efficient Qopt = 10.',
+      ru: 'Безбилетники (free riders) пользуются благом, не платя. В этой иллюстративной схеме добровольной оплаты платит только A, поэтому выпуск останавливается на Qm = 7, где спрос A пересекает MC. Это на 3 единицы меньше эффективного Qopt = 10.',
     },
     graph: {
       ...axes,

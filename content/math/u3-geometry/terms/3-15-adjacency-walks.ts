@@ -48,15 +48,15 @@ export const terms: Term[] = [
     id: 'transition-matrix-graph',
     term: { en: 'transition matrix of a strongly connected graph', ru: 'матрица переходов сильно связного графа (transition matrix of a strongly connected graph)' },
     def: {
-      en: 'A random walk on a strongly connected directed graph chooses each next vertex at random from those available, with equal probability. In the transition matrix, column $i$ holds the probabilities of moving out of vertex $i$, so every column adds to 1.',
-      ru: 'Случайное блуждание по сильно связному ориентированному графу выбирает следующую вершину наугад из доступных, с равной вероятностью. В матрице переходов столбец $i$ содержит вероятности перехода из вершины $i$, поэтому сумма каждого столбца равна 1.',
+      en: 'Here a random walk chooses each outgoing arc with equal probability. With $a_{ij}$ counting arcs from $i$ to $j$, row $i$ of the row transition matrix $R$ contains the probabilities of leaving $i$; every row sums to 1. Parallel arcs to the same destination contribute separately. The booklet uses the column transition matrix $T=R^{\\mathsf T}$.',
+      ru: 'Здесь случайное блуждание выбирает каждую исходящую дугу с равной вероятностью. Если $a_{ij}$ — число дуг из $i$ в $j$, строка $i$ строковой матрицы переходов $R$ содержит вероятности выхода из $i$; сумма каждой строки равна 1. Параллельные дуги в одну вершину учитываются отдельно. В книжке используется столбцовая матрица переходов $T=R^{\\mathsf T}$.',
     },
     syllabus: '3.15',
     papers: ['P1', 'P2', 'P3'],
     src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 15.2, p. 704' },
     pitfall: {
-      en: 'Divide by the column sum (the out-degree of that vertex), not by the total number of arcs. Every column of a transition matrix must add to 1.',
-      ru: 'Делите на сумму столбца (полустепень исхода), а не на общее число дуг. Каждый столбец матрицы переходов должен давать в сумме 1.',
+      en: 'Divide row $i$ of $A$ by its row sum (the out-degree of $i$), not by a column sum or the total arc count. A row state evolves as $q_n=q_0R^n$; a column state evolves as $s_n=(R^{\\mathsf T})^n s_0$.',
+      ru: 'Делите строку $i$ матрицы $A$ на сумму этой строки (полустепень исхода $i$), а не на сумму столбца или общее число дуг. Для состояния-строки $q_n=q_0R^n$, для состояния-столбца $s_n=(R^{\\mathsf T})^n s_0$.',
     },
   },
 ];

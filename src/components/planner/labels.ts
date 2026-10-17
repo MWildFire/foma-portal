@@ -36,6 +36,7 @@ export interface BlockText {
 }
 
 export function describeBlock(block: PlanBlock, lang: Lang, t: TFunction): BlockText {
+  if (block.activity) return { kind: t(`kind.${block.activity.timedMinutes ? 'timed' : block.activity.priority}`), title: block.activity.title[lang], detail: null };
   const kind = t(`kind.${block.kind}`);
   switch (block.kind) {
     case 'recall':

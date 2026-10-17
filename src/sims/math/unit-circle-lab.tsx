@@ -1,3 +1,4 @@
+import ReadableDiagram from '../readable-diagram';
 import { useState } from 'react';
 import type { Lang } from '../../contract/types';
 import { CENTRE, RADIUS, SIZE, tangentOf, tangentSegment } from './unit-circle-logic';
@@ -65,10 +66,10 @@ export default function UnitCircleLab({ lang }: { lang: Lang }) {
   const theta = (degrees * Math.PI) / 180;
   const cos = Math.cos(theta);
   const sin = Math.sin(theta);
-  const tan = tangentOf(theta); // null where cos shows as 0.000, so tan is undefined
+  const tan = tangentOf(theta); // null only at a tangent singularity to floating-point precision
   const turn = ((degrees % 360) + 360) % 360;
   const part = turn % 90;
-  const onAxis = Math.min(part, 90 - part) < 0.5;
+  const onAxis = Math.min(part, 90 - part) < 1e-9;
   const quadrant = Math.floor(turn / 90);
   const value = inRadians ? theta : degrees;
 
@@ -79,7 +80,7 @@ export default function UnitCircleLab({ lang }: { lang: Lang }) {
 
   return (
     <figure style={{ margin: 0 }}>
-      <svg viewBox={`0 0 ${SIZE} ${SIZE}`} width="100%" style={{ maxWidth: SIZE }} role="img" aria-label={t.label}>
+      <ReadableDiagram lang={lang}><svg viewBox={`0 0 ${SIZE} ${SIZE}`} width="100%" style={{ maxWidth: SIZE }} role="img" aria-label={t.label}>
         <line x1={0} y1={CENTRE} x2={SIZE} y2={CENTRE} stroke="#999" />
         <line x1={CENTRE} y1={0} x2={CENTRE} y2={SIZE} stroke="#999" />
         <circle cx={CENTRE} cy={CENTRE} r={RADIUS} fill="none" stroke="currentColor" strokeWidth={1.5} />
@@ -87,7 +88,7 @@ export default function UnitCircleLab({ lang }: { lang: Lang }) {
           <path d={`M ${px(1)} ${py(0)} A ${RADIUS} ${RADIUS} 0 ${theta > Math.PI ? 1 : 0} 0 ${pointX} ${pointY}`} fill="none" stroke="#3a9d6a" strokeWidth={3} />
         )}
         {tangent !== null && <line x1={CENTRE} y1={CENTRE} x2={tangent.x} y2={tangent.y} stroke="#3a9d6a" strokeDasharray="4 3" />}
-        {tan !== null && <text x={8} y={18} fontSize={12} fill="#3a9d6a">{`${t.tan} = ${tan.toFixed(2)}`}</text>}
+        {tan !== null && <text x={8} y={18} fontSize={12} fill="#3a9d6a">{`${t.tan} = ${(Math.abs(tan) < 0.005 ? 0 : tan).toFixed(2)}`}</text>}
         {tangent !== null && tangent.cut && (
           <text x={tangent.x - 8} y={tangent.y === 0 ? 14 : SIZE - 6} textAnchor="end" fontSize={11} fill="#3a9d6a">{t.offFrame}</text>
         )}
@@ -95,9 +96,9 @@ export default function UnitCircleLab({ lang }: { lang: Lang }) {
         <line x1={pointX} y1={pointY} x2={pointX} y2={CENTRE} stroke="#e0883a" strokeDasharray="4 3" />
         <line x1={pointX} y1={pointY} x2={CENTRE} y2={pointY} stroke="#e0883a" strokeDasharray="4 3" />
         <circle cx={pointX} cy={pointY} r={4} fill="#e0883a" />
-        <text x={pointX} y={CENTRE + 16} textAnchor="middle" fontSize={12}>{t.cos}</text>
-        <text x={CENTRE - 8} y={pointY + 4} textAnchor="end" fontSize={12}>{t.sin}</text>
-      </svg>
+        <text x={pointX} y={CENTRE + 16} textAnchor="middle" fontSize={12} fill="currentColor">{t.cos}</text>
+        <text x={CENTRE - 8} y={pointY + 4} textAnchor="end" fontSize={12} fill="currentColor">{t.sin}</text>
+      </svg></ReadableDiagram>
       <figcaption style={{ fontSize: 13, lineHeight: 1.6 }}>
         {t.angle}: {inRadians ? `${value.toFixed(2)} ${t.rad}` : `${value}°`} · {t.quadrant}:{' '}
         {onAxis ? t.onAxis : ROMAN[quadrant]}
@@ -115,7 +116,7 @@ export default function UnitCircleLab({ lang }: { lang: Lang }) {
           {SIGNS.map((signs, index) => {
             const active = !onAxis && index === quadrant;
             return (
-              <tr key={ROMAN[index]} style={{ fontWeight: active ? 700 : 400, background: active ? '#dfe6fb' : 'transparent' }}>
+              <tr key={ROMAN[index]} style={{ fontWeight: active ? 700 : 400, background: active ? '#dfe6fb' : 'transparent', color: active ? '#1d1f24' : undefined }}>
                 <td style={CELL}>{ROMAN[index]}</td>
                 {signs.map((positive, column) => <td key={column} style={CELL}>{positive ? '+' : '−'}</td>)}
               </tr>

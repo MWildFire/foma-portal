@@ -12,7 +12,7 @@ Angles of elevation and depression are always measured from a horizontal line th
 
 <Term id="angle-of-depression"/>
 
-Horizontal lines are parallel, so the angle of depression from one point equals the angle of elevation from the other point (alternate angles). Heights are vertical and ground distances are horizontal, so a height and a ground distance always meet at a right angle.
+Horizontal lines are parallel, so the angle of depression from one point equals the angle of elevation from the other point (alternate angles). In a level-ground model, vertical height differences and horizontal distances meet at right angles. Sloping ground needs a different diagram.
 
 <Callout kind="define">Angle of elevation: measured upward from the horizontal to the line of sight to an object above. Angle of depression: measured downward from the horizontal to the line of sight to an object below.</Callout>
 
@@ -38,9 +38,9 @@ For a triangle that is not right-angled, use the sine rule when you know a side 
 
 <Callout kind="gdc">Set Angle to Degree in Home → Settings → Document Settings. For an angle, type `arctan(` with the height divided by the distance inside the brackets; for a height, type for example `80*tan(28)`.</Callout>
 
-A method that works every time:
+For a level-ground model:
 
-- Draw a labelled diagram from the words: heights vertical, distances on the ground horizontal, angles marked at the observer.
+- Draw a labelled diagram from the words: heights vertical, horizontal distances explicitly marked, angles marked at the observer.
 - Mark the horizontal lines and any right angles.
 - Choose the triangle that contains the unknown and the known values.
 - Calculate with full precision, round only at the end, and give units.
@@ -48,7 +48,7 @@ A method that works every time:
 ## Worked example
 
 <Steps>
-<Step>An observer stands on level ground 80 m from the foot of a vertical tower. The angle of elevation of the top of the tower is $28^{\circ}$. Let the height of the tower be $h$. Then $\tan 28^{\circ} = \dfrac{h}{80}$, so $h = 80\tan 28^{\circ} = 42.5$ m (1 decimal place).</Step>
+<Step>An observer stands on level ground 80 m from the foot of a vertical tower. The angle of elevation of the top of the tower is $28^{\circ}$. Treat the observation point as being at ground level (eye height neglected). Let the height of the tower be $h$. Then $\tan 28^{\circ} = \dfrac{h}{80}$, so $h = 80\tan 28^{\circ} = 42.5$ m (1 decimal place).</Step>
 </Steps>
 
 <Steps>
@@ -58,15 +58,15 @@ A method that works every time:
 
 ## Visual
 
-Draw a horizontal line for the ground and a vertical line for the tower standing on it. The observer stands on the ground at a fixed distance from the foot. The line of sight rises from the observer's eye to the top of the tower, and the angle between the horizontal and that line is the angle of elevation. The right-angled triangle has the ground distance and the tower height as its two shorter sides, and the line of sight as its hypotenuse.
+Draw a horizontal line for the ground and a vertical line for the tower standing on it. The observer stands on the ground at a fixed distance from the foot. The line of sight rises from the observer's eye to the top of the tower, and the angle between the horizontal and that line is the angle of elevation. The right-angled triangle uses the horizontal distance and the vertical difference from eye level to the tower top. Add the eye height to that vertical difference when finding the tower height, unless eye height is explicitly neglected.
 
 <Callout kind="tip">On a sketch, draw a horizontal line at both the observer and the object. The angle of depression at the top and the angle of elevation at the bottom are then equal, so one right-angled triangle is enough.</Callout>
 
 ## How it is examined
 
-Find and Calculate questions give a method mark for a correct triangle and trigonometric ratio, a mark for the substitution, and an accuracy mark for the answer with units. Questions that ask you to draw a diagram or to show a method expect a labelled diagram and each step. Marks are lost when the angle is taken from the vertical, when the wrong side is called opposite, and when rounding happens too early. In a multi-part question, reuse the unrounded value from an earlier part.
+Show a labelled diagram, select and justify the trigonometric relation, then report the requested units and accuracy. Measure the angle from the stated horizontal, identify the opposite side correctly and retain unrounded intermediate values. Exact marks depend on the question.
 
-<Callout kind="exam">State the angle you are using and why, for example "angle of depression = angle of elevation, by alternate angles". The reason earns the reasoning mark even if the calculation is wrong.</Callout>
+<Callout kind="exam">State the angle you are using and why, for example "angle of depression = angle of elevation, by alternate angles". This makes the angle relation checkable; any reasoning or follow-through marks depend on the markscheme.</Callout>
 
 ## Common mistakes
 
@@ -86,7 +86,7 @@ Find and Calculate questions give a method mark for a correct triangle and trigo
 
 ## Summary
 
-- Begin with a labelled diagram: heights are vertical, ground distances are horizontal, and angles are measured from horizontal lines.
+- Begin with a labelled diagram: vertical height differences and horizontal distances are identified, and angles are measured from horizontal lines.
 - The angle of elevation is measured upwards from the horizontal; the angle of depression is measured downwards.
 - Alternate angles make the depression from one point equal to the elevation from the other.
 - Right-angled triangles: use Pythagoras, SOH CAH TOA, or $\tan\theta = \dfrac{h}{d}$.

@@ -16,8 +16,8 @@ export const formulas: Formula[] = [
     syllabus: '3.3',
     inBooklet: false,
     example: {
-      en: 'A ladder of length 5 with its foot 1.5 from the wall: height squared = 5^2 - 1.5^2 = 22.75, so the height is 4.77 (3 significant figures).',
-      ru: 'Лестница длиной 5 с основанием в 1,5 от стены: высота в квадрате = 5² − 1,5² = 22,75, поэтому высота равна 4,77 (с точностью до 3 значащих цифр).',
+      en: 'A ladder of length 5 leans against a vertical wall, its foot 1.5 away on horizontal ground: height squared = 5^2 - 1.5^2 = 22.75, so the height is 4.77 (3 significant figures).',
+      ru: 'Лестница длиной 5 опирается на вертикальную стену; её основание на горизонтальной земле в 1,5 от стены: высота в квадрате = 5² − 1,5² = 22,75, поэтому высота равна 4,77 (с точностью до 3 значащих цифр).',
     },
   },
   {
@@ -35,8 +35,8 @@ export const formulas: Formula[] = [
     syllabus: '3.3',
     inBooklet: false,
     example: {
-      en: 'Observer 80 m from a tower, angle of elevation 28 degrees: h = 80 tan 28 = 42.5 (1 decimal place).',
-      ru: 'Наблюдатель в 80 м от башни, угол возвышения 28°: h = 80 tan 28° = 42,5 (с одним знаком после запятой).',
+      en: 'A tower top viewed at elevation 28 degrees over a horizontal distance of 80 m is h = 80 tan 28 = 42.5 m above eye level (1 decimal place); add eye height if total tower height is required.',
+      ru: 'При горизонтальном расстоянии 80 м и угле возвышения 28° вершина башни находится на h = 80 tan 28° = 42,5 м выше глаз (один знак после запятой); для полной высоты башни добавь высоту глаз.',
     },
   },
 ];

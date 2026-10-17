@@ -4,15 +4,17 @@ A confidence interval turns a sample mean into a range of plausible values for t
 
 ## Explanation
 
+Assume independent identically distributed observations, $n>1$ for a t interval, and a population with positive finite variance. Exact z and t coverage below uses a normal population; large-sample approximations need separate justification.
+
 When the population standard deviation $\sigma$ is known and the population is normal, a <Term id="confidence-interval-mean"/> for $\mu$ has the z form. The critical value $z^{*}$ leaves the tail area that matches the confidence level (for 95%, 2.5% in each tail), and the standard error is $\sigma/\sqrt{n}$:
 
 <Formula id="ci-mean-z-known-sigma"/>
 
-Usually $\sigma$ is unknown. Replace it by the sample standard deviation $s_{n-1}$ and use the <Term id="t-distribution-df"/>, which has heavier tails. Its critical value $t^{*}$ is larger than $z^{*}$ for the same confidence level, so the interval is wider:
+Usually $\sigma$ is unknown. Replace it by the sample standard deviation $s_{n-1}$ and use the <Term id="t-distribution-df"/>, which has heavier tails. For finite degrees of freedom, $t^{*}$ is larger than $z^{*}$ at the same confidence level. Holding the standard error fixed, this gives a wider interval:
 
 <Formula id="ci-mean-t-unknown-sigma"/>
 
-The half-width of the interval is the <Term id="margin-of-error"/>. Its size depends on the <Term id="confidence-level"/>, on the spread and on the sample size: a higher confidence level or a smaller sample gives a wider interval, and a larger sample gives a narrower one. To find the sample size that keeps the margin of error at most $E$ when $\sigma$ is known, solve for $n$:
+The half-width of the interval is the <Term id="margin-of-error"/>. Its size depends on the <Term id="confidence-level"/>, on the spread and on the sample size: holding the other quantities fixed, a higher confidence level or a smaller sample gives a wider interval. Across different samples, a changing estimate of spread can offset the effect of sample size. To find the sample size that keeps the margin of error at most $E$ when $\sigma$ is known, solve for $n$:
 
 <Formula id="sample-size-margin-error"/>
 
@@ -40,13 +42,11 @@ A random sample of $n = 12$ tomatoes from a large farm has masses that are norma
 
 ## Visual
 
-<Callout kind="tip">Draw the interval as a bar centred on $\bar{x}$, with the margin of error on each side. A larger sample or a lower confidence level makes the bar shorter; a higher confidence level makes it longer. The bar moves from sample to sample because $\bar{x}$ changes, while $\mu$ stays fixed.</Callout>
+<Callout kind="tip">Draw the interval as a bar centred on $\bar{x}$, with the margin of error on each side. Holding spread and other settings fixed, a larger sample or a lower confidence level makes the bar shorter; a higher confidence level makes it longer. The bar moves from sample to sample because $\bar{x}$ changes, while $\mu$ stays fixed.</Callout>
 
 ## How it is examined
 
-Calculate and Find questions give marks for naming the method (z or t, with the reason), for the critical value, for the standard error and for end points rounded to the stated decimal places. Interpret questions need the context, the word "mean", the confidence level and the wording "we are 95% confident", not "there is a 95% probability". Explain questions ask why a t interval is needed (σ is unknown and is estimated) or why a higher confidence level gives a wider interval.
-
-<Callout kind="exam">Name the method and, for a t interval, the degrees of freedom. Give the interval as $(a, b)$ or $a < \mu < b$, rounded to the stated decimal places, and then interpret it in context.</Callout>
+Name z or t and justify the model, known or estimated SD and independence. For t, state n−1 degrees of freedom. Give both interval endpoints at the requested accuracy and interpret the population mean in context. For sample-size planning, solve the margin inequality and round upwards.
 
 ## Common mistakes
 
@@ -69,6 +69,6 @@ Calculate and Find questions give marks for naming the method (z or t, with the 
 - A confidence interval for $\mu$ is the sample mean plus or minus a critical value times the standard error.
 - With $\sigma$ known, use $z^{*}$ and $\sigma/\sqrt{n}$; with $\sigma$ unknown, use $t^{*}$ with $n-1$ degrees of freedom and $s_{n-1}/\sqrt{n}$.
 - A 95% level means the method captures $\mu$ in 95% of repeated samples, not that one interval has a 95% chance.
-- A higher confidence level gives a wider interval; a larger sample gives a narrower one.
+- Holding other quantities fixed, higher confidence widens the interval and larger sample size narrows it.
 - Interpret the interval in context: we are 95% confident that the mean lies between $a$ and $b$.
 - To keep the margin of error at most $E$ with known $\sigma$, use $n \geq (z^{*}\sigma/E)^{2}$.

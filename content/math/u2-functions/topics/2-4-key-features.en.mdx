@@ -1,14 +1,14 @@
 ## Big idea
 
-Key features are the points and lines that describe the shape of a graph: where it crosses the axes, which lines it approaches, and where it reaches its highest or lowest point. They turn a model into answers to practical questions: when the output is zero, how large it can become, and when two models agree.
+Key features are the points and lines that describe the shape of a graph: where it meets the axes, which lines it approaches, and where it reaches its highest or lowest point. They turn a model into answers to practical questions: when the output is zero, how large it can become, and when two models agree.
 
 ## Explanation
 
 Find key features algebraically when you can, and with technology when the equation is too hard to solve by hand. Whichever method you use, check that the answer lies in the domain of the model.
 
-A <Term id="key-feature-x-intercept"/> of $y = f(x)$ is a point where the graph crosses the $x$-axis, so $y = 0$ and $f(x) = 0$. The $y$-intercept is $f(0)$, the value of the model at $x = 0$, if $0$ is in the domain.
+A <Term id="key-feature-x-intercept"/> of $y = f(x)$ is a point where the graph meets the $x$-axis, by crossing or tangency, so $y = 0$ and $f(x) = 0$. The $y$-intercept is $f(0)$, the value of the model at $x = 0$, if $0$ is in the domain.
 
-A <Term id="key-feature-asymptote"/> is a line that the graph gets closer and closer to. A vertical asymptote $x = a$ appears where $f(x)$ grows without bound as $x$ approaches $a$. For a rational function $f(x) = \dfrac{ax + b}{cx + d}$, it is at the value that makes the denominator zero:
+A <Term id="key-feature-asymptote"/> describes limiting behaviour. A vertical asymptote $x=a$ occurs when $f(x)$ tends to $+\infty$ or $-\infty$ as $x$ approaches $a$ from at least one side. For $f(x)=(ax+b)/(cx+d)$, assume $c\neq0$ and $ad-bc\neq0$ so that the numerator does not cancel the denominator’s zero. Then the vertical asymptote is:
 
 $$
 x = -\frac{d}{c}
@@ -16,7 +16,7 @@ $$
 
 <Formula id="key-feature-vertical-asymptote"/>
 
-A horizontal asymptote $y = L$ describes the long-run behaviour, as $x$ tends to plus or minus infinity. For the same rational function it is $y = \dfrac{a}{c}$:
+A horizontal asymptote $y=L$ means $f(x)\to L$ as $x\to+\infty$ or $x\to-\infty$. A graph can cross it at finite inputs. For the same nonconstant rational function, it is $y=a/c$:
 
 $$
 y = \frac{a}{c}
@@ -24,15 +24,15 @@ $$
 
 <Formula id="key-feature-horizontal-asymptote"/>
 
-A <Term id="key-feature-turning-point"/> is a maximum or minimum point: the graph changes from rising to falling (a maximum) or from falling to rising (a minimum). Technology finds it with a maximum or minimum function, which needs a left bound and a right bound on either side of the turning point.
+A <Term id="key-feature-turning-point"/> changes from increasing to decreasing (a local maximum) or decreasing to increasing (a local minimum). To find the greatest or least value on a restricted interval, also check included endpoints. For example, $f(x)=x$ on $[0,1]$ has a greatest value 1 at the endpoint, without turning there. A plateau can give many points attaining the same maximum. A numerical local-extremum tool needs a suitable bracket and does not by itself compare all candidates.
 
-<Callout kind="define">Asymptote: a line that the graph of a function gets arbitrarily close to, as $x$ tends to a value or to plus or minus infinity.</Callout>
+<Callout kind="define">A denominator zero is a candidate discontinuity, not automatically a vertical asymptote. For $(x+1)/(x+1)$ with $x\neq-1$, cancellation gives1: there is a hole at−1, not an infinite limit.</Callout>
 
 A <Term id="key-feature-intersection-point"/> lies where two graphs meet. Its $x$-coordinate solves $f(x) = g(x)$, and its $y$-coordinate is the common value of $f$ and $g$ there.
 
 <Formula id="key-feature-intersection-condition"/>
 
-<Callout kind="gdc">Enter the functions with `Menu → Graph Entry/Edit → Function` and set the window in `Menu → Window / Zoom → Window Settings` until every key feature is visible. Then choose `Zero`, `Minimum`, `Maximum` or `Intersection` in `Menu → Analyze Graph`: set a lower and an upper bound on either side of the feature and read the coordinates. The `Display Digits` setting counts decimal places, not significant figures, so round the final answer yourself to the accuracy the question asks.</Callout>
+<Callout kind="gdc">Enter the functions with `Menu → Graph Entry/Edit → Function` and set the window in `Menu → Window / Zoom → Window Settings` until every key feature is visible. Then choose `Zero`, `Minimum`, `Maximum` or `Intersection` in `Menu → Analyze Graph`: set a lower and an upper bound on either side of the feature and read the coordinates. Retain guard digits and give the accuracy requested; display settings alone do not establish significant-figure accuracy.</Callout>
 
 ## Worked example
 
@@ -41,10 +41,10 @@ A food truck's monthly profit, in thousands of AED, when it sells $x$ hundred me
 <Steps>
 <Step>Break-even points (x-intercepts): solve $P(x) = 0$. The zero function, or the quadratic formula, gives $x = 7.64$ or $x = 52.36$. Both values lie in the domain, so the truck breaks even when $x$ is 7.64 or 52.36 hundred meals.</Step>
 <Step>Maximum: the turning point is $(30, 250)$. The largest monthly profit is AED 250 thousand, reached at $x = 30$, that is 30 hundred meals.</Step>
-<Step>Profit of AED 100 thousand: solve $P(x) = 100$. The intersection function gives $x = 12.68$ or $x = 47.32$ (2 decimal places). The truck makes at least AED 100 thousand a month when $12.68 \le x \le 47.32$.</Step>
+<Step>Profit of AED 100 thousand: solve $P(x) = 100$. The exact boundary values are $x=30\pm10\sqrt3$, approximately 12.68 and 47.32. For the continuous model, profit is at least 100 thousand AED when $30-10\sqrt3\le x\le30+10\sqrt3$. If individual meals must be counted, solve for integer $100x$:1268 through4732 meals. Do not substitute rounded endpoints for exact continuous inequality bounds.</Step>
 </Steps>
 
-<Reveal title="Is the maximum a zero?">No. At the maximum the graph reaches its highest value and turns back, so it does not cross the $x$-axis there. Only the two zeros are $x$-intercepts.</Reveal>
+<Reveal title="Can a maximum also be a zero?">Yes: $y=-x^2$ has maximum 0 at $(0,0)$ and touches the x-axis there. In this particular profit example, the maximum is 250, so its vertex is not a zero. A turning point and an intercept are different features that can occur at the same point.</Reveal>
 
 ## Visual
 
@@ -54,13 +54,13 @@ Sketch a parabola that opens downwards. It crosses the horizontal axis at $x = 7
 
 ## How it is examined
 
-Questions are worded with Find, Write down or Determine. A key-feature question usually gives a mark for the method (M1), a mark for each coordinate (A1), and a mark for a statement in context (R1). Marks are lost when a value outside the domain is accepted, when the $x$- and $y$-coordinates are swapped, or when the answer is given to the wrong accuracy.
+Questions are worded with Find, Write down or Determine. Show the equation or method, give requested coordinates and interpret their units and domain. The precise mark allocation is specific to the question. Marks are lost when a value outside the domain is accepted, when the $x$- and $y$-coordinates are swapped, or when the answer is given to the wrong accuracy.
 
 <Callout kind="exam">Write each point as an ordered pair $(x, y)$, check the domain given in the question, and round only at the end.</Callout>
 
 ## Common mistakes
 
-<Callout kind="mistake">Treating a turning point as an $x$-intercept, or solving $x = 0$ when the question asks for the $y$-intercept.</Callout>
+<Callout kind="mistake">Assuming a turning point must, or cannot, be an x-intercept. For the y-intercept, evaluate $f(0)$ if 0 is in the domain; setting $y=0$ instead searches for x-intercepts.</Callout>
 
 - Writing the vertical asymptote as $y = -d/c$ instead of $x = -d/c$.
 - Taking the horizontal asymptote as $y = b/d$; the value is $a/c$, the ratio of the $x$-coefficients.
@@ -77,8 +77,8 @@ Questions are worded with Find, Write down or Determine. A key-feature question 
 ## Summary
 
 - An $x$-intercept is a zero, where $y = 0$; the $y$-intercept is $f(0)$.
-- A vertical asymptote of $\dfrac{ax + b}{cx + d}$ is $x = -\dfrac{d}{c}$; the horizontal asymptote is $y = \dfrac{a}{c}$.
-- A maximum or minimum is a turning point; find it with technology, using a left and a right bound.
+- For $c\neq0$ and $ad-bc\neq0$, $\dfrac{ax+b}{cx+d}$ has vertical asymptote $x=-d/c$ and horizontal asymptote $y=a/c$.
+- Turning points can be local extrema; compare all relevant candidates and included endpoints for an interval maximum or minimum.
 - Points of intersection solve $f(x) = g(x)$; give both coordinates.
 - Keep only the key features that lie in the domain of the model.
 - Round as the question asks, and interpret each feature in the context.

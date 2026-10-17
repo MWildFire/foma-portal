@@ -29,8 +29,8 @@ export const formulas: Formula[] = [
       ru: 'Половина падения объёма сделок, умноженная на налог на единицу t: площадь треугольника между кривыми спроса и предложения.',
     },
     when: {
-      en: 'Any question about the welfare loss caused by a specific tax when the quantity traded falls.',
-      ru: 'Любой вопрос о потере благосостояния из-за налога на единицу, когда объём сделок падает.',
+      en: 'For linear competitive supply/demand with no externalities or other pre-existing distortions, and an initially efficient equilibrium. This tax triangle is not a general welfare-loss formula for corrective taxes.',
+      ru: 'Для линейных конкурентных спроса и предложения без внешних эффектов и других исходных искажений, при первоначально эффективном равновесии. Эта налоговая площадь не является общей формулой потерь от корректирующего налога.',
     },
     syllabus: '2.7',
     units: 'AED',

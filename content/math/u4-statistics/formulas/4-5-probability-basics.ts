@@ -7,17 +7,17 @@ export const formulas: Formula[] = [
     name: { en: 'Probability of an event (equally likely outcomes)', ru: 'Вероятность события (равновероятные исходы) (Probability of an event (equally likely outcomes))' },
     meaning: {
       en: 'The probability of event A is the number of outcomes in A divided by the number of outcomes in the sample space U.',
-      ru: 'Вероятность события A равна числу исходов в A, делённому на число исходов в пространстве выборки U.',
+      ru: 'Вероятность события A равна числу исходов в A, делённому на число исходов в пространстве элементарных исходов U.',
     },
     when: {
-      en: 'All outcomes in U are equally likely, so probability can be found by counting.',
-      ru: 'Все исходы в U равновероятны, поэтому вероятность можно найти подсчётом.',
+      en: 'U is finite and non-empty, and all its outcomes are equally likely, so probability can be found by counting.',
+      ru: 'Множество U конечно и непусто, все его исходы равновероятны, поэтому вероятность можно найти подсчётом.',
     },
     syllabus: '4.5',
     inBooklet: true,
     example: {
-      en: 'A spinner has 8 equal sectors. Two of them are 3 and 6, so P(multiple of 3) = 2/8 = 0.250.',
-      ru: 'У спиннера 8 одинаковых секторов. Два из них — 3 и 6, поэтому P(кратно 3) = 2/8 = 0,250.',
+      en: 'Assume a fair spinner with 8 equal sectors numbered 1–8. Two of them are 3 and 6, so P(multiple of 3) = 2/8 = 0.250.',
+      ru: 'Пусть спиннер с 8 одинаковыми секторами, пронумерованными от 1 до 8, даёт равновероятные результаты. Два из них — 3 и 6, поэтому P(кратно 3) = 2/8 = 0,250.',
     },
   },
   {
@@ -40,8 +40,8 @@ export const formulas: Formula[] = [
     tex: 'E=n\\,P(A)',
     name: { en: 'Expected number of occurrences', ru: 'Ожидаемое число появлений (Expected number of occurrences)' },
     meaning: {
-      en: 'The expected number of times A occurs in n trials, where P(A) is the probability of A in one trial.',
-      ru: 'Ожидаемое число появлений события A в n испытаниях, где P(A) — вероятность A в одном испытании.',
+      en: 'The expected number of times A occurs in n trials, where every trial has the same marginal probability P(A). Independence is not required.',
+      ru: 'Ожидаемое число появлений события A в n испытаниях, где вероятность P(A) одинакова для всех испытаний. Независимость не требуется.',
     },
     when: {
       en: 'Predicting an average count over many repeats, for example faulty items in a batch. The booklet (page 9) has $E(X) = np$ for $X \\sim B(n, p)$; here $p = P(A)$.',
@@ -50,8 +50,8 @@ export const formulas: Formula[] = [
     syllabus: '4.5',
     inBooklet: false,
     example: {
-      en: 'If 3.5% of bottles are faulty, a batch of 420 bottles is expected to contain 420 × 0.035 = 14.7 faulty bottles.',
-      ru: 'Если 3,5% бутылок бракованные, в партии из 420 бутылок ожидается 420 × 0,035 = 14,7 бракованных бутылки.',
+      en: 'If each bottle has probability 0.035 of being faulty, a batch of 420 bottles is expected to contain 420 × 0.035 = 14.7 faulty bottles.',
+      ru: 'Если вероятность брака для каждой бутылки равна 0,035, в партии из 420 бутылок ожидается 420 × 0,035 = 14,7 бракованных бутылки.',
     },
   },
 ];

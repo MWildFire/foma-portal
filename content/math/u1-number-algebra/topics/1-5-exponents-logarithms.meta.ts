@@ -26,7 +26,7 @@ const topic: TopicMeta = {
   ],
   termIds: ['exponent-laws-integer', 'logarithm-base-10', 'logarithm-base-e'],
   formulaIds: ['exponent-product-quotient-power', 'exponent-zero-negative', 'log-inverse-10-e'],
-  questionIds: ['q-1-5-01', 'q-1-5-02', 'q-1-5-03'],
+  questionIds: ['q-1-5-01', 'q-1-5-02', 'q-1-5-03', 'r06-foundations'],
   sources: [
     {
       kind: 'web',

@@ -10,8 +10,8 @@ export const formulas: Formula[] = [
       ru: 'Степень с дробным показателем — это корень n-й степени, возведённый в целую степень.',
     },
     when: {
-      en: 'Changing between root form and fractional-power form for a positive base.',
-      ru: 'Переход между записью с корнем и записью с дробным показателем для положительного основания.',
+      en: 'Changing between root form and fractional-power form for a positive base, integer m and positive integer n.',
+      ru: 'Переход между записью с корнем и дробным показателем при положительном основании, целом m и положительном целом n.',
     },
     syllabus: '1.10',
     inBooklet: false,
@@ -35,13 +35,13 @@ export const formulas: Formula[] = [
     syllabus: '1.10',
     inBooklet: false,
     example: {
-      en: 'x^(3/4) x x^(-1/2) = x^(1/4), since 3/4 - 1/2 = 1/4.',
-      ru: 'x^(3/4) × x^(-1/2) = x^(1/4), так как 3/4 - 1/2 = 1/4.',
+      en: 'For x>0: x^(3/4) × x^(-1/2) = x^(1/4), since 3/4 - 1/2 = 1/4.',
+      ru: 'При x>0: x^(3/4) × x^(-1/2) = x^(1/4), так как 3/4 - 1/2 = 1/4.',
     },
   },
   {
     id: 'rational-power-negative',
-    tex: 'a^{-p}=\\dfrac{1}{a^{p}},\\qquad a^{0}=1,\\quad a\\neq 0',
+    tex: 'a^{-p}=\\dfrac{1}{a^{p}},\\qquad a^{0}=1,\\quad a>0',
     name: { en: 'Negative and zero exponents', ru: 'Отрицательный и нулевой показатели (Negative and zero exponents)' },
     meaning: {
       en: 'A negative exponent gives the reciprocal of the power with the positive exponent; any non-zero base to the power 0 is 1.',

@@ -37,15 +37,15 @@ const pp: GuideSpec = { id: 'pp', from: [0, 4.5], to: [9, 4.5], tone: 'supply', 
 // A text note: the shared Graph has no text-only element, so a guide of zero length carries the label.
 const note = (id: string, at: Point, tone: Tone, label: L): GuideSpec => ({ id, from: at, to: at, tone, label, labelAt: 'start' });
 const taxNote = note('t', [0.3, 5.5], 'policy', { en: 't = 3', ru: 't = 3' });
-const revenueNote = note('rev-note', [0.3, 6.4], 'policy', { en: 'revenue 27', ru: 'выручка 27' });
+const revenueNote = note('rev-note', [0.3, 6.4], 'policy', { en: 'revenue 27', ru: 'налоги 27' });
 const revenue: AreaSpec = { id: 'rev', points: [[0, 4.5], [9, 4.5], [9, 7.5], [0, 7.5]], tone: 'policy' };
 
 const steps: Step[] = [
   {
     title: { en: 'Market before the tax', ru: 'Рынок до налога' },
     text: {
-      en: 'Demand (D) and supply (S) cross at E: Q = 12 and P = 6. This is the free-market equilibrium.',
-      ru: 'Спрос (D) и предложение (S) пересекаются в точке E: Q = 12 и P = 6. Это равновесие свободного рынка.',
+      en: 'Demand (D) and supply (S) cross at E: Q = 12 and P = 6. This hypothetical competitive market has no externalities or other initial distortions, so the starting equilibrium is efficient.',
+      ru: 'Спрос (D) и предложение (S) пересекаются в точке E: Q = 12 и P = 6. В этом условном конкурентном рынке нет внешних эффектов и других исходных искажений, поэтому начальное равновесие эффективно.',
     },
     graph: {
       ...axes,
@@ -82,10 +82,10 @@ const steps: Step[] = [
     },
   },
   {
-    title: { en: 'Tax revenue', ru: 'Налоговая выручка' },
+    title: { en: 'Tax revenue', ru: 'Налоговые поступления' },
     text: {
       en: 'Government revenue is the tax per unit times the quantity sold: 3 x 9 = 27. It is the purple rectangle between the buyers price Pc = 7.5 and the sellers price Pp = 4.5, for Q from 0 to 9.',
-      ru: 'Выручка государства равна налогу на единицу, умноженному на проданное количество: 3 x 9 = 27. Это фиолетовый прямоугольник между ценой покупателя Pc = 7.5 и ценой продавца Pp = 4.5 при Q от 0 до 9.',
+      ru: 'Налоговые поступления государства равна налогу на единицу, умноженному на проданное количество: 3 x 9 = 27. Это фиолетовый прямоугольник между ценой покупателя Pc = 7.5 и ценой продавца Pp = 4.5 при Q от 0 до 9.',
     },
     graph: {
       ...axes,

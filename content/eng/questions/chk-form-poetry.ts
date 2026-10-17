@@ -35,20 +35,20 @@ export const questions: Question[] = [
     marks: 3,
     command: 'Explain',
     prompt: {
-      en: 'Explain the effect of the enjambment in this original couplet. Name the line break where it falls, and say what the reader does at that point.',
-      ru: 'Объясните эффект анжамбемана (enjambment) в этом оригинальном двустишии. Укажите место переноса и скажите, что читатель делает в этот момент.',
+      en: 'Explain the effect of the enjambment in this original couplet. Identify the unfinished syntax at the line break, explain one possible rhythmic effect and connect it with concealment in the wording.',
+      ru: 'Объясните эффект анжамбемана (enjambment) в этом оригинальном двустишии. Укажите незавершённую конструкцию на границе строк, объясните возможный ритмический эффект и свяжите его с сокрытием в словах.',
     },
     stimulus: {
-      en: 'She folded up the letter small and white\nAnd set it on the table out of sight.',
-      ru: 'She folded up the letter small and white\nAnd set it on the table out of sight.',
+      en: 'She folded up the letter, hid it where\nThe lamp would cast no light, and left it there.',
+      ru: 'She folded up the letter, hid it where\nThe lamp would cast no light, and left it there.',
     },
     markscheme: {
-      en: '1 mark: identifies the enjambment after "white": the first line has no stop, and the sentence runs on into "And set it on the table out of sight". 1 mark: explains the pace: the folding and the hiding happen in one movement, with no pause at the line end. 1 mark: links the effect to the speaker and the meaning: the haste to hide the letter, and the reader carried on in the same breath, unable to linger over it.',
-      ru: '1 балл: называет анжамбеман после слова «white»: в первой строке нет остановки, и предложение продолжается в строке «And set it on the table out of sight». 1 балл: объясняет темп: складывание и прятанье письма происходят одним движением, без паузы на конце строки. 1 балл: связывает эффект с говорящим и смыслом: спешка спрятать письмо, а читатель ведётся дальше на том же дыхании и не может задержаться на нём.',
+      en: '1 mark: the break after "where" leaves its clause incomplete until the next line. 1 mark: explains a possible effect, such as forward expectation of the location or a moment of suspension; no rule requires a breathless reading. 1 mark: links the delayed location and "no light" to the concealment, while acknowledging that the person’s motive and haste are not established. Accept another text-supported effect.',
+      ru: '1 балл: после "where" конструкция остаётся незавершённой до следующей строки. 1 балл: объяснён возможный эффект — ожидание места или краткая задержка; безостановочное чтение необязательно. 1 балл: отложенное указание места и "no light" связаны с сокрытием, но мотив и спешка персонажа не объявлены доказанными. Принимайте другой обоснованный по тексту эффект.',
     },
     model: {
-      en: 'The enjambment falls after "white". The first line ends without a stop, so the reader must move straight on to "And set it on the table out of sight". The folding and the hiding happen in one unbroken movement, which matches the speaker\'s haste to put the letter away. The reader is carried over the line break in the same breath and cannot linger over the letter, just as the speaker does not want to.',
-      ru: 'Анжамбеман (enjambment) стоит после слова «white». Первая строка заканчивается без остановки, поэтому читатель сразу переходит к «And set it on the table out of sight». Складывание и прятанье происходят одним непрерывным движением, что совпадает со спешкой говорящего убрать письмо. Читатель переносится через конец строки на том же дыхании и не может задержаться на письме, так же как и сам говорящий.',
+      en: 'The break after "where" postpones the location until "The lamp would cast no light". It can draw the reader forward to complete the clause, or create a brief suspense before the dark place is revealed. That delayed information fits the action of hiding the letter. The lines do not prove why the person hides it or that she is in a hurry; the narrative "she" is also not automatically the speaker of the poem.',
+      ru: 'Перенос после "where" откладывает указание места до "The lamp would cast no light". Он может побуждать продолжить чтение, чтобы завершить конструкцию, или создавать задержку перед раскрытием тёмного места. Отложенная информация соотносится с прятаньем письма. Строки не доказывают мотив или спешку персонажа; повествовательное "she" также не означает, что героиня сама говорит стихотворение.',
     },
     origin: 'original',
     minutes: 5,

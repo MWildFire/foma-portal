@@ -1,15 +1,15 @@
 import type { L, Lang } from '../../contract/types';
-import { StepFrame, type StepText } from './_lib/graph';
+import { GraphViewport, StepFrame, type StepText } from './_lib/graph';
 
 // Circular flow of income with five sectors. Inner loop (blue): income from firms to households and spending from households
 // to firms. Leakages or withdrawals (red): savings to banks, taxes to government, imports to the rest of the world.
 // Injections (green): investment from banks, government spending and exports from the rest of the world.
 // Equilibrium: S + T + M = I + G + X, so national income Y = C + I + G + (X - M).
 
-const INNER = '#3b82f6';
-const LEAK = '#ef4444';
-const INJECT = '#22c55e';
-const OFF = '#94a3b8';
+const INNER = '#2563eb';
+const LEAK = '#dc2626';
+const INJECT = '#16a34a';
+const OFF = '#64748b';
 
 type Pt = [number, number];
 type Box = { x: number; y: number; w: number; h: number };
@@ -19,7 +19,7 @@ const BOX: Record<NodeKey, Box> = {
   gov: { x: 122, y: 6, w: 116, h: 34 },
   hh: { x: 8, y: 100, w: 104, h: 40 },
   firm: { x: 248, y: 100, w: 104, h: 40 },
-  bank: { x: 122, y: 196, w: 116, h: 34 },
+  bank: { x: 108, y: 196, w: 144, h: 34 },
   row: { x: 8, y: 246, w: 104, h: 34 },
 };
 
@@ -27,7 +27,7 @@ const NAME: Record<NodeKey, L> = {
   gov: { en: 'Government', ru: 'Государство' },
   hh: { en: 'Households', ru: 'Домохозяйства' },
   firm: { en: 'Firms', ru: 'Фирмы' },
-  bank: { en: 'Banks', ru: 'Банки' },
+  bank: { en: 'Financial sector', ru: 'Финансовый сектор' },
   row: { en: 'Rest of world', ru: 'Остальной мир' },
 };
 
@@ -63,9 +63,9 @@ function Flow({ path, colour }: { path: Pt[]; colour: string }) {
   );
 }
 
-function Tag({ x, y, anchor, colour, text }: { x: number; y: number; anchor: 'start' | 'middle' | 'end'; colour: string; text: string }) {
+function Tag({ x, y, anchor, text }: { x: number; y: number; anchor: 'start' | 'middle' | 'end'; text: string }) {
   return (
-    <text x={x} y={y} textAnchor={anchor} fontSize={11} fontWeight={500} fill={colour}>{text}</text>
+    <text x={x} y={y} textAnchor={anchor} fontSize={11} fontWeight={500} fill="currentColor">{text}</text>
   );
 }
 
@@ -83,25 +83,24 @@ function diagram(index: number, lang: Lang) {
   const leakColour = index === 2 ? OFF : LEAK;
   const showLeaks = index >= 1;
   const showInjections = index >= 2;
-  const leakText = index === 2 ? OFF : LEAK;
 
   return (
-    <svg role="img" aria-label={lang === 'en' ? 'Circular flow of income' : 'Круговой поток дохода'} viewBox="0 0 360 290" width="100%" style={{ maxWidth: 420, display: 'block', color: 'var(--color-fg)' }}>
+    <GraphViewport lang={lang}><svg role="img" aria-label={lang === 'en' ? 'Circular flow of income' : 'Круговой поток дохода'} viewBox="0 0 360 290" width="100%" style={{ maxWidth: 420, display: 'block', color: 'var(--color-fg)' }}>
       <Flow path={[[248, 116], [112, 116]]} colour={INNER} />
       <Flow path={[[112, 134], [248, 134]]} colour={INNER} />
-      <Tag x={180} y={110} anchor="middle" colour={INNER} text={FLOW_NAME.income[lang]} />
-      <Tag x={180} y={150} anchor="middle" colour={INNER} text={FLOW_NAME.spending[lang]} />
+      <Tag x={180} y={110} anchor="middle" text={FLOW_NAME.income[lang]} />
+      <Tag x={180} y={150} anchor="middle" text={FLOW_NAME.spending[lang]} />
 
       {showLeaks && (
         <g>
-          <Flow path={[[96, 140], [122, 212]]} colour={leakColour} />
+          <Flow path={[[96, 140], [108, 212]]} colour={leakColour} />
           <Flow path={[[60, 140], [60, 246]]} colour={leakColour} />
           <Flow path={[[40, 100], [122, 22]]} colour={leakColour} />
           <Flow path={[[290, 100], [238, 22]]} colour={leakColour} />
-          <Tag x={118} y={170} anchor="start" colour={leakText} text={FLOW_NAME.savings[lang]} />
-          <Tag x={54} y={196} anchor="end" colour={leakText} text={FLOW_NAME.imports[lang]} />
-          <Tag x={76} y={52} anchor="end" colour={leakText} text={FLOW_NAME.taxes[lang]} />
-          <Tag x={270} y={52} anchor="start" colour={leakText} text={FLOW_NAME.taxes[lang]} />
+          <Tag x={118} y={170} anchor="start" text={FLOW_NAME.savings[lang]} />
+          <Tag x={54} y={196} anchor="end" text={FLOW_NAME.imports[lang]} />
+          <Tag x={76} y={52} anchor="end" text={FLOW_NAME.taxes[lang]} />
+          <Tag x={270} y={52} anchor="start" text={FLOW_NAME.taxes[lang]} />
         </g>
       )}
 
@@ -110,16 +109,16 @@ function diagram(index: number, lang: Lang) {
           <Flow path={[[226, 196], [266, 140]]} colour={INJECT} />
           <Flow path={[[226, 40], [270, 100]]} colour={INJECT} />
           <Flow path={[[112, 263], [330, 263], [330, 140]]} colour={INJECT} />
-          <Tag x={256} y={175} anchor="start" colour={INJECT} text={FLOW_NAME.investment[lang]} />
-          <Tag x={212} y={62} anchor="end" colour={INJECT} text={FLOW_NAME.govSpend[lang]} />
-          <Tag x={221} y={256} anchor="middle" colour={INJECT} text={FLOW_NAME.exports[lang]} />
+          <Tag x={256} y={175} anchor="start" text={FLOW_NAME.investment[lang]} />
+          <Tag x={212} y={62} anchor="end" text={FLOW_NAME.govSpend[lang]} />
+          <Tag x={221} y={256} anchor="middle" text={FLOW_NAME.exports[lang]} />
         </g>
       )}
 
       {(Object.keys(BOX) as NodeKey[]).map(key => (
         <Node key={key} box={BOX[key]} text={NAME[key][lang]} />
       ))}
-    </svg>
+    </svg></GraphViewport>
   );
 }
 
@@ -141,15 +140,15 @@ const steps: StepText[] = [
   {
     title: { en: 'Injections', ru: 'Инъекции (injections)' },
     text: {
-      en: 'Money is added back (green): investment from banks, government spending and exports paid by the rest of the world raise spending on firms.',
-      ru: 'Деньги возвращаются в круг (зелёные стрелки): инвестиции из банков, госрасходы и экспорт, который оплачивает остальной мир, увеличивают расходы на фирмы.',
+      en: 'Green arrows show investment expenditure financed through the financial sector, government purchases and foreign spending on exports. A bank loan or a purchase of shares is financing, not itself GDP investment; the injection is spending on new capital/output.',
+      ru: 'Зелёные стрелки показывают инвестиционные расходы, финансируемые через финансовый сектор, государственные закупки и иностранные расходы на экспорт. Кредит или покупка акций — финансирование, а не сами инвестиции в составе ВВП; инъекция возникает при расходах на новый капитал или выпуск.',
     },
   },
   {
     title: { en: 'Equilibrium', ru: 'Равновесие' },
     text: {
-      en: 'Income is stable when leakages equal injections: S + T + M = I + G + X. Then national income is Y = C + I + G + (X - M).',
-      ru: 'Доход стабилен, когда утечки равны инъекциям: S + T + M = I + G + X. Тогда национальный доход равен Y = C + I + G + (X - M).',
+      en: 'In this simplified planned-spending model, S + T + M = I + G + X is the equilibrium condition. By contrast, GDP = C + I + G + (X − M) is an accounting identity for recorded output, including unplanned inventory changes in I, even away from planned equilibrium. G excludes transfers; T is net of transfers in the household-income identity.',
+      ru: 'В этой упрощённой модели планируемых расходов S + T + M = I + G + X — условие равновесия. В отличие от него, ВВП = C + I + G + (X − M) — учётное тождество для произведённого выпуска: I включает незапланированное изменение запасов и вне планового равновесия. G не включает трансферты; в тождестве дохода домохозяйств T — налоги за вычетом трансфертов.',
     },
   },
 ];

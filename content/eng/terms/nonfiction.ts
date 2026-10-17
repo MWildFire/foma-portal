@@ -35,8 +35,8 @@ export const terms: Term[] = [
     id: 'logos',
     term: { en: 'logos', ru: 'логос (logos)' },
     def: {
-      en: 'An appeal to logic and reason, using facts, statistics, examples and a clear chain of argument.',
-      ru: 'Апелляция к логике и разуму, опирающаяся на факты, статистику, примеры и последовательную цепочку доводов.',
+      en: 'An appeal through reasoning or apparent proof, using claims, examples, evidence or statistics. Persuasiveness does not guarantee that the premises are true or the inference valid.',
+      ru: 'Обращение к рассуждению или кажущемуся доказательству через утверждения, примеры, данные и статистику. Убедительность не гарантирует истинности предпосылок или верности вывода.',
     },
     syllabus: 'F.NFI',
     papers: ['P1', 'P2'],
@@ -46,8 +46,8 @@ export const terms: Term[] = [
       ru: 'Лишь 12 процентов кандидатов сдали тест, поэтому экзамен намного сложнее, чем утверждает реклама.',
     },
     pitfall: {
-      en: 'Quoting a statistic is not enough for logos: explain how the figure supports the claim.',
-      ru: 'Одной ссылки на статистику для логоса недостаточно: объясните, как цифра подтверждает утверждение.',
+      en: 'Explain how a statistic is offered to support a claim, then test the inference: a 12% pass rate alone does not isolate exam difficulty from preparation or candidate selection.',
+      ru: 'Объясните, как цифра должна поддержать тезис, и проверьте вывод: доля сдавших 12% сама по себе не отделяет сложность экзамена от подготовки или отбора кандидатов.',
     },
   },
   {
@@ -133,8 +133,8 @@ export const terms: Term[] = [
     id: 'polysyndeton',
     term: { en: 'polysyndeton', ru: 'полисиндетон (polysyndeton)' },
     def: {
-      en: 'The repeated use of conjunctions, such as "and" or "or", between words or clauses, which slows the pace and creates a sense of accumulation.',
-      ru: 'Многократное употребление союзов, например «и» или «или», между словами или предложениями, которое замедляет темп и создаёт ощущение нагромождения.',
+      en: 'The repeated use of conjunctions, such as "and" or "or", between words or clauses, which can create accumulation, insistence or a particular rhythm; the effect depends on context.',
+      ru: 'Многократное употребление союзов, например «и» или «или», между словами или предложениями, которое может создавать нагромождение, настойчивость или особый ритм; эффект зависит от контекста.',
     },
     syllabus: 'F.NFI',
     papers: ['P1', 'P2'],
@@ -148,8 +148,8 @@ export const terms: Term[] = [
     id: 'asyndeton',
     term: { en: 'asyndeton', ru: 'асиндетон (asyndeton)' },
     def: {
-      en: 'The omission of conjunctions between words or clauses in a list, which speeds up the pace and creates urgency or impact.',
-      ru: 'Опущение союзов между словами или предложениями в перечислении, которое ускоряет темп и создаёт напряжение или ощущение резкого воздействия.',
+      en: 'The omission of conjunctions between words or clauses in a list, which can create a compressed or abrupt rhythm; it does not automatically speed up every passage.',
+      ru: 'Опущение союзов между словами или предложениями в перечислении, которое может создавать сжатый или отрывистый ритм; оно не ускоряет любой отрывок автоматически.',
     },
     syllabus: 'F.NFI',
     papers: ['P1', 'P2'],
@@ -182,8 +182,8 @@ export const terms: Term[] = [
     id: 'direct-address',
     term: { en: 'direct address', ru: 'прямое обращение (direct address)' },
     def: {
-      en: 'Speaking straight to the listener or reader, using "you", "we" or a form of address such as "my friends", to build a bond and engage them.',
-      ru: 'Непосредственное обращение к слушателю или читателю с помощью «вы», «мы» или формулы вроде «друзья мои», чтобы установить связь и вовлечь аудиторию.',
+      en: 'Speaking explicitly to a listener or reader, for example through an address such as "my friends". Pronouns can help, but "we" alone does not prove direct address; the address may include, accuse or distance its audience.',
+      ru: 'Явное обращение к слушателю или читателю, например «друзья мои». Местоимения могут участвовать в нём, но одно «мы» не доказывает обращения; оно может объединять, обвинять или отдалять аудиторию.',
     },
     syllabus: 'F.NFI',
     papers: ['P1', 'P2'],
@@ -208,8 +208,8 @@ export const terms: Term[] = [
       ru: 'Написанная для родителей семилетних детей листовка использует короткие предложения и избегает технических терминов.',
     },
     pitfall: {
-      en: 'Do not say the audience is "everyone": name the intended group and show how the language is shaped for them.',
-      ru: 'Не пишите, что аудитория — «все»: назовите целевую группу и покажите, как язык подстроен под неё.',
+      en: 'Use the source and text to infer an intended audience; acknowledge when its precise composition is unknown instead of inventing a demographic group.',
+      ru: 'Устанавливайте предполагаемую аудиторию по источнику и тексту; признавайте неясность точного состава, а не выдумывайте определённую группу.',
     },
   },
   {
@@ -257,8 +257,8 @@ export const terms: Term[] = [
     papers: ['P1', 'P2'],
     src: { kind: 'own', title: 'Own wording' },
     example: {
-      en: 'The speaker says "our town" eleven times, so that every listener feels part of one community.',
-      ru: 'Оратор одиннадцать раз говорит «наш город», чтобы каждый слушатель чувствовал себя частью одного сообщества.',
+      en: 'The speaker says "our town" eleven times, inviting listeners to identify with a shared community; their actual responses may differ.',
+      ru: 'Оратор одиннадцать раз говорит «наш город», приглашая слушателей ощутить общность; их реальные реакции могут различаться.',
     },
   },
   {

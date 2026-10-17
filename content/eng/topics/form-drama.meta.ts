@@ -19,7 +19,7 @@ const topic: TopicMeta = {
   ],
   termIds: ['stage-directions', 'aside', 'soliloquy', 'subtext', 'dramatic-irony', 'mise-en-scene', 'chorus', 'tragedy', 'comedy-of-manners', 'farce', 'catharsis', 'fourth-wall', 'reversal', 'stichomythia', 'comedy', 'theatre-of-the-absurd', 'deus-ex-machina'],
   questionIds: ['p1-wilde-earnest', 'p1-ibsen-doll', 'p1-shaw-pygmalion', 'chk-form-drama-1', 'chk-form-drama-2'],
-  sources: [{ kind: 'own', title: 'Own wording' }],
+  sources: [{ kind: 'web', title: 'Ibsen, A Doll’s House, Act3 final conversation; Archer translation, collected edition1909, Gutenberg70566; primary text checked', url: 'https://www.gutenberg.org/cache/epub/70566/pg70566.txt' }, { kind: 'web', title: 'Shakespeare, Henry V, Folger Prologue1–36: Chorus directly frames the performed narrative', url: 'https://www.folger.edu/explore/shakespeares-works/henry-v/read/PRO/' }, { kind: 'web', title: 'Aristotle, Poetics VI; Butcher translation, Gutenberg1974: pity, fear and purgation in the theoretical account of tragedy', url: 'https://www.gutenberg.org/cache/epub/1974/pg1974.txt' }, { kind: 'web', title: 'РИИИ, Театральные термины и понятия, выпуск III (2015)', url: 'https://artcenter.ru/wp-content/uploads/2013/10/Театральные-термины-и-понятия.pdf', locator: 'Н. А. Таршис, Стихомифия, с.239 (PDF240); В.И.Максимов, Катарсис, с.90–92 (PDF91–93)' }, { kind: 'web', title: 'Е.А.Дунаева, Абсурда театр, Большая российская энциклопедия, т.1 (2005), с.44', url: 'https://old.bigenc.ru/theatre_and_cinema/text/661729' }, { kind: 'own', title: 'Own wording' }],
 };
 
 export default topic;

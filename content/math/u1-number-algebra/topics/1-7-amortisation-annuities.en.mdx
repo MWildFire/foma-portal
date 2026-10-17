@@ -1,10 +1,10 @@
 ## Big idea
 
-A loan is repaid by equal payments: each payment covers the interest for that period, and the rest reduces the balance. Savings made by equal regular deposits form an annuity. Both use the same compound factor, so one rate per period and one number of periods describe either case.
+In this model a loan is repaid by equal payments: with positive interest and a fully amortising payment, each payment covers that period’s interest and reduces the balance by the rest. Savings made by equal regular deposits form an annuity. Both use the same compound factor, so one rate per period and one number of periods describe either case.
 
 ## Explanation
 
-An <Term id="amortisation-loan"/> repays a loan with equal instalments over a fixed term. Each instalment first pays the interest on the balance for that period, and the rest reduces the balance. Use the rate per period $i = \frac{r}{100k}$ and the number of instalments $N = kn$, where $k$ is the number of payments a year. For a loan of $PV$, the equal instalment $M$ is:
+An <Term id="amortisation-loan"/> repays a loan with equal instalments over a fixed term. Each instalment first pays the interest on the balance for that period, and the rest reduces the balance. For nominal annual rate $r\%$ compounded $k$ times a year, with a payment at each period end, use the decimal rate $i = \frac{r}{100k}$ and $N = kn$ whole periods over $n$ years. These formulas use a constant rate and matching compounding/payment periods. At zero interest, divide the loan by $N$ for the payment and use $MN$ for savings. For a loan of $PV$, the equal instalment $M$ is:
 
 <Formula id="annuity-payment"/>
 
@@ -25,22 +25,22 @@ A loan of AED 60,000 is repaid by 60 equal monthly instalments. The interest rat
 <Steps>
 <Step>Rate per month $i = \dfrac{6}{1200}$ and $N = 60$. The instalment is $M = \dfrac{60000\,i}{1-(1+i)^{-60}} = 1159.97$ (to 2 decimal places).</Step>
 <Step>Interest in the first month is $60000 \times \frac{6}{1200} = 300.00$. The rest of the first instalment repays $1159.97 - 300.00 = 859.97$, so the balance after one payment is $60000 - 859.97 = 59140.03$.</Step>
-<Step>After 24 instalments the balance is $B_{24} = 60000(1+i)^{24} - 1159.97 \times \dfrac{(1+i)^{24}-1}{i} = 38129.33$ (to 2 decimal places).</Step>
+<Step>Retain the unrounded payment $M = 1159.9680917657\ldots$ in the algebra: $B_{24} = 60000(1+i)^{24} - M\dfrac{(1+i)^{24}-1}{i} = 38129.33$ to 2 decimal places. If the actual monthly payment is rounded to 1159.97 instead, the balance is 38129.28. State which convention is used.</Step>
 </Steps>
 
-<Reveal title="Why does the balance fall slowly at first?">In the early months most of each instalment pays interest on a large balance, so only a small part of it reduces the debt. Later instalments reduce the balance faster, because less interest is charged each month.</Reveal>
+<Reveal title="Why does the balance fall slowly at first?">For a fully amortising fixed-rate loan, interest takes a larger share of an early payment than of a later one. It need not be most of the payment: here the first interest charge is 300 out of about 1159.97 (25.9%). As the balance falls, interest falls and more of the equal payment reduces principal.</Reveal>
 
 ## Visual
 
 <Sim id="math.tvm-lab"/>
 
-The lab uses the same formulas. With a principal of 60,000, a rate of 6, 5 years and 12 payments a year, it shows the instalment of 1159.97 and the first rows of the table: interest 300.00, principal repaid 859.97 and balance 59140.03 after the first payment. Increase the years and watch the instalment fall. The balance curve bends more, because in a long loan most of the early instalments are interest.
+The lab uses the same formulas. With a principal of 60,000, a rate of 6, 5 years and 12 payments a year, it shows the instalment of 1159.97 and the first rows of the table: interest 300.00, principal repaid 859.97 and balance 59140.03 after the first payment. At a positive fixed rate, increase the term and watch the instalment fall. The first-payment interest share rises as the term lengthens at the same rate and principal; whether it exceeds half depends on the inputs. The calculator retains the unrounded payment and rounds only the displayed values.
 
 ## How it is examined
 
-Find and Calculate questions give a mark for the rate per period and the number of periods, a mark for the method (the instalment, the balance or the future value), and an accuracy mark for the rounding asked. Comment questions ask how the balance or the share of interest changes over time, and expect a reason based on the interest charged on the balance.
+Show the rate per period, number of periods and financial model before reporting the answer to the requested accuracy. The marks depend on the particular question; there is no fixed allocation for every Find or Calculate task. In a Comment task, explain changes in balance or interest share using the model and context.
 
-<Callout kind="exam">Before you use the solver, say whether you are finding an instalment, a balance or a future value. The number of periods and the sign of the payment depend on that choice.</Callout>
+<Callout kind="exam">Before you use the solver, say whether you are finding an instalment, a balance or a future value. Match the number of periods to the term, and use opposite signs for cash flows into and out of the account.</Callout>
 
 ## Common mistakes
 
@@ -60,9 +60,9 @@ Find and Calculate questions give a mark for the rate per period and the number 
 
 ## Summary
 
-- An amortised loan has equal instalments; each one pays that period's interest first and reduces the balance by the rest.
+- The fully amortising model here uses equal instalments; each one pays that period's interest first and reduces the balance by the rest.
 - Match the rate per period $i = \frac{r}{100k}$ and the number of periods $N = kn$ to the payment frequency.
 - The instalment is $M = \dfrac{PV\,i}{1-(1+i)^{-N}}$, and the balance after $j$ payments is $B_j = PV(1+i)^j - M\dfrac{(1+i)^j-1}{i}$.
 - A savings annuity with deposits $M$ has future value $FV = M\dfrac{(1+i)^N-1}{i}$.
-- Balances fall slowly at first because most of each early payment is interest.
+- On this fully amortising fixed-rate model the interest share falls over time; it is not necessarily a majority even in the first payment.
 - Check the answer with a financial solver or an amortisation table on the GDC.

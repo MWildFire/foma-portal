@@ -45,7 +45,7 @@ export const formulas: Formula[] = [
     name: { en: 'Common difference', ru: 'Разность арифметической последовательности (Common difference)' },
     meaning: {
       en: 'The same constant is added at each step, so subtracting any term from the next one gives d.',
-      ru: 'На каждом шаге прибавляется одно и то же число, поэтому разность любого члена и следующего за ним равна d.',
+      ru: 'На каждом шаге прибавляется одно и то же число, поэтому разность следующего и текущего члена равна d.',
     },
     when: {
       en: 'Testing whether a sequence is arithmetic, and finding d from two consecutive terms.',

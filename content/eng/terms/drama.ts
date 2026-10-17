@@ -39,8 +39,8 @@ export const terms: Term[] = [
     id: 'aside',
     term: { en: 'aside', ru: 'реплика в сторону (aside)' },
     def: {
-      en: 'A short line that a character speaks directly to the audience, which the other characters on stage are conventionally taken not to hear.',
-      ru: 'Короткая реплика, которую персонаж произносит, обращаясь непосредственно к зрителям, и которую, по условности, остальные персонажи на сцене не слышат.',
+      en: 'A remark conventionally unheard by some other characters; it may address the audience or a particular character.',
+      ru: 'Реплика, которую по сценической условности не слышат некоторые другие персонажи; она может обращаться к залу или отдельному собеседнику.',
     },
     syllabus: 'F.DRA',
     papers: ['P1', 'P2'],
@@ -73,8 +73,8 @@ export const terms: Term[] = [
     id: 'subtext',
     term: { en: 'subtext', ru: 'подтекст (subtext)' },
     def: {
-      en: 'The hidden meaning beneath what characters say: their real feelings, intentions or conflicts, which they do not state openly.',
-      ru: 'Скрытый смысл того, что говорят персонажи: их истинные чувства, намерения или конфликты, которые они открыто не высказывают.',
+      en: 'An implied meaning, feeling or tension beneath explicit speech. It can exceed a character’s conscious intention and must be supported by the words, actions or context.',
+      ru: 'Подразумеваемый смысл, чувство или напряжение под явной речью. Он может выходить за пределы сознательного намерения персонажа и должен опираться на слова, действия или контекст.',
     },
     syllabus: 'F.DRA',
     papers: ['P1', 'P2'],
@@ -90,10 +90,10 @@ export const terms: Term[] = [
   },
   {
     id: 'mise-en-scene',
-    term: { en: 'mise-en-scène', ru: 'мизансцена (mise-en-scène)' },
+    term: { en: 'mise-en-scène', ru: 'сценическая организация (mise-en-scène)' },
     def: {
       en: 'Everything visible on stage at a given moment: the set, costumes, lighting and props, and the position and movement of the actors.',
-      ru: 'Всё, что видно на сцене в данный момент: декорации, костюмы, освещение и реквизит, а также расположение актёров и их движения.',
+      ru: 'В широком английском употреблении — видимая сценическая организация: декорации, костюмы, свет, реквизит, положение и движение актёров. Русское «мизансцена» обычно уже: расположение и движение актёров относительно друг друга и среды.',
     },
     syllabus: 'F.DRA',
     papers: ['P1', 'P2'],
@@ -107,8 +107,8 @@ export const terms: Term[] = [
     id: 'chorus',
     term: { en: 'chorus', ru: 'хор (chorus)' },
     def: {
-      en: 'In Greek tragedy, a group of performers who comment on the action, sing and dance, and voice the views of the community. Modern plays may give the same role to one character or a small group.',
-      ru: 'В древнегреческой трагедии — группа исполнителей, которые комментируют действие, поют и танцуют и выражают мнение общества. В современных пьесах ту же роль может играть один персонаж или небольшая группа.',
+      en: 'In Greek tragedy, a group of performers who comment on the action, sing and dance, and may voice a community’s concerns without representing every member’s views. Modern plays may give the same role to one character or a small group.',
+      ru: 'В древнегреческой трагедии — группа исполнителей, которые комментируют действие, поют и танцуют и могут выражать заботы сообщества, не представляя мнение каждого его члена. В современных пьесах ту же роль может играть один персонаж или небольшая группа.',
     },
     syllabus: 'F.DRA',
     papers: ['P1', 'P2'],
@@ -122,8 +122,8 @@ export const terms: Term[] = [
     id: 'tragedy',
     term: { en: 'tragedy', ru: 'трагедия (tragedy)' },
     def: {
-      en: 'A serious play in which a central character, often of high standing, is brought to ruin, usually through a flaw of character or an error of judgement. The ending is catastrophic and arouses pity and fear.',
-      ru: 'Серьёзная пьеса, в которой главный герой, часто высокого положения, терпит крах, обычно из-за изъяна характера или ошибки в суждении. Финал катастрофичен и вызывает сострадание и страх.',
+      en: 'A serious dramatic genre concerned with suffering and destructive conflict, often ending in catastrophe. Aristotle connects a particular model of tragic action with pity, fear and a protagonist’s error; a fixed personal flaw is not required of every tragedy.',
+      ru: 'Серьёзный драматический жанр, связанный со страданием и разрушительным конфликтом, часто с катастрофическим финалом. Аристотель связывает определённую модель трагического действия с состраданием, страхом и ошибкой героя; обязательный личный изъян не определяет любую трагедию.',
     },
     syllabus: 'F.DRA',
     papers: ['P1', 'P2'],
@@ -133,8 +133,8 @@ export const terms: Term[] = [
       ru: 'Гордый и уверенный в собственном суждении мэр игнорирует каждое предупреждение, и в финальной сцене он стоит один среди руин города, который хотел спасти.',
     },
     pitfall: {
-      en: 'A sad ending alone does not make a tragedy: the fall must follow from the hero’s own flaw, error or conflict.',
-      ru: 'Одного печального финала для трагедии недостаточно: падение героя должно вытекать из его собственного изъяна, ошибки или конфликта.',
+      en: 'A sad ending alone does not make a tragedy: analyse the dramatic conflict and its treatment rather than assigning every protagonist a personal flaw or assuming all viewers react alike.',
+      ru: 'Одного печального финала для трагедии недостаточно: анализируйте конфликт и его разработку, а не приписывайте каждому герою личный изъян или каждому зрителю одинаковую реакцию.',
     },
   },
   {
@@ -186,8 +186,8 @@ export const terms: Term[] = [
     id: 'catharsis',
     term: { en: 'catharsis', ru: 'катарсис (catharsis)' },
     def: {
-      en: 'The emotional release or cleansing that the audience feels at the end of a tragedy, after experiencing pity and fear.',
-      ru: 'Эмоциональное очищение, которое зритель испытывает в конце трагедии, пережив сострадание и страх.',
+      en: 'An effect associated with pity and fear in Aristotle’s account of tragedy, variously interpreted as purification, purgation or clarification. It is a theoretical concept, not a guaranteed response at the end of every performance.',
+      ru: 'Эффект, связанный с состраданием и страхом в аристотелевской теории трагедии; его толкуют как очищение, разрядку или прояснение. Это теоретическое понятие, а не гарантированная реакция в конце любого спектакля.',
     },
     syllabus: 'F.DRA',
     papers: ['P1', 'P2'],
@@ -197,8 +197,8 @@ export const terms: Term[] = [
       ru: 'К финальной сцене весь зал плачет, а когда зажигается свет, зрители сидят в тишине, которая похожа на облегчение.',
     },
     pitfall: {
-      en: 'Catharsis is felt by the audience, not by the character: it describes the effect of the play on the viewer.',
-      ru: 'Катарсис переживает зритель, а не персонаж: это описание воздействия пьесы на зрителя.',
+      en: 'In the theatrical account used here catharsis concerns reception, not a synonym for a character crying or feeling relieved. Tears alone do not establish it.',
+      ru: 'В используемой здесь театральной трактовке катарсис относится к восприятию; это не синоним слёз персонажа или его облегчения. Одни слёзы не доказывают катарсиса.',
     },
   },
   {
@@ -220,8 +220,8 @@ export const terms: Term[] = [
     id: 'stichomythia',
     term: { en: 'stichomythia', ru: 'стихомифия (stichomythia)' },
     def: {
-      en: 'A rapid exchange in which two characters speak in alternating single lines, often in an argument or a battle of wits.',
-      ru: 'Быстрый обмен репликами, в котором два персонажа говорят по очереди, каждый по одной строке, часто в споре или словесной схватке.',
+      en: 'Strictly, an exchange of alternating verse lines, with related half-line or two-line forms. The term is also used more broadly for clipped alternating dialogue, often in confrontation; state when using that broader sense.',
+      ru: 'В строгом смысле — чередование стихотворных реплик, с родственными формами по полстиха или два стиха. В расширительном смысле — короткий «рубленый» диалог, часто спор; уточняйте такое употребление.',
     },
     syllabus: 'F.DRA',
     papers: ['P1', 'P2'],
@@ -250,8 +250,8 @@ export const terms: Term[] = [
     id: 'theatre-of-the-absurd',
     term: { en: 'theatre of the absurd', ru: 'театр абсурда (theatre of the absurd)' },
     def: {
-      en: 'A mid-twentieth-century movement in drama that presents human life as meaningless. It uses illogical dialogue, repetition, circular action and surreal situations, without a conventional plot or resolution.',
-      ru: 'Направление в драме середины XX века, которое изображает человеческую жизнь лишённой смысла. Оно использует нелогичные диалоги, повторы, циклическое действие и сюрреалистические ситуации, без привычного сюжета и развязки.',
+      en: 'A grouping of mid-twentieth-century drama that often uses disrupted communication, repetition, circular action and departures from conventional plot to explore uncertainty about existence and meaning. Individual plays and interpretations differ.',
+      ru: 'Круг явлений драматургии середины XX века, где нарушенное общение, повторы, циклическое действие и отход от привычного сюжета часто раскрывают неясность существования и смысла. Отдельные пьесы и их трактовки различаются.',
     },
     syllabus: 'F.DRA',
     papers: ['P1', 'P2'],
@@ -261,8 +261,8 @@ export const terms: Term[] = [
       ru: 'Женщина поднимается по лестнице, которая ведёт обратно в комнату, которую она только что покинула, и объявляет каждую ступеньку так, будто это долгое путешествие.',
     },
     pitfall: {
-      en: 'In this context, "absurd" does not mean silly or ridiculous; it describes the view that human existence has no inherent meaning.',
-      ru: 'В этом контексте «абсурд» не значит «нелепый» или «смешной»: так называют представление о том, что человеческое существование не имеет изначального смысла.',
+      en: 'In this context, "absurd" does not mean silly or ridiculous; do not reduce every play in this grouping to the same philosophical slogan; interpret its particular language, actions and staging.',
+      ru: 'В этом контексте «абсурд» не значит «нелепый» или «смешной»: не сводите все пьесы этого круга к одному философскому лозунгу; анализируйте их конкретный язык, действия и постановку.',
     },
   },
   {

@@ -29,8 +29,8 @@ export const formulas: Formula[] = [
       ru: 'Квадратный корень из среднего квадратов отклонений от среднего. Дисперсия равна сигма в квадрате.',
     },
     when: {
-      en: 'Measuring the typical distance of the values from the mean for a whole data set.',
-      ru: 'Измерение типичного расстояния значений от среднего для всего набора данных.',
+      en: 'For nonnegative frequencies with a positive total, this gives population SD of the represented data set. Using class midpoints estimates the raw-data SD; a sample estimate uses divisor n−1 instead.',
+      ru: 'При неотрицательных частотах с положительной суммой это стандартное отклонение всего представленного набора. Для середин классов получается оценка разброса исходных данных; выборочная оценка использует делитель n−1.',
     },
     syllabus: '4.3',
     inBooklet: false,

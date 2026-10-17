@@ -13,8 +13,8 @@ export const terms: Term[] = [
     papers: ['P1', 'P2', 'P3'],
     src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 4.4, p. 179' },
     pitfall: {
-      en: 'The difference must be the same for every pair of neighbouring terms. Check at least two pairs before you call a sequence arithmetic.',
-      ru: 'Разность должна быть одинаковой для каждой пары соседних членов. Проверьте хотя бы две пары, прежде чем называть последовательность арифметической.',
+      en: 'The difference must be the same for every pair of neighbouring terms. Several equal differences suggest a pattern but do not prove an unspecified infinite continuation; for a formula, establish the difference for every relevant n.',
+      ru: 'Разность должна быть одинаковой для каждой пары соседних членов. Несколько равных разностей подсказывают закономерность, но не доказывают неуказанного бесконечного продолжения; для формулы проверяют разность при всех допустимых n.',
     },
   },
   {

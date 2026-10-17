@@ -1,4 +1,6 @@
-import { useState } from 'react';
+import ReadableDiagram from '../readable-diagram';
+import { classifyPhasePortrait } from './phase-portrait-logic';
+import { useId, useState } from 'react';
 import type { Lang } from '../../contract/types';
 
 // Phase portrait of dx/dt = a x + b y, dy/dt = c x + d y. The sliders hold tenths as integers, so the trace, the
@@ -16,17 +18,6 @@ const STARTS: [number, number][] = [
   [2.5, 0], [0, 2.5], [-2.5, 0], [0, -2.5], [1.8, 1.8], [-1.8, -1.8], [1.8, -1.8], [-1.8, 1.8],
 ];
 
-type Kind = 'saddle' | 'degenerate' | 'stable-node' | 'unstable-node' | 'centre' | 'stable-spiral' | 'unstable-spiral';
-
-// ti = 10 × trace and di = 100 × determinant are integers, so every test below is exact.
-function classify(ti: number, di: number): Kind {
-  const disc = ti * ti - 4 * di;   // 100 × (T² − 4D)
-  if (di < 0) return 'saddle';
-  if (di === 0) return 'degenerate';
-  if (disc >= 0) return ti < 0 ? 'stable-node' : 'unstable-node';
-  if (ti === 0) return 'centre';
-  return ti < 0 ? 'stable-spiral' : 'unstable-spiral';
-}
 
 function curve(a: number, b: number, c: number, d: number, x0: number, y0: number): string {
   let x = x0;
@@ -57,6 +48,7 @@ const TEXT = {
     repeated: 'repeated eigenvalue',
     note: 'Dots mark the start of each curve; time runs forward along it.',
     kinds: {
+      'zero-system': 'Zero system: every point in the plane is an equilibrium',
       saddle: 'Saddle point (unstable)',
       degenerate: 'Degenerate: D = 0, a line of equilibria',
       'stable-node': 'Stable node',
@@ -76,6 +68,7 @@ const TEXT = {
     repeated: 'кратное собственное значение',
     note: 'Точки отмечают начало каждой кривой; время идёт вдоль кривой вперёд.',
     kinds: {
+      'zero-system': 'Нулевая система: каждая точка плоскости — равновесие',
       saddle: 'Седло (неустойчивое)',
       degenerate: 'Вырожденный случай: D = 0, прямая точек равновесия',
       'stable-node': 'Устойчивый узел',
@@ -89,13 +82,14 @@ const TEXT = {
 
 export default function PhasePortraitLab({ lang }: { lang: Lang }) {
   const t = TEXT[lang];
+  const arrow = useId();
   const [a10, setA] = useState(-10);   // a = -1.0: a stable spiral by default
   const [b10, setB] = useState(20);
   const [c10, setC] = useState(-20);
   const [d10, setD] = useState(-10);
   const ti = a10 + d10;
   const di = a10 * d10 - b10 * c10;
-  const kind = classify(ti, di);
+  const kind = classifyPhasePortrait(a10, b10, c10, d10);
   const trace = ti / 10;
   const det = di / 100;
   const disc = (ti * ti - 4 * di) / 100;
@@ -115,7 +109,8 @@ export default function PhasePortraitLab({ lang }: { lang: Lang }) {
   ];
   return (
     <figure style={{ margin: 0 }}>
-      <svg viewBox={`0 0 ${SIZE} ${SIZE}`} width="100%" style={{ maxWidth: SIZE }} role="img" aria-label={t.label}>
+      <ReadableDiagram lang={lang}><svg viewBox={`0 0 ${SIZE} ${SIZE}`} width="100%" style={{ maxWidth: SIZE }} role="img" aria-label={t.label}>
+        <defs><marker id={arrow} viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L8 4L0 8Z" fill="#4f6fd8" /></marker></defs>
         <line x1={0} y1={SIZE / 2} x2={SIZE} y2={SIZE / 2} stroke="currentColor" strokeWidth={0.5} />
         <line x1={SIZE / 2} y1={0} x2={SIZE / 2} y2={SIZE} stroke="currentColor" strokeWidth={0.5} />
         {TICKS.map(v => (
@@ -126,14 +121,17 @@ export default function PhasePortraitLab({ lang }: { lang: Lang }) {
         ))}
         <text x={SIZE - 4} y={SIZE / 2 - 5} textAnchor="end" fontSize={11} fill="currentColor">x</text>
         <text x={SIZE / 2 + 5} y={10} fontSize={11} fill="currentColor">y</text>
-        {STARTS.map(([x0, y0]) => (
-          <g key={`${x0},${y0}`}>
-            <polyline points={curve(a, b, c, d, x0, y0)} fill="none" stroke="#4f6fd8" strokeWidth={1.2} />
+        {STARTS.map(([x0, y0]) => {
+          const points = curve(a, b, c, d, x0, y0).split(' ');
+          const end = Math.min(5, points.length - 1);
+          return <g key={`${x0},${y0}`}>
+            <polyline points={points.join(' ')} fill="none" stroke="#4f6fd8" strokeWidth={1.2} />
+            {end > 0 && points[end - 1] !== points[end] && <path d={`M${points[end - 1]} L${points[end]}`} fill="none" stroke="#4f6fd8" markerEnd={`url(#${arrow})`} />}
             <circle cx={SIZE / 2 + x0 * SCALE} cy={SIZE / 2 - y0 * SCALE} r={2.5} fill="#e0883a" />
-          </g>
-        ))}
+          </g>;
+        })}
         <circle cx={SIZE / 2} cy={SIZE / 2} r={3} fill="currentColor" />
-      </svg>
+      </svg></ReadableDiagram>
       <figcaption style={{ fontSize: 13, lineHeight: 1.6 }}>
         dx/dt = {combination(a, b)}
         <br />

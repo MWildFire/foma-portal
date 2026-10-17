@@ -30,6 +30,7 @@ const topic: TopicMeta = {
   sims: ['math.binomial-poisson-lab'],
   questionIds: ['q-4-17-01', 'q-4-17-02', 'q-4-17-03'],
   sources: [
+    { kind: 'web', title: 'HSE, probability lecture notes (2022), §13.2 Theorem 13.4 and §13.3 Poisson limit, PDF/printed p. 60 (Russian)', url: 'https://math.hse.ru/data/2022/10/05/1742836851/HSECourse.pdf' },
     {
       kind: 'web',
       title: 'IB Mathematics AI, first assessment 2021: public summary, not checked against the official guide',

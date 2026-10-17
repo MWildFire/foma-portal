@@ -2,26 +2,32 @@ import type { Question } from '../../../src/contract/types';
 
 export const questions: Question[] = [
   {
-    id: 'w-into-the-wild-1',
-    subject: 'eng',
-    topicIds: ['w-into-the-wild'],
-    paper: 'P2',
-    marks: 3,
-    command: 'Explain',
-    prompt: {
-      en: 'In chapter 12, McCandless gives his father an expensive gift before he leaves, and during his travels he finds out a secret about his father\'s earlier family. Explain how the author places the gift and the secret side by side. Find one passage that shows the gift and one that shows the secret, and give the chapter for each.',
-      ru: 'В главе 12 Маккандлесс перед отъездом дарит отцу дорогой подарок, а во время путешествия узнаёт тайну о более ранней семье отца. Объясните, как автор ставит подарок и тайну рядом. Найдите по одному фрагменту, в котором показан подарок, и в котором показана тайна, и укажите главу для каждого.',
+    "id": "w-into-the-wild-1",
+    "subject": "eng",
+    "topicIds": [
+      "w-into-the-wild"
+    ],
+    "paper": "P2",
+    "marks": 3,
+    "command": "Explain",
+    "stimulus": {
+      "en": "Chapter 12 opens with Carine’s memory of the 1986 high-school graduation party: Chris gives Walt a telescope and makes an emotional speech of gratitude. Later in the chapter, Krakauer recounts Chris discovering that Walt had secretly maintained two households. Source locator: chapter 12, opening party scene and the El Segundo discovery.",
+      "ru": "Глава 12 начинается воспоминанием Карин о выпускном вечере 1986 года: Крис дарит Уолту телескоп и эмоционально благодарит его. Далее Кракауэр рассказывает, как Крис узнал, что Уолт тайно жил на две семьи. Источник: глава 12, начальная сцена праздника и открытие в Эль-Сегундо."
     },
-    markscheme: {
-      en: '1 mark: identifies the gift (an expensive telescope) and what it shows about the relationship with the father, namely gratitude expressed through objects. 1 mark: identifies the secret (the father\'s earlier family) and its effect on McCandless (anger and an inability to forgive). 1 mark: explains how the two are placed together to show a relationship built on things rather than affection, with both passages located in chapter 12.',
-      ru: '1 балл: назван подарок (дорогой телескоп) и то, что он показывает в отношениях с отцом: благодарность, выраженную через вещи. 1 балл: названа тайна (более ранняя семья отца) и её действие на Маккандлесса: гнев и неспособность простить. 1 балл: объяснено, как два эпизода поставлены рядом, чтобы показать отношения, построенные на вещах, а не на привязанности; оба фрагмента найдены в главе 12.',
+    "prompt": {
+      "en": "Explain how placing these two episodes in the same chapter complicates the father–son relationship. Distinguish the reported evidence from your interpretation; do not assume that an expensive gift proves an absence of affection. Write one developed paragraph.",
+      "ru": "Объясните, как соседство этих эпизодов в одной главе усложняет изображение отношений отца и сына. Различайте сообщённые свидетельства и собственную интерпретацию; дорогой подарок сам по себе не доказывает отсутствия привязанности. Напишите один развёрнутый абзац."
     },
-    model: {
-      en: 'The gift is an expensive telescope, given before McCandless leaves. It shows gratitude expressed through objects rather than warmth. The secret is that his father had kept an earlier family; McCandless feels betrayed and cannot forgive him, so his anger grows. The author places the two side by side: a gift is offered where affection should be, and the reader understands why the son\'s anger takes the form it does. Both passages are in chapter 12.',
-      ru: 'Подарок — дорогой телескоп, который Маккандлесс отдаёт перед отъездом. Он показывает благодарность, выраженную через вещи, а не теплоту. Тайна в том, что у отца была более ранняя семья; Маккандлесс чувствует предательство и не может простить, поэтому его гнев растёт. Автор ставит два эпизода рядом: подарок предлагают там, где должна быть привязанность, и читатель понимает, почему гнев сына принимает такую форму. Оба фрагмента находятся в главе 12.',
+    "markscheme": {
+      "en": "Author’s practice anchors, 1 mark each: (1) identify Carine’s recollection of an emotional expression of gratitude, not merely a purchase; (2) explain how the later disclosure of concealed overlapping family relationships complicates that earlier warmth and trust; (3) analyse Krakauer’s arrangement and attribution of the accounts, with a supported interpretation. Credit alternative grounded readings; do not award the claim that the gift proves there was no affection.",
+      "ru": "Ориентиры авторского упражнения, по 1 баллу: (1) названо воспоминание Карин об эмоционально выраженной благодарности, а не только о покупке; (2) объяснено, как последующее открытие скрытой жизни на две семьи осложняет показанные ранее теплоту и доверие; (3) разобраны расположение эпизодов и указание на источники свидетельств, с обоснованной интерпретацией. Засчитывайте другие доказательные прочтения; подарок не доказывает отсутствия привязанности."
     },
-    origin: 'original',
-    minutes: 5,
+    "model": {
+      "en": "The opening presents gratitude through Carine’s recollection of an emotional speech, so the telescope cannot simply stand for an absence of love. The later disclosure puts earlier trust under pressure. By placing the accounts in one chapter, Krakauer makes the relationship change in the reader’s understanding; the attributed memories also remind us that it is reconstructed through witnesses.",
+      "ru": "В начале благодарность передана через воспоминание Карин об эмоциональной речи, поэтому телескоп нельзя просто считать знаком отсутствия любви. Последующее открытие ставит прежнее доверие под вопрос. Соседство свидетельств меняет читательское понимание отношений; ссылки на воспоминания также показывают, что рассказ восстанавливается со слов участников."
+    },
+    "origin": "original",
+    "minutes": 8
   },
   {
     id: 'w-into-the-wild-2',
@@ -61,8 +67,8 @@ export const questions: Question[] = [
       ru: '1 балл: объяснено присутствие рассказчика (интервью, расследование, собственное восхождение) и что оно даёт. 1 балл: назван документ (письмо, открытка или запись в дневнике) и его эффект для доступа к собственному голосу Маккандлесса. 1 балл: эпилог (родители у автобуса и их записка) показывает, как концовка смещает фокус. 1 балл: назван предел взгляда рассказчика, например то, что объяснение гибели — гипотеза, которую автор пересмотрел. 1 балл: дано суждение со степенью, например «в основном помогает, но ограничивает в вопросе о причине смерти».',
     },
     model: {
-      en: 'The author\'s presence is largely helpful. His interviews and his own climb give the reader a way into McCandless\'s motives, and the letters and postcards let McCandless speak directly. The limit is clear, though. The book\'s explanation of the death is a hypothesis that the author revised after lab tests, so his authority is weakest on the question the book most wants to answer. The epilogue shows the narrator in a final form: he returns with the parents, and their note closes the story with an appeal to runaways rather than with McCandless\'s own words.',
-      ru: 'Присутствие автора в целом помогает. Интервью и собственное восхождение дают читателю путь к мотивам Маккандлесса, а письма и открытки позволяют самому Маккандлессу говорить напрямую. Однако предел очевиден. Объяснение гибели в книге — гипотеза, которую автор пересмотрел после лабораторных анализов, поэтому его авторитет слабее всего в вопросе, на который книга больше всего хочет ответить. Эпилог показывает рассказчика в последней форме: он возвращается с родителями, и их записка завершает историю обращением к беглецам, а не словами самого Маккандлесса.',
+      en: 'The author\'s presence is largely helpful. His interviews and his own climb give the reader a way into McCandless\'s motives, and the letters and postcards let McCandless speak directly. The limit is clear, though. The explanation of the death is a hypothesis, so distinguish the book’s wording from later revisions rather than treating the narrator’s conviction as proof. The epilogue shows the narrator in a final form: he returns with the parents, and their note closes the story with an appeal to runaways rather than with McCandless\'s own words.',
+      ru: 'Присутствие автора в целом помогает. Интервью и собственное восхождение дают читателю путь к мотивам Маккандлесса, а письма и открытки позволяют самому Маккандлессу говорить напрямую. Однако предел очевиден. Объяснение гибели — гипотеза: нужно различать формулировку книги и последующие пересмотры, а не принимать уверенность рассказчика за доказательство. Эпилог показывает рассказчика в последней форме: он возвращается с родителями, и их записка завершает историю обращением к беглецам, а не словами самого Маккандлесса.',
     },
     origin: 'original',
     minutes: 10,

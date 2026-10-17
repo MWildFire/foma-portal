@@ -10,8 +10,8 @@ export const formulas: Formula[] = [
       ru: 'Переводит значение величины $X \\sim N(\\mu, \\sigma^2)$ в стандартное нормальное значение $Z \\sim N(0, 1)$.',
     },
     when: {
-      en: 'Comparing values from different normal distributions, or using one table of the standard normal.',
-      ru: 'Сравнение значений из разных нормальных распределений или использование одной таблицы стандартного нормального распределения.',
+      en: 'Requires sigma>0. Comparing values from different normal distributions, or using one table of the standard normal.',
+      ru: 'Требуется σ>0. Сравнение значений из разных нормальных распределений или использование одной таблицы стандартного нормального распределения.',
     },
     syllabus: '4.9',
     inBooklet: false,
@@ -29,8 +29,8 @@ export const formulas: Formula[] = [
       ru: 'Высота нормальной кривой в точке x. Вероятности — это площади под кривой, а не высоты.',
     },
     when: {
-      en: 'Explaining the shape of the curve. The GDC evaluates the probabilities without it.',
-      ru: 'Объяснение формы кривой. Калькулятор вычисляет вероятности без прямого использования этой формулы.',
+      en: 'Requires sigma>0. Explaining the shape of the curve. The GDC evaluates the probabilities without it.',
+      ru: 'Требуется σ>0. Объяснение формы кривой. Калькулятор вычисляет вероятности без прямого использования этой формулы.',
     },
     syllabus: '4.9',
     inBooklet: false,
@@ -44,8 +44,8 @@ export const formulas: Formula[] = [
       ru: 'Переводит стандартизованную величину $z$ обратно в значение $x$ величины $X \\sim N(\\mu, \\sigma^2)$.',
     },
     when: {
-      en: 'Solving inverse normal problems when the given area corresponds to a z-value.',
-      ru: 'Решение обратных задач, когда заданная площадь соответствует значению z.',
+      en: 'Requires sigma>0. Solving inverse normal problems when the given area corresponds to a z-value.',
+      ru: 'Требуется σ>0. Решение обратных задач, когда заданная площадь соответствует значению z.',
     },
     syllabus: '4.9',
     inBooklet: false,

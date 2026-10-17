@@ -34,8 +34,8 @@ const msc: CurveSpec = { id: 'msc', points: MSC, tone: 'alt', label: { en: 'MSC'
 const em: MarkSpec = { id: 'Em', at: [12, 6], tone: 'ink', label: { en: 'Qm', ru: 'Qm' }, dx: 17, dy: 3 };
 const emMuted: MarkSpec = { ...em, tone: 'muted' };
 const es: MarkSpec = { id: 'Es', at: [9, 7.5], tone: 'ink', label: { en: 'Qopt', ru: 'Qopt' }, dx: -14, dy: -20 };
-// The welfare-loss label: a dot at the centre of the triangle and the name next to it.
-const dwl: MarkSpec = { id: 'dwl', at: [11, 7.6], tone: 'loss', label: { en: 'DWL', ru: 'DWL' }, dx: 10, dy: -5 };
+// The welfare-loss annotation has no data-point marker.
+const dwl: MarkSpec = { id: 'dwl', dot: false, at: [11, 7.6], tone: 'loss', label: { en: 'DWL 4.5', ru: 'DWL 4,5' }, dx: 10, dy: -5 };
 
 // Extension: effort (E) on the horizontal axis.
 const effortAxes = {
@@ -48,7 +48,7 @@ const effortAxes = {
 const yieldCurve: CurveSpec = { id: 'yield', points: fn(e => 12 * e - 0.5 * e * e, 0, 16, 32), tone: 'demand', label: { en: 'Total yield', ru: 'Общий улов' } };
 const tr: CurveSpec = { id: 'tr', points: TR, tone: 'demand', label: { en: 'TR', ru: 'TR' } };
 const tc: CurveSpec = { id: 'tc', points: TC, tone: 'supply', label: { en: 'TC', ru: 'TC' } };
-const profitLabel: MarkSpec = { id: 'profit', at: [8, 48], tone: 'policy', label: { en: 'profit 32', ru: 'прибыль 32' }, dx: 8, dy: -28 };
+const profitLabel: MarkSpec = { id: 'profit', dot: false, at: [8, 48], tone: 'policy', label: { en: 'profit 32', ru: 'прибыль 32' }, dx: 8, dy: -28 };
 
 const steps: Step[] = [
   {
@@ -116,8 +116,8 @@ const steps: Step[] = [
   {
     title: { en: 'Extension: maximum sustainable yield', ru: 'Дополнение: максимальный устойчивый улов' },
     text: {
-      en: 'The total catch rises with fishing effort, reaches its maximum sustainable yield (MSY) at E = 12, and then falls because the stock can no longer renew itself. Effort to the left of MSY is sustainable; to the right of it, it is not.',
-      ru: 'Общий улов растёт с усилием лова, достигает максимального устойчивого улова (maximum sustainable yield, MSY) при E = 12 и затем падает, потому что запас больше не успевает восстанавливаться. Усилие левее MSY устойчиво, правее — нет.',
+      en: 'This optional, hypothetical Gordon–Schaefer curve shows long-run equilibrium yield Y = 12E − 0.5E². It peaks at MSY = 72 when E = 12. Beyond that effort, equilibrium yield and stock are lower: biological overfishing. Those points are still equilibrium yields in this idealised model; the declining branch does not by itself mean that no renewal is possible. Real viability and transition risks need separate evidence.',
+      ru: 'Эта необязательная условная модель Гордона–Шефера показывает долгосрочный равновесный улов Y = 12E − 0,5E². Максимум MSY = 72 достигается при E = 12. Правее равновесные улов и запас ниже: это биологический перелов. В идеализированной модели точки остаются равновесными уловами; нисходящая ветвь сама по себе не означает невозможность воспроизводства. Реальную жизнеспособность запаса и риски перехода оценивают отдельно.',
     },
     graph: {
       ...effortAxes,
@@ -125,8 +125,8 @@ const steps: Step[] = [
       curves: [yieldCurve],
       guides: [
         { id: 'msy', from: [12, 0], to: [12, 72], tone: 'ink' },
-        { id: 'sust', from: [3, 6], to: [11.5, 6], tone: 'gain', dashed: false, label: { en: 'sustainable', ru: 'устойчиво' }, labelAt: 'start' },
-        { id: 'unsust', from: [12.5, 6], to: [23, 6], tone: 'loss', dashed: false, label: { en: 'unsustainable', ru: 'неустойчиво' }, labelAt: 'start' },
+        { id: 'sust', from: [3, 6], to: [11.5, 6], tone: 'gain', dashed: false, label: { en: 'below MSY effort', ru: 'до усилия MSY' }, labelAt: 'start' },
+        { id: 'unsust', from: [12.5, 6], to: [23, 6], tone: 'loss', dashed: false, label: { en: 'beyond MSY effort', ru: 'за усилием MSY' }, labelAt: 'start' },
       ],
       marks: [{ id: 'msyPoint', at: [12, 72], tone: 'ink', label: { en: 'MSY', ru: 'MSY' }, dx: 8, dy: -8 }],
       xTicks: ticks([12]),
@@ -135,8 +135,8 @@ const steps: Step[] = [
   {
     title: { en: 'Extension: open access and the optimum (complete picture)', ru: 'Дополнение: открытый доступ и оптимум (полная картина)' },
     text: {
-      en: 'Measure the catch in money: total yield becomes total revenue (TR), and total cost (TC) is added. With open access, boats keep entering while TR exceeds TC, so effort reaches Eoa = 16, to the right of MSY, where TR = TC = 64 and profit is zero. At E* = 8 the same revenue, 64, costs only 32, so profit is 32.',
-      ru: 'Измерим улов в деньгах: общий улов становится общей выручкой (TR), и добавляются общие издержки (TC). При открытом доступе лодки продолжают приходить, пока TR выше TC, поэтому усилие доходит до Eoa = 16, правее MSY, где TR = TC = 64 и прибыль равна нулю. При E* = 8 та же выручка, 64, обходится всего в 32, поэтому прибыль равна 32.',
+      en: 'Assume a constant fish price of 1 monetary unit per catch unit, so the numerical yield becomes revenue TR; total cost is TC = 4E. With open access, boats keep entering while TR exceeds TC, so effort reaches Eoa = 16, to the right of MSY, where TR = TC = 64 and profit is zero. At E* = 8 the same revenue, 64, costs only 32, so profit is 32.',
+      ru: 'Примем постоянную цену рыбы 1 денежная единица за единицу улова: численное значение улова становится выручкой TR; общие издержки TC = 4E. При открытом доступе лодки продолжают приходить, пока TR выше TC, поэтому усилие доходит до Eoa = 16, правее MSY, где TR = TC = 64 и прибыль равна нулю. При E* = 8 та же выручка, 64, обходится всего в 32, поэтому прибыль равна 32.',
     },
     graph: {
       ...effortAxes,
@@ -162,10 +162,16 @@ const steps: Step[] = [
 
 export default function Cpr({ lang }: { lang: Lang }) {
   return (
+    <>
     <StepPlayer
       lang={lang}
       label={{ en: 'Common pool resource: overuse of a shared fish stock', ru: 'Общий ресурс: перелов общего запаса рыбы' }}
-      steps={steps}
+      steps={steps.slice(0, 4)}
     />
+    <details>
+      <summary>{lang === 'ru' ? 'Вне мока: MSY и модель TR/TC' : 'Outside the mock: MSY and the TR/TC model'}</summary>
+      <StepPlayer lang={lang} label={{ en: 'Optional extension: fishing effort', ru: 'Дополнение: усилие лова' }} steps={steps.slice(4)} />
+    </details>
+    </>
   );
 }

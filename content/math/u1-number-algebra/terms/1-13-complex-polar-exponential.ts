@@ -4,10 +4,10 @@ import { BOOK_TITLE } from '../../book';
 export const terms: Term[] = [
   {
     id: 'modulus-argument-form',
-    term: { en: 'modulus–argument form', ru: 'модульно-аргументная форма (modulus–argument form)' },
+    term: { en: 'modulus–argument form', ru: 'тригонометрическая форма (modulus–argument form)' },
     def: {
-      en: 'The form $z = r(\\cos\\theta + i\\sin\\theta)$, written $r\\,\\text{cis}\\,\\theta$, where $r = |z|$ and $\\theta = \\arg z$. Here $\\text{cis}\\,\\theta = \\cos\\theta + i\\sin\\theta$.',
-      ru: 'Форма $z = r(\\cos\\theta + i\\sin\\theta)$, записываемая как $r\\,\\text{cis}\\,\\theta$, где $r = |z|$ и $\\theta = \\arg z$. Здесь $\\text{cis}\\,\\theta = \\cos\\theta + i\\sin\\theta$.',
+      en: 'For nonzero z, the form $z = r(\\cos\\theta + i\\sin\\theta)$, written $r\\,\\text{cis}\\,\\theta$, where $r = |z|$ and $\\theta = \\arg z$. Here $\\text{cis}\\,\\theta = \\cos\\theta + i\\sin\\theta$.',
+      ru: 'Для ненулевого z форма $z = r(\\cos\\theta + i\\sin\\theta)$, записываемая как $r\\,\\text{cis}\\,\\theta$, где $r = |z|$ и $\\theta = \\arg z$. Здесь $\\text{cis}\\,\\theta = \\cos\\theta + i\\sin\\theta$.',
     },
     syllabus: '1.13',
     papers: ['P1', 'P2', 'P3'],
@@ -22,8 +22,8 @@ export const terms: Term[] = [
     id: 'complex-argument',
     term: { en: 'argument of a complex number', ru: 'аргумент комплексного числа (argument of a complex number)' },
     def: {
-      en: 'The angle $\\theta = \\arg z$ from the positive real axis to the line from the origin to $z$, measured anticlockwise. The principal argument satisfies $-\\pi < \\theta \\le \\pi$.',
-      ru: 'Угол $\\theta = \\arg z$ от положительной действительной оси до отрезка от начала координат к $z$, отсчитываемый против часовой стрелки. Главное значение удовлетворяет $-\\pi < \\theta \\le \\pi$.',
+      en: 'The angle $\\theta = \\arg z$ from the positive real axis to the line from the origin to $z$, with positive angles anticlockwise and negative angles clockwise. Zero has no defined argument. For nonzero z, the principal argument satisfies $-\\pi < \\theta \\le \\pi$.',
+      ru: 'Угол $\\theta = \\arg z$ от положительной действительной оси до отрезка от начала координат к $z$, с положительным направлением против часовой стрелки и отрицательным — по часовой. У нуля аргумент не определён. Для ненулевого z главное значение удовлетворяет $-\\pi < \\theta \\le \\pi$.',
     },
     syllabus: '1.13',
     papers: ['P1', 'P2', 'P3'],
@@ -37,8 +37,8 @@ export const terms: Term[] = [
     id: 'exponential-form',
     term: { en: 'exponential form of a complex number', ru: 'показательная форма комплексного числа (exponential form of a complex number)' },
     def: {
-      en: 'The form $z = re^{i\\theta}$, where $r = |z|$ and $\\theta = \\arg z$ in radians. It follows from Euler’s relation $e^{i\\theta} = \\cos\\theta + i\\sin\\theta$.',
-      ru: 'Форма $z = re^{i\\theta}$, где $r = |z|$, а $\\theta = \\arg z$ в радианах. Она следует из формулы Эйлера $e^{i\\theta} = \\cos\\theta + i\\sin\\theta$.',
+      en: 'For nonzero z, the form $z = re^{i\\theta}$, where $r = |z|$ and $\\theta = \\arg z$ in radians. It follows from Euler’s relation $e^{i\\theta} = \\cos\\theta + i\\sin\\theta$.',
+      ru: 'Для ненулевого z форма $z = re^{i\\theta}$, где $r = |z|$, а $\\theta = \\arg z$ в радианах. Она следует из формулы Эйлера $e^{i\\theta} = \\cos\\theta + i\\sin\\theta$.',
     },
     syllabus: '1.13',
     papers: ['P1', 'P2', 'P3'],
@@ -52,8 +52,8 @@ export const terms: Term[] = [
     id: 'de-moivre-theorem',
     term: { en: 'de Moivre’s theorem', ru: 'теорема Муавра (de Moivre’s theorem)' },
     def: {
-      en: 'For an integer $n$, $(r\\,\\text{cis}\\,\\theta)^{n} = r^{n}\\,\\text{cis}\\,(n\\theta)$: the power raises the modulus to the power $n$ and multiplies the argument by $n$.',
-      ru: 'Для целого $n$ выполняется $(r\\,\\text{cis}\\,\\theta)^{n} = r^{n}\\,\\text{cis}\\,(n\\theta)$: модуль возводится в степень $n$, а аргумент умножается на $n$.',
+      en: 'For an integer $n$ and a nonzero base, $(r\\,\\text{cis}\\,\\theta)^{n} = r^{n}\\,\\text{cis}\\,(n\\theta)$: the power raises the modulus to the power $n$ and multiplies the argument by $n$.',
+      ru: 'Для целого $n$ и ненулевого основания выполняется $(r\\,\\text{cis}\\,\\theta)^{n} = r^{n}\\,\\text{cis}\\,(n\\theta)$: модуль возводится в степень $n$, а аргумент умножается на $n$.',
     },
     syllabus: '1.13',
     papers: ['P1', 'P2', 'P3'],

@@ -6,7 +6,7 @@ A discrete random variable assigns a number to each outcome of a random process.
 
 A <Term id="discrete-random-variable"/> $X$ takes separate values $x$, and each value has a probability $P(X = x)$. Examples are the number of heads in three tosses of a coin, the prize from one ticket, or the number of faulty items in a sample.
 
-The full list of values with their probabilities is the <Term id="discrete-probability-distribution"/>. It is often written as a table. The probabilities must add to 1, because one of the values must occur:
+The full list of values with their probabilities is the <Term id="discrete-probability-distribution"/>. It is often written as a table. Each probability must be between 0 and 1, and the probabilities must add to 1, because one of the values must occur:
 
 $$
 \sum_{x} P(X = x) = 1
@@ -44,7 +44,7 @@ A discrete random variable $X$ takes the values 1, 2 and 4 with probabilities 0.
 <Step>Game: a player pays 2.5 to play and receives $X$, so the expected net gain is $E(G) = 1.9 - 2.5 = -0.6$. The game is not fair: on average the player loses 0.6 per game.</Step>
 </Steps>
 
-<Reveal title="Why is E(X) = 1.9 not a possible value?">$X$ can only be 1, 2 or 4, so a single play never gives 1.9. It is a long-run average: over many plays, the average result settles near 1.9.</Reveal>
+<Reveal title="Why is E(X) = 1.9 not a possible value?">$X$ can only be 1, 2 or 4, so a single play never gives 1.9. It is a long-run average: over many independent plays with this same distribution, the sample average approaches 1.9 with high probability.</Reveal>
 
 ## Visual
 
@@ -52,9 +52,7 @@ A discrete random variable $X$ takes the values 1, 2 and 4 with probabilities 0.
 
 ## How it is examined
 
-Find and Determine questions give a method mark for writing the sum $\sum x\,P(X = x)$ and an accuracy mark for the answer. Write out each product before you add them: a missing product is the most common reason for losing a mark. In context, state the units (AED) and interpret the sign of an expected gain: a negative value means that the player loses on average. In multi-part P2 questions, a wrong $E(X)$ can be carried into later parts, and examiners give follow-through marks only when the method is correct, so keep the working for every part.
-
-<Callout kind="exam">Show that the probabilities add to 1 before you calculate $E(X)$. If they do not, a value is missing from the table or a probability is wrong.</Callout>
+For a missing probability, use normalisation and non-negativity. For an expected value, write every probability-weighted product. Give units and interpret a negative expected net gain as an average loss, not a loss on every play. Follow-through depends on the particular markscheme.
 
 ## Common mistakes
 

@@ -6,8 +6,8 @@ export const formulas: Formula[] = [
     tex: 'y=a(x-h)^2+k',
     name: { en: 'Vertex form of a quadratic model', ru: 'Вершинный вид квадратичной модели (Vertex form of a quadratic model)' },
     meaning: {
-      en: 'The vertex is (h, k) and the axis of symmetry is x = h. A positive a gives a minimum; a negative a gives a maximum.',
-      ru: 'Вершина — (h, k), ось симметрии — x = h. При положительном a график имеет минимум, при отрицательном a — максимум.',
+      en: 'For a≠0, the vertex is (h, k) and the axis of symmetry is x = h. A positive a gives a minimum; a negative a gives a maximum.',
+      ru: 'При a≠0 вершина — (h, k), ось симметрии — x = h. При положительном a график имеет минимум, при отрицательном a — максимум.',
     },
     when: {
       en: 'A parabolic model in which the turning point, the maximum or the minimum is needed directly.',
@@ -25,8 +25,8 @@ export const formulas: Formula[] = [
       ru: 'График приближается к прямой y = c. Точка пересечения с осью y равна k + c. При a > 1 модель растёт, при 0 < a < 1 убывает (при k > 0).',
     },
     when: {
-      en: 'A quantity that changes by a constant percentage for each unit of x and moves towards a limit c.',
-      ru: 'Величина, которая меняется на постоянный процент за каждую единицу x и стремится к предельному значению c.',
+      en: 'For a>0, a≠1 and k≠0, the difference y−c changes by a constant factor per unit x. The horizontal asymptote y=c is approached in the appropriate direction of x.',
+      ru: 'При a>0, a≠1 и k≠0 разность y−c меняется в постоянное число раз при изменении x на единицу. К асимптоте y=c график приближается в соответствующем направлении x.',
     },
     syllabus: '2.5',
     inBooklet: false,
@@ -51,12 +51,12 @@ export const formulas: Formula[] = [
     tex: 'y=a\\sin(bx)+d',
     name: { en: 'Sinusoidal model', ru: 'Синусоидальная модель (Sinusoidal model)' },
     meaning: {
-      en: 'The amplitude is |a|, the period is 2π/b and the midline is y = d. The maximum is d + |a| and the minimum is d - |a|.',
-      ru: 'Амплитуда равна |a|, период — 2π/b, средняя линия — y = d. Наибольшее значение равно d + |a|, наименьшее — d - |a|.',
+      en: 'The amplitude is |a|, the period is 2π/|b| (a and b nonzero) and the midline is y = d. The maximum is d + |a| and the minimum is d - |a|.',
+      ru: 'Амплитуда равна |a|, период — 2π/|b| (a и b ненулевые), средняя линия — y = d. Наибольшее значение равно d + |a|, наименьшее — d - |a|.',
     },
     when: {
-      en: 'A quantity that repeats in a cycle, such as the number of daylight hours over a year.',
-      ru: 'Величина, которая повторяется циклически, например число часов дневного света за год.',
+      en: 'Use radian input for the period 2π/|b|. With degree input it is 360°/|b|. A sinusoid can model cyclical data such as daylight hours, within stated limits.',
+      ru: 'Для периода 2π/|b| аргумент берут в радианах; при градусном аргументе период равен 360°/|b|. Синусоида может моделировать циклические данные, например длину дня, в указанных пределах.',
     },
     syllabus: '2.5',
     inBooklet: false,

@@ -1,3 +1,4 @@
+import ReadableDiagram from '../readable-diagram';
 import { useState } from 'react';
 import type { Lang } from '../../contract/types';
 
@@ -62,15 +63,15 @@ export default function MarkovLab({ lang }: { lang: Lang }) {
 
   return (
     <figure style={{ margin: 0 }}>
-      <svg viewBox={`0 0 ${WIDTH} ${HEIGHT}`} width="100%" style={{ maxWidth: WIDTH }} role="img" aria-label={t.label}>
+      <ReadableDiagram lang={lang}><svg viewBox={`0 0 ${WIDTH} ${HEIGHT}`} width="100%" style={{ maxWidth: WIDTH }} role="img" aria-label={t.label}>
         <line x1={0} y1={BASE} x2={WIDTH} y2={BASE} stroke="currentColor" strokeWidth={1} />
         <line x1={10} y1={Y(steadyA)} x2={WIDTH - 10} y2={Y(steadyA)} stroke="#4f6fd8" strokeWidth={1.5} strokeDasharray="5 4" />
         <polyline points={line} fill="none" stroke="#e0883a" strokeWidth={2} />
         <circle cx={X(n)} cy={Y(aN)} r={4} fill="#e0883a" />
-        <text x={2} y={Y(1) + 3} fontSize={9}>1</text>
-        <text x={2} y={Y(0) - 3} fontSize={9}>0</text>
-        <text x={WIDTH - 2} y={BASE - 4} fontSize={9} textAnchor="end">n</text>
-      </svg>
+        <text x={2} y={Y(1) + 3} fontSize={9} fill="currentColor">1</text>
+        <text x={2} y={Y(0) - 3} fontSize={9} fill="currentColor">0</text>
+        <text x={WIDTH - 2} y={BASE - 4} fontSize={9} textAnchor="end" fill="currentColor">n</text>
+      </svg></ReadableDiagram>
       <figcaption style={{ fontSize: 13, lineHeight: 1.5 }}>
         {t.after}: P(A) = {aN.toFixed(3)}, P(B) = {(1 - aN).toFixed(3)}
         <br />

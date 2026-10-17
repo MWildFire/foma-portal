@@ -6,7 +6,7 @@ Many quantities change at a rate that depends on their current value. A hot drin
 
 To set up a model, name the variable, describe the rate of change in words, and write it as a derivative. "The rate of cooling is proportional to the difference between the temperature and the room temperature" becomes $\dfrac{dT}{dt} = -k(T - 20)$. An equation that contains only a first derivative is a <Term id="de-first-order-equation"/>.
 
-When the equation has the form $\dfrac{dy}{dx} = f(x)\,g(y)$, the variables can be separated. The <Term id="de-separation-of-variables"/> method then gives $\dfrac{1}{g(y)}\,dy = f(x)\,dx$: integrate both sides, add one constant, and solve for $y$.
+When the equation has the form $\dfrac{dy}{dx} = f(x)\,g(y)$, the variables can be separated. The <Term id="de-separation-of-variables"/> method then gives $\dfrac{1}{g(y)}\,dy = f(x)\,dx$: integrate both sides, add one constant, and solve for $y$. Work on an interval where $g(y) \neq 0$ and check any constant solutions $g(y)=0$ separately.
 
 <Formula id="de-separated-form"/>
 
@@ -14,11 +14,11 @@ Integrating $\dfrac{1}{y}$ produces a logarithm, so after integrating, take expo
 
 <Formula id="de-log-integral"/>
 
-The <Term id="de-initial-condition"/> (for example $T(0) = 90$) fixes the constant. Cooling, limited growth and mixing with fresh water all have solutions of the form $y = L + (y_0 - L)e^{-kt}$, which approach the limit $L$ as $t$ grows.
+The <Term id="de-initial-condition"/> (for example $T(0) = 90$) fixes the constant. Cooling, limited growth and mixing with fresh water all have solutions of the form $y = L + (y_0 - L)e^{-kt}$, which approach $L$ as $t$ tends to infinity when $k > 0$. Here $t \geq 0$ and $k$ has reciprocal-time units.
 
 <Formula id="de-relaxation-solution"/>
 
-<Callout kind="define">A first-order differential equation relates a function to its first derivative. It can be solved by separation of variables when it can be written as $g(y)\,dy = f(x)\,dx$.</Callout>
+<Callout kind="define">A first-order differential equation relates a function to its first derivative. It can be solved by separation of variables when it can be written as $\dfrac{dy}{g(y)} = f(x)\,dx$.</Callout>
 
 <Callout kind="gdc">On a Calculator page, type `nSolve(20+70*e^(-ln(2)*t/10)=30,t)` or use `Menu → Algebra → Numerical Solve` to find when the temperature of the worked example reaches 30 °C; this calculator has no `solve(`. Alternatively, on a Graphs page enter $T$ with $x$ in place of $t$ and the line $y = 30$ with `Menu → Graph Entry/Edit → Function`, then use `Menu → Analyze Graph → Intersection`, setting a lower and an upper bound.</Callout>
 
@@ -48,7 +48,7 @@ Set-up marks come from turning the words of the model into an equation with the 
 
 <Callout kind="mistake">Writing the model with $T$ instead of $T - 20$. The tea would then cool towards 0 °C rather than towards the room temperature of 20 °C.</Callout>
 
-- Forgetting the constant of integration, or adding it to one side only.
+- Forgetting the arbitrary constant of integration. One constant on one side is sufficient: two constants combine into a single $C = C_2 - C_1$.
 - Dividing by $y$ and losing the constant solution $y = 0$. Check constant solutions separately.
 - Writing $\ln|T - 20| = -kt + C$ and then treating it as $T - 20 = -kt + C$, without taking exponentials.
 
@@ -63,8 +63,8 @@ Set-up marks come from turning the words of the model into an equation with the 
 ## Summary
 
 - A differential equation links a function to its rate of change; a model turns the phrase "the rate is proportional to ..." into an equation for the derivative.
-- Separation of variables: bring the equation to $g(y)\,dy = f(x)\,dx$, integrate both sides and add one constant.
+- Separation of variables: bring the equation to $\dfrac{dy}{g(y)} = f(x)\,dx$, integrate both sides and add one constant.
 - The initial condition fixes the constant and gives the particular solution.
-- Cooling, limited growth and mixing models have the form $y = L + (y_0 - L)e^{-kt}$ and approach the limit $L$.
+- Cooling, limited growth and mixing models have the form $y = L + (y_0 - L)e^{-kt}$ with $k > 0$ and approach $L$ as $t \to \infty$.
 - Check a solution by substitution: differentiate it, compare with the equation and test the initial condition.
 - Interpret the answer: the limit as $t$ becomes large, the time to reach a level, and the range in which the model is valid.

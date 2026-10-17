@@ -1,5 +1,5 @@
 import type { L, Lang } from '../../contract/types';
-import { StepFrame, type StepText } from './_lib/graph';
+import { GraphViewport, StepFrame, type StepText } from './_lib/graph';
 
 // Price war (oligopoly game). Profit of firm A and firm B (AED million a year) for each pair of prices.
 // Rows: firm A high or low. Columns: firm B high or low. Each cell is [profit of A, profit of B].
@@ -12,7 +12,7 @@ const CELLS: [number, number][][] = [
 
 const BLUE = '#3b82f6';
 const PURPLE = '#a855f7';
-const GREEN = '#22c55e';
+const GREEN = '#16a34a';
 const RED = '#ef4444';
 
 const COL_X = [92, 222];
@@ -22,8 +22,8 @@ const CELL_H = 84;
 
 type Highlight = { row: number; col: number; colour: string; tag: L; width: number; dash?: boolean; fill?: boolean };
 
-const A_BEST: L = { en: 'A best', ru: 'лучше для A' };
-const B_BEST: L = { en: 'B best', ru: 'лучше для B' };
+const A_BEST: L = { en: 'A: best reply', ru: 'A: лучший ответ' };
+const B_BEST: L = { en: 'B: best reply', ru: 'B: лучший ответ' };
 const NASH: L = { en: 'Nash equilibrium', ru: 'равновесие Нэша' };
 const UNSTABLE: L = { en: 'not stable', ru: 'неустойчиво' };
 
@@ -55,7 +55,7 @@ function matrix(index: number, lang: Lang) {
   const colName = [HIGH, LOW];
 
   return (
-    <svg role="img" aria-label={lang === 'en' ? 'Payoff matrix of the two firms' : 'Матрица выплат двух фирм'} viewBox="0 0 360 240" width="100%" style={{ maxWidth: 420, display: 'block', color: 'var(--color-fg)' }}>
+    <GraphViewport lang={lang}><svg role="img" aria-label={lang === 'en' ? 'Payoff matrix of the two firms' : 'Матрица выплат двух фирм'} viewBox="0 0 360 240" width="100%" style={{ maxWidth: 420, display: 'block', color: 'var(--color-fg)' }}>
       <text x={(COL_X[0] + COL_X[1] + CELL_W) / 2} y={22} textAnchor="middle" fontSize={12} fontWeight={600} fill="currentColor">{FIRM_B[lang]}</text>
       {colName.map((name, j) => (
         <text key={`c${j}`} x={COL_X[j] + CELL_W / 2} y={38} textAnchor="middle" fontSize={11} fill="currentColor">{name[lang]}</text>
@@ -92,7 +92,7 @@ function matrix(index: number, lang: Lang) {
                 />
               )}
               {mark && (
-                <text x={cx} y={y + 18} textAnchor="middle" fontSize={11} fontWeight={600} fill={mark.colour}>{mark.tag[lang]}</text>
+                <text x={cx} y={y + 18} textAnchor="middle" fontSize={11} fontWeight={600} fill="currentColor">{mark.tag[lang]}</text>
               )}
               <text x={cx} y={cy - 2} textAnchor="middle" fontSize={14} fontWeight={600} fill="currentColor">{`A: ${a}`}</text>
               <text x={cx} y={cy + 18} textAnchor="middle" fontSize={14} fontWeight={600} fill="currentColor">{`B: ${b}`}</text>
@@ -100,7 +100,7 @@ function matrix(index: number, lang: Lang) {
           );
         }),
       )}
-    </svg>
+    </svg></GraphViewport>
   );
 }
 

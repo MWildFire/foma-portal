@@ -13,8 +13,8 @@ export const terms: Term[] = [
     id: 'geometric-sequence',
     term: { en: 'geometric sequence', ru: 'геометрическая последовательность (geometric sequence)' },
     def: {
-      en: 'A sequence in which each term is found by multiplying the previous term by the same common ratio $r$, where $r \\neq 1$. Its terms are $u_1, u_1 r, u_1 r^2, \\dots$',
-      ru: 'Последовательность, в которой каждый член получается умножением предыдущего члена на одно и то же число $r$, где $r \\neq 1$. Её члены: $u_1, u_1 r, u_1 r^2, \\dots$',
+      en: 'A sequence in which each term is found by multiplying the previous term by the same common ratio $r$, with nonzero terms so the ratio is defined. The recurrence definition allows $r=1$ as a constant case; Oxford p.291 reserves the name for $r ≠ 1$. Its terms are $u_1, u_1 r, u_1 r^2, \\dots$',
+      ru: 'Последовательность, в которой каждый член получается умножением предыдущего члена на одно и то же число $r$, с ненулевыми членами, чтобы отношение было определено. Определение через рекурсию допускает постоянный случай $r=1$; Oxford на с.291 оставляет название для $r ≠ 1$. Её члены: $u_1, u_1 r, u_1 r^2, \\dots$',
     },
     syllabus: '1.3',
     papers: ['P1', 'P2', 'P3'],
@@ -63,7 +63,7 @@ export const terms: Term[] = [
     },
     syllabus: '1.3',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 7.1, pp. 291, 296' },
     pitfall: {
       en: 'The power is $r^{k-1}$, not $r^{k}$: the first term is $u_1 r^{0} = u_1$.',
       ru: 'Степень равна $r^{k-1}$, а не $r^{k}$: первый член равен $u_1 r^{0} = u_1$.',

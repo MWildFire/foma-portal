@@ -12,7 +12,7 @@ The <Term id="walk-count-matrix-power"/> is the entry in row $i$, column $j$ of 
 
 A weighted adjacency table replaces each 1 by the weight of the edge, for example a distance or a travel time. The walk counts still use the matrix of 0s and 1s; to find the total weight of a walk, add the weights of its edges.
 
-For a strongly connected directed graph (every vertex can be reached from every other vertex), in which each step leaves along an outgoing arc chosen at random, divide each row of $A$ by its row sum, which is the out-degree of that vertex. The result is the <Term id="transition-matrix-graph"/>, written $T$, and each of its rows adds to 1. The entry in row $i$, column $j$ of $T^n$ is the probability of being at vertex $j$ after $n$ steps, see <Formula id="walk-transition-matrix"/> and <Formula id="walk-n-step-probability"/>.
+For a strongly connected directed graph (every vertex can be reached from every other vertex), in which each step leaves along an outgoing arc chosen at random, divide each row of $A$ by its row sum, which is the out-degree of that vertex. The result is the <Term id="transition-matrix-graph"/>, written $R$, and each of its rows adds to 1. The entry in row $i$, column $j$ of $R^n$ is the probability of being at vertex $j$ after $n$ steps starting at $i$. A row state evolves as $q_n=q_0R^n$. For column states, transpose: $s_n=(R^{\mathsf T})^n s_0$, so the booklet matrix is $T=R^{\mathsf T}$. If parallel arcs are allowed, $a_{ij}$ counts them and equal choices mean equal outgoing arcs, not equal distinct destination vertices. See <Formula id="walk-transition-matrix"/> and <Formula id="walk-n-step-probability"/>.
 
 <Callout kind="define">Walk: a sequence of vertices in which each consecutive pair is joined by an edge; its length is the number of edges. The number of walks of length $k$ from $i$ to $j$ is the entry in row $i$, column $j$ of $A^k$.</Callout>
 
@@ -42,7 +42,7 @@ The lab draws the graph of the worked example with its adjacency matrix. Choose 
 
 ## How it is examined
 
-Find and Write down questions give marks for the matrix method and for the entry you read. Walks of length at most $k$ need the sum of the powers, and a common loss of marks is to stop at $A^k$. Transition questions need the probabilities as decimals to the required accuracy, and each row of $T$ must add to 1.
+For Find, show the relevant working, for example the required matrix power or a list of walks. Write down usually asks for an entry read directly from the supplied matrix; working need not be shown. Follow the exact question and its markscheme. Walks of positive length at most $k$ require the sum of the powers from $A$ to $A^k$. In transition questions, round only as requested and check that every row of the row transition matrix $R$ sums to 1.
 
 <Callout kind="exam">Read the entry in the row of the start vertex and the column of the end vertex. The other order counts walks in the reverse direction, which can give a different number in a directed graph.</Callout>
 
@@ -69,4 +69,4 @@ Find and Write down questions give marks for the matrix method and for the entry
 - The entry in row $i$, column $j$ of $A^k$ is the number of walks of length $k$ from $i$ to $j$.
 - The number of walks of length at most $k$ is the sum $A + A^2 + \dots + A^k$ at that position.
 - A weighted adjacency table holds the weights; add them along a walk to get its total weight.
-- For a strongly connected digraph, divide each row of $A$ by its row sum to get the transition matrix $T$; the entries of $T^n$ are probabilities after $n$ steps.
+- For a strongly connected digraph, divide each row of $A$ by its row sum to get the transition matrix $R$; the entries of $R^n$ are probabilities after $n$ steps.

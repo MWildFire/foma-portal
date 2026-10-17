@@ -45,8 +45,8 @@ const steps: Step[] = [
   {
     title: { en: 'Market before the subsidy', ru: 'Рынок до субсидии' },
     text: {
-      en: 'Demand (D) and supply (S) cross at E: Q = 12 and P = 6. This is the free-market equilibrium.',
-      ru: 'Спрос (D) и предложение (S) пересекаются в точке E: Q = 12 и P = 6. Это равновесие свободного рынка.',
+      en: 'Demand (D) and supply (S) cross at E: Q = 12 and P = 6. This hypothetical competitive market has no externalities or other initial distortions, so the starting equilibrium is efficient.',
+      ru: 'Спрос (D) и предложение (S) пересекаются в точке E: Q = 12 и P = 6. В этом условном конкурентном рынке нет внешних эффектов и других исходных искажений, поэтому начальное равновесие эффективно.',
     },
     graph: {
       ...axes,

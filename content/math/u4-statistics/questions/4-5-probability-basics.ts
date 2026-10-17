@@ -28,8 +28,8 @@ export const questions: Question[] = [
     marks: 3,
     command: 'Find',
     prompt: {
-      en: 'In a school year group, the probability that a randomly chosen student chooses Spanish as an optional subject is 0.27. There are 380 students in the year group. Find the expected number of students who do not choose Spanish. Give your answer correct to one decimal place.',
-      ru: 'В параллели школы вероятность того, что случайно выбранный ученик выберет испанский язык как факультатив, равна 0,27. В параллели 380 учеников. Найдите ожидаемое число учеников, которые не выберут испанский язык. Ответ дайте с точностью до одного знака после запятой.',
+      en: 'A model assigns each of the 380 students in a school year group probability 0.27 of choosing Spanish as an optional subject. Find the expected number of students who do not choose Spanish. Give your answer correct to one decimal place.',
+      ru: 'В модели каждому из 380 учеников параллели приписана вероятность 0,27 выбрать испанский язык как факультатив. Найдите ожидаемое число учеников, которые не выберут испанский язык. Ответ дайте с точностью до одного знака после запятой.',
     },
     markscheme: {
       en: 'M1: P(not Spanish) = 1 − 0.27 = 0.73. M1: expected number = 380 × 0.73. A1: 277.4 (1 decimal place).',

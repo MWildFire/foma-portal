@@ -6,8 +6,8 @@ export const formulas: Formula[] = [
     tex: 'z=r(\\cos\\theta+i\\sin\\theta)=r\\,\\text{cis}\\,\\theta',
     name: { en: 'Modulus–argument form', ru: 'Модульно-аргументная форма (Modulus–argument form)' },
     meaning: {
-      en: 'Writes z with modulus r and argument θ. Here cis θ means cos θ + i sin θ.',
-      ru: 'Записывает z через модуль r и аргумент θ. Здесь cis θ означает cos θ + i sin θ.',
+      en: 'For nonzero z, writes it with modulus r > 0 and argument θ. Zero has modulus 0 but no defined argument. Here cis θ means cos θ + i sin θ.',
+      ru: 'Для ненулевого z запись через модуль r > 0 и аргумент θ. У нуля модуль равен 0, но аргумент не определён. Здесь cis θ означает cos θ + i sin θ.',
     },
     when: {
       en: 'Multiplying, dividing or raising complex numbers to powers, and reading the geometry from the Argand diagram.',
@@ -25,8 +25,8 @@ export const formulas: Formula[] = [
     tex: 'z=r\\,e^{i\\theta}',
     name: { en: 'Exponential form', ru: 'Показательная форма (Exponential form)' },
     meaning: {
-      en: 'Writes z with modulus r and argument θ, with θ in radians, as r times e to the power iθ.',
-      ru: 'Записывает z с модулем r и аргументом θ (в радианах) как r умножить на e в степени iθ.',
+      en: 'For nonzero z, uses modulus r > 0 and argument θ in radians, as r times e to the power iθ.',
+      ru: 'Записывает ненулевой z с модулем r > 0 и аргументом θ в радианах как r умножить на e в степени iθ.',
     },
     when: {
       en: 'Products, quotients and powers become simple powers of e.',
@@ -48,8 +48,8 @@ export const formulas: Formula[] = [
       ru: 'Для целого n степень возводит модуль в степень n, а аргумент умножает на n.',
     },
     when: {
-      en: 'Integer powers of a complex number given in polar form.',
-      ru: 'Целые степени комплексного числа, заданного в полярной форме.',
+      en: 'Use a nonzero base; zero has no defined argument, and its nonpositive powers are not defined here. Integer powers of a complex number given in polar form.',
+      ru: 'Используйте ненулевое основание: у нуля нет определённого аргумента, его неположительные степени здесь не определены. Целые степени комплексного числа, заданного в полярной форме.',
     },
     syllabus: '1.13',
     inBooklet: false,
@@ -67,8 +67,8 @@ export const formulas: Formula[] = [
       ru: 'Сумма — одна синусоида с амплитудой R и фазой φ, где R cos φ = a и R sin φ = b.',
     },
     when: {
-      en: 'Combining two signals or voltages that have the same frequency.',
-      ru: 'Сложение двух сигналов или напряжений одинаковой частоты.',
+      en: 'Combining same-frequency signals. If a=b=0 then R=0 and phase is undetermined; otherwise determine its quadrant from both coefficients.',
+      ru: 'Сложение сигналов одинаковой частоты. При a=b=0 амплитуда R=0, фаза не определена; иначе выбирайте её четверть по обоим коэффициентам.',
     },
     syllabus: '1.13',
     inBooklet: false,

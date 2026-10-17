@@ -29,8 +29,8 @@ export const formulas: Formula[] = [
       ru: 's — длина дуги, r — радиус, θ — центральный угол в радианах.',
     },
     when: {
-      en: 'An arc of a circle subtends a central angle that is known in radians.',
-      ru: 'Дуга окружности стягивает центральный угол, известный в радианах.',
+      en: 'For a nonnegative swept angle in radians, s=rθ; for signed angular displacement the distance swept is r|θ|. An ordinary arc has a sweep no greater than one full turn.',
+      ru: 'При неотрицательном угле поворота в радианах s=rθ; для ориентированного поворота пройденная длина равна r|θ|. Обычная дуга соответствует не более чем одному полному обороту.',
     },
     syllabus: '3.7',
     inBooklet: true,
@@ -48,8 +48,8 @@ export const formulas: Formula[] = [
       ru: 'A — площадь сектора, ограниченного двумя радиусами и дугой; θ задан в радианах.',
     },
     when: {
-      en: 'The sector angle is known in radians. If it is given in degrees, convert it to radians first.',
-      ru: 'Угол сектора известен в радианах. Если он дан в градусах, сначала переведите его в радианы.',
+      en: 'For an ordinary sector use 0≤θ≤2π in radians. Convert degrees first; a signed negative angle cannot give a negative geometric area.',
+      ru: 'Для обычного сектора бери 0≤θ≤2π в радианах. Сначала переведи градусы; отрицательный ориентированный угол не означает отрицательную геометрическую площадь.',
     },
     syllabus: '3.7',
     inBooklet: true,

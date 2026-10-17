@@ -3,7 +3,7 @@ import type { Formula } from '../../../../src/contract/types';
 export const formulas: Formula[] = [
   {
     id: 'de-separated-form',
-    tex: 'g(y)\\,dy=f(x)\\,dx\\quad\\Rightarrow\\quad\\int g(y)\\,dy=\\int f(x)\\,dx',
+    tex: '\\dfrac{dy}{g(y)}=f(x)\\,dx\\quad\\Rightarrow\\quad\\int\\dfrac{dy}{g(y)}=\\int f(x)\\,dx+C',
     name: { en: 'Separated form', ru: 'Разделённая форма уравнения (Separated form)' },
     meaning: {
       en: 'Once the variables are separated, each side is integrated with respect to its own variable, and one constant is added.',
@@ -40,8 +40,8 @@ export const formulas: Formula[] = [
     tex: 'y=L+(y_{0}-L)\\,e^{-kt}',
     name: { en: 'Solution of a limit or cooling model', ru: 'Решение модели предела или охлаждения (Solution of a limit or cooling model)' },
     meaning: {
-      en: 'For dy/dt = -k(y - L) with y(0) = y0, the solution approaches the limit L as t grows.',
-      ru: 'Для dy/dt = -k(y - L) при y(0) = y0 решение приближается к пределу L при росте t.',
+      en: 'For dy/dt = -k(y - L) with y(0) = y0, with k > 0 and t≥0, the solution approaches L as t grows. Here k has reciprocal-time units; k=0 stays at y0 and k<0 generally moves away from L.',
+      ru: 'Для dy/dt = -k(y - L) при y(0) = y0 при k > 0 и t≥0 решение приближается к L при росте t. Размерность k обратна времени; при k=0 значение остаётся y0, а при k<0 обычно удаляется от L.',
     },
     when: {
       en: 'Cooling towards room temperature, growth towards a limit, or mixing with fresh water (then L = 0).',
@@ -50,8 +50,8 @@ export const formulas: Formula[] = [
     syllabus: '5.14',
     inBooklet: false,
     example: {
-      en: 'With L = 20, y0 = 90 and k = 0.0693, the value after 10 minutes is 20 + 70 e^(-0.693), which is approximately 55.',
-      ru: 'При L = 20, y0 = 90 и k = 0,0693 значение через 10 минут равно 20 + 70 e^(-0,693), то есть примерно 55.',
+      en: 'With t in minutes, L = 20, y0 = 90 and k = 0.0693 per minute, the value after 10 minutes is 20 + 70 e^(-0.693), which is approximately 55.',
+      ru: 'При t в минутах, L = 20, y0 = 90 и k = 0,0693 в минуту значение через 10 минут равно 20 + 70 e^(-0,693), то есть примерно 55.',
     },
   },
 ];

@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import {
-  eveExams, examEndMs, examStartMs, examsOn, extendedMinutes, lastExamDate, lastExamOverall, parseExams, parseQuotas, sittingPapers,
+  eveExams, examEndMs, examStartMs, examsOn, lastExamDate, lastExamOverall, parseExams, parseQuotas, sittingPapers,
 } from '../src/planner/calendar.ts';
 import { dubaiEpoch } from '../src/planner/dates.ts';
 
@@ -37,31 +37,28 @@ test('exams are looked up by day, and the eve of an exam is the day before it', 
   assert.deepEqual(sittingPapers(exams, 'geo', '2026-10-27').map(p => p.paper), ['P2']);
 });
 
-test('extra time follows the school table and falls back to 25% rounded', () => {
-  assert.equal(extendedMinutes(exams, 120), 150);
-  assert.equal(extendedMinutes(exams, 75), 94);
-  assert.equal(extendedMinutes(exams, 45), 56);
-  assert.equal(extendedMinutes(exams, 80), 100); // not in the table: 80 * 1.25
-  assert.equal(extendedMinutes({ ...exams, accessMinutes: {} }, 90), 113); // 112.5 rounds up
+test('schedule has typing and no legacy duration table',()=>{
+ assert.deepEqual(exams.access,{room:'tbd',typing:true});
+ assert.equal(exams.accessMinutes,undefined);
 });
 
 test('exam start and end are Dubai instants', () => {
   const geoP1 = exams.papers.find(p => p.id === 'geo-p1');
   assert.equal(examStartMs(geoP1), dubaiEpoch('2026-10-26', '13:30'));
   assert.equal(examEndMs(geoP1, exams, false), dubaiEpoch('2026-10-26', '15:00'));
-  assert.equal(examEndMs(geoP1, exams, true), dubaiEpoch('2026-10-26', '13:30') + 113 * 60_000);
+  assert.equal(examEndMs(geoP1, exams, false), dubaiEpoch('2026-10-26', '13:30') + 90 * 60_000);
 });
 
 test('plan-quotas.json is parsed: one entry per day with the subjects in file order', () => {
-  assert.equal(quotas.start, '2026-10-14');
+  assert.equal(quotas.start, '2026-10-17');
   assert.equal(quotas.end, '2026-11-05');
-  assert.equal(quotas.days.length, 22);
+  assert.equal(quotas.days.length, 20);
   const first = quotas.days[0];
-  assert.deepEqual(first.subjectOrder, ['geo', 'math', 'eng']);
-  assert.equal(first.quota.geo, 60);
-  assert.equal(first.recall, 15);
+  assert.deepEqual(first.subjectOrder, ['econ', 'math', 'geo', 'eng']);
+  assert.equal(first.quota.geo, 40);
+  assert.equal(first.recall, 0);
   const day24 = quotas.days.find(d => d.date === '2026-10-24');
-  assert.deepEqual(day24.timed.map(t => [t.subject, t.paper, t.minutes]), [['math', 'P2', 120], ['geo', 'P2', 75]]);
+  assert.deepEqual(day24.timed.map(t => [t.subject, t.paper, t.minutes]), []);
 });
 
 test('the planning data is internally consistent', () => {
@@ -69,10 +66,7 @@ test('the planning data is internally consistent', () => {
     const sum = Object.values(day.quota).reduce((a, b) => a + b, 0);
     assert.equal(day.capacity, day.recall + sum, `${day.date}: capacity = recall + quotas`);
     assert.equal(day.examDay, examsOn(exams, day.date).length > 0, `${day.date}: examDay matches exams.json`);
-    for (const subject of Object.keys(day.quota)) {
-      const last = lastExamDate(exams, subject);
-      assert.ok(!last || day.date < last, `${day.date}: ${subject} has quota on or after its last exam (${last})`);
-    }
+    assert.deepEqual(Object.keys(day.quota),['econ','math','geo','eng']);
     for (const timed of day.timed) {
       const total = day.timed.filter(t => t.subject === timed.subject).reduce((a, t) => a + t.minutes, 0);
       assert.ok(total <= (day.quota[timed.subject] ?? 0), `${day.date}: timed ${timed.subject} fits the quota`);

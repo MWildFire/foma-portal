@@ -1,13 +1,6 @@
 import type { Term } from '../../../../src/contract/types';
 import { BOOK_TITLE } from '../../book';
 
-const source = {
-  kind: 'web' as const,
-  title: 'IB Mathematics AI, first assessment 2021: public summary, not checked against the official guide',
-  locator: 'sub-topic 3.8',
-  url: 'https://www.ibo.org/globalassets/new-structure/university-admission/pdfs/dp-mathematics-applications-and-interpretation-guide-en.pdf',
-};
-
 export const terms: Term[] = [
   {
     id: 'unit-circle',
@@ -34,14 +27,14 @@ export const terms: Term[] = [
     },
     syllabus: '3.8',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 8.2, pp. 344–345: coordinates, signs and periodic identities' },
   },
   {
     id: 'ambiguous-case-sine-rule',
     term: { en: 'ambiguous case of the sine rule', ru: 'неоднозначный случай теоремы синусов (ambiguous case of the sine rule)' },
     def: {
-      en: 'Two sides and a non-included angle are given. If the angle being sought sits across from the longer of the two given sides, two triangles can be formed, and their two candidate angles add up to $180^\\circ$.',
-      ru: 'Даны две стороны и угол, не заключённый между ними. Если искомый угол лежит напротив большей из двух данных сторон, можно построить два треугольника, а два возможных значения этого угла в сумме дают $180^\\circ$.',
+      en: 'Given sides a,b and angle A opposite a, the sine rule gives sin B=b sin A/a. Test arcsin and its supplement. For acute A, exactly two triangles occur when b sin A<a<b; other data can give zero or one. Reject nonpositive remaining angles.',
+      ru: 'Для сторон a,b и угла A напротив a теорема синусов даёт sin B=b sin A/a. Проверьте арксинус и дополнение до180°. При остром A ровно два треугольника получаются, если b sin A<a<b; другие данные могут дать ноль или один. Исключайте неположительные оставшиеся углы.',
     },
     syllabus: '3.8',
     papers: ['P1', 'P2', 'P3'],

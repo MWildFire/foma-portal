@@ -5,7 +5,7 @@ const topic: TopicMeta = {
   subject: 'econ',
   code: '2.7',
   title: { en: 'Government: taxes, subsidies and price controls', ru: 'Государство: налоги, субсидии и регулирование цен' },
-  papers: ['P1', 'P2', 'P3'],
+  papers: ['P2', 'P3'],
   order: 17,
   minutes: 60,
   priority: 1,
@@ -52,8 +52,7 @@ const topic: TopicMeta = {
     'econ-government-taxes-subsidies-price-controls-07',
     'econ-government-taxes-subsidies-price-controls-08',
     'econ-government-taxes-subsidies-price-controls-09',
-    'econ-government-taxes-subsidies-price-controls-10',
-  ],
+    'econ-government-taxes-subsidies-price-controls-10',  'r06-econ-06'],
   caseIds: [
     'case-uae-vat-2018',
     'case-uae-corporate-tax-2023',

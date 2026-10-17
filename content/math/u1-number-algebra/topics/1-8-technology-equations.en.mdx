@@ -4,19 +4,19 @@ Many problems give several conditions at once, or ask where a curve reaches zero
 
 ## Explanation
 
-A <Term id="system-linear-equations"/> has two or three linear equations in the same unknowns, and its solution satisfies every equation at the same time. For three unknowns $x$, $y$ and $z$ the general form is:
+A <Term id="system-linear-equations"/> in this topic has two or three linear equations in the same unknowns, and its solution satisfies every equation at the same time. For three unknowns $x$, $y$ and $z$ the general form is:
 
 <Formula id="linear-system-three-unknowns"/>
 
-<Callout kind="gdc">On a Calculator page, open `Menu → Algebra → Solve System of Linear Equations`, enter the equations, and read the values of the unknowns. As a check, store the coefficients as a matrix `a` and the constants as a column `b`; then `simult(a,b)` returns the solution as a column. If the calculator gives no unique solution, treat that as a finding about the system, not as a fault in your entry.</Callout>
+<Callout kind="gdc">On a Calculator page, open `Menu → Algebra → Solve System of Linear Equations`, enter the equations, and read the values of the unknowns. Check the entered equations against the question, then substitute the reported values into every original equation. If there is no unique solution, determine whether the correctly entered system is inconsistent or has infinitely many solutions.</Callout>
 
 A system with no solution is an <Term id="inconsistent-system"/>: its equations contradict each other, so no set of values satisfies all of them.
 
-A <Term id="polynomial-root"/> is a value $x$ that makes a polynomial $p(x)$ equal zero. A polynomial equation of degree $n$ has at most $n$ real roots, so a cubic may have one, two or three real roots, and you read the number from the result.
+A <Term id="polynomial-root"/> is a value $x$ that makes a polynomial $p(x)$ equal zero. A nonzero polynomial equation of degree $n$ has at most $n$ distinct real roots, so a cubic may have one, two or three real roots, and you read the number from the result.
 
 <Formula id="polynomial-degree-roots"/>
 
-For a quadratic, the exact roots come from the <Formula id="quadratic-formula-roots"/>. For any polynomial, technology finds the real roots numerically.
+For a quadratic, the exact roots come from the <Formula id="quadratic-formula-roots"/>. Use an appropriate polynomial solver to approximate real roots; check its degree limits and output, particularly for repeated or closely spaced roots.
 
 <Callout kind="gdc">On a Calculator page, `polyRoots(x^3-x-1,x)` lists the real roots of the polynomial (press `►` after each exponent), or use `Menu → Algebra → Polynomial Tools`. Alternatively, graph $y=p(x)$ on a Graphs page and use `Menu → Analyze Graph → Zero` with a lower and an upper bound around each x-intercept. Compare the roots with a sketch of the graph, which shows how many to expect.</Callout>
 
@@ -34,11 +34,11 @@ Solve a system of three equations with technology, then check the answer and sol
 
 ## Visual
 
-<Callout kind="tip">Each linear equation in two unknowns is a straight line, and the solution of a two-equation system is the point where the two lines cross. Parallel lines never cross, so such a system has no solution. For a polynomial, the real roots are the places where the graph of $y=p(x)$ crosses the x-axis, so a quick sketch shows how many roots to expect.</Callout>
+<Callout kind="tip">Each nondegenerate linear equation in two unknowns represents a straight line. Two distinct nonparallel lines have one intersection and one solution; distinct parallel lines have no solution; coincident lines have infinitely many. Real polynomial roots are x-intercepts: the graph may cross the axis or touch it at a repeated root. For example, $(x-2)^2=0$ has the root 2 although its graph does not cross the axis. A sketch helps check results, but a limited viewing window or low resolution can hide roots.</Callout>
 
 ## How it is examined
 
-Find questions on systems give a mark for writing the equations correctly, a mark for solving them with technology, and a mark for the answers to the required accuracy. Give the values in the order the question names the unknowns. Polynomial questions ask for real roots, so do not report complex roots. When a root has no meaning in the context, such as a negative number of units, reject it and say why.
+Write the equations, show the method and give answers to the requested accuracy; the allocation of marks depends on the particular question. Give the values in the order the question names the unknowns. When a polynomial question asks for real roots, report only those roots. When a root has no meaning in the context, such as a negative number of units, reject it and say why.
 
 <Callout kind="exam">Write each answer with the accuracy the question asks for, and state which root you have rejected and why.</Callout>
 
@@ -62,7 +62,7 @@ Find questions on systems give a mark for writing the equations correctly, a mar
 
 - A system of up to three linear equations has one solution, no solution or infinitely many solutions. Solve it with the system solver.
 - A system with no solution is inconsistent: its equations contradict each other.
-- A polynomial of degree $n$ has at most $n$ real roots, and a cubic can have only one.
+- A nonzero polynomial of degree $n$ has at most $n$ distinct real roots, and a cubic can have only one.
 - Find real roots with the polynomial root function, and read them from the output.
 - Check every answer by substitution into the original equations, and in context.
 - Give answers in the order the question names the unknowns, to the accuracy asked.

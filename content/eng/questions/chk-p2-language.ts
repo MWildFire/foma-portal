@@ -9,16 +9,16 @@ export const questions: Question[] = [
     marks: 3,
     command: 'Suggest',
     prompt: {
-      en: 'Rewrite this sentence, which has a vague verb, a vague intensifier and a quotation that stands outside the sentence: "The writer shows that the house is very quiet. Look: \'the chairs stand against the walls.\'" Suggest a precise version in which the quotation is built into one sentence, the verb names the way the meaning arrives, and the intensifier is removed.',
-      ru: 'Перепишите это предложение, в котором есть расплывчатый глагол, лишнее усиление и цитата вне предложения: «The writer shows that the house is very quiet. Look: \'the chairs stand against the walls.\'» Предложите точную версию, в которой цитата встроена в одно предложение, глагол называет способ, которым приходит смысл, а усиление убрано.',
+      en: 'In this editing drill (not an IB word ban), rewrite this sentence, which has a vague verb, a vague intensifier and a quotation that stands outside the sentence: "The writer shows that the house is very quiet. Look: \'the chairs stand against the walls.\'" Suggest a precise version in which the quotation is built into one sentence, the verb names the way the meaning arrives, and the intensifier is removed.',
+      ru: 'В этой тренировке редактирования (не списке запрещённых IB слов) перепишите предложение, в котором есть расплывчатый глагол, лишнее усиление и цитата вне предложения: «The writer shows that the house is very quiet. Look: \'the chairs stand against the walls.\'» Предложите точную версию, в которой цитата встроена в одно предложение, глагол называет способ, которым приходит смысл, а усиление убрано.',
     },
     markscheme: {
       en: '1 mark: the vague verb "shows" is replaced by a precise verb that names how the meaning arrives, for example "suggests" or "implies". 1 mark: the quotation is built into one sentence grammatically, its words exact and in the author\'s order, and the separate "Look:" sentence is gone. 1 mark: the intensifier "very" is removed, and the rewrite stays in the present tense with a precise description of the quiet.',
       ru: '1 балл: расплывчатый глагол «shows» заменён точным, который называет способ, каким приходит смысл, например «suggests» или «implies». 1 балл: цитата встроена в одно предложение грамматически, её слова точны и идут в порядке автора, отдельного предложения «Look:» нет. 1 балл: усиление «very» убрано, переписанный текст остаётся в настоящем времени и точно описывает тишину.',
     },
     model: {
-      en: 'The writer\'s stillness suggests a house kept ready for absence, where the chairs "stand against the walls" as if they are waiting for guests who will not come.',
-      ru: 'Неподвижность в тексте намекает на дом, который держат наготове для отсутствия, где стулья «stand against the walls», будто ждут гостей, которые не придут.',
+      en: 'By leaving the chairs standing "against the walls", the writer suggests an unused space, although the sentence alone does not prove who is absent or whether anyone will return.',
+      ru: 'Возможный английский ответ: By leaving the chairs standing "against the walls", the writer suggests an unused space, although the sentence alone does not prove who is absent or whether anyone will return. Положение стульев допускает мысль о неиспользуемом пространстве, но не доказывает ни отсутствия конкретных людей, ни их будущего невозвращения.',
     },
     origin: 'original',
     minutes: 5,
@@ -35,12 +35,12 @@ export const questions: Question[] = [
       ru: 'Два ученика описывают один и тот же момент. Первый пишет: «She murmured her apology.» Второй: «She mumbled her apology.» Назовите разницу в коннотации (connotation) между двумя глаголами и скажите, какой глагол лучше поддержит утверждение, что персонаж пристыжен, но сохраняет контроль.',
     },
     markscheme: {
-      en: '1 mark: "murmured" connotes a soft, deliberate voice; "mumbled" connotes unclear, careless or embarrassed speech. 1 mark: "murmured" better supports the claim, because it suggests that the quiet is chosen, while "mumbled" suggests that the speaker has lost control of the words.',
-      ru: '1 балл: «murmured» несёт коннотацию мягкой и обдуманной речи, «mumbled» — неясной, небрежной или смущённой речи. 1 балл: «murmured» лучше поддерживает утверждение, потому что показывает, что тишина выбрана, а «mumbled» показывает, что говорящий потерял контроль над словами.',
+      en: '1 mark: "murmured" suggests a soft voice; "mumbled" suggests indistinct speech and may suggest embarrassment. Neither verb by itself proves intention or self-control. 1 mark: "murmured" is a plausible choice for the proposed reading because soft speech can be controlled. Accept another reasoned answer: context is needed to establish shame or loss of control.',
+      ru: '1 балл: «murmured» передаёт тихую речь, «mumbled» — невнятную и, возможно, смущённую. Ни один глагол сам по себе не доказывает намерение или самообладание. 1 балл: «murmured» подходит к предложенному прочтению: тихая речь совместима с самообладанием. Принимайте иной обоснованный ответ: для вывода о стыде или потере контроля нужен контекст.',
     },
     model: {
-      en: '"Murmured" has the connotation of a soft, deliberate voice, while "mumbled" suggests careless or embarrassed speech. "Murmured" is the better choice for a claim that the character is ashamed but controlled, because the quiet is chosen; "mumbled" would suggest that the control is lost.',
-      ru: '«Murmured» несёт коннотацию мягкого и обдуманного голоса, а «mumbled» намекает на небрежную или смущённую речь. «Murmured» лучше подходит для утверждения, что персонаж пристыжен, но владеет собой, потому что тишина выбрана; «mumbled» показал бы, что контроль утрачен.',
+      en: '"Murmured" suggests quiet speech, whereas "mumbled" emphasises indistinct articulation. I would choose "murmured" for the proposed reading because a quiet apology can be controlled. Neither word alone establishes shame or proves whether the quiet is deliberate.',
+      ru: '«Murmured» указывает на тихую речь, а «mumbled» подчёркивает невнятность. Для предложенного прочтения я выбрал бы «murmured»: тихое извинение совместимо с самообладанием. Но ни одно слово само по себе не доказывает стыд или намеренно выбранную тихую манеру.',
     },
     origin: 'original',
     minutes: 3,

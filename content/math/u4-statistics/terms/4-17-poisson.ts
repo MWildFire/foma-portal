@@ -33,8 +33,8 @@ export const terms: Term[] = [
     id: 'independent-poisson-sum',
     term: { en: 'sum of independent Poisson variables', ru: 'сумма независимых величин Пуассона (sum of independent Poisson variables)' },
     def: {
-      en: 'If $X$ and $Y$ are independent Poisson variables with means $m_1$ and $m_2$ for the same interval, then $X + Y$ is Poisson with mean $m_1 + m_2$.',
-      ru: 'Если $X$ и $Y$ независимы и их средние $m_1$ и $m_2$ относятся к одному и тому же интервалу, то $X + Y$ имеет распределение Пуассона со средним $m_1 + m_2$.',
+      en: 'If $X$ and $Y$ are independent Poisson variables with means $m_1$ and $m_2$ for their stated intervals, then $X + Y$ is Poisson with mean $m_1 + m_2$.',
+      ru: 'Если $X$ и $Y$ — независимые пуассоновские величины и их средние $m_1$ и $m_2$ относятся к указанным для них интервалам, то $X + Y$ имеет распределение Пуассона со средним $m_1 + m_2$.',
     },
     syllabus: '4.17',
     papers: ['P1', 'P2', 'P3'],

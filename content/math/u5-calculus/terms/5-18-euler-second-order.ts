@@ -32,15 +32,15 @@ export const terms: Term[] = [
     id: 'step-length-h-second-order',
     term: { en: 'second-order step length h', ru: 'длина шага h для уравнения второго порядка (second-order step length h)' },
     def: {
-      en: 'The fixed time increment in Euler\'s method, so that after $n$ steps the time is $t_n = nh$. Covering the same interval with a smaller $h$ needs more steps.',
-      ru: 'Фиксированный шаг по времени в методе Эйлера: после $n$ шагов время равно $t_n = nh$. Чтобы пройти тот же интервал с меньшим $h$, нужно больше шагов.',
+      en: 'The fixed time increment in Euler\'s method, so that after $n$ steps the time is $t_n = t_0 + nh$. Covering the same interval with a smaller $h$ needs more steps.',
+      ru: 'Фиксированный шаг по времени в методе Эйлера: после $n$ шагов время равно $t_n = t_0 + nh$. Чтобы пройти тот же интервал с меньшим $h$, нужно больше шагов.',
     },
     syllabus: '5.18',
     papers: ['P1', 'P2', 'P3'],
     src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 12.4, p. 556' },
     pitfall: {
-      en: 'The number of steps is the total time divided by $h$. For example, a time of $t = 0.5$ with $h = 0.1$ needs five steps.',
-      ru: 'Число шагов равно полному времени, делённому на $h$. Например, при $t = 0{,}5$ и $h = 0{,}1$ нужно пять шагов.',
+      en: 'The number of fixed steps is $(t_{\\mathrm{end}}-t_0)/h$ when this is an integer. From $t_0=0$ to $t=0.5$ with $h=0.1$ needs five steps; from $t_0=5$ to $t=5.2$ needs two.',
+      ru: 'Число одинаковых шагов равно $(t_{\\mathrm{end}}-t_0)/h$, если это целое число. От $t_0=0$ до $t=0{,}5$ при $h=0{,}1$ нужно пять шагов; от $t_0=5$ до $t=5{,}2$ — два.',
     },
   },
 ];

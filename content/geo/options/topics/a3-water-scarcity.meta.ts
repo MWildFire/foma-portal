@@ -69,7 +69,15 @@ const topic: TopicMeta = {
   questionIds: ['a3-sq1', 'a3-sq2', 'a3-sq3', 'a3-eq1', 'a3-eq2'],
   caseIds: ['a-cape-town-drought-2018', 'a-bangladesh-arsenic', 'a-toledo-2014', 'a-aral-sea'],
   sources: [
-    { kind: 'ib-guide', title: 'Geography guide (2017), Option A: Freshwater', locator: 'A.3' },
+    {"kind": "web", "title": "US EPA, About the Nutrients Annex (Annex 4)", "url": "https://www.epa.gov/glwqa/about-nutrients-annex-annex-4", "locator": "Phosphorus targets: 2016 spring Maumee total and soluble reactive phosphorus; target definitions"},
+    {"kind": "web", "title": "US EPA, Lake Erie Water Quality Data (updated 2 September 2026)", "url": "https://www.epa.gov/glwqa/lake-erie-water-quality-data", "locator": "Phosphorus Loads and U.S. Priority Tributaries: results as of 2024 and spring-load predictor"},
+    {"kind": "web", "title": "WHO, Guidelines for drinking-water quality, fourth edition incorporating first and second addenda (2022)", "url": "https://www.who.int/publications/i/item/9789240045064", "locator": "p. 431, Microcystins: Monitoring; Prevention and treatment"},
+    { kind: 'web', title: 'WHO, Arsenic (7 December 2022), Sources of exposure; Prevention and control', url: 'https://www.who.int/news-room/fact-sheets/detail/arsenic' },
+    { kind: 'web', title: 'ВОЗ, Мышьяк (7 декабря 2022), Источники воздействия; Профилактика и контроль', url: 'https://www.who.int/ru/news-room/fact-sheets/detail/arsenic' },
+    { kind: 'web', title: 'SAnews, 24 January 2018, dashboard and augmentation passages', url: 'https://www.sanews.gov.za/south-africa/drop-dam-levels-brings-day-zero-closer' },
+    { kind: 'web', title: 'UN-Water, Policy Brief: Water Quality (2011), p. 3, footnote 1', url: 'https://www.unwater.org/sites/default/files/app/uploads/2017/05/waterquality_policybrief.pdf' },
+    { kind: 'web', title: 'Comprehensive Assessment of Water Management in Agriculture (2007), Summary, p. 11, map 2' },
+    { kind: 'ib-guide', title: 'Geography guide (2017), Option A: Freshwater', locator: 'A.3, p. 29' },
     { kind: 'thinkib', title: 'Option A: Water Scarcity and Water Quality (page 44021)', locator: 'Water Scarcity; Conflicts and Resolutions in the Mekong River Basin; Environmental Consequences of Agriculture' },
   ],
   links: [

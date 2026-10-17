@@ -14,11 +14,11 @@ const topic: TopicMeta = {
     { en: 'I can list the levers of poetry, prose, drama and non-fiction and say what each one allows', ru: 'Могу перечислить рычаги поэзии, прозы, драмы и нон-фикшн и сказать, что каждый из них позволяет' },
     { en: 'I can turn the levers of two forms into comparison axes for a plan', ru: 'Могу превратить рычаги двух форм в оси сравнения для плана' },
     { en: 'I can write a thesis for a pair of forms that names an effect and does not retell the plot', ru: 'Могу написать тезис для пары форм, который называет эффект и не пересказывает сюжет' },
-    { en: 'I can plan a pair of works in one form by choosing one device and two different effects', ru: 'Могу спланировать пару произведений одной формы: выбрать один приём и два разных эффекта' },
+    { en: 'I can compare works in one form without assuming they must share one device or produce opposite effects', ru: 'Могу сравнить произведения одной формы без обязательного общего приёма и противоположных эффектов' },
   ],
   termIds: ['imagery', 'narrator', 'focalisation', 'flashback', 'direct-characterisation', 'indirect-characterisation', 'subtext', 'stage-directions', 'mise-en-scene', 'dramatic-irony', 'ethos', 'pathos', 'logos', 'direct-address', 'purpose', 'audience', 'aside', 'soliloquy'],
   questionIds: ['chk-p2-form-pairs-1', 'chk-p2-form-pairs-2'],
-  sources: [{ kind: 'own', title: 'Own planning method, with invented examples' }],
+  sources: [{ kind: 'web', title: 'IB Examiner Instructions 2026, Language A, Paper 2: General guidance and criteria A–D; actual public text', url: 'https://ibpublishing.ibo.org/exinst/apps/exinst/index.html?chapter=1&doc=EX_instructions_2026_e&part=8' }, { kind: 'own', title: 'Verified school Paper 2 Revision Booklet: overview and final Mark Scheme; methods here are flexible practice suggestions' }, { kind: 'own', title: 'Own planning method, with invented examples' }],
 };
 
 export default topic;

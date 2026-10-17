@@ -38,8 +38,8 @@ export const questions: Question[] = [
       ru: 'В 2023 году Пакистан выбросил 186,9 млн тонн CO2, а весь мир — 38 094 млн тонн (Our World in Data, годовые выбросы CO2, данные Global Carbon Project). Рассчитайте долю Пакистана в мировых выбросах CO2 в 2023 году. Ответ дайте в процентах с двумя знаками после запятой.',
     },
     markscheme: {
-      en: '1 mark: correct method: 186.9 ÷ 38,094 × 100; 1 mark: 0.49% (correct to two decimal places); 1 mark: a statement with units that Pakistan’s share was about half of one per cent of world CO2 emissions in 2023; accept 0.5% if the answer is rounded to one decimal place.',
-      ru: '1 балл: верный метод: 186,9 ÷ 38 094 × 100; 1 балл: 0,49% (с двумя знаками после запятой); 1 балл: вывод с единицами измерения: доля Пакистана составила около половины процента мировых выбросов CO2 в 2023 году; при округлении до одного знака засчитывается 0,5%.',
+      en: '1 mark: correct method: 186.9 ÷ 38,094 × 100; 1 mark: 0.49% (correct to two decimal places); 1 mark: a statement with units that Pakistan’s share was about half of one per cent of world CO2 emissions in 2023. The precision point requires0.49%, not0.5%.',
+      ru: '1 балл: верный метод: 186,9 ÷ 38 094 × 100; 1 балл: 0,49% (с двумя знаками после запятой); 1 балл: вывод с единицами измерения: доля Пакистана составила около половины процента мировых выбросов CO2 в 2023 году. Для балла за точность нужен итог0,49%, а не0,5%.',
     },
     origin: 'original',
     minutes: 4,
@@ -82,4 +82,25 @@ export const questions: Question[] = [
     origin: 'original',
     minutes: 8,
   },
+{
+  "id": "core-2-3-a6",
+  "subject": "geo",
+  "topicIds": [
+    "core-2-3-responding-climate-change"
+  ],
+  "paper": "P2",
+  "section": "A",
+  "marks": 4,
+  "command": "Explain",
+  "prompt": {
+    "en": "BRAC’s19December2024 announcement describes rainwater collection in Mongla,Bangladesh,and a new Rain for Life programme for2025–2027. Its target is improved resilience for30% of climate-affected residents in Assasuni,Mongla andPatharghata by end2027. Explain one adaptation mechanism,one role of this non-governmental stakeholder,and one reason the target does not yet prove success.",
+    "ru": "В сообщении BRAC от19декабря2024года названы сбор дождевой воды в Монгле(Бангладеш) и программа Rain for Life на2025–2027годы. Цель — повысить устойчивость30% затронутого климатическими рисками населения Ассасуни,Монглы иПатаргхаты к концу2027года. Объясни механизм адаптации,роль негосударственного участника и почему цель ещё не доказывает успех."
+  },
+  "markscheme": {
+    "en": "Original4-mark exercise:1 for linking rainwater capture/storage to reduced dependence on saline sources;1 for a developed NGO role,such as organising community delivery and donor partnership;1 for distinguishing the dated future target from measured achieved resilience;1 for explaining a constraint or evidence needed,for example rainfall/maintenance/equitable access and follow-up service reliability. Do not award a claim that30% was already achieved or that the NGO acts without public partners. Source:BRAC announcement,project/expected-outcome paragraphs,19December2024.",
+    "ru": "Авторское задание на4балла:1 — связь сбора/хранения дождевой воды с меньшей зависимостью от засолённых источников;1 — раскрытая роль НПО,например организация местной работы и партнёрства с донором;1 — различение будущей цели и измеренного результата;1 — объяснение ограничения или нужной проверки:осадки,обслуживание,равный доступ,последующая надёжность услуги. Утверждения о уже достигнутых30% или отсутствии государственных партнёров не засчитываются. Источник:сообщение BRAC от19декабря2024,абзацы о программе и ожидаемом результате."
+  },
+  "origin": "original",
+  "minutes": 6
+},
 ];

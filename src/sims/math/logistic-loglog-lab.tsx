@@ -1,3 +1,4 @@
+import ReadableDiagram from '../readable-diagram';
 import { useState } from 'react';
 import type { Lang } from '../../contract/types';
 
@@ -53,7 +54,7 @@ const TEXT = {
     fitK: 'Gradient of best-fit line (estimate of k)',
     fitC: 'Estimate of C from the intercept',
     r: 'Correlation r',
-    note: 'If L is right, the transformed points lie on a straight line. A wrong L makes them curve.',
+    note: 'For exact logistic data with the correct L and 0 < y < L, ln(y/(L−y)) = kx − ln C. These are illustrative rounded data, so even a suitable L need not make them exactly collinear. A wrong L can create curvature; a high r is not proof of the model.',
   },
   ru: {
     left: 'Логистическая кривая и точки данных',
@@ -73,7 +74,7 @@ const TEXT = {
     fitK: 'Угловой коэффициент прямой (оценка k)',
     fitC: 'Оценка C по отрезку',
     r: 'Коэффициент корреляции r',
-    note: 'Если L выбрано верно, преобразованные точки лежат на прямой. Неверное L делает их кривыми.',
+    note: 'Для точных логистических данных с верным L и 0 < y < L получаем ln(y/(L−y)) = kx − ln C. Здесь данные учебные и округлённые, поэтому даже подходящее L не обязано дать точную прямую. Неверное L может создать кривизну; высокое r не доказывает модель.',
   },
 } as const;
 
@@ -101,29 +102,29 @@ export default function LogisticLoglogLab({ lang }: { lang: Lang }) {
 
   return (
     <figure style={{ margin: 0 }}>
-      <svg viewBox={`0 0 ${W} ${H}`} width="100%" style={{ maxWidth: W }} role="img" aria-label={t.left}>
+      <ReadableDiagram lang={lang}><svg viewBox={`0 0 ${W} ${H}`} width="100%" style={{ maxWidth: W }} role="img" aria-label={t.left}>
         <line x1={PAD} y1={H - PAD} x2={W - PAD} y2={H - PAD} stroke="currentColor" />
         <line x1={PAD} y1={PAD} x2={PAD} y2={H - PAD} stroke="currentColor" />
         <line x1={PAD} y1={sy(L)} x2={W - PAD} y2={sy(L)} stroke="#888" strokeDasharray="4 3" />
-        <text x={PAD} y={12} fontSize={10}>{t.leftTitle}</text>
-        <text x={W - PAD} y={H - PAD + 12} fontSize={10} textAnchor="end">{t.xAxis}</text>
-        <text x={PAD - 4} y={PAD - 6} fontSize={10} textAnchor="end">{t.yAxis}</text>
+        <text x={PAD} y={12} fontSize={10} fill="currentColor">{t.leftTitle}</text>
+        <text x={W - PAD} y={H - PAD + 12} fontSize={10} textAnchor="end" fill="currentColor">{t.xAxis}</text>
+        <text x={PAD - 4} y={PAD - 6} fontSize={10} textAnchor="end" fill="currentColor">{t.yAxis}</text>
         <path d={curve} fill="none" stroke="#4f6fd8" strokeWidth={2} />
         {DATA_X.map((x, i) => (
           <circle key={x} cx={sx(x)} cy={sy(DATA_Y[i])} r={3} fill="#e0883a" />
         ))}
-      </svg>
-      <svg viewBox={`0 0 ${W} ${H}`} width="100%" style={{ maxWidth: W }} role="img" aria-label={t.right}>
+      </svg></ReadableDiagram>
+      <ReadableDiagram lang={lang}><svg viewBox={`0 0 ${W} ${H}`} width="100%" style={{ maxWidth: W }} role="img" aria-label={t.right}>
         <line x1={PAD} y1={H - PAD} x2={W - PAD} y2={H - PAD} stroke="currentColor" />
         <line x1={PAD} y1={PAD} x2={PAD} y2={H - PAD} stroke="currentColor" />
         <line x1={sx(0)} y1={sz(fit.intercept)} x2={sx(X_MAX)} y2={sz(zEnd)} stroke="#4f6fd8" strokeWidth={2} />
-        <text x={PAD} y={12} fontSize={10}>{t.rightTitle}</text>
-        <text x={W - PAD} y={H - PAD + 12} fontSize={10} textAnchor="end">{t.xAxis}</text>
-        <text x={PAD + 4} y={PAD - 6} fontSize={10}>{t.zAxis}</text>
+        <text x={PAD} y={12} fontSize={10} fill="currentColor">{t.rightTitle}</text>
+        <text x={W - PAD} y={H - PAD + 12} fontSize={10} textAnchor="end" fill="currentColor">{t.xAxis}</text>
+        <text x={PAD + 4} y={PAD - 6} fontSize={10} fill="currentColor">{t.zAxis}</text>
         {DATA_X.map((x, i) => (
           <circle key={x} cx={sx(x)} cy={sz(zs[i])} r={3} fill="#e0883a" />
         ))}
-      </svg>
+      </svg></ReadableDiagram>
       <figcaption style={{ fontSize: 13, lineHeight: 1.6 }}>
         {t.legend}
         <br />

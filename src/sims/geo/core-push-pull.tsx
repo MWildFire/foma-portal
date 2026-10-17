@@ -1,3 +1,4 @@
+import ReadableDiagram from '../readable-diagram';
 import { useState } from 'react';
 import type { Lang } from '../../contract/types';
 
@@ -55,10 +56,10 @@ export default function PushPull({ lang }: { lang: Lang }) {
   const verdict = chosen === 0
     ? (ru ? 'Факторы не выбраны: отметьте хотя бы один.' : 'No factors are ticked: tick at least one.')
     : net > 1
-    ? (ru ? 'Перемещение вероятно: факторы выталкивания и притяжения перевешивают барьеры.' : 'Movement is likely: push and pull factors outweigh the obstacles.')
+    ? (ru ? 'Условный счёт положительный: отмеченных факторов больше, чем барьеров. Это не вероятность переезда.' : 'The illustrative count is positive: more factors than obstacles are ticked. This is not a probability of moving.')
     : net < 0
-      ? (ru ? 'Перемещению что-то мешает: барьеры перевешивают.' : 'Movement is held back: the obstacles outweigh the factors.')
-      : (ru ? 'Силы почти уравновешены: решение зависит от конкретного человека.' : 'The forces are roughly balanced: the decision depends on the person.');
+      ? (ru ? 'Условный счёт отрицательный: отмеченных барьеров больше. Их реальная важность может различаться.' : 'The illustrative count is negative: more obstacles are ticked. Their real importance can differ.')
+      : (ru ? 'Условный счёт близок к нулю; решение человека из него вывести нельзя.' : 'The illustrative count is near zero; it cannot determine a person’s decision.');
 
   return (
     <div>
@@ -67,7 +68,7 @@ export default function PushPull({ lang }: { lang: Lang }) {
         <Factors title={ru ? 'Факторы притяжения (место прибытия)' : 'Pull factors (destination)'} items={PULL} checked={pull} onToggle={toggle(pull, setPull)} lang={lang} />
         <Factors title={ru ? 'Промежуточные барьеры' : 'Intervening obstacles'} items={OBSTACLES} checked={obstacle} onToggle={toggle(obstacle, setObstacle)} lang={lang} />
       </div>
-      <svg role="img" aria-label={ru ? 'Схема потока миграции' : 'Migration flow diagram'} viewBox="0 0 400 120" width="100%" style={{ maxWidth: 520, display: 'block', margin: '14px auto 0' }}>
+      <ReadableDiagram lang={lang}><svg role="img" aria-label={ru ? 'Схема потока миграции' : 'Migration flow diagram'} viewBox="0 0 400 120" width="100%" style={{ maxWidth: 520, display: 'block', margin: '14px auto 0' }}>
         <defs>
           <marker id="push-pull-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" markerUnits="userSpaceOnUse" orient="auto">
             <path d="M 0 0 L 10 5 L 0 10 z" fill="#b4604a" />
@@ -81,9 +82,9 @@ export default function PushPull({ lang }: { lang: Lang }) {
         {/* each ticked obstacle is drawn as a bar across the flow */}
         {obstacle.map((on, index) => (on ? <line key={index} x1={150 + index * 33} y1={46} x2={150 + index * 33} y2={74} stroke="currentColor" strokeWidth={2.5} /> : null))}
         <text x={200} y={36} textAnchor="middle" fontSize="12" fill="currentColor">
-          {ru ? `Сила потока: ${net > 0 ? `+${net}` : net}` : `Flow strength: ${net > 0 ? `+${net}` : net}`}
+          {ru ? `Условный счёт: ${net > 0 ? `+${net}` : net}` : `Illustrative count: ${net > 0 ? `+${net}` : net}`}
         </text>
-      </svg>
+      </svg></ReadableDiagram>
       <p style={{ marginTop: 12 }}>
         <strong>{ru ? 'Итог модели: ' : 'Model result: '}</strong>
         {verdict}

@@ -21,9 +21,9 @@ export const terms: Term[] = [
     id: 'annuity',
     term: { en: 'annuity', ru: 'аннуитет (annuity)' },
     def: {
-      en: 'A constant investment $P$ made in each of $n$ periods, with interest compounded at a fixed rate $r\\%$ per period. Its future value is $FV = A\\dfrac{(1+r)^{n}-1}{r}$, where $A$ is the amount invested in each period.',
-      ru: 'Постоянный вклад $P$, который делается в каждом из $n$ периодов при начислении процентов по фиксированной ставке $r\\%$ за период. Его будущая стоимость равна $FV = A\\dfrac{(1+r)^{n}-1}{r}$, где $A$ — сумма, вносимая в каждом периоде.',
-    },
+      "en": "Equal payments at equal intervals. For an ordinary savings annuity with deposit M at each period end, constant decimal rate i > 0 and N whole periods, FV = M((1+i)^N − 1)/i. A quoted period rate of r% means i = r/100, not i = r. At i = 0, FV = MN; beginning-period deposits have an extra factor (1+i).",
+      "ru": "Равные платежи через равные промежутки времени. Для накопительного аннуитета со взносом M в конце каждого периода, постоянной ставкой i > 0 в долях единицы и целым числом периодов N: FV = M((1+i)^N − 1)/i. Если за период указано r%, то i = r/100, а не r. При i = 0 получаем FV = MN; взносы в начале периода дают дополнительный множитель (1+i)."
+},
     syllabus: '1.7',
     papers: ['P1', 'P2', 'P3'],
     src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 7.2, p. 307' },
@@ -32,9 +32,9 @@ export const terms: Term[] = [
     id: 'outstanding-balance',
     term: { en: 'outstanding balance', ru: 'остаток долга (outstanding balance)' },
     def: {
-      en: 'The amount still owed on a loan after some payments have been made. Each period interest is added to the amount owed and the payment is then subtracted, so the remaining loan falls step by step to zero at the end of the term.',
-      ru: 'Сумма, которая всё ещё причитается по кредиту после нескольких платежей. В каждом периоде к сумме долга прибавляются проценты, затем из неё вычитается платёж, поэтому остаток долга уменьшается шаг за шагом и становится нулём к концу срока.',
-    },
+      "en": "The amount still owed at a stated point in a loan. In this end-period model, add interest to the previous balance, then subtract the payment: B_next = (1+i)B − M. The balance decreases only when the payment exceeds that period’s interest; full repayment by the final period requires the appropriate payment and rounding convention.",
+      "ru": "Сумма долга на указанный момент. В модели с платежом в конце периода сначала начисляют проценты на прежний остаток, затем вычитают платёж: B_next = (1+i)B − M. Остаток уменьшается, только если платёж больше процентов за период; для погашения к последнему периоду нужны подходящий платёж и согласованное округление."
+},
     syllabus: '1.7',
     papers: ['P1', 'P2', 'P3'],
     src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 7.2, p. 308' },

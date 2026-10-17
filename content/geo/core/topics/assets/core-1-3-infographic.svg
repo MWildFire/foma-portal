@@ -1,13 +1,13 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" role="img" aria-labelledby="t1 d1">
-  <title id="t1">Old-age dependency ratio for Japan, South Korea and Nigeria, 2024 and 2050 (projected)</title>
+  <title id="t1">Old-age dependency ratio for Japan, South Korea and Nigeria: projections for both 2024 and 2050</title>
   <desc id="d1">Bar chart. Japan rises from 50.7 in 2024 to 73.1 in 2050. South Korea rises from 27.5 to 75.6. Nigeria rises from 5.5 to 7.0. Total fertility rate in 2024: Japan 1.22, South Korea 0.73, Nigeria 4.38.</desc>
   <rect x="0" y="0" width="640" height="400" fill="#ffffff"/>
-  <text x="320" y="30" font-family="Helvetica, Arial, sans-serif" font-size="17" font-weight="bold" fill="#1b1b1b" text-anchor="middle">Old-age dependency ratio, 2024 and 2050 (projected)</text>
+  <text x="320" y="30" font-family="Helvetica, Arial, sans-serif" font-size="17" font-weight="bold" fill="#1b1b1b" text-anchor="middle">Old-age dependency ratio: projections for 2024 and 2050</text>
   <text x="320" y="50" font-family="Helvetica, Arial, sans-serif" font-size="12" fill="#444444" text-anchor="middle">People aged 65 and over per 100 people aged 15 to 64</text>
-  <rect x="430" y="64" width="14" height="14" fill="#9fb8cc"/>
-  <text x="450" y="76" font-family="Helvetica, Arial, sans-serif" font-size="12" fill="#1b1b1b">2024</text>
-  <rect x="500" y="64" width="14" height="14" fill="#1f4e79"/>
-  <text x="520" y="76" font-family="Helvetica, Arial, sans-serif" font-size="12" fill="#1b1b1b">2050 (projected)</text>
+  <rect x="330" y="64" width="14" height="14" fill="#9fb8cc"/>
+  <text x="350" y="76" font-family="Helvetica, Arial, sans-serif" font-size="12" fill="#1b1b1b">2024 (projection)</text>
+  <rect x="480" y="64" width="14" height="14" fill="#1f4e79"/>
+  <text x="500" y="76" font-family="Helvetica, Arial, sans-serif" font-size="12" fill="#1b1b1b">2050 (projection)</text>
   <line x1="80" y1="90" x2="620" y2="90" stroke="#d9d9d9" stroke-width="1"/>
   <line x1="80" y1="150" x2="620" y2="150" stroke="#d9d9d9" stroke-width="1"/>
   <line x1="80" y1="210" x2="620" y2="210" stroke="#d9d9d9" stroke-width="1"/>

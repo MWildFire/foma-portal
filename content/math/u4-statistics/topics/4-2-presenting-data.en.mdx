@@ -4,13 +4,13 @@ Presenting data means choosing a display that shows what the question needs. A h
 
 ## Explanation
 
-Continuous data are grouped into classes, and a frequency table lists each class with its frequency. In a <Term id="histogram-grouped-data"/> each class is a bar with no gaps, and the area of the bar shows the frequency. When the class widths differ, the bar height is the frequency density, so the areas still show the frequencies: <Formula id="frequency-density"/>
+Continuous data are grouped into classes, and a frequency table lists each class with its frequency. In a <Term id="histogram-grouped-data"/> bars occupy their class intervals without decorative gaps (a zero-frequency class has zero height), and the area of the bar shows the frequency. When the class widths differ, the bar height is the frequency density, so the areas still show the frequencies: <Formula id="frequency-density"/>
 
 To draw a cumulative frequency graph, add the frequencies up to each upper class boundary and plot each running total against that boundary. Join the points to make a <Term id="cumulative-frequency-graph"/>. The curve starts at zero at the lower end of the first class and ends at the total frequency $n$.
 
 Read the median at cumulative frequency $\dfrac{n}{2}$, the lower quartile at $\dfrac{n}{4}$ and the upper quartile at $\dfrac{3n}{4}$. A percentile is read in the same way: the 90th percentile is at $0.9n$. <Formula id="quartile-cumulative-position"/> The spread of the middle half is the <Term id="interquartile-range"/>, $Q_3 - Q_1$: <Formula id="iqr-formula"/>
 
-A <Term id="box-and-whisker-diagram"/> is built from five values: the lowest value, $Q_1$, the median, $Q_3$ and the highest value. Draw the box from $Q_1$ to $Q_3$ with a line at the median, and draw the whiskers to the lowest and highest values. Two box plots drawn on the same scale allow a direct comparison of their medians and spreads.
+A <Term id="box-and-whisker-diagram"/> is built from five values: the lowest value, $Q_1$, the median, $Q_3$ and the highest value. For an ordinary box plot, draw the box from $Q_1$ to $Q_3$ with a median line and whiskers to the minimum and maximum. In a modified box plot, plot outliers separately and end whiskers at the most extreme non-outlier observations. State and follow the requested convention. Two box plots drawn on the same scale allow a direct comparison of their medians and spreads.
 
 <Callout kind="gdc">For ungrouped data, enter the values in a Lists & Spreadsheet column, then on a Calculator page choose `Menu → Statistics → Stat Calculations → One-Variable Statistics` and read `Q1X`, `MedianX` and `Q3X`. For grouped data, enter the class midpoints and use the frequency column as the Frequency List; these quartiles can differ from those read off a cumulative frequency graph, so say which method you used.</Callout>
 
@@ -24,19 +24,17 @@ A cumulative frequency table for the times, in minutes, of 40 students gives the
 <Step>Lower quartile: the cumulative frequency 10 lies between 6 at 10 minutes and 18 at 20 minutes, giving $10 + \dfrac{10 - 6}{18 - 6} \times 10 = 13.3$. Upper quartile: the cumulative frequency 30 lies between 18 at 20 minutes and 33 at 30 minutes, giving $20 + \dfrac{30 - 18}{33 - 18} \times 10 = 28.0$. The interquartile range is $28.0 - 13.3 = 14.7$ minutes.</Step>
 </Steps>
 
-<Reveal title="Why is the value between two plotted points estimated?">The graph joins only the plotted points, so a value between two points is estimated on the straight line between them. The answer is an estimate, which is why it is given to 1 decimal place.</Reveal>
+<Reveal title="Why is the value between two plotted points estimated?">Grouped data do not tell us the individual positions inside a class. Here linear interpolation assumes values spread uniformly within each class. The result is an estimate; the requested decimal places specify reporting accuracy, not proof of measurement precision.</Reveal>
 
 ## Visual
 
 Draw the box plot directly under the cumulative frequency graph, on the same horizontal scale. The edges of the box line up with the quartiles read from the graph, and the line inside the box marks the median.
 
-<Callout kind="tip">Label each axis with the variable and its units, for example minutes on the horizontal axis and cumulative frequency on the vertical axis. A diagram without labels earns no accuracy marks.</Callout>
+<Callout kind="tip">Label each axis with the variable and its units, for example minutes on the horizontal axis and cumulative frequency on the vertical axis. Labels make the variable, units and scale interpretable; exact marks depend on the task.</Callout>
 
 ## How it is examined
 
-Questions ask you to construct a histogram, draw a cumulative frequency graph, read quartiles or percentiles from it, or describe a box plot. Marks are given for correct plotted points, labelled axes and a scale, and for the readings taken from the graph. Reading the median at the wrong cumulative frequency, for example at $n$ instead of $\dfrac{n}{2}$, loses the accuracy mark.
-
-<Callout kind="exam">In a drawing part, plot every point at the upper class boundary and join the points. A histogram or a graph drawn with unlabelled axes loses marks even when the numbers are right.</Callout>
+For Draw, label the axes and scales, use class boundaries and select frequency density if widths differ. For Estimate, show the cumulative-frequency level and the interpolation requested. State the boxplot and quartile convention rather than silently mixing methods. Give the accuracy requested; an extra decimal place does not make grouped estimates exact.
 
 ## Common mistakes
 
@@ -56,7 +54,7 @@ Questions ask you to construct a histogram, draw a cumulative frequency graph, r
 
 ## Summary
 
-- A histogram has bars with no gaps; with unequal class widths its height is the frequency density.
+- A histogram has bars aligned to contiguous class intervals, with zero height for an empty class; with unequal class widths its height is the frequency density.
 - A cumulative frequency graph plots running totals against upper class boundaries.
 - Read the median at $\dfrac{n}{2}$, the lower quartile at $\dfrac{n}{4}$ and the upper quartile at $\dfrac{3n}{4}$.
 - The interquartile range is $Q_3 - Q_1$ and measures the spread of the middle half of the data.

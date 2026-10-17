@@ -94,7 +94,8 @@
   },
   "region": {
     "formula": "Scrollable formula",
-    "code": "Scrollable code"
+    "code": "Scrollable code",
+    "figure": "Scrollable figure"
   },
   "warn": {
     "outside": "{{name}} works only inside a topic page.",
@@ -140,5 +141,9 @@
     },
     "meanwhile": "Meanwhile, read these pages:",
     "noLinks": "There are no reading links for this topic yet."
+  },
+  "figure": {
+    "open": "Open full-size figure",
+    "scroll": "Scroll inside the frame to see all labels."
   }
 }

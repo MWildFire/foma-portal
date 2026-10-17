@@ -1,10 +1,10 @@
 import type { Question } from '../../../../src/contract/types';
 
-export const questions: Question[] = [
+export const questions: (Question & { inMockScope?: 'yes' | 'no' })[] = [
   {
     id: 'econ-equity-and-market-failure-01',
     subject: 'econ',
-    topicIds: ['equity-and-market-failure'],
+    topicIds: ['inequality-and-poverty'],
     paper: 'P2',
     marks: 3,
     command: 'Calculate',
@@ -23,7 +23,7 @@ export const questions: Question[] = [
   {
     id: 'econ-equity-and-market-failure-02',
     subject: 'econ',
-    topicIds: ['equity-and-market-failure'],
+    topicIds: ['inequality-and-poverty'],
     paper: 'P1',
     marks: 4,
     command: 'Explain',
@@ -41,7 +41,7 @@ export const questions: Question[] = [
   {
     id: 'econ-equity-and-market-failure-03',
     subject: 'econ',
-    topicIds: ['equity-and-market-failure'],
+    topicIds: ['inequality-and-poverty'],
     paper: 'P1',
     marks: 4,
     command: 'Distinguish',
@@ -59,7 +59,7 @@ export const questions: Question[] = [
   {
     id: 'econ-equity-and-market-failure-04',
     subject: 'econ',
-    topicIds: ['equity-and-market-failure'],
+    topicIds: ['inequality-and-poverty'],
     paper: 'P1',
     marks: 8,
     command: 'Evaluate',

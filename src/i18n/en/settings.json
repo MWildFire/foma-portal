@@ -6,15 +6,11 @@
   },
   "access": {
     "title": "Access arrangements",
-    "intro": "[redacted]'s only access arrangement is typing: he types his answers on the computer. The switch below is only for checking.",
-    "extraTime": {
-      "label": "25% extra time ([redacted] does not have it)",
-      "hint": "Off by default. Switch it on only to check the times with extra time, from the school's table."
-    }
+    "intro": "[redacted]'s only access arrangement is typing: he types his answers on the computer."
   },
   "load": {
     "title": "Study time per day",
-    "intro": "Minutes of study for each weekday, including the 15 min recall. An empty box keeps the time from the study schedule (usually Mon–Thu 150, Fri 120, Sat–Sun 270 min; a few days differ). A number replaces that time on every ordinary day of that weekday; timed papers keep their full length. Exam days always keep their evening time from the schedule. 0 makes it a rest day.",
+    "intro": "Self-study minutes for each weekday, excluding tutors, school, travel, sleep and breaks. An empty box uses the 240-minute learning target every day, including weekends and 5 November; this is not confirmed free time. Overrides also apply on exam days. Zero keeps all four activities visible with a numeric conflict. Full examination papers retain their printed duration.",
     "default": "As in the schedule (usually {{time}})",
     "custom": "Your setting (the schedule usually has {{time}})",
     "unit": "min",

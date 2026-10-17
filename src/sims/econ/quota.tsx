@@ -24,7 +24,7 @@ const axes = {
 
 const demand: CurveSpec = { id: 'd', points: D, tone: 'demand', label: { en: 'D', ru: 'D' } };
 const supply: CurveSpec = { id: 's', points: S, tone: 'supply', label: { en: 'S', ru: 'S' } };
-const supplyOld: CurveSpec = { id: 's0', points: S, tone: 'muted', dashed: true };
+const supplyOld: CurveSpec = { id: 's0', points: S, tone: 'muted', dashed: true, label: { en: 'S', ru: 'S' } };
 const supplyWithQuota: CurveSpec = { id: 'sq', points: SQ, tone: 'supply', width: 2.5 };
 const worldPrice: CurveSpec = { id: 'pw', points: [[0, 3], [24, 3]], tone: 'ink', dashed: true };
 const domesticPrice: CurveSpec = { id: 'p4', points: [[0, 4], [24, 4]], tone: 'policy', width: 2 };

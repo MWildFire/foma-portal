@@ -7,7 +7,7 @@ export const terms: Term[] = [
     term: { en: 'Venn diagram', ru: 'диаграмма Венна (Venn diagram)' },
     def: {
       en: 'A diagram of overlapping circles inside the sample space $U$. The regions show A only, B only, both A and B (the intersection $A \\cap B$), and neither.',
-      ru: 'Диаграмма из перекрывающихся кругов внутри пространства выборки $U$. Области показывают: только $A$, только $B$, одновременно $A$ и $B$ (пересечение $A \\cap B$) и ни $A$, ни $B$.',
+      ru: 'Диаграмма из перекрывающихся кругов внутри пространства элементарных исходов $U$. Области показывают: только $A$, только $B$, одновременно $A$ и $B$ (пересечение $A \\cap B$) и ни $A$, ни $B$.',
     },
     syllabus: '4.6',
     papers: ['P1', 'P2', 'P3'],
@@ -36,8 +36,8 @@ export const terms: Term[] = [
     id: 'conditional-probability',
     term: { en: 'conditional probability', ru: 'условная вероятность (conditional probability)' },
     def: {
-      en: 'The probability of A given that B has occurred: $P(A \\mid B) = \\dfrac{P(A \\cap B)}{P(B)}$. The sample space is reduced to B.',
-      ru: 'Вероятность события A при условии, что B произошло: $P(A \\mid B) = \\dfrac{P(A \\cap B)}{P(B)}$. Пространство выборки сужается до B.',
+      en: 'The probability of A given that B has occurred: $P(A \\mid B) = \\dfrac{P(A \\cap B)}{P(B)}$. This requires $P(B)>0$; the sample space is reduced to B.',
+      ru: 'Вероятность события A при условии, что B произошло: $P(A \\mid B) = \\dfrac{P(A \\cap B)}{P(B)}$. Требуется $P(B)>0$; пространство элементарных исходов сужается до B.',
     },
     syllabus: '4.6',
     papers: ['P1', 'P2', 'P3'],
@@ -51,8 +51,8 @@ export const terms: Term[] = [
     id: 'independent-events',
     term: { en: 'independent events', ru: 'независимые события (independent events)' },
     def: {
-      en: 'Events A and B for which knowing that B occurred does not change the probability of A: $P(A \\cap B) = P(A)\\,P(B)$, or equivalently $P(A \\mid B) = P(A)$.',
-      ru: 'События A и B, для которых известие о том, что B произошло, не меняет вероятность A: $P(A \\cap B) = P(A)\\,P(B)$, или, что то же самое, $P(A \\mid B) = P(A)$.',
+      en: 'Events A and B for which knowing that B occurred does not change the probability of A: $P(A \\cap B) = P(A)\\,P(B)$, or, when $P(B)>0$, equivalently $P(A \\mid B) = P(A)$.',
+      ru: 'События A и B, для которых известие о том, что B произошло, не меняет вероятность A: $P(A \\cap B) = P(A)\\,P(B)$, или, при $P(B)>0$, эквивалентно $P(A \\mid B) = P(A)$.',
     },
     syllabus: '4.6',
     papers: ['P1', 'P2', 'P3'],

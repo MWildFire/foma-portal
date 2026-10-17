@@ -48,3 +48,9 @@ CHECKS = [
     ('q-4-13-02', Q2_R2, None),
     ('q-4-13-03', [Q3_LOG.intercept, Q3_LOG.slope, Q3_R2_LOG, Q3_R2_LIN, Q3_PRED21], None),
 ]
+
+# R03: the Plants data used in the lab, independently fitted with numpy.
+LAB_X = np.array([2, 4, 6, 8, 10])
+LAB_Y = np.array([5, 9, 10, 14, 18])
+LAB_COEF = np.polyfit(LAB_X, LAB_Y, 2)
+CHECKS.append(('we-r03-plants-quadratic', [*LAB_COEF, sum((LAB_Y - np.polyval(LAB_COEF, LAB_X)) ** 2)], '0.053571; 0.907143; 3.4; 2.05714'))

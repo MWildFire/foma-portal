@@ -29,12 +29,12 @@ export const terms: Term[] = [
     id: 'wealth-inequality',
     term: { en: 'wealth inequality', ru: 'неравенство богатства (wealth inequality)' },
     def: {
-      en: 'The unequal distribution of wealth, a stock of assets such as property, savings and financial investments, at a point in time.',
-      ru: 'Неравномерное распределение богатства, то есть запаса активов, таких как недвижимость, сбережения и финансовые инвестиции, на определённый момент времени.',
+      en: 'The unequal distribution of wealth, a stock of net assets (property, savings and financial investments minus debts), at a point in time.',
+      ru: 'Неравномерное распределение богатства, то есть запаса чистых активов (недвижимость, сбережения и финансовые инвестиции за вычетом долгов) на определённый момент времени.',
     },
     example: {
-      en: 'A household owns a flat worth 500000 AED and savings of 50000 AED, so its wealth is 550000 AED.',
-      ru: 'Домохозяйство владеет квартирой стоимостью 500000 AED и сбережениями 50000 AED, поэтому его богатство равно 550000 AED.',
+      en: 'A household owns a flat worth 500000 AED and savings of 50000 AED, with no debts, so its wealth is 550000 AED.',
+      ru: 'Домохозяйство владеет квартирой стоимостью 500000 AED и сбережениями 50000 AED, долгов нет, поэтому его богатство равно 550000 AED.',
     },
     pitfall: {
       en: 'Wealth is usually more unequal than income, because it is passed on through inheritance and grows as savings compound.',
@@ -88,16 +88,16 @@ export const terms: Term[] = [
     id: 'gini-coefficient',
     term: { en: 'Gini coefficient', ru: 'коэффициент Джини (Gini coefficient)' },
     def: {
-      en: 'A measure of income inequality from 0 to 1, equal to area A divided by the sum of areas A and B on the Lorenz diagram.',
-      ru: 'Мера неравенства доходов от 0 до 1, равная площади A, делённой на сумму площадей A и B на диаграмме Лоренца.',
+      en: 'For nonnegative incomes with a positive total, a measure of income inequality from 0 to 1, equal to area A divided by the sum of areas A and B on the Lorenz diagram.',
+      ru: 'Для неотрицательных доходов с положительной общей суммой — мера неравенства от 0 до 1, равная площади A, делённой на сумму площадей A и B на диаграмме Лоренца.',
     },
     example: {
       en: 'With A = 1000 and B = 4000, G = 1000 / 5000 = 0.20.',
       ru: 'При A = 1000 и B = 4000 коэффициент G = 1000 / 5000 = 0,20.',
     },
     pitfall: {
-      en: 'The Gini is a ratio between 0 and 1, not a percentage: 0.40 shows more inequality than 0.20.',
-      ru: 'Коэффициент Джини — это отношение от 0 до 1, а не процент: 0,40 означает большее неравенство, чем 0,20.',
+      en: 'For the stated income model, Gini uses a 0–1 scale; some sources instead report a 0–100 index. State the scale. A lower Gini need not imply Lorenz dominance if the curves cross.',
+      ru: 'В заданной модели доходов Джини выражен по шкале 0–1; некоторые источники используют индекс 0–100. Укажи шкалу. Меньший Джини не доказывает доминирования по Лоренцу, если кривые пересекаются.',
     },
     syllabus: '3.4',
     papers: ['P1', 'P2', 'P3'],

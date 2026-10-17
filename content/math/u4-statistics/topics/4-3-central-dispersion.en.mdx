@@ -4,9 +4,9 @@ One average hides how far the values spread. Central tendency (mean, median, mod
 
 ## Explanation
 
-The mean, the median and the mode measure the centre of a data set. The mean uses every value, so one extreme value moves it; the median is the middle value of the ordered data and is not moved much by extreme values. For grouped data, the <Term id="estimated-mean-grouped"/> uses the class midpoints and frequencies: <Formula id="grouped-mean-estimate"/>
+The mean, the median and the mode measure the centre of a data set. The mean uses every value, so one extreme value moves it; the median is the middle value of the ordered data (or the average of the two middle values for even n). It depends mainly on order and is generally less sensitive to extreme magnitudes than the mean; it is not guaranteed unchanged. For grouped data, the <Term id="estimated-mean-grouped"/> uses the class midpoints and frequencies: <Formula id="grouped-mean-estimate"/>
 
-The <Term id="modal-class"/> is the class with the highest frequency density. When the class widths differ, compare densities rather than frequencies.
+With equal-width classes, the <Term id="modal-class"/> has the highest frequency. For unequal widths, use frequency density to identify the histogram peak; the class with the most observations and the class with the highest density need not be the same. Follow the quantity requested in the question.
 
 The range depends on two values only. The <Term id="interquartile-range"/> is the spread of the middle half of the data: <Formula id="iqr-formula"/> The <Term id="standard-deviation"/> measures the typical distance of the values from the mean and uses every value: <Formula id="sd-formula"/>
 
@@ -32,13 +32,11 @@ The weekly study hours of 8 students are: 2, 4, 4, 5, 6, 6, 6, 9.
 
 Sketch the values as dots on a number line and mark the mean as a balance point. An extreme dot pulls the mean towards it, while the median and the interquartile range hardly move.
 
-<Callout kind="tip">Mark the mean, the median and the quartiles on the same sketch. When the mean is far from the median, the extreme values are pulling the average, and the median is the safer summary.</Callout>
+<Callout kind="tip">Mark the mean, the median and the quartiles on the same sketch. A mean–median difference may reflect skewness or unusual values; inspect the data and the purpose of the summary. It does not prove the presence of an outlier or make the median universally preferable.</Callout>
 
 ## How it is examined
 
-Calculate and Find questions ask for statistics from raw or grouped data. Estimate questions expect the midpoints method for the mean of grouped data. Compare questions ask for one measure of centre and one measure of spread for each set. Marks are given for the method (for example, the sum of $fx$ divided by the sum of $f$), for the accuracy of the rounded answer, and for the reason in a comparison.
-
-<Callout kind="exam">When asked to compare two data sets, give a measure of centre and a measure of spread for each set, then state which set is more consistent, with a reason based on the numbers.</Callout>
+For Calculate, distinguish raw values from class midpoints, show frequency weights and choose the requested SD divisor. For Comment, compare mean and median or SD and IQR using the actual distribution. Identify an outlier using the stated rule; an isolated large value is not automatically erroneous.
 
 ## Common mistakes
 
@@ -58,9 +56,9 @@ Calculate and Find questions ask for statistics from raw or grouped data. Estima
 
 ## Summary
 
-- The mean uses every value; the median and the interquartile range are not moved much by extreme values.
+- The mean uses every value; the median and IQR are generally less sensitive to extreme magnitudes, but their values can change with ranks, sample size and quartile convention.
 - For grouped data, estimate the mean with the class midpoints and the frequencies.
-- The modal class is the class with the highest frequency density.
+- For equal-width classes the modal class has the highest frequency. With unequal widths distinguish highest frequency from the histogram peak by density.
 - The standard deviation is the square root of the mean squared deviation from the mean, in the units of the data.
 - The interquartile range is $Q_3 - Q_1$ and measures the spread of the middle half of the data.
 - If $y = ax + b$, then $\bar{y} = a\bar{x} + b$ and $\sigma_y = |a|\sigma_x$; adding a constant does not change the spread.

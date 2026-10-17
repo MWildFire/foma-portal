@@ -10,8 +10,8 @@ export const formulas: Formula[] = [
       ru: 'Вероятность ровно x событий в интервале, если среднее число событий равно m.',
     },
     when: {
-      en: 'Counting events in a fixed interval at a constant mean rate.',
-      ru: 'Подсчёт событий за фиксированный интервал при постоянной средней частоте.',
+      en: 'The process model assumes independent counts in disjoint intervals and negligible multiple arrivals in a sufficiently short interval; constant rate alone is insufficient. Counting events in a fixed interval at a constant mean rate.',
+      ru: 'Для модели процесса нужны независимые количества событий в непересекающихся интервалах и пренебрежимо малая вероятность нескольких событий в достаточно коротком интервале; одной постоянной частоты недостаточно. Подсчёт событий за фиксированный интервал при постоянной средней частоте.',
     },
     syllabus: '4.17',
     inBooklet: false,
@@ -29,8 +29,8 @@ export const formulas: Formula[] = [
       ru: 'Для X ~ Po(m) среднее и дисперсия равны m.',
     },
     when: {
-      en: 'Checking whether a count is plausibly Poisson: the sample mean and the sample variance should be close.',
-      ru: 'Проверка, похож ли подсчёт на распределение Пуассона: выборочные среднее и дисперсия должны быть близки.',
+      en: 'Close sample mean and variance is a diagnostic, not proof of a Poisson distribution. Checking whether a count is plausibly Poisson: the sample mean and the sample variance should be close.',
+      ru: 'Близость выборочных среднего и дисперсии — диагностический признак, не доказательство распределения Пуассона. Проверка, похож ли подсчёт на распределение Пуассона: выборочные среднее и дисперсия должны быть близки.',
     },
     syllabus: '4.17',
     inBooklet: true,

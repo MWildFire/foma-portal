@@ -1,20 +1,20 @@
 ## Big idea
 
-Not every quantity follows a straight line or a simple exponential curve. A drug or a radioactive sample halves over a fixed time, learning slows as it nears a maximum, tides repeat, and some rules change at a threshold. Each shape has its own model. Choose the model from the shape of the data and the context, then fit its parameters.
+Not every quantity follows a straight line or a simple exponential curve. An exponential decay model can describe repeated halving over a fixed time, a logistic curve approaches an upper limit, a periodic model repeats, and some rules change at a threshold. Each shape has its own model. Choose the model from the shape of the data and the context, then fit its parameters.
 
 ## Explanation
 
 Five families of extended models appear in this topic.
 
-- Half-life. Exponential decay is written $N = N_0 e^{-kt}$ with $k > 0$. The <Term id="half-life-model"/> is the time for the amount to halve, $T = \dfrac{\ln 2}{k}$. It does not depend on the starting amount $N_0$.
+- Half-life. Exponential decay is written $N = N_0 e^{-kt}$ with $N_0>0$ and $k>0$. The <Term id="half-life-model"/> is the time for the amount to halve, $T = \dfrac{\ln 2}{k}$. It does not depend on the starting amount $N_0$.
 - Natural logarithm model. $y = a + b\ln x$ for $x > 0$ and $b > 0$ rises quickly at first and then more slowly, because its gradient $\dfrac{b}{x}$ falls as $x$ grows. It suits diminishing returns.
-- Sinusoidal model. $y = a\sin\big(b(x-c)\big) + d$ oscillates about the principal axis $y = d$. Its amplitude is $|a|$, its horizontal shift is $c$ and its period is $\dfrac{2\pi}{b}$. The sine is taken in radians.
-- Logistic model. The <Term id="logistic-model"/> $y = \dfrac{L}{1 + Ce^{-kx}}$ is S-shaped. $L$ is the <Term id="carrying-capacity"/>, the upper limit that $y$ approaches. <Formula id="logistic-formula"/>
-- Piecewise model. A <Term id="piecewise-model"/> uses a different rule on each interval of its domain. At a shared boundary the two rules must give the same value, otherwise the model jumps there.
+- Sinusoidal model. $y=a\sin\big(b(x-c)\big)+d$ with $a\neq0$ and $b\neq0$ oscillates about the principal axis $y = d$. Its amplitude is $|a|$, its horizontal shift is $c$ and its period is $\dfrac{2\pi}{|b|}$. The sine is taken in radians.
+- Logistic model. The <Term id="logistic-model"/> $y = \dfrac{L}{1 + Ce^{-kx}}$ is S-shaped for $L>0$, $C>0$ and $k>0$. $L$ is the <Term id="carrying-capacity"/>, the upper limit that $y$ approaches. <Formula id="logistic-formula"/>
+- Piecewise model. A <Term id="piecewise-model"/> uses a different rule on each interval of its domain. Specify which interval includes each endpoint. A jump is permitted: continuity is an additional condition only when the context requires it. Two rules may overlap only if they assign the same value at every overlapping input; otherwise the proposed rule is not a function.
 
-<Callout kind="define">Logistic model: a model $y = \dfrac{L}{1+Ce^{-kx}}$ whose graph is S-shaped and levels off at $L$.</Callout>
+<Callout kind="define">Logistic model: a model $y = \dfrac{L}{1+Ce^{-kx}}$ with $L>0$, $C>0$ and $k>0$, whose graph is S-shaped and approaches $L$.</Callout>
 
-For a logistic model the key features follow from the formula. The starting value is $f(0) = \dfrac{L}{1+C}$. The inflection point, where growth changes from speeding up to slowing down, is at $x = \dfrac{\ln C}{k}$, and there $y = \dfrac{L}{2}$. Growth is fastest at that point, at the rate $\dfrac{kL}{4}$. <Formula id="logistic-key-features"/>
+For a logistic model the key features follow from the formula. The starting value is $f(0) = \dfrac{L}{1+C}$. The inflection point, where growth changes from speeding up to slowing down, is at $x = \dfrac{\ln C}{k}$, and there $y = \dfrac{L}{2}$. On the full real domain, growth is fastest at that point, at rate $kL/4$. On a restricted domain such as $x\ge0$, first check whether $\ln C/k$ belongs to it; otherwise this full-curve maximum need not be attained in the allowed interval. For finite $x$, $0<y<L$: $L$ is an upper limit, not an attained largest value. <Formula id="logistic-key-features"/>
 
 <Callout kind="gdc">For a logistic model, enter the data in two lists and use `Menu → Statistics → Stat Calculations → Logistic Regression (d=0)`, which fits $y = \dfrac{c}{1 + a e^{-bx}}$, so $L = c$, $C = a$ and $k = b$. To find when the model reaches a value such as $f(x) = 180$, use `Menu → Algebra → Numerical Solve` on a Calculator page, or graph $f$ and the line $y = 180$ and use `Menu → Analyze Graph → Intersection`.</Callout>
 
@@ -37,15 +37,24 @@ A growth model is $y = \dfrac{100}{1 + 4e^{-0.5x}}$. Find its starting value, it
 
 <Reveal title="Why not read the starting value as L over C?">At $x = 0$ the denominator is $1 + C$, not $C$. Writing $\dfrac{L}{C}$ gives the wrong starting value.</Reveal>
 
+
+### A jump, an overlap and a continuous join
+
+A fixed-entry fee is modelled by $f(x)=0$ for $x<0$ and $f(x)=1$ for $x\ge0$. At $x=0$, only the second rule applies, so $f(0)=1$. Draw an open circle at $(0,0)$ and a filled circle at $(0,1)$. The jump does not make the function invalid: every input still has one output.
+
+By contrast, assigning $g(x)=0$ for $x\le0$ and $g(x)=1$ for $x\ge0$ is inconsistent at zero: it assigns both 0 and 1 there. Change an endpoint inequality, or make the two endpoint values equal.
+
+If a continuous tank-volume model is $V(t)=2t$ for $0\le t<3$ and $V(t)=t+c$ for $3\le t\le5$, continuity is physically required: $2(3)=3+c$, hence $c=3$. Then $V(3)=6$. Without that physical condition, a jump could describe a different process, such as an instantaneous top-up in an idealised model. Do not impose a continuity equation without a stated reason.
+
 ## Visual
 
 <Sim id="math.logistic-loglog-lab"/>
 
-The left panel draws the logistic curve with its data points. Move $L$ to change the upper limit, $C$ to shift the starting value and $k$ to change the steepness. The readouts give the starting value, the inflection point and the greatest rate of growth for the current sliders. The right panel shows the same points after a logarithmic transformation; topic 2.10 explains why they become a straight line.
+The left panel draws the logistic curve with its data points. Move $L$ to change the upper limit, $C$ to shift the starting value and $k$ to change the steepness. The readouts give the starting value, the inflection point and the greatest rate of growth for the current sliders. The right panel uses the logit transform $\ln(y/(L-y))$ of the fixed illustrative points, with $0<y<L$. Topic 2.10 derives the line for exact logistic data; these rounded points need not be exactly collinear. Changing $L$ changes that fit, while $C$ and $k$ change the blue model.
 
 ## How it is examined
 
-Questions on extended models use command terms such as Find, Show that, Sketch, Determine and Comment. Marks are given for choosing the model, for setting up the equation (M1), for the value to the required accuracy (A1) and for a reasoned comment about the context (R1). In a logistic question, saying that $L$ is the largest value the model can give often earns the reasoning mark.
+Questions on extended models use command terms such as Find, Show that, Sketch, Determine and Comment. Explain the model, show the equation, report requested accuracy and justify comments using the context. Exact marks depend on the question. For this logistic model, call $L$ the upper limiting value: the model approaches it without attaining it at finite inputs.
 
 <Callout kind="exam">Write the equation before you use the GDC, for example $f(x) = 180$ or $y = \dfrac{L}{2}$. A bare decimal without the equation can earn no method mark.</Callout>
 
@@ -54,7 +63,7 @@ Questions on extended models use command terms such as Find, Show that, Sketch, 
 <Callout kind="mistake">Treating the half-life as $k$. The half-life is $T = \dfrac{\ln 2}{k}$, so a larger $k$ gives a shorter half-life.</Callout>
 
 - Reading the starting value of a logistic model as $\dfrac{L}{C}$. It is $\dfrac{L}{1+C}$.
-- Using $b$ as the period of $a\sin\big(b(x-c)\big)+d$. The period is $\dfrac{2\pi}{b}$.
+- Using $b$ as the period of $a\sin\big(b(x-c)\big)+d$. The period is $\dfrac{2\pi}{|b|}$.
 - Finding the maximum of a sinusoid without the shift $c$, or not checking that the answer lies in the given interval.
 
 ## Check yourself
@@ -65,11 +74,13 @@ Questions on extended models use command terms such as Find, Show that, Sketch, 
 
 <Question id="q-2-9-03"/>
 
+<Question id="r06-piecewise"/>
+
 ## Summary
 
 - Choose the model from the shape of the data and the context before you fit it.
 - Exponential decay has half-life $T = \dfrac{\ln 2}{k}$.
-- $y = a + b\ln x$ grows quickly and then slowly, with gradient $\dfrac{b}{x}$.
-- $y = a\sin\big(b(x-c)\big)+d$ has amplitude $|a|$, period $\dfrac{2\pi}{b}$ and principal axis $y = d$.
-- The logistic model $\dfrac{L}{1+Ce^{-kx}}$ starts at $\dfrac{L}{1+C}$, has its inflection point at $x = \dfrac{\ln C}{k}$ where $y = \dfrac{L}{2}$, and grows fastest at $\dfrac{kL}{4}$.
-- A piecewise model must agree at each boundary, and its domain must be stated.
+- For $x>0$ and $b>0$, $y = a + b\ln x$ grows quickly and then slowly, with gradient $\dfrac{b}{x}$.
+- $y = a\sin\big(b(x-c)\big)+d$ has amplitude $|a|$, period $\dfrac{2\pi}{|b|}$ and principal axis $y = d$.
+- The logistic model $\dfrac{L}{1+Ce^{-kx}}$ starts at $\dfrac{L}{1+C}$, has its inflection point at $x = \dfrac{\ln C}{k}$ where $y = \dfrac{L}{2}$, and has full-curve greatest growth rate $kL/4$; check that the corresponding input belongs to any restricted domain.
+- A piecewise function may jump. State domains and endpoint membership; equate boundary values only when continuity is required.

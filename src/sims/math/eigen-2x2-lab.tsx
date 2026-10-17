@@ -1,3 +1,4 @@
+import ReadableDiagram from '../readable-diagram';
 import { useState } from 'react';
 import type { Lang } from '../../contract/types';
 
@@ -95,7 +96,7 @@ export default function EigenLab({ lang }: { lang: Lang }) {
 
   return (
     <figure style={{ margin: 0 }}>
-      <svg
+      <ReadableDiagram lang={lang}><svg
         viewBox={`0 0 ${SIZE} ${SIZE}`}
         width="100%"
         style={{ maxWidth: SIZE, display: 'block', overflow: 'hidden' }}
@@ -117,12 +118,12 @@ export default function EigenLab({ lang }: { lang: Lang }) {
         {eigen.map(({ lambda, v, colour }) => (
           <g key={colour} stroke={colour} fill={colour}>
             <line x1={toX(-PLANE * v[0])} y1={toY(-PLANE * v[1])} x2={toX(PLANE * v[0])} y2={toY(PLANE * v[1])} strokeWidth={1.5} />
-            <text x={toX(PLANE * v[0]) - 4} y={toY(PLANE * v[1]) - 4} fontSize={11} textAnchor="end" stroke="none">
+            <text x={toX(PLANE * v[0]) - 4} y={toY(PLANE * v[1]) - 4} fontSize={11} textAnchor="end" stroke="var(--color-bg)" strokeWidth={4} paintOrder="stroke">
               λ = {lambda.toFixed(2)}
             </text>
           </g>
         ))}
-      </svg>
+      </svg></ReadableDiagram>
       <figcaption style={{ fontSize: 13, lineHeight: 1.5 }}>
         A = [[{a.toFixed(1)}, {b.toFixed(1)}], [{c.toFixed(1)}, {d.toFixed(1)}]]
         <br />

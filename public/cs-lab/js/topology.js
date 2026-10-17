@@ -206,16 +206,16 @@
         t.setAttribute('text-anchor', 'middle');
         t.setAttribute('font-size', '11');
         t.setAttribute('font-weight', '700');
-        t.setAttribute('fill', 'white');
+        t.setAttribute('fill', T.ink(fill));
         t.textContent = 'SW';
         g.appendChild(t);
       } else if (isCore) {
         const t = document.createElementNS(NS, 'text');
         t.setAttribute('x', n.x); t.setAttribute('y', n.y + 4);
         t.setAttribute('text-anchor', 'middle');
-        t.setAttribute('font-size', '10');
+        t.setAttribute('font-size', '11');
         t.setAttribute('font-weight', '700');
-        t.setAttribute('fill', 'white');
+        t.setAttribute('fill', T.ink(fill));
         t.textContent = 'C' + n.id;
         g.appendChild(t);
       } else if (n.id === state.targetId) {
@@ -224,7 +224,7 @@
         t.setAttribute('text-anchor', 'middle');
         t.setAttribute('font-size', '11');
         t.setAttribute('font-weight', '700');
-        t.setAttribute('fill', 'white');
+        t.setAttribute('fill', T.ink(fill));
         t.textContent = '★';
         g.appendChild(t);
       }

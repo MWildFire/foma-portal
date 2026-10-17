@@ -4,15 +4,15 @@ Compound interest and reducing-balance depreciation are both geometric sequences
 
 ## Explanation
 
-When interest is added to a balance, the next period's interest is earned on the interest as well. This is why <Term id="compound-interest"/> grows faster than simple interest. For a principal $PV$ at $r\%$ a year, with interest added $k$ times a year, the value after $n$ years is:
+When interest is added to a balance, the next period's interest is earned on the interest as well. For a positive principal and a positive fixed rate per period, <Term id="compound-interest"/> gives a larger balance than simple interest at the same periodic rate after more than one period; after one period they agree. Here $r\%$ is a nominal annual rate compounded $k$ times per year, with no fees or additional cash flows. For principal $PV$, after $n$ years (a whole number $kn$ of periods), the value is:
 
 <Formula id="compound-interest-periods"/>
 
-Each <Term id="compounding-period"/> uses the rate $\frac{r}{k}\%$, and there are $kn$ periods in $n$ years. Annual compounding is the case $k = 1$. Monthly compounding is $k = 12$, which gives $12n$ periods at $\frac{r}{12}\%$ each.
+Each <Term id="compounding-period"/> uses the rate $\frac{r}{k}\%$, and there are $kn$ periods in $n$ years. Dividing by $k$ applies to this nominal-rate convention. An effective annual rate $j\%$ instead gives the periodic rate $(1+j/100)^{1/k}-1$. Annual compounding is the case $k = 1$. Monthly compounding is $k = 12$, which gives $12n$ periods at $\frac{r}{12}\%$ each.
 
 <Callout kind="define">Compound interest: interest added to the balance at the end of each period, so that the balance is multiplied by a fixed growth factor $1 + \frac{r}{100k}$ in each period.</Callout>
 
-Depreciation can also be a geometric sequence. In <Term id="reducing-balance-depreciation"/>, the value falls by a fixed percentage of its value at the start of each year. If $V_0$ is the starting value and $r\%$ is lost each year, the value after $n$ years is:
+Depreciation can also be a geometric sequence. In <Term id="reducing-balance-depreciation"/>, the value falls by a fixed percentage of its value at the start of each year. For $V_0>0$ and $0<r<100$, if $r\%$ is lost each year, the value after $n$ years is:
 
 <Formula id="reducing-balance-value"/>
 
@@ -38,11 +38,11 @@ A deposit of AED 20,000 earns 3.5% a year, compounded annually. A car bought for
 
 <Sim id="math.tvm-lab"/>
 
-Set the principal to 20,000, the rate to 3.5, the years to 5 and the payments per year to 1. The compound value is 23,753.73, the same as the first step of the worked example. Then raise the payments per year towards 12: the value grows a little more, because interest is added more often and the growth factor for each period becomes smaller.
+Set the principal to 20,000, the rate to 3.5, the years to 5 and the payments per year to 1. The compound value is 23,753.73, the same as the first step of the worked example. Then raise the payments per year towards 12: the no-payment compound value grows a little more at the same nominal annual rate: smaller interest per period is compounded over more periods. The graph and table still show the separate loan with end-of-period payments, not the no-payment savings balance.
 
 ## How it is examined
 
-Find and Calculate questions give a mark for the correct growth or decay factor, a mark for the number of periods, and an accuracy mark for the rounding the question asks for. Show that and Comment questions need the values from earlier parts and a conclusion linked to the context. To find a rate or a number of years, write the unknown inside the same formula and solve it.
+Follow the actual task’s mark allocation rather than assuming one mark each for a factor, periods and rounding. Make the factor and period count visible so the model can be checked. Show that and Comment questions need the values from earlier parts and a conclusion linked to the context. To find a rate or a number of years, write the unknown inside the same formula and solve it.
 
 <Callout kind="exam">Write the common ratio and the number of periods before you substitute numbers. An answer rounded differently from the question's instruction loses the accuracy mark.</Callout>
 

@@ -1,5 +1,8 @@
 import type { Question } from '../../../../src/contract/types';
 
+const infographicUrl = new URL('../topics/assets/core-1-2-infographic.svg?no-inline', import.meta.url).href;
+const infographicRuUrl = new URL('../topics/assets/core-1-2-infographic.ru.svg?no-inline', import.meta.url).href;
+
 // Core 1.2 (changing populations and places). Original questions in IB style. Figures come from the UN DESA
 // World Urbanization Prospects 2025 (summary, Annex Table A4, and File F02) and are checked by script.
 const TOPIC = ['core-1-2-changing-populations'];
@@ -90,8 +93,8 @@ export const questions: Question[] = [
     marks: 10,
     command: 'Using the infographic',
     stimulus: {
-      en: 'Figure 1 (the infographic) shows the percentage of the population living in cities and towns (Degree of Urbanization) for the world and six regions in 1950, 2025 and 2050 (projection). Source: UN DESA Population Division, World Urbanization Prospects 2025, File F02 (percentage of population by Degree of Urbanization).',
-      ru: 'На рисунке 1 (инфографика) показана доля населения, живущего в городах и городских поселениях (Degree of Urbanization), в мире и в шести регионах в 1950, 2025 и 2050 годах (прогноз). Источник: UN DESA Population Division, World Urbanization Prospects 2025, файл F02 (доля населения по Degree of Urbanization).',
+      en: 'Figure 1 (the infographic) shows the percentage of the population living in cities and towns (Degree of Urbanization) for the world and six regions in 1950, 2025 and 2050 (projection). Source: UN DESA Population Division, World Urbanization Prospects 2025, File F02 (percentage of population by Degree of Urbanization).' + ' [Open infographic](' + infographicUrl + ')',
+      ru: 'На рисунке 1 (инфографика) показана доля населения, живущего в городах и городских поселениях (Degree of Urbanization), в мире и в шести регионах в 1950, 2025 и 2050 годах (прогноз). Источник: UN DESA Population Division, World Urbanization Prospects 2025, файл F02 (доля населения по Degree of Urbanization).' + ' [Открыть инфографику](' + infographicRuUrl + ')',
     },
     prompt: {
       en: '(a) Using Figure 1, describe the change in the percentage of the population living in cities and towns in sub-Saharan Africa from 1950 to 2050. [2]\n(b) Suggest reasons for the difference between Europe, Northern America, Australia and New Zealand and sub-Saharan Africa in 1950. [3]\n(c) Evaluate what the trend shown in Figure 1 means for infrastructure planning in sub-Saharan Africa. [5]',

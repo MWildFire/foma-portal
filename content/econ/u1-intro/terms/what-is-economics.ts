@@ -1,8 +1,8 @@
 import type { SourceRef, Term } from '../../../../src/contract/types';
 
-// Sources: the textbook (chapter and page) for terms it defines; the subject guide (section 1.1) for needs and wants.
+// Actual textbook passages where specified; needs/wants use our working distinction rather than an unverified guide glossary attribution.
 const book = 'Tragakes, Economics for the IB Diploma: Coursebook (Cambridge University Press, 3rd ed.)';
-const src: SourceRef = { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 1.1' };
+const src: SourceRef = { kind: 'own', title: 'Our working distinction between basic needs and other wants', locator: 'Context: Tragakes (2020), ch.1, p.5 discusses needs and wants; this wording is not a definition quoted from the IB guide.' };
 
 export const terms: Term[] = [
   {
@@ -79,11 +79,11 @@ export const terms: Term[] = [
     },
     syllabus: '1.1',
     papers: ['P1', 'P2'],
-    src: { kind: 'textbook', title: book, locator: 'ch. 1.1, p. 7' },
+    src: { kind: 'textbook', title: book, locator: 'ch. 1.1, pp. 7–8' },
   },
   {
     id: 'needs',
-    term: { en: 'needs', ru: 'потребности (needs)' },
+    term: { en: 'needs', ru: 'базовые потребности (needs)' },
     def: {
       en: 'The basic requirements for survival and health, such as food, water, shelter and clothing.',
       ru: 'Базовые требования для выживания и здоровья, например пища, вода, жильё и одежда.',
@@ -93,8 +93,8 @@ export const terms: Term[] = [
       ru: 'Ежемесячные потребности семьи могут включать аренду жилья за 4 000 AED и продукты на 1 500 AED.',
     },
     pitfall: {
-      en: 'What counts as a need depends on context: a car is a need for a family far from public transport, but a want for a family near a metro station.',
-      ru: 'Что считается потребностью, зависит от обстоятельств: автомобиль — потребность для семьи далеко от общественного транспорта, но желание для семьи рядом со станцией метро.',
+      en: 'Basic needs can require different means in different contexts. Transport requirements depend on mobility, access and essential journeys; distance from a metro alone does not classify a car as a need or a want.',
+      ru: 'Способы удовлетворить базовую потребность зависят от обстоятельств. Потребность в транспорте определяется мобильностью, доступностью и необходимыми поездками; одно расстояние до метро не определяет, необходим автомобиль или желателен.',
     },
     syllabus: '1.1',
     papers: ['P1', 'P2'],
@@ -127,8 +127,8 @@ export const terms: Term[] = [
       ru: 'Товары и услуги, которые ограничены: их производство или получение использует ресурсы и имеет альтернативные издержки.',
     },
     example: {
-      en: 'Bread, petrol and hotel rooms are economic goods: each uses scarce resources, so each has a price, for example 6 AED for a loaf of bread.',
-      ru: 'Хлеб, бензин и номера в гостиницах — экономические блага: каждое использует ограниченные ресурсы, поэтому у каждого есть цена, например 6 AED за буханку хлеба.',
+      en: 'Bread, petrol and hotel rooms are economic goods: each uses scarce resources and has an opportunity cost. A loaf might sell for 6 AED, but a zero price to the recipient would not make a resource-using good a free good.',
+      ru: 'Хлеб, бензин и номера в гостиницах — экономические блага: каждое использует ограниченные ресурсы и имеет альтернативные издержки. Буханка может стоить 6 AED, но нулевая цена для получателя не превращает благо, на которое затрачены ресурсы, в свободное.',
     },
     pitfall: {
       en: 'A good is economic because it is scarce, not because it is expensive. Some economic goods are cheap.',

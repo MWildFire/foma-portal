@@ -56,7 +56,7 @@ export const QuestionCard = memo(function QuestionCard({ question, index, lang, 
   };
 
   return (
-    <article className="study-q" lang={lang} aria-labelledby={titleId}>
+    <article className="study-q" data-question-id={question.id} lang={lang} aria-labelledby={titleId}>
       <header>
         <h3 id={titleId} className="study-q__title">{t('q.label', { n: index })}</h3>
         <div className="study-q__chips">

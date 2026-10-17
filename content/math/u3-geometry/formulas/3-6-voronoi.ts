@@ -3,15 +3,15 @@ import type { Formula } from '../../../../src/contract/types';
 export const formulas: Formula[] = [
   {
     id: 'voronoi-nearest-site-rule',
-    tex: 'd(P,S_i)\\le d(P,S_j)\\quad \\text{for every } j\\ne i',
+    tex: 'd(P,S_i)\\le d(P,S_j)\\quad \\forall j\\ne i',
     name: { en: 'Point in the cell of a site', ru: 'Точка в ячейке опорного пункта (Point in the cell of a site)' },
     meaning: {
       en: 'The point P belongs to the cell of site S_i when its distance to S_i is no more than its distance to every other site S_j.',
       ru: 'Точка P относится к ячейке пункта S_i, если её расстояние до S_i не больше расстояния до любого другого пункта S_j.',
     },
     when: {
-      en: 'Deciding which site a point belongs to, or which site is nearest to it.',
-      ru: 'Определение, к какому пункту относится точка, или какой пункт ближайший к ней.',
+      en: 'Equal distances can assign a boundary point to several closed cells; state a tie rule for a single prediction. Deciding which site a point belongs to, or which site is nearest to it.',
+      ru: 'При равенстве расстояний граничная точка принадлежит нескольким замкнутым ячейкам; для одного прогноза задай правило выбора. Определение, к какому пункту относится точка, или какой пункт ближайший к ней.',
     },
     syllabus: '3.6',
     inBooklet: false,
@@ -48,8 +48,8 @@ export const formulas: Formula[] = [
       ru: 'Ребро диаграммы между пунктами (x1; y1) и (x2; y2) лежит на этой прямой — серединном перпендикуляре отрезка, соединяющего их.',
     },
     when: {
-      en: 'Finding the equation of an edge, or of a vertex as the meeting point of two edges.',
-      ru: 'Нахождение уравнения ребра или вершины как точки пересечения двух рёбер.',
+      en: 'For two distinct sites, finding the supporting bisector; retain only points where both sites are nearest. At a proposed vertex check every other site.',
+      ru: 'Для двух различных пунктов: нахождение несущего серединного перпендикуляра; оставляйте только точки, где оба пункта ближайшие. В кандидатной вершине проверьте остальные пункты.',
     },
     syllabus: '3.6',
     inBooklet: false,
@@ -60,7 +60,7 @@ export const formulas: Formula[] = [
   },
   {
     id: 'nearest-neighbour-estimate',
-    tex: '\\hat{f}(P)=f(S_k),\\quad d(P,S_k)=\\min_{i}\\, d(P,S_i)',
+    tex: '\\begin{gathered}\\hat{f}(P)=f(S_k)\\\\d(P,S_k)=\\min_{i}\\, d(P,S_i)\\end{gathered}',
     name: { en: 'Nearest-neighbour estimate', ru: 'Оценка по ближайшему соседу (Nearest-neighbour estimate)' },
     meaning: {
       en: 'The estimated value at P is the measured value f(S_k) at the site S_k nearest to P.',

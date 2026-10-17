@@ -1,8 +1,9 @@
 import type { Question } from '../../../../src/contract/types';
 
-export const questions: Question[] = [
+export const questions: (Question & { inMockScope?: 'yes' | 'no' })[] = [
   {
     id: 'econ-barriers-to-growth-and-development-01',
+    inMockScope: 'no',
     subject: 'econ',
     topicIds: ['barriers-to-growth-and-development'],
     paper: 'P2',
@@ -21,6 +22,7 @@ export const questions: Question[] = [
   },
   {
     id: 'econ-barriers-to-growth-and-development-02',
+    inMockScope: 'no',
     subject: 'econ',
     topicIds: ['barriers-to-growth-and-development'],
     paper: 'P2',
@@ -39,20 +41,21 @@ export const questions: Question[] = [
   },
   {
     id: 'econ-barriers-to-growth-and-development-03',
+    inMockScope: 'no',
     subject: 'econ',
     topicIds: ['barriers-to-growth-and-development'],
     paper: 'P1',
     marks: 10,
-    command: 'Discuss',
+    command: 'Explain',
     prompt: {
-      en: 'Discuss whether weak economic institutions or low human capital is the more important barrier to growth in low-income countries.',
-      ru: 'Обсудите, что является более важным барьером роста в странах с низким доходом: слабые экономические институты или низкий человеческий капитал.',
+      en: "Explain how insecure property rights and low human capital can each reduce investment and productivity in a low-income economy. Show how the two barriers can reinforce each other. Write a connected 10-mark explanation: 2 minutes to plan, 15 to write and 3 to check.",
+      ru: "Объясни, как незащищённые права собственности и низкий человеческий капитал могут снижать инвестиции и производительность в экономике с низкими доходами. Покажи, как эти барьеры способны усиливать друг друга. Напиши связный ответ на 10 баллов: 2 минуты на план, 15 на текст и 3 на проверку.",
     },
     markscheme: {
-      en: '1 mark: defines economic institutions as the rules and organisations that shape economic activity. 1 mark: defines human capital as the skills and health of workers that raise productivity. 1 mark: explains how weak property rights and contract enforcement reduce investment. 1 mark: explains how corruption adds costs and deters honest firms and foreign investors. 1 mark: explains how low education and poor health reduce productivity and the return to investment. 1 mark: explains that weak institutions can waste human capital, for example when schools are built but not staffed or funded. 1 mark: explains that low human capital can make institutional reform harder to design and enforce. 1 mark: uses an example of a country to show which barrier binds. 1 mark: makes a judgement on which barrier is more important, with reasons. 1 mark: states a limitation of the judgement, such as the links between the two barriers or the quality of data.',
-      ru: '1 балл: определяет экономические институты как правила и организации, которые формируют экономическую деятельность. 1 балл: определяет человеческий капитал как навыки и здоровье работников, которые повышают производительность. 1 балл: объясняет, как слабые права собственности и исполнение контрактов снижают инвестиции. 1 балл: объясняет, как коррупция добавляет издержки и отпугивает честные фирмы и иностранных инвесторов. 1 балл: объясняет, как низкое образование и плохое здоровье снижают производительность и отдачу от инвестиций. 1 балл: объясняет, что слабые институты могут растрачивать человеческий капитал, например когда школы построены, но не укомплектованы учителями или не финансируются. 1 балл: объясняет, что низкий человеческий капитал может затруднить разработку и проведение институциональных реформ. 1 балл: использует пример страны, чтобы показать, какой барьер является сдерживающим. 1 балл: делает суждение о том, какой барьер важнее, с обоснованием. 1 балл: называет ограничение суждения, например связь между двумя барьерами или качество данных.',
+      en: "Explain property rights as enforceable rights of ownership/use/transfer. Uncertain ownership or weak enforcement increases the risk that an investor cannot retain returns, discouraging long-lived improvements; unclear title may also reduce usable collateral and access to finance. Human capital includes skills, knowledge and health: limited skills or illness can reduce productive use of equipment and the expected return to new investment. Connect the barriers: a hypothetical unstaffed training centre does not deliver skills, and uncertainty over a workshop site can discourage a trained owner from buying equipment. These are illustrative mechanisms, not claims about a named country or inevitable outcomes. External finance and institutional reforms can change the constraints. Do not confuse low real resources/saving with a universal rule that banks can only lend previously saved deposits. Content: actual Tragakes printed585 property-rights/investment/credit passage; original linked human-capital mechanism. Holistic levels, in our own words: 0 no relevant response; 1–2 very limited understanding; 3–4 relevant theory described; 5–6 partly developed explanation with some suitable terms; 7–8 clear explanation focused on the question with mostly accurate terms; 9–10 full, accurate connected explanation with appropriate terminology throughout. Use a diagram where it helps the explanation; this question does not require one. These are original Paper 1(a)-style exercises, not full papers. No real-world case or evaluative verdict is required. Level framework: actual M25 HL P1 TZ1 markscheme, p.3.",
+      ru: "Объясни права собственности как обеспеченные правила владения, использования и передачи. Неопределённость владения или слабое исполнение повышают риск не получить отдачу от вложений и могут сдерживать долгосрочные улучшения; неясный титул также способен ограничивать залог и доступ к финансированию. Человеческий капитал включает навыки, знания и здоровье: недостаток подготовки или болезни могут мешать продуктивно использовать оборудование и снижать ожидаемую отдачу новых вложений. Свяжи барьеры: условный учебный центр без преподавателей не создаёт навыков, а неопределённость прав на мастерскую может удержать подготовленного владельца от покупки станка. Это иллюстрации механизмов, а не сведения о конкретной стране или неизбежные результаты. Внешнее финансирование и институциональные изменения могут менять ограничения. Недостаток реальных ресурсов и сбережений не означает универсального правила, будто банки кредитуют только из ранее накопленных вкладов. Содержание: фактически прочитанный Tragakes, печатная с.585, о собственности, инвестициях и кредите; авторская связка с механизмом человеческого капитала. Уровни, своими словами: 0 — нет ответа по существу; 1–2 — понимание почти не проявлено; 3–4 — нужная теория описана; 5–6 — объяснение частично развито, есть уместные термины; 7–8 — ясное объяснение по вопросу с в основном точными терминами; 9–10 — полное, точное и связное объяснение с уместными терминами во всём ответе. Диаграмма допустима, если помогает, но здесь не обязательна. Это авторские упражнения в формате части (a) Paper 1, а не полные работы. Реальный кейс и оценочный вывод не требуются. Основа уровней — фактическая схема M25 HL P1 TZ1, с.3.",
     },
     origin: 'original',
-    minutes: 15,
+    minutes: 20,
   },
 ];

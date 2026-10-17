@@ -10,7 +10,7 @@ const topic: TopicMeta = {
   order: 39,
   minutes: 40,
   priority: 2,
-  inMockScope: 'unknown',
+  inMockScope: 'no',
   outcomes: [
     {
       en: 'I can describe a graph by its vertices, edges and adjacent vertices, and find the degree of each vertex',
@@ -29,6 +29,7 @@ const topic: TopicMeta = {
   formulaIds: ['graph-handshaking', 'graph-complete-edges', 'graph-directed-degrees', 'graph-tree-edges'],
   questionIds: ['q-3-14-01', 'q-3-14-02', 'q-3-14-03'],
   sources: [
+    { kind: 'school', title: 'Topic list for Mock Oct 26 — Applications and Interpretation HL (9 October 2026)', locator: 'Oxford chapters 1–8, 13, 14; mapped to the syllabus in G2-math R03' },
     {
       kind: 'web',
       title: 'IB Mathematics AI, first assessment 2021: public summary, not checked against the official guide',

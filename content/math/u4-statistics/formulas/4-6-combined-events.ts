@@ -25,8 +25,8 @@ export const formulas: Formula[] = [
       ru: 'Вероятность события A при условии, что событие B произошло.',
     },
     when: {
-      en: 'The question says "given", "knowing that" or "if", or it restricts the outcomes to B.',
-      ru: 'В вопросе стоят слова «при условии», «зная, что» или «если», либо исходы ограничиваются событием B.',
+      en: 'Requires P(B)>0. The question says "given", "knowing that" or "if", or it restricts the outcomes to B.',
+      ru: 'Требуется P(B)>0. В вопросе стоят слова «при условии», «зная, что» или «если», либо исходы ограничиваются событием B.',
     },
     syllabus: '4.6',
     inBooklet: true,
@@ -59,8 +59,8 @@ export const formulas: Formula[] = [
       ru: 'По ветви дерева вероятностей вероятность обоих событий равна первой вероятности, умноженной на условную вероятность второго события.',
     },
     when: {
-      en: 'Two-stage experiments, such as drawing two counters one after the other without replacement.',
-      ru: 'Двухэтапные опыты, например вытаскивание двух фишек одна за другой без возвращения.',
+      en: 'When P(B)>0. Two-stage experiments, such as drawing two counters one after the other without replacement.',
+      ru: 'При P(B)>0. Двухэтапные опыты, например вытаскивание двух фишек одна за другой без возвращения.',
     },
     syllabus: '4.6',
     inBooklet: true,

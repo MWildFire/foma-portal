@@ -55,6 +55,22 @@ const steps: Step[] = [
     },
   },
   {
+    title: { en: 'Point outside the curve', ru: 'Точка вне кривой' },
+    text: {
+      en: 'Point X (80 consumer, 80 capital goods) is unattainable with current resources and technology: 80² + 80² = 12800, greater than the frontier value 100² = 10000. Using idle resources can move output onto PPC1, but reaching X needs an outward shift of the frontier.',
+      ru: 'Точка X (80 потребительских и 80 капитальных товаров) недостижима при текущих ресурсах и технологии: 80² + 80² = 12800, больше значения границы 100² = 10000. Использование простаивающих ресурсов позволяет выйти на PPC1, но для достижения X нужен сдвиг границы наружу.',
+    },
+    graph: {
+      ...axes,
+      curves: [{ id: 'ppc1', points: PPC1, tone: 'ink', label: { en: 'PPC1', ru: 'PPC1' } }],
+      guides: [
+        { id: 'x-h', from: [0, 80], to: [80, 80], tone: 'muted' },
+        { id: 'x-v', from: [80, 0], to: [80, 80], tone: 'muted' },
+      ],
+      marks: [{ id: 'X', at: [80, 80], tone: 'loss', label: { en: 'X', ru: 'X' } }],
+    },
+  },
+  {
     title: { en: 'Opportunity cost of capital goods', ru: 'Альтернативные издержки капитальных товаров' },
     text: {
       en: 'Moving from B (80, 60) to A (60, 80) gives 20 more capital goods and costs 20 consumer goods. Moving from A to C (0, 100) gives 20 more capital goods but costs 60 consumer goods: the more capital goods are made, the higher the cost of each one.',
@@ -106,7 +122,7 @@ export default function Ppc({ lang }: { lang: Lang }) {
   return (
     <StepPlayer
       lang={lang}
-      label={{ en: 'Production possibility curve: inside, on the curve, outward shift', ru: 'Кривая производственных возможностей: внутри, на кривой, сдвиг наружу' }}
+      label={{ en: 'Production possibility curve: inside, on and outside the curve, outward shift', ru: 'Кривая производственных возможностей: внутри, на кривой и вне её, сдвиг наружу' }}
       steps={steps}
     />
   );

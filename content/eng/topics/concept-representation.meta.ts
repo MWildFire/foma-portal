@@ -19,7 +19,7 @@ const topic: TopicMeta = {
   ],
   termIds: ['focalisation', 'omniscient-narrator', 'unreliable-narrator', 'imagery', 'symbol', 'audience'],
   questionIds: ['chk-concept-representation-1', 'chk-concept-representation-2'],
-  sources: [{ kind: 'own', title: 'Own wording' }],
+  sources: [{ kind: 'web', title: 'Ю. М. Лотман, Структура художественного текста, гл.9: текст и культурные коды, ожидание и традиция; раздел от с.269 в издании Об искусстве (1998), фактически прочитанные начальные подразделы', url: 'https://ruthenia.ru/lotman/papers/sht/9.html' }, { kind: 'web', title: 'IB Language A: literature guide, first assessment 2026, PDF34–35 / printed28–29: seven concepts, actual text read through the official examiner link', url: 'https://xmltwo.ibo.org/publications/EAD/2026_EN/GR1/GR1-A-Lit_EN_24.pdf' }, { kind: 'own', title: 'Own wording' }],
 };
 
 export default topic;

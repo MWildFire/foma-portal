@@ -5,6 +5,7 @@ import type { Lang } from '../../contract/types';
 import { formatDate } from '../../planner/format';
 import type { PlanBlock, Rag } from '../../planner/types';
 import { describeBlock, formatMinutes } from './labels';
+import { ActivityDetails } from './DailyActivity';
 import { RagControl } from './RagControl';
 import { Btn, CARD, Chip, ExternalLink, MUTED } from './ui';
 
@@ -51,7 +52,7 @@ export function BlockCard({ block, lang, showDetail = true, timerRunning, onStar
     // A practice block of a topic without questions yet leads to the topic page, so it says so. A timed set of a guide
     // (the maths diagnostic) leads to the practice page, not to the paper guide.
     const label =
-      block.kind === 'practice' ? (block.hasQuestions ? tp('openPractice') : tp('openTopic'))
+      block.kind === 'practice' ? ((block.activity ? block.activity.route.includes('/practice') : block.hasQuestions) ? tp('openPractice') : tp('openTopic'))
         : block.kind === 'timed' && block.route.includes('?set=') ? tp('openPractice')
           : block.kind === 'timed' || block.kind === 'paper' ? tp('openPaper')
           : block.kind === 'study' ? tp('openSubject')
@@ -66,7 +67,7 @@ export function BlockCard({ block, lang, showDetail = true, timerRunning, onStar
   // The visible button text stays short; screen readers also hear which block it is for.
   const context = <span className="sr-only">: {text.title}</span>;
   return (
-    <li className={`${CARD} p-3`} data-status={block.status}>
+    <li className={`${CARD} p-3`} data-status={block.status} data-activity-id={block.activity?.id}>
       <div className="flex flex-wrap items-start justify-between gap-3">
         <div className="min-w-0 flex-1">
           <div className="mb-1 flex flex-wrap items-center gap-2">
@@ -91,6 +92,7 @@ export function BlockCard({ block, lang, showDetail = true, timerRunning, onStar
               {text.detail}
             </p>
           )}
+          {block.activity && <ActivityDetails activity={block.activity} maintenance={block.maintenance} lang={lang} />}
           {materials}
         </div>
         <div className="flex w-full flex-wrap gap-2 sm:w-auto">

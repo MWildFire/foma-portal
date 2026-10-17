@@ -180,7 +180,7 @@ const steps: LrStep[] = [
 
 const FIRM: L = { en: 'The firm', ru: 'Фирма' };
 const MARKET: L = { en: 'The market', ru: 'Рынок' };
-const PANEL = { flex: '1 1 260px', minWidth: 0 } as const;
+const PANEL = { flex: '1 1 360px', minWidth: 0 } as const;
 const CAPTION = { fontWeight: 600, fontSize: 14, marginBottom: 2 } as const;
 
 export default function PerfectCompetitionLr({ lang }: { lang: Lang }) {

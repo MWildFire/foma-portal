@@ -2,7 +2,7 @@ import type { Question } from '../../../../src/contract/types';
 
 // Competitive market equilibrium questions. Calculations 01 to 04 are checked by
 // scripts/econ-checks/competitive-market-equilibrium.json (all numbers in the checks are written in the prompts).
-export const questions: Question[] = [
+export const questions: (Question & { inMockScope?: 'yes' | 'no' })[] = [
   {
     id: 'econ-competitive-market-equilibrium-01',
     subject: 'econ',
@@ -62,6 +62,7 @@ export const questions: Question[] = [
   },
   {
     id: 'econ-competitive-market-equilibrium-04',
+    inMockScope: 'no',
     subject: 'econ',
     topicIds: ['competitive-market-equilibrium'],
     paper: 'P2',
@@ -83,7 +84,7 @@ export const questions: Question[] = [
     id: 'econ-competitive-market-equilibrium-05',
     subject: 'econ',
     topicIds: ['competitive-market-equilibrium'],
-    paper: 'P1',
+    paper: 'P2',
     marks: 4,
     command: 'Explain',
     prompt: {
@@ -99,6 +100,7 @@ export const questions: Question[] = [
   },
   {
     id: 'econ-competitive-market-equilibrium-06',
+    inMockScope: 'no',
     subject: 'econ',
     topicIds: ['competitive-market-equilibrium'],
     paper: 'P1',

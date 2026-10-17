@@ -44,8 +44,8 @@ export const formulas: Formula[] = [
     tex: 'r=\\dfrac{u_{n+1}}{u_n}',
     name: { en: 'Common ratio', ru: 'Знаменатель геометрической последовательности (Common ratio)' },
     meaning: {
-      en: 'Each term is r times the previous term, so dividing a term by the term before it gives r.',
-      ru: 'Каждый член в r раз больше предыдущего, поэтому деление члена на предыдущий даёт r.',
+      en: 'Each term is r times the previous term, so dividing by a nonzero previous term gives r.',
+      ru: 'Каждый следующий член получается умножением предыдущего на r, поэтому деление на ненулевой предыдущий член даёт r.',
     },
     when: {
       en: 'Testing whether a sequence is geometric, and finding r from two consecutive terms.',

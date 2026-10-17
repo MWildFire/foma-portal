@@ -29,12 +29,7 @@ const topic: TopicMeta = {
   formulaIds: ['ci-mean-z-known-sigma', 'ci-mean-t-unknown-sigma', 'sample-size-margin-error'],
   questionIds: ['q-4-16-01', 'q-4-16-02', 'q-4-16-03'],
   sources: [
-    {
-      kind: 'web',
-      title: 'IB Mathematics AI, first assessment 2021: public summary, not checked against the official guide',
-      locator: 'sub-topic 4.16',
-      url: 'https://www.ibo.org/globalassets/new-structure/university-admission/pdfs/dp-mathematics-applications-and-interpretation-guide-en.pdf',
-    },
+    { kind: 'textbook', title: 'Oxford IB Diploma Programme: Mathematics: Applications and Interpretation HL (Oxford University Press, 2019)', locator: '14.3, printed pp. 643–646: normal-population mean, known-σ versus estimated-σ methods and confidence interpretation' },
   ],
 };
 

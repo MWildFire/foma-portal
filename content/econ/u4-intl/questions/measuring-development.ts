@@ -1,8 +1,9 @@
 import type { Question } from '../../../../src/contract/types';
 
-export const questions: Question[] = [
+export const questions: (Question & { inMockScope?: 'yes' | 'no' })[] = [
   {
     id: 'econ-measuring-development-01',
+    inMockScope: 'no',
     subject: 'econ',
     topicIds: ['measuring-development'],
     paper: 'P2',
@@ -22,6 +23,7 @@ export const questions: Question[] = [
   },
   {
     id: 'econ-measuring-development-02',
+    inMockScope: 'no',
     subject: 'econ',
     topicIds: ['measuring-development'],
     paper: 'P2',
@@ -41,6 +43,7 @@ export const questions: Question[] = [
   },
   {
     id: 'econ-measuring-development-03',
+    inMockScope: 'no',
     subject: 'econ',
     topicIds: ['measuring-development'],
     paper: 'P2',
@@ -59,20 +62,21 @@ export const questions: Question[] = [
   },
   {
     id: 'econ-measuring-development-04',
+    inMockScope: 'no',
     subject: 'econ',
     topicIds: ['measuring-development'],
     paper: 'P1',
     marks: 10,
-    command: 'Evaluate',
+    command: 'Explain',
     prompt: {
-      en: 'Evaluate the use of GNI per capita and the Human Development Index (HDI) to compare the development of two countries.',
-      ru: 'Оцените использование ВНД на душу населения и индекса развития человеческого потенциала (HDI) для сравнения развития двух стран.',
+      en: "Explain why two countries with the same GNI per capita at PPP can have different Human Development Index (HDI) values. Include the HDI dimensions and one limitation of the unadjusted index. Write a connected 10-mark explanation: 2 minutes to plan, 15 to write and 3 to check.",
+      ru: "Объясни, почему две страны с одинаковым ВНД на душу населения по ППС могут иметь разные значения индекса человеческого развития (HDI). Раскрой измерения HDI и одно ограничение индекса без поправки на неравенство. Напиши связный ответ на 10 баллов: 2 минуты на план, 15 на текст и 3 на проверку.",
     },
     markscheme: {
-      en: '1 mark: defines GNI per capita as GNI divided by population, the average income per person. 1 mark: explains that GNI per capita converted at PPP compares living standards more fairly than market exchange rates. 1 mark: explains that the HDI combines life expectancy, schooling and GNI per capita into one index from 0 to 1. 1 mark: explains that the HDI shows outcomes that income alone misses, such as health and education. 1 mark: explains that an average hides inequality, which a Gini coefficient would show. 1 mark: notes that GNI excludes unpaid and non-market activity, the informal economy and environmental damage. 1 mark: notes that the HDI gives equal weight to its dimensions, which is a value judgement, and does not show freedom or inequality within a country. 1 mark: uses a real or hypothetical pair of countries to show when the two measures give different rankings. 1 mark: a reasoned judgement that depends on the purpose of the comparison, such as broad welfare or income alone. 1 mark: a judgement on data quality, for example estimates for poorer countries and the age of the data.',
-      ru: '1 балл: определяет ВНД на душу населения как ВНД, делённый на численность населения, то есть средний доход одного человека. 1 балл: объясняет, что ВНД на душу населения, пересчитанный по PPP, точнее сравнивает уровень жизни, чем рыночные курсы. 1 балл: объясняет, что HDI объединяет ожидаемую продолжительность жизни, образование и ВНД на душу населения в один индекс от 0 до 1. 1 балл: объясняет, что HDI показывает результаты, которые доход сам по себе не отражает, например здоровье и образование. 1 балл: объясняет, что среднее значение скрывает неравенство, которое показал бы коэффициент Джини. 1 балл: отмечает, что ВНД не учитывает неоплачиваемый и нерыночный труд, неформальную экономику и ущерб окружающей среде. 1 балл: отмечает, что HDI придаёт равный вес своим измерениям, что является ценностным суждением, и не показывает свободу и неравенство внутри страны. 1 балл: использует реальную или условную пару стран, чтобы показать, когда два показателя дают разный порядок стран. 1 балл: обоснованное суждение, которое зависит от цели сравнения, например от широкого благосостояния или только от доходов. 1 балл: суждение о качестве данных, например об оценках для более бедных стран и о давности данных.',
+      en: "Explain GNI per capita as average primary income per resident, adjusted at PPP for price-level comparisons. HDI combines normalized health (life expectancy at birth), education (mean years for adults and expected years for children) and income indices using their geometric mean. Equal GNI per capita gives the same income index, but health/education outcomes can differ with access to services and resource allocation. Illustrative normalized indices: A has health0.8, education0.8, income0.6; B has0.6,0.6,0.6. HDI_A=(0.8×0.8×0.6)^(1/3)≈0.727; HDI_B=0.6. These are hypothetical component indices, not country data or a way to compute income indices directly from raw GNI. Explain that unadjusted HDI averages can conceal inequality within countries; it also omits several aspects of welfare. Do not say all informal output is excluded from national accounts or that HDI is the arithmetic mean. Content: actual Tragakes printed556–557 and UNDP HDI explanation, dimensions/limitations. Holistic levels, in our own words: 0 no relevant response; 1–2 very limited understanding; 3–4 relevant theory described; 5–6 partly developed explanation with some suitable terms; 7–8 clear explanation focused on the question with mostly accurate terms; 9–10 full, accurate connected explanation with appropriate terminology throughout. Use a diagram where it helps the explanation; this question does not require one. These are original Paper 1(a)-style exercises, not full papers. No real-world case or evaluative verdict is required. Level framework: actual M25 HL P1 TZ1 markscheme, p.3.",
+      ru: "Объясни ВНД на душу населения как средний первичный доход резидента; ППС помогает учитывать разницу уровней цен. HDI объединяет нормированные индексы здоровья (ожидаемая продолжительность жизни при рождении), образования (средние годы обучения взрослых и ожидаемые годы обучения детей) и дохода через среднее геометрическое. При одинаковом ВНД на человека доходный индекс одинаков, но доступ к услугам и распределение ресурсов могут давать разные результаты в здоровье и образовании. Условные нормированные индексы: у A здоровье0,8, образование0,8, доход0,6; у B —0,6,0,6,0,6. HDI_A=(0,8×0,8×0,6)^(1/3)≈0,727; HDI_B=0,6. Это условные индексы компонентов, а не данные стран и не способ вычислить доходный индекс прямо из исходного ВНД. Раскрой, что средние в HDI без поправки могут скрывать внутреннее неравенство; индекс также охватывает не все стороны благосостояния. Нельзя утверждать, что весь неформальный выпуск исключён из счетов или что HDI — среднее арифметическое. Содержание: фактически прочитанные Tragakes, печатные с.556–557, и объяснение измерений/ограничений ПРООН; независимая русская терминология — МГУ, §5.1, раздел об ИЧР. Уровни, своими словами: 0 — нет ответа по существу; 1–2 — понимание почти не проявлено; 3–4 — нужная теория описана; 5–6 — объяснение частично развито, есть уместные термины; 7–8 — ясное объяснение по вопросу с в основном точными терминами; 9–10 — полное, точное и связное объяснение с уместными терминами во всём ответе. Диаграмма допустима, если помогает, но здесь не обязательна. Это авторские упражнения в формате части (a) Paper 1, а не полные работы. Реальный кейс и оценочный вывод не требуются. Основа уровней — фактическая схема M25 HL P1 TZ1, с.3.",
     },
     origin: 'original',
-    minutes: 15,
+    minutes: 20,
   },
 ];

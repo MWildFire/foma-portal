@@ -1,13 +1,6 @@
 import type { Term } from '../../../../src/contract/types';
 import { BOOK_TITLE } from '../../book';
 
-const source = {
-  kind: 'web' as const,
-  title: 'IB Mathematics AI, first assessment 2021: public summary, not checked against the official guide',
-  locator: 'sub-topic 4.9',
-  url: 'https://www.ibo.org/globalassets/new-structure/university-admission/pdfs/dp-mathematics-applications-and-interpretation-guide-en.pdf',
-};
-
 export const terms: Term[] = [
   {
     id: 'normal-bell-curve',
@@ -29,12 +22,12 @@ export const terms: Term[] = [
     id: 'normal-standardised-score',
     term: { en: 'standardised score z', ru: 'стандартизованная величина z (standardised score z)' },
     def: {
-      en: 'The number of standard deviations by which a value lies away from the mean: $z = \\dfrac{x - \\mu}{\\sigma}$. Standardised values follow $Z \\sim N(0, 1)$.',
-      ru: 'Число стандартных отклонений, на которое значение отстоит от среднего: $z = \\dfrac{x - \\mu}{\\sigma}$. Стандартизованные значения распределены как $Z \\sim N(0, 1)$.',
+      en: 'The number of standard deviations by which a value lies away from the mean: $z = \\dfrac{x - \\mu}{\\sigma}$. If $X$ is normal with $\\sigma>0$, the standardised variable follows $Z \\sim N(0, 1)$.',
+      ru: 'Число стандартных отклонений, на которое значение отстоит от среднего: $z = \\dfrac{x - \\mu}{\\sigma}$. Если $X$ нормальна и $\\sigma>0$, стандартизованная величина распределена как $Z \\sim N(0, 1)$.',
     },
     syllabus: '4.9',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'web', title: 'Н.А. Ярушкина, О.В. Килина. Теория вероятностей и математическая статистика, ТУСУР, 2022', locator: 'printed/PDF p. 17: standard normal and X0=(X−a)/σ; p. 18 interval probability', url: 'https://edu.study.tusur.ru/publications/10408/download' },
   },
   {
     id: 'normal-inverse-calculation',

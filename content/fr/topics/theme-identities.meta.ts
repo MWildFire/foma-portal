@@ -17,6 +17,7 @@ const topic: TopicMeta = {
     { en: 'I can describe who I was and who I am now, using the imparfait and the present', ru: 'Могу описать, каким я был и каков я сейчас, используя imparfait и présent' },
   ],
   termIds: [
+    'v-school-001', 'v-school-002',
     'v-t1-001', 'v-t1-002', 'v-t1-003', 'v-t1-004', 'v-t1-005', 'v-t1-006', 'v-t1-007', 'v-t1-008', 'v-t1-009', 'v-t1-010',
     'v-t1-011', 'v-t1-012', 'v-t1-013', 'v-t1-014', 'v-t1-015', 'v-t1-016', 'v-t1-017', 'v-t1-018', 'v-t1-019', 'v-t1-020',
     'v-t1-021', 'v-t1-022', 'v-t1-023', 'v-t1-024', 'v-t1-025', 'v-t1-026', 'v-t1-027', 'v-t1-028', 'v-t1-029', 'v-t1-030',

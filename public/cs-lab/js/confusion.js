@@ -69,7 +69,7 @@
       lbl.setAttribute('text-anchor', 'middle');
       lbl.setAttribute('font-size', 28);
       lbl.setAttribute('font-weight', 800);
-      lbl.setAttribute('fill', c.color);
+      lbl.setAttribute('fill', T.readable(c.color));
       lbl.textContent = c.label;
       svg.appendChild(lbl);
 

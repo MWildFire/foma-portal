@@ -60,7 +60,11 @@ const topic: TopicMeta = {
   questionIds: ['g1-sq1', 'g1-sq2', 'g1-sq3', 'g1-eq1', 'g1-eq2'],
   caseIds: ['g-dubai-growth', 'g-lagos-megacity', 'g-dharavi', 'g-singapore-hdb'],
   sources: [
-    { kind: 'ib-guide', title: 'Geography guide (2017), Option G: Urban environments', locator: 'G.1' },
+    {"kind": "web", "title": "Rodrigue et al., The Geography of Transport Systems, third edition", "url": "https://transportgeography.org/wp-content/uploads/GTS_Third_Edition.pdf", "locator": "Printed pp. 200–202, Burgess and sector/multiple-nuclei models; Figure 6.7"},
+    {"kind": "web", "title": "НИУ ВШЭ, Моделирование территориального развития городов и городских систем, лекция 3", "url": "https://www.hse.ru/data/531/901/1237/лекция 3.pdf", "locator": "Слайды 3 и 11–13: типы моделей и схемы Берджесса и Хойта; даты моделей из этих слайдов не используются"},
+    {"kind": "web", "title": "Dharavi Redevelopment Project, Tender Notice DRP/2/2022", "url": "https://hcikl.gov.in/pdf/Tender_Notice.pdf", "locator": "p. 1, Background: location near BKC and railway stations; planned redevelopment, not completed outcomes"},
+    {"kind": "web", "title": "UNESCO World Heritage Centre, Brasilia", "url": "https://whc.unesco.org/en/list/445", "locator": "Description; Brief synthesis; Integrity; Authenticity: planned axes, sectors and continued transport pressures"},
+    { kind: 'ib-guide', title: 'Geography guide (2017), Option G: Urban environments', locator: 'G.1, p. 40' },
     { kind: 'thinkib', title: 'Option G: Urban Environments (pages 37517, 37523, 37524)', locator: 'The Variety of Urban Environments; The Characteristics of Urban Places; Economic Activity in Urban Places' },
   ],
   links: [

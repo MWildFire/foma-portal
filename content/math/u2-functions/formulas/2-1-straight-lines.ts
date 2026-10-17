@@ -55,8 +55,8 @@ export const formulas: Formula[] = [
     tex: 'm_1\\times m_2=-1',
     name: { en: 'Perpendicular and parallel lines', ru: 'Перпендикулярные и параллельные прямые (Perpendicular and parallel lines)' },
     meaning: {
-      en: 'Two non-vertical lines are perpendicular exactly when the product of their gradients is -1. Parallel lines have equal gradients, m1 = m2.',
-      ru: 'Две невертикальные прямые перпендикулярны тогда и только тогда, когда произведение их угловых коэффициентов равно -1. Параллельные прямые имеют равные угловые коэффициенты, m1 = m2.',
+      en: 'Two non-vertical lines are perpendicular exactly when the product of their gradients is -1. Distinct nonvertical parallel lines have equal gradients, m1=m2; coincident lines do too. Horizontal and vertical lines are perpendicular but are not covered by the product rule.',
+      ru: 'Две невертикальные прямые перпендикулярны тогда и только тогда, когда произведение их угловых коэффициентов равно -1. Различные невертикальные параллельные прямые имеют равные угловые коэффициенты, m1=m2; совпадающие тоже. Горизонтальная и вертикальная прямые перпендикулярны, но правило произведения к ним неприменимо.',
     },
     when: {
       en: 'Finding the gradient or the equation of a line that is perpendicular or parallel to a given line.',

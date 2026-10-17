@@ -1,13 +1,14 @@
+import ReadableDiagram from '../readable-diagram';
 import { useState } from 'react';
 import type { Lang } from '../../contract/types';
-import { principalArgument } from './complex-plane-logic';
+import { ARGAND_SCALE, ARGAND_SIZE, complexPointLabels, principalArgument } from './complex-plane-logic';
 
 // Argand diagram for z = a + bi. The fixed number w = 1 + i turns z through 45 degrees and stretches it by sqrt(2),
 // so the orange point is the product zw = (a - b) + (a + b)i. Everything is computed from the two sliders.
 
-const SIZE = 280;
+const SIZE = ARGAND_SIZE;
 const CENTRE = SIZE / 2;
-const SCALE = 15; // pixels per unit; the picture shows about -9 to 9 on each axis
+const SCALE = ARGAND_SCALE; // pixels per unit; the picture shows about -9 to 9 on each axis
 const RANGE = 9;
 const GRID = Array.from({ length: 2 * RANGE + 1 }, (_, k) => k - RANGE);
 const ARC = 0.8; // radius, in units, of the arc that marks the argument
@@ -70,7 +71,7 @@ export default function ComplexPlaneLab({ lang }: { lang: Lang }) {
 
   return (
     <figure style={{ margin: 0 }}>
-      <svg viewBox={`0 0 ${SIZE} ${SIZE}`} width="100%" style={{ maxWidth: SIZE }} role="img" aria-label={t.label}>
+      <ReadableDiagram lang={lang}><svg viewBox={`0 0 ${SIZE} ${SIZE}`} width="100%" style={{ maxWidth: SIZE }} role="img" aria-label={t.label}>
         {GRID.map(k => (
           <g key={k} stroke="currentColor" strokeOpacity={0.12}>
             <line x1={X(k)} y1={0} x2={X(k)} y2={SIZE} />
@@ -82,19 +83,20 @@ export default function ComplexPlaneLab({ lang }: { lang: Lang }) {
         <text x={SIZE - 18} y={CENTRE - 6} fontSize={12} fill="currentColor">{t.axisRe}</text>
         <text x={CENTRE + 6} y={14} fontSize={12} fill="currentColor">{t.axisIm}</text>
         <circle cx={CENTRE} cy={CENTRE} r={r * SCALE} fill="none" stroke="#4f6fd8" strokeDasharray="4 4" />
-        <path d={arc} fill="none" stroke="#4f6fd8" />
+        {r > 0 && <path d={arc} fill="none" stroke="#4f6fd8" />}
         <line x1={CENTRE} y1={CENTRE} x2={X(a)} y2={Y(b)} stroke="#4f6fd8" strokeWidth={2} />
         <line x1={CENTRE} y1={CENTRE} x2={X(productRe)} y2={Y(productIm)} stroke="#e0883a" strokeWidth={2} strokeDasharray="5 3" />
         <circle cx={X(a)} cy={Y(b)} r={5} fill="#4f6fd8" />
         <circle cx={X(productRe)} cy={Y(productIm)} r={5} fill="#e0883a" />
-        <text x={X(a) + 7} y={Y(b) - 7} fontSize={13} fill="#4f6fd8">{t.z}</text>
-        <text x={X(productRe) + 7} y={Y(productIm) - 7} fontSize={13} fill="currentColor">{t.product}</text>
-      </svg>
+        {complexPointLabels(a, b).map(label => (
+          <text key={label.text} x={label.x} y={label.y} textAnchor={label.anchor} fontSize={13} fill="currentColor">{label.text}</text>
+        ))}
+      </svg></ReadableDiagram>
       <figcaption style={{ fontSize: 13, lineHeight: 1.6 }}>
         {t.value} {cartesian(a, b)} · {t.modulus}: {r.toFixed(2)} · {t.argument}:{' '}
         {r === 0 ? t.undefinedArg : `${theta.toFixed(2)} ${t.rad} (${degrees.toFixed(1)}°)`}
         <br />
-        {t.polar}: {r.toFixed(2)}(cos {theta.toFixed(2)} + i sin {theta.toFixed(2)})
+        {t.polar}: {r === 0 ? `0 (${t.undefinedArg})` : `${r.toFixed(2)}(cos ${theta.toFixed(2)} + i sin ${theta.toFixed(2)})`}
         <br />
         <span>
           {t.fixed} {cartesian(productRe, productIm)}

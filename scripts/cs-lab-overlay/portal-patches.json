@@ -1,0 +1,245 @@
+[
+  {
+    "file": "js/pipelining.js",
+    "sourceSha256": "da5b047d46266ba74a4802669963ec532ee18973985452d7e2f2cafc80b0204c",
+    "resultSha256": "5e6f44598f63438a26bdf1b865fface65f61e93b5176e9d2ad1e8bc02d311cc0",
+    "edits": [
+      {
+        "start": 28,
+        "end": 29,
+        "lines": [
+          "  let mode = modeBtn.value === 'pipelined' ? 'pipe' : 'seq';\n"
+        ]
+      },
+      {
+        "start": 78,
+        "end": 79,
+        "lines": [
+          "    const nCols = totalCycles();\n",
+          "    const W = Math.max(1000, 180 + nCols * 65), H = 400;\n",
+          "    svg.style.minWidth = W + 'px';\n"
+        ]
+      },
+      {
+        "start": 84,
+        "end": 85,
+        "lines": [
+          "    // Every cycle remains visible inside the scrollable diagram, including all 25 sequential cycles.\n"
+        ]
+      },
+      {
+        "start": 165,
+        "end": 166,
+        "lines": [
+          "    // at cycles 3 and 4 — the stall before I3 enters Fetch.\n"
+        ]
+      },
+      {
+        "start": 167,
+        "end": 168,
+        "lines": [
+          "      for (let bc = 3; bc <= 4; bc++) {\n"
+        ]
+      },
+      {
+        "start": 218,
+        "end": 227,
+        "lines": [
+          "    modeBtn.value = mode === 'pipe' ? 'pipelined' : 'sequential';\n",
+          "    modeBtn.options[0].textContent = tr('Sequential', 'Последовательно');\n",
+          "    modeBtn.options[1].textContent = tr('Pipelined', 'Конвейер');\n",
+          "    hazardBtn.checked = hazard;\n"
+        ]
+      },
+      {
+        "start": 266,
+        "end": 268,
+        "lines": [
+          "  modeBtn.addEventListener('change', () => {\n",
+          "    mode = modeBtn.value === 'pipelined' ? 'pipe' : 'seq';\n"
+        ]
+      },
+      {
+        "start": 273,
+        "end": 274,
+        "lines": [
+          "  hazardBtn.addEventListener('change', () => {\n"
+        ]
+      },
+      {
+        "start": 275,
+        "end": 276,
+        "lines": [
+          "    hazard = hazardBtn.checked;\n"
+        ]
+      }
+    ]
+  },
+  {
+    "file": "js/joins.js",
+    "sourceSha256": "2addf0f459c7987e6b093a70e0c054501e765418e844ca3b6651095239a623cc",
+    "resultSha256": "9de24c8a325456f792868187b9f6acd81392f6419421aa728c561eb1e15da712",
+    "edits": [
+      {
+        "start": 212,
+        "end": 213,
+        "lines": [
+          "    let html = '<div class=\"table-scroll\"><table class=\"dbtable\"><thead><tr>';\n"
+        ]
+      },
+      {
+        "start": 237,
+        "end": 238,
+        "lines": [
+          "    tbody.innerHTML = html + '</table></div>';\n"
+        ]
+      }
+    ]
+  },
+  {
+    "file": "a3-2-design.html",
+    "sourceSha256": "72e270538abd21251e440691703261060a2467e8528e2c21778f279bd437fe80",
+    "resultSha256": "1d30ce71960dafdd4e631af942210e0eb0dc44374b54aea9f29319d3dbd648df",
+    "edits": [
+      {
+        "start": 609,
+        "end": 610,
+        "lines": [
+          "      <text x=\"220\" y=\"45\" font-family=\"Helvetica\" font-size=\"14\" fill=\"#1e293b\"><tspan class=\"lang-ru-inline\">Mandatory one — ровно 1 (обязательно)</tspan><tspan class=\"lang-en-inline\">Mandatory one — exactly 1</tspan></text>\n"
+        ]
+      },
+      {
+        "start": 615,
+        "end": 616,
+        "lines": [
+          "      <text x=\"220\" y=\"95\" font-family=\"Helvetica\" font-size=\"14\" fill=\"#1e293b\"><tspan class=\"lang-ru-inline\">Optional one — 0 или 1</tspan><tspan class=\"lang-en-inline\">Optional one — 0 or 1</tspan></text>\n"
+        ]
+      },
+      {
+        "start": 623,
+        "end": 624,
+        "lines": [
+          "      <text x=\"220\" y=\"145\" font-family=\"Helvetica\" font-size=\"14\" fill=\"#1e293b\"><tspan class=\"lang-ru-inline\">Mandatory many — 1 или больше</tspan><tspan class=\"lang-en-inline\">Mandatory many — 1 or more</tspan></text>\n"
+        ]
+      },
+      {
+        "start": 631,
+        "end": 632,
+        "lines": [
+          "      <text x=\"220\" y=\"195\" font-family=\"Helvetica\" font-size=\"14\" fill=\"#1e293b\"><tspan class=\"lang-ru-inline\">Optional many — 0 или больше</tspan><tspan class=\"lang-en-inline\">Optional many — 0 or more</tspan></text>\n"
+        ]
+      }
+    ]
+  },
+  {
+    "file": "styles.css",
+    "sourceSha256": "0280be4c52ee8b33111a497ad747cfbb18e331c8b76bd75f628e455784b4c119",
+    "resultSha256": "a6e638a32f895e94658287372fa4c2d0725074fa4b4451422a296b78c0faaded",
+    "edits": [
+      {
+        "start": 1452,
+        "end": 1452,
+        "lines": [
+          "\n",
+          "/* R04: desktop diagrams also retain readable type inside a keyboard-scrollable frame. */\n",
+          ".sim-canvas-wrap:has(#cache-svg, #pipe-svg, #nn-svg, #ddos-svg) { overflow-x: auto; }\n",
+          "@media (min-width: 621px) {\n",
+          "  #cache-svg, #nn-svg { min-width: 1100px; }\n",
+          "  #ddos-svg { min-width: 1230px; }\n",
+          "  #pipe-svg { min-width: 1000px; }\n",
+          "}\n",
+          ".sim-canvas-wrap[data-scroll-hint]::before { content: attr(data-scroll-hint); display: block; padding: 6px 10px; font-size: 12px; color: var(--text-muted); }\n",
+          "/* Grid children must be allowed to shrink before their own diagram scrollbar can work. */\n",
+          ".sidebar-layout > *, .sim, .sim-canvas-wrap { min-width: 0; max-width: 100%; }\n"
+        ]
+      }
+    ]
+  },
+  {
+    "file": "js/app.js",
+    "sourceSha256": "e1d7db7f58d458ee5cd65c9ab15a7e4298254cf1bc35079b4dc43addf677d3e4",
+    "resultSha256": "d0d821e8480655233fdfd8a14bc88d131aae5d07559ef8cace22a9dce44b4b42",
+    "edits": [
+      {
+        "start": 120,
+        "end": 120,
+        "lines": [
+          "\n",
+          "// Give wide interactive diagrams a keyboard scroll target and an honest visible hint.\n",
+          "(function () {\n",
+          "  function labelFrames() {\n",
+          "    const ru = document.documentElement.dataset.lang === 'ru';\n",
+          "    document.querySelectorAll('.sim-canvas-wrap').forEach(frame => {\n",
+          "      frame.tabIndex = 0;\n",
+          "      frame.setAttribute('role', 'region');\n",
+          "      frame.setAttribute('aria-label', ru ? 'Интерактивная схема' : 'Interactive diagram');\n",
+          "      const wide = frame.scrollWidth > frame.clientWidth + 1;\n",
+          "      if (wide) frame.dataset.scrollHint = ru ? 'Прокрутите схему вправо ↔' : 'Scroll the diagram sideways ↔';\n",
+          "      else delete frame.dataset.scrollHint;\n",
+          "    });\n",
+          "  }\n",
+          "  window.addEventListener('load', labelFrames);\n",
+          "  window.addEventListener('resize', labelFrames);\n",
+          "  document.addEventListener('langchange', labelFrames);\n",
+          "})();\n"
+        ]
+      }
+    ]
+  },
+  {
+    "file": "js/cache-sim.js",
+    "sourceSha256": "996b7211d7a0b07c690f7c38b0b5189564ec2e66b91d44b689f45a498b4bb9eb",
+    "resultSha256": "19fe153b31130566356dce6ff81dd816000a98c3e62371ce6ec5227ef2c542c9",
+    "edits": [
+      {
+        "start": 99,
+        "end": 100,
+        "lines": [
+          "    const policy = policyEl.value.toLowerCase();\n"
+        ]
+      },
+      {
+        "start": 162,
+        "end": 163,
+        "lines": [
+          "        const meta = policyEl.value.toLowerCase() === 'fifo' ? 'f=' + slot.loadedAt : 'u=' + slot.lastUsed;\n"
+        ]
+      },
+      {
+        "start": 265,
+        "end": 266,
+        "lines": [
+          "      if (slot) s += label(246, y + 19, policyEl.value.toLowerCase() === 'fifo' ? 'f=' + slot.loadedAt : 'u=' + slot.lastUsed, color, 'end');\n"
+        ]
+      }
+    ]
+  },
+  {
+    "file": "js/ddos.js",
+    "sourceSha256": "ca0860ac2972bfd5625889c4830043353d40059028f4a5cca97f4cb6201187fe",
+    "resultSha256": "deaf2873beba7ffeb47826f807b32cbfdd52328b3f4c5878e02b8cb48769b21d",
+    "edits": [
+      {
+        "start": 81,
+        "end": 82,
+        "lines": [
+          "    const mode = defenseSel.value === 'rate-limit' ? 'rate' : defenseSel.value;\n"
+        ]
+      },
+      {
+        "start": 181,
+        "end": 182,
+        "lines": [
+          "    const mode = defenseSel.value === 'rate-limit' ? 'rate' : defenseSel.value;\n"
+        ]
+      },
+      {
+        "start": 321,
+        "end": 322,
+        "lines": [
+          "    const t = T(), mode = defenseSel.value === 'rate-limit' ? 'rate' : defenseSel.value;\n"
+        ]
+      }
+    ]
+  }
+]

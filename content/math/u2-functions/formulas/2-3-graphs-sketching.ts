@@ -4,7 +4,7 @@ export const formulas: Formula[] = [
   {
     id: 'quadratic-vertex-x-coordinate',
     tex: 'x=-\\dfrac{b}{2a},\\quad a\\neq 0',
-    name: { en: 'Turning point of a quadratic', ru: 'Абсцисса вершины квадратичной функции (Turning point of a quadratic)' },
+    name: { en: 'Turning-point x-coordinate of a quadratic', ru: 'Абсцисса вершины квадратичной функции (Turning point of a quadratic)' },
     meaning: {
       en: 'For y = ax^2 + bx + c the turning point has x-coordinate -b/(2a). The parabola is symmetric about this vertical line.',
       ru: 'Для y = ax^2 + bx + c абсцисса вершины равна -b/(2a). Парабола симметрична относительно этой вертикальной прямой.',
@@ -25,8 +25,8 @@ export const formulas: Formula[] = [
     tex: '(f+g)(x)=f(x)+g(x)',
     name: { en: 'Sum of two functions', ru: 'Сумма двух функций (Sum of two functions)' },
     meaning: {
-      en: 'The graph of y = (f + g)(x) is found by adding the y-coordinates of f and g at each x.',
-      ru: 'График y = (f + g)(x) строится сложением координат y графиков f и g при каждом x.',
+      en: 'The graph of y = (f + g)(x) is found by adding the y-coordinates of f and g at each x in both domains.',
+      ru: 'График y = (f + g)(x) строится сложением координат y графиков f и g при каждом x из обеих областей определения.',
     },
     when: {
       en: 'Adding two models, for example a fixed charge plus a variable charge.',
@@ -44,8 +44,8 @@ export const formulas: Formula[] = [
     tex: '(f-g)(x)=f(x)-g(x)',
     name: { en: 'Difference of two functions', ru: 'Разность двух функций (Difference of two functions)' },
     meaning: {
-      en: 'The graph of y = (f - g)(x) is found by subtracting the y-coordinates of g from those of f at each x.',
-      ru: 'График y = (f - g)(x) строится вычитанием координат y графика g из координат y графика f при каждом x.',
+      en: 'The graph of y = (f - g)(x) is found by subtracting the y-coordinates of g from those of f at each x in both domains.',
+      ru: 'График y = (f - g)(x) строится вычитанием координат y графика g из координат y графика f при каждом x из обеих областей определения.',
     },
     when: {
       en: 'Finding profit as revenue minus cost, or any gap between two graphs.',

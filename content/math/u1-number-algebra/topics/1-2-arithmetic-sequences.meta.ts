@@ -26,8 +26,10 @@ const topic: TopicMeta = {
   ],
   termIds: ['arithmetic-sequence', 'common-difference', 'arithmetic-series', 'sigma-notation-arithmetic'],
   formulaIds: ['arithmetic-nth-term', 'arithmetic-sum', 'arithmetic-common-difference'],
-  questionIds: ['q-1-2-01', 'q-1-2-02', 'q-1-2-03'],
+  questionIds: ['q-1-2-01', 'q-1-2-02', 'q-1-2-03', 'r06-sigma'],
   sources: [
+    { kind: 'textbook', title: 'Oxford IB Diploma Programme: Mathematics: Applications and Interpretation HL, OUP2019, ISBN9780198427056', locator: 'ch.4.4, printed pp.178–179 and185 (PDF189–190,196); sigma definition ch.2.2,p.51(PDF62)' },
+    { kind: 'web', title: 'И.М.Гельфанд, А.Шень, Алгебра, §§38–39, printed pp.69–72: definition, nth term, odd-n gap and forward/reverse sum proof', url: 'https://old.mccme.ru/free-books/shen/gelfand-shen-algebra.pdf' },
     {
       kind: 'web',
       title: 'IB Mathematics AI, first assessment 2021: public summary, not checked against the official guide',

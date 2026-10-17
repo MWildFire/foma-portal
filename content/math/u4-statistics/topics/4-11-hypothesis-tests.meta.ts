@@ -27,7 +27,7 @@ const topic: TopicMeta = {
   termIds: ['null-hypothesis-h0', 'significance-level-alpha', 'p-value-of-a-test', 'chi-squared-independence-test'],
   formulaIds: ['chi-squared-statistic', 'expected-frequency-independence', 'df-contingency-table', 't-statistic-one-sample'],
   sims: ['math.chi-squared-lab'],
-  questionIds: ['q-4-11-01', 'q-4-11-02', 'q-4-11-03'],
+  questionIds: ['q-4-11-01', 'q-4-11-02', 'q-4-11-03', 'r06-binomial-two-means'],
   sources: [
     {
       kind: 'web',

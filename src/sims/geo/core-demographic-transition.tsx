@@ -1,3 +1,4 @@
+import ReadableDiagram from '../readable-diagram';
 import { useState } from 'react';
 import type { Lang } from '../../contract/types';
 
@@ -12,7 +13,7 @@ const STAGES: { en: string; ru: string; cbr: number; cdr: number; note: { en: st
     cdr: 35,
     note: {
       en: 'Both rates are high. Growth is slow because deaths almost balance births.',
-      ru: 'Обе ставки высокие. Рост медленный, потому что смерти почти уравновешивают рождения.',
+      ru: 'Оба коэффициента высокие. Рост медленный, потому что смерти почти уравновешивают рождения.',
     },
   },
   {
@@ -41,8 +42,8 @@ const STAGES: { en: string; ru: string; cbr: number; cdr: number; note: { en: st
     cbr: 14,
     cdr: 9,
     note: {
-      en: 'Both rates are low. Natural increase is small and the population is nearly stable.',
-      ru: 'Обе ставки низкие. Естественный прирост мал, население почти стабильно.',
+      en: 'Both rates are low. Natural increase is smaller than in stages 2–3; total population change also depends on net migration.',
+      ru: 'Оба коэффициента низкие. Естественный прирост ниже, чем на стадиях 2–3; общее изменение населения зависит и от миграционного сальдо.',
     },
   },
   {
@@ -109,7 +110,7 @@ export default function DemographicTransition({ lang }: { lang: Lang }) {
           </button>
         ))}
       </div>
-      <svg role="img" aria-label={title} viewBox={`0 0 ${WIDTH} ${HEIGHT}`} width="100%" style={{ maxWidth: 440, display: 'block' }}>
+      <ReadableDiagram lang={lang}><svg role="img" aria-label={title} viewBox={`0 0 ${WIDTH} ${HEIGHT}`} width="100%" style={{ maxWidth: 440, display: 'block' }}>
         <rect x={xBoundary(stage)} y={TOP_VALUE_Y - 6} width={STAGE_WIDTH} height={ZERO_Y - TOP_VALUE_Y + 12} fill="currentColor" fillOpacity={0.12} />
         {[10, 20, 30, 40, 50].map(value => (
           <g key={value} stroke="currentColor" strokeOpacity={0.15}>
@@ -139,10 +140,10 @@ export default function DemographicTransition({ lang }: { lang: Lang }) {
           {ru ? 'Стадия модели' : 'DTM stage'}
         </text>
         <text x={12} y={(TOP_VALUE_Y + ZERO_Y) / 2} textAnchor="middle" fontSize="10" fill="currentColor" transform={`rotate(-90 12 ${(TOP_VALUE_Y + ZERO_Y) / 2})`}>
-          {ru ? 'Ставка, на 1000 в год' : 'Rate per 1000 a year'}
+          {ru ? 'Коэффициент, на 1000 в год' : 'Rate per 1000 a year'}
         </text>
         <text x={LEFT - 6} y={TOP_VALUE_Y - 8} textAnchor="end" fontSize="10" fill="currentColor">‰</text>
-      </svg>
+      </svg></ReadableDiagram>
       <p style={{ fontSize: 13, margin: '6px 0' }}>
         {ru
           ? 'Сплошная линия — рождаемость (CBR). Пунктир — смертность (CDR). Значения на 1000 человек в год; для каждой стадии это значение в её конце.'
@@ -156,7 +157,7 @@ export default function DemographicTransition({ lang }: { lang: Lang }) {
         {current.cbr} − {current.cdr} = <strong>{natural > 0 ? `+${natural}` : natural}</strong> {ru ? 'на 1000 в год' : 'per 1000 per year'}.
       </p>
       <p style={{ fontSize: 13, opacity: 0.8 }}>
-        {ru ? 'Значения условные (модельные), это не данные конкретной страны.' : 'The values are model values, not data for one country.'}
+        {ru ? 'Значения условные, а не данные страны или прогноз. Модель не учитывает миграцию; последовательность и длительность стадий не являются универсальным законом.' : 'The values are illustrative, not country data or a forecast. The DTM omits migration, and stage order/timing is not a universal law.'}
       </p>
     </div>
   );

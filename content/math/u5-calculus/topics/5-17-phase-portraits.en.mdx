@@ -1,6 +1,6 @@
 ## Big idea
 
-Two quantities that influence each other can be described by two linear differential equations. Near the equilibrium point at the origin, the behaviour is decided by two numbers from the coefficient matrix: its trace and its determinant. Together they show whether trajectories spiral, circle, settle into the origin, or leave along two lines.
+Two quantities that influence each other can be described by two linear differential equations. When the determinant is nonzero, the type of the equilibrium at the origin is decided by the trace and determinant of the coefficient matrix. Together they show whether trajectories spiral, circle, settle into the origin, or leave along two lines.
 
 ## Explanation
 
@@ -14,11 +14,11 @@ Each point of the <Term id="phase-plane-2d"/> is a state of the system. The orig
 
 <Formula id="eigenvalues-trace-determinant"/>
 
-Read the type in this order:
+When $D=0$, solve $A\mathbf{x}=0$: a nonzero rank-one matrix gives a line of equilibria, while the zero matrix makes every point of the plane an equilibrium. For $D\neq0$, read the type in this order:
 
 - $D < 0$: the eigenvalues are real with opposite signs. The origin is a <Term id="saddle-point-2d"/> and is always unstable.
 - $D > 0$ and $T^{2} \geq 4D$: the eigenvalues are real with the same sign, so the origin is a node. It is stable if $T < 0$, when nearby trajectories go into the origin, and unstable if $T > 0$. A repeated eigenvalue ($T^{2} = 4D$) also gives a node.
-- $D > 0$ and $T^{2} < 4D$: the eigenvalues are complex, so the origin is a spiral (focus). It is stable if $T < 0$ and unstable if $T > 0$.
+- $D > 0$, $T^{2} < 4D$ and $T \neq 0$: the eigenvalues are complex, so the origin is a spiral (focus). It is stable if $T < 0$ and unstable if $T > 0$.
 - $T = 0$ and $D > 0$: the eigenvalues are purely imaginary, $\lambda = \pm i\sqrt{D}$. The origin is a <Term id="centre-equilibrium-2d"/>, surrounded by closed orbits.
 
 <Callout kind="define">Phase portrait: a sketch of several trajectories in the phase plane, showing the equilibrium point, its type, and the direction of motion as $t$ increases.</Callout>
@@ -41,7 +41,7 @@ Take $\frac{dx}{dt} = x + 2y$ and $\frac{dy}{dt} = 3x + 2y$, so that $A = \begin
 
 <Sim id="math.phase-portrait-lab"/>
 
-The lab opens on the stable spiral $a = -1$, $b = 2$, $c = -2$, $d = -1$ from the last question. Set $a = 1$, $b = 2$, $c = 3$, $d = 2$ to see the saddle of the worked example, and watch how the curves approach along one direction and leave along the other. The label reads the type from $T$ and $D$ and shows the eigenvalues. The curves are drawn with small Euler steps, so a centre drifts slightly outwards; this is a numerical effect, not a property of the system.
+The lab opens on the stable spiral $a = -1$, $b = 2$, $c = -2$, $d = -1$ from the last question. Set $a = 1$, $b = 2$, $c = 3$, $d = 2$ to see the saddle of the worked example, and watch how the curves approach along one direction and leave along the other. The label uses $T$ and $D$ and shows the eigenvalues; when $D=0$ it also checks the matrix entries. Set all four coefficients to zero: every point is then an equilibrium, so the sample points stay fixed. The curves are drawn with small Euler steps, so a centre drifts slightly outwards; this is a numerical effect, not a property of the system.
 
 ## How it is examined
 
@@ -70,6 +70,6 @@ Find questions give marks for the characteristic equation, for each eigenvalue a
 - Write the system as $\frac{d\mathbf{x}}{dt} = A\mathbf{x}$, then find $T = a + d$ and $D = ad - bc$.
 - $D < 0$: a saddle point, always unstable.
 - $D > 0$ and $T^{2} \geq 4D$: a node, stable if $T < 0$ and unstable if $T > 0$.
-- $D > 0$ and $T^{2} < 4D$: a spiral, stable if $T < 0$ and unstable if $T > 0$.
+- $D > 0$, $T^{2} < 4D$ and $T \neq 0$: a spiral, stable if $T < 0$ and unstable if $T > 0$.
 - $T = 0$ and $D > 0$: a centre, with closed orbits and purely imaginary eigenvalues.
 - When $D \neq 0$ the origin is the only equilibrium point; sketch the eigen-directions first, then the arrows.

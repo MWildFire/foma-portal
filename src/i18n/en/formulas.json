@@ -7,10 +7,12 @@
   },
   "filter": {
     "label": "Filter",
-    "booklet": "Booklet only"
+    "booklet": "Booklet only",
+    "outside": "Not in the booklet only"
   },
   "count": "Showing {{shown}} of {{total}} formulas",
   "bookletCount": "In the formula booklet: {{n}}",
   "noBooklet": "No formula from the booklet in this subject yet. Switch the filter off to see all formulas.",
-  "usedIn": "Used in topics"
+  "usedIn": "Used in topics",
+  "noMatch": "No formulas match these filters. Change a filter to see more formulas."
 }

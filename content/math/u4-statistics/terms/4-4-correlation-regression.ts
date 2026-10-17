@@ -16,8 +16,8 @@ export const terms: Term[] = [
       ru: 'коэффициент корреляции Пирсона r (Pearson\'s product-moment correlation coefficient r)',
     },
     def: {
-      en: 'A number from −1 to 1 that describes how strongly, and in which direction, two numerical variables are linearly related. Values near ±1 mean the points lie close to a straight line; values near 0 mean no linear pattern.',
-      ru: 'Число от −1 до 1, которое показывает силу и направление линейной связи между двумя числовыми величинами. Значения, близкие к ±1, означают, что точки лежат близко к прямой; значения, близкие к 0, означают отсутствие линейной закономерности.',
+      en: 'Defined when both variables vary: a number from −1 to 1 that describes how strongly, and in which direction, two numerical variables are linearly related. Values near ±1 mean the points lie close to a straight line; values near 0 indicate weak sample linear association, not proof of no relationship or zero population correlation.',
+      ru: 'При ненулевом разбросе обеих величин — число от −1 до 1, которое показывает силу и направление линейной связи между двумя числовыми величинами. Значения, близкие к ±1, означают, что точки лежат близко к прямой; значения, близкие к 0, указывают на слабую линейную связь в выборке, а не доказывают отсутствие зависимости или нулевую корреляцию в совокупности.',
     },
     syllabus: '4.4',
     papers: ['P1', 'P2', 'P3'],
@@ -42,8 +42,8 @@ export const terms: Term[] = [
     papers: ['P1', 'P2', 'P3'],
     src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 4.5, p. 191' },
     pitfall: {
-      en: 'Swapping x and y gives a different line: the regression of y on x predicts y from x.',
-      ru: 'Перестановка x и y даёт другую прямую: регрессия y на x предсказывает y по x.',
+      en: 'Swapping x and y generally gives a different line; with perfect nonzero linear correlation the geometric lines coincide. The regression of y on x predicts y from x.',
+      ru: 'Перестановка x и y обычно даёт другую прямую; при идеальной ненулевой линейной корреляции геометрические прямые совпадают. Регрессия y на x предсказывает y по x.',
     },
   },
   {
@@ -53,11 +53,11 @@ export const terms: Term[] = [
       ru: 'точка средних (mean point)',
     },
     def: {
-      en: 'The point $(\\bar{x}, \\bar{y})$ whose coordinates are the two sample means. The least-squares line of y on x always passes through it.',
-      ru: 'Точка $(\\bar{x}, \\bar{y})$, координаты которой равны средним значениям обеих величин. Линия регрессии y на x всегда проходит через неё.',
+      en: 'The point $(\\bar{x}, \\bar{y})$ whose coordinates are the two sample means. To sketch a best-fit line, mark this point and draw the line through it following the data trend.',
+      ru: 'Точка $(\\bar{x}, \\bar{y})$, координаты которой равны средним значениям обеих величин. Чтобы провести линию наилучшего приближения от руки, отметьте эту точку и проведите через неё прямую вдоль тенденции данных.',
     },
     syllabus: '4.4',
     papers: ['P1', 'P2', 'P3'],
-    src: source,
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 2.4, pp. 68–69; review exercise 10, p. 77' },
   },
 ];

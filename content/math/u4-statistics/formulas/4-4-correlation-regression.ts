@@ -9,12 +9,12 @@ export const formulas: Formula[] = [
       ru: 'коэффициент корреляции Пирсона (Pearson\'s product-moment correlation coefficient)',
     },
     meaning: {
-      en: 'Strength and direction of the linear relationship between x and y. It always lies between −1 and 1.',
-      ru: 'Сила и направление линейной связи между x и y. Всегда лежит от −1 до 1.',
+      en: 'Strength and direction of the linear relationship between x and y. When defined, it lies between −1 and 1.',
+      ru: 'Сила и направление линейной связи между x и y. Если определён, лежит от −1 до 1.',
     },
     when: {
-      en: 'Both variables are numerical and the scatter diagram looks roughly linear, with no extreme outliers.',
-      ru: 'Обе величины числовые, а диаграмма рассеяния похожа на прямую без экстремальных выбросов.',
+      en: 'Both variables must have nonzero sample variance, otherwise r is undefined. Both variables are numerical and the scatter diagram looks roughly linear, with no extreme outliers.',
+      ru: 'Выборочные дисперсии обеих величин должны быть ненулевыми, иначе r не определён. Обе величины числовые, а диаграмма рассеяния похожа на прямую без экстремальных выбросов.',
     },
     syllabus: '4.4',
     inBooklet: false,
@@ -35,8 +35,8 @@ export const formulas: Formula[] = [
       ru: 'a — угловой коэффициент, b — свободный член; $s_x$ и $s_y$ — стандартные отклонения x и y.',
     },
     when: {
-      en: 'Finding the regression line by hand from summary statistics (r, the means and the standard deviations).',
-      ru: 'Нахождение линии регрессии вручную по сводным статистикам (r, средним и стандартным отклонениям).',
+      en: 'Requires sx>0 and a defined r (sy>0); for constant y the fitted line is y=mean(y), but the r-based expression is undefined. Finding the regression line by hand from summary statistics (r, the means and the standard deviations).',
+      ru: 'Требуется sx>0 и определённый r (sy>0); при постоянном y прямая равна y=среднее(y), но запись через r не определена. Нахождение линии регрессии вручную по сводным статистикам (r, средним и стандартным отклонениям).',
     },
     syllabus: '4.4',
     inBooklet: false,
@@ -57,8 +57,8 @@ export const formulas: Formula[] = [
       ru: 'Подстановка x, равного среднему x, даёт среднее y, поэтому прямая проходит через $(\\bar{x}, \\bar{y})$.',
     },
     when: {
-      en: 'Checking a regression line by hand, or sketching it on a scatter diagram.',
-      ru: 'Проверка линии регрессии вручную или построение её на диаграмме рассеяния.',
+      en: 'This is ordinary least squares with an intercept. Checking a regression line by hand, or sketching it on a scatter diagram.',
+      ru: 'Это свойство обычного метода наименьших квадратов со свободным членом. Проверка линии регрессии вручную или построение её на диаграмме рассеяния.',
     },
     syllabus: '4.4',
     inBooklet: false,

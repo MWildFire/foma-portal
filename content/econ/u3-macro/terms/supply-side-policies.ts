@@ -14,27 +14,27 @@ export const terms: Term[] = [
       ru: 'Меры государства, которые повышают производственный потенциал экономики, улучшая количество и качество факторов производства или проводя институциональные изменения; они сдвигают долгосрочное совокупное предложение вправо.',
     },
     example: {
-      en: "A AED 2 million training grant that prepares 100 extra engineers raises the economy's potential output over several years.",
-      ru: 'Грант 2 млн AED на подготовку 100 дополнительных инженеров со временем повышает потенциальный выпуск экономики.',
+      en: 'Hypothetical example: an AED 2 million grant trains 100 additional engineers. Effective training and suitable jobs could raise productive capacity over several years.',
+      ru: 'Условный пример: грант 2 млн AED позволяет подготовить 100 дополнительных инженеров. Качественное обучение и подходящие рабочие места могут со временем повысить производственный потенциал.',
     },
     pitfall: {
-      en: 'Supply-side policies raise capacity, not demand; on their own they do not raise actual output in a recession caused by low spending.',
-      ru: 'Меры политики предложения повышают производственные возможности, а не спрос; сами по себе они не увеличивают фактический выпуск в рецессии, вызванной низкими расходами.',
+      en: 'The defining objective is productive capacity. Infrastructure or education spending also enters G, and tax cuts may raise C or I. Distinguish these demand effects from the later LRAS shift; capacity growth alone need not overcome deficient AD.',
+      ru: 'Определяющая цель — производственный потенциал. Расходы на инфраструктуру или образование также входят в G, а снижение налогов может увеличить C или I. Отделяй эти эффекты спроса от позднейшего сдвига LRAS: один рост потенциала не обязательно устранит недостаток AD.',
     },
     syllabus: '3.7',
     papers: ['P1', 'P2', 'P3'],
-    src: { kind: 'textbook', title: book, locator: 'ch. 13, p. 387' },
+    src: { kind: 'textbook', title: book, locator: 'printed pp. 413, 417 (PDF pp. 431, 435): goals and demand/supply overlaps' },
   },
   {
     id: 'market-based-supply-side-policies',
     term: { en: 'market-based supply-side policies', ru: 'рыночные меры политики предложения (market-based supply-side policies)' },
     def: {
-      en: 'Supply-side measures that work through markets by reducing government intervention and strengthening competition and incentives, such as deregulation, privatisation and tax cuts.',
-      ru: 'Меры политики предложения, которые работают через рынок: они сокращают вмешательство государства и усиливают конкуренцию и стимулы, например дерегулирование, приватизацию и снижение налогов.',
+      en: 'Supply-side measures that work through competition and incentives, such as deregulation, privatisation and tax cuts. Some reduce intervention; maintaining competition can also require regulation.',
+      ru: 'Меры политики предложения, которые действуют через конкуренцию и стимулы: например дерегулирование, приватизация и снижение налогов. Часть мер сокращает вмешательство, но поддержание конкуренции может требовать регулирования.',
     },
     example: {
-      en: 'Privatising a state-owned airline that loses AED 100 million a year makes its private owners cut costs and compete.',
-      ru: 'Приватизация государственной авиакомпании, которая теряет 100 млн AED в год, заставляет частных владельцев снижать издержки и конкурировать.',
+      en: 'Hypothetical example: selling a state airline with annual losses of AED 100 million may strengthen incentives to cut costs. Competitive pressure and regulation affect the result.',
+      ru: 'Условный пример: продажа государственной авиакомпании с ежегодным убытком 100 млн AED может усилить стимулы снижать издержки. Результат зависит от конкуренции и регулирования.',
     },
     pitfall: {
       en: 'Market-based does not mean no government role: the government still sets the rules of competition and safety.',

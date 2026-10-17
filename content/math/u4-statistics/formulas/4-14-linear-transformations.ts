@@ -29,8 +29,8 @@ export const formulas: Formula[] = [
       ru: 'Среднее взвешенной суммы равно такой же взвешенной сумме средних.',
     },
     when: {
-      en: 'Any linear combination of random variables, whether or not they are independent.',
-      ru: 'Любая линейная комбинация случайных величин, независимо от того, независимы ли они.',
+      en: 'For finite expectations: any linear combination of random variables, whether or not they are independent.',
+      ru: 'При конечных математических ожиданиях: любая линейная комбинация случайных величин, независимо от того, независимы ли они.',
     },
     syllabus: '4.14',
     inBooklet: true,
@@ -48,8 +48,8 @@ export const formulas: Formula[] = [
       ru: 'Каждая дисперсия умножается на квадрат своего коэффициента, после чего результаты складываются.',
     },
     when: {
-      en: 'Only when the variables are independent, for example for sums and differences of independent measurements.',
-      ru: 'Только для независимых величин, например для сумм и разностей независимых измерений.',
+      en: 'Valid for pairwise uncorrelated variables; independence is sufficient, not necessary. Otherwise covariance terms are needed.',
+      ru: 'Верно для попарно некоррелированных величин; независимость достаточна, но не обязательна. Иначе нужны слагаемые с ковариациями.',
     },
     syllabus: '4.14',
     inBooklet: true,
@@ -67,8 +67,8 @@ export const formulas: Formula[] = [
       ru: 'Сумма квадратов отклонений от выборочного среднего, делённая на $n - 1$. Её математическое ожидание равно дисперсии генеральной совокупности $\\sigma^{2}$.',
     },
     when: {
-      en: 'Estimating the population variance from a random sample when the population mean is also estimated by the sample mean.',
-      ru: 'Оценка дисперсии генеральной совокупности по случайной выборке, когда среднее совокупности также оценивается выборочным средним.',
+      en: 'For independent identically distributed observations with finite variance and n>1, estimating the population variance when the population mean is also estimated by the sample mean.',
+      ru: 'Для независимых одинаково распределённых наблюдений с конечной дисперсией и n>1: оценка дисперсии совокупности по выборке, когда среднее совокупности также оценивается выборочным средним.',
     },
     syllabus: '4.14',
     inBooklet: true,

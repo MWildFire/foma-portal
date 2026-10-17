@@ -13,17 +13,17 @@ export const terms: Term[] = [
     papers: ['P1', 'P2', 'P3'],
     src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 8.1, p. 340' },
     pitfall: {
-      en: 'A calculator in degree mode gives a different value for the same number. Check the mode before every trigonometric calculation.',
-      ru: 'Калькулятор в режиме градусов даёт другой результат для того же числа. Проверяйте режим перед каждым тригонометрическим расчётом.',
+      en: 'The same numerical input can give different trigonometric values in degree and radian modes. Check the mode before every trigonometric calculation.',
+      ru: 'Один числовой аргумент может давать разные тригонометрические значения в градусном и радианном режимах. Проверяйте режим перед каждым тригонометрическим расчётом.',
     },
     sim: 'math.unit-circle-lab',
   },
   {
     id: 'arc-length-in-radians',
-    term: { en: 'arc length in radians', ru: 'длина дуги в радианах (arc length in radians)' },
+    term: { en: 'arc length with a radian angle', ru: 'длина дуги при угле в радианах (arc length with a radian angle)' },
     def: {
-      en: 'For a circle of radius $r$ and a central angle $\\theta$ in radians, the arc length is $L = r\\theta$.',
-      ru: 'Для окружности радиуса $r$ и центрального угла $\\theta$ в радианах длина дуги равна $L = r\\theta$.',
+      en: 'For a circle of radius $r$ and a central angle $\\theta$ in radians, for a nonnegative angle the arc length is $L = r\\theta$.',
+      ru: 'Для окружности радиуса $r$ и центрального угла $\\theta$ в радианах для неотрицательного угла длина дуги равна $L = r\\theta$.',
     },
     syllabus: '3.7',
     papers: ['P1', 'P2', 'P3'],
@@ -31,10 +31,10 @@ export const terms: Term[] = [
   },
   {
     id: 'sector-area-in-radians',
-    term: { en: 'sector area in radians', ru: 'площадь сектора в радианах (sector area in radians)' },
+    term: { en: 'sector area with a radian angle', ru: 'площадь сектора при угле в радианах (sector area with a radian angle)' },
     def: {
-      en: 'For a circle of radius $r$ and a central angle $\\theta$ in radians, the area of the sector is $A = \\tfrac{1}{2}r^{2}\\theta$.',
-      ru: 'Для окружности радиуса $r$ и центрального угла $\\theta$ в радианах площадь сектора равна $A = \\tfrac{1}{2}r^{2}\\theta$.',
+      en: 'For a circle of radius $r$ and a central angle $\\theta$ in radians, for $0 \\le \\theta \\le 2\\pi$, the sector area is $A = \\tfrac{1}{2}r^{2}\\theta$.',
+      ru: 'Для окружности радиуса $r$ и центрального угла $\\theta$ в радианах при $0 \\le \\theta \\le 2\\pi$ площадь сектора равна $A = \\tfrac{1}{2}r^{2}\\theta$.',
     },
     syllabus: '3.7',
     papers: ['P1', 'P2', 'P3'],

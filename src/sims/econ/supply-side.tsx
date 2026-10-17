@@ -50,8 +50,8 @@ const steps: Step[] = [
   {
     title: { en: 'Supply-side policies', ru: 'Политика предложения (supply-side policies)' },
     text: {
-      en: 'Supply-side policies such as education and deregulation raise productivity, so potential output rises and LRAS shifts right from 7 to 9. At first the economy stays at E1, now below potential output.',
-      ru: 'Политика предложения (supply-side policies), например образование и дерегулирование, повышает производительность: потенциальный выпуск растёт, и LRAS сдвигается вправо с 7 до 9. Сначала экономика остаётся в E1, теперь ниже потенциального выпуска.',
+      en: 'This example assumes that an effective supply-side reform raises productivity, so potential output rises and LRAS shifts right from 7 to 9. Education or deregulation do not guarantee that result; effects depend on design, implementation and time. At first the economy stays at E1, now below potential output.',
+      ru: 'В примере предполагается, что успешная политика предложения повышает производительность: потенциальный выпуск растёт, LRAS сдвигается вправо с 7 до 9. Образование или дерегулирование не гарантируют такого результата; важны устройство мер, исполнение и сроки. Сначала экономика остаётся в E1, теперь ниже потенциального выпуска.',
     },
     graph: {
       ...axes,
@@ -74,8 +74,8 @@ const steps: Step[] = [
   {
     title: { en: 'Complete picture', ru: 'Итоговая картина' },
     text: {
-      en: 'Compared with E1, the long-run equilibrium E3 has more output (7 to 9) and a lower price level (9 to 7). Supply-side policies shift the supply curves (LRAS and SRAS), not AD.',
-      ru: 'По сравнению с E1 долгосрочное равновесие E3 имеет больший выпуск (с 7 до 9) и более низкий уровень цен (с 9 до 7). Политика предложения сдвигает кривые предложения (LRAS и SRAS), а не AD.',
+      en: 'Compared with E1, the long-run equilibrium E3 has more output (7 to 9) and a lower price level (9 to 7). This diagram isolates the intended capacity/cost effect on LRAS and SRAS while holding AD fixed. The same policy can also affect demand: government education/infrastructure purchases add to G, and tax changes can affect C or I. Analyse those separate channels rather than classify every effect as supply-only.',
+      ru: 'По сравнению с E1 долгосрочное равновесие E3 имеет больший выпуск (с 7 до 9) и более низкий уровень цен (с 9 до 7). Диаграмма выделяет целевой эффект на мощности и издержки (LRAS и SRAS) при неизменной AD. Та же мера может влиять и на спрос: государственные закупки образования и инфраструктуры входят в G, изменение налогов может менять C или I. Разбирайте каналы отдельно, не объявляя все эффекты исключительно предложением.',
     },
     graph: {
       ...axes,

@@ -168,8 +168,8 @@ export const terms: Term[] = [
     id: 'deflationary-gap',
     term: { en: 'deflationary gap', ru: 'дефляционный разрыв (deflationary gap)' },
     def: {
-      en: 'A negative output gap: actual output is below potential (unemployment above its natural rate) due to insufficient aggregate demand, so prices tend to fall.',
-      ru: 'Отрицательный разрыв выпуска: фактический выпуск ниже потенциального (безработица выше естественного уровня) из-за недостаточного совокупного спроса, поэтому цены склонны к снижению.',
+      en: 'A negative output gap: actual output is below potential (unemployment above its natural rate) due to insufficient aggregate demand, putting downward pressure on inflation without necessarily making inflation negative.',
+      ru: 'Отрицательный разрыв выпуска: фактический выпуск ниже потенциального (безработица выше естественного уровня) из-за недостаточного совокупного спроса; это понижательное давление на инфляцию, а не обязательное падение наблюдаемого уровня цен.',
     },
     example: {
       en: 'With potential output of AED 600 bn and actual output of AED 580 bn, the economy has a deflationary gap of AED 20 bn.',
@@ -192,8 +192,8 @@ export const terms: Term[] = [
       ru: 'Нерегулярные колебания реального ВВП вокруг долгосрочного тренда: чередующиеся периоды расширения и сжатия — подъём, пик, рецессия и восстановление.',
     },
     example: {
-      en: 'Real GDP grows above trend in a boom, when the output gap is positive, and falls below trend in a recession, when it is negative.',
-      ru: 'Реальный ВВП растёт выше тренда в подъёме, когда разрыв выпуска положительный, и падает ниже тренда в рецессии, когда он отрицательный.',
+      en: 'Expansion and contraction describe output changes; the output gap compares actual with potential output. Output can contract while remaining above potential, or expand while still below it.',
+      ru: 'Подъём и спад описывают изменение выпуска, а разрыв — его отличие от потенциала. Выпуск может сокращаться, оставаясь выше потенциального, или расти, всё ещё не достигая его.',
     },
     pitfall: {
       en: 'A recession is not any fall in GDP; a common rule is two consecutive quarters of falling real GDP.',

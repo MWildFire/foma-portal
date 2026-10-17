@@ -46,7 +46,7 @@ export function FormulaCard({ formula, lang }: Props) {
         ) : null}
       </div>
       <div className="foma-formula__tex">
-        <Tex tex={formula.tex} display />
+        <Tex tex={formula.tex} display lang={lng} />
       </div>
       {broken ? <p className="foma-note">{t('formula.cannotRender')}</p> : null}
       <dl className="foma-formula__list">

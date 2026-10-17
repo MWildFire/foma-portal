@@ -1,6 +1,6 @@
 ## Big idea
 
-A hypothesis test asks whether the sample gives enough evidence to reject a claim about the population. A test can go wrong in two ways: it can reject a claim that is true, or keep a claim that is false. The significance level controls the first risk, and a larger sample helps with the second.
+A hypothesis test asks whether the sample gives enough evidence to reject a claim about the population. A test can go wrong in two ways: it can reject a claim that is true, or fail to reject a claim that is false. The significance level controls the first risk, and a larger sample helps with the second.
 
 ## Explanation
 
@@ -8,7 +8,7 @@ A hypothesis test asks whether the sample gives enough evidence to reject a clai
 
 Write the claim being tested as $H_0$, and the claim you want evidence for as $H_1$. Choose the significance level $\alpha$, and whether the test is one-tailed or two-tailed, from $H_1$ before you calculate. Reject $H_0$ when the p-value is less than $\alpha$. The p-value is the probability of a result at least as extreme as the one observed, assuming $H_0$ is true. It is not the probability that $H_0$ is true.
 
-When the population variance is unknown, use the <Term id="population-mean-t-test"/>. Its statistic is given below, where $s$ is the sample standard deviation with $n - 1$ in the denominator, so the degrees of freedom are $n - 1$. If the population standard deviation $\sigma$ is known, the same logic gives a z-test with the normal distribution.
+For independent observations from a normal population with positive variance and $n>1$, when the population variance is unknown, use the <Term id="population-mean-t-test"/>. Its statistic is given below, where $s$ is the sample standard deviation with $n - 1$ in the denominator, so the degrees of freedom are $n - 1$. If the population standard deviation $\sigma$ is known, the same logic gives a z-test with the normal distribution.
 
 <Formula id="population-mean-t-statistic"/>
 
@@ -18,19 +18,19 @@ For a Poisson mean, suppose $X \sim \text{Po}(m)$ and you test $H_0: m = m_0$ fr
 
 <Formula id="poisson-total-count-test"/>
 
-<Callout kind="gdc">On a Calculator page choose `Menu → Probability → Distributions → Poisson Cdf` (typed `poissCdf(m,c)`) and enter the mean for the whole period, $n m_0$, not the mean for one interval. Try successive values of $c$ and take the largest one whose cumulative probability $P(T \le c)$ is at most $\alpha$.</Callout>
+<Callout kind="gdc">On a Calculator page choose `Menu → Probability → Distributions → Poisson Cdf` (typed `poissCdf(m,c)`) and enter the mean for the whole period, $n m_0$, not the mean for one interval. For a lower-tailed alternative, try successive values of $c$ and take the largest one whose cumulative probability $P(T \le c)$ is at most $\alpha$.</Callout>
 
 <Reveal title="Why is the actual significance level rarely exactly 5%?">Counts take whole-number values, so the cumulative probability $P(T \le c)$ jumps from one value to the next. A critical region rarely has probability exactly $0.05$, so the test uses the largest region with probability at most $\alpha$.</Reveal>
 
-For bivariate normal data with sample correlation $r$ from $n$ pairs, test $H_0: \rho = 0$ with the statistic below, which has $n - 2$ degrees of freedom. Use $H_1: \rho \neq 0$ for a two-tailed test, or $H_1: \rho > 0$ or $H_1: \rho < 0$ for a one-tailed test. The t-test for the slope of the regression line gives the same p-value.
+For independent pairs from a nondegenerate bivariate normal population, with $n>2$ and $|r|<1$, take sample correlation $r$ from $n$ pairs, test $H_0: \rho = 0$ with the statistic below, which has $n - 2$ degrees of freedom. Use $H_1: \rho \neq 0$ for a two-tailed test, or $H_1: \rho > 0$ or $H_1: \rho < 0$ for a one-tailed test. The t-test for the slope of the regression line gives the same p-value.
 
 <Formula id="correlation-t-statistic"/>
 
 <Callout kind="gdc">Enter the pairs of data in two named columns of a Lists & Spreadsheet page; `Menu → Statistics → Stat Calculations → Linear Regression (mx+b)` on a Calculator page gives `r`. For the test, use the Linear Reg t Test from the list of statistics tests: it tests the slope and gives the same $t$ and p-value as $H_0: \rho = 0$. Check the tail of $H_1$ before you compare the p-value with $\alpha$.</Callout>
 
-Two kinds of error are possible. A <Term id="type-i-error-probability"/> happens when $H_0$ is true but the test rejects it; its probability is $\alpha$ for a continuous test, and at most $\alpha$ for a discrete one. A <Term id="type-ii-error-probability"/> happens when $H_1$ is true but the test does not reject $H_0$; its probability is $\beta$, and the power of the test is $1 - \beta$.
+Two kinds of error are possible. A <Term id="type-i-error-probability"/> happens when $H_0$ is true but the test rejects it; its probability equals $\alpha$ for the correctly calibrated exact continuous tests here; a valid discrete test can have smaller size, and an approximation need not attain the nominal level. A <Term id="type-ii-error-probability"/> happens when $H_1$ is true but the test does not reject $H_0$; its probability is $\beta$, and the power of the test is $1 - \beta$.
 
-To find $\beta$, you need one specific value of the parameter under $H_1$. First find the critical region using $H_0$, then find the probability of falling outside it when the parameter has that value. For a fixed $\alpha$, a larger sample reduces both errors. Raising $\alpha$ lowers $\beta$, but increases the risk of a Type I error.
+To find $\beta$, you need one specific value of the parameter under $H_1$. First find the critical region using $H_0$, then find the probability of falling outside it when the parameter has that value. For a fixed nominal $\alpha$, a larger sample can reduce $\beta$ and increase power for a specified alternative; it does not reduce the chosen Type I error rate. In discrete tests the actual size can change irregularly with the critical-region steps. For nested rejection regions, raising $\alpha$ cannot increase $\beta$ (it may stay unchanged in a discrete test), but increases the risk of a Type I error.
 
 <Callout kind="tip">In a context question, say what each error means for the people involved, for example "we concluded that the fault rate has fallen when it has not".</Callout>
 
@@ -59,9 +59,7 @@ The lab draws the t-distribution for the chosen degrees of freedom. The shaded a
 
 ## How it is examined
 
-Calculate and Find questions give a mark for the test statistic, a mark for the p-value and a mark for the conclusion in words. Write down questions ask for the hypotheses, the significance level and the tail; marks are lost when $H_1$ is not written in the form the question needs. Comment and Explain questions ask about errors in context: use the words "reject" and "do not reject", and say what the decision means for the claim. For a discrete test, write the critical region and the actual significance level.
-
-<Callout kind="exam">Write the hypotheses in terms of the parameter ($\mu$, $m$ or $\rho$) before any calculation. A conclusion with no comparison with the significance level loses the final mark.</Callout>
+State hypotheses in terms of the parameter, choose the tail before seeing the outcome and compare the correctly tailed p-value with alpha. For a discrete test, report the critical region and actual size. Explain errors in context and specify the alternative parameter value before calculating beta. Allocation of marks depends on the question.
 
 ## Common mistakes
 
@@ -86,5 +84,5 @@ Calculate and Find questions give a mark for the test statistic, a mark for the 
 - For the mean of a normal population with unknown variance, use the t-statistic with $n - 1$ degrees of freedom.
 - For a Poisson mean, test the total of $n$ independent counts: under $H_0$ it is Poisson with mean $n m_0$.
 - To test $\rho = 0$ for bivariate normal data, use $t = \dfrac{r\sqrt{n-2}}{\sqrt{1-r^2}}$ with $n - 2$ degrees of freedom.
-- A Type I error rejects a true $H_0$ (probability $\alpha$); a Type II error keeps a false $H_0$ (probability $\beta$).
+- A Type I error rejects a true $H_0$ (actual size $\alpha$ for these exact continuous tests, at most the nominal $\alpha$ for the stated discrete test); a Type II error fails to reject a false $H_0$ (probability $\beta$).
 - Finding $\beta$ needs one specific value under $H_1$; the power of the test is $1 - \beta$.

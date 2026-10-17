@@ -6,12 +6,12 @@ export const formulas: Formula[] = [
     tex: 'x=-\\dfrac{d}{c}',
     name: { en: 'Vertical asymptote of a rational function', ru: 'Вертикальная асимптота рациональной функции (Vertical asymptote of a rational function)' },
     meaning: {
-      en: 'For f(x) = (ax + b)/(cx + d), the line x = -d/c is a vertical asymptote, unless the numerator is also zero at that x-value.',
-      ru: 'Для f(x) = (ax + b)/(cx + d) прямая x = -d/c является вертикальной асимптотой, если в этой точке числитель не равен нулю.',
+      en: 'For f(x) = (ax + b)/(cx + d) with c ≠ 0, the line x = -d/c is a vertical asymptote, unless the numerator is also zero at that x-value.',
+      ru: 'Для f(x) = (ax + b)/(cx + d) при c ≠ 0 прямая x = -d/c является вертикальной асимптотой, если в этой точке числитель не равен нулю.',
     },
     when: {
-      en: 'The denominator is zero at some x-value, so the function grows without bound near that value.',
-      ru: 'Знаменатель обращается в нуль при некотором значении x, и функция неограниченно растёт вблизи этого значения.',
+      en: 'For the stated linear-over-linear model with c≠0 and ad−bc≠0; cancellation of both zeros gives a hole instead.',
+      ru: 'Для указанной дробно-линейной функции при c≠0 и ad−bc≠0; сокращение нулей числителя и знаменателя даёт выколотую точку.',
     },
     syllabus: '2.4',
     inBooklet: false,

@@ -28,8 +28,10 @@ const topic: TopicMeta = {
   termIds: ['half-life-model', 'logistic-model', 'carrying-capacity', 'piecewise-model'],
   formulaIds: ['half-life-formula', 'logistic-formula', 'logistic-key-features', 'sinusoid-period'],
   sims: ['math.logistic-loglog-lab'],
-  questionIds: ['q-2-9-01', 'q-2-9-02', 'q-2-9-03'],
+  questionIds: ['q-2-9-01', 'q-2-9-02', 'q-2-9-03', 'r06-piecewise'],
   sources: [
+    {kind:'school',title:'School October2026 mock topic list',locator:'Extended models: logistic and piecewise models; school scope, not an IB guide replacement'},
+    {kind:'web',title:'Открытая Математика: кусочно-линейная функция (independent Russian explanation)',locator:'§2.1.4: continuous and discontinuous piecewise functions',url:'https://mathematics.ru/courses/function/content/chapter2/section1/paragraph4/theory.html'},
     {
       kind: 'web',
       title: 'IB Mathematics AI, first assessment 2021: public summary, not checked against the official guide',

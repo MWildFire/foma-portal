@@ -29,8 +29,8 @@ export const terms: Term[] = [
     id: 'budget-deficit',
     term: { en: 'budget deficit', ru: 'бюджетный дефицит (budget deficit)' },
     def: {
-      en: 'A negative budget balance: government spending is greater than tax revenue in a given year.',
-      ru: 'Отрицательный бюджетный баланс: государственные расходы больше налоговых поступлений за данный год.',
+      en: 'A negative budget balance: total government expenditure is greater than total revenue in a given year.',
+      ru: 'Отрицательный бюджетный баланс: все расходы бюджета больше всех его доходов за данный год.',
     },
     example: {
       en: 'Tax revenue of AED 400 million and spending of AED 430 million give a deficit of AED 30 million.',
@@ -48,16 +48,16 @@ export const terms: Term[] = [
     id: 'budget-surplus',
     term: { en: 'budget surplus', ru: 'бюджетный профицит (budget surplus)' },
     def: {
-      en: 'A positive budget balance: tax revenue is greater than government spending in a given year.',
-      ru: 'Положительный бюджетный баланс: налоговые поступления больше государственных расходов за данный год.',
+      en: 'A positive budget balance: total government revenue is greater than total expenditure in a given year.',
+      ru: 'Положительный бюджетный баланс: все доходы бюджета больше всех его расходов за данный год.',
     },
     example: {
       en: 'Tax revenue of AED 800 million and spending of AED 750 million give a surplus of AED 50 million.',
       ru: 'Налоговые поступления 800 млн AED и расходы 750 млн AED дают профицит 50 млн AED.',
     },
     pitfall: {
-      en: 'A surplus is not the same as a balanced budget, where tax revenue equals spending and the budget balance is zero.',
-      ru: 'Профицит — это не то же самое, что сбалансированный бюджет, где налоговые поступления равны расходам и баланс равен нулю.',
+      en: 'A surplus is not the same as a balanced budget, where total revenue equals total expenditure and the budget balance is zero.',
+      ru: 'Профицит — это не то же самое, что сбалансированный бюджет, где все доходы бюджета равны всем расходам и баланс равен нулю.',
     },
     syllabus: '3.6',
     papers: ['P1', 'P2', 'P3'],

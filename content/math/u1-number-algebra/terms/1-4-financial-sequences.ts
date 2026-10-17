@@ -6,8 +6,8 @@ export const terms: Term[] = [
     id: 'compound-interest',
     term: { en: 'compound interest', ru: 'сложные проценты (compound interest)' },
     def: {
-      en: 'Interest that is added to the balance at the end of each period, so that later interest is earned on earlier interest too. The balance is multiplied by the same growth factor in every period.',
-      ru: 'Проценты, которые добавляются к остатку в конце каждого периода, поэтому позже проценты начисляются и на уже начисленные проценты. Остаток умножается на один и тот же множитель роста в каждом периоде.',
+      en: 'Interest that is added to the balance at the end of each period, so that later interest is earned on earlier interest too. With a constant periodic rate, the balance is multiplied by the same factor in every period.',
+      ru: 'Проценты, которые добавляются к остатку в конце каждого периода, поэтому позже проценты начисляются и на уже начисленные проценты. При постоянной ставке за период остаток умножается на один и тот же множитель.',
     },
     syllabus: '1.4',
     papers: ['P1', 'P2', 'P3'],
@@ -22,8 +22,8 @@ export const terms: Term[] = [
     id: 'compounding-period',
     term: { en: 'compounding period', ru: 'период начисления (compounding period)' },
     def: {
-      en: 'The equal time interval after which interest is added to the balance. If interest is added $k$ times a year, the rate for each period is the annual rate divided by $k$, and there are $kn$ periods in $n$ years.',
-      ru: 'Равный промежуток времени, после которого проценты добавляются к остатку. Если проценты начисляются $k$ раз в год, ставка за период равна годовой ставке, делённой на $k$, а за $n$ лет будет $kn$ периодов.',
+      en: 'The equal time interval after which interest is added to the balance. If interest is added $k$ times a year, under the nominal annual-rate convention, the rate for each period is that annual rate divided by $k$, and there are $kn$ periods in $n$ years.',
+      ru: 'Равный промежуток времени, после которого проценты добавляются к остатку. Если проценты начисляются $k$ раз в год, при номинальной годовой ставке ставка за период равна этой ставке, делённой на $k$, а за $n$ лет будет $kn$ периодов.',
     },
     syllabus: '1.4',
     papers: ['P1', 'P2', 'P3'],

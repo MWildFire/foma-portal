@@ -25,8 +25,8 @@ export const terms: Term[] = [
     papers: ['P1', 'P2', 'P3'],
     src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 13.2, p. 582' },
     pitfall: {
-      en: 'Sampling without replacement changes $p$ after each draw, so the count is not binomial.',
-      ru: 'Выбор без возвращения меняет $p$ после каждого извлечения, и подсчёт уже не является биномиальным.',
+      en: 'Sampling from a finite mixed population without replacement generally makes the draws dependent and changes conditional success probabilities. Do not assume a binomial model without checking the conditions.',
+      ru: 'При отборе без возвращения из конечной смешанной совокупности извлечения обычно зависимы, а условные вероятности успеха меняются. Нельзя автоматически применять биномиальную модель без проверки условий.',
     },
   },
   {

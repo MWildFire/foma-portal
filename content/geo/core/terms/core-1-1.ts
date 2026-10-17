@@ -113,8 +113,8 @@ export const terms: Term[] = [
     papers: ['P2'],
     src,
     pitfall: {
-      en: 'The ratio counts both ends of the age range: a high figure can come from many children or from many older people.',
-      ru: 'В коэффициенте учитываются обе крайние возрастные группы: высокое значение может быть вызвано как большим числом детей, так и большим числом пожилых людей.',
+      en: 'The ratio counts both ends of the age range: a high figure can come from many children or from many older people. It is an age-based proxy: some people aged 15–64 do not work and some people outside that range do.',
+      ru: 'В коэффициенте учитываются обе крайние возрастные группы: высокое значение может быть вызвано как большим числом детей, так и большим числом пожилых людей. Это возрастной показатель: не все люди 15–64 лет работают, а часть людей за этими границами работает.',
     },
   },
   {

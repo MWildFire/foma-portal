@@ -69,8 +69,10 @@ test('output rises by less than the shift of AD, because the price level rises a
 
 test('the component does not draw SRAS flat, and its texts carry the equilibrium numbers in both languages', () => {
   const source = readFileSync(new URL('../src/sims/econ/fiscal-policy.tsx', import.meta.url), 'utf8');
-  assert.ok(!/horizontal/i.test(source), 'no English text calls a curve horizontal');
-  assert.ok(!/горизонтальн/i.test(source), 'no Russian text calls a curve horizontal');
+  // A horizontal shift of AD is valid; banning that word rejected a correct explanation.
+  // Bind the rendered SRAS to the independently checked rising function instead.
+  assert.match(source, /const SRAS = fn\(srasPrice, 2, 12, 10\)/);
+  assert.match(source, /id: 'sras', points: SRAS/);
   assert.ok(source.includes(`real output ${pointA[0]} and price level ${pointA[1]}`), 'EN step 1 names A');
   assert.ok(source.includes(`реальный выпуск ${pointA[0]}, уровень цен ${pointA[1]}`), 'RU step 1 names A');
   assert.ok(source.includes(`Output rises from ${pointA[0]} to ${pointB[0]} and the price level from ${pointA[1]} to ${pointB[1]}`), 'EN step 3 names B');

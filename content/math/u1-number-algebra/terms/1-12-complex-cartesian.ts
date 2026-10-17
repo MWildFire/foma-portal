@@ -4,7 +4,7 @@ import { BOOK_TITLE } from '../../book';
 export const terms: Term[] = [
   {
     id: 'complex-cartesian-form',
-    term: { en: 'Cartesian form of a complex number', ru: 'декартова форма комплексного числа (Cartesian form of a complex number)' },
+    term: { en: 'Cartesian form of a complex number', ru: 'алгебраическая (декартова) форма комплексного числа (Cartesian form of a complex number)' },
     def: {
       en: 'Writing a complex number as $z = a + bi$, where $a$ and $b$ are real and $i^{2} = -1$. The real part is $\\text{Re}\\,z = a$ and the imaginary part is $\\text{Im}\\,z = b$.',
       ru: 'Запись комплексного числа в виде $z = a + bi$, где $a$ и $b$ действительны и $i^{2} = -1$. Действительная часть равна $\\text{Re}\\,z = a$, мнимая часть равна $\\text{Im}\\,z = b$.',

@@ -4,10 +4,10 @@ export const SIZE = 300; // side of the square frame, in SVG pixels
 export const CENTRE = 150; // centre of the frame and of the circle
 export const RADIUS = 110; // pixels for one unit
 
-// tan θ = sin θ / cos θ. Where cos θ is 0 (within 0.0005, the lab's tolerance) tan is undefined and the value is null.
+// tan θ = sin θ / cos θ. Where cos θ is zero to floating-point precision (tolerance 1e-12) tan is undefined and the value is null.
 export function tangentOf(theta: number): number | null {
   const cos = Math.cos(theta);
-  return Math.abs(cos) < 0.0005 ? null : Math.sin(theta) / cos;
+  return Math.abs(cos) < 1e-12 ? null : Math.sin(theta) / cos;
 }
 
 // The tangent line runs from the centre to the point (1, tan θ). If that point lies outside the frame, the line stops

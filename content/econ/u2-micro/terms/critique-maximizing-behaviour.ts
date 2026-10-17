@@ -1,8 +1,8 @@
 import type { SourceRef, Term } from '../../../../src/contract/types';
 
-// Sources: the textbook, with a page locator for each term it defines; the IB subject guide (2020) for loss aversion and present bias, which the book does not define.
+// Sources: actual textbook passages where stated. Supplementary definitions are ours; the guide's topic list is not a glossary source.
 const book = 'Tragakes, Economics for the IB Diploma: Coursebook (Cambridge University Press, 3rd ed.)';
-const src: SourceRef = { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 2.4' };
+const src: SourceRef = { kind: 'own', title: 'Our supplementary behavioural explanations', locator: 'Not definitions quoted from the IB guide. Altruism context: Tragakes (2020), pp.74–75; loss aversion and present bias are retained supplementary library terms.' };
 
 export const terms: Term[] = [
   {
@@ -47,8 +47,8 @@ export const terms: Term[] = [
     id: 'bounded-rationality',
     term: { en: 'bounded rationality', ru: 'ограниченная рациональность (bounded rationality)' },
     def: {
-      en: 'The idea that decisions are limited by incomplete information, limited time and limited ability to process it, and that searching for information is itself costly, so people choose reasonable rather than perfectly optimal options.',
-      ru: 'Идея, что решения ограничены неполной информацией, нехваткой времени и ограниченной способностью её обрабатывать, а поиск информации сам по себе затратен, поэтому люди выбирают разумные, а не идеально оптимальные варианты.',
+      en: 'The idea that decisions are limited by incomplete information, limited time and limited ability to process it, and that searching for information is itself costly, so people may settle for a satisfactory option without identifying the best feasible one.',
+      ru: 'Идея, что решения ограничены неполной информацией, нехваткой времени и ограниченной способностью её обрабатывать, а поиск информации сам по себе затратен, поэтому люди могут остановиться на удовлетворительном варианте, не установив, какой доступный вариант лучший.',
     },
     example: {
       en: 'A shopper compares 3 of the 30 phone plans on offer, because checking all 30 would take too long.',
@@ -93,8 +93,8 @@ export const terms: Term[] = [
       ru: 'Куртка с зачёркнутой ценой 800 AED и ценой со скидкой 400 AED кажется дешёвой, даже если такие же куртки продаются в другом месте за 300 AED.',
     },
     pitfall: {
-      en: 'Anchoring affects how a price is judged, not the true value of the product.',
-      ru: 'Якорение влияет на то, как оценивают цену, а не на истинную ценность товара.',
+      en: 'An anchor can affect perceived value without adding evidence about quality or the prices of comparable alternatives.',
+      ru: 'Якорь может влиять на воспринимаемую ценность, не добавляя сведений о качестве или ценах сопоставимых альтернатив.',
     },
     syllabus: '2.4',
     papers: ['P1', 'P2', 'P3'],
@@ -108,8 +108,8 @@ export const terms: Term[] = [
       ru: 'Склонность сильнее переживать потерю суммы, чем радоваться выигрышу такой же суммы.',
     },
     example: {
-      en: 'Many people refuse a fair bet that wins AED 100 or loses AED 100 with equal chance, because losing AED 100 feels worse than winning it feels good.',
-      ru: 'Многие отказываются от честной ставки, которая с равной вероятностью приносит 100 AED или отнимает 100 AED, потому что потеря 100 AED ощущается сильнее, чем радость от выигрыша.',
+      en: 'Illustrative valuation: gaining AED 100 feels like a benefit of 5 subjective points, while losing AED 100 feels like a loss of 9 points relative to the same reference. This asymmetry illustrates loss aversion; refusal of a fair bet alone could also reflect ordinary risk aversion.',
+      ru: 'Условная оценка: выигрыш 100 AED даёт 5 субъективных баллов, а потеря 100 AED ощущается как потеря 9 баллов относительно одного ориентира. Асимметрия иллюстрирует неприятие потерь; сам отказ от ставки с нулевым средним выигрышем может объясняться и обычным неприятием риска.',
     },
     pitfall: {
       en: 'Loss aversion is a bias in how outcomes are valued, not a rule that people never take risks.',
@@ -161,8 +161,8 @@ export const terms: Term[] = [
     id: 'altruism',
     term: { en: 'altruism', ru: 'альтруизм (altruism)' },
     def: {
-      en: 'Concern for the welfare of other people that leads a person to sacrifice part of their own utility in order to help them.',
-      ru: 'Забота о благополучии других людей, из-за которой человек жертвует частью собственной полезности, чтобы помочь им.',
+      en: 'Concern for other people’s welfare that can lead a person to give up money, time or own consumption to help them. If caring for others is part of their preferences, this need not reduce their total utility.',
+      ru: 'Забота о благополучии других людей, ради которой человек может пожертвовать деньгами, временем или собственным потреблением. Если благополучие других входит в его предпочтения, общая полезность не обязана уменьшаться.',
     },
     example: {
       en: 'A household gives AED 500 a year to a food bank, so it has AED 500 less to spend on its own goods.',
@@ -180,8 +180,8 @@ export const terms: Term[] = [
     id: 'nudge',
     term: { en: 'nudge', ru: 'подталкивание (nudge)' },
     def: {
-      en: 'A change in how choices are presented, such as making one option the default, that steers people in a predictable way towards a better outcome, without financial incentives or sanctions and without limiting choice.',
-      ru: 'Изменение способа подачи выбора, например когда один вариант становится вариантом по умолчанию; это предсказуемым образом подталкивает людей к лучшему результату без финансовых стимулов и санкций и без ограничения выбора.',
+      en: 'A change in how choices are presented, such as making one option the default, that steers people in a predictable way towards an intended outcome, without financial incentives or sanctions and without limiting choice.',
+      ru: 'Изменение способа подачи выбора, например когда один вариант становится вариантом по умолчанию; это предсказуемым образом подталкивает людей к задуманному результату без финансовых стимулов и санкций и без ограничения выбора.',
     },
     example: {
       en: 'A pension plan enrols new employees automatically at 5% of salary and lets them opt out, which makes saving the easy choice.',

@@ -1,8 +1,10 @@
+import { PreparationReadiness } from '../components/planner/PreparationReadiness';
 import { CircleCheck, Info } from 'lucide-react';
 import { useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { BlockCard } from '../components/planner/BlockCard';
+import { DailyBudget, CompletionHistory } from '../components/planner/DailyActivity';
 import { RecallSection } from '../components/planner/RecallSection';
 import { TimerPanel } from '../components/planner/TimerPanel';
 import { studyTimer, useStudyTimer } from '../components/planner/timerStore';
@@ -42,8 +44,8 @@ function TodayBody({ plan, state, update, today, lang }: PlanReady) {
   const { t: tp } = useTranslation('planner');
   usePageTitle(tc('nav.today'), tc('brand'));
   useScrollToTop();
-  const { extraTime, separateRoom } = state.settings.accessArrangements;
-  const { next } = useExamCountdown(extraTime, separateRoom);
+  const { separateRoom } = state.settings.accessArrangements;
+  const { next } = useExamCountdown(separateRoom);
   const timer = useStudyTimer();
   const infos = useMemo(() => subjectInfos(lang), [lang]);
 
@@ -65,8 +67,8 @@ function TodayBody({ plan, state, update, today, lang }: PlanReady) {
     studyTimer.start({
       blockId: block.id,
       label: block.subject ? `${subjectInfo(infos, block.subject).name}: ${label}` : label,
-      mode: block.kind === 'timed' || block.kind === 'recall' ? 'single' : 'pomodoro',
-      minutes: block.minutes,
+      mode: block.activity || block.kind === 'timed' || block.kind === 'recall' ? 'single' : 'pomodoro',
+      minutes: block.activity?.timedMinutes ?? block.minutes,
     });
   };
   const toggleDone = (block: PlanBlock) => {
@@ -82,7 +84,7 @@ function TodayBody({ plan, state, update, today, lang }: PlanReady) {
   };
   const timerRunning = (block: PlanBlock) => timer?.blockId === block.id && timer.phase !== 'done';
 
-  const finished = plan.activeSubjects.length === 0 && next === null;
+  const finished = plan.activeSubjects.length === 0;
   // Before the plan starts: what the first day holds, per subject ("Geography 1 h · Maths 45 min").
   const firstDayPreview = useMemo(() => {
     const first = plan.days[0];
@@ -91,7 +93,6 @@ function TodayBody({ plan, state, update, today, lang }: PlanReady) {
     for (const block of first.blocks) if (block.subject) minutes.set(block.subject, (minutes.get(block.subject) ?? 0) + block.minutes);
     return [...minutes].map(([subject, total]) => `${subjectInfo(infos, subject).name} ${formatMinutes(tp, total)}`).join(' · ');
   }, [plan, infos, tp]);
-  const hasTimed = day?.blocks.some(b => b.kind === 'timed') ?? false;
   const allDone = day !== null && day.minutes > 0 && day.doneMinutes >= day.minutes;
 
   return (
@@ -109,6 +110,8 @@ function TodayBody({ plan, state, update, today, lang }: PlanReady) {
       )}
 
       <TimerPanel />
+      <CompletionHistory history={plan.completedHistory} lang={lang} />
+      <PreparationReadiness lang={lang} />
 
       {finished && (
         <div className={`${CARD} p-4`}>
@@ -137,6 +140,7 @@ function TodayBody({ plan, state, update, today, lang }: PlanReady) {
         <>
           <div className="space-y-2">
             <h2 className="text-lg font-semibold">{t('plan.title')}</h2>
+            <DailyBudget day={day} lang={lang} />
             {day.focus && (
               <p className="text-sm">
                 <span className="font-medium">{t('focus')}: </span>
@@ -176,7 +180,6 @@ function TodayBody({ plan, state, update, today, lang }: PlanReady) {
               </Note>
             )}
             {day.moved > 0 && <Note>{t('notes.moved', { time: formatMinutes(tp, day.moved) })}</Note>}
-            {extraTime && hasTimed && <Note>{t('notes.extraTime')}</Note>}
             {day.kind === 'rest' && <Note>{t('empty.rest')}</Note>}
           </div>
 

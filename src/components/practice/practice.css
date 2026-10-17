@@ -152,3 +152,11 @@
 html:has(.study-clock) {
   scroll-padding-top: 10rem;
 }
+
+/* A complete daily session contains a heading and staged work, stacked on narrow screens. */
+.study-banner[data-daily-set] {
+  display: block;
+}
+.study-banner[data-daily-set] > h2 {
+  margin-bottom: 0.75rem;
+}

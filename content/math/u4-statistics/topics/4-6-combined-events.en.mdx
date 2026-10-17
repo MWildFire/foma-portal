@@ -1,6 +1,6 @@
 ## Big idea
 
-Combined events use the words "or" and "and", and a condition changes the sample space. Two rules do most of the work: add the probabilities and subtract the overlap, or multiply along a branch when the second event depends on the first.
+Combined events use the words "or" and "and", and a condition changes the sample space. Two rules do most of the work: add the probabilities and subtract the overlap, or multiply a first-stage probability by the relevant conditional probability. This multiplication also applies when events are independent.
 
 ## Explanation
 
@@ -14,7 +14,7 @@ $$
 
 <Formula id="addition-rule-two-events"/>
 
-The probability of $A$ when $B$ has already occurred is a <Term id="conditional-probability"/>. The given event $B$ becomes the new sample space, so it goes in the denominator:
+The probability of $A$ when $B$ has already occurred is a <Term id="conditional-probability"/>. Require $P(B)>0$. Restrict to the given event B, whose probability goes in the denominator:
 
 $$
 P(A \mid B) = \frac{P(A \cap B)}{P(B)}
@@ -24,7 +24,7 @@ $$
 
 <Callout kind="define">Conditional probability: the probability of $A$ when the sample space has been reduced to the event $B$, written $P(A \mid B)$.</Callout>
 
-In a tree diagram, the probabilities on the second stage are conditional on the first stage. Along one branch, multiply the probabilities:
+In a tree diagram, second-stage probabilities are conditional on the first-stage event where it has positive probability; they may equal unconditional probabilities under independence. A zero-probability path contributes 0 without defining a conditional probability after an impossible parent. Along one branch, multiply the probabilities:
 
 $$
 P(A \cap B) = P(B)\,P(A \mid B)
@@ -40,7 +40,7 @@ $$
 
 <Formula id="independence-product-rule"/>
 
-<Callout kind="gdc">On a Calculator page, type each probability as a fraction and press `ctrl+enter` for the decimal. `(30+24-12)/50` gives $P(F \cup G)$, `(12/50)/(24/50)` gives $P(F \mid G)$, and `(30/50)*(24/50)` gives $P(F)\,P(G)$, which you compare with $P(F \cap G) = 12/50$. To show three decimal places, set Display Digits to `Fix3` in `Home → Settings → Document Settings`.</Callout>
+<Callout kind="gdc">On a Calculator page, type each probability as a fraction and press `ctrl+enter` for an approximate decimal. `(30+24-12)/50` gives $P(F \cup G)$, `(12/50)/(24/50)` gives $P(F \mid G)$, and `(30/50)*(24/50)` gives $P(F)\,P(G)$, which you compare with $P(F \cap G) = 12/50$. To show three decimal places, set Display Digits to `Fix3` in `Home → Settings → Document Settings`.</Callout>
 
 ## Worked example
 
@@ -60,9 +60,7 @@ Of 50 students, 30 study French, 24 study German, and 12 study both. One student
 
 ## How it is examined
 
-Questions give a Venn diagram, a two-way table or a tree diagram, and ask for a combined or conditional probability. Method marks (M1) are given for the addition rule and for the correct denominator in a conditional probability. The accuracy mark (A1) is for the answer to the required number of decimal places. An independence question needs a reason (R1): compare $P(A \cap B)$ with $P(A)\,P(B)$ and state the conclusion.
-
-<Callout kind="exam">For a conditional probability, write the given event in the denominator before you substitute. Examiners check that the denominator is the probability of the event that is given in the question.</Callout>
+For a conditional probability, identify the given event and verify its positive probability before choosing the denominator. Show the relevant Venn regions or tree paths. To test independence, compare the intersection probability with the product of marginal probabilities and state the conclusion. Use the markscheme of the particular question for its allocation of marks.
 
 ## Common mistakes
 
@@ -88,4 +86,4 @@ Questions give a Venn diagram, a two-way table or a tree diagram, and ask for a 
 - On a tree diagram, multiply along a branch: $P(A \cap B) = P(B)\,P(A \mid B)$.
 - Events are independent when $P(A \cap B) = P(A)\,P(B)$; test this with numbers.
 - Draw a Venn diagram or a tree diagram before you calculate, and fill the overlap first.
-- Without replacement, the probabilities on later branches change.
+- Without replacement, recompute the remaining counts on each branch; probabilities generally change, although deterministic cases can stay0or1.

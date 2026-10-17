@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" role="img" aria-labelledby="core-3-2-title core-3-2-desc" font-family="Arial, Helvetica, sans-serif">
+  <title id="core-3-2-title">FAO Food Price Index, annual averages, 2019 to 2025</title>
+  <desc id="core-3-2-desc">Среднегодовой индекс продовольственных цен ФАО за 2019–2025; база 2014–2016 равна 100.</desc>
+  <rect x="0" y="0" width="640" height="400" fill="#ffffff"/>
+  <text x="70" y="26" font-size="15" font-weight="bold" fill="#1f2933">Индекс продовольственных цен ФАО, средние за 2019–2025</text>
+  <text x="70" y="44" font-size="12" fill="#4b5563">Пункты индекса (2014–2016 = 100). Оранжевые: 2020 и 2022.</text>
+  <line x1="70" y1="296.25" x2="610" y2="296.25" stroke="#e5e7eb" stroke-width="1"/>
+  <text x="60" y="300.25" font-size="11" fill="#4b5563" text-anchor="end">20</text>
+  <line x1="70" y1="262.5" x2="610" y2="262.5" stroke="#e5e7eb" stroke-width="1"/>
+  <text x="60" y="266.5" font-size="11" fill="#4b5563" text-anchor="end">40</text>
+  <line x1="70" y1="228.75" x2="610" y2="228.75" stroke="#e5e7eb" stroke-width="1"/>
+  <text x="60" y="232.75" font-size="11" fill="#4b5563" text-anchor="end">60</text>
+  <line x1="70" y1="195" x2="610" y2="195" stroke="#e5e7eb" stroke-width="1"/>
+  <text x="60" y="199" font-size="11" fill="#4b5563" text-anchor="end">80</text>
+  <line x1="70" y1="161.25" x2="610" y2="161.25" stroke="#e5e7eb" stroke-width="1"/>
+  <text x="60" y="165.25" font-size="11" fill="#4b5563" text-anchor="end">100</text>
+  <line x1="70" y1="127.5" x2="610" y2="127.5" stroke="#e5e7eb" stroke-width="1"/>
+  <text x="60" y="131.5" font-size="11" fill="#4b5563" text-anchor="end">120</text>
+  <line x1="70" y1="93.75" x2="610" y2="93.75" stroke="#e5e7eb" stroke-width="1"/>
+  <text x="60" y="97.75" font-size="11" fill="#4b5563" text-anchor="end">140</text>
+  <line x1="70" y1="60" x2="610" y2="60" stroke="#e5e7eb" stroke-width="1"/>
+  <text x="60" y="64" font-size="11" fill="#4b5563" text-anchor="end">160</text>
+  <line x1="70" y1="330" x2="610" y2="330" stroke="#6b7280" stroke-width="1.5"/>
+  <text x="60" y="334" font-size="11" fill="#4b5563" text-anchor="end">0</text>
+  <text x="22" y="195" font-size="11" fill="#4b5563" transform="rotate(-90 22 195)" text-anchor="middle">Пункты индекса</text>
+  <rect x="85.57" y="169.86" width="46" height="160.14" fill="#2f5d8a"/>
+  <rect x="162.71" y="164.46" width="46" height="165.54" fill="#c0622f"/>
+  <rect x="239.86" y="117.88" width="46" height="212.12" fill="#2f5d8a"/>
+  <rect x="317" y="86.16" width="46" height="243.84" fill="#c0622f"/>
+  <rect x="394.14" y="119.91" width="46" height="210.09" fill="#2f5d8a"/>
+  <rect x="471.29" y="124.13" width="46" height="205.88" fill="#2f5d8a"/>
+  <rect x="548.43" y="115.35" width="46" height="214.65" fill="#2f5d8a"/>
+  <text x="108.57" y="163.86" font-size="12" font-weight="bold" fill="#1f2933" text-anchor="middle">94.9</text>
+  <text x="185.71" y="158.46" font-size="12" font-weight="bold" fill="#1f2933" text-anchor="middle">98.1</text>
+  <text x="262.86" y="111.88" font-size="12" font-weight="bold" fill="#1f2933" text-anchor="middle">125.7</text>
+  <text x="340" y="80.16" font-size="12" font-weight="bold" fill="#1f2933" text-anchor="middle">144.5</text>
+  <text x="417.14" y="113.91" font-size="12" font-weight="bold" fill="#1f2933" text-anchor="middle">124.5</text>
+  <text x="494.29" y="118.13" font-size="12" font-weight="bold" fill="#1f2933" text-anchor="middle">122.0</text>
+  <text x="571.43" y="109.35" font-size="12" font-weight="bold" fill="#1f2933" text-anchor="middle">127.2</text>
+  <text x="108.57" y="346" font-size="11" fill="#4b5563" text-anchor="middle">2019</text>
+  <text x="185.71" y="346" font-size="11" fill="#4b5563" text-anchor="middle">2020</text>
+  <text x="262.86" y="346" font-size="11" fill="#4b5563" text-anchor="middle">2021</text>
+  <text x="340" y="346" font-size="11" fill="#4b5563" text-anchor="middle">2022</text>
+  <text x="417.14" y="346" font-size="11" fill="#4b5563" text-anchor="middle">2023</text>
+  <text x="494.29" y="346" font-size="11" fill="#4b5563" text-anchor="middle">2024</text>
+  <text x="571.43" y="346" font-size="11" fill="#4b5563" text-anchor="middle">2025</text>
+  <text x="70" y="380" font-size="11" fill="#4b5563">Источник: индекс продовольственных цен ФАО, годовые значения; выпуск 2.10.2026.</text>
+</svg>

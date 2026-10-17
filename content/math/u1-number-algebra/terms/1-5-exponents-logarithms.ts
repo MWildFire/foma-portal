@@ -6,8 +6,8 @@ export const terms: Term[] = [
     id: 'exponent-laws-integer',
     term: { en: 'laws of integer exponents', ru: 'законы степеней с целым показателем (laws of integer exponents)' },
     def: {
-      en: 'Rules for multiplying, dividing and raising powers of a base $a>0$ when the exponents are integers: $a^{m}\\times a^{n}=a^{m+n}$, $(a^{m})^{n}=a^{mn}$ and $\\dfrac{a^{m}}{a^{n}}=a^{m-n}$. A negative exponent gives a reciprocal power: $a^{-n}=\\dfrac{1}{a^{n}}$.',
-      ru: 'Правила умножения, деления степеней и возведения степени в степень при основании $a>0$ и целых показателях: $a^{m}\\times a^{n}=a^{m+n}$, $(a^{m})^{n}=a^{mn}$ и $\\dfrac{a^{m}}{a^{n}}=a^{m-n}$. Отрицательный показатель задаёт обратную степень: $a^{-n}=\\dfrac{1}{a^{n}}$.',
+      en: 'Rules for multiplying, dividing and raising powers of a nonzero real base $a$ when the exponents are integers: $a^{m}\\times a^{n}=a^{m+n}$, $(a^{m})^{n}=a^{mn}$ and $\\dfrac{a^{m}}{a^{n}}=a^{m-n}$. A negative exponent gives a reciprocal power: $a^{-n}=\\dfrac{1}{a^{n}}$.',
+      ru: 'Правила умножения, деления степеней и возведения степени в степень при ненулевом действительном основании $a$ и целых показателях: $a^{m}\\times a^{n}=a^{m+n}$, $(a^{m})^{n}=a^{mn}$ и $\\dfrac{a^{m}}{a^{n}}=a^{m-n}$. Отрицательный показатель задаёт обратную степень: $a^{-n}=\\dfrac{1}{a^{n}}$.',
     },
     syllabus: '1.5',
     papers: ['P1', 'P2', 'P3'],
@@ -28,8 +28,8 @@ export const terms: Term[] = [
     papers: ['P1', 'P2', 'P3'],
     src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 7.4, p. 320' },
     pitfall: {
-      en: 'Only positive numbers have a logarithm. $\\log_{10}0$ and $\\log_{10}(-5)$ are undefined.',
-      ru: 'Логарифм существует только у положительных чисел. $\\log_{10}0$ и $\\log_{10}(-5)$ не определены.',
+      en: 'In the real-number logarithms used here, only positive arguments have a logarithm. $\\log_{10}0$ and $\\log_{10}(-5)$ are undefined.',
+      ru: 'В рассматриваемых здесь действительных логарифмах аргумент должен быть положительным. $\\log_{10}0$ и $\\log_{10}(-5)$ не определены.',
     },
   },
   {

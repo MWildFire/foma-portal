@@ -10,11 +10,11 @@ A composite function feeds the output of one function into another: $(f \circ g)
 
 An <Term id="inverse-function-one-to-one"/> $f^{-1}$ reverses $f$. It exists only when $f$ is one-to-one, meaning that no two inputs give the same output. The function $x^2$ on all real numbers is not one-to-one, because $2$ and $-2$ both give $4$.
 
-<Callout kind="define">Inverse function: the function $f^{-1}$ with $f^{-1}(f(x)) = x$ for every $x$ in the domain of $f$. It exists only when $f$ is one-to-one.</Callout>
+<Callout kind="define">Inverse function: the function $f^{-1}$ with $f^{-1}(f(x)) = x$ for every $x$ in the domain of $f$. It maps the range of $f$ to its original domain and also satisfies $f(f^{-1}(y))=y$ on that range.</Callout>
 
 <Formula id="inverse-undo-identities"/>
 
-A <Term id="restricted-domain-inverse"/> makes an inverse possible. On $x \ge 0$ the function $x^2$ is one-to-one, and its inverse is $\sqrt{x}$, the positive root. The domain of the inverse is the range of the original function on the restricted domain.
+A <Term id="restricted-domain-inverse"/> makes an inverse possible. On $x \ge 0$ the function $x^2$ is one-to-one, and its inverse is $\sqrt{x}$, the nonnegative root. The domain of the inverse is the range of the original function on the restricted domain.
 
 To find an inverse, write $y = f(x)$, swap $x$ and $y$, and solve for $y$. Then state the domain of $f^{-1}$.
 
@@ -28,7 +28,7 @@ To find an inverse, write $y = f(x)$, swap $x$ and $y$, and solve for $y$. Then 
 
 <Steps>
 <Step>Let $f(x) = 3x - 1$ and $g(x) = x^2 + 2$ for all real $x$. For $x = 2$: $g(2) = 6$ and $f(6) = 17$, so $(f \circ g)(2) = 17$. Also $f(2) = 5$ and $g(5) = 27$, so $(g \circ f)(2) = 27$. The two composites are different.</Step>
-<Step>Let $h(x) = x^2 - 4$ for $x \ge 0$. Its outputs satisfy $y \ge -4$, so the domain of $h^{-1}$ is $x \ge -4$. Swapping $x$ and $y$ gives $x = y^2 - 4$, so $y = \sqrt{x + 4}$; the positive root is taken because $y \ge 0$. Hence $h^{-1}(x) = \sqrt{x + 4}$ and $h^{-1}(12) = \sqrt{16} = 4$.</Step>
+<Step>Let $h(x) = x^2 - 4$ for $x \ge 0$. Its outputs satisfy $y \ge -4$, so the domain of $h^{-1}$ is $x \ge -4$. Swapping $x$ and $y$ gives $x = y^2 - 4$, so $y = \sqrt{x + 4}$; the nonnegative root is taken because $y \ge 0$. Hence $h^{-1}(x) = \sqrt{x + 4}$ and $h^{-1}(12) = \sqrt{16} = 4$.</Step>
 <Step>$(f \circ h^{-1})(12) = f(4) = 3 \times 4 - 1 = 11$.</Step>
 </Steps>
 
@@ -40,16 +40,16 @@ To find an inverse, write $y = f(x)$, swap $x$ and $y$, and solve for $y$. Then 
 
 ## How it is examined
 
-Find and Show that questions give a method mark for the composite or the swap, an accuracy mark for each value or expression, and a reasoning mark for rejecting a root outside the domain. Hence means use the previous part. In a context question the answer must make sense: a time or a number of items cannot be negative.
+Show the composition or inverse steps and justify any domain restriction. Hence directs you to use the previous result; exact marks depend on the task. A count of individual objects is a nonnegative integer. Elapsed time from the stated start is nonnegative, but a signed time coordinate can refer to an earlier event.
 
-<Callout kind="exam">Whenever you give an inverse function, state its domain. Marks for the domain are among the most often lost.</Callout>
+<Callout kind="exam">Whenever you give an inverse function, state its domain. The inverse is incomplete without specifying which inputs it accepts.</Callout>
 
 ## Common mistakes
 
 <Callout kind="mistake">Writing $f^{-1}(x)$ as $\dfrac{1}{f(x)}$. The superscript $-1$ means the inverse function, not a reciprocal.</Callout>
 
 - Applying $f$ first in $(f \circ g)(x)$. With $f(x) = 3x - 1$ and $g(x) = x^2 + 2$, $(f \circ g)(2) = 17$, not $27$.
-- Giving the inverse of $x^2$ on $x \ge 0$ as $\pm\sqrt{x}$. Only the positive root is valid on that domain.
+- Giving the inverse of $x^2$ on $x \ge 0$ as $\pm\sqrt{x}$. Only the nonnegative root is valid on that domain.
 - Keeping a root outside the restricted domain, such as $x = -2$ when $x \ge 3$.
 
 ## Check yourself

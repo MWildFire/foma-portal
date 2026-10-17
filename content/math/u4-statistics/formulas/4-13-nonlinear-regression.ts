@@ -13,8 +13,8 @@ export const formulas: Formula[] = [
       ru: 'Общее квадратичное расхождение между наблюдаемыми значениями $y_i$ и предсказанными значениями $\\hat{y}_i$. Метод наименьших квадратов делает её как можно меньшей.',
     },
     when: {
-      en: 'Comparing candidate curves for the same data: the smaller the SSR, the better the fit.',
-      ru: 'Сравнение кривых для одних и тех же данных: чем меньше SSR, тем лучше соответствие.',
+      en: 'Compare the same observations, response scale and weighting: smaller SSR means smaller in-sample squared error, not necessarily better prediction on new data.',
+      ru: 'Сравнивай одни наблюдения, шкалу отклика и веса: меньшая SSR означает меньшую сумму квадратов ошибок на исходных данных, но не обязательно лучший прогноз новых данных.',
     },
     syllabus: '4.13',
     inBooklet: false,
@@ -31,12 +31,12 @@ export const formulas: Formula[] = [
       ru: 'коэффициент детерминации (Coefficient of determination)',
     },
     meaning: {
-      en: 'The share of the variation in y that the model explains: one minus the unexplained variation divided by the total variation.',
-      ru: 'Доля вариации y, которую объясняет модель: единица минус необъяснённая вариация, делённая на общую вариацию.',
+      en: 'For nonconstant observed y, this is one minus squared prediction error divided by total variation. For ordinary linear least squares fitted to these data with an intercept, it describes the proportion of variation accounted for; otherwise it can be negative.',
+      ru: 'Для неодинаковых наблюдаемых y это единица минус сумма квадратов ошибок, делённая на общую вариацию. Для обычной линейной регрессии по методу наименьших квадратов, подогнанной к этим данным со свободным членом показатель описывает объяснённую долю вариации; в других случаях он может быть отрицательным.',
     },
     when: {
-      en: 'Judging how well a fitted curve or line matches the data.',
-      ru: 'Оценка того, насколько подобранная кривая или прямая соответствует данным.',
+      en: 'Compare the same response, data and measurement scale; R² after transforming y is not directly comparable to R² on original y.',
+      ru: 'Сравнивай одну зависимую величину, одни данные и одну шкалу; R² после преобразования y нельзя напрямую сравнивать с R² для исходного y.',
     },
     syllabus: '4.13',
     inBooklet: false,
@@ -57,8 +57,8 @@ export const formulas: Formula[] = [
       ru: 'Кривая наименьших квадратов, линейная относительно $\\ln x$. Калькулятор находит a и b, подбирая y по ln x.',
     },
     when: {
-      en: 'Data that rise quickly at first and then level off, such as learning curves or sales that slow down over time.',
-      ru: 'Данные, которые сначала быстро растут, а затем выравниваются, например кривые обучения или продажи, замедляющиеся со временем.',
+      en: 'Requires x>0. With b>0 the model increases at a decreasing rate but has no finite horizontal asymptote; with b<0 it decreases, with b=0 it is constant.',
+      ru: 'Требуется x>0. При b>0 рост замедляется, но конечной горизонтальной асимптоты нет; при b<0 модель убывает, при b=0 постоянна.',
     },
     syllabus: '4.13',
     inBooklet: false,

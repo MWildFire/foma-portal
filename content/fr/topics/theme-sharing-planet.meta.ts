@@ -17,6 +17,7 @@ const topic: TopicMeta = {
     { en: 'I can understand texts about energy, waste, water and solidarity in Paper 2', ru: 'Могу понимать тексты об энергии, отходах, воде и солидарности в Paper 2' },
   ],
   termIds: [
+    'v-school-010', 'v-school-011', 'v-school-012',
     'v-t5-001', 'v-t5-002', 'v-t5-003', 'v-t5-004', 'v-t5-005', 'v-t5-006', 'v-t5-007', 'v-t5-008', 'v-t5-009', 'v-t5-010',
     'v-t5-011', 'v-t5-012', 'v-t5-013', 'v-t5-014', 'v-t5-015', 'v-t5-016', 'v-t5-017', 'v-t5-018', 'v-t5-019', 'v-t5-020',
     'v-t5-021', 'v-t5-022', 'v-t5-023', 'v-t5-024', 'v-t5-025', 'v-t5-026', 'v-t5-027', 'v-t5-028', 'v-t5-029', 'v-t5-030',
