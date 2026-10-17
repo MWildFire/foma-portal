@@ -55,5 +55,6 @@
   <rect x="200" y="276" width="59.3" height="16" fill="#1f4e79"/>
   <text x="264.3" y="288" font-size="10" fill="#1f2933">10.4</text>
 
-  <text x="12" y="382" font-size="10" fill="#3e4c59">Source: Ember, Yearly electricity data – Global (CSV), update of 6 October 2026 (accessed 14 October 2026); values for 2015 and 2025, one decimal place.</text>
+  <text x="12" y="374" font-size="10" fill="#3e4c59">Source: Ember, Yearly electricity data – Global (CSV), update of 6 October 2026.</text>
+  <text x="12" y="388" font-size="10" fill="#3e4c59">Accessed 14 October 2026; values for 2015 and 2025, one decimal place.</text>
 </svg>
