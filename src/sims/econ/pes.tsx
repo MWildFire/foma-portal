@@ -47,8 +47,8 @@ const steps: Step[] = [
   {
     title: { en: 'Unit elastic supply', ru: 'Единичная эластичность предложения' },
     text: {
-      en: 'Supply is a straight line through the origin: Q = 2P. The price rises by 33.3% (6 to 8) and quantity rises by 33.3% (12 to 16). PES = 1 at every point: unit elastic.',
-      ru: 'Предложение — прямая линия через начало координат: Q = 2P. Цена растёт на 33,3% (с 6 до 8), величина предложения — на 33,3% (с 12 до 16). PES = 1 в каждой точке: единичная эластичность.',
+      en: 'Supply is a straight line through the origin: Q = 2P. The price rises by 33.3% (6 to 8) and quantity rises by 33.3% (12 to 16). PES = 1 at every point with positive price and quantity: unit elastic. At the origin the percentage/point-elasticity expression is undefined.',
+      ru: 'Предложение — прямая линия через начало координат: Q = 2P. Цена растёт на 33,3% (с 6 до 8), величина предложения — на 33,3% (с 12 до 16). PES = 1 в каждой точке с положительными ценой и количеством: единичная эластичность. В начале координат выражение для процентной или точечной эластичности не определено.',
     },
     graph: {
       ...axes,
@@ -94,8 +94,8 @@ const steps: Step[] = [
   {
     title: { en: 'Time period', ru: 'Фактор времени' },
     text: {
-      en: 'The time period matters. In the short run (SR) firms cannot add capacity, so supply is steep and PES is low. In the long run (LR) they can build, hire and buy more inputs, so the same price rise brings a larger change in quantity: PES is higher.',
-      ru: 'Период времени имеет значение. В краткосрочном периоде (SR) фирмы не могут расширить мощности, поэтому предложение крутое и PES низкий. В долгосрочном периоде (LR) фирмы могут строить, нанимать работников и закупать больше ресурсов, поэтому то же повышение цены даёт большее изменение величины предложения: PES выше.',
+      en: 'The time period matters. In the short run (SR), at least one factor is fixed; firms can still vary output using other inputs or spare capacity. More adjustment is usually possible in the long run (LR). These illustrative curves show a larger quantity response over the longer period; low SR elasticity is not a universal law.',
+      ru: 'Период времени имеет значение. В краткосрочном периоде (SR) хотя бы один фактор фиксирован; выпуск всё же можно менять за счёт других ресурсов или свободных мощностей. В долгосрочном периоде (LR) возможностей приспособления обычно больше. Учебные кривые показывают более сильную реакцию за длительный срок; низкая краткосрочная эластичность не является универсальным законом.',
     },
     graph: {
       ...axes,
@@ -113,8 +113,8 @@ const steps: Step[] = [
   {
     title: { en: 'Summary: three shapes through E', ru: 'Итог: три кривые через E' },
     text: {
-      en: 'All three supply curves pass through E (P 6, Q 12). The steeper the curve, the lower the PES: inelastic (steep), unit elastic (through the origin), elastic (flat).',
-      ru: 'Все три кривые предложения проходят через E (P = 6, Q = 12). Чем круче кривая, тем ниже PES: неэластичное (крутое), единичная эластичность (через начало координат), эластичное (пологое) предложение.',
+      en: 'All three supply curves pass through E (P 6, Q 12). At their common E, with the same units and axes, the steeper curve has a lower PES. Slope alone cannot compare elasticity at unrelated price–quantity points: inelastic (steep), unit elastic (through the origin), elastic (flat).',
+      ru: 'Все три кривые предложения проходят через E (P = 6, Q = 12). В общей точке E, при одинаковых единицах и осях, более крутой кривой соответствует меньшая PES. Одна крутизна не позволяет сравнить эластичность в разных точках цены и количества: неэластичное (крутое), единичная эластичность (через начало координат), эластичное (пологое) предложение.',
     },
     graph: {
       ...axes,

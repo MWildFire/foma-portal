@@ -44,15 +44,15 @@ export const cases: CaseStudy[] = [
     lat: 6.5244,
     lng: 3.3792,
     facts: {
-      en: 'The Lagos urban agglomeration grew from about 4.8 million people in 1990 to 13.5 million in 2018, and the UN projects 20.6 million by 2030 (UN World Urbanization Prospects 2018). It is one of three African megacities in 2018, with Cairo and Kinshasa, and its population grew by about 3.2% a year in 2015–2020.',
-      ru: 'Агломерация Лагоса выросла с примерно 4,8 млн человек в 1990 году до 13,5 млн в 2018 году; ООН прогнозирует 20,6 млн к 2030 году (UN WUP 2018). Это один из трёх африканских мегаполисов 2018 года вместе с Каиром и Киншасой; в 2015–2020 годах население росло примерно на 3,2% в год.',
+      en: 'The Lagos urban agglomeration grew from about 4.8 million people in 1990 to 13.5 million in 2018, and the UN projects 20.6 million by 2030 (UN World Urbanization Prospects 2018: Highlights, Table II, p. 29; a projection made in that revision). It is one of three African megacities in 2018, with Cairo and Kinshasa, and that revision gives an average annual population growth rate of 3.21% for 2015–2020 (a period partly projected at publication).',
+      ru: 'Агломерация Лагоса выросла с примерно 4,8 млн человек в 1990 году до 13,5 млн в 2018 году; ООН прогнозирует 20,6 млн к 2030 году (UN WUP 2018: Highlights, таблица II, с. 29; прогноз именно этого выпуска). Это один из трёх африканских мегаполисов 2018 года вместе с Каиром и Киншасой; для периода 2015–2020 этот выпуск даёт среднегодовой рост 3,21% (на дату публикации часть периода была прогнозной).',
     },
     usedFor: ['g1-urban-variety'],
     src: [
       {
         kind: 'web',
-        title: 'UN DESA, World Urbanization Prospects: The 2018 Revision, Highlights (table of urban agglomerations)',
-        url: 'https://www.un.org/development/desa/pd/sites/www.un.org.development.desa.pd/files/files/documents/2020/Feb/un_2018_wup_highlights.pdf',
+        title: 'UN DESA, World Urbanization Prospects: The 2018 Revision, Highlights (Table II, p. 29; Lagos: 4,764 / 13,463 / 20,600 thousand in 1990 / 2018 / 2030; 3.21% in 2015–2020)',
+        url: 'https://population.un.org/wup/assets/Publications/WUP2018-Highlights.pdf',
       },
     ],
   },
@@ -66,8 +66,8 @@ export const cases: CaseStudy[] = [
     lat: 19.0378,
     lng: 72.8536,
     facts: {
-      en: 'The 2022 tender notice for the Dharavi Redevelopment Project calls Dharavi the largest slum in Mumbai and places it close to the Bandra-Kurla Complex. The notice gives the Dharavi Notified Area as about 240 hectares, while the detailed tender (RFQ cum RFP) gives a gross plot area of 259.54 hectares including railway land. Most of the land belongs to the Brihanmumbai Municipal Corporation (BMC) and other government bodies, and slum dwellers squatted on it and built hutments. The tender states that about 700,000 people (7 lakh) live on mezzanine and upper floors of slum structures and are not eligible for rehabilitation under the project. Neither document gives a total population for the area.',
-      ru: 'В тендерном извещении 2022 года Дхарави назван крупнейшими трущобами Мумбаи и находится рядом с деловым районом Бандра-Курла (BKC). В извещении официальная зона Дхарави (Dharavi Notified Area) указана как около 240 га, а в подробном тендере (RFQ cum RFP) валовая площадь этой зоны составляет 259,54 га вместе с землями железных дорог. Большая часть земли принадлежит Муниципальной корпорации Большого Мумбаи (BMC) и другим государственным структурам; жители самовольно заселили эти участки и построили на них хижины. В тендере сказано, что около 700 тыс. человек (7 лакх) живут на антресолях и верхних этажах построек трущоб и не подпадают под условия переселения в рамках проекта. В обоих документах общая численность населения района не указана.',
+      en: 'The 2022 tender notice for the Dharavi Redevelopment Project calls Dharavi the largest slum in Mumbai and places it close to the Bandra-Kurla Complex. The notice gives the Dharavi Notified Area as about 240 hectares, while the detailed tender (RFQ cum RFP) gives a gross plot area of 259.54 hectares including railway land. Most of the land belongs to the Brihanmumbai Municipal Corporation (BMC) and other government bodies, and slum dwellers squatted on it and built hutments. The historical tender estimates about 700,000 people (7 lakh) on mezzanine and upper floors, describes them as ineligible, and envisages accommodation under PMAY or an affordable rental housing scheme, preferably within 10 km. These are 2022 tender estimates and proposals, not a current census or verified completed rehousing; neither document gives a total population for the area.',
+      ru: 'В тендерном извещении 2022 года Дхарави назван крупнейшим трущобным районом Мумбаи и указано его расположение рядом с деловым центром Бандра-Курла (BKC). В извещении официальная зона Дхарави (Dharavi Notified Area) указана как около 240 га, а в подробном тендере (RFQ cum RFP) валовая площадь этой зоны составляет 259,54 га вместе с землями железных дорог. Большая часть земли принадлежит Муниципальной корпорации Большого Мумбаи (BMC) и другим государственным структурам; жители самовольно заселили эти участки и построили на них хижины. В историческом тендере число живущих на антресолях и верхних этажах оценивается примерно в 700 тыс. человек (7 лакх); они названы не отвечающими условиям, и для них предусмотрено размещение через PMAY или схему доступного арендного жилья, желательно в пределах 10 км. Это оценки и предложения тендера 2022 года, а не текущая перепись или подтверждённое завершённое переселение; общей численности населения района документы не дают.',
     },
     usedFor: ['g1-urban-variety'],
     src: [

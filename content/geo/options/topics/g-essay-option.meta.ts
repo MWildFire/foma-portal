@@ -18,12 +18,12 @@ const topic: TopicMeta = {
       ru: 'Умею прочитать командное слово и сказать, что должен сделать ответ',
     },
     {
-      en: 'I can plan a 10-mark answer in four blocks: context, arguments, a counter-argument and a judgement',
-      ru: 'Умею спланировать ответ на 10 баллов в четыре блока: контекст, доводы, контраргумент и суждение',
+      en: 'I can plan and write a complete 10-mark answer addressing the exact comparison',
+      ru: 'Умею спланировать и написать полный ответ на 10 баллов по точному сравнению из вопроса',
     },
     {
-      en: 'I can back each argument with a named place, a year and a figure',
-      ru: 'Умею подкрепить каждый довод названным местом, годом и цифрой',
+      en: 'I can use relevant evidence and distinguish area-wide outputs from outcomes for original residents',
+      ru: 'Умею использовать уместные доказательства и отличать результаты района от последствий для исходных жителей',
     },
     {
       en: 'I can finish with a judgement that answers the command word and states its conditions',
@@ -34,7 +34,7 @@ const topic: TopicMeta = {
   questionIds: ['g3-eq1', 'g2-eq2'],
   caseIds: [],
   sims: [],
-  sources: [{ kind: 'ib-guide', title: 'Geography guide (2017), Option G: Urban environments' }],
+  sources: [{ kind: 'web', title: 'Nicholas Falk, Capital Gains: A Better Land Assembly Model for London (February 2018), GLA-commissioned', url: 'https://www.london.gov.uk/sites/default/files/gla_capital_gains_report_.pdf', locator: 'p. 23, London Docklands case' }, { kind: 'ib-guide', title: 'Geography guide (2017), Option G: Urban environments' }],
   links: [
     { title: 'ThinkIB eBook: Option G - Urban Environments (option page, Paper 1 essay)', url: 'https://student.thinkib.net/geography/page/37516/option-g-urban-environments' },
   ],

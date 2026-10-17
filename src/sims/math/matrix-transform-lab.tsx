@@ -1,3 +1,4 @@
+import ReadableDiagram from '../readable-diagram';
 import { useState } from 'react';
 import type { Lang } from '../../contract/types';
 
@@ -61,7 +62,7 @@ export default function MatrixTransformLab({ lang }: { lang: Lang }) {
 
   return (
     <figure style={{ margin: 0 }}>
-      <svg viewBox={`0 0 ${SIZE} ${SIZE}`} width="100%" style={{ maxWidth: SIZE }} role="img" aria-label={t.label}>
+      <ReadableDiagram lang={lang}><svg viewBox={`0 0 ${SIZE} ${SIZE}`} width="100%" style={{ maxWidth: SIZE }} role="img" aria-label={t.label}>
         <line x1={0} y1={SIZE / 2} x2={SIZE} y2={SIZE / 2} stroke="currentColor" strokeOpacity={0.3} />
         <line x1={SIZE / 2} y1={0} x2={SIZE / 2} y2={SIZE} stroke="currentColor" strokeOpacity={0.3} />
         {TICKS.map(v => (
@@ -74,7 +75,7 @@ export default function MatrixTransformLab({ lang }: { lang: Lang }) {
         <text x={SIZE / 2 + 5} y={10} fontSize={11} fill="currentColor">y</text>
         <polygon points={polygon(square)} fill="none" stroke="currentColor" strokeDasharray="4 3" />
         <polygon points={polygon(image)} fill="#4f6fd8" fillOpacity={0.3} stroke="#4f6fd8" strokeWidth={2} />
-      </svg>
+      </svg></ReadableDiagram>
       <figcaption style={{ fontSize: 13, lineHeight: 1.6 }}>
         {t.matrix}: [{a.toFixed(1)}, {b.toFixed(1)}; {c.toFixed(1)}, {d.toFixed(1)}]
         <br />

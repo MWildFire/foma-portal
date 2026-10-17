@@ -21,8 +21,8 @@ export const formulas: Formula[] = [
     tex: 'T=a+d,\\qquad D=ad-bc',
     name: { en: 'Trace and determinant of a 2 × 2 matrix', ru: 'След и определитель матрицы 2 × 2 (Trace and determinant of a 2 × 2 matrix)' },
     meaning: {
-      en: 'T is the sum of the diagonal entries and D is the determinant of the coefficient matrix. Together they decide the type of the origin.',
-      ru: 'T — сумма диагональных элементов, а D — определитель матрицы коэффициентов. Вместе они определяют тип начала координат.',
+      en: 'T is the sum of the diagonal entries and D is the determinant of the coefficient matrix. For D not zero they distinguish the saddle, node, spiral and centre cases. For D = 0, inspect the matrix itself: rank one gives a line of equilibria, while the zero matrix gives the whole plane.',
+      ru: 'T — сумма диагональных элементов, а D — определитель матрицы коэффициентов. При ненулевом D они различают седло, узел, фокус и центр. При D = 0 проверьте саму матрицу: ранг один даёт прямую точек равновесия, нулевая матрица — всю плоскость.',
     },
     when: {
       en: 'Classifying the equilibrium point at the origin, before or instead of finding the eigenvalues.',

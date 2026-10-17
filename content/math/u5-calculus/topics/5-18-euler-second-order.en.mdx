@@ -20,7 +20,7 @@ $$
 
 <Formula id="euler-second-order-update"/>
 
-Both updates use the values at the start of the step, as <Term id="euler-second-order-step"/> requires. After $n$ steps the time is $t_n = nh$, as <Term id="step-length-h-second-order"/> explains. If $f$ contains $t$, use the current $t_n$ at every step.
+Both updates use the values at the start of the step, as <Term id="euler-second-order-step"/> requires. After $n$ steps the time is $t_n = t_0 + nh$, as <Term id="step-length-h-second-order"/> explains. If $f$ contains $t$, use the current $t_n$ at every step.
 
 <Callout kind="define">Euler's method for a second-order equation: the approximate values of $x$ and $\frac{dx}{dt}$ at time $t_n$, found by applying the Euler step to the system with a fixed step length $h$.</Callout>
 
@@ -40,11 +40,11 @@ Take $\frac{d^{2}x}{dt^{2}} = -4x - 0.5\frac{dx}{dt}$, with $x = 1$ and $\frac{d
 
 ## Visual
 
-<Callout kind="tip">Plot $x$ against $t$ from your table and join the points with a smooth curve. Smaller steps put the points closer to the true curve. For an oscillation, each Euler step adds a little energy, so the peaks grow slowly; <Formula id="euler-energy-growth"/> gives the growth per step.</Callout>
+<Callout kind="tip">Plot the Euler points for $x$ against $t$ and compare them with the true curve when available. For a smooth solution on a fixed finite interval, sufficiently small steps improve the approximation as $h$ tends to zero; this is not a guarantee for every pair of step sizes. For undamped motion $\frac{d^2x}{dt^2}=-\omega^2x$, <Formula id="euler-energy-growth"/> gives artificial energy growth. The damped worked example is different: its exact energy $E=4x^2+v^2$ satisfies $dE/dt=-v^2\leq0$, while Euler steps can increase or decrease $E$ depending on the state and step size. Separate physical damping from numerical error and check stability.</Callout>
 
 ## How it is examined
 
-Find questions give a mark for the system, a mark for each step carried out correctly, and a mark for each final value. Show that questions need the algebra written out in full, with each cross term shown. Marks are lost most often through early rounding, so carry full accuracy through the table and round only the final answer.
+Find tasks may require the system, checkable update steps and final values; exact credit depends on the named question and markscheme. Show that tasks need sufficient algebra to establish the stated result. Avoid premature rounding: retain working precision and round final values as requested.
 
 <Callout kind="exam">Write the system first, then one line for each step with its time. Round only the final answers.</Callout>
 
@@ -53,7 +53,7 @@ Find questions give a mark for the system, a mark for each step carried out corr
 <Callout kind="mistake">Using the new $x_{n+1}$ on the right-hand side when updating $v$. That is a different method, and it gives different values.</Callout>
 
 - Applying Euler's method to $\frac{d^{2}x}{dt^{2}}$ directly, without first writing the system.
-- Counting the steps wrongly. The number of steps is the total time divided by $h$.
+- Counting the steps from zero when the initial time is $t_0$. To reach $t_{\mathrm{end}}$, use $n=(t_{\mathrm{end}}-t_0)/h$ when this is an integer; otherwise the last step must be shortened.
 - Rounding at every step, so that the final answer drifts away from the value the method gives.
 
 ## Check yourself
@@ -68,7 +68,7 @@ Find questions give a mark for the system, a mark for each step carried out corr
 
 - Set $v = \frac{dx}{dt}$ to turn a second-order equation into two first-order equations.
 - Each Euler step updates $x$ with $h\,v_n$ and $v$ with $h\,f(x_n, v_n, t_n)$, using the values at the start of the step.
-- After $n$ steps the time is $t_n = nh$, so the number of steps is the total time divided by $h$.
-- A smaller step length $h$ gives a more accurate result, but needs more steps.
-- For an oscillation, Euler's method adds energy at each step, so the amplitude grows.
+- After $n$ steps the time is $t_n = t_0 + nh$, so $n=(t_{\mathrm{end}}-t_0)/h$ for a whole number of fixed steps. The worked example has $t_0=0$.
+- For smooth solutions on a fixed finite interval, Euler approximations converge as $h$ tends to zero. A smaller step needs more steps; stability and actual error still need checking.
+- For undamped $\frac{d^2x}{dt^2}=-\omega^2x$ with $\omega>0$, Euler multiplies $E$ by $1+h^2\omega^2$ each step. This does not imply energy growth at every step for a damped oscillator.
 - Round only the final answers, and check them against an exact solution if one is given.

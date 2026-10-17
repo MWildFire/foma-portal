@@ -6,8 +6,8 @@ export const terms: Term[] = [
     id: 'vector-magnitude-direction',
     term: { en: 'vector', ru: 'вектор (vector)' },
     def: {
-      en: 'A quantity with both a magnitude (length) and a direction, written as a column of components or as a directed segment AB. A scalar has magnitude only.',
-      ru: 'Величина, у которой есть и длина (модуль), и направление; записывается столбцом координат или как направленный отрезок AB. У скаляра есть только величина.',
+      en: 'A quantity with both a magnitude (length) and a direction, written as a column of components or as a directed segment AB. The zero vector has no direction. A scalar is described by a number, possibly signed, with no spatial direction.',
+      ru: 'Величина, у которой есть и длина (модуль), и направление; записывается столбцом координат или как направленный отрезок AB. Нулевой вектор не имеет направления. Скаляр задаётся числом, возможно со знаком, без пространственного направления.',
     },
     syllabus: '3.10',
     papers: ['P1', 'P2', 'P3'],
@@ -32,8 +32,8 @@ export const terms: Term[] = [
       ru: 'Вектор длины 1. Единичный вектор в направлении ненулевого вектора $\\mathbf{v}$ равен $\\mathbf{v}/|\\mathbf{v}|$; i, j и k — единичные векторы вдоль осей.',
     },
     pitfall: {
-      en: 'Dividing by one component, instead of by the magnitude, does not give a unit vector.',
-      ru: 'Деление на одну из компонент, а не на длину, не даёт единичный вектор.',
+      en: 'Use the magnitude, not an arbitrary component. They coincide only in special cases, such as a positive nonzero vector along one coordinate axis.',
+      ru: 'Делите на модуль, а не на произвольную компоненту. Они совпадают лишь в особых случаях, например у ненулевого вектора вдоль положительной координатной полуоси.',
     },
     syllabus: '3.10',
     papers: ['P1', 'P2', 'P3'],

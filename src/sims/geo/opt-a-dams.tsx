@@ -1,10 +1,11 @@
+import ReadableDiagram from '../readable-diagram';
 import { useState } from 'react';
 import type { Lang } from '../../contract/types';
 
 // Illustrative reservoir model, not data about any real dam. Volumes are million m³ (Mm³).
 // Each year: water = storage + inflow − losses; supplied = min(demand, water).
 // Storage at year end = min(capacity, water − supplied). Water above capacity spills.
-// Losses = evaporation and sediment (% of capacity a year) × capacity. The reservoir starts full.
+// Losses = assumed evaporation (% of capacity a year) × capacity. Capacity is constant within a run; sedimentation is discussed separately, not modelled as water loss. The reservoir starts full.
 // Demand is met in a year when the water available covers the whole demand.
 // Fixed 10-year inflow pattern (no random numbers): multipliers of the mean annual inflow.
 // Years 4 and 8 are dry and use the dry-year slider. The eight normal years average exactly 1.00.
@@ -84,7 +85,7 @@ export default function OptADamsSim({ lang }: { lang: Lang }) {
     { key: 'inflow', en: 'Mean annual inflow (million m³ a year)', ru: 'Средний годовой приток (млн м³ в год)', min: 50, max: 1000, step: 10, digits: 0, value: meanInflow, set: setMeanInflow },
     { key: 'dry', en: 'Inflow in a dry year (% of mean)', ru: 'Приток в сухой год (% от среднего)', min: 10, max: 100, step: 5, digits: 0, value: dryPct, set: setDryPct },
     { key: 'demand', en: 'Annual demand before management (million m³ a year)', ru: 'Годовой спрос до мер (млн м³ в год)', min: 50, max: 1000, step: 10, digits: 0, value: demand, set: setDemand },
-    { key: 'loss', en: 'Evaporation and sediment loss (% of capacity a year)', ru: 'Испарение и заиление (% ёмкости в год)', min: 0, max: 5, step: 0.1, digits: 1, value: lossPct, set: setLossPct },
+    { key: 'loss', en: 'Assumed evaporation loss (% of capacity a year)', ru: 'Условное испарение (% ёмкости в год)', min: 0, max: 5, step: 0.1, digits: 1, value: lossPct, set: setLossPct },
   ];
 
   const cutLabel = (option: number): string => {
@@ -156,7 +157,7 @@ export default function OptADamsSim({ lang }: { lang: Lang }) {
           <strong>{fmt(averageInflow)}</strong> {ru ? 'млн м³ в год' : 'million m³ a year'}
         </div>
         <div>
-          {ru ? 'Долгосрочный баланс (приток − потери − спрос): ' : 'Long-run balance (inflow − losses − demand): '}
+          {ru ? 'Средний приток − условное испарение − спрос: ' : 'Mean inflow − assumed evaporation − demand: '}
           <strong>{fmt(balance)}</strong> {ru ? 'млн м³ в год' : 'million m³ a year'}
         </div>
       </div>
@@ -164,7 +165,8 @@ export default function OptADamsSim({ lang }: { lang: Lang }) {
       <p style={{ margin: '0 0 2px', fontSize: 14 }}>
         {ru ? 'Запас воды на конец каждого года, млн м³ (* — сухой год)' : 'Storage at the end of each year, million m³ (* = dry year)'}
       </p>
-      <svg
+      <p style={{ fontSize: 13 }}>{ru ? 'Пунктир — ёмкость водохранилища.' : 'Dashed line: reservoir capacity.'}</p>
+      <ReadableDiagram lang={lang}><svg
         viewBox="0 0 320 166"
         width="100%"
         role="img"
@@ -201,19 +203,19 @@ export default function OptADamsSim({ lang }: { lang: Lang }) {
             </g>
           );
         })}
-      </svg>
+      </svg></ReadableDiagram>
 
       <p style={{ margin: '12px 0 0', fontSize: 13, lineHeight: 1.5 }}>
         <strong>{ru ? 'Формулы. ' : 'Formulas. '}</strong>
         {ru
-          ? 'Каждый год: вода = запас + приток − потери; подано = меньшее из спроса и воды; запас на конец года = меньшее из ёмкости и (вода − подано), а всё, что выше ёмкости, сбрасывается через водосброс. Потери = испарение и заиление (% ёмкости в год) × ёмкость; значение 1% — учебное допущение, испарение выше в жарком и сухом климате. Приток = средний приток × множитель года: 1,00; 1,10; 0,90; сухой; 1,05; 0,95; 1,00; сухой; 1,10; 0,90. Сухие годы (4 и 8) берут значение из ползунка. Восемь обычных лет в среднем дают 1,00, а шаблон фиксирован, поэтому одинаковые входные данные всегда дают одинаковый результат. Спрос удовлетворён, если вода в этом году покрывает весь спрос. Долгосрочный баланс = средний приток − потери − спрос; если он отрицательный, запас в долгосрочной перспективе падает.'
-          : 'Each year: water = storage + inflow − losses; supplied = the smaller of demand and water; storage at year end = the smaller of capacity and (water − supplied), and anything above capacity spills. Losses = evaporation and sediment (% of capacity a year) × capacity; the 1% default is a teaching value, and evaporation is higher in hot, dry climates. Inflow = mean inflow × pattern multiplier: 1.00, 1.10, 0.90, dry, 1.05, 0.95, 1.00, dry, 1.10, 0.90. The dry years (4 and 8) use the dry-year slider. The eight normal years average exactly 1.00, and the pattern is fixed, so the same inputs always give the same answer. Demand is met in a year when the water available covers the full demand. Long-run balance = average inflow − losses − demand; if it is negative, storage falls over the long run.'}
+          ? 'Каждый год: вода = запас + приток − потери; подано = меньшее из спроса и воды; запас на конец года = меньшее из ёмкости и (вода − подано), а всё, что выше ёмкости, сбрасывается через водосброс. Потери воды = условное испарение (% ёмкости в год) × ёмкость; значение 1% — учебное допущение, а не измеренный коэффициент. Заиление уменьшает вместимость, а не испаряет воду: здесь ёмкость постоянна в пределах одного прогона. Для отдельного сравнения можно задать меньшую ёмкость ползунком; скорость заиления эта модель не прогнозирует. Приток = средний приток × множитель года: 1,00; 1,10; 0,90; сухой; 1,05; 0,95; 1,00; сухой; 1,10; 0,90. Сухие годы (4 и 8) берут значение из ползунка. Восемь обычных лет в среднем дают 1,00, а шаблон фиксирован, поэтому одинаковые входные данные всегда дают одинаковый результат. Спрос удовлетворён, если вода в этом году покрывает весь спрос. Долгосрочный баланс = средний приток − потери − спрос; если он отрицательный, запас в долгосрочной перспективе падает.'
+          : 'Each year: water = storage + inflow − losses; supplied = the smaller of demand and water; storage at year end = the smaller of capacity and (water − supplied), and anything above capacity spills. Water loss = assumed evaporation (% of capacity a year) × capacity; the 1% default is a teaching assumption, not a measured factor. Sedimentation reduces capacity rather than evaporating water: capacity stays constant within this run. Compare a lower capacity with the slider separately; this model does not forecast sedimentation. Inflow = mean inflow × pattern multiplier: 1.00, 1.10, 0.90, dry, 1.05, 0.95, 1.00, dry, 1.10, 0.90. The dry years (4 and 8) use the dry-year slider. The eight normal years average exactly 1.00, and the pattern is fixed, so the same inputs always give the same answer. Demand is met in a year when the water available covers the full demand. Long-run balance = average inflow − losses − demand; if it is negative, storage falls over the long run.'}
       </p>
       <p style={{ margin: '8px 0 0', fontSize: 13, lineHeight: 1.5 }}>
         <strong>{ru ? 'Компромиссы. ' : 'Trade-offs. '}</strong>
         {ru
-          ? 'Плотина запасает воду, может давать электричество и снижать пики паводков, но дорогая в строительстве и обслуживании и меняет реку. Переселение: Всемирная комиссия по плотинам (2000) приводит глобальную оценку: от 40 до 80 млн человек вытеснены плотинами. Заиление: по исследованию Университета ООН (2023), средняя годовая потеря запаса составляет около 0,36% первоначальной ёмкости. Исследование отмечает, что эта оценка может быть занижена, а более ранние оценки в основном лежат в диапазоне от 0,5% до 1% в год. Запас со временем сокращается, и до дельт и пляжей доходит меньше наносов. Экосистемы: плотины мешают миграции рыбы и меняют сезонный сток, от которого зависят пойменные местообитания. Управление спросом не требует новых объёмов, но пользователям приходится менять привычки, и это тоже имеет издержки.'
-          : 'A dam stores water, can generate power and can reduce flood peaks, but it is costly to build and maintain and it changes the river. Displacement: the World Commission on Dams (2000) gave a global estimate of 40 to 80 million people displaced by dams. Sediment: the UN University study (2023) gives a global average annual storage loss of about 0.36% of initial capacity, and notes that this may be an underestimate (earlier estimates generally fall between 0.5% and 1% a year). Storage shrinks over time, and less sediment reaches deltas and beaches. Ecosystems: dams block fish migration and change the seasonal flows that floodplain habitats depend on. Demand management needs no new storage, but users must change their habits, which has its own costs.'}
+          ? 'Плотина запасает воду, может давать электричество и снижать пики паводков, но дорогая в строительстве и обслуживании и меняет реку. Переселение: Всемирная комиссия по плотинам (2000) приводит глобальную оценку: от 40 до 80 млн человек вытеснены плотинами. Заиление: по исследованию Университета ООН (2023), средняя годовая потеря вместимости составляет около 0,36% первоначальной ёмкости. Исследование отмечает, что эта оценка может быть занижена, а более ранние оценки в основном лежат в диапазоне от 0,5% до 1% в год. Вместимость со временем сокращается, и до дельт и пляжей доходит меньше наносов. Экосистемы: плотины мешают миграции рыбы и меняют сезонный сток, от которого зависят пойменные местообитания. Управление спросом не требует новых объёмов, но пользователям приходится менять привычки, и это тоже имеет издержки.'
+          : 'A dam stores water, can generate power and can reduce flood peaks, but it is costly to build and maintain and it changes the river. Displacement: the World Commission on Dams (2000) gave a global estimate of 40 to 80 million people displaced by dams. Sediment: the UN University study (2023) gives a global average annual storage loss of about 0.36% of initial capacity, and notes that this may be an underestimate (earlier estimates generally fall between 0.5% and 1% a year). Storage capacity shrinks over time, and less sediment reaches deltas and beaches. Ecosystems: dams block fish migration and change the seasonal flows that floodplain habitats depend on. Demand management needs no new storage, but users must change their habits, which has its own costs.'}
       </p>
       <p style={{ margin: '8px 0 0', fontSize: 13, lineHeight: 1.5 }}>
         <strong>{ru ? 'Что заметить. ' : 'What to notice. '}</strong>

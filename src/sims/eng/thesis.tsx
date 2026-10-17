@@ -2,7 +2,7 @@ import { useState } from 'react';
 import type { Lang } from '../../contract/types';
 
 // Thesis builder for Paper 2: pick a prompt, name two works, write a thesis, and check it against a short list.
-// The checks are simple text tests: they catch the usual faults, they do not judge the quality of the argument.
+// These heuristics report string/punctuation matches only, not semantic validity or marks.
 const PROMPTS = [
   {
     en: 'Compare how two works use a narrator to shape the reader\'s sympathy. To what extent does the narrative voice decide what we feel?',
@@ -35,9 +35,9 @@ const LABELS = {
     workAPlaceholder: 'Title and author',
     workBPlaceholder: 'Title and author',
     thesisPlaceholder: 'Two works, one comparison, one claim about effect',
-    checks: 'Checklist',
-    ready: 'Ready. Next, plan three comparison points for the paragraphs.',
-    notReady: 'Not yet. Fix the points marked below.',
+    checks: 'Exercise signals (not an assessment)',
+    ready: 'All text signals matched. Read the thesis yourself: does it answer the question accurately? Then plan the supporting comparisons.',
+    notReady: 'Some text signals were not found. Review the suggestions; a different wording may still be valid.',
     words: 'words',
   },
   ru: {
@@ -49,9 +49,9 @@ const LABELS = {
     workAPlaceholder: 'Название и автор',
     workBPlaceholder: 'Название и автор',
     thesisPlaceholder: 'Два произведения, одно сравнение, одно утверждение об эффекте',
-    checks: 'Чек-лист',
-    ready: 'Готово. Дальше составьте три пункта сравнения для абзацев.',
-    notReady: 'Пока нет. Исправьте пункты, отмеченные ниже.',
+    checks: 'Сигналы упражнения (не оценка ответа)',
+    ready: 'Все текстовые сигналы найдены. Проверьте сами: точно ли тезис отвечает на вопрос? Затем наметьте сравнения в его поддержку.',
+    notReady: 'Некоторые сигналы не найдены. Рассмотрите подсказки: иная формулировка тоже может быть верной.',
     words: 'слов',
   },
 };
@@ -59,8 +59,8 @@ const LABELS = {
 const CHECKS = [
   {
     id: 'works',
-    en: 'Both works are named, and they are different',
-    ru: 'Названы оба произведения, и они разные',
+    en: 'Two different work fields are filled in',
+    ru: 'Заполнены два разных поля с названиями',
     hint: { en: 'Name both works. Two entries of the same work do not make a comparison.', ru: 'Назовите оба произведения. Два раза одно и то же — не сравнение.' },
     pass: (a: string, b: string) => a.trim() !== '' && b.trim() !== '' && a.trim().toLowerCase() !== b.trim().toLowerCase(),
   },
@@ -97,17 +97,17 @@ const CHECKS = [
   },
   {
     id: 'effect',
-    en: 'It claims something about effect, not only content',
-    ru: 'Утверждает что-то об эффекте, а не только о содержании',
+    en: 'A word fragment associated with effects was found',
+    ru: 'Найден фрагмент слова, связанный с эффектом',
     hint: { en: 'Say what the comparison does: it suggests, invites, undermines, reveals.', ru: 'Скажите, что делает сравнение: suggests, invites, undermines, reveals и т. п.' },
     pass: (_a: string, _b: string, thesis: string) => EFFECT_WORDS.some(word => thesis.toLowerCase().includes(word)),
   },
   {
     id: 'summary',
-    en: 'It is not a plot summary',
-    ru: 'Это не пересказ сюжета',
-    hint: { en: 'Drop the plot summary ("is about", "tells the story") and make a claim about how the works work.', ru: 'Уберите пересказ сюжета («is about», «tells the story») и сделайте утверждение о том, как работают произведения.' },
-    pass: (_a: string, _b: string, thesis: string) => !SUMMARY_PHRASES.some(phrase => thesis.toLowerCase().includes(phrase)),
+    en: 'None of the listed summary phrases was found',
+    ru: 'Не найдены фразы пересказа из заданного списка',
+    hint: { en: 'Phrases such as "is about" can signal summary, but can also occur in a valid argument. Read the whole claim.', ru: 'Фразы «is about» и «tells the story» могут указывать на пересказ, но встречаются и в верном аргументе. Прочитайте утверждение целиком.' },
+    pass: (_a: string, _b: string, thesis: string) => thesis.trim() !== '' && !SUMMARY_PHRASES.some(phrase => thesis.toLowerCase().includes(phrase)),
   },
 ];
 

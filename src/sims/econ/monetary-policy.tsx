@@ -55,8 +55,8 @@ const steps: Step[] = [
   {
     title: { en: 'Money market: central bank cuts the rate', ru: 'Денежный рынок: центральный банк снижает ставку' },
     text: {
-      en: 'Money demand (MD) slopes down. Expansionary monetary policy: the central bank buys bonds, so the money supply rises from MS1 (8) to MS2 (12), and the interest rate falls from 8% (E1) to 6% (E2).',
-      ru: 'Спрос на деньги (MD) идёт вниз. Расширительная монетарная политика (expansionary monetary policy): центральный банк покупает облигации, предложение денег растёт с MS1 (8) до MS2 (12), и процентная ставка падает с 8% (E1) до 6% (E2).',
+      en: 'This is a simplified money-market example, holding money demand fixed. Expansionary monetary policy: the central bank buys bonds, so the money supply rises from MS1 (8) to MS2 (12), and the interest rate falls from 8% (E1) to 6% (E2).',
+      ru: 'Это упрощённый пример денежного рынка с неизменным спросом на деньги. Расширительная монетарная политика (expansionary monetary policy): центральный банк покупает облигации, предложение денег растёт с MS1 (8) до MS2 (12), и процентная ставка падает с 8% (E1) до 6% (E2).',
     },
     graph: {
       ...moneyAxes,
@@ -83,8 +83,8 @@ const steps: Step[] = [
   {
     title: { en: 'Investment rises: AD shifts right', ru: 'Инвестиции растут: AD сдвигается вправо' },
     text: {
-      en: 'The lower interest rate makes borrowing cheaper, so investment (I) rises. AD shifts right by 4 at each price level (AD2). The new equilibrium B is at output 9 and price level 11: output rises but stays below potential (10).',
-      ru: 'Более низкая ставка делает заимствование дешевле, поэтому инвестиции (I) растут. AD сдвигается вправо на 4 при каждом уровне цен (AD2). Новое равновесие B: выпуск 9, уровень цен 11. Выпуск растёт, но остаётся ниже потенциального (10).',
+      en: 'Assuming confidence and credit conditions permit a response, the lower rate makes borrowing cheaper and stimulates investment (I). AD shifts right by 4 at each price level (AD2). The new equilibrium B is at output 9 and price level 11: output rises but stays below potential (10).',
+      ru: 'Если доверие и условия кредитования позволяют отреагировать, более низкая ставка удешевляет заимствование и стимулирует инвестиции (I). AD сдвигается вправо на 4 при каждом уровне цен (AD2). Новое равновесие B: выпуск 9, уровень цен 11. Выпуск растёт, но остаётся ниже потенциального (10).',
     },
     graph: {
       ...adAxes,

@@ -59,6 +59,8 @@ const topic: TopicMeta = {
   questionIds: ['g2-sq1', 'g2-sq2', 'g2-sq3', 'g2-eq1', 'g2-eq2'],
   caseIds: ['g-detroit-decline', 'g-london-docklands', 'g-shenzhen-growth', 'g-medellin-metrocable'],
   sources: [
+    {"kind": "web", "title": "Nicholas Falk, Capital Gains: A Better Land Assembly Model for London, GLA-commissioned report, February 2018", "url": "https://www.london.gov.uk/sites/default/files/gla_capital_gains_report_.pdf", "locator": "Printed p. 23, Case Study 3: London Docklands; public realm, relocation and housing-affordability criticism"},
+    {"kind": "web", "title": "Fairfax County, Tysons Comprehensive Plan", "url": "https://www.fairfaxcounty.gov/tysons/node/209", "locator": "Comprehensive Plan: Metro context and 2050 vision; targets are not current counts or CBD losses"},
     { kind: 'ib-guide', title: 'Geography guide (2017), Option G: Urban environments', locator: 'G.2' },
     { kind: 'thinkib', title: 'Option G: Urban Environments (pages 37518, 37556, 37580)', locator: 'Changing Urban Systems; Urbanization; Urban System Growth and Lagos' },
   ],

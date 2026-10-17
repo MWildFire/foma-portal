@@ -120,7 +120,7 @@ export const questions: Question[] = [
     marks: 4,
     command: "Identify",
     prompt: { en: "Identify the TCP/IP layers for a router and a switch, and state the addressing each uses.", ru: "Определите уровни модели TCP/IP для маршрутизатора и коммутатора и укажите используемую адресацию." },
-    markscheme: { en: "**Router** → operates at the **Internet/Network layer** (1), using **IP addresses** (1). **Switch** → operates at the **Network Access/Data-Link layer** (1), using **MAC addresses** (1).", ru: "Четыре балла = уровень + тип адреса для каждого устройства." },
+    markscheme: { en: "**Router** → operates at the **Internet/Network layer** (1), using **IP addresses** (1). **Switch** → operates at the **Network interface/Data-Link layer** (1), using **MAC addresses** (1).", ru: "Четыре балла = уровень + тип адреса для каждого устройства." },
     origin: 'original',
   },
   {

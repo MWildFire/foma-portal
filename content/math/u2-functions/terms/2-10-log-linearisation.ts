@@ -6,8 +6,8 @@ export const terms: Term[] = [
     id: 'log-log-graph',
     term: { en: 'log-log graph', ru: 'двойной логарифмический график (log-log graph)' },
     def: {
-      en: 'A graph of $\\log y$ against $\\log x$. A power relationship $y=ax^{b}$ plots as a straight line with gradient $b$ and vertical intercept $\\log a$.',
-      ru: 'График $\\log y$ от $\\log x$. Степенная зависимость $y=ax^{b}$ даёт прямую с угловым коэффициентом $b$ и отрезком $\\log a$ на вертикальной оси.',
+      en: 'A graph of $\\log y$ against $\\log x$. For positive a,x,y and one valid log base, a power relationship $y=ax^b$ plots as a straight line with gradient $b$ and vertical intercept $\\log a$.',
+      ru: 'График $\\log y$ от $\\log x$. При положительных a,x,y и одном допустимом основании степенная зависимость $y=ax^b$ даёт прямую с угловым коэффициентом $b$ и отрезком $\\log a$ на вертикальной оси.',
     },
     syllabus: '2.10',
     papers: ['P1', 'P2', 'P3'],
@@ -21,8 +21,8 @@ export const terms: Term[] = [
     id: 'semi-log-graph',
     term: { en: 'semi-log graph', ru: 'полулогарифмический график (semi-log graph)' },
     def: {
-      en: 'A graph with one axis on a logarithmic scale. An exponential relationship $y=ab^{x}$ plots as a straight line when $\\log y$ is plotted against $x$, with gradient $\\log b$.',
-      ru: 'График, у которого одна ось логарифмическая. Показательная зависимость $y=ab^{x}$ даёт прямую, если строить $\\log y$ от $x$; её угловой коэффициент равен $\\log b$.',
+      en: 'A graph with one axis on a logarithmic scale. For positive a,b,y, an exponential relationship $y=ab^x$ plots as a straight line when $\\log y$ is plotted against $x$, with gradient $\\log b$.',
+      ru: 'График, у которого одна ось логарифмическая. При положительных a,b,y показательная зависимость $y=ab^x$ даёт прямую, если строить $\\log y$ от $x$; её угловой коэффициент равен $\\log b$.',
     },
     syllabus: '2.10',
     papers: ['P1', 'P2', 'P3'],
@@ -44,12 +44,12 @@ export const terms: Term[] = [
     id: 'order-of-magnitude',
     term: { en: 'order of magnitude', ru: 'порядок величины (order of magnitude)' },
     def: {
-      en: 'The power of ten that describes the size of a number: a number between $10^{k}$ and $10^{k+1}$ has order of magnitude $10^{k}$, and its $\\log_{10}$ lies between $k$ and $k+1$.',
-      ru: 'Степень десяти, описывающая размер числа: число между $10^{k}$ и $10^{k+1}$ имеет порядок $10^{k}$, а его $\\log_{10}$ лежит между $k$ и $k+1$.',
+      en: 'Using the standard-form-exponent convention (not nearest-power rounding), the power of ten describing a positive number: a number between $10^{k}$ and $10^{k+1}$ has order of magnitude $10^{k}$, and its $\\log_{10}$ lies between $k$ and $k+1$.',
+      ru: 'При соглашении о показателе стандартной записи (не округлении к ближайшей степени) степень десяти, описывающая положительное число: число между $10^{k}$ и $10^{k+1}$ имеет порядок $10^{k}$, а его $\\log_{10}$ лежит между $k$ и $k+1$.',
     },
     syllabus: '2.10',
     papers: ['P1', 'P2', 'P3'],
-    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 1.1, p. 10' },
+    src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 1.1, p. 9: normalised standard-form definition; exponent convention stated here' },
     pitfall: {
       en: 'The order of magnitude is a whole power of ten, so 3200 has order of magnitude $10^{3}$, even though $\\log_{10} 3200 \\approx 3.5$.',
       ru: 'Порядок величины — целая степень десяти: 3200 имеет порядок $10^{3}$, хотя $\\log_{10} 3200 \\approx 3{,}5$.',

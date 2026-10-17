@@ -1,6 +1,6 @@
 ## Big idea
 
-Lengths, volumes and surface areas in 3D are found with the tools you already know from 2D: Pythagoras's theorem and right-angled trigonometry, applied to triangles hidden inside solids. Once you can see the right-angled triangle, the formulas for pyramids, cones, spheres and hemispheres follow.
+Lengths, volumes and surface areas in 3D are found with the tools you already know from 2D: Pythagoras's theorem and right-angled trigonometry, applied to triangles hidden inside solids. Use these triangles to find missing lengths and angles, then apply the appropriate volume or surface-area formula; Pythagoras alone does not derive all of those formulas.
 
 ## Explanation
 
@@ -30,7 +30,7 @@ Here $A$ is the area of the base.
 
 <Term id="right-cone"/>
 
-A cone with base radius $r$, perpendicular height $h$ and slant height $l$ satisfies $l^2 = r^2 + h^2$. Its volume is given below, and its curved surface area is $\pi r l$.
+A right circular cone with base radius $r$, perpendicular height $h$ and slant height $l$ satisfies $l^2 = r^2 + h^2$. Its volume is given below, and its curved surface area is $\pi r l$.
 
 $$
 V = \frac{1}{3}\pi r^2 h
@@ -46,15 +46,15 @@ $$
 
 <Formula id="sphere-volume"/>
 
-For a composite solid, add the volumes of the parts. For the surface area, count only the surfaces that can be seen from outside: where two parts are joined, the shared face disappears.
+For a composite solid whose parts have disjoint interiors, add their volumes. For external surface area count the exposed boundary surfaces: an interface where two solid parts are joined is internal and is excluded.
 
 <Term id="angle-between-line-and-plane"/>
 
-The angle between a line and a plane is the angle between the line and its projection onto the plane. Drop a perpendicular from a point $P$ on the line to the plane, with foot $F$. If the line meets the plane at $T$, the projection is $TF$ and the angle is $\angle PTF$, found in the right-angled triangle $PFT$.
+For a line that is neither parallel nor perpendicular to a plane, its angle with the plane is the acute angle with its orthogonal projection. Drop a perpendicular from a point $P$ on the line to the plane, with foot $F$. If the line meets the plane at $T$, the projection is $TF$ and the angle is $\angle PTF$, found in the right-angled triangle $PFT$. A line parallel to or contained in the plane has angle $0^\circ$; a perpendicular line has angle $90^\circ$, although its projection is a point.
 
-The angle between two intersecting lines is the angle at their common point. Find it in the triangle the two lines form, using the cosine rule, or SOH CAH TOA if that triangle is right-angled.
+Unless a particular angle is specified, the angle between two intersecting lines is the smaller of the angles at their common point, at most $90^\circ$. Choose points on the lines to form a triangle and use the cosine rule, or SOH CAH TOA if it is right-angled.
 
-<Callout kind="define">Right pyramid: a pyramid whose apex lies directly above the centre of its base. Angle between a line and a plane: the angle between the line and its projection onto the plane.</Callout>
+<Callout kind="define">Right pyramid: a pyramid whose apex lies directly above the centre of its base. For an oblique line, its angle with the plane is the acute angle with its orthogonal projection. A line parallel to or contained in the plane has angle 0°; a perpendicular line has angle 90°.</Callout>
 
 <Callout kind="gdc">Type `pi` instead of 3.14, use the `x²` key for squares and `sqrt(` for roots, and reuse a result with `ans` (`ctrl+(−)`) instead of retyping it rounded. For an angle, set Angle to Degree in Home → Settings → Document Settings, then type `arctan(` or `arccos(`.</Callout>
 
@@ -85,9 +85,9 @@ Picture a right square pyramid standing on a table. The apex $V$ sits straight a
 
 ## How it is examined
 
-Calculate and Find questions give a method mark for the right-angled triangle or the formula, a mark for the substitution, and an accuracy mark for the answer with the rounding and units asked for. Show that questions need every line of working, with the exact value kept until the last line. For a composite solid, a reasoning mark is often given for stating which surfaces are joined.
+Identify the relevant triangle, state the formula and show the substitution, then give the requested rounding and units. In Show that tasks, justify the steps leading to the stated result. For a composite solid, explain why joined interfaces are excluded. Exact marks depend on the question and its markscheme.
 
-<Callout kind="exam">Write down the right-angled triangle before the first formula. The method mark is given for the triangle even if a later length is wrong.</Callout>
+<Callout kind="exam">Label the relevant right-angled triangle before calculating. This makes the chosen lengths and angle checkable; it does not guarantee a particular mark allocation.</Callout>
 
 ## Common mistakes
 
@@ -105,11 +105,13 @@ Calculate and Find questions give a method mark for the right-angled triangle or
 
 <Question id="q-3-1-03"/>
 
+<Question id="r06-pyramid"/>
+
 ## Summary
 
 - The distance is $AB = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2 + (z_2 - z_1)^2}$, and the midpoint averages each coordinate.
 - A right pyramid or cone has volume one third of base area times perpendicular height, not slant height.
 - A sphere has volume $\frac{4}{3}\pi r^3$ and surface area $4\pi r^2$; a hemisphere takes half the volume.
 - For a composite solid, add the volumes but count only the surfaces visible from outside.
-- The angle between a line and a plane is measured from the line's projection onto the plane.
+- For an oblique line, measure the angle with its orthogonal projection; parallel or contained lines have angle 0°, perpendicular lines 90°.
 - Keep $\pi$ and surds exact until the last step, and round only at the end.

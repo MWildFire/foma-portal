@@ -10,8 +10,8 @@ export const formulas: Formula[] = [
       ru: 'Изменение величины в процентах от её исходного значения: X1 — исходное значение, X2 — новое.',
     },
     when: {
-      en: 'Any calculation of a change in price, quantity, income or revenue.',
-      ru: 'Любой расчёт изменения цены, величины спроса, дохода или выручки.',
+      en: 'Requires a nonzero original value. State the reference value; percentage points are a different measure.',
+      ru: 'Исходное значение должно быть ненулевым. Укажи базу сравнения; процентные пункты — другая мера.',
     },
     syllabus: '2.5',
     units: '%',

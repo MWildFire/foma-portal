@@ -3,7 +3,7 @@ import type { TopicMeta } from '../../../../src/contract/types';
 const topic: TopicMeta = {
   id: 'multiplier',
   subject: 'econ',
-  code: '3.2',
+  code: '3.6',
   title: { en: 'The multiplier', ru: 'Мультипликатор' },
   papers: ['P1', 'P2', 'P3'],
   order: 32,

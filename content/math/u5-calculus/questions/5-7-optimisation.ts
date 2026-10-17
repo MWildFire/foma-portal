@@ -28,8 +28,8 @@ export const questions: Question[] = [
     marks: 5,
     command: 'Find',
     prompt: {
-      en: 'A workshop has a total daily cost of AED $C(x)=0.5x^{2}-12x+150$ when it makes $x$ units, for $x\\ge 1$. The average cost per unit is $A(x)=\\dfrac{C(x)}{x}$. Find the number of units that gives the lowest average cost per unit, and that lowest average cost. Give each answer correct to 3 significant figures.',
-      ru: 'Суммарные издержки мастерской за день при выпуске $x$ единиц продукции равны $C(x)=0{,}5x^{2}-12x+150$ AED при $x\\ge 1$. Средняя стоимость одной единицы равна $A(x)=\\dfrac{C(x)}{x}$. Найдите число единиц, при котором средняя стоимость одной единицы наименьшая, и эту наименьшую среднюю стоимость. Каждый ответ запишите с точностью до 3 значащих цифр.',
+      en: 'A workshop has a total daily cost of AED $C(x)=0.5x^{2}-12x+150$ when it makes $x$ units, for $x\\ge 1$. Treat production as divisible: $x$ is a real variable in this continuous model. The average cost per unit is $A(x)=\\dfrac{C(x)}{x}$. Find the number of units that gives the lowest average cost per unit, and that lowest average cost. Give each answer correct to 3 significant figures.',
+      ru: 'Суммарные издержки мастерской за день при выпуске $x$ единиц продукции равны $C(x)=0{,}5x^{2}-12x+150$ AED при $x\\ge 1$. Считайте продукцию делимой: $x$ — вещественная переменная в этой непрерывной модели. Средняя стоимость одной единицы равна $A(x)=\\dfrac{C(x)}{x}$. Найдите число единиц, при котором средняя стоимость одной единицы наименьшая, и эту наименьшую среднюю стоимость. Каждый ответ запишите с точностью до 3 значащих цифр.',
     },
     markscheme: {
       en: 'M1: $A(x)=\\dfrac{C(x)}{x}=0.5x-12+\\dfrac{150}{x}$. M1: $A\'(x)=0.5-\\dfrac{150}{x^{2}}$, and $A\'(x)=0$ gives $x^{2}=300$. R1: $A\'(x)<0$ for $x<\\sqrt{300}$ and $A\'(x)>0$ for $x>\\sqrt{300}$, so the gradient changes from negative to positive and this is a minimum. A1: $x=\\sqrt{300}=17.3$ units. A1: $A(\\sqrt{300})=\\sqrt{300}-12=5.32$ AED per unit.',

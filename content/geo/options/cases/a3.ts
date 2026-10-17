@@ -1,7 +1,7 @@
 import type { CaseStudy } from '../../../../src/contract/types';
 
-// Option A, A.3 cases. Status (R01, 14.10.2026, S3): Toledo (CDC MMWR 2016; PBS NewsHour 2014) and the WHO 2022 microcystin fact sheet (PDF p. 430) were opened in R01.
-// The Bangladesh report number (NERC ORA, WC/00/019) was checked in R01. Cape Town was rechecked in R02 against News24 (23 January 2018): the day count is kept, and the water-loss figures that no source confirmed were removed. The Aral Sea figures (UNDP page) were not rechecked.
+// Option A, A.3 cases. R03 (15 October 2026): WHO microcystin fact sheet checked at printed p. 430 (PDF p. 1), including the lifetime scope and MC-LR caveat. Toledo CDC/PBS sources retain their earlier checks.
+// The Bangladesh report number (NERC ORA, WC/00/019) was checked in R01. Cape Town was rechecked in R06 against SAnews (24 January 2018), dashboard and augmentation passages; the conditional forecast is distinguished from an actual shutdown. The Aral Sea figures (UNDP page) were not rechecked.
 export const cases: CaseStudy[] = [
   {
     id: 'a-cape-town-drought-2018',
@@ -13,17 +13,11 @@ export const cases: CaseStudy[] = [
     lat: -33.9249,
     lng: 18.4241,
     facts: {
-      en: 'In January 2018 the City of Cape Town said that a 1.4% drop in dam levels had moved Day Zero, the date when taps would run dry, forward by nine days, to 12 April 2018 (News24, 23 January 2018). It was installing thousands of water management devices on the properties of high users and running pressure management across the city, while it urged residents to join the water-saving effort.',
-      ru: 'В январе 2018 года администрация Кейптауна заявила, что падение уровня водохранилищ на 1,4% передвинуло «День ноль» (Day Zero) — дату, когда в кранах закончилась бы вода, — на девять дней, до 12 апреля 2018 года (News24, 23 января 2018). Город устанавливал тысячи устройств управления водой у крупных потребителей и проводил регулирование давления по всей сети, одновременно призывая жителей присоединиться к экономии воды.',
+      "en": "On 24 January 2018, South Africa’s government news agency reported Cape Town dam levels of 27.2% and a forecast Day Zero date of 12 April 2018; this was a conditional forecast, not a reported actual shutdown. Daily use was 586 million litres, 86 million above the then target. The city was installing water-management devices and managing network pressure. It said desalination, aquifer and recycling projects would not add enough water to avert the forecast shortage that year (SAnews, 24 January 2018).",
+      "ru": "24 января 2018 года государственное агентство SAnews сообщило об уровне водохранилищ Кейптауна 27,2% и прогнозной дате «Дня ноль» 12 апреля 2018. Это условный прогноз, а не сообщение о состоявшемся отключении. Суточное потребление составляло 586 млн литров, на 86 млн выше действовавшей цели. Город устанавливал устройства управления водой и регулировал давление в сети; по его заявлению, проекты опреснения, подземных вод и повторного использования не успевали дать достаточно воды для предотвращения прогнозируемого дефицита в том году (SAnews, 24 января 2018)."
     },
     usedFor: ['a3-water-scarcity'],
-    src: [
-      {
-        kind: 'web',
-        title: 'News24: Day Zero now on April 12 for Cape Town, 23 January 2018',
-        url: 'https://www.news24.com/southafrica/news/day-zero-now-on-april-12-for-cape-town-20180123',
-      },
-    ],
+    src: [{ kind: 'web', title: 'SAnews, 24 January 2018: Drop in dam levels brings Day Zero closer; dashboard and augmentation paragraphs', url: 'https://www.sanews.gov.za/south-africa/drop-dam-levels-brings-day-zero-closer' }]
   },
   {
     id: 'a-bangladesh-arsenic',
@@ -62,8 +56,8 @@ export const cases: CaseStudy[] = [
     lat: 41.6528,
     lng: -83.5379,
     facts: {
-      en: 'In August 2014 microcystin, a toxin made by blue-green algae (cyanobacteria) in Lake Erie, contaminated the water supply of the City of Toledo. A do-not-drink advisory was in force from Saturday 2 August to the morning of Monday 4 August 2014. It was issued for all customers of the Collins Park water treatment plant, which had 440,552 residents in four counties in 2010 (CDC, 2016), and the mayor lifted it at a news conference on 4 August (PBS NewsHour, 2014). Ohio’s first microcystin do-not-drink advisory had been issued in 2013, in Carroll Township (CDC, 2016). The WHO provisional guideline value for total microcystins (the sum of all congeners, free and cell-bound) in drinking water is 1 µg/L. The value is provisional and rests on data for microcystin-LR alone, the most studied variant (WHO, 2022, chemical fact sheet “Microcystins”, p. 430).',
-      ru: 'В августе 2014 года микроцистин — токсин сине-зелёных водорослей (цианобактерий) в озере Эри — загрязнил водоснабжение города Толедо. Предупреждение «не пить воду» действовало с субботы 2 августа до утра понедельника 4 августа 2014 года и было выпущено для всех потребителей водоочистной станции «Коллинз-Парк», в которой в 2010 году насчитывалось 440 552 жителя четырёх округов (CDC, 2016). Мэр снял предупреждение на пресс-конференции 4 августа (PBS NewsHour, 2014). Первое в штате Огайо предупреждение «не пить воду» из-за микроцистина было выпущено в 2013 году в Кэрролл-Тауншипе (Carroll Township) (CDC, 2016). Предварительное руководящее значение ВОЗ для суммы всех вариантов микроцистинов (congeners; свободных в воде и связанных с клетками) в питьевой воде составляет 1 мкг/л. Оно предварительное и опирается на данные только по микроцистину-LR, наиболее изученному варианту (ВОЗ, 2022, факт-лист «Microcystins», с. 430).',
+      en: 'In August 2014 microcystin, a toxin made by blue-green algae (cyanobacteria) in Lake Erie, contaminated the water supply of the City of Toledo. A do-not-drink advisory was in force from Saturday 2 August to the morning of Monday 4 August 2014. It was issued for all customers of the Collins Park water treatment plant, which had 440,552 residents in four counties in 2010 (CDC, 2016), and the mayor lifted it at a news conference on 4 August (PBS NewsHour, 2014). Ohio’s first microcystin do-not-drink advisory had been issued in 2013, in Carroll Township (CDC, 2016). The WHO provisional lifetime guideline value for total microcystins (the sum of all congeners, free and cell-bound) in drinking water is 1 µg/L. The value is provisional and rests on data for microcystin-LR alone, the most studied variant (WHO, 2022, chemical fact sheet “Microcystins”, p. 430).',
+      ru: 'В августе 2014 года микроцистин — токсин сине-зелёных водорослей (цианобактерий) в озере Эри — загрязнил водоснабжение города Толедо. Предупреждение «не пить воду» действовало с субботы 2 августа до утра понедельника 4 августа 2014 года и было выпущено для всех потребителей водоочистной станции «Коллинз-Парк», в зоне обслуживания которой в 2010 году проживали 440 552 человека из четырёх округов (CDC, 2016). Мэр снял предупреждение на пресс-конференции 4 августа (PBS NewsHour, 2014). Первое в штате Огайо предупреждение «не пить воду» из-за микроцистина было выпущено в 2013 году в Кэрролл-Тауншипе (Carroll Township) (CDC, 2016). Предварительное руководящее значение ВОЗ при пожизненном потреблении воды для суммы всех вариантов микроцистинов (congeners; свободных в воде и связанных с клетками) в питьевой воде составляет 1 мкг/л. Оно предварительное и опирается на данные только по микроцистину-LR, наиболее изученному варианту (ВОЗ, 2022, факт-лист «Microcystins», с. 430).',
     },
     usedFor: ['a3-water-scarcity', 'a-essay-option'],
     src: [
@@ -84,7 +78,7 @@ export const cases: CaseStudy[] = [
       },
       {
         kind: 'web',
-        title: 'WHO: Guidelines for drinking-water quality, fourth edition incorporating the first and second addenda (2022), chemical fact sheet “Microcystins”, PDF p. 430',
+        title: 'WHO: Guidelines for drinking-water quality, fourth edition incorporating the first and second addenda (2022), chemical fact sheet “Microcystins”, printed p. 430 (fact-sheet PDF p. 1)',
         url: 'https://cdn.who.int/media/docs/default-source/wash-documents/water-safety-and-quality/chemical-fact-sheets-2022/microcystins-fact-sheet-2022.pdf?sfvrsn=e1b5c768_2&download=true',
       },
     ],

@@ -19,7 +19,7 @@ const topic: TopicMeta = {
   ],
   termIds: ['imagery', 'simile', 'anticlimax', 'enjambment', 'onomatopoeia', 'personification', 'tone'],
   questionIds: ['p1-dickinson-fly', 'chk-p1-method-1', 'chk-p1-method-2'],
-  sources: [{ kind: 'own', title: 'Own wording' }],
+  sources: [{ kind: 'own', title: 'Original practice explanation; suggested method, not a mandatory template' }, { kind: 'ib-guide', title: 'IB English A: literature SL Paper 1, November 2025; May 2025 Paper 1 marking notes', locator: 'November candidate instructions (cover); May general marking instructions, printed p. 3' }],
 };
 
 export default topic;

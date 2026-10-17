@@ -30,7 +30,7 @@ export const cases: CaseStudy[] = [
     },
     place: 'Niger',
     scale: 'national',
-    years: '1950–2023',
+    years: '1950–2025',
     lat: 16.0,
     lng: 8.0,
     facts: {
@@ -49,7 +49,7 @@ export const cases: CaseStudy[] = [
     },
     place: 'Japan',
     scale: 'national',
-    years: '1950–2023',
+    years: '1950–2025',
     lat: 36.0,
     lng: 138.0,
     facts: {
@@ -80,14 +80,14 @@ export const cases: CaseStudy[] = [
     },
     place: 'Bangladesh',
     scale: 'national',
-    years: '1975–2023',
+    years: '1975–2025',
     lat: 24.0,
     lng: 90.0,
     facts: {
-      en: 'The total fertility rate fell from 6.7 children per woman in 1975 to 4.5 in 1990 and 2.2 in 2023 (UN WPP 2024). Over the same period the crude birth rate fell from 47.2 to 20.4 per 1000 and the crude death rate from 16.6 to 5.0 per 1000 (UN WPP 2024). Life expectancy at birth rose from 50.6 to 74.7 years (UN WPP 2024). The HDI was 0.685 in 2023 (UNDP, Human Development Report 2025), and GNI per capita was USD 2,840 in 2025 (World Bank, Atlas method). Family planning programmes, wider contraceptive use and rising schooling for girls are the usual explanations for the fall.',
-      ru: 'Суммарный коэффициент рождаемости снизился с 6,7 ребёнка на женщину в 1975 году до 4,5 в 1990 году и 2,2 в 2023 году (UN WPP 2024). За тот же период общий коэффициент рождаемости снизился с 47,2 до 20,4 на 1000 человек, а смертности — с 16,6 до 5,0 на 1000 (UN WPP 2024). Ожидаемая продолжительность жизни при рождении выросла с 50,6 до 74,7 года (UN WPP 2024). ИРЧП был 0,685 в 2023 году (UNDP, Human Development Report 2025), а ВНД на душу населения — 2 840 USD в 2025 году (Всемирный банк, метод Атлас). Обычно это снижение объясняют программами планирования семьи, более широким использованием контрацепции и ростом образования девочек.',
+      en: 'The total fertility rate fell from 6.7 children per woman in 1975 to 4.5 in 1990 and 2.2 in 2023 (UN WPP 2024). Over the same period the crude birth rate fell from 47.2 to 20.4 per 1000 and the crude death rate from 16.6 to 5.0 per 1000 (UN WPP 2024). Life expectancy at birth rose from 50.6 to 74.7 years (UN WPP 2024). The HDI was 0.685 in 2023 (UNDP, Human Development Report 2025), and GNI per capita was USD 2,840 in 2025 (World Bank, Atlas method). These national time series show the decline, not its causal shares. A separate 1990 Matlab survey found contraceptive use of 57% in the treatment area and 27% in the comparison area (Khan, 1996, abstract). This local association is not an estimate of the causes of the entire national decline.',
+      ru: 'Суммарный коэффициент рождаемости снизился с 6,7 ребёнка на женщину в 1975 году до 4,5 в 1990 году и 2,2 в 2023 году (UN WPP 2024). За тот же период общий коэффициент рождаемости снизился с 47,2 до 20,4 на 1000 человек, а смертности — с 16,6 до 5,0 на 1000 (UN WPP 2024). Ожидаемая продолжительность жизни при рождении выросла с 50,6 до 74,7 года (UN WPP 2024). ИРЧП был 0,685 в 2023 году (UNDP, Human Development Report 2025), а ВНД на душу населения — 2 840 USD в 2025 году (Всемирный банк, метод Атлас). Национальные ряды показывают снижение, но не вклад отдельных причин. В отдельном обследовании Матлаба 1990 года контрацепцию использовали 57% опрошенных в зоне программы и 27% — в зоне сравнения (Khan, 1996, аннотация). Эта локальная связь не измеряет причины всего национального снижения.',
     },
     usedFor: ['core-1-1-population-development'],
-    src: sources,
+    src: [...sources, { kind: 'web', title: 'M. A. Khan (1996), Factors affecting use of contraception in Matlab, Bangladesh, J Biosoc Sci 28(3), 265–279; abstract and PIP summary (1990 survey)', url: 'https://pubmed.ncbi.nlm.nih.gov/8698707/' }],
   },
 ];

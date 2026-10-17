@@ -79,7 +79,7 @@ gh variable set S3_BUCKET --repo MWildFire/foma-portal --body "$(terraform outpu
 gh variable set CF_DISTRIBUTION_ID --repo MWildFire/foma-portal --body "$(terraform output -raw distribution_id)"
 ```
 The role trusts only the immutable `sub` of this repo's `main` branch,
-`repo:MWildFire@28848477/foma-portal@1416563569:ref:refs/heads/main` (this repo has immutable subject
+`repo:MWildFire@28848477/foma-portal@1420984463:ref:refs/heads/main` (this repo has immutable subject
 claims, so a name-based `repo:owner/name:...` never matches). Re-check with
 `gh api repos/MWildFire/foma-portal/actions/oidc/customization/sub` and keep `github_oidc_sub_prefix`
 in `variables.tf` equal to its `sub_claim_prefix`.

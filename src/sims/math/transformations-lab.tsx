@@ -30,23 +30,23 @@ const TEXT = {
     label: 'The sine curve and its transformed image',
     base: 'base f(x) = sin x',
     transformed: 'transformed curve',
-    image: 'image of the maximum',
+    image: 'image of the base maximum (may become a minimum)',
     a: 'a: horizontal translation (textbook: c)',
     b: 'b: vertical translation (textbook: d)',
     p: 'p: vertical stretch (textbook: a; negative: reflection in the x-axis)',
-    q: 'q: horizontal stretch, scale factor 1/q (textbook: b)',
-    flip: 'q negative (reflection in the y-axis)',
+    q: 'q: horizontal stretch, scale factor 1/|q| (textbook: b)',
+    flip: 'q negative (reflection in x = a; the y-axis when a = 0)',
   },
   ru: {
     label: 'Синусоида и её преобразованный образ',
     base: 'исходная f(x) = sin x',
     transformed: 'преобразованная кривая',
-    image: 'образ максимума',
+    image: 'образ исходного максимума (может стать минимумом)',
     a: 'a: сдвиг по горизонтали (в учебнике: c)',
     b: 'b: сдвиг по вертикали (в учебнике: d)',
     p: 'p: растяжение по вертикали (в учебнике: a; отрицательное: отражение в оси x)',
-    q: 'q: растяжение по горизонтали, коэффициент 1/q (в учебнике: b)',
-    flip: 'q отрицательно (отражение в оси y)',
+    q: 'q: растяжение по горизонтали, коэффициент 1/|q| (в учебнике: b)',
+    flip: 'q отрицательно (отражение относительно x = a; ось y при a = 0)',
   },
 } as const;
 
@@ -61,7 +61,7 @@ export default function TransformationsLab({ lang }: { lang: Lang }) {
   const q = flip ? -stretch : stretch;
   const imageX = a + Math.PI / 2 / q;
   const imageY = p + b;
-  const formula = `y = ${p.toFixed(1)} sin(${q.toFixed(1)}(x − ${a.toFixed(1)})) + ${b.toFixed(1)}`;
+  const formula = `y = ${p.toFixed(1)} sin(${q.toFixed(1)}(x − (${a.toFixed(1)}))) + (${b.toFixed(1)})`;
 
   return (
     <figure style={{ margin: 0 }}>
@@ -81,6 +81,7 @@ export default function TransformationsLab({ lang }: { lang: Lang }) {
         {formula}
         <br />
         ({imageX.toFixed(2)}, {imageY.toFixed(2)})
+        {(imageX < X_MIN || imageX > X_MAX) && <span> · {lang === 'en' ? 'the image point is outside the displayed x-window' : 'образ точки находится вне показанного окна x'}</span>}
       </figcaption>
       <label style={{ display: 'block', marginTop: 8 }}>
         {t.a}: {a.toFixed(1)}

@@ -19,8 +19,9 @@ const topic: TopicMeta = {
   termIds: ['stage-directions', 'dramatic-irony', 'narrator', 'theme', 'juxtaposition', 'symbol', 'motif', 'foil'],
   questionIds: ['p2-pair-1', 'p2-pair-2', 'p2-pair-3', 'p2-q02', 'p2-q06', 'p2-q09', 'p2-q10', 'p2-q11', 'p2-q15'],
   sources: [
+    { kind: 'web', title: 'Krakauer, Into the Wild: school-hosted early-text transcription; Author’s Note, ch. 12 opening/El Segundo, ch. 14–15, ch. 18 and Epilogue (versions differ)', url: 'https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/689/Willingboro_High_School/3f800c0e-3a49-48c2-9a88-5d75427c54d7/Into_The_Wild.pdf?disposition=inline' },
     { kind: 'web', title: 'Folger Shakespeare: Much Ado About Nothing (act.scene.line)', url: 'https://www.folger.edu/explore/shakespeares-works/much-ado-about-nothing/read/' },
-    { kind: 'web', title: 'Into the Wild by Jon Krakauer, Penguin Random House', url: 'https://www.penguinrandomhouse.com/books/95440/into-the-wild-by-jon-krakauer/9780385486804' },
+    { kind: 'web', title: 'Into the Wild by Jon Krakauer, Penguin Random House', url: 'https://www.penguinrandomhouse.com/books/95440/into-the-wild-by-jon-krakauer/' },
     { kind: 'web', title: 'Into the Wild, SparkNotes: Chapter 3', url: 'https://www.sparknotes.com/lit/into-the-wild/section2/' },
     { kind: 'web', title: 'Into the Wild, SparkNotes: Chapters 6 & 7', url: 'https://www.sparknotes.com/lit/into-the-wild/section4/' },
     { kind: 'web', title: 'Into the Wild, SparkNotes: Chapters 12 & 13', url: 'https://www.sparknotes.com/lit/into-the-wild/section7/' },

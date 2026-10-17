@@ -14,7 +14,7 @@ const axes = {
   yMax: 12,
   xLabel: { en: 'Unemployment (%)', ru: 'Безработица (%)' },
   yLabel: { en: 'Inflation (%)', ru: 'Инфляция (%)' },
-  xTicks: ticks([2, 4, 6, 8]),
+  xTicks: [...ticks([2, 8]), { value: 5, label: { en: '5 (NRU)', ru: '5 (ЕУ)' } }],
   yTicks: ticks([2, 4, 6, 8, 10]),
 };
 
@@ -27,7 +27,7 @@ const steps: Step[] = [
     title: { en: 'Trade-off in the short run', ru: 'Компромисс в краткосрочном периоде' },
     text: {
       en: 'The short-run Phillips curve (SRPC1, expected inflation 3%) slopes down: lower unemployment comes with higher inflation. At 4% unemployment inflation is 4% (A); at 6% it is 2% (B).',
-      ru: 'Краткосрочная кривая Филлипса (short-run Phillips curve, SRPC1, ожидаемая инфляция 3%) идёт вниз: при более низкой безработице инфляция выше. При безработице 4% инфляция равна 4% (A); при 6% она равна 2% (B).',
+      ru: 'Краткосрочная кривая Филлипса (short-run Phillips curve, SRPC1, ожидаемая инфляция 3%) идёт вниз; ЕУ — естественный уровень безработицы (5% в модели). При более низкой безработице инфляция выше. При безработице 4% инфляция равна 4% (A); при 6% она равна 2% (B).',
     },
     graph: {
       ...axes,

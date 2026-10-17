@@ -33,8 +33,8 @@ export const terms: Term[] = [
     id: 'function-graph-stretch',
     term: { en: 'stretch with scale factor', ru: 'растяжение с коэффициентом (stretch with scale factor)' },
     def: {
-      en: 'A transformation that multiplies distances from an axis by a fixed factor. $y = p f(x)$ is a vertical stretch by factor $p$, parallel to the $y$-axis. $y = f(qx)$ is a horizontal stretch by factor $\\frac{1}{q}$, parallel to the $x$-axis.',
-      ru: 'Преобразование, которое умножает расстояния от оси на постоянный коэффициент. $y = p f(x)$ — вертикальное растяжение с коэффициентом $p$, параллельно оси $y$. $y = f(qx)$ — горизонтальное растяжение с коэффициентом $\\frac{1}{q}$, параллельно оси $x$.',
+      en: 'For positive p and q, a transformation that multiplies distances from an axis by a fixed factor. Negative multipliers additionally reflect; the distance scale factors are |p| and1/|q|, not negative distances. $y = p f(x)$ is a vertical stretch by factor $p$, parallel to the $y$-axis. $y = f(qx)$ is a horizontal stretch by factor $\\frac{1}{q}$, parallel to the $x$-axis.',
+      ru: 'При положительных p и q преобразование умножает расстояния от оси на постоянный коэффициент. Отрицательные множители добавляют отражение; коэффициенты расстояний равны |p| и1/|q|, а не отрицательным величинам. $y = p f(x)$ — вертикальное растяжение с коэффициентом $p$, параллельно оси $y$. $y = f(qx)$ — горизонтальное растяжение с коэффициентом $\\frac{1}{q}$, параллельно оси $x$.',
     },
     syllabus: '2.8',
     papers: ['P1', 'P2', 'P3'],
@@ -48,8 +48,8 @@ export const terms: Term[] = [
     id: 'function-graph-image-point',
     term: { en: 'image of a point under a transformation', ru: 'образ точки при преобразовании (image of a point under a transformation)' },
     def: {
-      en: 'The point to which a point of the original graph is moved. For $y = p f(q(x - a)) + b$, the point $(x, y)$ of $y = f(x)$ maps to $\\left(a + \\frac{x}{q}, py + b\\right)$.',
-      ru: 'Точка, в которую переходит точка исходного графика. Для $y = p f(q(x - a)) + b$ точка $(x, y)$ графика $y = f(x)$ переходит в точку $\\left(a + \\frac{x}{q}, py + b\\right)$.',
+      en: 'The point to which a point of the original graph is moved. For $q\\neq0$ in $y=pf(q(x-a))+b$, the point $(x, y)$ of $y = f(x)$ maps to $\\left(a + \\frac{x}{q}, py + b\\right)$.',
+      ru: 'Точка, в которую переходит точка исходного графика. При $q\\neq0$ для $y=pf(q(x-a))+b$ точка $(x, y)$ графика $y = f(x)$ переходит в точку $\\left(a + \\frac{x}{q}, py + b\\right)$.',
     },
     syllabus: '2.8',
     papers: ['P1', 'P2', 'P3'],

@@ -2,10 +2,8 @@ import type { Term } from '../../../../src/contract/types';
 import { BOOK_TITLE } from '../../book';
 
 const source = {
-  kind: 'web' as const,
-  title: 'IB Mathematics AI, first assessment 2021: public summary, not checked against the official guide',
-  locator: 'sub-topic 4.16',
-  url: 'https://www.ibo.org/globalassets/new-structure/university-admission/pdfs/dp-mathematics-applications-and-interpretation-guide-en.pdf',
+  kind: 'own' as const,
+  title: 'Author derivation: half the difference of the displayed symmetric interval endpoints / Авторский вывод: половина разности границ указанного симметричного интервала',
 };
 
 export const terms: Term[] = [
@@ -28,8 +26,8 @@ export const terms: Term[] = [
     id: 'confidence-level',
     term: { en: 'confidence level', ru: 'уровень доверия (confidence level)' },
     def: {
-      en: 'The percentage, such as 95%, that describes how often the method captures the population mean in repeated samples. A higher confidence level gives a wider interval.',
-      ru: 'Процент, например 95%, показывающий, как часто метод при повторных выборках накрывает среднее генеральной совокупности. Более высокий уровень доверия даёт более широкий интервал.',
+      en: 'The percentage, such as 95%, that describes how often the method captures the population mean in repeated samples. For the same data and method, a higher confidence level gives a wider interval.',
+      ru: 'Процент, например 95%, показывающий, как часто метод при повторных выборках накрывает среднее генеральной совокупности. Для тех же данных и метода более высокий уровень доверия даёт более широкий интервал.',
     },
     syllabus: '4.16',
     papers: ['P1', 'P2', 'P3'],
@@ -58,8 +56,8 @@ export const terms: Term[] = [
     id: 't-distribution-df',
     term: { en: 'Student t-distribution with n - 1 degrees of freedom', ru: 'распределение Стьюдента (t) с n − 1 степенями свободы (Student t-distribution with n - 1 degrees of freedom)' },
     def: {
-      en: 'The distribution used for the mean of a normal population when $\\sigma$ is unknown and is replaced by $s_{n-1}$. It has heavier tails than the normal distribution and approaches it as $n$ grows.',
-      ru: 'Распределение, которое используют для среднего нормальной совокупности, когда $\\sigma$ неизвестна и заменяется на $s_{n-1}$. Его хвосты тяжелее, чем у нормального распределения; при росте $n$ оно приближается к нему.',
+      en: 'The distribution of the standardised statistic $(\\bar{X}-\\mu)/(s_{n-1}/\\sqrt{n})$ from independent normal observations, n>1, when $\\sigma$ is unknown and is replaced by $s_{n-1}$. The sample mean itself remains normal; it is this statistic that has the t distribution. It has heavier tails than the standard normal distribution and approaches it as $n$ grows.',
+      ru: 'Распределение стандартизованной статистики $(\\bar{X}-\\mu)/(s_{n-1}/\\sqrt{n})$ для независимых нормальных наблюдений при n>1, когда $\\sigma$ неизвестна и заменяется на $s_{n-1}$. Само выборочное среднее остаётся нормальным; t-распределение имеет именно эта статистика. Её хвосты тяжелее, чем у стандартного нормального распределения; при росте $n$ оно приближается к нему.',
     },
     syllabus: '4.16',
     papers: ['P1', 'P2', 'P3'],

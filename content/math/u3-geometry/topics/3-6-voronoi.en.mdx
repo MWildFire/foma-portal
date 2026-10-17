@@ -1,72 +1,70 @@
 ## Big idea
 
-A Voronoi diagram shares a plane among a set of sites. Each point belongs to the site it is nearest to, so the diagram shows the territory of every site and exactly where neighbouring territories meet.
+A Voronoi diagram assigns points to their nearest sites using a stated distance rule. Here distances are straight-line Euclidean distances and sites are distinct. Boundary points have ties, so closed cells share their boundaries.
 
 ## Explanation
 
-Sites can be towns, weather stations, shops or trees. The <Term id="voronoi-diagram"/> splits the plane into cells, one per site. A point belongs to the cell of its nearest site, which is found by comparing distances: the distance from the point to that site must be no more than its distance to every other site.
+<Term id="voronoi-diagram"/>
+
+The closed cell of site $S_i$ contains every point $P$ satisfying $d(P,S_i)\le d(P,S_j)$ for every other site $S_j$. An interior point has one nearest site; a boundary point may have several.
 
 <Formula id="voronoi-nearest-site-rule"/>
 
-Distances are straight-line distances between the point and the site:
-
-$$
-d(P, S) = \sqrt{(x - a)^{2} + (y - b)^{2}}
-$$
+For $P(x,y)$ and $S(a,b)$:
 
 <Formula id="site-distance-formula"/>
 
-Two neighbouring cells share a boundary called a <Term id="voronoi-edge"/>. Every point on an edge is equally far from its two sites, so the edge lies on the perpendicular bisector of the segment joining them. For sites $(x_1, y_1)$ and $(x_2, y_2)$ the edge is the line
-
-$$
-(x_2 - x_1)\,x + (y_2 - y_1)\,y = \tfrac{1}{2}\left(x_2^{2} + y_2^{2} - x_1^{2} - y_1^{2}\right)
-$$
+A <Term id="voronoi-edge"/> lies on the perpendicular bisector of two sites, but only the part where those sites are at least as close as all the others is an edge. The whole construction line need not be a cell boundary. Squaring equal distances and cancelling gives
 
 <Formula id="voronoi-edge-equation"/>
 
-Where three or more edges meet is a <Term id="voronoi-vertex"/>. It is equally far from the three sites it is linked to, so it is the circumcentre of the triangle they form.
+A <Term id="voronoi-vertex"/> is equally far from three or more nearest sites; no other site is closer. For three noncollinear sites it is their circumcentre. A circumcentre of an arbitrary triple in a larger set need not be a Voronoi vertex: another site may lie closer. Three collinear sites have no finite circumcentre.
 
-Adding a new site changes only the cells near it. Its new cell is bounded by the bisectors between the new site and its neighbours. Some old edges are shortened or removed, and the other cells stay the same.
+When a distinct site is added, its cell takes precisely the points where it becomes nearest or tied for nearest. Old cells can shrink, edges can be shortened or removed, and cells it does not cut remain unchanged. “Nearby” alone is not a numerical test: compare distances.
 
-<Term id="nearest-neighbour-interpolation"/> uses the same cells to estimate a value at a point, for example a temperature between two stations. The estimate copies the value at the nearest site, so every point in a cell takes the value of the site that owns it.
+<Term id="nearest-neighbour-interpolation"/> copies the reading at a nearest site. At a tie, report the tied sites and specify a selection rule if one estimate is required. This does not automatically mean averaging the readings. Predictions can jump between cells with different readings; adjacent cells with equal readings need not have a jump.
 
 <Formula id="nearest-neighbour-estimate"/>
 
-<Callout kind="define">Voronoi diagram: a partition of the plane into cells, one for each site. Each cell holds the points that are nearer to its site than to any other site.</Callout>
-
-<Callout kind="gdc">For the nearest site, type each distance with `sqrt(`, or open Home → Lists & Spreadsheet, enter the coordinates in named columns and use a formula cell to get every distance at once. For a vertex, open Menu → Algebra → Solve System of Linear Equations on a Calculator page and enter the two bisector equations.</Callout>
+<Callout kind="gdc">Compare distances with `sqrt(`, or compare their squares, which gives the same ordering for nonnegative distances. Find a candidate vertex by solving two bisector equations, then check distances to every site.</Callout>
 
 ## Worked example
 
-Stations at (0, 0), (5, 0) and (2, 6) record 10 °C, 14 °C and 8 °C. Estimate the temperature at Q(3, 2) by nearest-neighbour interpolation.
+Stations at $(0,0)$, $(5,0)$ and $(2,6)$ record $10$, $14$ and $8$ °C. Estimate the temperature at $Q(3,2)$.
 
 <Steps>
-<Step>Distances from Q: to (0, 0), $\sqrt{13} = 3.61$; to (5, 0), $\sqrt{8} = 2.83$; to (2, 6), $\sqrt{17} = 4.12$.</Step>
-<Step>The smallest distance is 2.83, to the station at (5, 0), so Q lies in its cell. The estimate is 14 °C.</Step>
-<Step>Check with the edge between (0, 0) and (5, 0), which is the line $x = 2.5$. Since $x = 3$ is greater than 2.5, Q lies on the (5, 0) side of that edge.</Step>
+<Step>The squared distances are $13$, $8$ and $17$ respectively; their square roots are approximately $3.61$, $2.83$ and $4.12$.</Step>
+<Step>The nearest station is $(5,0)$, so the nearest-neighbour estimate is $14$ °C.</Step>
+<Step>The bisector of $(0,0)$ and $(5,0)$ is $x=2.5$, and Q is on the second station's side. That pairwise check alone would not rule out the third station; the three-distance comparison does.</Step>
 </Steps>
 
-<Reveal title="Why must the best dump site be a vertex?">Inside one cell, the distance to the cell's site grows as you move away from that site, so the largest distance is reached on the cell's boundary. Along an edge, the distance to its two sites grows towards the ends of the edge, so the largest distance is reached at a vertex.</Reveal>
+### Choosing a site far from the existing sites
+
+Maximise the distance to the nearest site, not to a convenient single site. State the allowed location region first. If the question permits only listed vertices, compare those candidates as in q-3-6-03. That conclusion is restricted to the permitted candidates.
+
+For a closed bounded convex polygon, also consider the polygon's corners and the intersections of its boundary with Voronoi edges, as well as Voronoi vertices inside it. In each clipped cell the nearest-site distance is distance to that cell's site; a maximum occurs at a vertex of the clipped polygon. The boundary therefore cannot be discarded. If the entire unbounded plane is allowed and the set of sites is finite, moving sufficiently far away makes the nearest-site distance arbitrarily large: there is no finite global best point.
+
+<Reveal title="Counterexample: must the best location be an internal Voronoi vertex?">No. Put sites at A(2,2), B(8,2), C(5,8), and allow the square $0\le x,y\le10$. Their vertex is $(5,4.25)$, at distance $3.75$ from each site. At the allowed corner $(0,10)$, the nearest site is C, at distance $\sqrt{29}\approx5.39$, which is greater. This already disproves the internal-vertex claim; finding the global optimum would require comparing all allowed candidates.</Reveal>
 
 ## Visual
 
 <Sim id="math.voronoi-lab"/>
 
-Move the sliders to place the three sites. The shaded areas show the nearest site for each small square, the dashed lines are the perpendicular bisectors, and the red dot is the circumcentre of the three sites, a Voronoi vertex. Move the probe point to see which site is nearest to it and how far away that site is.
+Move the sliders for the three sites and probe. Shading approximates the nearest-site cells with small squares. Dashed lines are complete construction bisectors, including portions that are not edges. For three noncollinear sites the red dot is their circumcentre and Voronoi vertex; it may be outside the displayed map. For collinear sites there is no finite vertex. The displayed square is a view window, not an automatically stated location constraint.
 
 ## How it is examined
 
-Find and Determine questions reward each distance calculated, the comparison that picks the nearest site, and the final value. For a dump site, compare the distance from each candidate vertex to its nearest site, then state the chosen vertex with its coordinates. Interpolation questions need the nearest site named and its value taken as the estimate, not an average of the sites.
+Show distances or squared distances, compare them and identify the nearest site before copying its reading. For a candidate vertex check equality and ensure no other site is closer. For a location problem state the allowed candidates or boundary and maximise the nearest-site distance over them. Exact marks depend on the question.
 
-<Callout kind="exam">Name the nearest site and its distance before you give an estimate. Without the comparison, the reasoning mark is lost.</Callout>
+<Callout kind="exam">Equal distances to two sites only establish their bisector. Other sites can prevent that point from belonging to their Voronoi edge.</Callout>
 
 ## Common mistakes
 
-<Callout kind="mistake">Treating the midpoint of two sites as a Voronoi vertex. A vertex needs three sites, and the midpoint lies on a single edge.</Callout>
-
-- Choosing the nearest site by eye and skipping the distance calculation. Boundaries are rarely where they look.
-- Choosing the vertex closest to the sites for a dump. The dump must be as far away as possible, so take the largest of the nearest-site distances.
-- Drawing nearest-neighbour interpolation as a smooth curve. The estimate jumps where the cell boundaries are.
+- Using the full perpendicular bisector as an edge without checking the other sites.
+- Assuming any midpoint is a vertex, or assuming a midpoint can never be a vertex. With A(-1,0), B(1,0), C(0,1), their midpoint $(0,0)$ is equidistant from all three and is a vertex.
+- Choosing the largest distance to one site instead of the largest nearest-site distance.
+- Ignoring an allowed boundary when locating a facility.
+- Treating a boundary tie as a unique nearest station without a rule.
 
 ## Check yourself
 
@@ -78,10 +76,7 @@ Find and Determine questions reward each distance calculated, the comparison tha
 
 ## Summary
 
-- A Voronoi diagram splits the plane into cells, one per site, each holding the points nearest to that site.
-- A point belongs to the cell of the site with the smallest distance to it.
-- Each edge lies on the perpendicular bisector of the segment joining two neighbouring sites.
-- A vertex is equally far from three sites, so it is the circumcentre of their triangle.
-- Adding a site changes only the cells near it.
-- Nearest-neighbour interpolation copies the value of the nearest site, which gives a stepped estimate.
-- For a toxic waste dump, use the vertex with the largest distance to its nearest site.
+- A closed cell contains points at least as close to its site as to every other site; boundaries have ties.
+- Edges are appropriate portions of bisectors; vertices have at least three nearest sites and an empty interior circumcircle.
+- Nearest-neighbour interpolation copies a reading; tie handling must be specified.
+- A farthest-location problem needs a stated allowed region or candidate set. Boundary candidates can matter.

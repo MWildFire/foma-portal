@@ -13,7 +13,7 @@ const topic: TopicMeta = {
   outcomes: [
     {
       en: 'I can define a trial, an outcome, the sample space and an event, and check that outcomes are equally likely',
-      ru: 'Могу определить испытание, исход, пространство выборки и событие и проверить, что исходы равновероятны',
+      ru: 'Могу определить испытание, исход, пространство элементарных исходов и событие и проверить, что исходы равновероятны',
     },
     {
       en: 'I can find P(A) = n(A)/n(U) and the probability of the complement, P(A′) = 1 − P(A)',
@@ -27,7 +27,7 @@ const topic: TopicMeta = {
   termIds: ['sample-space-probability', 'equally-likely-outcomes', 'complementary-event', 'expected-number-of-occurrences'],
   formulaIds: ['classical-probability-formula', 'complementary-probability-formula', 'expected-occurrences-formula'],
   sims: [],
-  questionIds: ['q-4-5-01', 'q-4-5-02', 'q-4-5-03'],
+  questionIds: ['q-4-5-01', 'q-4-5-02', 'q-4-5-03', 'r06-probability-diagrams'],
   sources: [
     {
       kind: 'web',

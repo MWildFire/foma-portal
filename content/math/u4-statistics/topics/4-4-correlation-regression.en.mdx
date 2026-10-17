@@ -4,13 +4,13 @@ Correlation measures how closely two numerical variables follow a straight line.
 
 ## Explanation
 
-A scatter diagram plots each pair $(x, y)$ as a point. First look at the pattern: is it roughly a straight line, and does $y$ tend to rise or fall as $x$ rises? The <Term id="pearson-r-coefficient"/> summarises the strength and direction of a linear pattern. It always lies between $-1$ and $1$ and is calculated with the <Formula id="pearson-product-moment-r"/>.
+A scatter diagram plots each pair $(x, y)$ as a point. First look at the pattern: is it roughly a straight line, and does $y$ tend to rise or fall as $x$ rises? The <Term id="pearson-r-coefficient"/> summarises the strength and direction of a linear pattern. When both variables have nonzero variation, it lies between $-1$ and $1$ and is calculated with the <Formula id="pearson-product-moment-r"/>.
 
 <Callout kind="gdc">Enter the $x$-values and the $y$-values in two named columns of a Lists & Spreadsheet page. On a Calculator page choose `Menu → Statistics → Stat Calculations → Linear Regression (mx+b)`, set X List and Y List, and read `m` (the gradient $a$), `b` and `r`. `Two-Variable Statistics` in the same menu also gives `r`.</Callout>
 
 The <Term id="regression-line-y-on-x"/> predicts $y$ from $x$. It is written $y = ax + b$, where $a$ is the gradient and $b$ is the intercept. Its gradient can also be found from $r$ and the standard deviations, using <Formula id="regression-line-slope-intercept"/>.
 
-The line always passes through the <Term id="mean-point-regression"/>. Substituting $\bar{x}$ into the equation gives $\bar{y}$, as <Formula id="regression-line-mean-point"/> states. Use this to check your answer by hand.
+For ordinary least squares with an intercept and nonconstant x, the line passes through the <Term id="mean-point-regression"/>. Substituting $\bar{x}$ into the equation gives $\bar{y}$, as <Formula id="regression-line-mean-point"/> states. Use this to check your answer by hand.
 
 <Callout kind="define">Regression line of $y$ on $x$: the least-squares straight line $y = ax + b$ that minimises the sum of squared vertical distances from the points, used to predict $y$ from $x$.</Callout>
 
@@ -24,23 +24,21 @@ A gardener gives five plants different masses of fertiliser, $x$ grams, and reco
 <Step>The correlation is $r = 0.986$, a strong positive linear relationship. For $x = 9$, the prediction is $\hat{y} = 1.55 \times 9 + 1.90 = 15.85$ cm.</Step>
 </Steps>
 
-<Reveal title="Why check the mean point?">Put $x = 6$ into the line: $1.55 \times 6 + 1.90 = 11.2$, which equals $\bar{y}$. If it does not, the values were entered or rounded wrongly.</Reveal>
+<Reveal title="Why check the mean point?">Put $x = 6$ into the line: $1.55 \times 6 + 1.90 = 11.2$, which equals $\bar{y}$. A mismatch may indicate entry, rounding or equation-selection errors; this mean-point identity applies to least squares with an intercept, not every regression convention.</Reveal>
 
 ## Visual
 
 <Sim id="math.regression-lab"/>
 
-The lab opens on the plants data and the linear model. The red bars are residuals: the vertical gaps between each point and the line. The least-squares line makes the sum of their squares as small as possible. Move the sliders to draw your own line: its sum of squared residuals is larger than the least-squares value, and the best line passes through the mean point.
+The lab opens on the plants data and the linear model. The red bars are residuals: the vertical gaps between each point and the line. The least-squares line makes the sum of their squares as small as possible. Move the sliders to draw your own line: its sum of squared residuals cannot be smaller for the same data and output scale (equality is possible if you select the fitted line), and the best line passes through the mean point.
 
 ## How it is examined
 
-Calculate and Find questions give marks for the method (the GDC or the formula), for each value to the required accuracy, and for the final equation. Describe and Comment questions need a statement linked to the context: the strength and direction of the link, and whether a prediction can be trusted. Read how many decimal places the question asks for, and give exactly that.
-
-<Callout kind="exam">Write the equation as $y = ax + b$ with the values of $a$ and $b$ that were asked for, and name the variables: $y$ is the variable you predict.</Callout>
+For Find, give the regression direction, coefficients and requested accuracy. Keep full coefficients for predictions. For Interpret, give the slope with response units per explanatory-variable unit. For Comment, refer to the scatterplot, outliers and interpolation or extrapolation; correlation alone does not establish causation.
 
 ## Common mistakes
 
-<Callout kind="mistake">Swapping $x$ and $y$ in the GDC lists: the regression of $y$ on $x$ is a different line from the regression of $x$ on $y$.</Callout>
+<Callout kind="mistake">Swapping $x$ and $y$ in the GDC lists: the two regressions generally differ; with perfect nonzero linear correlation they describe the same geometric line.</Callout>
 
 - Reading $b$ as the gradient. The gradient is $a$, and $b$ is the intercept where the line crosses the $y$-axis.
 - Predicting $y$ for an $x$ outside the data range without a warning. Such an extrapolation is less reliable.
@@ -56,9 +54,9 @@ Calculate and Find questions give marks for the method (the GDC or the formula),
 
 ## Summary
 
-- Pearson's $r$ measures the strength and direction of a linear relationship; it lies between $-1$ and $1$.
+- Pearson's r measures linear association and lies in[-1,1] when both variables vary; it is undefined if either variable is constant.
 - The regression line of $y$ on $x$ is $y = ax + b$, with $a = r\,s_y/s_x$ and $b = \bar{y} - a\bar{x}$.
-- The regression line always passes through the mean point $(\bar{x}, \bar{y})$.
+- The ordinary least-squares line with an intercept and nonconstant x passes through the mean point $(\bar{x}, \bar{y})$.
 - Use the line to predict $y$ from $x$ inside the data range, and say when a prediction is an extrapolation.
 - Correlation does not show cause: say so when a question asks about cause.
 - Check the decimal places and the order of the variables in every answer.

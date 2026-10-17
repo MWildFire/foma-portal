@@ -1,3 +1,4 @@
+import ReadableDiagram from '../readable-diagram';
 import { useState } from 'react';
 import type { Lang } from '../../contract/types';
 import { BANDS, CENTRE, GAP, MAX_BAR, barLength, bandForRow, femaleBarX, maleBarX, sharesOf } from './core-population-pyramid-logic';
@@ -31,16 +32,16 @@ const STAGES: { en: string; ru: string; note: { en: string; ru: string } }[] = [
     en: '4 Low stationary',
     ru: '4. Низкий стационар',
     note: {
-      en: 'Birth and death rates are both low and the population is almost stable. The middle and older bands are wider than the base.',
-      ru: 'Рождаемость и смертность низкие, население почти стабильно. Средние и старшие группы шире основания.',
+      en: 'In the stage-4 schematic, birth and death rates are low. Several middle-aged bands are wider than the base; total growth also depends on migration.',
+      ru: 'На условной стадии 4 рождаемость и смертность низкие. Несколько средних возрастных групп шире основания; общий рост зависит и от миграции.',
     },
   },
   {
     en: '5 Declining',
     ru: '5. Сокращение',
     note: {
-      en: 'The birth rate is at or below the death rate, so the population falls or ages quickly. The top of the pyramid is wider than the base.',
-      ru: 'Рождаемость на уровне смертности или ниже её, поэтому население сокращается или быстро стареет. Вершина шире основания.',
+      en: 'The stage-5 schematic represents low fertility and an older age structure. Deaths above births imply natural decrease, but net migration can offset it. The open-ended 80+ band is not directly comparable with a ten-year band.',
+      ru: 'Условная стадия 5 показывает низкую рождаемость и более старую возрастную структуру. Превышение смертей над рождениями означает естественную убыль, но её может компенсировать миграция. Открытую группу 80+ нельзя напрямую сравнивать с десятилетним интервалом.',
     },
   },
 ];
@@ -82,7 +83,7 @@ export default function PopulationPyramid({ lang }: { lang: Lang }) {
           </button>
         ))}
       </div>
-      <svg role="img" aria-label={title} viewBox={`0 0 ${WIDTH} ${HEIGHT}`} width="100%" style={{ maxWidth: 420, display: 'block' }}>
+      <ReadableDiagram lang={lang}><svg role="img" aria-label={title} viewBox={`0 0 ${WIDTH} ${HEIGHT}`} width="100%" style={{ maxWidth: 420, display: 'block' }}>
         <text x={CENTRE - GAP - MAX_BAR / 2} y={20} textAnchor="middle" fontSize="13" fill="currentColor">
           {ru ? 'Мужчины' : 'Male'}
         </text>
@@ -113,12 +114,12 @@ export default function PopulationPyramid({ lang }: { lang: Lang }) {
         <text x={CENTRE} y={HEIGHT - 6} textAnchor="middle" fontSize="11" fill="currentColor">
           {ru ? 'Доля в общем населении, %' : 'Share of the total population, %'}
         </text>
-      </svg>
+      </svg></ReadableDiagram>
       <p style={{ marginTop: 12 }}>{STAGES[stage].note[lang]}</p>
       <p style={{ fontSize: 13, opacity: 0.8 }}>
         {ru
-          ? 'Формы условные: это не данные конкретной страны. Группы по 10 лет (в реальных таблицах обычно по 5), мужчины и женщины в каждой группе равны — это упрощение. Для реальных стран смотрите UN World Population Prospects 2024.'
-          : 'The shapes are illustrative, not data for one country. Bands are 10 years wide (real tables usually use 5), and men and women are equal in each band: a simplification. For real countries, see UN World Population Prospects 2024.'}
+          ? 'Формы условные: это не данные страны и не прогноз. По одной пирамиде нельзя определить коэффициенты рождаемости и смертности или причины размеров когорт: важны миграция, прошлые рождения и дожитие. Группы по 10 лет (в реальных таблицах обычно по 5), мужчины и женщины в каждой группе равны — это упрощение. Для реальных стран смотрите UN World Population Prospects 2024.'
+          : 'The shapes are illustrative, not country data or a projection. A single pyramid does not determine birth/death rates or the causes of cohort sizes; migration, past births and survival also matter. Bands are 10 years wide (real tables usually use 5), and men and women are equal in each band: a simplification. For real countries, see UN World Population Prospects 2024.'}
       </p>
     </div>
   );

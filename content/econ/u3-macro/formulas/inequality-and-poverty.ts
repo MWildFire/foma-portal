@@ -6,12 +6,12 @@ export const formulas: Formula[] = [
     tex: 'G = \\dfrac{A}{A + B}',
     name: { en: 'Gini coefficient', ru: 'Коэффициент Джини' },
     meaning: {
-      en: 'Area A (between the line of equality and the Lorenz curve) divided by the total area under the line of equality, A + B. It ranges from 0 (perfect equality) to 1 (perfect inequality).',
-      ru: 'Площадь A (между линией равенства и кривой Лоренца), делённая на общую площадь под линией равенства, A + B. Значения от 0 (полное равенство) до 1 (полное неравенство).',
+      en: 'Area A (between the line of equality and the Lorenz curve) divided by the total area under the line of equality, A + B. Zero denotes equality; one is the ideal limit of concentration. For N equally weighted observations, the uncorrected finite-sample maximum is (N−1)/N.',
+      ru: 'Площадь A (между линией равенства и кривой Лоренца), делённая на общую площадь под линией равенства, A + B. Ноль означает равенство, единица — идеальный предел концентрации. Для N наблюдений с равными весами максимум Джини без поправки равен (N−1)/N.',
     },
     when: {
-      en: 'Any question that gives the areas of a Lorenz curve, or asks for the Gini coefficient before and after a policy.',
-      ru: 'Любой вопрос, в котором даны площади на кривой Лоренца или нужно найти коэффициент Джини до и после политики.',
+      en: 'The school Lorenz model assumes nonnegative incomes and a positive total. Use a common population and definition for policy comparisons; crossing curves can have different Ginis without Lorenz dominance.',
+      ru: 'Школьная модель Лоренца предполагает неотрицательные доходы и положительную общую сумму. Для сравнения политики нужны общая совокупность и определение дохода; при пересечении кривых различие Джини не доказывает доминирования по Лоренцу.',
     },
     syllabus: '3.4',
     units: 'ratio (0 to 1)',

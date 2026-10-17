@@ -10,8 +10,8 @@ export const formulas: Formula[] = [
       ru: 'Выборочное среднее плюс-минус $z^{*}$ стандартных ошибок, где $z^{*}$ — критическое значение для уровня доверия.',
     },
     when: {
-      en: 'A normal population with known σ, or any population with a large sample (central limit theorem).',
-      ru: 'Нормальная совокупность с известной σ или любая совокупность при большой выборке (центральная предельная теорема).',
+      en: 'Sigma must be known in both cases; use independent observations and a finite variance. A normal population with known σ, or any population with a large sample (central limit theorem).',
+      ru: 'В обоих случаях σ должна быть известна; нужны независимые наблюдения и конечная дисперсия. Нормальная совокупность с известной σ или любая совокупность при большой выборке (центральная предельная теорема).',
     },
     syllabus: '4.16',
     inBooklet: false,
@@ -29,8 +29,8 @@ export const formulas: Formula[] = [
       ru: 'Выборочное среднее плюс-минус $t^{*}$ оценённых стандартных ошибок, где $t^{*}$ имеет $\\nu = n - 1$ степеней свободы.',
     },
     when: {
-      en: 'A normal population with σ unknown, estimated by $s_{n-1}$ from the sample.',
-      ru: 'Нормальная совокупность с неизвестной σ, которую оценивают по выборке через $s_{n-1}$.',
+      en: 'Requires an independent random sample, n>1, s>0. A normal population with σ unknown, estimated by $s_{n-1}$ from the sample.',
+      ru: 'Нужна независимая случайная выборка, n>1, s>0. Нормальная совокупность с неизвестной σ, которую оценивают по выборке через $s_{n-1}$.',
     },
     syllabus: '4.16',
     inBooklet: false,
@@ -48,8 +48,8 @@ export const formulas: Formula[] = [
       ru: 'Наименьший объём выборки n, при котором погрешность не превышает E, если σ известна.',
     },
     when: {
-      en: 'Planning a sample before collecting data, when σ is known from earlier studies.',
-      ru: 'Планирование выборки до сбора данных, когда σ известна по предыдущим исследованиям.',
+      en: 'Round n upwards to an integer; requires E>0 and the same normal/large-sample, independent-sampling assumptions as the z interval. Planning a sample before collecting data, when σ is known from earlier studies.',
+      ru: 'Округли n вверх до целого; требуется E>0 и те же условия нормальности/большой выборки и независимости, что для z-интервала. Планирование выборки до сбора данных, когда σ известна по предыдущим исследованиям.',
     },
     syllabus: '4.16',
     inBooklet: false,

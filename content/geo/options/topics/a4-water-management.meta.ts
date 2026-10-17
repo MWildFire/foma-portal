@@ -70,6 +70,11 @@ const topic: TopicMeta = {
   questionIds: ['a4-sq1', 'a4-sq2', 'a4-sq3', 'a4-eq1', 'a4-eq2'],
   caseIds: ['a-uae-desalination', 'a-singapore-four-taps', 'a-gerd-nile', 'a-indus-treaty', 'a-snwtp-china', 'a-ogallala-aquifer'],
   sources: [
+    { kind: 'web', title: 'НИЦ МКВК, Возвратные воды', url: 'https://www.cawater-info.net/bk/1-4.htm', locator: 'Определения сбросных и дренажных вод; качество и возможность повторного использования' },
+    {"kind": "web", "title": "UAE Ministry of Energy and Infrastructure, Water Security is a National Priority for the UAE, 23 March 2025", "url": "https://www.moei.gov.ae/en/media-center/news/23/3/2025/water-security-is-a-national-priority-for-the-uae", "locator": "Combined non-conventional supply, wastewater-treatment capacity and 2036 demand/reuse targets"},
+    {"kind": "web", "title": "PUB, Singapore’s Water Loop, updated 22 April 2026", "url": "https://www.pub.gov.sg/Public/WaterLoop", "locator": "Managing Our Water Demand; Singapore’s Water Loop; four sources"},
+    {"kind": "web", "title": "Alliance for Water Efficiency, IWA/AWWA water-balance methodology", "url": "https://allianceforwaterefficiency.org/resource/water-audit/", "locator": "Water Balance Terms and Definitions: real/apparent losses, authorised use, non-revenue water"},
+    {"kind": "web", "title": "FAO, Guidance on realizing real water savings with crop water productivity interventions (2021)", "url": "https://www.fao.org/family-farming/detail/en/c/1447785/", "locator": "Publisher description: apparent withdrawal savings versus consumption and non-recoverable return flows"},
     { kind: 'ib-guide', title: 'Geography guide (2017), Option A: Freshwater', locator: 'A.4' },
     { kind: 'thinkib', title: 'Option A: Water Management Futures (ThinkIB eBook, A.4)', locator: 'Water Management Futures' },
   ],

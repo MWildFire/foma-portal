@@ -45,21 +45,15 @@ export const cases: CaseStudy[] = [
     lat: 51.505,
     lng: -0.0225,
     facts: {
-      en: 'The London Docklands Development Corporation (LDDC), set up in 1981 and wound up in 1998, oversaw the regeneration of a 22 km² (8.5 square miles) area of former docklands in Newham, Tower Hamlets and Southwark. The docks were empty by 1980. Building of Canary Wharf, a new office district, began in 1988, and its first buildings, including One Canada Square, were completed in 1991.',
-      ru: 'Корпорация развития Лондонских доков (LDDC) работала с 1981 по 1998 год и руководила перестройкой территории 22 км² (8,5 кв. мили) бывших доков и портовых земель в районах Ньюэм, Тауэр-Хэмлетс и Саутуорк. К 1980 году доки опустели. Строительство делового района Канари-Уорф началось в 1988 году, первые здания, включая One Canada Square, были готовы в 1991 году.',
+      en: 'The London Docklands Development Corporation (LDDC), set up in 1981 and wound up in 1998, oversaw the regeneration of a 22 km² (about 8.5 square miles) development area of land and water in Newham, Tower Hamlets and Southwark. Royal Docks closed to commercial traffic in 1981; closure dates differ between dock systems. Building of Canary Wharf, a new office district, began in 1988, and One Canada Square was built as part of its first phase in 1991.',
+      ru: 'Корпорация развития Лондонских доков (LDDC) работала с 1981 по 1998 год и руководила перестройкой территории развития площадью 22 км² (около 8,5 кв. мили), включая землю и воду в районах Ньюэм, Тауэр-Хэмлетс и Саутуорк. Royal Docks закрылись для коммерческого движения в 1981 году; разные системы доков закрывались в разные годы. Строительство делового района Канари-Уорф началось в 1988 году, One Canada Square был построен в составе первой очереди в 1991 году.',
     },
     usedFor: ['g2-urban-change'],
     src: [
-      {
-        kind: 'web',
-        title: 'London Docklands Development Corporation (Wikipedia)',
-        url: 'https://en.wikipedia.org/wiki/London_Docklands_Development_Corporation',
-      },
-      {
-        kind: 'web',
-        title: 'Canary Wharf (Wikipedia)',
-        url: 'https://en.wikipedia.org/wiki/Canary_Wharf',
-      },
+      { kind: 'web', title: 'Nicholas Falk, Capital Gains: A Better Land Assembly Model for London (GLA-commissioned, February 2018)', url: 'https://www.london.gov.uk/sites/default/files/gla_capital_gains_report_.pdf', locator: 'p. 23, London Docklands case: 1981/1998, 2,200 hectares of land and water; housing-affordability criticism' },
+      { kind: 'web', title: 'Royal Docks, The place: historic timeline', url: 'https://royaldocks.london/the-place', locator: '1981: closure to commercial traffic' },
+      { kind: 'web', title: 'Canary Wharf Group presentation (2 May 2012)', url: 'https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/62113/CW_Presentation_02MAY12.pdf', locator: 'slide 4: construction started 1988' },
+      { kind: 'web', title: 'Canary Wharf Group, One Canada Square brochure', url: 'https://offices.canarywharf.com/wp-content/uploads/2023/08/canary-wharf-office-one-canada-square-brochure.pdf', locator: 'PDF p. 15, sustainability paragraph: first phase in 1991' },
     ],
   },
   {
@@ -68,25 +62,17 @@ export const cases: CaseStudy[] = [
     title: { en: 'Shenzhen: growth after becoming a Special Economic Zone', ru: 'Шэньчжэнь: рост после создания особой экономической зоны' },
     place: 'Shenzhen, Guangdong, China',
     scale: 'local',
-    years: '1980–2020',
+    years: '1980; census comparison 2010–2020',
     lat: 22.54667,
     lng: 114.05444,
     facts: {
-      en: 'Shenzhen was established as a Special Economic Zone on 26 August 1980. The Shenzhen Statistical Yearbook records 332,900 residents in 1980, while the city had 17.56 million permanent residents in 2020, about 53 times as many. Much of this growth came from migrant workers who moved to the city for factory and service jobs.',
-      ru: 'Шэньчжэнь официально стал особой экономической зоной 26 августа 1980 года. По данным статистического ежегодника, в 1980 году в городе жили 332 900 человек, а в 2020 году постоянное население составляло 17,56 млн человек, то есть почти в 53 раза больше. Значительную часть роста дали трудовые мигранты, приехавшие на работу на фабрики и в сферу услуг.',
+      en: 'The special-zone regulations approved on 26 August 1980 provided for designated areas in Shenzhen, Zhuhai and Shantou. City census counts are a different geographical unit: Shenzhen recorded 10,423,973 permanent residents in 2010 and 17,560,061 in 2020, a rise of 7,136,088 (68.46%). The published census total excludes Hong Kong, Macao, Taiwan and foreign residents under its coverage notes. The city total does not itself decompose natural change, migration or boundary effects, identify migrants’ motives, or measure conversion of farmland.',
+      ru: 'Правила об особых зонах, утверждённые 26 августа 1980 года, предусматривали выделенные территории в Шэньчжэне, Чжухае и Шаньтоу. Перепись всего города имеет другой географический охват: постоянное население Шэньчжэня выросло с 10 423 973 человек в 2010 году до 17 560 061 в 2020 году — на 7 136 088 человек (68,46%). По примечаниям к охвату из этой численности исключены жители Гонконга, Макао, Тайваня и иностранные жители. Общая численность сама по себе не выделяет естественное движение, миграцию и изменение границ, не устанавливает мотивы мигрантов и не измеряет перевод сельхозземель под застройку.',
     },
     usedFor: ['g2-urban-change'],
     src: [
-      {
-        kind: 'web',
-        title: 'Demographics of Shenzhen (Wikipedia; yearbook and government figures)',
-        url: 'https://en.wikipedia.org/wiki/Demographics_of_Shenzhen',
-      },
-      {
-        kind: 'web',
-        title: 'Shenzhen Special Economic Zone (Wikipedia)',
-        url: 'https://en.wikipedia.org/wiki/Shenzhen_Special_Economic_Zone',
-      },
+      { kind: 'web', title: 'Shenzhen Statistical Bureau, Seventh National Population Census bulletin (2021)', url: 'https://www.sz.gov.cn/zfgb/2021/gb1199/content/post_8806392.html', locator: 'Bulletin 1: total population, change since 2010 and population coverage notes' },
+      { kind: 'web', title: 'NPC Standing Committee, Regulations on Special Economic Zones in Guangdong Province (26 August 1980), official court republication', url: 'https://english.court.gov.cn/2016-04/15/c_761530.htm', locator: 'approval date; Article 1: designated areas, not whole-city population boundaries' },
     ],
   },
   {

@@ -21,12 +21,8 @@ test('during a sitting the exam is running and the countdown is to its end', () 
   assert.equal(next.remainingMs, 90 * 60_000);
 });
 
-test('extra time keeps an exam running for 25% longer', () => {
-  assert.equal(nextExam(exams, at('2026-10-26', '10:10'), false).exam.id, 'geo-p1');
-  const extra = nextExam(exams, at('2026-10-26', '10:10'), true);
-  assert.equal(extra.exam.id, 'math-p1');
-  assert.equal(extra.phase, 'running');
-  assert.equal(extra.remainingMs, 20 * 60_000); // 120 -> 150 minutes ends at 10:30
+test('the countdown advances at the printed end for either room',()=>{
+ for(const separate of [false,true]) assert.equal(nextExam(exams,at('2026-10-26','10:00'),separate).exam.id,'geo-p1');
 });
 
 test('after one exam the next one on the schedule takes over, even on the same day', () => {
@@ -39,17 +35,17 @@ test('with a separate room the countdown uses the ACC2 start when the schedule g
   // Maths P3: main hall 10:15, ACC2 09:30, 75 minutes (94 with extra time).
   const hall = nextExam(exams, at('2026-10-27', '09:40'), false);
   assert.deepEqual([hall.exam.id, hall.phase, hall.start, hall.remainingMs], ['math-p3', 'upcoming', '10:15', 35 * 60_000]);
-  const room = nextExam(exams, at('2026-10-27', '09:40'), false, true);
+  const room = nextExam(exams, at('2026-10-27', '09:40'), true);
   assert.deepEqual([room.exam.id, room.phase, room.start, room.remainingMs], ['math-p3', 'running', '09:30', 65 * 60_000]);
   // Geography P2 starts in ACC2 at 08:00 and with extra time runs until 09:34, past the ACC2 start of Maths P3 (09:30):
   // while both run, the paper that started first comes first.
-  assert.equal(nextExam(exams, at('2026-10-27', '09:31'), true, true).exam.id, 'geo-p2');
-  assert.equal(nextExam(exams, at('2026-10-27', '09:40'), true, true).exam.id, 'math-p3');
-  const both = nextExam(exams, at('2026-10-27', '09:55'), true, true);
+  assert.equal(nextExam(exams, at('2026-10-27', '09:31'), true).exam.id, 'math-p3');
+  assert.equal(nextExam(exams, at('2026-10-27', '09:40'), true).exam.id, 'math-p3');
+  const both = nextExam(exams, at('2026-10-27', '09:55'), true);
   assert.deepEqual([both.exam.id, both.phase], ['math-p3', 'running']);
-  assert.equal(both.endMs, at('2026-10-27', '11:04'));
+  assert.equal(both.endMs, at('2026-10-27', '10:45'));
   // Maths P1 has no ACC2 time in the schedule: everybody starts at 08:00.
-  assert.equal(nextExam(exams, at('2026-10-20', '12:00'), false, true).start, '08:00');
+  assert.equal(nextExam(exams, at('2026-10-20', '12:00'), true).start, '08:00');
 });
 
 test('after the last exam there is nothing to count down to', () => {

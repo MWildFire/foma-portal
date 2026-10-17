@@ -28,8 +28,8 @@ export const questions: Question[] = [
     marks: 4,
     command: 'Write down',
     prompt: {
-      en: 'A simplified model for the number of daylight hours D at a location near Dubai is D(t) = 12 - 1.5cos(πt/6), where t is the number of months after the start of January and 0 ≤ t ≤ 12. (a) Write down the maximum and the minimum number of daylight hours, giving each to 1 decimal place. (b) Find the least value of t for which D(t) = 12.75. Give your answer as an exact value.',
-      ru: 'Упрощённая модель числа часов дневного света D в районе Дубая: D(t) = 12 - 1,5cos(πt/6), где t — число месяцев после начала января, 0 ≤ t ≤ 12. (a) Запишите наибольшее и наименьшее число часов дневного света, каждое с точностью до 1 знака после запятой. (b) Найдите наименьшее значение t, при котором D(t) = 12,75. Ответ дайте точным значением.',
+      en: 'An illustrative, uncalibrated model for daylight hours D at a hypothetical location is D(t) = 12 - 1.5cos(πt/6), where t is the number of months after the start of January and 0 ≤ t ≤ 12. (a) Write down the maximum and the minimum number of daylight hours, giving each to 1 decimal place. (b) Find the least value of t for which D(t) = 12.75. Give your answer as an exact value.',
+      ru: 'Учебная некалиброванная модель числа часов дневного света D в условной местности: D(t) = 12 - 1,5cos(πt/6), где t — число месяцев после начала января, 0 ≤ t ≤ 12. (a) Запишите наибольшее и наименьшее число часов дневного света, каждое с точностью до 1 знака после запятой. (b) Найдите наименьшее значение t, при котором D(t) = 12,75. Ответ дайте точным значением.',
     },
     markscheme: {
       en: '(a) M1: the amplitude is 1.5 and the midline is 12. A1: maximum 13.5 hours and minimum 10.5 hours.\n(b) M1: solve 12 - 1.5cos(πt/6) = 12.75, so cos(πt/6) = -0.5. A1: πt/6 = 2π/3 gives t = 4, the first solution (the next one is t = 8).',

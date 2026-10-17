@@ -2,7 +2,7 @@
 import type { Weekday } from '../lib/storage.ts';
 
 export const DEFAULT_DAILY_LOAD: Record<Weekday, number> = {
-  mon: 150, tue: 150, wed: 150, thu: 150, fri: 120, sat: 270, sun: 270,
+  mon: 240, tue: 240, wed: 240, thu: 240, fri: 240, sat: 240, sun: 240,
 };
 
 export const MAX_DAILY_LOAD = 600;   // the same ceiling the progress store applies

@@ -168,7 +168,7 @@ export default function BinarySearch(p: { lang: Lang }) {
 
       <div role="img" aria-label={`${t('Sorted array', 'Отсортированный массив')}: ${values.join(', ')}. ${t('Target', 'Искомое значение')}: ${target}.`}>
         <div className="overflow-x-auto">
-          <div className="grid items-center gap-[2px] text-center font-mono text-[13px]" style={{ gridTemplateColumns: `3.5rem repeat(${n}, minmax(0, 1fr))` }}>
+          <div className="grid items-center gap-[2px] text-center font-mono text-[13px]" style={{ minWidth: 70 + n * 28, gridTemplateColumns: `4rem repeat(${n}, minmax(28px, 1fr))` }}>
             {(['low', 'mid', 'high'] as const).map(row => (
               <Fragment key={row}>
                 <span aria-hidden="true" className="text-left font-sans text-[11px] text-[var(--color-muted)]">{row}</span>
@@ -191,6 +191,7 @@ export default function BinarySearch(p: { lang: Lang }) {
         </div>
       </div>
 
+      <p className="m-0 text-xs">{t('Scroll the array sideways on a narrow screen.', 'На узком экране прокручивайте массив вбок.')}</p>
       <ul className="m-0 flex list-none flex-wrap gap-x-4 gap-y-1 p-0 text-xs text-[var(--color-muted)]">
         <li className="flex items-center gap-1.5"><span aria-hidden="true" className="inline-block h-3 w-3 rounded-sm" style={{ background: 'var(--color-accent)' }} />{t('Probed now', 'Проверяем сейчас')}</li>
         <li className="flex items-center gap-1.5"><span aria-hidden="true" className="inline-block h-3 w-3 rounded-sm border border-[var(--color-border)]" style={{ background: HATCH }} />{t('Discarded', 'Отброшено')}</li>

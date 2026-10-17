@@ -130,15 +130,15 @@ export const terms: Term[] = [
     id: 'core-food-security',
     term: { en: 'food security', ru: 'продовольственная безопасность (food security)' },
     def: {
-      en: 'A situation in which all people have physical and economic access to enough safe and nutritious food to meet their dietary needs for an active and healthy life.',
-      ru: 'Ситуация, при которой все люди имеют физический и экономический доступ к достаточному количеству безопасной и питательной пищи, чтобы удовлетворять свои пищевые потребности для активной и здоровой жизни.',
+      en: 'A situation in which all people, at all times, have physical, social and economic access to enough safe and nutritious food to meet their dietary needs for an active and healthy life.',
+      ru: 'Ситуация, при которой все люди в любое время имеют физический, социальный и экономический доступ к достаточному количеству безопасной и питательной пищи, чтобы удовлетворять свои пищевые потребности для активной и здоровой жизни.',
     },
     syllabus: 'core-2.2',
     papers: ['P2'],
-    src,
+    src: {"kind": "web", "title": "FAO (2008), An Introduction to the Basic Concepts of Food Security, p.1, four dimensions", "url": "https://www.fao.org/4/al936e/al936e00.pdf"},
     pitfall: {
-      en: 'Food security is about access and use as well as supply. A country can produce enough food and still have households that cannot afford it.',
-      ru: 'Продовольственная безопасность — это доступ к пище и её использование, а не только производство. Страна может производить достаточно еды, а домохозяйства всё равно не смогут её купить.',
+      en: 'Availability, access, utilisation and stability all matter. Enough food today does not establish food security if seasonal shortages interrupt access; adequate national output can coexist with households unable to afford food.',
+      ru: 'Важны наличие пищи, доступ к ней, её полноценное использование и стабильность во времени. Достаток сегодня не исключает сезонного голода; даже при достаточном производстве в стране отдельным семьям может не хватать денег на еду.',
     },
   },
   {
@@ -190,12 +190,12 @@ export const terms: Term[] = [
     id: 'core-vulnerability',
     term: { en: 'vulnerability', ru: 'уязвимость (vulnerability)' },
     def: {
-      en: 'The degree to which a person, community or place is likely to be harmed by a hazard, depending on how exposed it is, how sensitive it is to the hazard and how little it can cope with or recover from it.',
-      ru: 'Степень, в которой человек, сообщество или место может пострадать от опасности; она зависит от подверженности, чувствительности к опасности и ограниченной способности справиться с ней и восстановиться.',
+      en: 'Susceptibility to harm, including sensitivity and limited capacity to cope and adapt. In the IPCC AR5/AR6 risk framework used here, assess it alongside the hazard and exposure, rather than treating exposure as the same concept.',
+      ru: 'Восприимчивость к ущербу, включая чувствительность и ограниченную способность справляться с последствиями и адаптироваться. В используемой здесь схеме риска IPCC AR5/AR6 её оценивают наряду с опасным явлением и подверженностью, не смешивая эти понятия.',
     },
     syllabus: 'core-2.2',
     papers: ['P2'],
-    src,
+    src: { kind: 'web', title: 'IPCC AR6 WGII, Annex II: Vulnerability; AR5 WGII Russian Summary for Policymakers, Box SPM.2: Уязвимость / Подверженность', url: 'https://www.ipcc.ch/report/ar6/wg2/chapter/annex-ii/', locator: 'Vulnerability entry; AR5 Russian SPM Box РП.2 (definitions)' },
     pitfall: {
       en: 'Vulnerability is not the same as exposure. A place can be exposed to a flood but have low vulnerability if it is well protected and its people can cope.',
       ru: 'Уязвимость — это не то же самое, что подверженность. Место может находиться в зоне наводнения, но иметь низкую уязвимость, если оно хорошо защищено и люди способны справиться.',

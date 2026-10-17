@@ -13,11 +13,11 @@ const topic: TopicMeta = {
   outcomes: [
     { en: 'I can define the CPI and calculate it from basket costs with a base year', ru: 'Могу определить ИПЦ и рассчитать его по стоимости набора с базовым годом' },
     { en: 'I can calculate the inflation rate and the unemployment rate', ru: 'Могу рассчитать темп инфляции и уровень безработицы' },
-    { en: 'I can distinguish demand-pull and cost-push inflation, and the three types of unemployment', ru: 'Могу различать инфляцию спроса и инфляцию издержек, а также три типа безработицы' },
+    { en: 'I can distinguish demand-pull and cost-push inflation, and frictional, structural, seasonal and cyclical unemployment', ru: 'Могу различать инфляцию спроса и инфляцию издержек, а также фрикционную, структурную, сезонную и циклическую безработицу' },
     { en: 'I can draw and explain the short-run and long-run Phillips curve', ru: 'Могу нарисовать и объяснить краткосрочную и долгосрочную кривую Филлипса' },
     { en: 'I can explain the trade-offs between macroeconomic objectives', ru: 'Могу объяснить компромиссы между макроэкономическими целями' },
   ],
-  termIds: [
+  termIds: ['economic-growth', 'disinflation', 'deflation', 'seasonal-unemployment',
     'consumer-price-index',
     'inflation',
     'demand-pull-inflation',
@@ -41,9 +41,8 @@ const topic: TopicMeta = {
     'econ-macroeconomic-objectives-05',
     'econ-macroeconomic-objectives-06',
     'econ-macroeconomic-objectives-07',
-    'econ-macroeconomic-objectives-08',
-  ],
-  sources: [{ kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 3.3' }],
+    'econ-macroeconomic-objectives-08',  'r06-econ-14', 'r06-econ-15'],
+  sources: [{ kind: 'textbook', title: 'Tragakes, Economics for the IB Diploma: Coursebook (Cambridge University Press, 3rd ed.)', locator: 'ch.11.2, printed pp.347–349: government debt and its costs; school checklist debt scope' }, { kind: 'web', title: 'ILO — Labour force', url: 'https://www.ilo.org/resource/labour-force', locator: 'Strict unemployment definition: specified reference periods; labour-force status' }, { kind: 'web', title: 'Росстат — Занятость и безработица', url: 'https://ps.rosstat.gov.ru/unemployment', locator: 'Кто такой безработный; Что такое рабочая сила: survey age coverage versus registered unemployment' }, { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 3.3' }],
 };
 
 export default topic;

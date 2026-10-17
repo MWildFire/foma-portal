@@ -10,11 +10,11 @@ export const formulas: Formula[] = [
       ru: 'Производная a x^n равна a n x^(n-1). Подставьте x = a, чтобы получить угловой коэффициент кривой в этой точке.',
     },
     when: {
-      en: 'Finding the gradient of a polynomial curve at a given point, before writing the tangent or the normal. The booklet (page 11) has the power rule for $x^{n}$ alone, without the constant factor $a$.',
-      ru: 'Поиск углового коэффициента многочлена в заданной точке перед записью касательной или нормали. В книжке (стр. 11) есть правило для $x^{n}$ без постоянного множителя $a$.',
+      en: 'Finding the gradient of a polynomial curve at a given point, before writing the tangent or the normal. The booklet (page 11, SL 5.3) gives $f(x)=x^{n} \\Rightarrow f^{\\prime}(x)=nx^{n-1}$; carry the constant factor $a$ outside the derivative.',
+      ru: 'Поиск углового коэффициента многочлена в заданной точке перед записью касательной или нормали. В книжке (стр. 11, SL 5.3) дано $f(x)=x^{n} \\Rightarrow f^{\\prime}(x)=nx^{n-1}$; постоянный множитель $a$ выносится за знак производной.',
     },
     syllabus: '5.4',
-    inBooklet: false,
+    inBooklet: true,
     example: {
       en: 'For f(x) = x^3 - 2x + 1 the gradient function is 3x^2 - 2, so the gradient at x = 2 is 10.',
       ru: 'Для f(x) = x^3 - 2x + 1 функция градиента равна 3x^2 - 2, поэтому угловой коэффициент при x = 2 равен 10.',

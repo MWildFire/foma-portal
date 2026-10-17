@@ -6,8 +6,8 @@ export const terms: Term[] = [
     id: 'distance-between-points-3d',
     term: { en: 'distance between two points in 3D', ru: 'расстояние между двумя точками в 3D (distance between two points in 3D)' },
     def: {
-      en: 'The length of the straight segment joining two points with coordinates $(x_1, y_1, z_1)$ and $(x_2, y_2, z_2)$. It is found by applying Pythagoras twice: square the three coordinate differences, add them, and take the square root.',
-      ru: 'Длина прямого отрезка, соединяющего две точки с координатами $(x_1, y_1, z_1)$ и $(x_2, y_2, z_2)$. Находится двукратным применением теоремы Пифагора: квадраты трёх разностей координат складываются, и из суммы извлекается квадратный корень.',
+      en: 'The length of the straight segment joining two points with coordinates $(x_1, y_1, z_1)$ and $(x_2, y_2, z_2)$. On perpendicular Cartesian axes with one common length unit, apply Pythagoras twice: square the three coordinate differences, add them, and take the square root.',
+      ru: 'Длина прямого отрезка, соединяющего две точки с координатами $(x_1, y_1, z_1)$ и $(x_2, y_2, z_2)$. На перпендикулярных декартовых осях с общей единицей длины дважды применяют теорему Пифагора: квадраты трёх разностей координат складываются, и из суммы извлекается квадратный корень.',
     },
     syllabus: '3.1',
     papers: ['P1', 'P2', 'P3'],
@@ -29,7 +29,7 @@ export const terms: Term[] = [
     src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 1.3, p. 33' },
     pitfall: {
       en: 'The slant height of a face is longer than the perpendicular height. Do not put it into the volume formula.',
-      ru: 'Апофема грани длиннее перпендикулярной высоты, и подставлять её в формулу объёма нельзя.',
+      ru: 'Высота боковой грани (апофема в правильной пирамиде) длиннее перпендикулярной высоты, и подставлять её в формулу объёма нельзя.',
     },
   },
   {
@@ -47,8 +47,8 @@ export const terms: Term[] = [
     id: 'angle-between-line-and-plane',
     term: { en: 'angle between a line and a plane', ru: 'угол между прямой и плоскостью (angle between a line and a plane)' },
     def: {
-      en: 'The angle between a line and its projection onto the plane. The projection is found by dropping a perpendicular from a point of the line to the plane.',
-      ru: 'Угол между прямой и её проекцией на плоскость. Проекция находится опусканием перпендикуляра из точки прямой на плоскость.',
+      en: 'For an oblique line, the acute angle with its orthogonal projection onto the plane. A line parallel to or contained in the plane has angle 0°; a perpendicular line has angle 90° (its projection is a point).',
+      ru: 'Для наклонной прямой — острый угол с ортогональной проекцией на плоскость. Для прямой, параллельной плоскости или лежащей в ней, угол равен 0°; для перпендикулярной — 90° (её проекция является точкой).',
     },
     syllabus: '3.1',
     papers: ['P1', 'P2', 'P3'],

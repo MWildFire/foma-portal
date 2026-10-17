@@ -13,8 +13,8 @@ export const terms: Term[] = [
     papers: ['P1', 'P2', 'P3'],
     src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 3.2, p. 93' },
     pitfall: {
-      en: 'Use the negative reciprocal -1/m of the segment gradient, not m itself: a line through the midpoint with gradient m lies along the segment.',
-      ru: 'Берите отрицательную обратную величину -1/m, а не m: прямая через середину с угловым коэффициентом m совпадает с самим отрезком.',
+      en: 'For finite nonzero segment gradient m, use -1/m. A horizontal segment has a vertical bisector and a vertical segment a horizontal bisector.',
+      ru: 'При конечном ненулевом угловом коэффициенте m используйте -1/m. У горизонтального отрезка перпендикуляр вертикален, у вертикального — горизонтален.',
     },
   },
   {

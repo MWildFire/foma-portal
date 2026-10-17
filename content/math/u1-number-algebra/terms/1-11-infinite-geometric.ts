@@ -6,8 +6,8 @@ export const terms: Term[] = [
     id: 'sum-to-infinity',
     term: { en: 'sum to infinity', ru: 'сумма бесконечной прогрессии (sum to infinity)' },
     def: {
-      en: 'The limit of the partial sums $S_{n}$ as $n$ grows without bound. For a geometric sequence it exists only when $|r|<1$, and then $S_{\\infty}=\\dfrac{u_{1}}{1-r}$.',
-      ru: 'Предел частичных сумм $S_{n}$ при неограниченном росте $n$. Для геометрической прогрессии он существует только при $|r|<1$, и тогда $S_{\\infty}=\\dfrac{u_{1}}{1-r}$.',
+      en: 'The limit of the partial sums $S_{n}$ as $n$ grows without bound. For a geometric sequence with nonzero first term it exists only when $|r|<1$, and then $S_{\\infty}=\\dfrac{u_{1}}{1-r}$.',
+      ru: 'Предел частичных сумм $S_{n}$ при неограниченном росте $n$. Для геометрической прогрессии с ненулевым первым членом он существует только при $|r|<1$, и тогда $S_{\\infty}=\\dfrac{u_{1}}{1-r}$.',
     },
     syllabus: '1.11',
     papers: ['P1', 'P2', 'P3'],
@@ -28,8 +28,8 @@ export const terms: Term[] = [
     papers: ['P1', 'P2', 'P3'],
     src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 7.1, p. 299' },
     pitfall: {
-      en: 'Convergence depends only on the common ratio, not on the size of the first term. When $r=1$ the partial sums grow without bound.',
-      ru: 'Сходимость зависит только от знаменателя, а не от первого члена. При $r=1$ частичные суммы растут без ограничения.',
+      en: 'For a nonzero first term, convergence depends on the ratio. At $r=1$ the partial sums have unbounded magnitude (positive or negative according to the first term). The all-zero series is a separate convergent case.',
+      ru: 'При ненулевом первом члене сходимость зависит от знаменателя. При $r=1$ модуль частичных сумм неограничен, а знак совпадает со знаком первого члена. Нулевой ряд — отдельный сходящийся случай.',
     },
   },
   {

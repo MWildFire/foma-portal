@@ -42,15 +42,15 @@ const note = (id: string, at: Point, tone: Tone, label: L): GuideSpec => ({ id, 
 // The two notes sit 15 px apart (baselines), so their 11px text boxes do not touch.
 const ppNote = note('pp-name', [0.3, 3.7], 'supply', { en: 'Pp', ru: 'Pp' });
 const taxNote = note('t', [0.3, 5.06], 'policy', { en: 't = 2.4', ru: 't = 2.4' });
-const revenueNote = note('rev-note', [0.3, 6.1], 'policy', { en: 'revenue 23.04', ru: 'выручка 23.04' });
+const revenueNote = note('rev-note', [0.3, 6.1], 'policy', { en: 'revenue 23.04', ru: 'налоги 23.04' });
 const revenue: AreaSpec = { id: 'rev', points: [[0, 4.8], [9.6, 4.8], [9.6, 7.2], [0, 7.2]], tone: 'policy' };
 
 const steps: Step[] = [
   {
     title: { en: 'Market before the tax', ru: 'Рынок до налога' },
     text: {
-      en: 'Demand (D) and supply (S) cross at E: Q = 12 and P = 6. This is the free-market equilibrium.',
-      ru: 'Спрос (D) и предложение (S) пересекаются в точке E: Q = 12 и P = 6. Это равновесие свободного рынка.',
+      en: 'Demand (D) and supply (S) cross at E: Q = 12 and P = 6. This hypothetical competitive market has no externalities or other initial distortions, so the starting equilibrium is efficient.',
+      ru: 'Спрос (D) и предложение (S) пересекаются в точке E: Q = 12 и P = 6. В этом условном конкурентном рынке нет внешних эффектов и других исходных искажений, поэтому начальное равновесие эффективно.',
     },
     graph: {
       ...axes,
@@ -88,7 +88,7 @@ const steps: Step[] = [
     },
   },
   {
-    title: { en: 'Tax revenue', ru: 'Налоговая выручка' },
+    title: { en: 'Tax revenue', ru: 'Налоговые поступления' },
     text: {
       en: 'The tax per unit at Q 9.6 is 7.2 - 4.8 = 2.4, so revenue is 2.4 x 9.6 = 23.04: the purple rectangle between the buyers price Pc = 7.2 and the sellers price Pp = 4.8, for Q from 0 to 9.6.',
       ru: 'Налог на единицу при Q 9.6 равен 7.2 - 4.8 = 2.4, поэтому выручка равна 2.4 x 9.6 = 23.04: фиолетовый прямоугольник между ценой покупателя Pc = 7.2 и ценой продавца Pp = 4.8 при Q от 0 до 9.6.',

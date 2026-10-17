@@ -4,7 +4,7 @@ Many measurements cluster symmetrically around a typical value, and a normal dis
 
 ## Explanation
 
-A continuous variable $X$ with a normal distribution, $X \sim N(\mu, \sigma^2)$, has a symmetric <Term id="normal-bell-curve"/> centred on its mean $\mu$. The standard deviation $\sigma$ sets the spread: a larger $\sigma$ gives a flatter, wider curve. The mean, median and mode are all equal to $\mu$, and the total area under the curve is 1.
+A continuous variable $X$ with a normal distribution, $X \sim N(\mu, \sigma^2)$, has $\sigma>0$ and a symmetric <Term id="normal-bell-curve"/> centred on its mean $\mu$. The standard deviation $\sigma$ sets the spread: a larger $\sigma$ gives a flatter, wider curve. The mean, median and mode are all equal to $\mu$, and the total area under the curve is 1.
 
 <Callout kind="define">Normal distribution: a continuous distribution with a symmetric, bell-shaped density centred on the mean $\mu$ and spread given by the standard deviation $\sigma$. Written $X \sim N(\mu, \sigma^2)$.</Callout>
 
@@ -26,7 +26,7 @@ The <Term id="normal-inverse-calculation"/> works backwards from an area: $x = \
 
 ## Worked example
 
-Journey times on a route in Dubai, $X$ minutes, are normally distributed with mean 32 minutes and standard deviation 4 minutes, so $X \sim N(32, 4^2)$.
+Assume journey times on a route in Dubai, $X$ minutes, are normally distributed with mean 32 minutes and standard deviation 4 minutes, so $X \sim N(32, 4^2)$.
 
 <Steps>
 <Step>$P(X \le 36) = P\left(Z \le \dfrac{36 - 32}{4}\right) = P(Z \le 1) = 0.841$ (to 3 decimal places).</Step>
@@ -44,13 +44,11 @@ Move the mean to shift the curve, and change the standard deviation to make it w
 
 ## How it is examined
 
-Find and Calculate questions give a mark for standardising, or for entering $\mu$ and $\sigma$ correctly, a mark for the area or value found, and a mark for the answer to the required accuracy. Sketch a labelled diagram when a question asks for one: mark the mean and shade the required area. Comment questions need a conclusion linked to the context, not a repeat of the number.
-
-<Callout kind="exam">Decide which area you need, to the left, to the right or between two values, before you enter anything into the GDC. Most lost marks come from using the wrong area.</Callout>
+Identify a left tail, a right tail or an interval before calculating. For an inverse question, convert the given tail to the left area and return x rather than only z. Label and shade a sketch when requested. State the assumed normal model and enter SD rather than variance.
 
 ## Common mistakes
 
-<Callout kind="mistake">Entering the variance $\sigma^2$ into the GDC instead of the standard deviation $\sigma$. Every probability is then wrong.</Callout>
+<Callout kind="mistake">Entering the variance $\sigma^2$ into the GDC instead of the standard deviation $\sigma$. The resulting spread is wrong, even if some probabilities, such as the area below the mean, happen to be unchanged.</Callout>
 
 - Using $P(X \le x)$ for an area to the right: $P(X > x) = 1 - P(X \le x)$.
 - Quoting the z-value when the question asks for the value $x$: convert back with $x = \mu + z\sigma$.
@@ -63,6 +61,8 @@ Find and Calculate questions give a mark for standardising, or for entering $\mu
 <Question id="q-4-9-02"/>
 
 <Question id="q-4-9-03"/>
+
+<Question id="r06-normal-poisson"/>
 
 ## Summary
 

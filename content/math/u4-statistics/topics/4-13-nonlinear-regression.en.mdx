@@ -6,7 +6,7 @@ Not every pattern is a straight line. A least-squares curve fits a chosen model 
 
 A <Term id="least-squares-curve"/> is a model curve whose parameters make the sum of squared <Term id="regression-residual"/>s as small as possible. A residual is the observed value minus the predicted value, $y_i - \hat{y}_i$, and the quantity being made small is <Formula id="sum-squared-residuals"/>. It is the same least-squares idea as for a straight line.
 
-When the pattern is curved, choose a model whose shape suits the data. The logarithmic model $y = a + b\ln x$ suits data that rise quickly and then level off. The GDC fits $a$ and $b$ by least squares, as <Formula id="logarithmic-regression-model"/> shows.
+When the pattern is curved, choose a model whose shape suits the data. The logarithmic model $y = a + b\ln x$ requires $x>0$; for $b>0$ it increases at a decreasing rate, for $b<0$ it decreases, and for $b=0$ it is constant. A nonconstant logarithmic curve has no finite horizontal asymptote. The GDC fits $a$ and $b$ by least squares, as <Formula id="logarithmic-regression-model"/> shows.
 
 The <Term id="coefficient-of-determination"/> shows how much of the variation in $y$ the model explains, as <Formula id="coefficient-of-determination-formula"/> defines. $R^2 = 1$ means every point lies on the curve; $R^2 = 0$ means the model does no better than the mean of $y$.
 
@@ -14,9 +14,13 @@ The <Term id="coefficient-of-determination"/> shows how much of the variation in
 
 <Callout kind="define">Coefficient of determination $R^2$: the proportion of the variation in $y$ that the model explains, $R^2 = 1 - \dfrac{\sum (y_i - \hat{y}_i)^2}{\sum (y_i - \bar{y})^2}$.</Callout>
 
+This definition requires nonconstant observed $y$. With an intercept and ordinary least squares, $0\leq R^2\leq1$; for an arbitrary predictor, $R^2$ can be negative. Compare values on the same response scale and data.
+
 ## Worked example
 
-The number of sign-ups to a revision app, $y$ (in hundreds), after $x$ weeks is: $x$: 1, 2, 4, 8, 16; $y$: 4.4, 5.2, 7.9, 9.3, 11.6. The points rise quickly and then flatten, so a logarithmic model is worth trying.
+This original sign-up dataset is separate from the lab below; its coefficients do not describe the lab’s revision-hours data.
+
+The number of sign-ups to a revision app, $y$ (in hundreds), after $x$ weeks is: $x$: 1, 2, 4, 8, 16; $y$: 4.4, 5.2, 7.9, 9.3, 11.6. The overall rising, curved pattern makes a logarithmic model worth trying. The observed average rates do not decrease at every step (0.8 hundred per week from weeks 1–2, versus 1.35 from weeks 2–4); the fitted model smooths that variation and does not establish a finite limit.
 
 <Steps>
 <Step>The GDC logarithmic regression gives $a = 3.98$ and $b = 2.67$, so $y = 3.98 + 2.67\ln x$.</Step>
@@ -32,11 +36,11 @@ The number of sign-ups to a revision app, $y$ (in hundreds), after $x$ weeks is:
 
 Choose the revision data set and compare the straight line, the logarithmic curve and the quadratic curve. The lab shows $R^2$ and the sum of squared residuals for each model. The red bars are residuals: the curve that follows the points most closely has the smallest residuals and the largest $R^2$.
 
+The quadratic model is $y=ax^2+bx+c$: $a$ multiplies $x^2$, $b$ multiplies $x$, and $c$ is the constant, as in `QuadReg` (Oxford AI HL, ch. 6.2, pp. 248–249). For the lab’s Plants dataset, the fitted coefficients are $a\approx0.053571$, $b\approx0.907143$, $c=3.4$; the sum of squared residuals is $2.05714$. The lab rounds its coefficient display to two decimal places: retain full precision when calculating predictions.
+
 ## How it is examined
 
-Find questions give marks for the GDC method, for each value (a, b, $R^2$, a prediction) to the required accuracy, and for choosing the better model. Determine and Comment questions need reasons: the model with the larger $R^2$ and a sensible shape, a note that a prediction outside the data is an extrapolation, and an interpretation of $b$ in context.
-
-<Callout kind="exam">Give $R^2$ to 3 decimal places unless the question says otherwise, and state which model it belongs to.</Callout>
+State the model family, give fitted coefficients and retain their full values for predictions. Compare R² on the same data and response scale. Explain the shape and parameter meaning, check residuals, and identify extrapolation. A larger in-sample R² alone does not establish better future predictions.
 
 ## Common mistakes
 
@@ -57,7 +61,7 @@ Find questions give marks for the GDC method, for each value (a, b, $R^2$, a pre
 ## Summary
 
 - A least-squares curve minimises the sum of squared residuals $\sum (y_i - \hat{y}_i)^2$.
-- The logarithmic model $y = a + b\ln x$ is fitted on the GDC with the natural logarithm, and suits data that rise and then level off.
+- The logarithmic model $y = a + b\ln x$ is fitted on the GDC with the natural logarithm, and requires $x>0$. For $b>0$ growth slows without a finite horizontal asymptote; for $b<0$ the curve decreases, and for $b=0$ it is constant.
 - $R^2 = 1 - \dfrac{\sum (y_i - \hat{y}_i)^2}{\sum (y_i - \bar{y})^2}$ is the share of the variation in $y$ that the model explains.
-- A model with more parameters always fits the same data at least as well, so compare $R^2$ with care.
+- For nested models fitted by least squares to the same response data, adding parameters cannot increase the minimum sum of squared residuals. Extra parameters alone do not establish a better model for prediction.
 - A prediction outside the data range is an extrapolation: say that it is less reliable.

@@ -5,7 +5,7 @@ const topic: TopicMeta = {
   subject: 'econ',
   code: '2.2',
   title: { en: 'Supply', ru: 'Предложение' },
-  papers: ['P1', 'P2', 'P3'],
+  papers: ['P2', 'P3'],
   order: 11,
   minutes: 35,
   priority: 1,
@@ -22,7 +22,7 @@ const topic: TopicMeta = {
     'substitutes-in-production', 'joint-supply', 'movement-along-supply-curve', 'shift-of-supply-curve',
   ],
   sims: ['econ.supply-shift'],
-  questionIds: ['econ-supply-01', 'econ-supply-02', 'econ-supply-03', 'econ-supply-04'],
+  questionIds: ['econ-supply-01', 'econ-supply-02', 'econ-supply-03', 'econ-supply-04', 'r06-econ-02'],
   sources: [{ kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 2.2' }],
 };
 

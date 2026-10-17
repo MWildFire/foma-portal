@@ -85,8 +85,8 @@ export const terms: Term[] = [
     id: 'marginal-social-cost',
     term: { en: 'marginal social cost (MSC)', ru: 'предельные общественные издержки (marginal social cost, MSC)' },
     def: {
-      en: 'The total cost to society of one more unit, equal to the marginal private cost plus the external cost of that unit.',
-      ru: 'Совокупные издержки общества на ещё одну единицу: предельные частные издержки плюс внешние издержки этой единицы.',
+      en: 'The net marginal cost to society of one more unit. In a negative production externality MSC = MPC + MEC; a production benefit can instead put MSC below MPC.',
+      ru: 'Чистые предельные издержки общества от ещё одной единицы. При отрицательном производственном эффекте MSC = MPC + MEC; внешняя выгода производства, напротив, может расположить MSC ниже MPC.',
     },
     example: {
       en: 'At 16 tonnes, one more tonne costs society AED 18: AED 12 of private cost plus AED 6 of external cost.',
@@ -124,8 +124,8 @@ export const terms: Term[] = [
     id: 'marginal-social-benefit',
     term: { en: 'marginal social benefit (MSB)', ru: 'предельная общественная выгода (marginal social benefit, MSB)' },
     def: {
-      en: 'The total benefit to society of one more unit, equal to the marginal private benefit plus the external benefit of that unit.',
-      ru: 'Совокупная выгода общества от ещё одной единицы: предельная частная выгода плюс внешняя выгода этой единицы.',
+      en: 'The net marginal benefit to society of one more unit. For positive consumption effects MSB = MPB + MEB; for negative consumption effects MSB = MPB − MEC.',
+      ru: 'Чистая предельная выгода общества от ещё одной единицы. При положительном эффекте потребления MSB = MPB + MEB, при отрицательном — MSB = MPB − MEC.',
     },
     example: {
       en: 'For one vaccine dose, the private benefit is AED 11 and the external benefit AED 4, so the social benefit is AED 15.',
@@ -144,16 +144,16 @@ export const terms: Term[] = [
     id: 'pigouvian-tax',
     term: { en: 'Pigouvian tax', ru: 'налог Пигу (Pigouvian tax)' },
     def: {
-      en: 'An indirect tax whose size matches the external cost on each unit, so that the producer or consumer pays for the external cost and the market quantity moves to the social optimum.',
-      ru: 'Косвенный налог, равный внешним издержкам на единицу: производитель или потребитель платит за внешний эффект, и рыночный объём сдвигается к общественному оптимуму.',
+      en: 'A corrective tax set at the marginal external cost at the socially optimal quantity. In the standard competitive model it makes private incentives select that quantity; constant external cost permits a constant tax to align the entire curves.',
+      ru: 'Корректирующий налог, установленный по предельным внешним издержкам при общественно оптимальном объёме. В стандартной конкурентной модели он направляет частный выбор к этому объёму; при постоянных внешних издержках постоянный налог совмещает кривые полностью.',
     },
     example: {
       en: "A tax of AED 6 per tonne moves the factory's output from 16 tonnes to the optimum of 10 tonnes.",
       ru: 'Налог 6 AED за тонну снижает выпуск завода с 16 тонн до оптимальных 10 тонн.',
     },
     pitfall: {
-      en: 'A Pigouvian tax changes the price signal; it does not remove the external effect, and it works only when set at the size of the external cost.',
-      ru: 'Налог Пигу меняет ценовой сигнал, но не устраняет внешний эффект полностью и работает, только если его размер равен внешним издержкам.',
+      en: 'A Pigouvian tax changes the price signal; it does not remove the external effect, and exact correction needs the relevant marginal external cost at the optimum. An imperfect tax may still reduce welfare loss; it is not automatically useless.',
+      ru: 'Налог Пигу меняет ценовой сигнал, но не устраняет внешний эффект полностью и для точной корректировки нужна величина предельных внешних издержек при оптимуме. Неточно установленный налог всё же может уменьшить потери, а не обязательно бесполезен.',
     },
     syllabus: '2.8',
     papers: ['P1', 'P2', 'P3'],
@@ -164,16 +164,16 @@ export const terms: Term[] = [
     id: 'tradable-permits',
     term: { en: 'tradable permits', ru: 'торгуемые разрешения (tradable permits)' },
     def: {
-      en: 'A government sets a cap on total emissions or use and issues permits for it; firms can buy and sell permits, so the cap is met at the lowest cost.',
-      ru: 'Государство задаёт предельный объём выбросов или использования ресурса и выпускает разрешения на него; фирмы покупают и продают их, поэтому лимит достигается с наименьшими издержками.',
+      en: 'A government sets a cap on total emissions or use and issues permits for it; firms can trade permits. With competitive trading, effective enforcement and low transaction costs, trading can equalise marginal abatement costs and reduce the cost of meeting the cap.',
+      ru: 'Государство задаёт предельный объём выбросов или использования ресурса и выпускает разрешения на него; фирмы могут торговать ими. При конкуренции, надёжном контроле и низких издержках сделок торговля может выравнивать предельные затраты сокращения выбросов и уменьшать стоимость соблюдения лимита.',
     },
     example: {
       en: 'A cap of 800 tonnes is split into permits; a firm that cuts its emissions cheaply sells a spare permit for AED 30 per tonne.',
       ru: 'Лимит 800 тонн делится на разрешения; фирма, которая дешёво сокращает выбросы, продаёт лишнее разрешение за 30 AED за тонну.',
     },
     pitfall: {
-      en: 'Permits fix the quantity and let the market set the price; a tax does the reverse, fixing the price and letting the quantity change.',
-      ru: 'Разрешения фиксируют объём, а цену определяет рынок; налог делает наоборот: фиксирует цену, а объём меняется.',
+      en: 'Permits fix the quantity and let the market set the price; a tax fixes the charge per emissions unit, not the final goods price, and lets the emissions quantity respond.',
+      ru: 'Разрешения фиксируют объём, а цену определяет рынок; налог фиксирует платёж за единицу выбросов, а не конечную цену товара, и позволяет объёму выбросов меняться.',
     },
     syllabus: '2.8',
     papers: ['P1', 'P2', 'P3'],
@@ -183,8 +183,8 @@ export const terms: Term[] = [
     id: 'property-rights',
     term: { en: 'property rights', ru: 'права собственности (property rights)' },
     def: {
-      en: 'The legal rules that set who owns a resource and whether the owner may use or sell it; secure rights reduce the risk of investing in that resource.',
-      ru: 'Законные правила, которые определяют, кому принадлежит ресурс и может ли владелец его использовать или продавать; надёжные права снижают риск инвестиций в этот ресурс.',
+      en: 'Legally established permissions concerning who may own an asset, use it and transfer it to someone else.',
+      ru: 'Установленные законом права, определяющие, кто может владеть имуществом, использовать его и передавать другому лицу.',
     },
     example: {
       en: 'A farmer who can prove ownership of a plot can use it as collateral for a bank loan to buy irrigation equipment, while a farmer with no legal title to the same plot is less likely to get that loan.',

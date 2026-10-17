@@ -28,27 +28,41 @@ export const X0 = 52;
 export const X1 = 346;
 export const Y0 = 14;
 export const Y1 = 214;
-export const NMAX = 50;
-// Top of the y-axis. It was 2500, which left O(1), O(log n) and O(n) flat against the axis at n = 50.
-export const YMAX = 300;
-export const Y_TICKS = [0, 50, 100, 150, 200, 250, 300];
+export const NMAX = 100;
+// A deliberately close linear view preserves the small growth classes. Larger curves are clipped, not flattened.
+export const YMAX = 20;
+export const Y_TICKS = [0, 5, 10, 15, 20];
+export type Scale = 'linear' | 'log';
+export const LOG_MIN = 0.5;
+export const LOG_MAX = 2 ** 20;
+export const LOG_TICKS = [0.5, 4, 16, 256, 4096, 65536, LOG_MAX];
 export const xAt = (n: number) => X0 + ((n - 1) / (NMAX - 1)) * (X1 - X0);
-export const yAt = (v: number) => Y1 - (v / YMAX) * (Y1 - Y0);
+export const yAt = (v: number, scale: Scale = 'linear') => Y1 - (
+  scale === 'log' ? (Math.log2(v) - Math.log2(LOG_MIN)) / (Math.log2(LOG_MAX) - Math.log2(LOG_MIN)) : v / YMAX
+) * (Y1 - Y0);
 
-// Path of one curve for n = 1..NMAX. Where the curve passes YMAX, the path stops on the top edge at the crossing
-// (linear between the two neighbouring whole n). clipX is the x of that crossing, or null if the curve stays inside.
-export function curve(f: (n: number) => number): { d: string; clipX: number | null } {
-  const pts = [`${xAt(1)},${yAt(f(1))}`];
+// Sample each class at integer n. Interpolate the value where it crosses a chart boundary.
+// Zero is outside the logarithmic domain, so the log curve starts at its lower-bound crossing.
+export function curve(f: (n: number) => number, scale: Scale = 'linear'): { d: string; clipX: number | null } {
+  const min = scale === 'log' ? LOG_MIN : 0;
+  const max = scale === 'log' ? LOG_MAX : YMAX;
+  const pts: string[] = [];
   let prev = { n: 1, v: f(1) };
+  if (prev.v >= min) pts.push(`${xAt(1)},${yAt(prev.v, scale)}`);
   for (let n = 2; n <= NMAX; n++) {
     const v = f(n);
-    if (v <= YMAX) {
-      pts.push(`${xAt(n)},${yAt(v)}`);
+    if (v < min) { prev = { n, v }; continue; }
+    if (prev.v < min) {
+      const at = prev.n + (min - prev.v) / (v - prev.v);
+      pts.push(`${xAt(at)},${Y1}`);
+    }
+    if (v <= max) {
+      pts.push(`${xAt(n)},${yAt(v, scale)}`);
       prev = { n, v };
       continue;
     }
-    const at = prev.n + ((YMAX - prev.v) / (v - prev.v)) * (n - prev.n);
-    pts.push(`${xAt(at)},${yAt(YMAX)}`);
+    const at = prev.n + ((max - prev.v) / (v - prev.v)) * (n - prev.n);
+    pts.push(`${xAt(at)},${Y0}`);
     return { d: `M${pts.join(' L')}`, clipX: xAt(at) };
   }
   return { d: `M${pts.join(' L')}`, clipX: null };

@@ -63,7 +63,9 @@ const topic: TopicMeta = {
   questionIds: ['a2-sq1', 'a2-sq2', 'a2-sq3', 'a2-eq1', 'a2-eq2'],
   caseIds: ['a-netherlands-room-river', 'a-boscastle-flash-2004', 'a-pakistan-floods-2022'],
   sources: [
-    { kind: 'ib-guide', title: 'Geography guide (2017), Option A: Freshwater', locator: 'A.2' },
+    {"kind": "web", "title": "Rijkswaterstaat, Room for the River", "url": "https://www.rijkswaterstaat.nl/en/projects/iconic-structures/room-for-the-river", "locator": "Programme 2006–2019; Measures; Spatial quality; Protection never complete"},
+    {"kind": "web", "title": "Environment Agency, Tenth anniversary of Boscastle and North Cornwall floods, 14 August 2014", "url": "https://www.gov.uk/government/news/tenth-anniversary-of-boscastle-and-north-cornwall-floods", "locator": "Channel and bridge works; community flood plans and warning service"},
+    { kind: 'ib-guide', title: 'Geography guide (2017), Option A: Freshwater', locator: 'A.2, p. 28' },
     { kind: 'thinkib', title: 'Option A: Floods and Flood Mitigation (page 43867)', locator: 'Flood Mitigation Strategies; Flood Prediction; Hydrographs and Floods' },
   ],
   links: [

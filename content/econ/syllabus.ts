@@ -44,4 +44,5 @@ export const syllabus: SyllabusItem[] = [
   { code: '4.8', title: { en: 'Measuring development', ru: 'Измерение развития' }, papers: ALL },
   { code: '4.9', title: { en: 'Barriers to economic growth and development', ru: 'Барьеры экономического роста и развития' }, papers: ALL },
   { code: '4.10', title: { en: 'Policies for growth and development', ru: 'Политика роста и развития' }, papers: ALL },
+  { code: 'mock-method', title: { en: 'School mock checklist and paper method', ru: 'Чек-лист и формат школьного мока' }, papers: ['P1', 'P2', 'P3'] },
 ];

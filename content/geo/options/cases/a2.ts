@@ -15,7 +15,7 @@ export const cases: CaseStudy[] = [
     lng: 5.2913,
     facts: {
       en: 'Since 2006 the ‘Room for the River’ programme has carried out measures at 34 locations along the IJssel, Waal, Lower Rhine and Lek. The programme cost a total of €2.3 billion and was completed in early 2019 with the opening of the Reevediep flood channel. It has improved safety for around 4 million people. Without the flood defences (storm-surge barriers, dikes and dunes), regular flooding would cover about 60% of the Netherlands (Delta Programme).',
-      ru: 'С 2006 года программа «Room for the River» проводит меры в 34 местах вдоль рек IJssel, Waal, Lower Rhine и Lek. Её общая стоимость составила 2,3 млрд евро, а завершилась она в начале 2019 года открытием разгрузочного канала Reevediep. Она повысила безопасность примерно для 4 млн человек. Без защитных сооружений (штормовых барьеров, дамб и дюн) регулярное затопление охватило бы около 60% территории Нидерландов (Delta Programme).',
+      ru: 'В 2006–2019 годах программа «Room for the River» реализовала меры на 34 участках вдоль рек IJssel, Waal, Lower Rhine и Lek. Её общая стоимость составила 2,3 млрд евро, а завершилась она в начале 2019 года открытием разгрузочного канала Reevediep. Она повысила безопасность примерно для 4 млн человек. Без защитных сооружений (штормовых барьеров, дамб и дюн) регулярное затопление охватило бы около 60% территории Нидерландов (Delta Programme).',
     },
     usedFor: ['a2-flooding', 'a-essay-option'],
     src: [
@@ -49,8 +49,10 @@ export const cases: CaseStudy[] = [
       {
         kind: 'web',
         title: 'HR Wallingford: Bettess (2005), Flooding in Boscastle and North Cornwall, August 2004 (abstract)',
-        url: 'https://eprints.hrwallingford.com/541',
+        url: 'https://eprints.hrwallingford.com/id/eprint/541/',
+        locator: 'Abstract, rainfall/catchment paragraph and commissioning/analysis paragraph',
       },
+      { kind: 'web', title: 'Environment Agency, Tenth anniversary of Boscastle and North Cornwall Floods (14 August 2014)', url: 'https://www.gov.uk/government/news/tenth-anniversary-of-boscastle-and-north-cornwall-floods', locator: 'Valency channel/bridge, Jordan culvert, community flood plans and warning service' },
     ],
   },
   {

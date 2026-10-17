@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" role="img" aria-labelledby="t1 d1">
+  <title id="t1">Демографическая нагрузка пожилыми: Япония, Республика Корея и Нигерия; прогнозы на 2024 и 2050 годы</title>
+  <desc id="d1">Столбчатая диаграмма. Прогноз для Японии: с 50,7 в 2024 году до 73,1 в 2050 году; для Республики Корея — с 27,5 до 75,6; для Нигерии — с 5,5 до 7,0. Прогноз суммарного коэффициента рождаемости на 2024 год: Япония 1,22; Республика Корея 0,73; Нигерия 4,38.</desc>
+  <rect x="0" y="0" width="640" height="400" fill="#ffffff"/>
+  <text x="320" y="30" font-family="Helvetica, Arial, sans-serif" font-size="17" font-weight="bold" fill="#1b1b1b" text-anchor="middle">Нагрузка пожилыми: прогнозы на 2024 и 2050 годы</text>
+  <text x="320" y="50" font-family="Helvetica, Arial, sans-serif" font-size="12" fill="#444444" text-anchor="middle">Люди 65+ на 100 человек в возрасте 15–64 лет</text>
+  <rect x="330" y="64" width="14" height="14" fill="#9fb8cc"/>
+  <text x="350" y="76" font-family="Helvetica, Arial, sans-serif" font-size="12" fill="#1b1b1b">2024 (прогноз)</text>
+  <rect x="480" y="64" width="14" height="14" fill="#1f4e79"/>
+  <text x="500" y="76" font-family="Helvetica, Arial, sans-serif" font-size="12" fill="#1b1b1b">2050 (прогноз)</text>
+  <line x1="80" y1="90" x2="620" y2="90" stroke="#d9d9d9" stroke-width="1"/>
+  <line x1="80" y1="150" x2="620" y2="150" stroke="#d9d9d9" stroke-width="1"/>
+  <line x1="80" y1="210" x2="620" y2="210" stroke="#d9d9d9" stroke-width="1"/>
+  <line x1="80" y1="270" x2="620" y2="270" stroke="#d9d9d9" stroke-width="1"/>
+  <line x1="80" y1="330" x2="620" y2="330" stroke="#555555" stroke-width="2"/>
+  <line x1="80" y1="90" x2="80" y2="330" stroke="#555555" stroke-width="1"/>
+  <text x="72" y="94" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#444444" text-anchor="end">80</text>
+  <text x="72" y="154" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#444444" text-anchor="end">60</text>
+  <text x="72" y="214" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#444444" text-anchor="end">40</text>
+  <text x="72" y="274" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#444444" text-anchor="end">20</text>
+  <text x="72" y="334" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#444444" text-anchor="end">0</text>
+  <text transform="rotate(-90 22 210)" x="22" y="210" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#444444" text-anchor="middle">На 100 человек в возрасте 15–64 лет</text>
+  <rect x="140" y="177.9" width="52" height="152.1" fill="#9fb8cc"/>
+  <rect x="208" y="110.7" width="52" height="219.3" fill="#1f4e79"/>
+  <rect x="310" y="247.5" width="52" height="82.5" fill="#9fb8cc"/>
+  <rect x="378" y="103.2" width="52" height="226.8" fill="#1f4e79"/>
+  <rect x="480" y="313.5" width="52" height="16.5" fill="#9fb8cc"/>
+  <rect x="548" y="309" width="52" height="21" fill="#1f4e79"/>
+  <text x="166" y="171.9" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" fill="#1b1b1b" text-anchor="middle">50,7</text>
+  <text x="234" y="104.7" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" fill="#1b1b1b" text-anchor="middle">73,1</text>
+  <text x="336" y="241.5" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" fill="#1b1b1b" text-anchor="middle">27,5</text>
+  <text x="404" y="97.2" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" fill="#1b1b1b" text-anchor="middle">75,6</text>
+  <text x="506" y="307.5" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" fill="#1b1b1b" text-anchor="middle">5,5</text>
+  <text x="574" y="303" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" fill="#1b1b1b" text-anchor="middle">7,0</text>
+  <text x="200" y="350" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="bold" fill="#1b1b1b" text-anchor="middle">Япония</text>
+  <text x="370" y="350" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="bold" fill="#1b1b1b" text-anchor="middle">Республика Корея</text>
+  <text x="540" y="350" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="bold" fill="#1b1b1b" text-anchor="middle">Нигерия</text>
+  <text x="200" y="368" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#444444" text-anchor="middle">СКР, прогноз 2024: 1,22</text>
+  <text x="370" y="368" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#444444" text-anchor="middle">СКР, прогноз 2024: 0,73</text>
+  <text x="540" y="368" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#444444" text-anchor="middle">СКР, прогноз 2024: 4,38</text>
+  <text x="320" y="390" font-family="Helvetica, Arial, sans-serif" font-size="10.5" fill="#444444" text-anchor="middle">Источник: ООН, WPP 2024, Medium; прогнозы на 2024 и 2050 годы</text>
+</svg>

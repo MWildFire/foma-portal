@@ -4,7 +4,11 @@ import { markBlockDone, setTopicRag, unmarkBlockDone } from '../src/planner/acti
 import { blocksOf, dayOf, emptyState, plan } from './planner-fixtures.mjs';
 
 const TODAY = '2026-10-14';
-const geoBlocks = (state = emptyState()) => blocksOf(dayOf(plan(TODAY, { state }), TODAY), 'geo');
+const slice=(topicId,start,minutes,totalMinutes,state=emptyState())=>({
+ id:`t:geo/${topicId}@${start}+${minutes}`,kind:'topic',subject:'geo',topicId,start,minutes,totalMinutes,last:start+minutes===totalMinutes,date:TODAY,route:'/s/geo',
+ status:state.blocks[`t:geo/${topicId}@${start}+${minutes}`]||state.topics[`geo/${topicId}`]?.done?'done':'planned',doneOn:state.blocks[`t:geo/${topicId}@${start}+${minutes}`]??state.topics[`geo/${topicId}`]?.done,
+});
+const geoBlocks=(state=emptyState())=>[slice('geo-t1',0,25,25,state),slice('geo-t2',0,25,40,state),slice('geo-t2',25,10,40,state)];
 const topicOf = minutes => ({
   id: 'geo-t1', subject: 'geo', title: { en: 'T1', ru: 'Т1' }, order: 1, minutes, priority: 1, inMockScope: 'yes',
   papers: ['P1'], termIds: [], questionCount: 0, links: [], ready: { en: false, ru: false },
@@ -30,7 +34,7 @@ test('a topic is marked done when its last open minutes are finished', () => {
 
 test('slices may be finished in any order; the topic is done once every minute is covered', () => {
   const subjects = [{ id: 'geo', topics: [topicOf(40)], termIds: null }];
-  const slices = blocksOf(dayOf(plan(TODAY, { subjects }), TODAY), 'geo').filter(b => b.kind === 'topic');
+  const slices = [slice('geo-t1',0,25,40),slice('geo-t1',25,15,40)];
   assert.deepEqual(slices.map(b => [b.start, b.minutes]), [[0, 25], [25, 15]]);
   let state = markBlockDone(emptyState(), slices[1], TODAY);
   assert.equal(state.topics['geo/geo-t1'], undefined);
@@ -91,10 +95,10 @@ test('rag is written to topics["<subject>/<topic>"].rag and can be cleared', () 
   assert.equal(setTopicRag(setTopicRag(emptyState(), 'geo', 'x', 'red'), 'geo', 'x', null).topics['geo/x'], undefined);
 });
 
-test('a recall or timed block is just a done mark', () => {
+test('daily practice activities are done marks, not whole-topic completion', () => {
   const day = dayOf(plan('2026-10-24'), '2026-10-24');
-  const timed = day.blocks.find(b => b.kind === 'timed');
-  const recall = day.blocks.find(b => b.kind === 'recall');
+  const timed = day.blocks[0];
+  const recall = day.blocks[1];
   let state = markBlockDone(emptyState(), recall, '2026-10-24');
   state = markBlockDone(state, timed, '2026-10-24');
   assert.deepEqual(state.blocks, { [recall.id]: '2026-10-24', [timed.id]: '2026-10-24' });

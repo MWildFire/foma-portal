@@ -2,10 +2,8 @@ import type { Term } from '../../../../src/contract/types';
 import { BOOK_TITLE } from '../../book';
 
 const source = {
-  kind: 'web' as const,
-  title: 'IB Mathematics AI, first assessment 2021: public summary, not checked against the official guide',
-  locator: 'sub-topic 2.3',
-  url: 'https://www.ibo.org/globalassets/new-structure/university-admission/pdfs/dp-mathematics-applications-and-interpretation-guide-en.pdf',
+  kind: 'own' as const,
+  title: 'Author explanation; a standalone textbook page has not been verified / Авторское объяснение; отдельная страница учебника не подтверждена',
 };
 
 export const terms: Term[] = [
@@ -20,8 +18,8 @@ export const terms: Term[] = [
     papers: ['P1', 'P2', 'P3'],
     src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 4.1, p. 146' },
     pitfall: {
-      en: 'Points of the form (f(x), x) are not on the graph of y = f(x). The first coordinate is always the input x.',
-      ru: 'Точки вида (f(x), x) не лежат на графике y = f(x): первая координата всегда остаётся входом x.',
+      en: 'The original graph uses (x,f(x)). Swapping to (f(x),x) reflects it in y=x; a swapped point can happen to lie on the original too, for example for f(x)=x.',
+      ru: 'Исходный график использует точки (x,f(x)). Перестановка в (f(x),x) отражает их относительно y=x; иногда точка принадлежит и исходному графику, например при f(x)=x.',
     },
   },
   {
@@ -58,15 +56,15 @@ export const terms: Term[] = [
     id: 'graph-sum-difference',
     term: { en: 'graph of a sum or difference of functions', ru: 'график суммы и разности функций (graph of a sum or difference of functions)' },
     def: {
-      en: 'The graph of $y = f(x) + g(x)$ is obtained by adding the heights of the graphs of $f$ and $g$ at each $x$; the graph of $y = f(x) - g(x)$ by subtracting them.',
-      ru: 'График $y = f(x) + g(x)$ получается сложением высот графиков $f$ и $g$ при каждом $x$; график $y = f(x) - g(x)$ — вычитанием высот.',
+      en: 'The graph of $y = f(x) + g(x)$ is obtained by adding the heights of the graphs of $f$ and $g$ at each $x$ in both domains; the graph of $y = f(x) - g(x)$ by subtracting them.',
+      ru: 'График $y = f(x) + g(x)$ получается сложением высот графиков $f$ и $g$ при каждом $x$ из обеих областей определения; график $y = f(x) - g(x)$ — вычитанием высот.',
     },
     syllabus: '2.3',
     papers: ['P1', 'P2', 'P3'],
     src: source,
     pitfall: {
-      en: 'Add the heights (y-values), never the x-values. Where one graph is zero, the combined graph equals the other one.',
-      ru: 'Складывайте высоты (значения y), а не значения x. Там, где один из графиков равен нулю, суммарный график совпадает с другим.',
+      en: 'Add the heights (y-values), never the x-values. For a sum, if either summand is zero, the sum equals the other. For f−g, f=0 instead gives −g.',
+      ru: 'Складывайте высоты (значения y), а не значения x. Для суммы нулевое слагаемое оставляет второе без изменения. Для f−g при f=0 получается −g.',
     },
   },
 ];

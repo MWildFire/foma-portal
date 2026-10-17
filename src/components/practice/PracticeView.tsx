@@ -1,6 +1,9 @@
 import { useCallback, useId, useMemo, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
+import { DAILY_PREPARATION } from '../../../data/daily-preparation';
+import { ActivityDetails } from '../planner/DailyActivity';
 import { useTranslation } from 'react-i18next';
+import { filterMockTopics, questionInMock, filterMockSets } from '../../lib/mock-scope';
 import type { SubjectPack } from '../../contract/pack';
 import type { Lang, Question, TopicMeta } from '../../contract/types';
 import { useLocalProgress } from '../../hooks/useLocalProgress';
@@ -73,31 +76,38 @@ export function PracticeView({ pack, tracks = NO_TRACKS }: { pack: SubjectPack; 
   const subject = pack.meta.id;
   const [state, update] = useLocalProgress();
   const [params, setParams] = useSearchParams();
+  const requestedDaily = params.get('daily');
+  const daily = DAILY_PREPARATION.flatMap(day => day.activities).find(a => a.id === requestedDaily && a.subject === subject);
   const summaryId = useId();
   const redoId = useId();
   const listId = useId();
   const timedListId = useId();
 
+  const legacyOutside = ['p3-policy-set','p3-policy-set-b'].includes(params.get('set') ?? '');
+  const [showOutsideChoice,setShowOutside]=useState(false);
+  const showOutside = showOutsideChoice || legacyOutside;
+  const scopeTopics=useMemo(()=>filterMockTopics(pack.topics,showOutside),[pack.topics,showOutside]);
+  const scopeQuestions=useMemo(()=>showOutside ? pack.questions : pack.questions.filter(q=>questionInMock(q,pack.topics)),[pack.questions,pack.topics,showOutside]);
   const topicIndex = useMemo(() => new Map(pack.topics.map(topic => [topic.id, topic] as const)), [pack.topics]);
-  const baseOptions = useMemo(() => filterOptions(pack.questions, pack.topics.map(topic => topic.id)), [pack.questions, pack.topics]);
+  const baseOptions = useMemo(() => filterOptions(scopeQuestions, scopeTopics.map(topic => topic.id)), [scopeQuestions, scopeTopics]);
   const filters = useMemo(() => filtersFromParams(params), [params]);
   const options = useMemo(() => withChosen(baseOptions, filters), [baseOptions, filters]);
   // Keyed by the three values, not by the object: a change of ?set= must not rebuild the list.
   const filtered = useMemo(
-    () => filterQuestions(pack.questions, filters),
-    [pack.questions, filters.paper, filters.topic, filters.command],
+    () => requestedDaily ? daily?.questionIds.flatMap(id => scopeQuestions.filter(q => q.id === id)) ?? [] : filterQuestions(scopeQuestions, filters),
+    [scopeQuestions, filters.paper, filters.topic, filters.command, requestedDaily, daily],
   );
 
-  const sets = useMemo(() => listTimedSets(pack.papers), [pack.papers]);
-  const requestedSet = params.get('set') ?? '';
+  const sets = useMemo(() => filterMockSets(listTimedSets(pack.papers), pack.questions, pack.topics, showOutside), [pack.papers, pack.questions, pack.topics, showOutside]);
+  const requestedSet = requestedDaily ? '' : params.get('set') ?? '';
   const active = useMemo(() => sets.find(set => set.id === requestedSet), [sets, requestedSet]);
-  const inSet = useMemo(() => (active ? questionsOfSet(active, pack.questions) : null), [active, pack.questions]);
+  const inSet = useMemo(() => (active ? questionsOfSet(active, scopeQuestions) : null), [active, scopeQuestions]);
 
   // "To redo" is decided when the page opens, when the filters change, and when the student goes into or out of timed
   // mode. A rating given in between moves a question the next time, so the cards do not jump under the student's
   // finger while they read a markscheme. (The list is kept in state, not in a memo: a memo may be thrown away.)
   const progress = state.questions;
-  const snapshotKey = redoSnapshotKey(subject, filters, active?.id ?? '');
+  const snapshotKey = redoSnapshotKey(subject, filters, active?.id ?? '') + String(showOutside) + (requestedDaily ?? '');
   const [snapshot, setSnapshot] = useState(() => ({ key: snapshotKey, ids: wrongIds(subject, filtered, progress) }));
   let redoIds = snapshot.ids;
   if (snapshot.key !== snapshotKey) {
@@ -105,7 +115,7 @@ export function PracticeView({ pack, tracks = NO_TRACKS }: { pack: SubjectPack; 
     setSnapshot({ key: snapshotKey, ids: redoIds });
   }
   const parts = useMemo(() => splitRedo(filtered, redoIds), [filtered, redoIds]);
-  const counts = ratingCounts(subject, pack.questions, progress);
+  const counts = ratingCounts(subject, requestedDaily ? filtered : scopeQuestions, progress);
 
   const topicTitle = useCallback((id: string): string => {
     const topic = topicIndex.get(id);
@@ -139,7 +149,12 @@ export function PracticeView({ pack, tracks = NO_TRACKS }: { pack: SubjectPack; 
 
   return (
     <div className="study-page">
+      {requestedDaily
+        ? <button type="button" className="foma-btn" onClick={() => setParams(new URLSearchParams())}>{lang === 'ru' ? 'Вся практика предмета' : 'All subject practice'}</button>
+        : <button type="button" className="foma-btn" aria-pressed={showOutside} onClick={()=>{if(legacyOutside){const next=new URLSearchParams(params);next.delete('set');setParams(next);setShowOutside(false);}else setShowOutside(v=>!v);}}>{t(showOutside ? 'mock.hide' : 'mock.show',{ns:'subject'})}</button>}
       <TopicHero title={t('title')} intro={t('intro')} />
+      {daily && <section className="study-banner" data-daily-set={daily.id}><h2>{daily.title[lang]}</h2><ActivityDetails activity={daily} lang={lang} /></section>}
+      {requestedDaily && !daily && <p role="alert">{lang === 'ru' ? 'Этот набор daily не найден для предмета. Вернись в «Сегодня».' : 'This daily set was not found for this subject. Return to Today.'}</p>}
 
       {pack.questions.length === 0 ? (
         <section className="study-empty" aria-labelledby={summaryId}>
@@ -164,18 +179,18 @@ export function PracticeView({ pack, tracks = NO_TRACKS }: { pack: SubjectPack; 
           )}
 
           <div>
-            <TimedPanel
+            {!requestedDaily && <TimedPanel
               subject={subject}
               sets={sets}
               active={active}
               requestedId={requestedSet}
-              extraTime={state.settings.accessArrangements.extraTime}
               lang={lang}
               questionCount={inSet?.found.length ?? 0}
+              marks={inSet?.found.reduce((sum, q) => sum + q.marks, 0) ?? 0}
               missing={inSet?.missing ?? []}
               onSelect={chooseSet}
               tracks={tracks}
-            />
+            />}
 
             {active && inSet ? (
               <section aria-labelledby={timedListId} className="study-section">
@@ -184,7 +199,7 @@ export function PracticeView({ pack, tracks = NO_TRACKS }: { pack: SubjectPack; 
               </section>
             ) : (
               <>
-                <FilterBar
+                {!requestedDaily && <FilterBar
                   filters={filters}
                   options={options}
                   topicTitle={topicTitle}
@@ -192,7 +207,7 @@ export function PracticeView({ pack, tracks = NO_TRACKS }: { pack: SubjectPack; 
                   total={pack.questions.length}
                   onChange={changeFilter}
                   onClear={clearFilters}
-                />
+                />}
 
                 {filtered.length === 0 ? (
                   <p role="note" className="study-banner study-section" data-tone="amber">{t('filters.none')}</p>

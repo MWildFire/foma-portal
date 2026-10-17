@@ -34,3 +34,13 @@ test('a tangent outside the frame is cut on the edge, on the tangent line', () =
     assert.ok(Math.abs((seg.y - CENTRE) + tan * (seg.x - CENTRE)) < 1e-9, `tan = ${tan}: the end is off the tangent line`);
   }
 });
+
+// A radian slider can approach an axis without reaching it. Rounded display values
+// must not turn a finite tangent into an undefined mathematical value.
+test('near-axis angles retain their finite tangent', () => {
+  for (const theta of [1.57, 4.71, Math.acos(0.0004)]) {
+    const actual = tangentOf(theta);
+    assert.notEqual(actual, null);
+    assert.ok(Math.abs(actual - Math.tan(theta)) < 1e-8);
+  }
+});

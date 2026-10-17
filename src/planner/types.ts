@@ -1,5 +1,6 @@
 // Types shared by the planner modules. Types only, so every `import type` of this file is erased at run time.
 import type { L, PaperId, PastPaperRef, SubjectId } from '../contract/types.ts';
+import type { DailyActivity } from '../../data/daily-preparation.ts';
 import type { GlobalState, Rag, Weekday } from '../lib/storage.ts';
 
 export type { GlobalState, Rag, Weekday };
@@ -24,16 +25,14 @@ export interface ExamPaper {
 }
 
 export interface ExamAccess {
-  extraTime: number;              // 0.25 = 25% on top of the printed length
+  typing: boolean;
   room: string;                   // the student's room as the school gives it ('tbd' until it is known)
-  noExtraTime: string[];          // ids of papers without extra time (the French listening)
 }
 
 export interface ExamsFile {
   timezone: string;
   defaultRoom: string;
   papers: ExamPaper[];            // sorted by date, then start time
-  accessMinutes: Record<string, number>;   // paper minutes -> minutes with extra time (the school's table)
   access: ExamAccess;
 }
 
@@ -92,6 +91,7 @@ export interface PlannerSubject {
 }
 
 export interface PlannerInput {
+  now?: number;                  // UTC instant; date-only callers use the start of today in GST
   today: string;                  // YYYY-MM-DD in Asia/Dubai
   exams: ExamsFile;
   quotas: QuotasFile;
@@ -116,6 +116,8 @@ export interface PastPaperLink {
 }
 
 export interface PlanBlock {
+  activity?: DailyActivity;
+  maintenance?: boolean;
   id: string;                     // stable between recalculations; also the key in `state.blocks`
   kind: BlockKind;
   subject: SubjectId | null;      // null for the all-subject recall block
@@ -158,7 +160,24 @@ export interface RecallInfo {
   subjects: RecallSubject[];      // only subjects that have cards, heavier-weighted languages first
 }
 
+export interface DayBudget {
+  dailyQuota: number | null;
+  completed: number;
+  remaining: number;
+  clockLimit: number;
+  runningExam: boolean;
+  roomUnconfirmed: boolean;
+  available: number | null;
+  required: number;
+  bufferMinutes: number;
+  source: 'custom' | 'default' | 'missing';
+  deficit: number | null;
+  status: 'fits' | 'conflict' | 'unknown';
+}
+
 export interface PlanDay {
+  budget: DayBudget;
+  scheduledMinutes: number; // zero when the required work has no feasible budget
   date: string;
   weekday: Weekday;
   isToday: boolean;
@@ -188,5 +207,6 @@ export interface Plan {
   days: PlanDay[];                // from today (or the first plan day) to the last exam
   debt: { subject: SubjectId; minutes: number }[];   // work left over from earlier days, before it was placed
   unplaced: Unplaced[];
-  activeSubjects: SubjectId[];    // subjects whose last exam is still ahead
+  activeSubjects: SubjectId[];    // all four daily subjects until the final exam ends
+  completedHistory: { id: string; date: string }[];
 }

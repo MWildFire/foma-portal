@@ -1,7 +1,7 @@
 import type { Question } from '../../../../src/contract/types';
 
 // Supply questions. The calculation (econ-supply-01) is checked by scripts/econ-checks/supply.json.
-export const questions: Question[] = [
+export const questions: (Question & { inMockScope?: 'yes' | 'no' })[] = [
   {
     id: 'econ-supply-01',
     subject: 'econ',
@@ -25,7 +25,7 @@ export const questions: Question[] = [
     id: 'econ-supply-02',
     subject: 'econ',
     topicIds: ['supply'],
-    paper: 'P1',
+    paper: 'P2',
     marks: 3,
     command: 'Distinguish',
     prompt: {
@@ -43,7 +43,7 @@ export const questions: Question[] = [
     id: 'econ-supply-03',
     subject: 'econ',
     topicIds: ['supply'],
-    paper: 'P1',
+    paper: 'P2',
     marks: 4,
     command: 'Explain',
     prompt: {
@@ -61,7 +61,7 @@ export const questions: Question[] = [
     id: 'econ-supply-04',
     subject: 'econ',
     topicIds: ['supply'],
-    paper: 'P1',
+    paper: 'P2',
     marks: 2,
     command: 'Outline',
     prompt: {

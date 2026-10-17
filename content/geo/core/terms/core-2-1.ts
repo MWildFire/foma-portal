@@ -47,8 +47,8 @@ export const terms: Term[] = [
     papers: ['P2'],
     src,
     pitfall: {
-      en: 'Water vapour is a greenhouse gas that responds to temperature; people do not add it directly the way they add CO₂, so it is treated as a feedback.',
-      ru: 'Водяной пар — парниковый газ, который реагирует на температуру; человек не добавляет его напрямую так, как CO₂, поэтому его рассматривают как обратную связь.',
+      en: 'Human activities do release water vapour, but its short atmospheric lifetime means that its dominant global role is a temperature-driven feedback, unlike persistent CO₂ forcing.',
+      ru: 'Деятельность человека тоже выделяет водяной пар, но он недолго остаётся в атмосфере. В глобальном масштабе его главная роль — обратная связь, зависящая от температуры, в отличие от длительного воздействия CO₂.',
     },
   },
   {
@@ -211,10 +211,10 @@ export const terms: Term[] = [
     },
     syllabus: 'core-2.1',
     papers: ['P2'],
-    src,
+    src: {"kind": "web", "title": "IPCC AR6 WG1, chapter 7, Box 7.1: forcing, restoring feedback and equilibrium", "url": "https://www.ipcc.ch/report/ar6/wg1/chapter/chapter-7/"},
     pitfall: {
-      en: 'Negative feedback slows a change but does not reverse it unless the response is larger than the original driver.',
-      ru: 'Отрицательная обратная связь замедляет изменение, но не останавливает его, если отклик не сильнее исходного воздействия.',
+      en: 'Negative feedback damps the response to a forcing. With a constant forcing, warming can approach a new equilibrium when the restoring energy flux balances the forcing; a feedback coefficient and a forcing are not directly comparable quantities.',
+      ru: 'Отрицательная обратная связь ослабляет отклик на внешнее воздействие. При постоянном воздействии потепление может выйти к новому равновесию, когда восстанавливающий поток энергии уравновесит воздействие; коэффициент обратной связи и воздействие нельзя прямо сравнивать по величине.',
     },
   },
   {

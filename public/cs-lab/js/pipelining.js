@@ -26,7 +26,7 @@
   const INSTR_COLORS = ['accent', 'green', 'amber', 'violet', 'red']; // I1..I5
 
   // mode: 'seq' (no pipeline) or 'pipe'. hazard: boolean (only meaningful in pipe mode).
-  let mode = 'seq';
+  let mode = modeBtn.value === 'pipelined' ? 'pipe' : 'seq';
   let hazard = false;
   let cycle = 0; // current cycle to be revealed next; 0 = nothing shown yet
   let autoTimer = null;
@@ -76,13 +76,15 @@
 
   function render() {
     const T = window.Theme;
-    const W = 1000, H = 400;
+    const nCols = totalCycles();
+    const W = Math.max(1000, 180 + nCols * 65), H = 400;
+    svg.style.minWidth = W + 'px';
     svg.setAttribute('viewBox', '0 0 ' + W + ' ' + H);
 
     const total = totalCycles();
     // How many cycle columns to draw. We draw enough to show the full pipelined run
     // (and the bubble), but cap sequential view to N_CYCLES with a "…" indicator.
-    const nCols = (mode === 'seq') ? N_CYCLES : Math.min(N_CYCLES, total);
+    // Every cycle remains visible inside the scrollable diagram, including all 25 sequential cycles.
 
     const leftPad = 150;       // room for stage labels
     const topPad = 70;         // room for cycle headers + title
@@ -113,7 +115,7 @@
     }
     // ellipsis hint when sequential overflows
     if (mode === 'seq' && total > nCols) {
-      s += '<text x="' + (W - rightPad) + '" y="' + (topPad - 8) +
+      s += '<text x="' + (W - rightPad) + '" y="48' +
            '" fill="' + T.textFaint + '" font-size="11" text-anchor="end">… ' + total + ' ' + tr('total', 'всего') + '</text>';
     }
 
@@ -158,14 +160,14 @@
              '" stroke="' + (active ? T.accent : color) + '" stroke-width="' + (active ? 2.5 : 1) + '"/>';
         // Instruction label inside cell
         s += '<text x="' + (x + cellW / 2) + '" y="' + (y + cellH / 2 + 4) +
-             '" fill="#fff" font-size="12" font-weight="700" text-anchor="middle">I' + (i + 1) + STAGES[j].key + '</text>';
+             '" fill="' + T.ink(color, active ? 0.95 : 0.55) + '" font-size="12" font-weight="700" text-anchor="middle">I' + (i + 1) + STAGES[j].key + '</text>';
       }
     }
 
     // Bubble cells (only in hazard pipe mode). Bubble occupies the Fetch row
-    // at cycles 4 and 5 — the stall before I3 enters Fetch.
+    // at cycles 3 and 4 — the stall before I3 enters Fetch.
     if (mode === 'pipe' && hazard) {
-      for (let bc = 4; bc <= 5; bc++) {
+      for (let bc = 3; bc <= 4; bc++) {
         if (bc > cycle) continue;
         if (bc - 1 >= nCols) continue;
         const x = leftPad + (bc - 1) * cellW;
@@ -216,15 +218,10 @@
     speedupEl.innerHTML = tr('Speedup: ', 'Ускорение: ') +
       '<b>' + seqTotal + ' / ' + total + ' = ' + speedup.toFixed(2) + '×</b>';
 
-    // Mode button label reflects what clicking will switch TO
-    modeBtn.textContent = (mode === 'seq')
-      ? tr('Pipelining: OFF — click to enable', 'Конвейер: ВЫКЛ — нажмите чтобы включить')
-      : tr('Pipelining: ON — click to disable', 'Конвейер: ВКЛ — нажмите чтобы выключить');
-    modeBtn.setAttribute('aria-pressed', mode === 'pipe' ? 'true' : 'false');
-
-    hazardBtn.textContent = hazard
-      ? tr('Hazard: ON', 'Конфликт: ВКЛ')
-      : tr('Hazard: OFF', 'Конфликт: ВЫКЛ');
+    modeBtn.value = mode === 'pipe' ? 'pipelined' : 'sequential';
+    modeBtn.options[0].textContent = tr('Sequential', 'Последовательно');
+    modeBtn.options[1].textContent = tr('Pipelined', 'Конвейер');
+    hazardBtn.checked = hazard;
     hazardBtn.disabled = (mode !== 'pipe');
     hazardBtn.style.opacity = (mode !== 'pipe') ? '0.5' : '1';
     hazardBtn.setAttribute('aria-pressed', hazard ? 'true' : 'false');
@@ -264,16 +261,16 @@
     updateReadouts();
   }
 
-  modeBtn.addEventListener('click', () => {
-    mode = (mode === 'seq') ? 'pipe' : 'seq';
+  modeBtn.addEventListener('change', () => {
+    mode = modeBtn.value === 'pipelined' ? 'pipe' : 'seq';
     if (mode === 'seq') hazard = false;
     cycle = 0;
     stopAuto();
     render();
   });
-  hazardBtn.addEventListener('click', () => {
+  hazardBtn.addEventListener('change', () => {
     if (mode !== 'pipe') return;
-    hazard = !hazard;
+    hazard = hazardBtn.checked;
     cycle = 0;
     stopAuto();
     render();

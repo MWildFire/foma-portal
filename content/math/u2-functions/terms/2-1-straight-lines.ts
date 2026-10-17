@@ -6,8 +6,8 @@ export const terms: Term[] = [
     id: 'gradient-straight-line',
     term: { en: 'gradient of a straight line', ru: 'угловой коэффициент прямой (gradient of a straight line)' },
     def: {
-      en: 'The ratio of the change in y to the change in x between any two points of the line: $m = \\dfrac{y_2 - y_1}{x_2 - x_1}$. It gives both the steepness and the direction of the line.',
-      ru: 'Отношение изменения y к изменению x между любыми двумя точками прямой: $m = \\dfrac{y_2 - y_1}{x_2 - x_1}$. Показывает и крутизну, и направление прямой.',
+      en: 'The ratio of the change in y to the change in x between two points with different x-coordinates on a nonvertical line: $m = \\dfrac{y_2 - y_1}{x_2 - x_1}$. It gives both the steepness and the direction of the line.',
+      ru: 'Отношение изменения y к изменению x между точками невертикальной прямой с разными абсциссами: $m = \\dfrac{y_2 - y_1}{x_2 - x_1}$. Показывает и крутизну, и направление прямой.',
     },
     syllabus: '2.1',
     papers: ['P1', 'P2', 'P3'],
@@ -22,14 +22,14 @@ export const terms: Term[] = [
     term: { en: 'gradient–intercept form', ru: 'уравнение в виде y = mx + c (gradient–intercept form)' },
     def: {
       en: 'The form $y = mx + c$ of a straight line, where $m$ is the gradient and $c$ is the y-intercept, the value of $y$ when $x = 0$.',
-      ru: 'Вид уравнения прямой $y = mx + c$, где $m$ — угловой коэффициент, а $c$ — пересечение с осью y, то есть значение $y$ при $x = 0$.',
+      ru: 'Вид уравнения прямой $y = mx + c$, где $m$ — угловой коэффициент, а $c$ — ордината пересечения с осью y, то есть значение $y$ при $x = 0$.',
     },
     syllabus: '2.1',
     papers: ['P1', 'P2', 'P3'],
     src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 3.2, p. 87' },
     pitfall: {
       en: 'The constant c is where the line meets the y-axis. It is not the x-intercept.',
-      ru: 'Свободный член c — точка пересечения с осью y, а не с осью x.',
+      ru: 'Свободный член c — ордината точки (0,c) пересечения с осью y, а не абсцисса пересечения с осью x.',
     },
   },
   {

@@ -1,6 +1,6 @@
 ## Big idea
 
-A straight line is fixed by its gradient and one point on it. The gradient measures how steeply the line rises or falls, and each form of the equation shows a different feature of the line at a glance.
+A nonvertical straight line is fixed by its gradient and one point; a vertical line is specified by its constant x-coordinate. The gradient measures how steeply the line rises or falls, and each form of the equation shows a different feature of the line at a glance.
 
 ## Explanation
 
@@ -24,7 +24,7 @@ The <Term id="gradient-intercept-form"/> is $y = mx + c$. Here $c$ is the y-inte
 
 The x-intercept is found by putting $y = 0$. For $y = mx + c$ with $m \neq 0$ this gives $x = -\dfrac{c}{m}$.
 
-Two lines with equal gradients, $m_1 = m_2$, are parallel. <Term id="perpendicular-lines"/> meet at a right angle when $m_1 \times m_2 = -1$, which applies to two non-vertical lines, so the gradient of a perpendicular line is the negative reciprocal $-\dfrac{1}{m}$. A horizontal line is perpendicular to a vertical line.
+Two distinct nonvertical lines with equal gradients, $m_1=m_2$, are parallel. If their intercepts also agree, they are the same line. <Term id="perpendicular-lines"/> meet at a right angle when $m_1 \times m_2 = -1$, which applies to two non-vertical lines, so the gradient of a perpendicular line is the negative reciprocal $-\dfrac{1}{m}$. A horizontal line is perpendicular to a vertical line.
 
 <Formula id="line-perpendicular-gradients"/>
 
@@ -40,23 +40,23 @@ A straight line passes through $P(-3, 4)$ and $Q(5, -2)$.
 <Step>The x-intercept: put $y = 0$, so $0 = -0.75x + 1.75$ and $x = 2.33$ (to 2 decimal places). A line perpendicular to it has gradient $-\dfrac{1}{-0.75} = 1.33$ (to 2 decimal places).</Step>
 </Steps>
 
-<Reveal title="Why does the x-intercept use division by the gradient?">Putting $y = 0$ in $y = mx + c$ gives $mx = -c$. Dividing by $m$ is allowed because $m \neq 0$. A horizontal line $y = c$ crosses the x-axis only when $c = 0$, and then it is the x-axis itself.</Reveal>
+<Reveal title="Why does the x-intercept use division by the gradient?">Putting $y = 0$ in $y = mx + c$ gives $mx = -c$. Dividing by $m$ is allowed because $m \neq 0$. For $c\neq0$, a horizontal line $y=c$ has no x-intercept. At $c=0$, it coincides with the x-axis, so there is no unique intercept point.</Reveal>
 
 ## Visual
 
-Picture the line through $(0, 1.75)$ and $(2.33, 0)$. It starts on the y-axis at height 1.75 and slopes down: each step of 1 to the right drops the line by 0.75. A sketch needs only two points, so plot the intercepts, join them with a ruler, and check the gradient by counting rise over run between them.
+Picture the line through $(0, 1.75)$ and $(2.33, 0)$. It starts on the y-axis at height 1.75 and slopes down: each step of 1 to the right drops the line by 0.75. A straight-line sketch needs two distinct points, so plot the intercepts, join them with a ruler, and check the gradient by counting rise over run between them.
 
 <Callout kind="tip">Before you sketch, check the sign. A negative gradient means the line must fall from left to right, so confirm that direction first.</Callout>
 
 ## How it is examined
 
-Find and Write down questions reward the correct form and the correct numbers. A question on two points usually gives one mark for the gradient, one for the equation and one for the requested value. A perpendicular question gives marks for the gradient of the given line, for the perpendicular gradient and for the final equation. In Show that and Determine questions, write out each substitution, so that a method mark can still be awarded after an arithmetic slip.
+Find and Write down questions reward the correct form and the correct numbers. Show the gradient calculation and a suitable equation before finding any requested value. For a perpendicular line, identify the given line’s direction and handle horizontal/vertical cases separately; exact mark allocations depend on the question. In Show that and Determine questions, write out each substitution, so that a method mark can still be awarded after an arithmetic slip.
 
 <Callout kind="exam">Rewrite the equation as $y = mx + c$ before you read off the gradient. The line $3x - 4y + 8 = 0$ has gradient $\dfrac{3}{4}$, not $-\dfrac{3}{4}$ and not $3$.</Callout>
 
 ## Common mistakes
 
-<Callout kind="mistake">Taking the gradient of a perpendicular line as $-m$. The correct gradient is $-\dfrac{1}{m}$.</Callout>
+<Callout kind="mistake">Taking the gradient of a perpendicular line as $-m$. For nonzero finite $m$, the correct gradient is $-\dfrac{1}{m}$; for $m=0$, the perpendicular is vertical.</Callout>
 
 - Inverting the gradient: writing $\dfrac{x_2 - x_1}{y_2 - y_1}$ instead of $\dfrac{y_2 - y_1}{x_2 - x_1}$.
 - Dropping a sign with a negative coordinate: $5 - (-3)$ is $8$, not $2$.
@@ -74,6 +74,6 @@ Find and Write down questions reward the correct form and the correct numbers. A
 - The gradient is $m = \dfrac{y_2 - y_1}{x_2 - x_1}$: rise over run.
 - Use $y = mx + c$, where $c$ is the y-intercept, or $y - y_1 = m(x - x_1)$ when a point is given.
 - Put $x = 0$ for the y-intercept and $y = 0$ for the x-intercept.
-- Parallel lines have equal gradients: $m_1 = m_2$.
-- Perpendicular lines satisfy $m_1 \times m_2 = -1$, so the perpendicular gradient is $-\dfrac{1}{m}$.
+- Distinct nonvertical parallel lines have equal gradients; coincident lines also have equal gradients.
+- For two nonvertical perpendicular lines, $m_1m_2=-1$. The rule $-1/m$ needs $m\neq0$; a horizontal line has a vertical perpendicular.
 - Give the answer in the form the question asks for, such as 2 decimal places.

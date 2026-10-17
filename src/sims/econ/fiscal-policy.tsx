@@ -5,8 +5,8 @@ import { POTENTIAL_OUTPUT, ad1Price, ad2Price, ad3Price, pointA, pointB, pointC,
 // AD/AS with an upward-sloping SRAS (P = Y - 1, Tragakes Fig 13.2a) and LRAS vertical at potential output 10. The numbers are in
 // fiscal-policy-logic.ts.
 // AD1: P = 15 - Y meets SRAS at A = (8, 7), below potential output, so there is spare capacity.
-// Government spending rises by 2: AD2: P = 17 - Y (first round), C = (9, 8).
-// Multiplier 2 (MPC 0.5): the induced rounds add another 2, so AD3: P = 19 - Y and B = (10, 9) on LRAS.
+// Government spending rises by 2: AD2: P = 17 - Y is a direct-shift comparison, C = (9, 8), not a modelled chronological first round.
+// Multiplier 2 (MPC 0.5): the full fixed-price AD shift is 4, so AD3: P = 19 - Y and B = (10, 9) on LRAS.
 // Total AD shift 4 = 2 x 2 at every price level, but output rises by only 2 because the price level rises from 7 to 9.
 const AD1 = fn(ad1Price, 4, 12, 8);
 const AD2 = fn(ad2Price, 4, 12, 8);
@@ -55,8 +55,8 @@ const steps: Step[] = [
   {
     title: { en: 'Government spending rises', ru: 'Рост государственных расходов' },
     text: {
-      en: 'Government spending (G) rises by 2, so AD shifts right by 2 to AD2. In the first round output rises from 8 to 9 and the price level from 7 to 8 (point C), because SRAS slopes up.',
-      ru: 'Государственные расходы (government spending, G) растут на 2, поэтому AD сдвигается вправо на 2 (AD2). В первом раунде выпуск растёт с 8 до 9, а уровень цен — с 7 до 8 (точка C), потому что SRAS идёт вверх.',
+      en: 'Government spending (G) rises by 2, so AD shifts right by 2 to AD2. AD2 and C (9, 8) illustrate the direct horizontal shift before the full fixed-price multiplier is included. This is a graphical comparison, not a calculated chronological first-round path.',
+      ru: 'Государственные расходы (government spending, G) растут на 2, поэтому AD сдвигается вправо на 2 (AD2). AD2 и C (9; 8) иллюстрируют прямой горизонтальный сдвиг до включения полного мультипликатора при фиксированных ценах. Это графическое сравнение, а не рассчитанная временная траектория первого раунда.',
     },
     graph: {
       ...axes,
@@ -67,8 +67,8 @@ const steps: Step[] = [
   {
     title: { en: 'Multiplier effect', ru: 'Эффект мультипликатора (multiplier effect)' },
     text: {
-      en: 'Induced spending in the later rounds doubles the first-round rise (multiplier 2, MPC 0.5). AD shifts right by 4 in total to AD3. Output rises from 8 to 10 and the price level from 7 to 9 (point B). Output rises by less than the shift of AD (2 against 4) because part of the extra demand goes into higher prices.',
-      ru: 'Наведённые расходы (induced spending) в последующих раундах удваивают первоначальный рост (мультипликатор 2, предельная склонность к потреблению MPC = 0.5). AD сдвигается вправо на 4 в целом, до AD3. Выпуск растёт с 8 до 10, а уровень цен — с 7 до 9 (точка B). Выпуск растёт меньше, чем сдвиг AD (2 против 4), потому что часть дополнительного спроса уходит в рост цен.',
+      en: 'The fixed-price multiplier is 2 when MPC = 0.5 and there are no other marginal leakages. One consistent illustrative spending model is AE = 0.5Y + 7.5 − 0.5P + ΔG. Setting Y = AE gives AD: Y = 15 − P + 2ΔG. Thus ΔG = 2 shifts AD right by 4 to AD3. Output rises from 8 to 10 and the price level from 7 to 9 (point B). Output rises by less than the shift of AD (2 against 4) because P also changes. The realised output multiplier here is ΔY/ΔG = 2/2 = 1, not the fixed-price value 2.',
+      ru: 'При MPC = 0,5 и отсутствии других предельных изъятий мультипликатор с фиксированными ценами равен 2. Согласованная учебная модель расходов: AE = 0,5Y + 7,5 − 0,5P + ΔG. Из Y = AE получаем AD: Y = 15 − P + 2ΔG. Поэтому ΔG = 2 сдвигает AD вправо на 4, до AD3. Выпуск растёт с 8 до 10, а уровень цен — с 7 до 9 (точка B). Выпуск растёт меньше, чем сдвиг AD (2 против 4), поскольку меняется и P. Фактический мультипликатор выпуска здесь ΔY/ΔG = 2/2 = 1, а не величина 2 при фиксированных ценах.',
     },
     graph: {
       ...axes,
@@ -79,8 +79,8 @@ const steps: Step[] = [
   {
     title: { en: 'Full employment reached', ru: 'Полная занятость достигнута' },
     text: {
-      en: 'Output now equals potential output (LRAS at 10) at price level 9, so the spare capacity is used up. Further rises in government spending would mainly raise the price level, because output cannot stay above potential output.',
-      ru: 'Выпуск теперь равен потенциальному (LRAS = 10) при уровне цен 9, свободные мощности исчерпаны. Дальнейший рост госрасходов в основном поднимет уровень цен, потому что выпуск не может оставаться выше потенциального.',
+      en: 'Output now equals potential output (LRAS at 10) at price level 9, at the assumed natural unemployment rate, which need not be zero. Potential output is a sustainable level, not a hard short-run maximum: the rising SRAS allows a temporary positive gap. A return to potential after further demand expansion requires the stated long-run wage/price adjustment assumption.',
+      ru: 'Выпуск теперь равен потенциальному (LRAS = 10) при уровне цен 9, при принятом естественном уровне безработицы, который не обязан равняться нулю. Потенциальный выпуск — устойчивый уровень, а не жёсткий краткосрочный максимум: восходящая SRAS допускает временный положительный разрыв. Возврат к потенциалу после дальнейшего расширения спроса требует принятого предположения о долгосрочной корректировке зарплат и цен.',
     },
     graph: {
       ...axes,

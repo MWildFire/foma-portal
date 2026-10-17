@@ -36,6 +36,7 @@ export interface TopicMeta {
 export interface Term { id: string; term: L; def: L; syllabus: string; papers: PaperId[]; src: SourceRef; example?: L; pitfall?: L; sim?: SimId; }
 export interface Formula { id: string; tex: string; name: L; meaning: L; when: L; syllabus: string; inBooklet?: boolean; gdc?: L; units?: string; example?: L; }
 export interface Question {
+  inMockScope?: 'yes' | 'no' | 'unknown';
   id: string; subject: SubjectId; topicIds: string[]; paper: PaperId; section?: string;
   marks: number; command: string;            // IB command term
   prompt: L; stimulus?: L; markscheme: L; model?: L; hints?: L[];
@@ -57,7 +58,7 @@ export interface PastPaperRef {
   session: string;               // 'M24' | 'N23' | 'SPEC27' (specimen paper, not a past session)
   level: 'SL' | 'HL' | 'SLHL'; tz?: string;
   files: { kind: 'questions' | 'resources' | 'markscheme' | 'audio'; url: string }[];   // url: https://ibdocs.re/... only
-  minutes: number;               // time printed on the paper cover for that session (sections carry their own); +25% is added by the portal
+  minutes: number;               // time printed on the paper cover for that session (sections carry their own)
   marks: number;
   items: { q: string; marks: number; topicIds: string[]; command?: string; option?: string; inMockScope?: boolean }[];
   guide?: L;                     // our own write-up: how to answer, what earns marks, where marks are lost

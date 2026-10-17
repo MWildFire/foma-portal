@@ -1,8 +1,10 @@
 ## Big idea
 
-A linear transformation $Y = aX + b$ shifts the mean by the same rule that applies to the data, but it changes the variance only by $a^{2}$, so adding a constant never changes the spread. Means always add up; variances add up only for independent variables. These rules explain why the sample mean is an unbiased estimate of $\mu$ and why the sample variance divides by $n - 1$.
+A linear transformation $Y = aX + b$ shifts the mean by the same rule that applies to the data, but it changes the variance only by $a^{2}$, so adding a constant never changes the spread. Means always add up; variances add for independent variables; more generally, zero covariance suffices. These rules explain why the sample mean is an unbiased estimate of $\mu$ and why the sample variance divides by $n - 1$.
 
 ## Explanation
+
+Assume the stated means and variances are finite. Independence is a sufficient condition for adding variances; uncorrelated variables also suffice. Otherwise covariance matters, so independence is not a necessary condition. The unbiased sample-variance result below assumes independent identically distributed observations and n > 1.
 
 Let $X$ be a random variable with mean $E(X)$ and variance $\operatorname{Var}(X)$. The <Term id="linear-transformation-rv"/> $Y = aX + b$ multiplies every value by $a$ and then adds $b$. Its mean and variance follow directly:
 
@@ -14,7 +16,7 @@ The <Term id="expected-value-linear-combination"/> is the same linear combinatio
 
 <Formula id="linear-combination-mean"/>
 
-The <Term id="variance-linear-combination-independent"/> needs independence, and every coefficient is squared, so the sign disappears:
+The <Term id="variance-linear-combination-independent"/> uses independence here, and every coefficient is squared, so the sign disappears:
 
 <Formula id="linear-combination-variance"/>
 
@@ -62,13 +64,11 @@ A bottle is filled four times, with volumes 499, 503, 500 and 498 ml. Treat them
 
 ## Visual
 
-<Callout kind="tip">Picture $X$ as a distribution along a line. The map $Y = aX + b$ slides the whole picture by $b$, stretches it by $|a|$ and reflects it when $a < 0$. Sketch the two curves side by side: the same shape, a different centre, and a width that changes by $|a|$.</Callout>
+<Callout kind="tip">Picture $X$ as a distribution along a line. The map $Y = aX + b$ slides the whole picture by $b$, stretches it by $|a|$ and reflects it when $a < 0$. For $a\ne0$, sketch the two curves side by side: the same shape, a different centre, and a width that changes by $|a|$. If $a=0$, the variable is the constant $b$, so the distribution collapses to a point.</Callout>
 
 ## How it is examined
 
-Find and Calculate questions give marks for the correct mean, the correct variance and the standard deviation to the required accuracy. In a Show that question on $E(\bar{X}) = \mu$, write every step: the factor $\frac{1}{n}$, then the sum of $n$ terms equal to $n\mu$. Before you add variances, state that the variables are independent, because the mark depends on that statement. An Explain part on the divisor $n - 1$ needs a reason: it corrects for using $\bar{x}$ in place of $\mu$.
-
-<Callout kind="exam">Write the expected value first, then the variance. For a variance, say "independent" and square every coefficient before you add.</Callout>
+Write the mean and variance as separate calculations, with units and squared coefficients for variance. Before omitting covariance terms, justify independence or zero covariance. In a proof of unbiasedness, compute the expectation of the estimator rather than claiming that one realised estimate equals the parameter.
 
 ## Common mistakes
 
@@ -90,7 +90,7 @@ Find and Calculate questions give marks for the correct mean, the correct varian
 
 - For $Y = aX + b$: $E(Y) = aE(X) + b$ and $\operatorname{Var}(Y) = a^{2}\operatorname{Var}(X)$.
 - The mean of any linear combination is the same combination of the means; no independence is needed.
-- The variance of a linear combination needs independence, and every coefficient is squared.
+- The variance of a linear combination uses independence here, and every coefficient is squared.
 - The sample mean $\bar{X}$ is an unbiased estimate of $\mu$.
 - The sample variance $s_{n-1}^{2}$, with divisor $n - 1$, is an unbiased estimate of $\sigma^{2}$.
 - State independence before you add variances.

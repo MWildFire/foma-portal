@@ -1,12 +1,14 @@
 ## Big idea
 
-A geometric sequence multiplies by the same factor at every step. That one factor, the common ratio, describes growth when it is above 1 and decay when it is between 0 and 1. The nth term and the sum of the first n terms follow from two formulas.
+A geometric sequence multiplies by the same factor at every step. For a positive first term, that factor, the common ratio, describes growth when it is above 1 and decay when it is between 0 and 1. The nth term and the sum of the first n terms follow from two formulas.
 
 ## Explanation
 
-A <Term id="geometric-sequence"/> multiplies by the same non-zero number at each step, the <Term id="common-ratio"/> $r$. Its terms are $u_1, u_1 r, u_1 r^2, \dots$ When $r > 1$ the terms grow, and when $0 < r < 1$ they decay. A negative $r$ makes the signs alternate.
+A <Term id="geometric-sequence"/> multiplies by the same non-zero number at each step, the <Term id="common-ratio"/> $r$. Its terms are $u_1, u_1 r, u_1 r^2, \dots$ For $u_1>0$, $r>1$ gives increasing terms and $0<r<1$ gives decreasing terms. With a negative first term the numerical direction reverses: $-2,-4,-8$ decreases although the magnitudes grow. The ratio formula assumes a nonzero previous term; the usual nonzero-term convention takes $u_1\ne0$ and $r\ne0$. A negative $r$ makes the signs alternate.
 
 <Formula id="geometric-common-ratio"/>
+
+The Oxford 2019 course book, printed p.291, reserves the name “geometric sequence” for $r\ne1$. Under the recurrence definition, $r=1$ is the constant special case. In either convention $u_n=u_1r^{n-1}$ still calculates the terms at $r=1$, while the quotient formula for the sum must be replaced by $S_n=nu_1$.
 
 To find the $n$th term, start from $u_1$ and multiply by $r$ exactly $n - 1$ times.
 
@@ -44,11 +46,11 @@ Next, evaluate $\sum_{k=1}^{4} 3 \times 2^{k-1}$ by writing out the terms.
 
 ## Visual
 
-<Callout kind="tip">Plot the terms against the term number. A geometric sequence with $r > 1$ gives a curve that rises faster and faster, while $0 < r < 1$ gives a curve that falls and levels off near zero. The pattern is identified by equal ratios between neighbouring points, not by equal differences.</Callout>
+<Callout kind="tip">Plot the terms against the term number. For a positive first term, a geometric sequence with $r > 1$ gives a curve that rises faster and faster, while $0 < r < 1$ gives a curve that falls and levels off near zero. The pattern is identified by equal ratios between neighbouring points, not by equal differences.</Callout>
 
 ## How it is examined
 
-Find and Calculate questions give a mark for the common ratio or the formula, a mark for substitution, and a mark for the final value. Context questions need the model stated, with $u_1$ and $r$ taken from the wording, and an interpretation of the answer, such as whether the quantity is growing or decaying.
+Marks depend on the particular task, not a universal ratio/formula/substitution pattern. Show the common ratio, term indexing and substitutions relevant to the requested output. Context questions need the model stated, with $u_1$ and $r$ taken from the wording, and an interpretation of the answer, such as whether the quantity is growing or decaying.
 
 <Callout kind="exam">Check whether the question asks for the sum of $n$ terms or for the $n$th term, and whether the starting value counts as one of the terms. A drop of 40% per period gives $r = 0.6$, not $0.4$.</Callout>
 
@@ -73,6 +75,6 @@ Find and Calculate questions give a mark for the common ratio or the formula, a 
 - A geometric sequence multiplies by a constant non-zero ratio $r$ each step: $u_{n+1} = r u_n$.
 - $u_n = u_1 r^{n-1}$ gives any term, and $r = u_{n+1}/u_n$ identifies the common ratio.
 - $S_n = \dfrac{u_1(1 - r^n)}{1 - r}$ for $r \ne 1$ gives the sum of the first $n$ terms.
-- $r > 1$ means growth and $0 < r < 1$ means decay; a negative $r$ makes the signs alternate.
+- For a positive first term, $r>1$ means growth and $0<r<1$ means decay; a negative nonzero $r$ alternates signs when terms are nonzero.
 - Sigma notation $\sum_{k=1}^{n} u_1 r^{k-1}$ writes a geometric sum compactly.
 - For growth or decay at rate $p$ per period, the ratio is $1 + p$ or $1 - p$, with $p$ as a decimal.

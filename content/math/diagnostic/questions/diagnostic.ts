@@ -89,8 +89,8 @@ export const questions: Question[] = [
       ru: 'Функция f задана формулой f(x) = (2x - 1)/(x + 3), при x ≠ -3. Определите обратную функцию f⁻¹(x). Затем найдите f⁻¹(5) с точностью до 2 знаков после запятой.',
     },
     markscheme: {
-      en: 'M1: write y = (2x - 1)/(x + 3), swap x and y and rearrange: x(y + 3) = 2y - 1, so y(x - 2) = -(1 + 3x). A1: f⁻¹(x) = (1 + 3x)/(2 - x). A1: f⁻¹(5) = 16/(-3) = -5.33.',
-      ru: 'M1: запишите y = (2x - 1)/(x + 3), поменяйте местами x и y и выразите y: x(y + 3) = 2y - 1, откуда y(x - 2) = -(1 + 3x). A1: f⁻¹(x) = (1 + 3x)/(2 - x). A1: f⁻¹(5) = 16/(-3) = -5,33.',
+      en: 'M1: write y = (2x - 1)/(x + 3), swap x and y and rearrange: x(y + 3) = 2y - 1, so y(x - 2) = -(1 + 3x). A1: f⁻¹(x) = (1 + 3x)/(2 - x), with domain x ≠ 2. A1: f⁻¹(5) = 16/(-3) = -5.33.',
+      ru: 'M1: запишите y = (2x - 1)/(x + 3), поменяйте местами x и y и выразите y: x(y + 3) = 2y - 1, откуда y(x - 2) = -(1 + 3x). A1: f⁻¹(x) = (1 + 3x)/(2 - x), при x ≠ 2. A1: f⁻¹(5) = 16/(-3) = -5,33.',
     },
     answer: '-5.33',
     origin: 'original',
@@ -108,8 +108,8 @@ export const questions: Question[] = [
       ru: 'Функция f задана формулой $f(x) = x^{3} + x^{2} - 6x$ при -2 ≤ x ≤ 2. Используйте GDC, чтобы построить график y = f(x). Запишите координаты точки локального минимума, каждую координату с точностью до 2 знаков после запятой.',
     },
     markscheme: {
-      en: 'A1: x = 1.12 at the local minimum (f′(x) = 3x^2 + 2x - 6 = 0 gives x = (-2 + √76)/6 = 1.1196...). A1: y = -4.06, so the local minimum point is (1.12, -4.06).',
-      ru: 'A1: x = 1,12 у точки локального минимума (f′(x) = 3x^2 + 2x - 6 = 0 даёт x = (-2 + √76)/6 = 1,1196...). A1: y = -4,06, значит точка локального минимума (1,12; -4,06).',
+      en: 'A1: use the GDC minimum command near the visible turning point, or refine a table around x = 1.12: x ≈ 1.11963. No differentiation is needed. A1: y = -4.06, so the local minimum point is (1.12, -4.06).',
+      ru: 'A1: используй команду minimum на GDC у видимой точки поворота или уточняй таблицу около x = 1,12: x ≈ 1,11963. Дифференцирование не требуется. A1: y = -4,06, значит точка локального минимума (1,12; -4,06).',
     },
     answer: '1.12; -4.06',
     origin: 'original',
@@ -184,8 +184,8 @@ export const questions: Question[] = [
       ru: 'Время ожидания (в минутах) у 12 посетителей кафе одним вечером составило: 12, 15, 9, 22, 13, 18, 11, 16, 13, 20, 17, 10. Считайте эти 12 значений всей генеральной совокупностью. Используйте GDC и вычислите стандартное отклонение генеральной совокупности времени ожидания с точностью до 2 знаков после запятой. Объясните свой результат в контексте задачи.',
     },
     markscheme: {
-      en: 'M1: one-variable statistics of the 12 values on the GDC, using the population standard deviation σ (divisor 12). A1: σ = 3.88 (2 decimal places). R1: a typical waiting time differs from the mean of about 14.67 minutes by about 3.88 minutes, so the waiting times are spread around the mean.',
-      ru: 'M1: одномерная статистика для 12 значений на GDC; стандартное отклонение генеральной совокупности σ (делитель 12). A1: σ = 3,88 (с точностью до 2 знаков). R1: обычное время ожидания отличается от среднего значения около 14,67 минуты примерно на 3,88 минуты, то есть времена ожидания разбросаны вокруг среднего.',
+      en: 'M1: one-variable statistics of the 12 values on the GDC, using the population standard deviation σ (divisor 12). A1: σ = 3.88 (2 decimal places). R1: 3.88 minutes measures the spread of these waiting times around their mean of about 14.67 minutes. It is the root-mean-square deviation, not the mean absolute difference or a claim that each wait differs by 3.88.',
+      ru: 'M1: одномерная статистика для 12 значений на GDC; стандартное отклонение генеральной совокупности σ (делитель 12). A1: σ = 3,88 (с точностью до 2 знаков). R1: 3,88 минуты характеризует разброс этих времён ожидания вокруг среднего около 14,67 минуты. Это корень из среднего квадрата отклонений, а не среднее абсолютное отклонение и не утверждение, что каждое время отличается ровно на 3,88.',
     },
     answer: '3.88',
     origin: 'original',

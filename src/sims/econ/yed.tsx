@@ -49,8 +49,8 @@ const steps: Step[] = [
   {
     title: { en: 'Normal good: demand shifts right', ru: 'Нормальное благо: спрос сдвигается вправо' },
     text: {
-      en: 'Income doubles, from Y 10 to Y 20 (+100%). For a normal good demand rises at every price: D1 shifts right to D3. At P 6 quantity demanded rises from 24 to 40 (+66.7%): YED = 66.7% / 100% = 0.67. The sign is positive, so the good is normal; a value between 0 and 1 means a necessity.',
-      ru: 'Доход удваивается: с Y 10 до Y 20 (+100%). Для нормального блага спрос растёт при каждой цене: D1 сдвигается вправо, в D3. При P = 6 величина спроса растёт с 24 до 40 (+66,7%): YED = 66,7% / 100% = 0,67. Знак положительный, значит благо нормальное; значение между 0 и 1 означает товар первой необходимости.',
+      en: 'Income doubles, from Y 10 to Y 20 (+100%). For a normal good demand rises at every price: D1 shifts right to D3. At P 6 quantity demanded rises from 24 to 40 (+66.7%): YED = 66.7% / 100% = 0.67. The sign is positive, so the good is normal; a value between 0 and 1 classifies it as an income-inelastic normal good (“necessity”) over this income interval, not necessarily a biologically essential item.',
+      ru: 'Доход удваивается: с Y 10 до Y 20 (+100%). Для нормального блага спрос растёт при каждой цене: D1 сдвигается вправо, в D3. При P = 6 величина спроса растёт с 24 до 40 (+66,7%): YED = 66,7% / 100% = 0,67. Знак положительный, значит благо нормальное; значение между 0 и 1 даёт доходно неэластичное нормальное благо («necessity» в классификации YED) на этом интервале дохода, а не обязательно жизненно необходимый предмет.',
     },
     graph: { ...axes, curves: [d1Old, d3], guides: [toB], marks: [oldA, normalB] },
   },

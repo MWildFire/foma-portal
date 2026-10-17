@@ -9,12 +9,12 @@ export const questions: Question[] = [
     marks: 3,
     command: 'Suggest',
     prompt: {
-      en: 'Rewrite the sentence below in precise literary language. Use one precise verb, one literary term, and no vague words such as "good", "shows" or "very": "The poem is very good at showing that the room is quiet, and the simile is nice."',
-      ru: 'Перепишите предложение ниже на точном литературном языке. Используйте один точный глагол и один литературный термин, без размытых слов вроде «good», «shows» или «very»: «The poem is very good at showing that the room is quiet, and the simile is nice.»',
+      en: 'This is a focused rewriting drill, not an IB banned-word rule. Rewrite the sentence below in precise literary language. Use one precise verb, one literary term, and no vague words such as "good", "shows" or "very": "The poem is very good at showing that the room is quiet, and the simile is nice."',
+      ru: 'Это отдельная тренировка редактирования, а не список запрещённых IB слов. Перепишите предложение ниже на точном литературном языке. Используйте один точный глагол и один литературный термин, без размытых слов вроде «good», «shows» или «very»: «The poem is very good at showing that the room is quiet, and the simile is nice.»',
     },
     markscheme: {
-      en: '1 mark: removes the vague words ("very", "good", "shows", "nice") and states the effect directly. 1 mark: uses one precise verb, such as "suggests", "reinforces" or "undercuts", with the right meaning. 1 mark: uses a term correctly: "simile" only for a comparison with "like" or "as", and the device is named exactly.',
-      ru: '1 балл: убраны размытые слова («very», «good», «shows», «nice») и эффект назван прямо. 1 балл: использован точный глагол, например «suggests», «reinforces» или «undercuts», с верным значением. 1 балл: термин употреблён верно: «simile» только для сравнения с «like» или «as», а приём назван точно.',
+      en: '1 mark: removes the vague words ("very", "good", "shows", "nice") and states the effect directly. 1 mark: uses one precise verb, such as "suggests", "reinforces" or "undercuts", with the right meaning. 1 mark: uses a term correctly: "simile" for a figurative comparison, often signalled by "like" or "as"; these words alone are not sufficient.',
+      ru: '1 балл: убраны размытые слова («very», «good», «shows», «nice») и эффект назван прямо. 1 балл: использован точный глагол, например «suggests», «reinforces» или «undercuts», с верным значением. 1 балл: термин употреблён верно: «simile» для образного сравнения, часто выраженного через «like» или «as»; самих этих слов недостаточно.',
     },
     model: {
       en: 'The poem\'s simile makes the silence of the room concrete and reinforces the tension of the waiting.',
@@ -40,7 +40,7 @@ export const questions: Question[] = [
     },
     model: {
       en: 'The speaker compares the calm of the room to "the stillness in the air", so the quiet before death feels like the quiet before a storm.',
-      ru: 'Говорящая сравнивает покой комнаты с «the stillness in the air», поэтому тишина перед смертью ощущается как тишина перед бурей.',
+      ru: 'Голос стихотворения сравнивает покой комнаты с «the stillness in the air», поэтому тишина перед смертью ощущается как тишина перед бурей.',
     },
     origin: 'original',
     minutes: 3,

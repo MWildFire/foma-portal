@@ -25,12 +25,12 @@ export const formulas: Formula[] = [
     tex: '\\text{GDP deflator} = \\dfrac{\\text{Nominal GDP}}{\\text{Real GDP}} \\times 100',
     name: { en: 'GDP deflator', ru: 'Дефлятор ВВП (GDP deflator)' },
     meaning: {
-      en: 'Nominal GDP divided by real GDP, times 100: a price index of all domestic output with the base year equal to 100.',
-      ru: 'Номинальный ВВП, делённый на реальный ВВП, умноженный на 100: индекс цен всего внутреннего выпуска, в котором базовый год равен 100.',
+      en: 'Nominal GDP divided by real GDP, times 100: a price index of the domestic final output included in GDP with the base year equal to 100.',
+      ru: 'Номинальный ВВП, делённый на реальный ВВП, умноженный на 100: индекс цен конечного выпуска, включаемого в ВВП, в котором базовый год равен 100.',
     },
     when: {
-      en: 'Measuring the average change in prices of all domestic output, or converting nominal GDP into real GDP.',
-      ru: 'При измерении среднего изменения цен всего внутреннего выпуска или при переводе номинального ВВП в реальный.',
+      en: 'Measuring the average change in prices of domestic final output included in GDP, or converting nominal GDP into real GDP.',
+      ru: 'При измерении среднего изменения цен конечного выпуска, включаемого в ВВП, или при переводе номинального ВВП в реальный.',
     },
     syllabus: '3.1',
     units: 'index (base year = 100)',
@@ -44,8 +44,8 @@ export const formulas: Formula[] = [
     tex: 'Y = C + I + G + (X - M)',
     name: { en: 'GDP by the expenditure approach', ru: 'ВВП по расходному методу (expenditure approach)' },
     meaning: {
-      en: 'The sum of consumption, investment, government spending and net exports: total spending on final goods and services produced in the country.',
-      ru: 'Сумма потребления, инвестиций, государственных расходов и чистого экспорта: совокупные расходы на конечные товары и услуги, произведённые в стране.',
+      en: 'Consumption plus investment plus government purchases plus net exports measures final domestic output. In this convention I is private investment (including new housing and inventories); G includes public investment. Count a public school building once under G, not again under I.',
+      ru: 'Потребление плюс инвестиции, государственные закупки и чистый экспорт измеряют конечный внутренний выпуск. В этой записи I — частные инвестиции, включая новое жильё и изменение запасов; G включает государственные инвестиции. Новое здание государственной школы учитывают один раз в G, не прибавляя повторно в I.',
     },
     when: {
       en: 'Calculating GDP from spending data, or analysing the components of GDP.',

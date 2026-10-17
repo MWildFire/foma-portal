@@ -3,7 +3,7 @@ import type { Formula } from '../../../../src/contract/types';
 export const formulas: Formula[] = [
   {
     id: 'complex-division',
-    tex: '\\dfrac{a+bi}{c+di}=\\dfrac{(a+bi)(c-di)}{c^{2}+d^{2}}',
+    tex: '\\dfrac{a+bi}{c+di}=\\dfrac{(a+bi)(c-di)}{c^{2}+d^{2}},\\quad c^{2}+d^{2}>0',
     name: { en: 'Division of complex numbers', ru: 'Деление комплексных чисел (Division of complex numbers)' },
     meaning: {
       en: 'Divides by multiplying the top and the bottom by the conjugate of the denominator, so that the denominator becomes real.',

@@ -70,6 +70,14 @@ def tax_revenue(t, q):
     return t * q
 
 
+def tax_inclusive(expenditure, rate):
+    return expenditure - expenditure / (1 + rate / 100)
+
+
+def two_band_tax(first_band, first_rate, second_band, second_rate):
+    return (first_band * first_rate + second_band * second_rate) / 100
+
+
 def triangle(base, height):
     return base * height / 2
 
@@ -168,7 +176,9 @@ FUNCTIONS = {
     'ped': ped, 'pes': ped, 'yed': yed, 'xed': xed,
     'total_revenue': total_revenue, 'profit': profit,
     'linear_price': linear_price, 'linear_quantity': linear_quantity, 'excess_demand': excess_demand,
-    'tax_revenue': tax_revenue, 'triangle': triangle, 'rectangle': rectangle, 'consumer_share': consumer_share,
+    'tax_revenue': tax_revenue, 'triangle': triangle,
+    'tax_inclusive': tax_inclusive,
+    'two_band_tax': two_band_tax, 'rectangle': rectangle, 'consumer_share': consumer_share,
     'real_gdp': real_gdp, 'gdp_deflator': gdp_deflator, 'cpi': cpi, 'inflation': inflation,
     'unemployment_rate': unemployment_rate, 'output_gap': output_gap,
     'mps': mps, 'multiplier': multiplier, 'multiplier_from_mpc': multiplier_from_mpc,

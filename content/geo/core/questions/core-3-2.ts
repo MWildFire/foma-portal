@@ -81,4 +81,29 @@ export const questions: Question[] = [
     origin: 'original',
     minutes: 8,
   },
+{
+  "id": "core-3-2-a6",
+  "subject": "geo",
+  "topicIds": [
+    "core-3-2-impacts-consumption"
+  ],
+  "paper": "P2",
+  "section": "A",
+  "marks": 8,
+  "command": "Explain",
+  "prompt": {
+    "en": "Use the linked India/SouthAfrica comparison and EEA2023 textile account supplied below. (a) Explain one contrasting water–food–energy risk pathway in each country and one condition affecting household/farm access.[4] (b) EEA reports46% by weight of EU used-textile exports went to Africa in2019. Explain why this is not a46% dumping rate,and distinguish reuse,recycling and disposal.[4]",
+    "ru": "Используй приведённые ниже сравнение Индии/ЮАР и сведения ЕАОС2023 о текстиле. (a) Объясни по одной контрастной цепочке риска вода–пища–энергия для каждой страны и условие доступа семей/ферм.[4] (b) По ЕАОС46% массы экспортированного из ЕС подержанного текстиля направлялось в Африку в2019году. Объясни,почему это не46% выброшенного на свалку,и различи повторное использование,переработку и удаление.[4]"
+  },
+  "markscheme": {
+    "en": "(a) Up to2 per country for a developed resource chain with access qualification:India groundwater pumping buffers rainfall shortfalls but needs power and sustainable abstraction;falling aquifers/credit or unreliable supply constrain access. SouthAfrica drought-exposed supplies and unequal irrigation/services affect crops;water-cooled generation can compete for limited water. Do not infer all regions are identical or attribute a single drought without separate evidence. (b)1:46% describes an export destination share,not final fate;1:reuse keeps an item serving its function;1:recycling processes material,possibly downcycling into rags;1:disposal is landfill/burning,whose actual share cannot be recovered from the export share alone. Accept other grounded causal chains. Sources:IPCC 2022 WGIII 17.3.3.2/WGII ch.4;IEA India 2021 andSouth Africa 2019;EEA2023 receiving-country/fate sections.",
+    "ru": "(a) До2баллов на страну за развитую связь ресурсов с условием доступа:Индия — насосное орошение страхует от нехватки осадков,но требует энергии и устойчивого водозабора;падение уровня вод,кредит и ненадёжность снабжения ограничивают доступ. ЮАР — засуха и неравный доступ к орошению/услугам влияют на урожай;станции с водяным охлаждением могут конкурировать за воду. Нельзя считать все регионы одинаковыми или приписывать причину отдельной засухе без дополнительных доказательств. (b)1:46% — доля направления экспорта,не итоговая судьба;1:повторное использование сохраняет функцию вещи;1:переработка меняет материал,например в ветошь;1:удаление — захоронение/сжигание,его долю нельзя вычислить из направления экспорта. Допустимы другие обоснованные цепочки. Источники:IPCC 2022 WGIII 17.3.3.2/WGIIгл4;МЭА Индия 2021/ЮАР 2019;ЕАОС2023,получатели и дальнейшее обращение."
+  },
+  "origin": "original",
+  "minutes": 10,
+  "stimulus": {
+    "en": "India:IPCC 2022 describes extensive groundwater irrigation with aquifer depletion;irrigation needs power and finance. SouthAfrica:the2015–2017 drought/CapeTown crisis illustrates variable supplies;access to irrigation affects adaptation. The IEA India 2021/South Africa 2019 outlooks describe coal-dependent grids;water-cooled plants compete for water,while wind/PV need little operational water. EEA2023,2019 data:46% of EU used-textile exports by weight went to Africa;final reuse/recycling/disposal is uncertain.",
+    "ru": "Индия:IPCC 2022 описывает широкое насосное орошение и истощение вод;для полива нужны энергия и финансирование. ЮАР:засуха2015–2017 и кризис Кейптауна показывают изменчивость снабжения;доступ к орошению влияет на адаптацию. Обзоры МЭА Индия 2021/ЮАР 2019 описывают угольную зависимость;водяное охлаждение конкурирует за воду,ветер/PV требуют мало воды при работе. ЕАОС2023 по данным2019:46% массы экспорта подержанного текстиля ЕС шло в Африку;итоговое повторное использование/переработка/удаление неопределённы."
+  }
+},
 ];

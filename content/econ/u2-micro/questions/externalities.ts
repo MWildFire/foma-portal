@@ -1,7 +1,7 @@
 import type { Question } from '../../../../src/contract/types';
 
 // Externalities questions. The calculations (econ-externalities-01 to 04) are checked by scripts/econ-checks/externalities.json.
-export const questions: Question[] = [
+export const questions: (Question & { inMockScope?: 'yes' | 'no' })[] = [
   {
     id: 'econ-externalities-01',
     subject: 'econ',
@@ -118,7 +118,7 @@ export const questions: Question[] = [
     id: 'econ-externalities-07',
     subject: 'econ',
     topicIds: ['externalities'],
-    paper: 'P1',
+    paper: 'P2',
     marks: 8,
     command: 'Evaluate',
     prompt: {

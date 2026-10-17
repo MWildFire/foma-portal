@@ -21,12 +21,12 @@ export const formulas: Formula[] = [
     tex: 'p(x)=a_{n}x^{n}+a_{n-1}x^{n-1}+\\cdots+a_{1}x+a_{0}=0,\\qquad a_{n}\\neq 0',
     name: { en: 'Polynomial equation of degree n', ru: 'Многочленное уравнение степени n (Polynomial equation of degree n)' },
     meaning: {
-      en: 'A polynomial equation of degree n has at most n real roots. These are the x-intercepts of the graph of $y=p(x)$.',
-      ru: 'Многочленное уравнение степени n имеет не более n действительных корней. Это точки пересечения графика $y=p(x)$ с осью x.',
+      en: 'A polynomial equation of degree n has at most n distinct real roots. These are the x-intercepts of $y=p(x)$, including tangencies. This gives an upper bound, not a guarantee that a numerical list is complete.',
+      ru: 'Многочленное уравнение степени n имеет не более n различных действительных корней. Это общие точки графика $y=p(x)$ и оси x, включая касания. Указана верхняя граница числа корней, а не гарантия полноты численного списка.',
     },
     when: {
-      en: 'Before using technology, to decide how many roots to look for, and to check that a list of roots is complete.',
-      ru: 'До использования технологии — чтобы понять, сколько корней искать, и проверить, что список корней полный.',
+      en: 'Before using technology, to decide how many roots to look for, and to check whether a proposed number of distinct roots is possible.',
+      ru: 'До использования технологии — чтобы понять, сколько корней искать, и проверить, возможно ли предложенное число различных корней.',
     },
     syllabus: '1.8',
     inBooklet: false,

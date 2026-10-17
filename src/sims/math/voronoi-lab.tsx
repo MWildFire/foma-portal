@@ -1,9 +1,10 @@
+import ReadableDiagram from '../readable-diagram';
 import { useState } from 'react';
 import type { Lang } from '../../contract/types';
 
 // Voronoi cells for three sites on a 10 x 10 map. Each grid square takes the colour of its nearest site.
-// The dashed lines are the perpendicular bisectors of the site pairs (the cell edges). The red dot is the
-// circumcentre of the three sites, which is a Voronoi vertex.
+// Dashed construction bisectors include portions that are not cell edges.
+// The red dot is the circumcentre for three distinct non-collinear sites.
 
 const UNITS = 10;
 const SIZE = 300;
@@ -25,7 +26,7 @@ const toSvg = (p: Point) => ({ x: p.x * SCALE, y: SIZE - p.y * SCALE });
 function nearestIndex(p: Point, sites: Point[]): number {
   let best = 0;
   sites.forEach((site, i) => {
-    if (distance(p, site) < distance(p, sites[best])) best = i;
+    if (distance(p, site) < distance(p, sites[best]) - 1e-9) best = i;
   });
   return best;
 }
@@ -64,7 +65,7 @@ const TEXT = {
     vertex: 'Voronoi vertex (circumcentre)',
     radius: 'radius',
     none: 'the sites lie on one line, so there is no vertex',
-    note: 'Shaded: nearest site. Dashed: perpendicular bisectors (edges). Red dot: vertex.',
+    note: 'Shaded: nearest site. Dashed: construction bisectors; not all of each bisector is a cell edge. Red dot: vertex.',
   },
   ru: {
     label: 'Ячейки Вороного для трёх пунктов и их серединные перпендикуляры',
@@ -75,7 +76,7 @@ const TEXT = {
     vertex: 'Вершина Вороного (центр описанной окружности)',
     radius: 'радиус',
     none: 'пункты лежат на одной прямой, вершины нет',
-    note: 'Закрашено: ближайший пункт. Пунктир: серединные перпендикуляры (рёбра). Красная точка: вершина.',
+    note: 'Закрашено: ближайший пункт. Пунктир: вспомогательные серединные перпендикуляры; не вся прямая является ребром ячейки. Красная точка: вершина.',
   },
 } as const;
 
@@ -98,36 +99,66 @@ export default function VoronoiLab({ lang }: { lang: Lang }) {
     return { col, row, owner: nearestIndex(centre, sites) };
   });
   const owner = nearestIndex(probe, sites);
+  const nearest = sites.map((site, i) => ({ site, i })).filter(({ site }) => Math.abs(distance(probe, site) - distance(probe, sites[owner])) < 1e-9);
+  const coincident = PAIRS.some(([i, j]) => distance(sites[i], sites[j]) < 1e-9);
   const vertex = circumcentre(sites[0], sites[1], sites[2]);
   const probeAt = toSvg(probe);
   const nearestAt = toSvg(sites[owner]);
+  // One combined label for coincident sites; keep labels inside the displayed map.
+  const siteLabels = sites.flatMap((site, i) => {
+    if (sites.some((previous, j) => j < i && distance(site, previous) < 1e-9)) return [];
+    const names = sites.flatMap((other, j) => distance(site, other) < 1e-9 ? [NAMES[j]] : []);
+    return [{ at: toSvg(site), name: names.join('/') }];
+  });
+  const placedLabels: { name: string; x: number; y: number; width: number }[] = [];
+  for (const { at, name } of siteLabels) {
+    const width = name.length * 8 + 2;
+    const candidates = [[8, -8], [-width - 8, -8], [8, 22], [-width - 8, 22],
+      [-width / 2, -20], [-width / 2, 36], [18, 7], [-width - 18, 7]];
+    const positions = candidates.map(([dx, dy]) => ({ name, width,
+      x: Math.max(4, Math.min(SIZE - width - 4, at.x + dx)),
+      y: Math.max(15, Math.min(SIZE - 4, at.y + dy)),
+    }));
+    const overlap = (label: typeof positions[number]) => placedLabels.reduce((sum, other) =>
+      sum + Math.max(0, Math.min(label.x + width, other.x + other.width) - Math.max(label.x, other.x))
+        * Math.max(0, Math.min(label.y + 3, other.y + 3) - Math.max(label.y - 14, other.y - 14)), 0);
+    positions.sort((a, b) => overlap(a) - overlap(b));
+    placedLabels.push(positions[0]);
+  }
 
   return (
     <figure style={{ margin: 0 }}>
-      <svg viewBox={`0 0 ${SIZE} ${SIZE}`} width="100%" style={{ maxWidth: SIZE }} role="img" aria-label={t.label}>
+      <ReadableDiagram lang={lang}><svg viewBox={`0 0 ${SIZE} ${SIZE}`} width="100%" style={{ maxWidth: SIZE }} role="img" aria-label={t.label}>
         {cells.map(cell => (
           <rect key={`${cell.col}-${cell.row}`} x={cell.col * CELL} y={cell.row * CELL} width={CELL} height={CELL} fill={COLOURS[cell.owner]} fillOpacity={0.2} />
         ))}
         {PAIRS.map(([i, j]) => {
+          if (distance(sites[i], sites[j]) < 1e-9) return null;
           const [from, to] = bisector(sites[i], sites[j]);
-          return <line key={`${i}${j}`} x1={from.x} y1={from.y} x2={to.x} y2={to.y} stroke="#222" strokeDasharray="5 4" />;
+          return <line key={`${i}${j}`} x1={from.x} y1={from.y} x2={to.x} y2={to.y} stroke="currentColor" strokeOpacity={0.65} strokeDasharray="5 4" />;
         })}
-        <line x1={probeAt.x} y1={probeAt.y} x2={nearestAt.x} y2={nearestAt.y} stroke="#777" strokeDasharray="2 3" />
+        <line x1={probeAt.x} y1={probeAt.y} x2={nearestAt.x} y2={nearestAt.y} stroke="currentColor" strokeOpacity={0.8} strokeDasharray="2 3" />
         {vertex && <circle cx={toSvg(vertex).x} cy={toSvg(vertex).y} r={4} fill="#c0392b" />}
         {sites.map((site, i) => (
           <g key={i}>
             <circle cx={toSvg(site).x} cy={toSvg(site).y} r={5} fill={COLOURS[i]} stroke="#fff" strokeWidth={1.5} />
-            <text x={toSvg(site).x + 7} y={toSvg(site).y - 7} fontSize={13}>{NAMES[i]}</text>
+
           </g>
         ))}
-        <circle cx={probeAt.x} cy={probeAt.y} r={3} fill="#111" />
-      </svg>
+        {placedLabels.map(({ x, y, name }) => <text key={name}
+          x={x} y={y} fontSize={13}
+          fill="currentColor" stroke="var(--color-bg)" strokeWidth={3} paintOrder="stroke">{name}</text>)}
+        <circle cx={probeAt.x} cy={probeAt.y} r={3} fill="currentColor" stroke="var(--color-bg)" strokeWidth={1} />
+      </svg></ReadableDiagram>
       <figcaption style={{ fontSize: 13, lineHeight: 1.5, marginTop: 6 }}>
-        {t.nearest}: {NAMES[owner]}, {t.distance} {distance(probe, sites[owner]).toFixed(2)}
+        {t.nearest}: {nearest.map(({ i }) => NAMES[i]).join(', ')}, {t.distance} {distance(probe, sites[owner]).toFixed(2)}
         <br />
         {t.vertex}: {vertex ? `(${vertex.x.toFixed(2)}, ${vertex.y.toFixed(2)}), ${t.radius} ${distance(vertex, sites[0]).toFixed(2)}` : t.none}
         <br />
         {t.note}
+        <br />{lang === 'en' ? 'The cell colours approximate the Euclidean partition on a 30×30 grid; tied grid cells use the first site colour. Distances and ties at P are calculated directly.' : 'Цвет ячеек приближает евклидово разбиение на сетке 30×30; при равенстве в ячейке выбран цвет первого пункта. Расстояния и равенства в P вычисляются напрямую.'}
+        {coincident && <><br />{lang === 'en' ? 'Some sites coincide: their nearest-site regions overlap, and no unique perpendicular bisector exists for that pair.' : 'Некоторые пункты совпадают: их области ближайшего пункта накладываются, единственного серединного перпендикуляра для этой пары нет.'}</>}
+        {vertex && (vertex.x < 0 || vertex.x > UNITS || vertex.y < 0 || vertex.y > UNITS) && <><br />{lang === 'en' ? 'The vertex is outside the displayed map.' : 'Вершина находится вне показанной карты.'}</>}
       </figcaption>
       {sites.map((site, i) => (
         <div key={i} style={{ display: 'flex', gap: 8, marginTop: 4 }}>

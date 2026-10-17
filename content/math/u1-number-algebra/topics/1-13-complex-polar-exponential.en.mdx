@@ -4,6 +4,8 @@ Polar and exponential forms describe a complex number by its distance from the o
 
 ## Explanation
 
+Unless the question specifies degrees, give the principal argument in radians, with $-\pi<\arg z\leq\pi$ (Oxford AI HL, ch. 8.4, p. 357). The argument of zero is undefined. The argument-based forms and operations below use nonzero complex numbers. Angles differing by $2\pi k$, integer $k$, represent the same direction; reduce the final angle to $(-\pi,\pi]$ when a principal argument is requested.
+
 The <Term id="modulus-argument-form"/> of a complex number is $z = r(\cos\theta + i\sin\theta)$, written $r\,\text{cis}\,\theta$, where $r = |z|$ and $\theta = \arg z$.
 
 <Formula id="complex-polar-form"/>
@@ -16,15 +18,17 @@ The <Term id="exponential-form"/> is $z = re^{i\theta}$, with $\theta$ in radian
 
 <Callout kind="define">cis θ is shorthand for cos θ + i sin θ, so r cis θ is the modulus–argument form of the same number.</Callout>
 
-To multiply, multiply the moduli and add the arguments. To divide, divide the moduli and subtract the arguments. For an integer power $n$, raise the modulus to the power $n$ and multiply the argument by $n$. This rule is <Term id="de-moivre-theorem"/>:
+To multiply, multiply the moduli and add the arguments. To divide by a nonzero number, divide the moduli and subtract the arguments. For an integer power $n$ of a nonzero number, raise the modulus to the power $n$ and multiply the argument by $n$. This rule is <Term id="de-moivre-theorem"/>:
 
 <Formula id="complex-de-moivre"/>
 
-Adding sinusoids of the same frequency uses the complex number $a - bi$. Its modulus is the amplitude $R$ and its argument is $-\varphi$, so $a\cos\omega t + b\sin\omega t = R\cos(\omega t - \varphi)$:
+Adding sinusoids of the same frequency uses the complex number $a - bi$. When $(a,b)\neq(0,0)$, its modulus is the amplitude $R$ and its argument is $-\varphi$ modulo $2\pi$, so $a\cos\omega t + b\sin\omega t = R\cos(\omega t - \varphi)$:
 
 <Formula id="sinusoid-sum-equal-frequency"/>
 
-Geometrically, multiplying by $e^{i\theta}$ rotates a point anticlockwise about the origin through $\theta$, and multiplying by a positive real number stretches it.
+If $a=b=0$, the signal is identically zero: $R=0$ and the phase is not determined. For a nonzero signal, choose the phase using both coefficient signs, not just $\arctan(b/a)$.
+
+Geometrically, multiplying by $e^{i\theta}$ rotates a point anticlockwise about the origin through $\theta$, and multiplying by a positive real number scales its distance from the origin (contracts for a factor below 1).
 
 <Callout kind="gdc">In `Home → Settings → Document Settings`, set Real or Complex to Rectangular for results as $a + bi$ or to Polar for polar results, and set Angle to Radian whenever the form is $re^{i\theta}$. On a Calculator page, type products, quotients and powers of complex numbers directly to check your working, and use `abs(` for $r$ and `angle(` for $\theta$.</Callout>
 
@@ -44,11 +48,11 @@ Let $z = -2 + 2i$.
 
 <Sim id="math.complex-plane-lab"/>
 
-Multiplying by $w = 1 + i$ is the same as multiplying by $\sqrt{2}\,e^{i\pi/4}$: the modulus is multiplied by $\sqrt{2}$, and the argument increases by $45^\circ$. Move the sliders and check this for several values of $z$. The orange point always shows $zw$.
+Multiplying by $w = 1 + i$ is the same as multiplying by $\sqrt{2}\,e^{i\pi/4}$: the modulus is multiplied by $\sqrt{2}$, and an argument increases by $\pi/4$ radians ($45^\circ$), modulo $2\pi$; a principal argument may wrap at $\pi$. Move the sliders and check this for several values of $z$. The orange point always shows $zw$.
 
 ## How it is examined
 
-Find and Express questions award marks for the modulus, for the argument with the correct quadrant, and for the form requested. When a question asks for a sum of sinusoids, give $R$ and $\varphi$ as separate answers, with $\varphi$ in the unit the question asks for. Powers and quotients are expected to be worked in polar form, with the steps shown.
+Find and Express questions award marks for the modulus, for the argument with the correct quadrant, and for the form requested. When a question asks for a sum of sinusoids, give $R$ and $\varphi$ as separate answers, with $\varphi$ in the unit the question asks for. Polar form often simplifies powers and quotients; show a valid method and follow any method or form specified in the question.
 
 <Callout kind="exam">Check the unit of $\theta$. The exponential form $re^{i\theta}$ takes $\theta$ in radians; if a question asks for degrees, say so in the answer.</Callout>
 
@@ -73,6 +77,6 @@ Find and Express questions award marks for the modulus, for the argument with th
 - $z = r(\cos\theta + i\sin\theta) = r\,\text{cis}\,\theta = re^{i\theta}$, with $r = |z|$ and $\theta$ in radians in the exponential form.
 - Check the quadrant of $\theta$: after an arctan, add or subtract $\pi$ for points in the second or third quadrant.
 - Multiply moduli and add arguments; divide moduli and subtract arguments.
-- de Moivre: $(r\,\text{cis}\,\theta)^{n} = r^{n}\,\text{cis}\,(n\theta)$ for an integer $n$.
+- de Moivre: $(r\,\text{cis}\,\theta)^{n} = r^{n}\,\text{cis}\,(n\theta)$ for an integer $n$ and a nonzero base.
 - $a\cos\omega t + b\sin\omega t = R\cos(\omega t - \varphi)$, with $R = \sqrt{a^{2}+b^{2}}$, $R\cos\varphi = a$ and $R\sin\varphi = b$.
 - Multiplying by $e^{i\theta}$ rotates the Argand diagram anticlockwise through $\theta$.

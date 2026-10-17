@@ -4,6 +4,8 @@ If the common ratio of a geometric sequence lies between $-1$ and $1$, each term
 
 ## Explanation
 
+Here $u_1\neq0$, with recurrence $u_{n+1}=ru_n$. If every term is zero, the sum is 0 regardless of $r$; that degenerate case is separate.
+
 The sum of the first $n$ terms is $S_{n}=\dfrac{u_{1}(1-r^{n})}{1-r}$ for $r\neq 1$. <Formula id="geometric-partial-sum-formula"/> <Term id="partial-sum-limit"/>
 
 When $|r|<1$, the powers $r^{n}$ tend to $0$ as $n$ grows, so $S_{n}$ approaches $\dfrac{u_{1}}{1-r}$. This limit is the <Term id="sum-to-infinity"/>, written $S_{\infty}=\dfrac{u_{1}}{1-r}$. <Formula id="geometric-sum-to-infinity"/>
@@ -30,15 +32,15 @@ A geometric sequence has terms $36,\,-12,\,4,\,\dots$. Find its sum to infinity,
 
 ## Visual
 
-Plot the partial sums $S_{1}, S_{2}, S_{3}, \dots$ against $n$. When $0<r<1$ they climb towards a horizontal line at $S_{\infty}$ from below. When $-1<r<0$ they zigzag around that line, and each swing is smaller than the one before.
+Plot the partial sums $S_{1}, S_{2}, S_{3}, \dots$ against $n$. For $u_1>0$ and $0<r<1$ they climb towards a horizontal line at $S_{\infty}$ from below; for $u_1<0$ they fall towards it from above. When $-1<r<0$ they zigzag around that line, and each swing is smaller than the one before.
 
 <Callout kind="tip">The distance from the partial sum to the limit shrinks by the factor $|r|$ at every step. That is why the sum settles.</Callout>
 
 ## How it is examined
 
-Find and Determine questions give an R1 mark for stating $|r|<1$, an M1 mark for substituting into $S_{\infty}=\dfrac{u_{1}}{1-r}$ and an A1 mark for the value. Show that questions need the partial sum formula, the step $r^{n}\to 0$ and the conclusion about the limit. In context questions, marks are lost when a total counts only part of each cycle, or when a least whole number of terms is rounded down instead of up.
+Justify convergence before using a sum to infinity, and show the substitution. A derivation can start from the partial sum and use $r^n\to0$. In context, count all required parts of a cycle and check the first admissible integer against the original inequality, especially when it is strict. Exact mark allocations depend on the question.
 
-<Callout kind="exam">Write the condition $|r|<1$ before you use $S_{\infty}$. Without it, the reasoning mark is lost even when the value is right.</Callout>
+<Callout kind="exam">Write the condition $|r|<1$ before you use $S_{\infty}$. This explains why the finite expression represents the infinite sum.</Callout>
 
 ## Common mistakes
 
@@ -63,4 +65,4 @@ Find and Determine questions give an R1 mark for stating $|r|<1$, an M1 mark for
 - A negative ratio can still converge: the partial sums zigzag towards the limit.
 - The gap between $S_{\infty}$ and $S_{n}$ is $\dfrac{u_{1}r^{n}}{1-r}$.
 - A bouncing ball's total distance counts every rise and every fall.
-- To find how many terms are needed, solve the inequality for this gap, using logarithms or a table.
+- To find how many terms are needed, solve the required inequality using logarithms or a table. For a distance or absolute error, use $|S_{\infty}-S_n|=\dfrac{|u_1|\,|r|^n}{|1-r|}$, not a signed remainder.

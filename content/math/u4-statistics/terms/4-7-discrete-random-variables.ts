@@ -32,15 +32,15 @@ export const terms: Term[] = [
     id: 'expected-value-discrete',
     term: { en: 'expected value E(X)', ru: 'математическое ожидание E(X) (expected value E(X))' },
     def: {
-      en: 'The long-run average value of $X$: $E(X) = \\sum x\\,P(X = x)$, the sum of each value multiplied by its probability. It need not be a value that $X$ can take.',
-      ru: 'Среднее значение $X$ в длительной серии испытаний: $E(X) = \\sum x\\,P(X = x)$, сумма каждого значения, умноженного на его вероятность. Оно не обязательно совпадает со значением, которое может принять $X$.',
+      en: 'For finite support, or a countable distribution with an absolutely convergent expectation sum, the mean value of $X$: $E(X) = \\sum x\\,P(X = x)$, the sum of each value multiplied by its probability. It need not be a value that $X$ can take.',
+      ru: 'Для конечного числа значений либо счётного распределения с абсолютно сходящейся суммой — среднее значение $X$: $E(X) = \\sum x\\,P(X = x)$, сумма каждого значения, умноженного на его вероятность. Оно не обязательно совпадает со значением, которое может принять $X$.',
     },
     syllabus: '4.7',
     papers: ['P1', 'P2', 'P3'],
     src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 13.1, p. 575' },
     pitfall: {
-      en: 'Weight each value by its probability. The plain average of the values is not E(X) unless the values are equally likely.',
-      ru: 'Умножайте каждое значение на его вероятность. Простое среднее значений не равно E(X), если значения не равновероятны.',
+      en: 'Weight each value by its probability. The unweighted average is not a general substitute: it agrees under equal probabilities and can also coincide accidentally for some unequal probabilities.',
+      ru: 'Умножайте каждое значение на его вероятность. Простое среднее нельзя использовать как общее правило: при равных вероятностях оно совпадает с E(X), но совпадение возможно и случайно при некоторых неравных вероятностях.',
     },
   },
 ];

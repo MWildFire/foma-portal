@@ -12,11 +12,11 @@ For a table of counts, the <Term id="chi-squared-independence-test"/> compares o
 
 <Callout kind="define">Critical value: the number $c$ with $P(\chi^2 > c) = \alpha$. Reject $H_0$ when the statistic is greater than $c$; this gives the same decision as the p-value.</Callout>
 
-Every expected frequency should be at least 5. If a cell is smaller, combine neighbouring categories before the test, otherwise the chi-squared distribution is a poor approximation.
+Every expected frequency should be at least 5. If a cell is smaller, combine categories in a contextually meaningful way before computing the test, otherwise the chi-squared distribution is a poor approximation.
 
 For a goodness-of-fit test, the expected count in category $i$ is $E_i = np_i$ for the claimed probabilities $p_i$. With $k$ categories and no parameter estimated from the data, the degrees of freedom are $k - 1$. Topic 4.12 covers what changes when a parameter is estimated.
 
-For a claim about a population mean $\mu$ when the population standard deviation is unknown, use a t-test with the statistic <Formula id="t-statistic-one-sample"/>, compared with the t-distribution with $n - 1$ degrees of freedom. In a two-tailed test the p-value counts both tails. Comparing two means follows the same rule: a small p-value means the difference would be unlikely if the means were equal.
+For independent observations from a normal population with positive variance and $n>1$, a claim about the population mean $\mu$ with unknown standard deviation can be tested using a t-test with the statistic <Formula id="t-statistic-one-sample"/>, compared with the t-distribution with $n - 1$ degrees of freedom. In a two-tailed test the p-value counts both tails. Comparing two means follows the same rule: a small p-value means the difference would be unlikely if the means were equal.
 
 <Callout kind="gdc">Chi-squared test of independence: on a Calculator page, create the observed counts as a matrix (`Menu → Matrix & Vector → Create`) and store it with `ctrl+var`, for example as `obs`. Type `chi22way obs`; the results include `stat.χ²`, `stat.PVal`, `stat.df` and the expected counts `stat.ExpMat`. Check one expected count by hand before you rely on the output.</Callout>
 
@@ -30,10 +30,10 @@ A school asks 120 students for their year group and how they usually travel to s
 <Step>$H_0$: year group and travel are independent. $H_1$: they are not independent. The column totals are 50, 15 and 55, and both row totals are 60. The expected frequency for IB1 and bus is $E = \dfrac{60 \times 50}{120} = 25$. The other expected values in the IB1 row are $7.5$ (walk) and $27.5$ (car). The IB2 row has the same values, because its row total is also 60.</Step>
 <Step>$\chi^2 = \sum \dfrac{(O-E)^2}{E} = 2.793$ (to 3 decimal places). The six cell contributions add up to this value.</Step>
 <Step>$\nu = (2-1)(3-1) = 2$. The p-value is $P(\chi^2 > 2.793) = 0.247$ (to 3 significant figures). The 5% critical value for 2 degrees of freedom is $5.991$ (to 3 decimal places).</Step>
-<Step>Decision: $0.247 > 0.05$, which is the same as $2.793 < 5.991$. Do not reject $H_0$. The data give no evidence that year group and travel are associated.</Step>
+<Step>Decision: $0.247 > 0.05$, which is the same as $2.793 < 5.991$. Do not reject $H_0$. There is insufficient evidence at the 5% level that year group and travel are associated; this does not establish independence.</Step>
 </Steps>
 
-<Reveal title="Why is the expected value 25 and not 28?">The expected value is what the table would show if year group and travel were unrelated. Both rows total 60, so each travel mode should take half of its column total: $50 / 2 = 25$. The observed 28 is slightly higher, but a difference of this size is well within what chance produces.</Reveal>
+<Reveal title="Why is the expected value 25 and not 28?">The expected count is the average predicted by independence, not a count that every independent sample must show. Both rows total 60, so each travel mode should take half of its column total: $50 / 2 = 25$. The observed 28 is slightly higher, but a difference of this size is well within what chance produces.</Reveal>
 
 ## Visual
 
@@ -43,9 +43,7 @@ The lab uses this table. Change a count and the expected values, the statistic, 
 
 ## How it is examined
 
-Command terms: State ($H_0$ and $H_1$ in words, linked to the context), Find (expected frequencies, the statistic, the p-value), Write down (degrees of freedom), and Determine or Comment (the decision and what it means). Method marks (M1) are given for each expected frequency and for the sum of $(O-E)^2/E$. An accuracy mark (A1) needs the statistic or the p-value to the required accuracy. A conclusion mark (R1) needs the decision, a reason and the context; a bare "reject $H_0$" loses it.
-
-<Callout kind="exam">Write the hypotheses and the significance level before any calculation. In P2 questions the conclusion in context is a separate mark, so always write one sentence about the variables.</Callout>
+State hypotheses about the population and the significance level before calculating. Show an expected count or the test statistic when requested; report degrees of freedom and p-value with the specified accuracy. Compare with the threshold and conclude in context. A failure to reject does not prove the null hypothesis.
 
 ## Common mistakes
 
@@ -63,10 +61,12 @@ Command terms: State ($H_0$ and $H_1$ in words, linked to the context), Find (ex
 
 <Question id="q-4-11-03"/>
 
+<Question id="r06-binomial-two-means"/>
+
 ## Summary
 
-- $H_0$ is treated as true until the data show otherwise; $H_1$ gives a direction (one-tailed) or none (two-tailed).
-- Reject $H_0$ when the p-value is less than $\alpha$, or when the statistic is greater than the critical value. Never write that $H_0$ is accepted.
+- $H_0$ supplies the reference model for calculating the p-value; $H_1$ gives a direction (one-tailed) or none (two-tailed).
+- Reject $H_0$ when the p-value is less than $\alpha$, equivalently when the statistic lies in the critical region for the chosen alternative. The chi-squared tests here reject in the right tail. For a t-test, let $c>0$ have right-tail probability $\alpha$: reject for $t>c$ in a right-tailed test or $t<-c$ in a left-tailed test. For a two-tailed test, instead choose $c$ with right-tail probability $\alpha/2$ and reject for $|t|>c$. Never write that $H_0$ is accepted.
 - For independence, $E = R_i C_j / N$; every expected frequency should be at least 5.
 - The chi-squared statistic is $\sum (O-E)^2/E$. The degrees of freedom are $(r-1)(c-1)$ for a table and $k-1$ for a goodness-of-fit test with no estimated parameter.
 - The t-statistic is $t = (\bar{x} - \mu_0)/(s/\sqrt{n})$ with $n - 1$ degrees of freedom; a two-tailed p-value counts both tails.

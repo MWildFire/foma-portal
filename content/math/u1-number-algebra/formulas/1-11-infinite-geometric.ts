@@ -44,8 +44,8 @@ export const formulas: Formula[] = [
     tex: 'S_{\\infty}-S_{n}=\\dfrac{u_{1}\\,r^{n}}{1-r},\\qquad |r|<1',
     name: { en: 'Remainder after n terms of a convergent geometric series', ru: 'Остаток сходящейся геометрической прогрессии после n членов (Remainder after n terms of a convergent geometric series)' },
     meaning: {
-      en: 'The amount still to be added after the first n terms.',
-      ru: 'Сумма, которую ещё нужно добавить после первых n членов.',
+      en: 'The signed tail after the first n terms. Use its absolute value for distance or absolute error.',
+      ru: 'Остаток со знаком после первых n членов. Для расстояния или абсолютной погрешности берите его модуль.',
     },
     when: {
       en: 'Finding how many terms are needed to get within a given distance of the sum to infinity.',

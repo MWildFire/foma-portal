@@ -12,12 +12,12 @@ export const terms: Term[] = [
     id: 'g-megacity',
     term: { en: 'megacity', ru: 'мегаполис (megacity)' },
     def: {
-      en: 'An urban agglomeration with more than 10 million inhabitants. Most megacities are in Asia, and most of them are in developing regions.',
-      ru: 'Городская агломерация с населением более 10 млн человек. Больше всего мегаполисов в Азии, и большинство из них расположено в развивающихся регионах.',
+      en: 'An urban agglomeration with 10 million or more inhabitants.',
+      ru: 'Городская агломерация с населением 10 млн человек и более.',
     },
     syllabus: 'G.1',
     papers: ['P1'],
-    src: SRC,
+    src: { kind: 'web', title: 'UN DESA — World Urbanization Prospects, demographic glossary', url: 'https://population.un.org/wup/glossary-demographic-terms', locator: 'Megacity entry: 10 million or more inhabitants; agglomeration boundary must be stated' },
     example: {
       en: 'Lagos (Nigeria) is a megacity whose population is hard to count, so official estimates differ widely between sources (Mistra Urban Futures, 2018).',
       ru: 'Лагос (Нигерия) — мегаполис, население которого трудно подсчитать: официальные оценки сильно расходятся между источниками (Mistra Urban Futures, 2018).',
@@ -147,12 +147,12 @@ export const terms: Term[] = [
     id: 'g-informal-settlement',
     term: { en: 'informal settlement', ru: 'неформальное поселение (informal settlement)' },
     def: {
-      en: 'Housing built without legal permission or planning approval, often on land the occupants do not own, and often without official water, sanitation or electricity services.',
-      ru: 'Жильё, построенное без законного разрешения и градостроительного согласования, часто на земле, которая не принадлежит жильцам, и часто без официального водоснабжения, канализации и электричества.',
+      en: 'A residential area with insecure tenure over land or housing, often with gaps in formal services and housing that may not meet planning or building rules. It can include informal rental housing, not only squatting.',
+      ru: 'Жилой район с незащищёнными правами на землю или жильё, часто с недостатком официальных услуг и застройкой, которая может не соответствовать градостроительным нормам. Он может включать неформальную аренду, а не только самозахват.',
     },
     syllabus: 'G.1',
     papers: ['P1'],
-    src: SRC,
+    src: { kind: 'web', title: 'UN-Habitat, SDG indicator 11.1.1 metadata (2021-12-20)', url: 'https://unstats.un.org/sdgs/metadata/files/Metadata-11-01-01.pdf', locator: 'pp. 5–6, Informal Settlements: insecure tenure, informal rental, services and planning' },
     example: {
       en: 'Dharavi in Mumbai is one of the best-known informal settlements (see the Dharavi case).',
       ru: 'Дхарави в Мумбаи — одно из самых известных неформальных поселений (см. кейс Дхарави).',

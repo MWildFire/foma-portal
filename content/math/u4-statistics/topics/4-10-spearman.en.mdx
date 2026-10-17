@@ -1,16 +1,16 @@
 ## Big idea
 
-Spearman's rank correlation uses the order of the data, not the values themselves. It measures whether one variable consistently rises or falls with the other, even when the link is curved, and one extreme value has little effect on it.
+Spearman's rank correlation uses the order of the data, not the values themselves. It measures whether one variable consistently rises or falls with the other, even when the link is curved, and changing a value without changing its rank leaves it unchanged. Moving an observation across ranks can still change the coefficient.
 
 ## Explanation
 
-Replace each value by its rank: 1 for the smallest, $n$ for the largest. The <Term id="spearman-rank-correlation"/> is Pearson's correlation calculated on the two lists of ranks. When no two ranks are tied, it can be found from the differences $d_i$ between the two ranks of each item, using <Formula id="spearman-rs-d-formula"/>. With tied values, use <Formula id="spearman-rs-as-ranks"/>, which applies Pearson's formula to the ranks, with the average rank given to each tied value.
+Replace each value by its rank: 1 for the smallest, $n$ for the largest. The <Term id="spearman-rank-correlation"/> is Pearson's correlation calculated on the two lists of ranks. When neither list contains tied values and $n>1$, it can be found from the differences $d_i$ between the two ranks of each item, using <Formula id="spearman-rs-d-formula"/>. With tied values, use <Formula id="spearman-rs-as-ranks"/>, which applies Pearson's formula to the ranks, with the average rank given to each tied value.
 
 Spearman's coefficient detects a <Term id="monotonic-association"/>: y always rises, or always falls, as x rises, but not necessarily in a straight line. For such data $r_s$ can be close to $1$ or $-1$ even when Pearson's $r$ is smaller.
 
 Pearson's $r$ uses the actual values, so one extreme point can change it a great deal. This is the <Term id="outlier-effect-on-correlation"/>. Use $r_s$ when the data are ranked, when the pattern is monotonic but curved, or when an outlier would distort $r$. Spearman's coefficient has limits too: it uses only the order, so it ignores how large the differences are, and a non-monotonic pattern can give $r_s$ close to 0 even when the points are clearly related.
 
-<Callout kind="define">Spearman's rank correlation coefficient $r_s$: Pearson's correlation coefficient calculated from ranks. It lies between $-1$ and $1$ and measures how consistently two variables move in the same or opposite order.</Callout>
+<Callout kind="define">Spearman's rank correlation coefficient $r_s$: Pearson's correlation coefficient calculated from ranks. It is defined when both rank lists vary and lies between $-1$ and $1$ and measures how consistently two variables move in the same or opposite order.</Callout>
 
 <Callout kind="gdc">Rank each variable by hand, then enter the two lists of ranks in two named columns of a Lists & Spreadsheet page. On a Calculator page choose `Menu → Statistics → Stat Calculations → Two-Variable Statistics` (or `Linear Regression (mx+b)`), set X List and Y List to the rank columns, and read `r`. For the ranks, this value is $r_s$.</Callout>
 
@@ -34,9 +34,7 @@ There is no simulation for this topic, so sketch the ranks yourself. Plot the ra
 
 ## How it is examined
 
-Calculate and Find questions give marks for the ranks (or the differences), for the sum of the squared differences, and for the final value to the required accuracy. Comment questions compare $r_s$ with Pearson's $r$ and ask which one suits the data; name a reason, such as an outlier, a curved monotonic pattern or ranked data. A wrong rank loses every later mark, so write the ranks in a table and check that each list runs from 1 to $n$.
-
-<Callout kind="exam">When you compare coefficients, quote both values to 3 decimal places, decide which one describes the pattern, and give the reason in one sentence.</Callout>
+Rank both variables consistently and give tied values their average ranks. Use Pearson correlation on ranks for ties; use the difference formula only without ties and n>1. For Comment, distinguish a monotonic association from a linear one and use actual values to discuss an outlier. Follow-through and accuracy requirements belong to the particular question.
 
 ## Common mistakes
 

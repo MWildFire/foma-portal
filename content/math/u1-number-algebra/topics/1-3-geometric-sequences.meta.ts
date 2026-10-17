@@ -28,6 +28,8 @@ const topic: TopicMeta = {
   formulaIds: ['geometric-nth-term', 'geometric-sum', 'geometric-common-ratio'],
   questionIds: ['q-1-3-01', 'q-1-3-02', 'q-1-3-03'],
   sources: [
+    { kind: 'textbook', title: 'Oxford IB Diploma Programme: Mathematics: Applications and Interpretation HL, OUP2019, ISBN9780198427056', locator: 'ch.7.1, printed pp.290–291 and296 (PDF301–302,307); p.291 naming restriction r≠1 distinguished from constant recurrence case' },
+    { kind: 'web', title: 'И.М.Гельфанд, А.Шень, Алгебра, §§40–41, printed pp.73–76; recurrence and degenerate-case discussion. Formula computation independently derived', url: 'https://old.mccme.ru/free-books/shen/gelfand-shen-algebra.pdf' },
     {
       kind: 'web',
       title: 'IB Mathematics AI, first assessment 2021: public summary, not checked against the official guide',

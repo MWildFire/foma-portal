@@ -5,7 +5,7 @@ const topic: TopicMeta = {
   subject: 'econ',
   code: '2.1',
   title: { en: 'Demand', ru: 'Спрос' },
-  papers: ['P1', 'P2', 'P3'],
+  papers: ['P2', 'P3'],
   order: 10,
   minutes: 35,
   priority: 1,
@@ -22,7 +22,7 @@ const topic: TopicMeta = {
     'substitute-goods', 'complementary-goods', 'movement-along-demand-curve', 'shift-of-demand-curve', 'supply',
   ],
   sims: ['econ.demand-shift'],
-  questionIds: ['econ-demand-01', 'econ-demand-02', 'econ-demand-03', 'econ-demand-04'],
+  questionIds: ['econ-demand-01', 'econ-demand-02', 'econ-demand-03', 'econ-demand-04', 'r06-econ-01'],
   sources: [{ kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 2.1' }],
 };
 

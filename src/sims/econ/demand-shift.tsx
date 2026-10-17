@@ -64,8 +64,8 @@ const steps: Step[] = [
   {
     title: { en: 'Shift of the whole curve to D2', ru: 'Сдвиг всей кривой в D2' },
     text: {
-      en: 'A change in another determinant, such as income or the price of a substitute, moves the whole curve right. At P = 8 quantity demanded rises from 8 to 14, not because of the price.',
-      ru: 'Изменение другого фактора, например дохода или цены субститута, сдвигает всю кривую вправо. При P = 8 величина спроса растёт с 8 до 14 не из-за цены.',
+      en: 'An increase in income for a normal good, or a rise in the price of a substitute, can shift demand right, other things equal. A fall in income, or an income rise for an inferior good, need not have that direction. At P = 8 quantity demanded rises from 8 to 14, not because of the price.',
+      ru: 'Рост дохода для нормального блага или цены субститута может сдвинуть спрос вправо при прочих равных. Снижение дохода или его рост для товара низшей категории не обязаны давать это направление. При P = 8 величина спроса растёт с 8 до 14 не из-за цены.',
     },
     graph: {
       ...axes,

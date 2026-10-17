@@ -18,16 +18,16 @@ const topic: TopicMeta = {
       ru: 'Умею прочитать командное слово вопроса по опции A и сказать, что должен сделать ответ',
     },
     {
-      en: 'I can choose one of the two extended questions in about two minutes, using the place, year and figure I already know',
-      ru: 'Умею выбрать один из двух развёрнутых вопросов примерно за две минуты, опираясь на известные место, год и цифру',
+      en: 'I can choose an extended question and select relevant evidence at the right scale',
+      ru: 'Умею выбрать развёрнутый вопрос и подобрать уместные доказательства подходящего масштаба',
     },
     {
-      en: 'I can plan a 10-mark answer in five steps: a definition, two developed points, a test and a judgement',
-      ru: 'Умею спланировать ответ на 10 баллов в пять шагов: определение, два развёрнутых довода, проверку и суждение',
+      en: 'I can write a complete 10-mark practice answer with developed explanations and evaluation',
+      ru: 'Умею написать полный тренировочный ответ на 10 баллов с объяснением и оценкой',
     },
     {
-      en: 'I can back each point with a named place, a year and a figure, and finish with a judgement that gives a degree and its conditions',
-      ru: 'Умею подкреплять каждый довод названным местом, годом и цифрой и закончить суждением, которое называет степень и условия',
+      en: 'I can judge what the evidence supports and reach a justified conclusion',
+      ru: 'Умею оценить, что подтверждают доказательства, и сделать обоснованный вывод',
     },
   ],
   termIds: [
@@ -45,7 +45,7 @@ const topic: TopicMeta = {
   questionIds: ['a1-eq1', 'a2-eq2'],
   caseIds: ['a-boscastle-flash-2004', 'a-netherlands-room-river', 'a-pakistan-floods-2022', 'a-toledo-2014'],
   sims: [],
-  sources: [{ kind: 'ib-guide', title: 'Geography guide (2017), Option A: Freshwater', locator: 'A-essay' }],
+  sources: [{ kind: 'web', title: 'Environment Agency, Boscastle and North Cornwall (14 August 2014)', url: 'https://www.gov.uk/government/news/tenth-anniversary-of-boscastle-and-north-cornwall-floods', locator: 'Channel, bridge, culvert, community plans and warning service' }, { kind: 'ib-guide', title: 'Geography guide (2017), Option A: Freshwater', locator: 'pp. 56–58: common 10-mark bands; pp. 77–78: command terms' }],
   links: [
     { title: 'ThinkIB eBook: Option A - Freshwater Environments (option page, Paper 1 essay)', url: 'https://student.thinkib.net/geography/page/43412/option-a-freshwater-environments' },
   ],

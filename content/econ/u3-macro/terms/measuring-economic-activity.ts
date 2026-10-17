@@ -18,8 +18,8 @@ export const terms: Term[] = [
       ru: 'Домохозяйства получают 1000 млрд AED дохода, тратят 800 млрд AED на отечественный выпуск и сберегают 200 млрд AED, которые банки дают фирмам в кредит.',
     },
     pitfall: {
-      en: 'Saving is a withdrawal, but it becomes an injection again when banks lend it to firms for investment.',
-      ru: 'Сбережения — это изъятие, но они снова становятся инъекцией, когда банки выдают их фирмам на инвестиции.',
+      en: 'Saving is a withdrawal. Financing through banks or securities markets can support investment, but lending or trading existing shares is not itself the injection: investment expenditure on output is.',
+      ru: 'Сбережения — изъятие. Банки и рынок ценных бумаг могут финансировать инвестиции, но выдача кредита или торговля существующими акциями сами по себе не являются инъекцией: нужны инвестиционные расходы на выпуск.',
     },
     syllabus: '3.1',
     papers: ['P1', 'P2', 'P3'],
@@ -30,8 +30,8 @@ export const terms: Term[] = [
     id: 'injections',
     term: { en: 'injections', ru: 'инъекции (injections)' },
     def: {
-      en: 'Additions of spending to the circular flow from outside households and firms: investment, government spending and exports.',
-      ru: 'Добавления расходов в круговой поток извне домохозяйств и фирм: инвестиции, государственные расходы и экспорт.',
+      en: 'Spending added to the basic household-consumption flow: investment, government purchases and exports. Investment is expenditure on capital/output, often by firms; it is not simply a bank loan.',
+      ru: 'Расходы, дополняющие базовый поток потребительских расходов домохозяйств: инвестиции, государственные закупки и экспорт. Инвестиции — расходы на капитал или выпуск, часто со стороны фирм, а не просто банковский кредит.',
     },
     example: {
       en: 'The government spends AED 50 bn on new schools, which adds AED 50 bn of spending to the circular flow.',
@@ -117,7 +117,7 @@ export const terms: Term[] = [
     },
     pitfall: {
       en: 'Real GDP is only as reliable as the price index used to remove inflation.',
-      ru: 'Реальный ВВП так же надёжен, как индекс цен, который используют для удаления инфляции.',
+      ru: 'Точность реального ВВП зависит, в частности, от качества индекса цен, используемого для пересчёта.',
     },
     syllabus: '3.1',
     papers: ['P1', 'P2', 'P3'],
@@ -127,16 +127,16 @@ export const terms: Term[] = [
     id: 'gdp-deflator',
     term: { en: 'GDP deflator', ru: 'дефлятор ВВП (GDP deflator)' },
     def: {
-      en: 'A price index of all domestic output: nominal GDP divided by real GDP, times 100, with the base year equal to 100.',
-      ru: 'Индекс цен всего внутреннего выпуска: номинальный ВВП, делённый на реальный ВВП, умноженный на 100; в базовом году он равен 100.',
+      en: 'A price index for the domestic final output included in GDP: nominal GDP divided by real GDP, times 100, with the base year equal to 100.',
+      ru: 'Индекс цен конечного выпуска, включаемого в ВВП: номинальный ВВП, делённый на реальный ВВП, умноженный на 100; в базовом году он равен 100.',
     },
     example: {
       en: 'If nominal GDP is AED 1260 bn and real GDP is AED 1200 bn, the deflator is 105.',
       ru: 'Если номинальный ВВП равен 1260 млрд AED, а реальный 1200 млрд AED, дефлятор равен 105.',
     },
     pitfall: {
-      en: 'The GDP deflator covers all domestic output, unlike the consumer price index (CPI), which covers a basket bought by households.',
-      ru: 'Дефлятор ВВП охватывает весь внутренний выпуск, в отличие от индекса потребительских цен (consumer price index, CPI), который охватывает набор товаров, покупаемых домохозяйствами.',
+      en: 'The GDP deflator covers domestic final output included in GDP, unlike the consumer price index (CPI), which covers a basket bought by households.',
+      ru: 'Дефлятор ВВП охватывает конечный выпуск, включаемый в ВВП, в отличие от индекса потребительских цен (consumer price index, CPI), который охватывает набор товаров и услуг, покупаемых домохозяйствами.',
     },
     syllabus: '3.1',
     papers: ['P1', 'P2', 'P3'],
@@ -146,12 +146,12 @@ export const terms: Term[] = [
     id: 'income-approach',
     term: { en: 'income approach', ru: 'доходный метод (income approach)' },
     def: {
-      en: 'Measures GDP by adding up the incomes that production factors earn within a nation over a period: wages, rent, interest and profit.',
-      ru: 'Измеряет ВВП суммой доходов, которые факторы производства получают внутри страны за период: зарплаты, ренты, процента и прибыли.',
+      en: 'Measures domestic output from the incomes generated in production. A simple sum of net factor incomes is not yet market-price GDP: gross/net and tax/subsidy adjustments must be consistent. In national accounts the gross income components include employee compensation, gross operating/mixed income and net production/import taxes.',
+      ru: 'Измеряет внутренний выпуск через доходы, возникающие в производстве. Простая сумма чистых факторных доходов ещё не равна ВВП в рыночных ценах: нужно согласовать валовую и чистую оценку, налоги и субсидии. В СНС валовые доходные компоненты включают оплату труда, валовую прибыль и смешанные доходы, чистые налоги на производство и импорт.',
     },
     example: {
-      en: 'Wages of AED 500 bn, rent of AED 40 bn, interest of AED 60 bn and profit of AED 400 bn give GDP of AED 1000 bn.',
-      ru: 'Зарплаты 500 млрд AED, рента 40 млрд AED, процент 60 млрд AED и прибыль 400 млрд AED дают ВВП 1000 млрд AED.',
+      en: 'Illustrative domestic accounts: employee compensation 500, gross operating/mixed income 400 and net production/import taxes 100 (AED bn) give GDP of 1000. Gross income already includes depreciation; do not add it a second time.',
+      ru: 'Учебные внутренние счета: оплата труда 500, валовая прибыль и смешанные доходы 400, чистые налоги на производство и импорт 100 млрд AED дают ВВП 1000 млрд AED. Валовые доходы уже включают амортизацию; повторно прибавлять её нельзя.',
     },
     pitfall: {
       en: 'Transfer payments such as pensions are not earned by factors of production, so they are not added.',
@@ -159,14 +159,14 @@ export const terms: Term[] = [
     },
     syllabus: '3.1',
     papers: ['P1', 'P2', 'P3'],
-    src: { kind: 'textbook', title: book, locator: 'ch. 8.2, p. 252' },
+    src: { kind: 'web', title: 'United Nations et al., System of National Accounts 2008', url: 'https://unstats.un.org/unsd/nationalaccount/docs/SNA2008.pdf', locator: 'Printed pp.332–333, §16.48: gross income components and net production/import taxes' },
   },
   {
     id: 'expenditure-approach',
     term: { en: 'expenditure approach', ru: 'расходный метод (expenditure approach)' },
     def: {
-      en: 'Measures GDP by adding consumption, investment, government spending and net exports on final goods and services bought within a nation over a period.',
-      ru: 'Измеряет ВВП суммой потребления, инвестиций, государственных расходов и чистого экспорта на конечные товары и услуги, купленные внутри страны за период.',
+      en: 'Measures GDP as consumption plus investment plus government purchases plus exports minus imports over a period. Subtracting imports removes foreign production already included in spending; exports are domestic production sold abroad.',
+      ru: 'Измеряет ВВП как сумму потребления, инвестиций, государственных закупок и экспорта за вычетом импорта за период. Вычет импорта исключает зарубежный выпуск, уже учтённый в расходах; экспорт — отечественный выпуск, проданный за рубеж.',
     },
     example: {
       en: 'Consumption of AED 500 bn, investment of AED 100 bn, government spending of AED 200 bn, exports of AED 300 bn and imports of AED 250 bn give GDP of AED 850 bn.',
@@ -184,8 +184,8 @@ export const terms: Term[] = [
     id: 'production-approach',
     term: { en: 'production approach', ru: 'производственный метод (production approach)' },
     def: {
-      en: 'Measures GDP as the sum of value added in each sector: the value of output minus the cost of intermediate goods.',
-      ru: 'Измеряет ВВП как сумму добавленной стоимости по секторам: стоимость выпуска минус затраты на промежуточные товары.',
+      en: 'Starts with value added: output minus intermediate consumption. To obtain GDP at market prices from value added at basic prices, add net taxes on products.',
+      ru: 'Исходит из добавленной стоимости: выпуск минус промежуточное потребление. Чтобы из добавленной стоимости в основных ценах получить ВВП в рыночных ценах, прибавляют чистые налоги на продукты.',
     },
     example: {
       en: 'A bakery sells bread worth AED 10 million, buys flour worth AED 4 million and adds AED 6 million of value.',
@@ -197,6 +197,6 @@ export const terms: Term[] = [
     },
     syllabus: '3.1',
     papers: ['P1', 'P2', 'P3'],
-    src: { kind: 'textbook', title: book, locator: 'ch. 8.2, p. 252' },
+    src: { kind: 'web', title: 'United Nations et al., System of National Accounts 2008', url: 'https://unstats.un.org/unsd/nationalaccount/docs/SNA2008.pdf', locator: 'Printed pp.332–333, §§16.47–16.50: value added, basic prices and net product taxes' },
   },
 ];

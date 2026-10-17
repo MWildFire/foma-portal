@@ -20,7 +20,7 @@ const topic: TopicMeta = {
   termIds: ['simile', 'metaphor', 'juxtaposition', 'syntax', 'diction', 'connotation', 'imagery', 'tone', 'pace', 'foreshadowing', 'symbol'],
   questionIds: ['p1-dickinson-fly', 'p1-joyce-araby', 'chk-p1-analysis-1', 'chk-p1-analysis-2'],
   sims: ['eng.annotate'],
-  sources: [{ kind: 'own', title: 'Own wording' }],
+  sources: [{ kind: 'own', title: 'Original lift passage and practice analysis' }, { kind: 'ib-guide', title: 'IB Examiner Instructions 2021, Language A, Paper 1', locator: 'The task; Criteria A–D, especially Criterion B', url: 'https://ibpublishing.ibo.org/exinst/apps/exinst/index.html?chapter=1&doc=EX_instructions_2026_e&part=8' }],
 };
 
 export default topic;

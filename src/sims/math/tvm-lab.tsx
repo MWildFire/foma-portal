@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import type { Lang } from '../../contract/types';
+import ReadableDiagram from '../readable-diagram';
 
 // Loan or savings calculator. With k payments (or compounding periods) a year, the rate per period is r / (100k) and
 // there are N = nk periods. Compound value: PV (1 + i)^N. Equal payment: M = PV i / (1 - (1 + i)^(-N)).
@@ -9,31 +10,38 @@ const TEXT = {
   en: {
     label: 'Loan balance over time, with the first rows of the amortisation table',
     principal: 'Principal PV (AED)',
-    rate: 'Annual rate r (%)',
+    rate: 'Nominal annual rate r (%), compounded k times',
     years: 'Years n',
     perYear: 'Payments per year k',
     compound: 'Compound value PV(1 + i)^N, with no payments',
     payment: 'Equal payment M',
     balance: 'Balance after each payment',
+    balanceAxis: 'Balance (AED)',
+    paymentAxis: 'Payment number',
     columns: ['No.', 'Interest', 'Repaid', 'Balance'],
-    note: 'Interest is charged on the balance first; the rest of each payment reduces it.',
+    note: 'Payments are at the end of each compounding period. The calculation retains the unrounded payment; table entries are rounded for display only, so a bank schedule with payments rounded to cents can differ. Interest is charged on the balance first; the rest of each payment reduces it. These are positive magnitudes; in the GDC cash-flow convention, money received and paid has opposite signs (PV positive, PMT negative for a borrower).',
   },
   ru: {
     label: 'Остаток долга во времени и первые строки таблицы погашения',
     principal: 'Сумма PV (AED)',
-    rate: 'Годовая ставка r (%)',
+    rate: 'Номинальная годовая ставка r (%), начисление k раз',
     years: 'Число лет n',
     perYear: 'Платежей в год k',
     compound: 'Сложная стоимость PV(1 + i)^N без платежей',
     payment: 'Равный платёж M',
     balance: 'Остаток долга после каждого платежа',
+    balanceAxis: 'Остаток (AED)',
+    paymentAxis: 'Номер платежа',
     columns: ['№', 'Проценты', 'Погашение', 'Остаток'],
-    note: 'Сначала проценты начисляются на остаток; остальная часть платежа уменьшает долг.',
+    note: 'Платежи приходятся на конец каждого периода начисления. Расчёт сохраняет неокруглённый платёж; числа таблицы округлены только для показа, поэтому банковский график с платежом до копеек может отличаться. Сначала проценты начисляются на остаток; остальная часть платежа уменьшает долг. Здесь показаны положительные величины; на GDC поступления и выплаты имеют разные знаки (для заёмщика PV положительно, PMT отрицательно).',
   },
 } as const;
 
 const W = 320;
-const H = 160;
+const H = 210;
+const LEFT = 60;
+const BASE = H - 45;
+const TOP = 30;
 const cell = { textAlign: 'right' as const, padding: 2 };
 
 export default function TvmLab({ lang }: { lang: Lang }) {
@@ -49,6 +57,7 @@ export default function TvmLab({ lang }: { lang: Lang }) {
   const payment = (principal * i) / (1 - (1 + i) ** -periods);
 
   // One payment at a time: interest on the balance, and the rest of the payment repays the loan.
+  const fmt = (value: number, digits = 2) => value.toLocaleString(lang === 'ru' ? 'ru-RU' : 'en-GB', { minimumFractionDigits: digits, maximumFractionDigits: digits });
   const curve = [principal];
   const rows: { no: number; interest: number; repaid: number; balance: number }[] = [];
   let balance = principal;
@@ -59,25 +68,32 @@ export default function TvmLab({ lang }: { lang: Lang }) {
     curve.push(balance);
     if (no <= 6) rows.push({ no, interest, repaid, balance });
   }
-  const line = curve.map((value, j) => `${(j / periods) * W},${H - 10 - (value / principal) * (H - 20)}`).join(' ');
+  const line = curve.map((value, j) => `${LEFT + (j / periods) * (W - LEFT - 12)},${BASE - (value / principal) * (BASE - TOP)}`).join(' ');
 
   return (
     <figure style={{ margin: 0 }}>
-      <svg viewBox={`0 0 ${W} ${H}`} width="100%" style={{ maxWidth: W }} role="img" aria-label={t.label}>
-        <line x1={0} y1={H - 10} x2={W} y2={H - 10} stroke="currentColor" strokeWidth={1} />
+      <ReadableDiagram lang={lang}><svg viewBox={`0 0 ${W} ${H}`} width="100%" style={{ maxWidth: W }} role="img" aria-label={t.label}>
+        <text x={4} y={14} fontSize={12} fill="currentColor">{t.balanceAxis}</text>
+        <line x1={LEFT} y1={TOP} x2={LEFT} y2={BASE} stroke="currentColor" />
+        <line x1={LEFT} y1={BASE} x2={W - 12} y2={BASE} stroke="currentColor" />
+        <text x={LEFT - 6} y={TOP + 4} textAnchor="end" fontSize={12} fill="currentColor">{fmt(principal, 0)}</text>
+        <text x={LEFT - 6} y={BASE + 4} textAnchor="end" fontSize={12} fill="currentColor">0</text>
+        <text x={LEFT} y={BASE + 18} textAnchor="middle" fontSize={12} fill="currentColor">0</text>
+        <text x={W - 12} y={BASE + 18} textAnchor="end" fontSize={12} fill="currentColor">{periods}</text>
+        <text x={W / 2} y={H - 5} textAnchor="middle" fontSize={12} fill="currentColor">{t.paymentAxis}</text>
         <polyline points={line} fill="none" stroke="#4f6fd8" strokeWidth={2} />
-      </svg>
+      </svg></ReadableDiagram>
       <figcaption style={{ fontSize: 13, lineHeight: 1.5 }}>
         {t.balance}
         <br />
-        {t.compound}: {compound.toFixed(2)}
+        {t.compound}: {fmt(compound)}
         <br />
-        {t.payment}: {payment.toFixed(2)}
+        {t.payment}: {fmt(payment)}
         <br />
         {t.note}
       </figcaption>
       <label style={{ display: 'block', marginTop: 8 }}>
-        {t.principal}: {principal}
+        {t.principal}: {fmt(principal, 0)}
         <input type="range" min={1000} max={200000} step={1000} value={principal} onChange={event => setPrincipal(Number(event.target.value))} style={{ width: '100%' }} />
       </label>
       <label style={{ display: 'block', marginTop: 4 }}>
@@ -100,9 +116,9 @@ export default function TvmLab({ lang }: { lang: Lang }) {
           {rows.map(row => (
             <tr key={row.no}>
               <td style={cell}>{row.no}</td>
-              <td style={cell}>{row.interest.toFixed(2)}</td>
-              <td style={cell}>{row.repaid.toFixed(2)}</td>
-              <td style={cell}>{row.balance.toFixed(2)}</td>
+              <td style={cell}>{fmt(row.interest)}</td>
+              <td style={cell}>{fmt(row.repaid)}</td>
+              <td style={cell}>{fmt(row.balance)}</td>
             </tr>
           ))}
         </tbody>

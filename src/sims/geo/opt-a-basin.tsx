@@ -1,3 +1,4 @@
+import ReadableDiagram from '../readable-diagram';
 import { useState } from 'react';
 import type { Lang } from '../../contract/types';
 
@@ -26,8 +27,7 @@ export default function OptABasinSim({ lang }: { lang: Lang }) {
   const quickFlow = (quickMm * area) / M3S_DIVISOR;
 
   const fmt = (value: number, digits = 1): string => {
-    const text = value.toFixed(digits);
-    return ru ? text.replace('.', ',') : text;
+    return value.toLocaleString(ru ? 'ru-RU' : 'en-US', { minimumFractionDigits: digits, maximumFractionDigits: digits }).replace('-', '−');
   };
   const shown = (value: number, digits = 0): string => (balanced ? fmt(value, digits) : '—');
   const signed = (value: number): string => (value > 0 ? `+${fmt(value, 0)}` : fmt(value, 0));
@@ -87,7 +87,7 @@ export default function OptABasinSim({ lang }: { lang: Lang }) {
         ))}
       </div>
 
-      <svg
+      <ReadableDiagram lang={lang}><svg
         viewBox="0 0 400 200"
         width="100%"
         role="img"
@@ -118,7 +118,7 @@ export default function OptABasinSim({ lang }: { lang: Lang }) {
         <text x={268} y={105} fontSize="10" fill="currentColor">{`${shown(quickMm)} ${unitMmShort}`}</text>
         <text x={268} y={128} fontSize="10" fill="currentColor">{ru ? 'базисный сток' : 'base flow'}</text>
         <text x={268} y={141} fontSize="10" fill="currentColor">{`${shown(baseMm)} ${unitMmShort}`}</text>
-      </svg>
+      </svg></ReadableDiagram>
 
       <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 14, marginTop: 12 }}>
         <tbody>
@@ -150,8 +150,8 @@ export default function OptABasinSim({ lang }: { lang: Lang }) {
 
       <p style={{ margin: '10px 0 0', fontSize: 13, lineHeight: 1.5 }}>
         {ru
-          ? 'Формулы. E = доля × P. Водный баланс (water balance): P = Q + E + ΔS, значит Q = P − E − ΔS (ΔS положительно, когда запасы растут, и отрицательно, когда убывают). Коэффициент стока = Q ÷ P. Средний расход (м³/с) = Q (мм/год) × A (км²) ÷ 31 536, потому что 1 мм на 1 км² — это 1 000 м³, а год содержит 31 536 000 с. Базисный сток (base flow) = доля подземных вод × Q; быстрый сток = остаток (поверхностный и почвенный сток). Глубинный отток подземных вод за пределы водораздела отдельно не показан; в этой простой модели он учитывался бы в ΔS.'
-          : 'Formulas. E = share × P. Water balance: P = Q + E + ΔS, so Q = P − E − ΔS (ΔS is positive when the stores gain water and negative when they lose it). Runoff coefficient = Q ÷ P. Mean flow (m³/s) = Q (mm/yr) × A (km²) ÷ 31,536, because 1 mm over 1 km² is 1,000 m³ and a year has 31,536,000 s. Base flow = groundwater share × Q; quick flow = the rest (overland flow and throughflow). Deep groundwater that leaves beneath the watershed is not shown separately; in this simple balance it would be counted in ΔS.'}
+          ? 'Формулы. E = доля × P. Водный баланс (water balance): P = Q + E + ΔS, значит Q = P − E − ΔS (ΔS положительно, когда запасы растут, и отрицательно, когда убывают). Коэффициент стока = Q ÷ P. Средний расход (м³/с) = Q (мм/год) × A (км²) ÷ 31 536, потому что 1 мм на 1 км² — это 1 000 м³, а год содержит 31 536 000 с. Базисный сток (base flow) = доля подземных вод × Q; быстрый сток = остаток (поверхностный и почвенный сток). Модель предполагает отсутствие отдельного подземного обмена через границу бассейна. Если такой приток или отток есть, его нужно добавить отдельным потоком в баланс, а не записывать как изменение запасов ΔS. Убыль запасов возможна лишь при достаточном начальном запасе воды.'
+          : 'Formulas. E = share × P. Water balance: P = Q + E + ΔS, so Q = P − E − ΔS (ΔS is positive when the stores gain water and negative when they lose it). Runoff coefficient = Q ÷ P. Mean flow (m³/s) = Q (mm/yr) × A (km²) ÷ 31,536, because 1 mm over 1 km² is 1,000 m³ and a year has 31,536,000 s. Base flow = groundwater share × Q; quick flow = the rest (overland flow and throughflow). The model assumes no separate groundwater exchange across the basin boundary. Where such inflow or outflow occurs, add it as a separate flux in the balance, not as the storage change ΔS. Storage loss also requires sufficient water initially in storage.'}
       </p>
     </div>
   );

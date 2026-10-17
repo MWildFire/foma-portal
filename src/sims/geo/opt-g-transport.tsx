@@ -40,7 +40,7 @@ const COLOR: Record<Mode, string> = { car: '#b23a48', bus: '#1f6fb2', rail: '#2a
 const TEXT: Record<Lang, Strings> = {
   en: {
     title: 'Modal split: emissions and travel time for one day',
-    lead: '10,000 trips a day, average trip 6 km. Move a slider: the other shares adjust so the total stays at 100%.',
+    lead: '10,000 trips a day, average trip 6 km. Move a slider: the other shares adjust so the total stays at 100%. Here the denominator is ALL illustrative trips, not Copenhagen work/study trips. Halving every mode’s trip count leaves all shares unchanged; the model does not infer a home-working effect.',
     modes: { car: 'Car', bus: 'BRT bus', rail: 'Rail (metro, tram or train)', bike: 'Cycling', walk: 'Walking' },
     trips: 'trips',
     co2: 'CO₂e per day',
@@ -49,11 +49,11 @@ const TEXT: Record<Lang, Strings> = {
     minutes: 'min',
     formula: 'Emissions = trips × share × 6 km × grams per passenger-km. Time = share × 6 km ÷ speed.',
     notes:
-      'Source: DESNZ, Greenhouse gas reporting: conversion factors 2023 (2023 full set), sheets "Business travel- land" (direct) and "WTT- pass vehs & travel- land" (indirect, WTT). Teaching assumptions, not measured data. Car: average car, unknown fuel, 166.64 g direct plus 43.66 g indirect per vehicle-km (210.3 g in total). One person per car is assumed, so the same figure is used per passenger-km. BRT bus: 80 g per passenger-km is a teaching assumption, not a DESNZ value. For comparison, DESNZ 2023 average local bus is 127.08 g (102.15 g direct plus 24.93 g indirect per passenger-km). Rail: 44.43 g (DESNZ 2023 national rail: 35.46 g direct plus 8.97 g indirect per passenger-km). For metro and tram, DESNZ 2023 gives 35.08 g (London Underground) and 36.09 g (light rail and tram), so the rail figure is on the high side for them. Cycling and walking: 0 (assumption; the 2023 DESNZ tables have no factor for them). Speeds (assumptions): car 20, BRT 24, rail 30, cycling 14, walking 5 km/h. Waiting time and transfers are ignored.',
+      'Source: DESNZ, Greenhouse gas reporting: conversion factors 2023 (2023 full set), sheets "Business travel- land" (direct) and "WTT- pass vehs & travel- land" (indirect, WTT). Teaching assumptions, not measured data. Car: average car, unknown fuel, 166.64 g direct plus 43.66 g indirect per vehicle-km (210.3 g in total). One person per car is assumed, so the same figure is used per passenger-km. BRT bus: 80 g per passenger-km is a teaching assumption, not a DESNZ value. For comparison, DESNZ 2023 average local bus is 127.08 g (102.15 g direct plus 24.93 g indirect per passenger-km). Rail: 44.43 g (DESNZ 2023 national rail: 35.46 g direct plus 8.97 g indirect per passenger-km). For metro and tram, DESNZ 2023 gives 35.08 g (London Underground) and 36.09 g (light rail and tram), so those listed UK categories have lower factors than the national-rail proxy used here. They are not measured factors for every city’s metro or tram. Cycling and walking: 0 (assumption; the 2023 DESNZ tables have no factor for them). Speeds (assumptions): car 20, BRT 24, rail 30, cycling 14, walking 5 km/h. Waiting time and transfers are ignored.',
   },
   ru: {
     title: 'Распределение поездок: выбросы и время в пути за день',
-    lead: '10 000 поездок в день, средняя поездка 6 км. Двигайте ползунок: остальные доли пересчитываются, сумма остаётся 100%.',
+    lead: '10 000 поездок в день, средняя поездка 6 км. Двигайте ползунок: остальные доли пересчитываются, сумма остаётся 100%. Здесь знаменатель — ВСЕ условные поездки, а не поездки Копенгагена на работу/учёбу. Сокращение каждого вида вдвое не меняет долей; модель не выводит эффект удалённой работы.',
     modes: { car: 'Автомобиль', bus: 'Автобус BRT', rail: 'Рельсовый транспорт (метро, трамвай, поезд)', bike: 'Велосипед', walk: 'Пешком' },
     trips: 'поездок',
     co2: 'Выбросы CO₂e за день',
@@ -62,7 +62,7 @@ const TEXT: Record<Lang, Strings> = {
     minutes: 'мин',
     formula: 'Выбросы = поездки × доля × 6 км × граммы на пассажиро-километр. Время = доля × 6 км ÷ скорость.',
     notes:
-      'Источник: DESNZ, Greenhouse gas reporting: conversion factors 2023 (полный набор, издание 2023 года), листы «Business travel- land» (прямые выбросы) и «WTT- pass vehs & travel- land» (косвенные выбросы, WTT). Учебные допущения, а не измеренные данные. Автомобиль: средний автомобиль, неизвестное топливо, 166,64 г прямых и 43,66 г косвенных на километр пробега (всего 210,3 г). Принято, что в машине один человек, поэтому то же значение используется на пассажиро-километр. Автобус BRT: 80 г на пассажиро-километр — учебное допущение, а не значение DESNZ. Для сравнения, средний местный автобус DESNZ 2023 — 127,08 г (102,15 г прямых и 24,93 г косвенных на пассажиро-километр). Рельсовый транспорт: 44,43 г (DESNZ 2023, национальная железнодорожная сеть: 35,46 г прямых и 8,97 г косвенных на пассажиро-километр). Для метро и трамвая DESNZ 2023 даёт 35,08 г (лондонское метро, London Underground) и 36,09 г (легкорельсовый транспорт и трамвай), поэтому для них значение завышено. Велосипед и ходьба: 0 (допущение; в таблицах DESNZ 2023 для них нет коэффициентов). Скорости (допущения): автомобиль 20, BRT 24, рельс 30, велосипед 14, пешком 5 км/ч. Время ожидания и пересадок не учитывается.',
+      'Источник: DESNZ, Greenhouse gas reporting: conversion factors 2023 (полный набор, издание 2023 года), листы «Business travel- land» (прямые выбросы) и «WTT- pass vehs & travel- land» (косвенные выбросы, WTT). Учебные допущения, а не измеренные данные. Автомобиль: средний автомобиль, неизвестное топливо, 166,64 г прямых и 43,66 г косвенных на километр пробега (всего 210,3 г). Принято, что в машине один человек, поэтому то же значение используется на пассажиро-километр. Автобус BRT: 80 г на пассажиро-километр — учебное допущение, а не значение DESNZ. Для сравнения, средний местный автобус DESNZ 2023 — 127,08 г (102,15 г прямых и 24,93 г косвенных на пассажиро-километр). Рельсовый транспорт: 44,43 г (DESNZ 2023, национальная железнодорожная сеть: 35,46 г прямых и 8,97 г косвенных на пассажиро-километр). Для метро и трамвая DESNZ 2023 даёт 35,08 г (лондонское метро, London Underground) и 36,09 г (легкорельсовый транспорт и трамвай), поэтому у этих категорий Великобритании коэффициенты ниже принятого здесь приближения национальной железной дороги. Это не измеренные коэффициенты метро или трамвая любого города. Велосипед и ходьба: 0 (допущение; в таблицах DESNZ 2023 для них нет коэффициентов). Скорости (допущения): автомобиль 20, BRT 24, рельс 30, велосипед 14, пешком 5 км/ч. Время ожидания и пересадок не учитывается.',
   },
 };
 
@@ -121,6 +121,10 @@ export default function GTransportSim({ lang }: { lang: Lang }) {
       <figcaption style={{ fontWeight: 600 }}>{t.title}</figcaption>
       <p style={{ margin: '0.4rem 0 0.9rem' }}>{t.lead}</p>
 
+      <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, marginBottom: 12 }}>
+        <button type="button" onClick={() => setShares([...START_SHARES])}>{lang === 'ru' ? 'До: исходные доли' : 'Before: initial shares'}</button>
+        <button type="button" onClick={() => setShares(rebalance(START_SHARES, 0, 20))}>{lang === 'ru' ? 'После: автомобиль 20%' : 'After: car share 20%'}</button>
+      </div>
       {MODES.map((mode, i) => (
         <div key={mode} style={{ marginBottom: '0.7rem' }}>
           <label htmlFor={`g-transport-${mode}`} style={{ display: 'flex', justifyContent: 'space-between', gap: '0.5rem' }}>

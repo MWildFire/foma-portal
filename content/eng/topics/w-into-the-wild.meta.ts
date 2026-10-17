@@ -20,8 +20,9 @@ const topic: TopicMeta = {
   termIds: ['narrator', 'first-person-narration', 'flashback', 'juxtaposition', 'symbol', 'imagery', 'theme', 'motif'],
   questionIds: ['w-into-the-wild-1', 'w-into-the-wild-2', 'w-into-the-wild-3'],
   sources: [
+    { kind: 'web', title: 'Krakauer, Into the Wild: school-hosted early-text transcription; Author’s Note, ch. 12 opening/El Segundo, ch. 14–15, ch. 18 and Epilogue (versions differ)', url: 'https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/689/Willingboro_High_School/3f800c0e-3a49-48c2-9a88-5d75427c54d7/Into_The_Wild.pdf?disposition=inline' },
     { kind: 'web', title: 'Into the Wild (Krakauer book), Wikipedia', url: 'https://en.wikipedia.org/wiki/Into_the_Wild_(Krakauer_book)' },
-    { kind: 'web', title: 'Into the Wild by Jon Krakauer, Penguin Random House', url: 'https://www.penguinrandomhouse.com/books/95440/into-the-wild-by-jon-krakauer/9780385486804' },
+    { kind: 'web', title: 'Into the Wild by Jon Krakauer, Penguin Random House', url: 'https://www.penguinrandomhouse.com/books/95440/into-the-wild-by-jon-krakauer/' },
     { kind: 'web', title: 'Into the Wild, SparkNotes: full summary', url: 'https://www.sparknotes.com/lit/into-the-wild/summary/' },
     { kind: 'web', title: 'Into the Wild, SparkNotes: Chapters 1 & 2', url: 'https://www.sparknotes.com/lit/into-the-wild/section1/' },
     { kind: 'web', title: 'Into the Wild, SparkNotes: Chapters 6 & 7', url: 'https://www.sparknotes.com/lit/into-the-wild/section4/' },

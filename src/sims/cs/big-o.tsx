@@ -1,8 +1,8 @@
 import { useId, useState, type PointerEvent as RPointerEvent } from 'react';
 import type { Lang } from '../../contract/types';
-import { CLASSES, CURVES, H, NMAX, W, X0, X1, Y0, Y1, YMAX, Y_TICKS, fmtCount, ops, xAt, yAt } from './big-o-logic';
+import { CLASSES, LOG_TICKS, curve, type Scale, H, NMAX, W, X0, X1, Y0, Y1, YMAX, Y_TICKS, fmtCount, ops, xAt, yAt } from './big-o-logic';
 
-const X_TICKS = [1, 10, 20, 30, 40, 50];
+const X_TICKS = [1, 20, 40, 60, 80, 100];
 const SIZES = [10, 100, 1000];
 // Series colours from the validated categorical palette (dataviz skill, reference palette), per theme.
 const CSS = `
@@ -23,7 +23,10 @@ export default function BigO(p: { lang: Lang }) {
   const [n, setN] = useState(10);
   const [hoverN, setHoverN] = useState<number | null>(null);
   const focus = hoverN ?? n;
-  const clipX = CURVES[CLASSES.length - 1].clipX;
+  const [scale, setScale] = useState<Scale>('linear');
+  const curves = CLASSES.map(c => curve(c.f, scale));
+  const y = (v: number) => yAt(v, scale);
+  const ticks = scale === 'linear' ? Y_TICKS : LOG_TICKS;
 
   const onMove = (e: RPointerEvent<SVGSVGElement>) => {
     const box = e.currentTarget.getBoundingClientRect();
@@ -35,12 +38,19 @@ export default function BigO(p: { lang: Lang }) {
   return (
     <div className="bo-root space-y-4">
       <style>{CSS}</style>
-      <div role="img" aria-label={t('Growth of the number of operations for six complexity classes, n from 1 to 50', 'Рост числа операций для шести классов сложности, n от 1 до 50')}>
-        <svg viewBox={`0 0 ${W} ${H}`} width="100%" className="block max-w-[30rem] overflow-visible" onPointerMove={onMove} onPointerLeave={() => setHoverN(null)}>
-          {Y_TICKS.map(v => (
+      <label className="block text-sm">
+        {t('Vertical scale', 'Вертикальная шкала')}{' '}
+        <select value={scale} onChange={e => setScale(e.target.value as Scale)}>
+          <option value="linear">{t('Linear scale', 'Линейная шкала')}</option>
+          <option value="log">{t('Logarithmic scale', 'Логарифмическая шкала')}</option>
+        </select>
+      </label>
+      <div className="overflow-x-auto" role="img" aria-label={t('Growth of the number of operations for six complexity classes, n from 1 to 100', 'Рост числа операций для шести классов сложности, n от 1 до 100')}>
+        <svg viewBox={`0 0 ${W} ${H}`} width="100%" className="block max-w-[30rem]" style={{ minWidth: 400 }} data-scale={scale} onPointerMove={onMove} onPointerLeave={() => setHoverN(null)}>
+          {ticks.map(v => (
             <g key={v}>
-              <line x1={X0} x2={X1} y1={yAt(v)} y2={yAt(v)} stroke={v === 0 ? 'var(--color-muted)' : 'var(--color-border)'} strokeWidth={1} />
-              <text x={X0 - 6} y={yAt(v) + 4} textAnchor="end" fontSize="11" fill="var(--color-muted)">{v}</text>
+              <line x1={X0} x2={X1} y1={y(v)} y2={y(v)} stroke={v === 0 ? 'var(--color-muted)' : 'var(--color-border)'} strokeWidth={1} />
+              <text x={X0 - 6} y={y(v) + 4} textAnchor="end" fontSize="11" fill="var(--color-muted)">{v >= 1024 ? `2^${Math.log2(v)}` : v}</text>
             </g>
           ))}
           {X_TICKS.map(k => (
@@ -48,11 +58,8 @@ export default function BigO(p: { lang: Lang }) {
           ))}
           <line x1={X0} x2={X0} y1={Y0} y2={Y1} stroke="var(--color-muted)" strokeWidth={1} />
           {CLASSES.map((c, k) => (
-            <path key={c.id} d={CURVES[k].d} fill="none" strokeWidth={2} strokeLinejoin="round" strokeDasharray={c.dash} style={{ stroke: `var(--bo-${k + 1})` }} />
+            <path key={c.id} data-curve={c.id} d={curves[k].d} fill="none" strokeWidth={2} strokeLinejoin="round" strokeDasharray={c.dash} style={{ stroke: `var(--bo-${k + 1})` }} />
           ))}
-          {clipX !== null && (
-            <text x={clipX + 4} y={Y0 - 4} fontSize="10" fill="var(--color-muted)">{t('2ⁿ clipped', '2ⁿ обрезано')}</text>
-          )}
           {n <= NMAX && <line x1={xAt(n)} x2={xAt(n)} y1={Y0} y2={Y1} stroke="var(--color-fg)" strokeWidth={1} strokeDasharray="3 3" />}
           {hoverN !== null && <line x1={xAt(hoverN)} x2={xAt(hoverN)} y1={Y0} y2={Y1} stroke="var(--color-muted)" strokeWidth={1} />}
           <text x={(X0 + X1) / 2} y={H - 4} textAnchor="middle" fontSize="11" fill="var(--color-muted)">{t('n (input size)', 'n (размер входа)')}</text>
@@ -60,7 +67,10 @@ export default function BigO(p: { lang: Lang }) {
         </svg>
       </div>
       <p className="m-0 text-xs text-[var(--color-muted)]">
-        {t(`Curves above ${YMAX} stop at the top edge: n² and 2ⁿ.`, `Кривые выше ${YMAX} обрываются у верхнего края: n² и 2ⁿ.`)}
+        {scale === 'linear'
+          ? t(`Linear close-up, 0–${YMAX} operations. Curves n, n log₂ n, n² and 2ⁿ stop at the top; use the logarithmic view for larger values.`, `Линейный крупный план, 0–${YMAX} операций. Кривые n, n log₂ n, n² и 2ⁿ обрываются сверху; большие значения видны в логарифмическом режиме.`)
+          : t('Logarithmic axis: equal distances mean equal ratios. Range 0.5–2²⁰; zero is not plotted and 2ⁿ stops at the top.', 'Логарифмическая ось: равные расстояния означают равные отношения. Диапазон 0,5–2²⁰; ноль не отображается, 2ⁿ обрывается сверху.')}
+        {' '}{t('On a narrow screen, scroll the chart sideways.', 'На узком экране прокручивайте график вбок.')}
       </p>
 
       <ul className="m-0 grid list-none grid-cols-1 gap-1 p-0 text-sm sm:grid-cols-2">
@@ -86,9 +96,6 @@ export default function BigO(p: { lang: Lang }) {
           {t(`Operations at n = ${focus}`, `Операции при n = ${focus}`)}
           {hoverN !== null && <span className="font-normal text-[var(--color-muted)]"> {t('(pointer on the chart)', '(курсор на графике)')}</span>}
         </p>
-        {focus > NMAX && (
-          <p className="m-0 text-xs text-[var(--color-muted)]">{t('n is above 50, so this point is not on the chart.', 'n больше 50, поэтому этой точки на графике нет.')}</p>
-        )}
         <dl className="m-0 mt-2 grid grid-cols-1 gap-x-4 text-sm min-[400px]:grid-cols-2">
           {CLASSES.map(c => (
             <div key={c.id} className="flex justify-between gap-2 border-b border-[var(--color-border)] py-1">

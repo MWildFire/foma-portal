@@ -2,10 +2,8 @@ import type { Term } from '../../../../src/contract/types';
 import { BOOK_TITLE } from '../../book';
 
 const source = {
-  kind: 'web' as const,
-  title: 'IB Mathematics AI, first assessment 2021: public summary, not checked against the official guide',
-  locator: 'sub-topic 1.10',
-  url: 'https://www.ibo.org/globalassets/new-structure/university-admission/pdfs/dp-mathematics-applications-and-interpretation-guide-en.pdf',
+  kind: 'own' as const,
+  title: 'Author explanation; a standalone textbook page has not been verified / Авторское объяснение; отдельная страница учебника не подтверждена',
 };
 
 export const terms: Term[] = [
@@ -13,8 +11,8 @@ export const terms: Term[] = [
     id: 'rational-exponent',
     term: { en: 'rational exponent', ru: 'рациональный показатель степени (rational exponent)' },
     def: {
-      en: 'For $a>0$ and $n>0$, $a^{\\frac{1}{n}}$ is the positive $n$th root of $a$, and $a^{\\frac{m}{n}}=\\left(a^{\\frac{1}{n}}\\right)^{m}$. The denominator gives the root and the numerator gives the power.',
-      ru: 'При $a>0$ и $n>0$ величина $a^{\\frac{1}{n}}$ — положительный корень $n$-й степени из $a$, а $a^{\\frac{m}{n}}=\\left(a^{\\frac{1}{n}}\\right)^{m}$. Знаменатель задаёт корень, числитель — степень.',
+      en: 'For $a>0$, integer $m$ and positive integer $n$, $a^{\\frac{1}{n}}$ is the positive $n$th root of $a$, and $a^{\\frac{m}{n}}=\\left(a^{\\frac{1}{n}}\\right)^{m}$. The denominator gives the root and the numerator gives the power.',
+      ru: 'При $a>0$, целом $m$ и положительном целом $n$ величина $a^{\\frac{1}{n}}$ — положительный корень $n$-й степени из $a$, а $a^{\\frac{m}{n}}=\\left(a^{\\frac{1}{n}}\\right)^{m}$. Знаменатель задаёт корень, числитель — степень.',
     },
     syllabus: '1.10',
     papers: ['P1', 'P2', 'P3'],

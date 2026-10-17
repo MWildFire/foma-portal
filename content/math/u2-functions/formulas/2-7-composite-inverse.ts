@@ -6,8 +6,8 @@ export const formulas: Formula[] = [
     tex: '(f\\circ g)(x)=f\\bigl(g(x)\\bigr)',
     name: { en: 'Composite function', ru: 'Сложная функция (композиция) (Composite function)' },
     meaning: {
-      en: 'Apply g first, then apply f to the result.',
-      ru: 'Сначала применяем g, затем f к результату.',
+      en: 'Apply g first, then f; require x in the domain of g and g(x) in the domain of f.',
+      ru: 'Сначала применяем g, затем f; нужно, чтобы x входил в область определения g, а g(x) — в область определения f.',
     },
     when: {
       en: 'The output of one function is used as the input of another.',
@@ -25,12 +25,12 @@ export const formulas: Formula[] = [
     tex: 'f^{-1}\\bigl(f(x)\\bigr)=x,\\qquad f\\bigl(f^{-1}(x)\\bigr)=x',
     name: { en: 'Inverse function identities', ru: 'Тождества обратной функции (Inverse function identities)' },
     meaning: {
-      en: 'Applying f and then f^(-1), or the other way round, returns the original value.',
-      ru: 'Применение f, затем f^(-1), или наоборот, возвращает исходное значение.',
+      en: 'For a one-to-one f on its stated domain, applying f and then f^(-1), or the other way round, returns the original value.',
+      ru: 'Для взаимно однозначной f на указанной области применение f, затем f^(-1), или наоборот, возвращает исходное значение.',
     },
     when: {
-      en: 'Checking an inverse, or solving a composite equation by undoing the functions one at a time.',
-      ru: 'Проверка обратной функции или решение уравнения с композицией, когда функции отменяются по одной.',
+      en: 'For the first identity x belongs to D(f); for the second x belongs to R(f). Check these domains when undoing a composition.',
+      ru: 'В первом тождестве x принадлежит D(f), во втором — R(f). Проверяй эти области, отменяя композицию.',
     },
     syllabus: '2.7',
     inBooklet: false,
@@ -44,8 +44,8 @@ export const formulas: Formula[] = [
       ru: 'Запишите y = f(x), поменяйте местами x и y и выразите y. Результат — f^(-1)(x).',
     },
     when: {
-      en: 'Every time an inverse function is asked for; state its domain as the range of f.',
-      ru: 'Каждый раз, когда нужна обратная функция; её область определения — область значений f.',
+      en: 'First ensure f is one-to-one, restricting its domain if needed; state the inverse function’s domain as the range of the restricted f.',
+      ru: 'Сначала проверь взаимную однозначность f и при необходимости сузь область определения; область определения обратной функции — область значений ограниченной f.',
     },
     syllabus: '2.7',
     inBooklet: false,
@@ -59,8 +59,8 @@ export const formulas: Formula[] = [
       ru: 'Область определения обратной функции — это область значений f, а её область значений — это область определения f (на ограниченной области).',
     },
     when: {
-      en: 'Stating the domain of an inverse function, which is often the step where marks are lost.',
-      ru: 'Указание области определения обратной функции, где чаще всего теряются баллы.',
+      en: 'Stating the allowed inputs and outputs of an inverse, including any restriction used to make f one-to-one.',
+      ru: 'Указание допустимых аргументов и значений обратной функции с учётом ограничения, которое делает f взаимно однозначной.',
     },
     syllabus: '2.7',
     inBooklet: false,

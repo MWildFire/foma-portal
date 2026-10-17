@@ -10,13 +10,13 @@ Each change to $y = f(x)$ moves, stretches or flips the graph in a predictable w
 
 <Formula id="function-graph-reflection-rules"/>
 
-<Term id="function-graph-stretch"/> multiplies distances from an axis by a fixed factor. $y = p f(x)$ stretches the graph vertically by factor $p$, and $y = f(qx)$ stretches it horizontally by factor $\frac{1}{q}$. The factor is the reciprocal of the number multiplying $x$, so $y = f(2x)$ makes the graph half as wide.
+<Term id="function-graph-stretch"/> multiplies distances from an axis by a fixed factor. For $p\neq0$ and $q\neq0$, $y=pf(x)$ scales vertical distances by $|p|$, while $y=f(qx)$ scales horizontal distances by $1/|q|$. A negative multiplier also reflects in the corresponding axis; a positive scale below1 contracts distances. The horizontal scale is the reciprocal of the absolute value multiplying $x$, so $y = f(2x)$ makes the graph half as wide.
 
 <Formula id="function-graph-general-form"/>
 
 <Callout kind="define">Transformation of a graph: a rule that sends each point $(x, y)$ of $y = f(x)$ to a new point. The transformed graph is the set of all the new points.</Callout>
 
-Several transformations can be combined in one equation. Each point $(x, y)$ of $y = f(x)$ has an <Term id="function-graph-image-point"/> on $y = p\,f(q(x - a)) + b$: the $x$-coordinate is divided by $q$ and then $a$ is added, while the $y$-coordinate is multiplied by $p$ and then $b$ is added.
+Several transformations can be combined in one equation with $q\neq0$. If $p=0$, the graph collapses vertically to $y=b$ over the transformed domain; that is not an invertible stretch. Each point $(x, y)$ of $y = f(x)$ has an <Term id="function-graph-image-point"/> on $y = p\,f(q(x - a)) + b$: the $x$-coordinate is divided by $q$ and then $a$ is added, while the $y$-coordinate is multiplied by $p$ and then $b$ is added.
 
 <Formula id="function-graph-image-rule"/>
 
@@ -35,11 +35,13 @@ Several transformations can be combined in one equation. Each point $(x, y)$ of 
 
 <Sim id="math.transformations-lab"/>
 
-The lab draws $f(x) = \sin x$ as a dashed grey curve and the transformed curve $y = p\,f(q(x - a)) + b$ as a blue curve. Change $a$ and $b$ to see pure translations, change $p$ to stretch or reflect vertically, and change $q$ to stretch horizontally. The checkbox makes $q$ negative, which reflects the curve in the $y$-axis. The orange point is the image of the maximum $\left(\frac{\pi}{2}, 1\right)$ of $\sin x$, so its position shows the image rule at work.
+The lab draws $f(x) = \sin x$ as a dashed grey curve and the transformed curve $y = p\,f(q(x - a)) + b$ as a blue curve. Set $p=q=1$ and change $a$ and $b$ to see pure translations, change $p$ to stretch or reflect vertically, and change $q$ to stretch horizontally. The checkbox reverses the sign of $q$: this reflects the current curve about $x=a$. When $a=0$, that is the $y$-axis; in general, the reflection comes before the horizontal translation. The orange point is the image of the maximum $\left(\frac{\pi}{2}, 1\right)$ of $\sin x$, so its position shows the image rule at work.
+
+The slider letters differ from the textbook model $y=a\sin(b(x-c))+d$ (Oxford AI HL, ch. 8.2, pp. 347–348): lab $p$ is textbook $a$, lab $q$ is textbook $b$, lab $a$ is textbook $c$, and lab $b$ is textbook $d$. Thus a point $(u,v)$ becomes $(a+u/q,\;pv+b)$ in the lab notation ($q\ne0$). The horizontal scale factor is $1/|q|$; a negative sign also produces a reflection.
 
 ## How it is examined
 
-Describe, Find and Write down questions reward the correct stretch factor, the correct direction of each translation, and the image of a named point. When a question asks for a sequence of transformations, state the stretch first and then the translation for a bracket $q(x - a)$, and give each step with its vector or scale factor. Show that questions may ask for the equation of the transformed graph, so practise writing $p f(q(x - a)) + b$ without losing the bracket.
+Describe, Find and Write down questions reward the correct stretch factor, the correct direction of each translation, and the image of a named point. When a question asks for a sequence of transformations, one valid description is to scale/reflect first and then translate for a bracket $q(x - a)$, and give each step with its vector or scale factor. Show that questions may ask for the equation of the transformed graph, so practise writing $p f(q(x - a)) + b$ without losing the bracket.
 
 <Callout kind="exam">The image rule gives a fast check: find the image of one key point of the original graph and make sure it lies on the transformed graph.</Callout>
 
@@ -63,7 +65,7 @@ Describe, Find and Write down questions reward the correct stretch factor, the c
 
 - $y = f(x) + b$ moves the graph up by $b$; $y = f(x - a)$ moves it $a$ units to the right.
 - $y = -f(x)$ reflects in the $x$-axis; $y = f(-x)$ reflects in the $y$-axis.
-- $y = p f(x)$ stretches vertically by factor $p$; $y = f(qx)$ stretches horizontally by factor $\frac{1}{q}$.
+- For nonzero multipliers, vertical scale is $|p|$, horizontal scale $1/|q|$; negative signs add reflections.
 - For $y = p f(q(x - a)) + b$ the point $(x, y)$ maps to $\left(a + \frac{x}{q}, py + b\right)$.
 - Divide the $x$-coordinate by $q$ and then add $a$; never multiply the shift $a$ by $q$.
 - Test each transformation on one key point, such as a maximum, a minimum or a zero.

@@ -1,26 +1,26 @@
 ## Big idea
 
-Standard form writes any number as a number between 1 and 10 multiplied by a power of ten: $a \times 10^{k}$. Very large and very small numbers become short, and multiplying or dividing them reduces to adding or subtracting powers of ten.
+For positive quantities, standard form writes the value as a number at least 1 and less than 10 multiplied by a power of ten: $a \times 10^{k}$. Very large and very small numbers become short, and multiplying or dividing them reduces to adding or subtracting powers of ten.
 
 ## Explanation
 
-A number is in <Term id="standard-form"/> when it has the form $a \times 10^{k}$ with $1 \le a < 10$ and $k$ an integer. The power $k$ gives the order of magnitude of the number, and $a$ carries its digits. In $4.2 \times 10^{4}$ the digits are 4.2 and the size is about ten thousand.
+A positive number is in <Term id="standard-form"/> when it has the form $a \times 10^{k}$ with $1 \le a < 10$ and $k$ an integer. The power $k$ gives the order of magnitude of the number, and $a$ carries its digits. In $4.2 \times 10^{4}$ the digits are 4.2 and the size is about ten thousand.
 
 <Formula id="standard-form-representation"/>
 
 To write a number in standard form, move the decimal point until exactly one non-zero digit stands before it. Each move to the left increases $k$ by 1, and each move to the right decreases $k$ by 1. So $0.00047 = 4.7 \times 10^{-4}$ and $380\,000 = 3.8 \times 10^{5}$.
 
-The number $a$ is the <Term id="standard-form-mantissa"/>, and the power $k$ is the <Term id="standard-form-order"/>. Comparing two numbers in standard form is quick: the larger power of ten is the larger number, and when the powers are equal, compare $a$.
+The number $a$ is the <Term id="standard-form-mantissa"/>, and the power $k$ is the <Term id="standard-form-order"/>. For a negative value, keep a minus sign outside the positive standard-form magnitude: $-4700=-4.7\times10^3$. Zero has no unique normalised representation with $1\le a<10$. The comparison rule below assumes positive values: $-2\times10^4$ is less than $-3\times10^3$, despite its larger exponent. Comparing two positive numbers in standard form is quick: the larger power of ten is the larger number, and when the powers are equal, compare $a$.
 
-<Callout kind="define">Standard form: a way of writing a number as $a \times 10^{k}$, where $1 \le a < 10$ and $k$ is an integer.</Callout>
+<Callout kind="define">Standard form: a way of writing a number as $a \times 10^{k}$, where $1 \le a < 10$ and $k$ is an integer, for positive values.</Callout>
 
 To multiply or divide, work on the two parts separately: multiply (or divide) the numbers $a$ and add (or subtract) the powers. For example, $(3.6 \times 10^{5}) \times (2.4 \times 10^{-3}) = 8.64 \times 10^{2}$. If the new $a$ falls outside $1 \le a < 10$, adjust it: $12 \times 10^{4}$ becomes $1.2 \times 10^{5}$.
 
 <Formula id="standard-form-product-quotient"/>
 
-To add or subtract, first write both numbers with the same power of ten, then add the numbers $a$. Adding the $a$ values without aligning the powers gives an answer with the wrong order of magnitude, so always align first.
+To add or subtract, first write both numbers with the same power of ten, then add the numbers $a$. Adding the $a$ values without aligning the powers generally gives an incorrect value, so always align first.
 
-<Callout kind="gdc">Enter $a \times 10^{k}$ with the `EE` key: for $2.3 \times 10^{4}$, type `2.3`, press `EE`, then type `4`. A result such as `4.1E15` means $4.1 \times 10^{15}$; to show every result in this form, set Exponential Format to Scientific in `Home → Settings → Document Settings`. Display Digits has no significant-figures setting, so round to the required significant figures yourself.</Callout>
+<Callout kind="gdc">Enter $a \times 10^{k}$ with the `EE` key: for $2.3 \times 10^{4}$, type `2.3`, press `EE`, then type `4`. A result such as `4.1E15` means $4.1 \times 10^{15}$; to show every result in this form, set Exponential Format to Scientific in `Home → Settings → Document Settings`. Display Digits controls the displayed precision. Keep enough guard digits for intermediate work and check the final significant figures against the question; a display setting does not determine the required accuracy.</Callout>
 
 ## Worked example
 
@@ -32,7 +32,7 @@ Calculate $(3.6 \times 10^{5}) \times (2.4 \times 10^{-3})$, then write $4.2 \ti
 <Step>Add the numbers $a$: $4.2 + 0.38 = 4.58$, so the sum is $4.58 \times 10^{4}$.</Step>
 </Steps>
 
-<Reveal title="Why align the powers first?">Adding the $a$ values directly, without aligning the powers of ten, gives an answer with the wrong order of magnitude. Only numbers with the same power of ten can be added in this way.</Reveal>
+<Reveal title="Why align the powers first?">Adding the $a$ values directly, without aligning the powers of ten, generally gives an incorrect value. Only coefficients attached to the same power of ten can be combined directly. The resulting exponent need not always differ from a careless answer: the underlying equality, not a guaranteed change of order, is the reason.</Reveal>
 
 ## Visual
 
@@ -40,7 +40,7 @@ Calculate $(3.6 \times 10^{5}) \times (2.4 \times 10^{-3})$, then write $4.2 \ti
 
 ## How it is examined
 
-Calculate and Express questions earn a method mark for moving the decimal point or combining the powers, then an accuracy mark for $a$ and another for $k$. The number of significant figures or decimal places in the question sets the accuracy: round $a$ to exactly the requested precision. Context questions, such as the Earth and the Moon, also reward a sentence that says what the answer means in the situation.
+Show how you move the decimal point or combine powers, and follow the particular question’s mark allocation; Calculate or Express does not prescribe a universal three-mark pattern. Significant figures apply to the coefficient’s significant digits. Decimal places apply to the value in the requested units: $1234.567$ to two decimal places is $1234.57$, not $1.23\times10^3$. If standard form is also requested, convert the rounded value consistently. After rounding, renormalise if needed: $9.999\times10^3$ to three significant figures becomes $1.00\times10^4$. Retain guard digits until the final answer and include units or an interpretation where requested.
 
 <Callout kind="exam">Write the final answer in standard form, with $1 \le a < 10$ and the number of significant figures the question asks for. Keep $k$ as an integer.</Callout>
 

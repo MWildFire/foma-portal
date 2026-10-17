@@ -7,7 +7,7 @@ export const terms: Term[] = [
     term: { en: 'null hypothesis H0', ru: 'нулевая гипотеза H0 (null hypothesis H0)' },
     def: {
       en: 'The statement that the population shows no effect, no association or the claimed value. The test assumes H0 is true and asks how surprising the data would be if it were.',
-      ru: 'Утверждение, что в генеральной совокупности нет эффекта, связи или заявленного значения. Тест считает H0 верной и оценивает, насколько неожиданными были бы данные в этом случае.',
+      ru: 'Утверждение, что в генеральной совокупности нет эффекта или связи либо параметр равен заявленному значению. Тест считает H0 верной и оценивает, насколько неожиданными были бы данные в этом случае.',
     },
     syllabus: '4.11',
     papers: ['P1', 'P2', 'P3'],
@@ -21,8 +21,8 @@ export const terms: Term[] = [
     id: 'significance-level-alpha',
     term: { en: 'significance level α', ru: 'уровень значимости α (significance level α)' },
     def: {
-      en: 'The probability of rejecting H0 when H0 is true, chosen before the test is carried out. Common values are 0.05 and 0.01.',
-      ru: 'Вероятность отклонить H0, если H0 верна; выбирается до проведения теста. Обычные значения: 0,05 и 0,01.',
+      en: 'The nominal upper limit on the probability of rejecting H0 when H0 is true, chosen before the test. The actual probability can be smaller for a discrete test. Common values are 0.05 and 0.01.',
+      ru: 'Номинальная верхняя граница вероятности отклонить H0, если H0 верна; выбирается до теста. Для дискретного критерия фактическая вероятность может быть ниже. Обычные значения: 0,05 и 0,01.',
     },
     syllabus: '4.11',
     papers: ['P1', 'P2', 'P3'],

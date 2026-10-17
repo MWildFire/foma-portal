@@ -6,8 +6,8 @@ export const terms: Term[] = [
     id: 'histogram-grouped-data',
     term: { en: 'histogram', ru: 'гистограмма (histogram)' },
     def: {
-      en: 'A diagram for grouped continuous data in which each class is drawn as a bar on a continuous horizontal axis, with no gaps between bars. The area of each bar is proportional to the class frequency.',
-      ru: 'Диаграмма для сгруппированных непрерывных данных: каждый класс изображается столбцом на непрерывной горизонтальной оси без промежутков между столбцами. Площадь каждого столбца пропорциональна частоте класса.',
+      en: 'A diagram for grouped continuous data in which each class is drawn as a bar on a continuous horizontal axis, without decorative gaps between adjacent intervals; a zero-frequency class has zero height. The area of each bar is proportional to the class frequency.',
+      ru: 'Диаграмма для сгруппированных непрерывных данных: каждый класс изображается столбцом на непрерывной горизонтальной оси без декоративных зазоров между смежными интервалами; класс с нулевой частотой имеет нулевую высоту. Площадь каждого столбца пропорциональна частоте класса.',
     },
     syllabus: '4.2',
     papers: ['P1', 'P2', 'P3'],
@@ -36,8 +36,8 @@ export const terms: Term[] = [
     id: 'box-and-whisker-diagram',
     term: { en: 'box and whisker diagram', ru: 'диаграмма размаха (box and whisker diagram)' },
     def: {
-      en: 'A diagram that shows the lowest value, the lower quartile, the median, the upper quartile and the highest value of a data set. The box runs from the lower to the upper quartile with a line at the median, and the whiskers reach the lowest and highest values.',
-      ru: 'Диаграмма, которая показывает наименьшее значение, нижний квартиль, медиану, верхний квартиль и наибольшее значение набора данных. Ящик идёт от нижнего квартиля до верхнего с линией на медиане, усы доходят до наименьшего и наибольшего значений.',
+      en: 'A diagram that shows the lowest value, the lower quartile, the median, the upper quartile and the highest value of a data set. The box runs from the lower to the upper quartile with a line at the median, and ordinary whiskers reach the minimum and maximum. In a modified plot, outliers are separate and whiskers end at the most extreme non-outliers; check the convention.',
+      ru: 'Диаграмма, которая показывает наименьшее значение, нижний квартиль, медиану, верхний квартиль и наибольшее значение набора данных. Ящик идёт от нижнего квартиля до верхнего с линией на медиане, в обычной диаграмме усы доходят до минимума и максимума. В модифицированной выбросы отмечают отдельно, а усы доводят до крайних невыбросов; проверьте соглашение.',
     },
     syllabus: '4.2',
     papers: ['P1', 'P2', 'P3'],

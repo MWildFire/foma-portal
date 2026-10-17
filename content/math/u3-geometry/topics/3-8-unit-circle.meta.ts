@@ -28,7 +28,7 @@ const topic: TopicMeta = {
   termIds: ['unit-circle', 'quadrant-sign-rule', 'ambiguous-case-sine-rule'],
   formulaIds: ['unit-circle-point', 'pythagorean-identity', 'tan-identity', 'sine-rule-ambiguous-case'],
   sims: ['math.unit-circle-lab'],
-  questionIds: ['q-3-8-01', 'q-3-8-02', 'q-3-8-03'],
+  questionIds: ['q-3-8-01', 'q-3-8-02', 'q-3-8-03', 'r06-unit-circle'],
   sources: [
     {
       kind: 'web',

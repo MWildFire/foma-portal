@@ -28,8 +28,8 @@ export const terms: Term[] = [
     papers: ['P1', 'P2', 'P3'],
     src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 2.2, p. 57' },
     pitfall: {
-      en: 'With classes of unequal width, compare frequency densities, not frequencies.',
-      ru: 'Если классы разной ширины, сравнивайте плотности частот, а не частоты.',
+      en: 'For unequal widths, a histogram peak is identified by frequency density. The class containing the most observations is instead identified by frequency; follow the convention stated in the question.',
+      ru: 'При разной ширине классов пик гистограммы определяется плотностью частоты. Класс с наибольшим числом наблюдений определяется частотой; следуйте соглашению в условии.',
     },
   },
   {
@@ -43,16 +43,16 @@ export const terms: Term[] = [
     papers: ['P1', 'P2', 'P3'],
     src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 2.2, p. 53' },
     pitfall: {
-      en: 'The IQR is not the range. It ignores the lowest and highest quarters of the data, so extreme values do not affect it.',
-      ru: 'Межквартильный размах — это не размах. Он не учитывает нижнюю и верхнюю четверти данных, поэтому крайние значения на него не влияют.',
+      en: 'The IQR is not the range. It ignores the lowest and highest quarters of the data, so it is generally less sensitive to extreme magnitudes than the full range. It can still change with ranks, sample size and quartile convention.',
+      ru: 'Межквартильный размах — это не размах. Он не учитывает нижнюю и верхнюю четверти данных, поэтому он обычно менее чувствителен к крайним величинам, чем полный размах. Он всё же может меняться при изменении рангов, объёма выборки и соглашения о квартилях.',
     },
   },
   {
     id: 'standard-deviation',
     term: { en: 'standard deviation', ru: 'стандартное отклонение (standard deviation)' },
     def: {
-      en: 'The square root of the variance, which is the mean of the squared deviations from the mean. It measures the typical distance of values from the mean, in the units of the data.',
-      ru: 'Квадратный корень из дисперсии, а дисперсия — это среднее квадратов отклонений от среднего. Оно показывает типичное расстояние значений от среднего в единицах данных.',
+      en: 'Here, population standard deviation of a data set: the square root of the mean squared deviation from its mean. It measures the typical distance of values from the mean, in the units of the data.',
+      ru: 'Здесь — стандартное отклонение всего набора данных: корень из среднего квадрата отклонений от его среднего. Оно показывает типичное расстояние значений от среднего в единицах данных.',
     },
     syllabus: '4.3',
     papers: ['P1', 'P2', 'P3'],

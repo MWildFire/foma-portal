@@ -235,7 +235,6 @@
 .foma-formula__tex {
   max-width: 100%;
   margin: 0.25rem 0;
-  overflow-x: auto;
 }
 
 .foma-formula__tex .katex-display {
@@ -284,3 +283,10 @@
 .foma-formula__gdc strong {
   color: var(--tone-fg);
 }
+
+/* One reachable scroll box and a visible cue when a formula exceeds its viewport. */
+.foma-math-wrap { display: block; max-width: 100%; }
+.foma-math-region { display: block; max-width: 100%; overflow-x: auto; }
+.foma-math-region .katex-display { overflow: visible; }
+.foma-math-region[data-scrolls="true"] .katex-display > .katex { text-align: left; }
+.foma-math-hint { display: block; font-family: var(--font-ui); font-size: 0.875rem; color: var(--color-muted); margin: 0.25rem 0 0.5rem; }

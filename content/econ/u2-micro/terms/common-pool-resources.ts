@@ -1,8 +1,8 @@
 import type { SourceRef, Term } from '../../../../src/contract/types';
 
-// Common pool resources (IB DP Economics section 2.8). Definitions are in our own words. Sources: the textbook, with a page locator for each term it defines; the IB subject guide (2020) for open-access equilibrium and socially optimal use, which the book does not define.
+// Common pool resources: original paraphrases and applications of the textbook model, with locators.
 const book = 'Tragakes, Economics for the IB Diploma: Coursebook (Cambridge University Press, 3rd ed.)';
-const src: SourceRef = { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 2.8' };
+const src: SourceRef = { kind: 'textbook', title: book, locator: 'ch. 5.2, pp. 151–152, Fig. 5.3; our application of the marginal model' };
 
 export const terms: Term[] = [
   {
@@ -86,41 +86,35 @@ export const terms: Term[] = [
     id: 'open-access-equilibrium',
     term: { en: 'open-access equilibrium', ru: 'равновесие при открытом доступе (open-access equilibrium)' },
     def: {
-      en: 'The level of use reached when new users enter until total revenue equals total cost, so economic profit is zero and the resource is overused.',
-      ru: 'Уровень использования, при котором новые пользователи входят, пока совокупный доход не станет равен совокупным издержкам; экономическая прибыль нулевая, ресурс перегружен.',
+      en: 'The market outcome when access to a shared resource is unrestricted and users respond to their own benefits and costs, leaving depletion costs imposed on others out of their decisions.',
+      ru: 'Рыночный результат при свободном доступе к общему ресурсу: пользователи сопоставляют собственные выгоды и издержки, не учитывая ущерб от истощения, который несут другие.',
     },
     example: {
-      en: 'At 60 boats the bay catches 1500 tonnes; total revenue of AED 900000 equals total cost of AED 900000, so new boats stop entering.',
-      ru: 'При 60 лодках бухта ловит 1500 тонн: совокупный доход 900000 AED равен совокупным издержкам 900000 AED, и новые лодки перестают входить.',
+      en: 'In the main simulation, private demand meets private supply at Qm = 12, beyond Qopt = 9 because MSC exceeds MPC.',
+      ru: 'В основной симуляции частный спрос пересекается с частным предложением при Qm = 12, выше Qopt = 9, поскольку MSC превышают MPC.',
     },
     pitfall: {
-      en: 'Open-access equilibrium is not the profit-maximizing level: there economic profit is zero, while less effort gives more profit.',
-      ru: 'Равновесие при открытом доступе не максимизирует прибыль: там экономическая прибыль нулевая, а меньшее усилие даёт больше прибыли.',
+      en: 'Zero profit at TR = TC belongs to the separate fishing-effort extension, not the axes of the main MSC/MPC diagram.',
+      ru: 'Нулевая прибыль при TR = TC относится к отдельной модели промыслового усилия, а не к осям основного рисунка MSC/MPC.',
     },
-    syllabus: '2.8',
-    papers: ['P1', 'P2', 'P3'],
-    src,
-    sim: 'econ.cpr',
+    syllabus: '2.8', papers: ['P2', 'P3'], src, sim: 'econ.cpr',
   },
   {
     id: 'socially-optimal-use',
     term: { en: 'socially optimal use', ru: 'общественно оптимальное использование (socially optimal use)' },
     def: {
-      en: 'The level of use at which the gap between total revenue and total cost is largest, so marginal revenue equals marginal cost and economic profit is maximized.',
-      ru: 'Уровень использования, при котором разрыв между совокупным доходом и совокупными издержками наибольший: предельный доход равен предельным издержкам, а экономическая прибыль максимальна.',
+      en: 'Resource use that maximises net benefit to society, including effects on third parties; in the marginal model, marginal social benefit (MSB) equals marginal social cost (MSC).',
+      ru: 'Использование ресурса, дающее наибольшую чистую выгоду обществу с учётом последствий для третьих лиц; в предельной модели MSB равна MSC.',
     },
     example: {
-      en: 'A fleet of 40 boats earns AED 120000 of economic profit, while 60 boats earn zero.',
-      ru: 'Флот из 40 лодок приносит 120000 AED экономической прибыли, а 60 лодок — ноль.',
+      en: 'In the main simulation, MSB = 12 − 0.5Q and MSC = 0.5Q + 3 meet at Q = 9; welfare loss at market output 12 is 4.5.',
+      ru: 'В основной симуляции MSB = 12 − 0,5Q и MSC = 0,5Q + 3 пересекаются при Q = 9; потери при рыночном выпуске 12 равны 4,5.',
     },
     pitfall: {
-      en: 'The socially optimal use is not the largest catch; the target is a smaller catch with higher profit and a sustainable stock.',
-      ru: 'Общественно оптимальное использование — не самый большой улов; цель — меньший улов с большей прибылью и устойчивым запасом.',
+      en: 'Maximising a private profit or the physical catch need not maximise social welfare: external costs must be included.',
+      ru: 'Максимум частной прибыли или физического улова не обязательно даёт максимум общественного благосостояния: нужны внешние издержки.',
     },
-    syllabus: '2.8',
-    papers: ['P1', 'P2', 'P3'],
-    src,
-    sim: 'econ.cpr',
+    syllabus: '2.8', papers: ['P2', 'P3'], src, sim: 'econ.cpr',
   },
   {
     id: 'harvest-quota',

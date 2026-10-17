@@ -19,6 +19,7 @@ const topic: TopicMeta = {
     { en: 'I can use the subjunctive after il faut que and bien que in a formal text', ru: 'Могу использовать subjonctif после il faut que и bien que в официальном тексте' },
   ],
   termIds: [
+    'v-school-008', 'v-school-009',
     'v-t4-001', 'v-t4-002', 'v-t4-003', 'v-t4-004', 'v-t4-005', 'v-t4-006', 'v-t4-007', 'v-t4-008', 'v-t4-009', 'v-t4-010',
     'v-t4-011', 'v-t4-012', 'v-t4-013', 'v-t4-014', 'v-t4-015', 'v-t4-016', 'v-t4-017', 'v-t4-018', 'v-t4-019', 'v-t4-020',
     'v-t4-021', 'v-t4-022', 'v-t4-023', 'v-t4-024', 'v-t4-025', 'v-t4-026', 'v-t4-027', 'v-t4-028', 'v-t4-029', 'v-t4-030',

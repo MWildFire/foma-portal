@@ -10,7 +10,7 @@
     "typecheck": "tsc -b",
     "validate": "node --experimental-strip-types scripts/validate-content.ts",
     "coverage": "node --experimental-strip-types scripts/coverage.ts",
-    "test": "node --test tests/*.test.mjs",
+    "test": "node --test --test-concurrency=1 tests/*.test.mjs",
     "check": "npm run typecheck && npm run validate && npm test && node scripts/fr-check.mjs && node --experimental-strip-types scripts/cs-verify.mjs && vite build"
   },
   "dependencies": {
@@ -21,7 +21,7 @@
     "framer-motion": "^11.11.17",
     "i18next": "^23.16.8",
     "i18next-browser-languagedetector": "^8.0.2",
-    "katex": "^0.16.11",
+    "katex": "0.18.2",
     "leaflet": "^1.9.4",
     "lucide-react": "^0.468.0",
     "react": "^18.3.1",
@@ -51,11 +51,16 @@
     "remark-frontmatter": "^5.0.0",
     "remark-gfm": "^4.0.1",
     "remark-math": "^6.0.0",
-    "tailwindcss": "^3.4.15",
+    "tailwindcss": "4.3.3",
     "typescript": "^5.6.3",
-    "vite": "^6.4.3"
+    "vite": "^6.4.3",
+    "@tailwindcss/postcss": "4.3.3"
   },
   "engines": {
     "node": ">=22.18.0"
+  },
+  "overrides": {
+    "katex": "$katex",
+    "postcss-selector-parser": "7.1.6"
   }
 }

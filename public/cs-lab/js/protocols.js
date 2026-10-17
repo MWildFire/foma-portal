@@ -165,13 +165,13 @@
     // Sender
     ctx.fillStyle = lane.color;
     ctx.beginPath(); ctx.arc(X_SENDER, lane.y, 22, 0, Math.PI * 2); ctx.fill();
-    ctx.fillStyle = '#fff'; ctx.font = 'bold 11px ui-monospace'; ctx.textAlign = 'center';
+    ctx.fillStyle = T.ink(lane.color); ctx.font = 'bold 11px ui-monospace'; ctx.textAlign = 'center';
     ctx.fillText('SRC', X_SENDER, lane.y + 4);
 
     // Receiver
     ctx.fillStyle = T.primary;
     ctx.beginPath(); ctx.arc(X_RECEIVER, lane.y, 22, 0, Math.PI * 2); ctx.fill();
-    ctx.fillStyle = '#fff'; ctx.fillText('DST', X_RECEIVER, lane.y + 4);
+    ctx.fillStyle = T.ink(T.primary); ctx.fillText('DST', X_RECEIVER, lane.y + 4);
 
     // Protocol label
     ctx.fillStyle = lane.color; ctx.font = 'bold 16px system-ui'; ctx.textAlign = 'left';
@@ -214,7 +214,7 @@
       ctx.arc(x, y, 10, 0, Math.PI * 2);
       ctx.fill();
       ctx.strokeStyle = color; ctx.lineWidth = 2; ctx.stroke();
-      ctx.fillStyle = i < contiguous ? '#fff' : (stats.tcp.givenUp.has(i) ? T.red : T.textMuted);
+      ctx.fillStyle = i < contiguous ? T.ink(fill) : (stats.tcp.givenUp.has(i) ? T.red : T.textMuted);
       ctx.font = 'bold 10px ui-monospace';
       ctx.textAlign = 'center';
       ctx.fillText(i, x, y + 3);
@@ -244,7 +244,7 @@
       ctx.fill();
       ctx.strokeStyle = color; ctx.lineWidth = 2; ctx.stroke();
       if (seq !== undefined) {
-        ctx.fillStyle = '#fff';
+        ctx.fillStyle = T.ink(fill);
         ctx.font = 'bold 10px ui-monospace';
         ctx.textAlign = 'center';
         ctx.fillText(seq, x, y + 3);
@@ -274,7 +274,7 @@
       ctx.fillStyle = fill;
       ctx.fillRect(p.x - R, p.y - R, 2 * R, 2 * R);
 
-      ctx.fillStyle = 'white';
+      ctx.fillStyle = window.Theme.ink(fill);
       ctx.font = 'bold 10px ui-monospace';
       ctx.textAlign = 'center';
       ctx.fillText(p.seq, p.x, p.y + 4);

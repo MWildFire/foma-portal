@@ -44,8 +44,8 @@ export const formulas: Formula[] = [
     tex: '\\tan\\theta=\\dfrac{\\sin\\theta}{\\cos\\theta}',
     name: { en: 'Tangent as sine over cosine', ru: 'Тангенс как отношение синуса к косинусу (Tangent as sine over cosine)' },
     meaning: {
-      en: 'tan theta is sin theta divided by cos theta. It is undefined where cos theta = 0, that is at 90 and 270 degrees.',
-      ru: 'tan θ равен sin θ, делённому на cos θ. Он не определён там, где cos θ = 0, то есть при 90° и 270°.',
+      en: 'tan theta is sin theta divided by cos theta. It is undefined where cos theta = 0, that is at 90°+180°k for integer k (90° and270° in one turn).',
+      ru: 'tan θ равен sin θ, делённому на cos θ. Он не определён там, где cos θ = 0, то есть при 90°+180°k, где k — целое (90° и270° в одном обороте).',
     },
     when: {
       en: 'Finding tan theta from sin theta and cos theta, or checking a tangent value on the unit circle.',
@@ -63,8 +63,8 @@ export const formulas: Formula[] = [
     tex: '\\dfrac{a}{\\sin A}=\\dfrac{b}{\\sin B}',
     name: { en: 'Sine rule (ambiguous case)', ru: 'Теорема синусов (неоднозначный случай) (Sine rule (ambiguous case))' },
     meaning: {
-      en: 'Each side divided by the sine of its opposite angle gives the same value. Solving for sin B can give two angles, B and 180 degrees minus B.',
-      ru: 'Отношение каждой стороны к синусу противолежащего угла одинаково. При нахождении sin B получаются два угла: B и 180° - B.',
+      en: 'Each side divided by the sine of its opposite angle gives the same value. Solving for sin B can give B and 180 degrees minus B. Keep only candidates with a positive third angle; at B=90 degrees the two candidates coincide.',
+      ru: 'Отношение каждой стороны к синусу противолежащего угла одинаково. При нахождении sin B возможны два кандидата: B и180°−B. Оставь только углы, дающие положительный третий угол; при B=90° кандидаты совпадают.',
     },
     when: {
       en: 'Two sides and an angle not between them are known (SSA), so the other angle is found from its sine.',

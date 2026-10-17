@@ -4,7 +4,7 @@ import { BOOK_TITLE } from '../../book';
 export const terms: Term[] = [
   {
     id: 'sample-space-probability',
-    term: { en: 'sample space', ru: 'пространство выборки (sample space)' },
+    term: { en: 'sample space', ru: 'пространство элементарных исходов (sample space)' },
     def: {
       en: 'The universal set $U$ that lists every outcome a trial could have. $n(U)$ counts these outcomes.',
       ru: 'Множество $U$ всех возможных исходов испытания. $n(U)$ — число исходов в $U$.',
@@ -28,8 +28,8 @@ export const terms: Term[] = [
     papers: ['P1', 'P2', 'P3'],
     src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 5.1, p. 207' },
     pitfall: {
-      en: 'The totals of two dice are not equally likely: a total of 2 comes from one pair of results, a total of 7 from six pairs. Count the results of the dice instead.',
-      ru: 'Суммы двух кубиков не равновероятны: сумма 2 получается одним набором результатов, сумма 7 — шестью. Считайте результаты кубиков, а не их суммы.',
+      en: 'For two independent fair six-sided dice, the totals are not equally likely: a total of 2 comes from one pair of results, a total of 7 from six pairs. Count the results of the dice instead.',
+      ru: 'Для двух независимых честных шестигранных кубиков суммы не равновероятны: сумма 2 получается одним набором результатов, сумма 7 — шестью. Считайте результаты кубиков, а не их суммы.',
     },
   },
   {
@@ -37,7 +37,7 @@ export const terms: Term[] = [
     term: { en: 'complementary event', ru: 'противоположное событие (complementary event)' },
     def: {
       en: 'The event $A\'$ that happens exactly when $A$ does not happen. Together $A$ and $A\'$ cover the whole sample space, so $P(A\') = 1 - P(A)$.',
-      ru: 'Событие $A\'$, которое происходит тогда и только тогда, когда $A$ не происходит. Вместе $A$ и $A\'$ покрывают всё пространство выборки, поэтому $P(A\') = 1 - P(A)$.',
+      ru: 'Событие $A\'$, которое происходит тогда и только тогда, когда $A$ не происходит. Вместе $A$ и $A\'$ покрывают всё пространство элементарных исходов, поэтому $P(A\') = 1 - P(A)$.',
     },
     syllabus: '4.5',
     papers: ['P1', 'P2', 'P3'],
@@ -47,8 +47,8 @@ export const terms: Term[] = [
     id: 'expected-number-of-occurrences',
     term: { en: 'expected number of occurrences', ru: 'ожидаемое число появлений (expected number of occurrences)' },
     def: {
-      en: 'For $n$ trials, the expected number of times an event $A$ occurs is $n\\,P(A)$. It is an average over many repeats, so it need not be a whole number.',
-      ru: 'Для $n$ испытаний ожидаемое число появлений события $A$ равно $n\\,P(A)$. Это среднее по многим повторениям, поэтому оно не обязано быть целым числом.',
+      en: 'For $n$ trials with the same probability $P(A)$ on each trial, the expected number of times an event $A$ occurs is $n\\,P(A)$. It is an average over many repeats, so it need not be a whole number. Independence is not needed for this expected count.',
+      ru: 'Для $n$ испытаний с одной и той же вероятностью $P(A)$ в каждом испытании ожидаемое число появлений события $A$ равно $n\\,P(A)$. Это среднее по многим повторениям, поэтому оно не обязано быть целым числом. Для этой формулы математического ожидания независимость не требуется.',
     },
     syllabus: '4.5',
     papers: ['P1', 'P2', 'P3'],

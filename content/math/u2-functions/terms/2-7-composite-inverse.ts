@@ -21,15 +21,15 @@ export const terms: Term[] = [
     id: 'inverse-function-one-to-one',
     term: { en: 'inverse function', ru: 'обратная функция (inverse function)' },
     def: {
-      en: 'The function $f^{-1}$ that reverses $f$, so that $f^{-1}(f(x)) = x$. It exists only when $f$ is one-to-one, that is, when different inputs always give different outputs.',
-      ru: 'Функция $f^{-1}$, которая отменяет действие $f$, так что $f^{-1}(f(x)) = x$. Она существует только тогда, когда $f$ взаимно однозначна, то есть разные аргументы всегда дают разные значения.',
+      en: 'For a one-to-one function f:D→R, where R is its range, the inverse f^(-1):R→D reverses f: f^(-1)(f(x))=x for x∈D and f(f^(-1)(y))=y for y∈R. One-to-one means that different inputs have different outputs.',
+      ru: 'Для взаимно однозначной функции f:D→R, где R — её область значений, обратная функция f^(-1):R→D отменяет действие f: f^(-1)(f(x))=x при x∈D и f(f^(-1)(y))=y при y∈R. Взаимная однозначность означает, что разные аргументы дают разные значения.',
     },
     syllabus: '2.7',
     papers: ['P1', 'P2', 'P3'],
     src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 6.1, p. 242' },
     pitfall: {
-      en: 'The superscript $-1$ denotes the inverse function, not a reciprocal: $f^{-1}(x) \\neq \\dfrac{1}{f(x)}$.',
-      ru: 'Надстрочный индекс $-1$ обозначает обратную функцию, а не обратное число: $f^{-1}(x) \\neq \\dfrac{1}{f(x)}$.',
+      en: 'The superscript $-1$ denotes the inverse function, not the reciprocal operation (although particular values or functions can coincide): in general $f^{-1}(x)$ differs from $1/f(x)$.',
+      ru: 'Надстрочный индекс $-1$ обозначает обратную функцию, а не операцию взятия обратного числа (хотя отдельные значения или функции могут совпасть): в общем случае $f^{-1}(x)$ отличается от $1/f(x)$.',
     },
   },
   {

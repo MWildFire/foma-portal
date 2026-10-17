@@ -6,9 +6,9 @@ A graph records which objects are joined: vertices are the objects, edges are th
 
 A graph $G$ is a set of vertices joined by edges. Two vertices are adjacent when an edge joins them, and that edge is incident to both of them. A simple graph has no loops (an edge from a vertex to itself) and at most one edge between any two vertices.
 
-<Term id="graph-vertex-degree"/> of a vertex is the number of edges that meet it, written $\deg(v)$.
+<Term id="graph-vertex-degree"/> of a vertex of an undirected graph counts incident edge ends, with a loop counted twice, written $\deg(v)$.
 
-Each edge has two ends, so it adds 1 to the degree of each of two vertices. Hence the sum of all the degrees is twice the number of edges. This is the handshaking result:
+Each undirected edge has two ends. An ordinary edge adds 1 at each end vertex; a loop adds 2 to the degree of its single vertex. Hence the sum of all the degrees is twice the number of edges. This is the handshaking result:
 
 $$
 \sum_{v}\deg(v) = 2\,|E|
@@ -22,7 +22,7 @@ $$
 
 A weighted graph attaches a number, such as a distance or a cost, to each edge. A subgraph keeps some of the vertices and edges of a larger graph, and every kept edge keeps both of its ends. <Term id="graph-tree"/> is a connected graph with no cycles. A tree on $n$ vertices has $n - 1$ edges, see <Formula id="graph-tree-edges"/>.
 
-<Callout kind="define">Simple graph: a graph with no loops and no repeated edges. Degree: the number of edges meeting a vertex, written $\deg(v)$.</Callout>
+<Callout kind="define">Simple graph: a graph with no loops and no repeated edges. Degree in an undirected graph: the number of incident edge ends, with a loop counted twice, written $\deg(v)$.</Callout>
 
 <Callout kind="gdc">On a Calculator page, check the number of edges of a complete graph with `nCr(n,2)` from `Menu → Probability → Combinations`: it counts the pairs of vertices, which is $n(n - 1)/2$. To check the handshaking result, type the list of degrees, for example `sum({2,3,3,3,1})`, which gives 12; half of that is the number of edges.</Callout>
 
@@ -44,7 +44,7 @@ The simple graph $G$ has vertices A, B, C, D and E, and six edges: AB, AC, BC, B
 
 ## How it is examined
 
-Find and Write down questions give marks for the method and for the answer: for a degree or edge count, the sum of the degrees comes first, then the number of edges. Show that questions need a reason stated in words, such as a comparison with the number of edges of a tree or a named cycle. In a directed graph, check that the in-degree total and the out-degree total agree.
+For Find, show the relevant working. Write down can ask for a degree or entry read directly from the graph; working need not be shown. Use the degree sum when it is needed to calculate an edge count, rather than treating it as compulsory for every answer. Show that asks for steps leading to the stated result. In a directed graph, checking that the total in-degree equals the total out-degree is a useful check. Exact marks depend on the particular question and markscheme.
 
 <Callout kind="exam">If the degrees you are given do not add to an even number, no simple graph can have them. Say so before you try to draw the graph.</Callout>
 
@@ -67,7 +67,7 @@ Find and Write down questions give marks for the method and for the answer: for 
 ## Summary
 
 - A graph has vertices and edges; two vertices are adjacent when an edge joins them.
-- The degree of a vertex is the number of edges meeting it, and the degrees add to twice the number of edges.
+- In an undirected graph, degree counts incident edge ends, so a loop contributes 2; the degrees add to twice the number of edges.
 - A simple graph has no loops and no repeated edges; a complete graph on $n$ vertices has $n(n - 1)/2$ edges.
 - A weighted graph has a number on each edge; a directed graph has arcs, with in-degrees and out-degrees.
 - A subgraph keeps some vertices and edges, and each kept edge keeps both of its ends.

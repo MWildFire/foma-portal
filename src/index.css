@@ -1,6 +1,7 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@config "../tailwind.config.ts";
+@source "../src";
+@source "../content";
 
 /* Colour and type tokens. Dark mode follows the system unless data-theme is set to "light". */
 :root {
@@ -10,8 +11,8 @@
   --color-muted: #5b616e;
   --color-border: #d9d6cf;
   --color-accent: #2f5d8a;
-  --font-ui: 'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
-  --font-reading: 'Literata', Georgia, serif;
+  --font-ui: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-reading: Georgia, serif;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -67,4 +68,49 @@ a {
    scroll box is what axe reports. Both axes are reset, since overflow-x alone would still compute to auto. */
 .overflow-x-auto > .katex-display {
   overflow: visible;
+}
+
+/* Native controls in the simulation catalog must follow the selected theme. */
+.sim-viewer__stage :is(input, select, textarea) {
+  color: var(--color-fg);
+  background-color: var(--color-card);
+  border: 1px solid var(--color-border);
+}
+
+/* Paper has no scroll viewport or dark background. Keep screen rules unchanged. */
+@media print {
+  :root {
+    --color-bg: #ffffff !important;
+    --color-card: #ffffff !important;
+    --color-fg: #1d1f24 !important;
+    --color-muted: #374151 !important;
+    --color-border: #9ca3af !important;
+    --color-accent: #2f5d8a !important;
+    --tone-blue-fg: #1b4b86 !important;
+    --tone-red-fg: #a6231a !important;
+    --tone-green-fg: #17623a !important;
+    --tone-purple-fg: #5b2f96 !important;
+    --tone-amber-fg: #7a4b00 !important;
+    --tone-slate-fg: #3f4652 !important;
+  }
+
+  .foma-sim :is(button, input, select, textarea) {
+    color: var(--color-fg) !important;
+    background: #ffffff !important;
+  }
+  .foma-sim [aria-pressed="true"] { font-weight: 700; }
+
+  html, body { overflow: visible !important; }
+  .foma-figure__frame, .foma-sim, .foma-math-region,
+  .foma-sim [style*="overflow"] { overflow: visible !important; }
+  .foma-figure__frame img, .foma-sim svg[viewBox],
+  .foma-sim [style*="min-width"] {
+    min-width: 0 !important;
+    max-width: 100% !important;
+  }
+  .foma-figure__frame img, .foma-sim svg[viewBox] { height: auto !important; }
+  .foma-sim svg[viewBox], .foma-figure__frame img { break-inside: avoid; }
+  .foma-math-region .katex-display { overflow: visible !important; }
+  .foma-math-region .katex-display > .katex { white-space: normal; }
+  .foma-math-hint { display: none; }
 }

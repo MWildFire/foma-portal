@@ -6,7 +6,7 @@ import type { Question } from '../../../../src/contract/types';
 // The data are written as bullet lists because the portal renders no tables.
 // Each calculation has an entry in scripts/econ-checks/exam-p3.json (expect_in: markscheme.en and markscheme.ru).
 
-export const questions: Question[] = [
+export const questions: (Question & { inMockScope?: 'yes' | 'no' })[] = [
   {
     id: 'p3-set-01',
     subject: 'econ',
@@ -147,6 +147,7 @@ export const questions: Question[] = [
   },
   {
     id: 'p3-set-02',
+    inMockScope: 'no',
     subject: 'econ',
     topicIds: ['trade-protection', 'arguments-for-and-against-trade-control'],
     paper: 'P3',
@@ -405,6 +406,7 @@ export const questions: Question[] = [
   },
   {
     id: 'p3-set-04',
+    inMockScope: 'no',
     subject: 'econ',
     topicIds: ['supply-side-policies', 'sustainable-development'],
     paper: 'P3',

@@ -10,11 +10,11 @@ export const formulas: Formula[] = [
       ru: 'Для целого $n$ производная $a x^{n}$ равна $a n x^{n-1}$. Каждое степенное слагаемое целевой функции дифференцируется таким образом.',
     },
     when: {
-      en: 'Writing the gradient of an objective function before solving for its zeros. The booklet (page 11) has the power rule for $x^{n}$ alone, without the constant factor $a$.',
-      ru: 'Запись градиента целевой функции перед поиском его нулей. В книжке (стр. 11) есть правило для $x^{n}$ без постоянного множителя $a$.',
+      en: 'Writing the gradient of an objective function before solving for its zeros. The booklet (page 11, SL 5.3) gives $f(x)=x^{n} \\Rightarrow f^{\\prime}(x)=nx^{n-1}$; carry the constant factor $a$ outside the derivative.',
+      ru: 'Запись градиента целевой функции перед поиском его нулей. В книжке (стр. 11, SL 5.3) дано $f(x)=x^{n} \\Rightarrow f^{\\prime}(x)=nx^{n-1}$; постоянный множитель $a$ выносится за знак производной.',
     },
     syllabus: '5.7',
-    inBooklet: false,
+    inBooklet: true,
     example: {
       en: 'For V(x) = 4x^3 - 100x^2 + 600x, the gradient is 12x^2 - 200x + 600.',
       ru: 'Для V(x) = 4x^3 - 100x^2 + 600x градиент равен 12x^2 - 200x + 600.',

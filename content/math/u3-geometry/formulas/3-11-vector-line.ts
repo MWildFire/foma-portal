@@ -6,8 +6,8 @@ export const formulas: Formula[] = [
     tex: '\\mathbf{r}=\\mathbf{a}+\\lambda\\mathbf{b},\\quad \\lambda\\in\\mathbb{R}',
     name: { en: 'Vector equation of a line', ru: 'Векторное уравнение прямой (Vector equation of a line)' },
     meaning: {
-      en: 'r is the position vector of any point on the line through the point with position vector a, parallel to b.',
-      ru: 'r — вектор положения любой точки прямой, проходящей через точку с вектором положения a параллельно b.',
+      en: 'For nonzero direction b, r is the position vector of any point on the line through the point with position vector a, parallel to b.',
+      ru: 'При ненулевом направлении b, r — радиус-вектор любой точки прямой, проходящей через точку с вектором положения a параллельно b.',
     },
     when: {
       en: 'Writing down a line in two or three dimensions from one point and one direction.',
@@ -40,8 +40,8 @@ export const formulas: Formula[] = [
     tex: '\\mathbf{r}=\\overrightarrow{OA}+\\lambda\\overrightarrow{AB}',
     name: { en: 'Line through two points', ru: 'Прямая через две точки (Line through two points)' },
     meaning: {
-      en: 'The line through A and B, with the direction AB = OB - OA. Points with 0 ≤ λ ≤ 1 lie on the segment AB.',
-      ru: 'Прямая через точки A и B, направление AB = OB - OA. Точки с 0 ≤ λ ≤ 1 лежат на отрезке AB.',
+      en: 'For distinct A and B, the line through A and B, with the direction AB = OB - OA. Points with 0 ≤ λ ≤ 1 lie on the segment AB.',
+      ru: 'Для различных A и B прямая через A и B, направление AB = OB - OA. Точки с 0 ≤ λ ≤ 1 лежат на отрезке AB.',
     },
     when: {
       en: 'The line is given by two points rather than by a point and a direction. The booklet gives $\\mathbf{r} = \\mathbf{a} + \\lambda\\mathbf{b}$ (page 8); the two-point form is that formula with $\\mathbf{a} = \\overrightarrow{OA}$ and $\\mathbf{b} = \\overrightarrow{AB}$.',

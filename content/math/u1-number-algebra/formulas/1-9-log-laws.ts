@@ -4,7 +4,7 @@ export const formulas: Formula[] = [
   {
     id: 'log-product-rule',
     tex: '\\log_{a}(xy)=\\log_{a}x+\\log_{a}y',
-    name: { en: 'Product law of logarithms', ru: 'Правило произведения логарифмов (Product law of logarithms)' },
+    name: { en: 'Product law of logarithms', ru: 'Логарифм произведения (Product law of logarithms)' },
     meaning: {
       en: 'The logarithm of a product equals the sum of the logarithms of its factors.',
       ru: 'Логарифм произведения равен сумме логарифмов множителей.',
@@ -23,7 +23,7 @@ export const formulas: Formula[] = [
   {
     id: 'log-quotient-rule',
     tex: '\\log_{a}\\left(\\dfrac{x}{y}\\right)=\\log_{a}x-\\log_{a}y',
-    name: { en: 'Quotient law of logarithms', ru: 'Правило частного логарифмов (Quotient law of logarithms)' },
+    name: { en: 'Quotient law of logarithms', ru: 'Логарифм частного (Quotient law of logarithms)' },
     meaning: {
       en: 'The logarithm of a quotient equals the logarithm of the numerator minus the logarithm of the denominator.',
       ru: 'Логарифм частного равен логарифму числителя минус логарифм знаменателя.',
@@ -42,7 +42,7 @@ export const formulas: Formula[] = [
   {
     id: 'log-power-rule',
     tex: '\\log_{a}\\left(x^{m}\\right)=m\\log_{a}x',
-    name: { en: 'Power law of logarithms', ru: 'Правило степени логарифмов (Power law of logarithms)' },
+    name: { en: 'Power law of logarithms', ru: 'Логарифм степени (Power law of logarithms)' },
     meaning: {
       en: 'The exponent m of the argument moves in front of the logarithm as a multiplier.',
       ru: 'Показатель m аргумента выносится перед логарифмом множителем.',

@@ -25,18 +25,22 @@ export const questions: Question[] = [
   },
   {
     id: 'chk-p2-choices-2',
+    stimulus: {
+      en: 'The letter arrived on a Tuesday. She read it twice at the kitchen table, then folded it into the sugar bowl and made the tea as if nothing had happened.',
+      ru: 'The letter arrived on a Tuesday. She read it twice at the kitchen table, then folded it into the sugar bowl and made the tea as if nothing had happened.',
+    },
     subject: 'eng',
     topicIds: ['p2-choices'],
     paper: 'P2',
     marks: 4,
     command: 'Evaluate',
     prompt: {
-      en: 'Using the same paragraph, name two authorial choices: one about the sentences, and one about the setting or the objects. Evaluate which of the two does more to show the hiding, and give a reason for your judgement.',
-      ru: 'Используя тот же абзац, назовите два авторских выбора: один связан с предложениями, другой — с обстановкой или предметами. Оцените, какой из них в большей степени показывает сокрытие, и обоснуйте своё суждение.',
+      en: 'Using the original paragraph supplied with this question, name two authorial choices: one about the sentences, and one about the setting or the objects. Evaluate which of the two does more to show the hiding, and give a reason for your judgement.',
+      ru: 'По авторскому учебному абзацу, приведённому в этом задании на английском, назовите два авторских решения: одно связано с построением предложений, другое — с обстановкой или предметами. Оцените, какое из них в большей степени показывает сокрытие, и обоснуйте своё суждение.',
     },
     markscheme: {
-      en: '1 mark: names a choice about the sentences, for example the short first sentence, or the actions joined by "then" and "and". 1 mark: names a choice about the setting or the objects, for example the kitchen table or the sugar bowl. 1 mark: makes a judgement about which one does more, with a clear criterion (what the reader can see). 1 mark: gives a reason that follows from the paragraph: the sugar bowl turns the hiding into a visible act, while the sentence rhythm only sounds calm.',
-      ru: '1 балл: назван выбор, связанный с предложениями, например короткое первое предложение или действия, соединённые словами «then» и «and». 1 балл: назван выбор, связанный с обстановкой или предметами, например кухонный стол или сахарница. 1 балл: дано суждение о том, какой выбор делает больше, с ясным критерием (что может увидеть читатель). 1 балл: обоснование следует из абзаца: сахарница превращает сокрытие в видимое действие, а ритм предложений лишь звучит спокойно.',
+      en: '1 mark: names a choice about the sentences, for example the short first sentence, or the actions joined by "then" and "and". 1 mark: names a choice about the setting or the objects, for example the kitchen table or the sugar bowl. 1 mark: makes a judgement about which one does more, with a clear criterion (what the reader can see). Either choice can be defended with close evidence; do not require the sugar bowl to win. 1 mark: gives a reason that follows from the paragraph, for example: the sugar bowl turns the hiding into a visible act, while the sentence rhythm only sounds calm.',
+      ru: '1 балл: назван выбор, связанный с предложениями, например короткое первое предложение или действия, соединённые словами «then» и «and». 1 балл: назван выбор, связанный с обстановкой или предметами, например кухонный стол или сахарница. 1 балл: дано суждение о том, какой выбор делает больше, с ясным критерием (что может увидеть читатель). Можно обосновать преимущество любого решения; сахарница не обязана «победить». 1 балл: обоснование следует из абзаца, например: сахарница превращает сокрытие в видимое действие, а ритм предложений лишь звучит спокойно.',
     },
     model: {
       en: 'The sugar bowl does more. Folding the letter into a container for something ordinary turns the hiding into an action the reader can see. The sentence rhythm, with its "then" and "and", supports the calm, but it only sounds controlled, while the sugar bowl shows the control. So for this prompt the object is the stronger choice.',

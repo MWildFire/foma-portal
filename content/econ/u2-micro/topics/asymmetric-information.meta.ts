@@ -5,7 +5,7 @@ const topic: TopicMeta = {
   subject: 'econ',
   code: '2.10',
   title: { en: 'Asymmetric information', ru: 'Асимметричная информация (asymmetric information)' },
-  papers: ['P1', 'P2', 'P3'],
+  papers: ['P2', 'P3'],
   hl: true,
   order: 21,
   minutes: 35,

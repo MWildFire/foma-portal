@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" role="img" aria-labelledby="core-1-1-title core-1-1-desc" font-family="Arial, Helvetica, sans-serif">
+  <title id="core-1-1-title">Общие коэффициенты рождаемости и смертности: 5 стран, 2023</title>
+  <desc id="core-1-1-desc">Рождаемость и смертность в пяти странах за 2023 год, на 1000 жителей; средний вариант WPP2024.</desc>
+  <rect x="0" y="0" width="640" height="400" fill="#ffffff"/>
+  <text x="70" y="24" font-size="15" font-weight="bold" fill="#1f2933">Общие коэффициенты рождаемости и смертности: 5 стран, 2023</text>
+  <rect x="70" y="36" width="12" height="12" fill="#2f5d8a"/>
+  <text x="88" y="46" font-size="12" fill="#1f2933">Рождаемость</text>
+  <rect x="230" y="36" width="12" height="12" fill="#c0622f"/>
+  <text x="248" y="46" font-size="12" fill="#1f2933">Смертность</text>
+  <text x="22" y="200" font-size="11" fill="#4b5563" transform="rotate(-90 22 200)" text-anchor="middle">на 1000 человек</text>
+  <line x1="70" y1="98.9" x2="620" y2="98.9" stroke="#e5e7eb" stroke-width="1"/>
+  <line x1="70" y1="156.7" x2="620" y2="156.7" stroke="#e5e7eb" stroke-width="1"/>
+  <line x1="70" y1="214.4" x2="620" y2="214.4" stroke="#e5e7eb" stroke-width="1"/>
+  <line x1="70" y1="272.2" x2="620" y2="272.2" stroke="#e5e7eb" stroke-width="1"/>
+  <line x1="70" y1="330" x2="620" y2="330" stroke="#6b7280" stroke-width="1.5"/>
+  <text x="60" y="334" font-size="11" fill="#4b5563" text-anchor="end">0</text>
+  <text x="60" y="276" font-size="11" fill="#4b5563" text-anchor="end">10</text>
+  <text x="60" y="218" font-size="11" fill="#4b5563" text-anchor="end">20</text>
+  <text x="60" y="161" font-size="11" fill="#4b5563" text-anchor="end">30</text>
+  <text x="60" y="103" font-size="11" fill="#4b5563" text-anchor="end">40</text>
+  <rect x="89" y="87.9" width="34" height="242.1" fill="#2f5d8a"/>
+  <rect x="127" y="278.6" width="34" height="51.4" fill="#c0622f"/>
+  <text x="106" y="81.9" font-size="11" fill="#1f2933" text-anchor="middle">41,9</text>
+  <text x="144" y="272.6" font-size="11" fill="#1f2933" text-anchor="middle">8,9</text>
+  <rect x="199" y="212.1" width="34" height="117.9" fill="#2f5d8a"/>
+  <rect x="237" y="301.1" width="34" height="28.9" fill="#c0622f"/>
+  <text x="216" y="206.1" font-size="11" fill="#1f2933" text-anchor="middle">20,4</text>
+  <text x="254" y="295.1" font-size="11" fill="#1f2933" text-anchor="middle">5,0</text>
+  <rect x="309" y="272.2" width="34" height="57.8" fill="#2f5d8a"/>
+  <rect x="347" y="275.1" width="34" height="54.9" fill="#c0622f"/>
+  <text x="326" y="266.2" font-size="11" fill="#1f2933" text-anchor="middle">10,0</text>
+  <text x="364" y="269.1" font-size="11" fill="#1f2933" text-anchor="middle">9,5</text>
+  <rect x="419" y="280.9" width="34" height="49.1" fill="#2f5d8a"/>
+  <rect x="457" y="259.5" width="34" height="70.5" fill="#c0622f"/>
+  <text x="436" y="274.9" font-size="11" fill="#1f2933" text-anchor="middle">8,5</text>
+  <text x="474" y="253.5" font-size="11" fill="#1f2933" text-anchor="middle">12,2</text>
+  <rect x="529" y="295.3" width="34" height="34.7" fill="#2f5d8a"/>
+  <rect x="567" y="258.9" width="34" height="71.1" fill="#c0622f"/>
+  <text x="546" y="289.3" font-size="11" fill="#1f2933" text-anchor="middle">6,0</text>
+  <text x="584" y="252.9" font-size="11" fill="#1f2933" text-anchor="middle">12,3</text>
+  <text x="125" y="348" font-size="12" fill="#1f2933" text-anchor="middle">Нигер</text>
+  <text x="235" y="348" font-size="12" fill="#1f2933" text-anchor="middle">Бангладеш</text>
+  <text x="345" y="348" font-size="12" fill="#1f2933" text-anchor="middle">Великобритания</text>
+  <text x="455" y="348" font-size="12" fill="#1f2933" text-anchor="middle">Германия</text>
+  <text x="565" y="348" font-size="12" fill="#1f2933" text-anchor="middle">Япония</text>
+  <text x="24" y="380" font-size="10" fill="#4b5563">Источник: UN DESA, World Population Prospects 2024, средний вариант; значения за 2023 г.</text>
+</svg>

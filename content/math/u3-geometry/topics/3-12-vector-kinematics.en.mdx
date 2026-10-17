@@ -1,6 +1,6 @@
 ## Big idea
 
-The position vector $\mathbf{r}(t)$ tells you where a moving object is at time $t$. Its rate of change is the velocity vector $\mathbf{v}$, and its length is the speed. In two or three dimensions, each component gives one equation in the single variable $t$.
+The position vector $\mathbf{r}(t)$ tells you where a moving object is at time $t$. Its rate of change is the velocity vector $\mathbf{v}$, and the length of the velocity vector is the speed. In two or three dimensions, each component gives one equation in the single variable $t$.
 
 ## Explanation
 
@@ -12,7 +12,7 @@ $$
 
 <Formula id="kinematics-constant-velocity"/>
 
-The path is a straight line through $\mathbf{r}_0$ in the direction of $\mathbf{v}$. The displacement over a time $\Delta t$ is $\Delta t\,\mathbf{v}$, so displacement divided by time is the <Term id="kinematics-velocity-vector"/> (velocity vector).
+For nonzero constant velocity, the path lies on a straight line through $\mathbf{r}_0$ in the direction of $\mathbf{v}$; zero velocity leaves the object stationary. The displacement over a time $\Delta t$ is $\Delta t\,\mathbf{v}$, so displacement divided by time is the <Term id="kinematics-velocity-vector"/> (velocity vector).
 
 When the velocity changes, the velocity is found by differentiating the position vector one component at a time:
 
@@ -48,13 +48,13 @@ A drone starts at the point with position vector $(2, 5, 10)$ metres and flies w
 
 <Sim id="math.vector-lab"/>
 
-The lab draws two vectors $\mathbf{a}$ and $\mathbf{b}$ and the path $\mathbf{r}(t)$ for $0 \le t \le 4$. With the box unticked, $\mathbf{a}$ is a constant velocity and the path is a straight line. Tick "variable velocity" and $\mathbf{b}$ becomes a constant acceleration: the velocity $\mathbf{a} + t\mathbf{b}$ changes and the path curves. Move the time slider to read off the position and the speed at each moment.
+The lab draws two vectors $\mathbf{a}$ and $\mathbf{b}$ and the path $\mathbf{r}(t)$ for $0 \le t \le 4$. With the box unticked, $\mathbf{a}$ is a constant velocity. On the displayed interval $0 \le t \le 4$, nonzero $\mathbf{a}$ gives a straight segment, while $\mathbf{a}=\mathbf{0}$ keeps the object at one point. Tick "variable velocity" and $\mathbf{b}$ becomes a constant acceleration: the velocity is $\mathbf{a}+t\mathbf{b}$. A nonzero $\mathbf{b}$ changes velocity; the path can curve, but remains on a line when $\mathbf{a}$ and $\mathbf{b}$ are collinear. Move the time slider to read off the position and the speed at each moment.
 
 ## How it is examined
 
 Find questions reward the velocity from the derivative, the speed as a magnitude and the position at a given time. Show that questions about collisions need every component to agree at one time. A minimum-speed question needs the time as well as the speed. A GDC minimum finds one turning point at a time, so check the graph or the symmetry for any others.
 
-<Callout kind="exam">Give the speed as a positive number with its unit. Give the position as a vector, with the components in the same order as the question.</Callout>
+<Callout kind="exam">Give speed as a nonnegative number with its unit; it can be zero at rest. Give the position as a vector, with the components in the same order as the question.</Callout>
 
 ## Common mistakes
 

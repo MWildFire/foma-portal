@@ -1,3 +1,4 @@
+import ReadableDiagram from '../readable-diagram';
 import { useState } from 'react';
 import type { Lang } from '../../contract/types';
 import { PANEL, panelReach, pixelsPerUnit, tipPixel } from './vector-logic';
@@ -15,7 +16,7 @@ const TEXT = {
     vectors: 'Vectors a (blue), b (orange) and their sum a + b (green, dashed)',
     legend: 'Blue: a. Orange: b. Green dashed: a + b.',
     path: 'Path r(t) of the particle for 0 to 4 seconds, with the particle at time t',
-    pathNote: 'Path r(t), 0 to 4 s; scale automatic.',
+    pathNote: 'Left: abstract vectors with common units. Right: a separate kinematics example reuses a as initial velocity (m/s), b as acceleration (m/s²), r(0)=0; position is in metres, speed in m/s, time 0–4 s. Do not interpret the left-panel a+b as adding velocity to acceleration. Scale automatic.',
     variable: 'variable velocity (b is then a constant acceleration)',
     ax: 'a: x-component',
     ay: 'a: y-component',
@@ -35,7 +36,7 @@ const TEXT = {
     vectors: 'Векторы a (синий), b (оранжевый) и их сумма a + b (зелёный, пунктир)',
     legend: 'Синий: a. Оранжевый: b. Зелёный пунктир: a + b.',
     path: 'Путь r(t) частицы за 0–4 секунды, с частицей в момент t',
-    pathNote: 'Путь r(t) за 0–4 с; шкала автоматическая.',
+    pathNote: 'Слева — абстрактные векторы с общими единицами. Справа — отдельный пример движения: a означает начальную скорость (м/с), b — ускорение (м/с²), r(0)=0; положение в метрах, скорость в м/с, время 0–4 с. Сумма a+b слева не означает сложение скорости и ускорения. Шкала автоматическая.',
     variable: 'переменная скорость (тогда b — постоянное ускорение)',
     ax: 'a: x-компонента',
     ay: 'a: y-компонента',
@@ -121,7 +122,7 @@ export default function VectorLab({ lang }: { lang: Lang }) {
   return (
     <figure style={{ margin: 0 }}>
       <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12 }}>
-        <svg viewBox={`0 0 ${PANEL} ${PANEL}`} width="100%" style={{ maxWidth: PANEL }} role="img" aria-label={t.vectors}>
+        <ReadableDiagram lang={lang}><svg viewBox={`0 0 ${PANEL} ${PANEL}`} width="100%" style={{ maxWidth: PANEL }} role="img" aria-label={t.vectors}>
           <line x1={0} y1={PANEL / 2} x2={PANEL} y2={PANEL / 2} stroke="currentColor" strokeOpacity={0.25} />
           <line x1={PANEL / 2} y1={0} x2={PANEL / 2} y2={PANEL} stroke="currentColor" strokeOpacity={0.25} />
           <text x={PANEL - 6} y={PANEL / 2 - 5} textAnchor="end" fontSize={11} fill="currentColor">x</text>
@@ -129,15 +130,15 @@ export default function VectorLab({ lang }: { lang: Lang }) {
           <Arrow x={ax} y={ay} color="#4f6fd8" scale={vectorScale} />
           <Arrow x={bx} y={by} color="#e0883a" scale={vectorScale} />
           <Arrow x={ax + bx} y={ay + by} color="#3a9e6f" scale={vectorScale} dash="4 3" />
-        </svg>
-        <svg viewBox={`0 0 ${PANEL} ${PANEL}`} width="100%" style={{ maxWidth: PANEL }} role="img" aria-label={t.path}>
+        </svg></ReadableDiagram>
+        <ReadableDiagram lang={lang}><svg viewBox={`0 0 ${PANEL} ${PANEL}`} width="100%" style={{ maxWidth: PANEL }} role="img" aria-label={t.path}>
           <line x1={0} y1={pyOf({ y: 0 })} x2={PANEL} y2={pyOf({ y: 0 })} stroke="currentColor" strokeOpacity={0.25} />
           <line x1={pxOf({ x: 0 })} y1={0} x2={pxOf({ x: 0 })} y2={PANEL} stroke="currentColor" strokeOpacity={0.25} />
-          <text x={PANEL - 6} y={pyOf({ y: 0 }) - 5} textAnchor="end" fontSize={11} fill="currentColor">x</text>
-          <text x={pxOf({ x: 0 }) + 5} y={12} fontSize={11} fill="currentColor">y</text>
+          <text x={PANEL - 6} y={pyOf({ y: 0 }) < 30 ? pyOf({ y: 0 }) + 17 : pyOf({ y: 0 }) - 5} textAnchor="end" fontSize={11} fill="currentColor">x</text>
+          <text x={pxOf({ x: 0 }) > PANEL - 30 ? pxOf({ x: 0 }) - 6 : pxOf({ x: 0 }) + 5} textAnchor={pxOf({ x: 0 }) > PANEL - 30 ? 'end' : 'start'} y={12} fontSize={11} fill="currentColor">y</text>
           <polyline points={path.map(p => `${pxOf(p)},${pyOf(p)}`).join(' ')} fill="none" stroke="#4f6fd8" strokeWidth={2} />
           <circle cx={pxOf(here)} cy={pyOf(here)} r={5} fill="#e0883a" />
-        </svg>
+        </svg></ReadableDiagram>
       </div>
       <figcaption style={{ fontSize: 13, lineHeight: 1.6, marginTop: 8 }}>
         {t.legend}

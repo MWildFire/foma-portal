@@ -1,3 +1,4 @@
+import ReadableDiagram from '../readable-diagram';
 import { useState } from 'react';
 import type { Lang } from '../../contract/types';
 
@@ -253,7 +254,7 @@ export default function OptGModels(p: { lang: Lang }) {
           );
         })}
       </div>
-      <svg
+      <ReadableDiagram lang={p.lang}><svg
         viewBox="0 0 400 260"
         role="img"
         aria-label={t(scene.title)}
@@ -275,7 +276,7 @@ export default function OptGModels(p: { lang: Lang }) {
             </g>
           );
         })}
-      </svg>
+      </svg></ReadableDiagram>
       <figcaption style={{ marginTop: 12 }}>
         <strong>{t(scene.title)}</strong>
         <p style={{ margin: '6px 0' }}>{t(scene.note)}</p>

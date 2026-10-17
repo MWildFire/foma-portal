@@ -4,6 +4,8 @@ A combination of independent normal variables is again normal, so a total or a d
 
 ## Explanation
 
+Throughout, a random sample means independent identically distributed observations with finite mean and finite positive variance. The CLT is a large-sample approximation; n ≥ 30 is a guide, not a guarantee of accuracy for every population.
+
 A combination of independent normal variables is again normal. If $X \sim N(\mu_1, \sigma_1^{2})$ and $Y \sim N(\mu_2, \sigma_2^{2})$ are independent, the <Term id="normal-linear-combination"/> $aX + bY$ has the distribution in the formula below. The means combine linearly, and the variances combine with the squared coefficients:
 
 <Formula id="normal-linear-combination-distribution"/>
@@ -31,7 +33,7 @@ An apple $A$ and an orange $O$ are put in one bag. Their masses are independent,
 <Step>$P(T > 340) = 0.301$ (to 3 decimal places), using the GDC normal cdf with mean 330 and standard deviation 19.21.</Step>
 </Steps>
 
-The waiting time at a help desk has mean 4.2 minutes and standard deviation 3.0 minutes, but its distribution is not normal. For a random sample of 40 customers, the central limit theorem applies because $n = 40$ is large.
+The waiting time at a help desk has mean 4.2 minutes and standard deviation 3.0 minutes, but its distribution is not normal. For a random sample of 40 customers, assume independent observations and use a CLT approximation. The sample size $n=40$ alone cannot establish its accuracy; severe skewness could require more observations.
 
 <Steps>
 <Step>The standard error is $\sigma/\sqrt{n} = 3.0/\sqrt{40} = 0.474$ minutes (to 3 decimal places). The variance of $\bar{X}$ is $3.0^{2}/40 = 0.225$, so $\bar{X} \approx N(4.2, 0.225)$.</Step>
@@ -44,9 +46,7 @@ The waiting time at a help desk has mean 4.2 minutes and standard deviation 3.0 
 
 ## How it is examined
 
-Write down and State questions need the full distribution with its parameters: a normal distribution with a mean and a variance. For the mean of a sample from a population that is not normal, the answer must say "approximately" and give the reason, which is the large sample size (the central limit theorem). Find and Calculate questions give marks for the correct variance, for the standardising or GDC step and for the probability to the required accuracy. Explain questions need a reason in words, not a repeated number.
-
-<Callout kind="exam">Before you use a normal model, name the distribution and its parameters. For a sum or difference of normal variables, say "independent" first.</Callout>
+State the distribution with its mean and variance, distinguish the sum of separate observations from a multiple of one observation, and use the standard error for a sample mean. Say whether normality is exact or approximate and justify the sampling assumptions. A sample-size rule alone does not guarantee the CLT approximation.
 
 ## Common mistakes
 

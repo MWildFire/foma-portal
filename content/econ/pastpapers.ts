@@ -26,7 +26,7 @@ export const pastPapers: PastPaperRef[] = [
     minutes: 75,
     marks: 25,
     items: [
-      {
+      { inMockScope: false,
         q: '1a',
         marks: 10,
         command: 'Distinguish',
@@ -35,7 +35,7 @@ export const pastPapers: PastPaperRef[] = [
           'oligopoly-and-monopolistic-competition',
         ],
       },
-      {
+      { inMockScope: false,
         q: '1b',
         marks: 15,
         command: 'Discuss',
@@ -44,7 +44,7 @@ export const pastPapers: PastPaperRef[] = [
           'oligopoly-and-monopolistic-competition',
         ],
       },
-      {
+      { inMockScope: true,
         q: '2a',
         marks: 10,
         command: 'Explain',
@@ -53,7 +53,7 @@ export const pastPapers: PastPaperRef[] = [
           'ad-as-model-and-business-cycle',
         ],
       },
-      {
+      { inMockScope: true,
         q: '2b',
         marks: 15,
         command: 'Evaluate',
@@ -63,7 +63,7 @@ export const pastPapers: PastPaperRef[] = [
           'fiscal-policy',
         ],
       },
-      {
+      { inMockScope: false,
         q: '3a',
         marks: 10,
         command: 'Explain',
@@ -72,7 +72,7 @@ export const pastPapers: PastPaperRef[] = [
           'barriers-to-growth-and-development',
         ],
       },
-      {
+      { inMockScope: false,
         q: '3b',
         marks: 15,
         command: 'Discuss',
@@ -106,7 +106,7 @@ export const pastPapers: PastPaperRef[] = [
     minutes: 105,
     marks: 40,
     items: [
-      {
+      { inMockScope: false,
         q: '1a(i)',
         marks: 2,
         command: 'Define',
@@ -114,7 +114,7 @@ export const pastPapers: PastPaperRef[] = [
           'balance-of-payments',
         ],
       },
-      {
+      { inMockScope: false,
         q: '1a(ii)',
         marks: 2,
         command: 'Define',
@@ -123,7 +123,7 @@ export const pastPapers: PastPaperRef[] = [
           'measuring-development',
         ],
       },
-      {
+      { inMockScope: false,
         q: '1b(i)',
         marks: 3,
         command: 'Sketch',
@@ -132,7 +132,7 @@ export const pastPapers: PastPaperRef[] = [
           'benefits-of-trade',
         ],
       },
-      {
+      { inMockScope: false,
         q: '1b(ii)',
         marks: 2,
         command: 'Calculate',
@@ -140,7 +140,7 @@ export const pastPapers: PastPaperRef[] = [
           'balance-of-payments',
         ],
       },
-      {
+      { inMockScope: false,
         q: '1c',
         marks: 4,
         command: 'Explain',
@@ -148,7 +148,7 @@ export const pastPapers: PastPaperRef[] = [
           'monopoly-and-natural-monopoly',
         ],
       },
-      {
+      { inMockScope: false,
         q: '1d',
         marks: 4,
         command: 'Explain',
@@ -156,7 +156,7 @@ export const pastPapers: PastPaperRef[] = [
           'benefits-of-trade',
         ],
       },
-      {
+      { inMockScope: true,
         q: '1e',
         marks: 4,
         command: 'Explain',
@@ -164,7 +164,7 @@ export const pastPapers: PastPaperRef[] = [
           'monetary-policy',
         ],
       },
-      {
+      { inMockScope: false,
         q: '1f',
         marks: 4,
         command: 'Explain',
@@ -172,7 +172,7 @@ export const pastPapers: PastPaperRef[] = [
           'exchange-rates',
         ],
       },
-      {
+      { inMockScope: false,
         q: '1g',
         marks: 15,
         command: 'Discuss',
@@ -181,7 +181,7 @@ export const pastPapers: PastPaperRef[] = [
           'policies-for-growth-and-development',
         ],
       },
-      {
+      { inMockScope: false,
         q: '2a(i)',
         marks: 2,
         command: 'List',
@@ -189,7 +189,7 @@ export const pastPapers: PastPaperRef[] = [
           'sustainable-development',
         ],
       },
-      {
+      { inMockScope: false,
         q: '2a(ii)',
         marks: 2,
         command: 'Define',
@@ -197,7 +197,7 @@ export const pastPapers: PastPaperRef[] = [
           'trade-protection',
         ],
       },
-      {
+      { inMockScope: false,
         q: '2b(i)',
         marks: 3,
         command: 'Sketch',
@@ -206,7 +206,7 @@ export const pastPapers: PastPaperRef[] = [
           'barriers-to-growth-and-development',
         ],
       },
-      {
+      { inMockScope: true,
         q: '2b(ii)',
         marks: 2,
         command: 'Calculate',
@@ -214,7 +214,7 @@ export const pastPapers: PastPaperRef[] = [
           'measuring-economic-activity',
         ],
       },
-      {
+      { inMockScope: false,
         q: '2c',
         marks: 4,
         command: 'Explain',
@@ -223,7 +223,7 @@ export const pastPapers: PastPaperRef[] = [
           'policies-for-growth-and-development',
         ],
       },
-      {
+      { inMockScope: true,
         q: '2d',
         marks: 4,
         command: 'Explain',
@@ -232,7 +232,7 @@ export const pastPapers: PastPaperRef[] = [
           'ad-as-model-and-business-cycle',
         ],
       },
-      {
+      { inMockScope: false,
         q: '2e',
         marks: 4,
         command: 'Explain',
@@ -241,7 +241,7 @@ export const pastPapers: PastPaperRef[] = [
           'balance-of-payments',
         ],
       },
-      {
+      { inMockScope: true,
         q: '2f',
         marks: 4,
         command: 'Explain',
@@ -249,7 +249,7 @@ export const pastPapers: PastPaperRef[] = [
           'government-taxes-subsidies-price-controls',
         ],
       },
-      {
+      { inMockScope: false,
         q: '2g',
         marks: 15,
         command: 'Evaluate',
@@ -279,7 +279,7 @@ export const pastPapers: PastPaperRef[] = [
     minutes: 60,
     marks: 30,
     items: [
-      {
+      { inMockScope: true,
         q: '1a(i)',
         marks: 2,
         command: 'Calculate',
@@ -287,7 +287,7 @@ export const pastPapers: PastPaperRef[] = [
           'macroeconomic-objectives',
         ],
       },
-      {
+      { inMockScope: false,
         q: '1a(ii)',
         marks: 4,
         command: 'Explain',
@@ -295,7 +295,7 @@ export const pastPapers: PastPaperRef[] = [
           'barriers-to-growth-and-development',
         ],
       },
-      {
+      { inMockScope: true,
         q: '1a(iii)',
         marks: 2,
         command: 'Calculate',
@@ -303,7 +303,7 @@ export const pastPapers: PastPaperRef[] = [
           'price-elasticity-of-demand',
         ],
       },
-      {
+      { inMockScope: false,
         q: '1a(iv)',
         marks: 2,
         command: 'Calculate',
@@ -312,7 +312,7 @@ export const pastPapers: PastPaperRef[] = [
           'price-elasticity-of-demand',
         ],
       },
-      {
+      { inMockScope: true,
         q: '1a(v)',
         marks: 2,
         command: 'Define',
@@ -321,7 +321,7 @@ export const pastPapers: PastPaperRef[] = [
           'inequality-and-poverty',
         ],
       },
-      {
+      { inMockScope: true,
         q: '1a(vi)',
         marks: 2,
         command: 'Calculate',
@@ -329,7 +329,7 @@ export const pastPapers: PastPaperRef[] = [
           'government-taxes-subsidies-price-controls',
         ],
       },
-      {
+      { inMockScope: true,
         q: '1a(vii)',
         marks: 2,
         command: 'Sketch',
@@ -339,7 +339,7 @@ export const pastPapers: PastPaperRef[] = [
           'supply-side-policies',
         ],
       },
-      {
+      { inMockScope: false,
         q: '1a(viii)',
         marks: 4,
         command: 'Explain',
@@ -348,7 +348,7 @@ export const pastPapers: PastPaperRef[] = [
           'inequality-and-poverty',
         ],
       },
-      {
+      { inMockScope: true,
         q: '1b',
         marks: 10,
         command: 'Recommend',
@@ -357,7 +357,7 @@ export const pastPapers: PastPaperRef[] = [
           'fiscal-policy',
         ],
       },
-      {
+      { inMockScope: true,
         q: '2a(i)',
         marks: 4,
         command: 'Explain',
@@ -366,7 +366,7 @@ export const pastPapers: PastPaperRef[] = [
           'equity-and-market-failure',
         ],
       },
-      {
+      { inMockScope: true,
         q: '2a(ii)',
         marks: 2,
         command: 'Draw',
@@ -374,7 +374,7 @@ export const pastPapers: PastPaperRef[] = [
           'government-taxes-subsidies-price-controls',
         ],
       },
-      {
+      { inMockScope: true,
         q: '2a(iii)',
         marks: 2,
         command: 'Calculate',
@@ -382,7 +382,7 @@ export const pastPapers: PastPaperRef[] = [
           'government-taxes-subsidies-price-controls',
         ],
       },
-      {
+      { inMockScope: true,
         q: '2a(iv)',
         marks: 2,
         command: 'Calculate',
@@ -391,7 +391,7 @@ export const pastPapers: PastPaperRef[] = [
           'competitive-market-equilibrium',
         ],
       },
-      {
+      { inMockScope: true,
         q: '2a(v)',
         marks: 2,
         command: 'Show',
@@ -399,7 +399,7 @@ export const pastPapers: PastPaperRef[] = [
           'elasticity-of-supply',
         ],
       },
-      {
+      { inMockScope: true,
         q: '2a(vi)',
         marks: 2,
         command: 'Calculate',
@@ -408,7 +408,7 @@ export const pastPapers: PastPaperRef[] = [
           'competitive-market-equilibrium',
         ],
       },
-      {
+      { inMockScope: true,
         q: '2a(vii)',
         marks: 2,
         command: 'Define',
@@ -416,7 +416,7 @@ export const pastPapers: PastPaperRef[] = [
           'critique-maximizing-behaviour',
         ],
       },
-      {
+      { inMockScope: true,
         q: '2a(viii)',
         marks: 4,
         command: 'Explain',
@@ -425,7 +425,7 @@ export const pastPapers: PastPaperRef[] = [
           'externalities',
         ],
       },
-      {
+      { inMockScope: true,
         q: '2b',
         marks: 10,
         command: 'Recommend',
@@ -455,7 +455,7 @@ export const pastPapers: PastPaperRef[] = [
     minutes: 75,
     marks: 25,
     items: [
-      {
+      { inMockScope: false,
         q: '1a',
         marks: 10,
         command: 'Explain',
@@ -464,7 +464,7 @@ export const pastPapers: PastPaperRef[] = [
           'equity-and-market-failure',
         ],
       },
-      {
+      { inMockScope: false,
         q: '1b',
         marks: 15,
         command: 'Evaluate',
@@ -473,7 +473,7 @@ export const pastPapers: PastPaperRef[] = [
           'government-taxes-subsidies-price-controls',
         ],
       },
-      {
+      { inMockScope: true,
         q: '2a',
         marks: 10,
         command: 'Explain',
@@ -482,7 +482,7 @@ export const pastPapers: PastPaperRef[] = [
           'fiscal-policy',
         ],
       },
-      {
+      { inMockScope: true,
         q: '2b',
         marks: 15,
         command: 'Discuss',
@@ -491,7 +491,7 @@ export const pastPapers: PastPaperRef[] = [
           'ad-as-model-and-business-cycle',
         ],
       },
-      {
+      { inMockScope: false,
         q: '3a',
         marks: 10,
         command: 'Explain',
@@ -499,7 +499,7 @@ export const pastPapers: PastPaperRef[] = [
           'economic-integration',
         ],
       },
-      {
+      { inMockScope: false,
         q: '3b',
         marks: 15,
         command: 'Evaluate',
@@ -533,7 +533,7 @@ export const pastPapers: PastPaperRef[] = [
     minutes: 105,
     marks: 40,
     items: [
-      {
+      { inMockScope: true,
         q: '1a(i)',
         marks: 2,
         command: 'Define',
@@ -541,7 +541,7 @@ export const pastPapers: PastPaperRef[] = [
           'demand',
         ],
       },
-      {
+      { inMockScope: false,
         q: '1a(ii)',
         marks: 2,
         command: 'Define',
@@ -549,7 +549,7 @@ export const pastPapers: PastPaperRef[] = [
           'sustainable-development',
         ],
       },
-      {
+      { inMockScope: true,
         q: '1b(i)',
         marks: 3,
         command: 'Calculate',
@@ -557,7 +557,7 @@ export const pastPapers: PastPaperRef[] = [
           'income-and-cross-elasticity',
         ],
       },
-      {
+      { inMockScope: true,
         q: '1b(ii)',
         marks: 2,
         command: 'Sketch',
@@ -565,7 +565,7 @@ export const pastPapers: PastPaperRef[] = [
           'inequality-and-poverty',
         ],
       },
-      {
+      { inMockScope: true,
         q: '1c',
         marks: 4,
         command: 'Explain',
@@ -574,7 +574,7 @@ export const pastPapers: PastPaperRef[] = [
           'ad-as-model-and-business-cycle',
         ],
       },
-      {
+      { inMockScope: false,
         q: '1d',
         marks: 4,
         command: 'Explain',
@@ -583,7 +583,7 @@ export const pastPapers: PastPaperRef[] = [
           'government-taxes-subsidies-price-controls',
         ],
       },
-      {
+      { inMockScope: false,
         q: '1e',
         marks: 4,
         command: 'Explain',
@@ -592,7 +592,7 @@ export const pastPapers: PastPaperRef[] = [
           'balance-of-payments',
         ],
       },
-      {
+      { inMockScope: true,
         q: '1f',
         marks: 4,
         command: 'Explain',
@@ -600,7 +600,7 @@ export const pastPapers: PastPaperRef[] = [
           'externalities',
         ],
       },
-      {
+      { inMockScope: false,
         q: '1g',
         marks: 15,
         command: 'Discuss',
@@ -609,7 +609,7 @@ export const pastPapers: PastPaperRef[] = [
           'inequality-and-poverty',
         ],
       },
-      {
+      { inMockScope: false,
         q: '2a(i)',
         marks: 2,
         command: 'Define',
@@ -617,7 +617,7 @@ export const pastPapers: PastPaperRef[] = [
           'policies-for-growth-and-development',
         ],
       },
-      {
+      { inMockScope: false,
         q: '2a(ii)',
         marks: 2,
         command: 'Define',
@@ -625,7 +625,7 @@ export const pastPapers: PastPaperRef[] = [
           'monopoly-and-natural-monopoly',
         ],
       },
-      {
+      { inMockScope: true,
         q: '2b(i)',
         marks: 3,
         command: 'Calculate',
@@ -633,7 +633,7 @@ export const pastPapers: PastPaperRef[] = [
           'measuring-economic-activity',
         ],
       },
-      {
+      { inMockScope: true,
         q: '2b(ii)',
         marks: 2,
         command: 'Sketch',
@@ -641,7 +641,7 @@ export const pastPapers: PastPaperRef[] = [
           'government-taxes-subsidies-price-controls',
         ],
       },
-      {
+      { inMockScope: false,
         q: '2c',
         marks: 4,
         command: 'Explain',
@@ -650,7 +650,7 @@ export const pastPapers: PastPaperRef[] = [
           'barriers-to-growth-and-development',
         ],
       },
-      {
+      { inMockScope: true,
         q: '2d',
         marks: 4,
         command: 'Explain',
@@ -658,7 +658,7 @@ export const pastPapers: PastPaperRef[] = [
           'ad-as-model-and-business-cycle',
         ],
       },
-      {
+      { inMockScope: false,
         q: '2e',
         marks: 4,
         command: 'Explain',
@@ -667,7 +667,7 @@ export const pastPapers: PastPaperRef[] = [
           'balance-of-payments',
         ],
       },
-      {
+      { inMockScope: false,
         q: '2f',
         marks: 4,
         command: 'Explain',
@@ -676,7 +676,7 @@ export const pastPapers: PastPaperRef[] = [
           'critique-maximizing-behaviour',
         ],
       },
-      {
+      { inMockScope: false,
         q: '2g',
         marks: 15,
         command: 'Discuss',
@@ -707,7 +707,7 @@ export const pastPapers: PastPaperRef[] = [
     minutes: 60,
     marks: 30,
     items: [
-      {
+      { inMockScope: true,
         q: '1a(i)',
         marks: 2,
         command: 'Determine',
@@ -715,7 +715,7 @@ export const pastPapers: PastPaperRef[] = [
           'supply',
         ],
       },
-      {
+      { inMockScope: false,
         q: '1a(ii)',
         marks: 2,
         command: 'Sketch',
@@ -724,7 +724,7 @@ export const pastPapers: PastPaperRef[] = [
           'competitive-market-equilibrium',
         ],
       },
-      {
+      { inMockScope: true,
         q: '1a(iii)',
         marks: 2,
         command: 'Calculate',
@@ -733,7 +733,7 @@ export const pastPapers: PastPaperRef[] = [
           'competitive-market-equilibrium',
         ],
       },
-      {
+      { inMockScope: true,
         q: '1a(iv)',
         marks: 4,
         command: 'Explain',
@@ -743,7 +743,7 @@ export const pastPapers: PastPaperRef[] = [
           'equity-and-market-failure',
         ],
       },
-      {
+      { inMockScope: true,
         q: '1a(v)',
         marks: 2,
         command: 'Calculate',
@@ -751,7 +751,7 @@ export const pastPapers: PastPaperRef[] = [
           'government-taxes-subsidies-price-controls',
         ],
       },
-      {
+      { inMockScope: true,
         q: '1a(vi)',
         marks: 2,
         command: 'Calculate',
@@ -759,7 +759,7 @@ export const pastPapers: PastPaperRef[] = [
           'price-elasticity-of-demand',
         ],
       },
-      {
+      { inMockScope: true,
         q: '1a(vii)',
         marks: 2,
         command: 'Describe',
@@ -767,7 +767,7 @@ export const pastPapers: PastPaperRef[] = [
           'income-and-cross-elasticity',
         ],
       },
-      {
+      { inMockScope: true,
         q: '1a(viii)',
         marks: 4,
         command: 'Explain',
@@ -776,7 +776,7 @@ export const pastPapers: PastPaperRef[] = [
           'equity-and-market-failure',
         ],
       },
-      {
+      { inMockScope: true,
         q: '1b',
         marks: 10,
         command: 'Recommend',
@@ -785,7 +785,7 @@ export const pastPapers: PastPaperRef[] = [
           'government-taxes-subsidies-price-controls',
         ],
       },
-      {
+      { inMockScope: false,
         q: '2a(i)',
         marks: 2,
         command: 'Describe',
@@ -793,7 +793,7 @@ export const pastPapers: PastPaperRef[] = [
           'benefits-of-trade',
         ],
       },
-      {
+      { inMockScope: false,
         q: '2a(ii)',
         marks: 4,
         command: 'Explain',
@@ -802,7 +802,7 @@ export const pastPapers: PastPaperRef[] = [
           'arguments-for-and-against-trade-control',
         ],
       },
-      {
+      { inMockScope: false,
         q: '2a(iii)',
         marks: 2,
         command: 'Calculate',
@@ -810,7 +810,7 @@ export const pastPapers: PastPaperRef[] = [
           'trade-protection',
         ],
       },
-      {
+      { inMockScope: false,
         q: '2a(iv)',
         marks: 3,
         command: 'Calculate',
@@ -819,7 +819,7 @@ export const pastPapers: PastPaperRef[] = [
           'exchange-rates',
         ],
       },
-      {
+      { inMockScope: true,
         q: '2a(v)',
         marks: 2,
         command: 'Calculate',
@@ -827,7 +827,7 @@ export const pastPapers: PastPaperRef[] = [
           'fiscal-policy',
         ],
       },
-      {
+      { inMockScope: true,
         q: '2a(vi)',
         marks: 2,
         command: 'Construct',
@@ -835,7 +835,7 @@ export const pastPapers: PastPaperRef[] = [
           'inequality-and-poverty',
         ],
       },
-      {
+      { inMockScope: true,
         q: '2a(vii)',
         marks: 4,
         command: 'Explain',
@@ -844,7 +844,7 @@ export const pastPapers: PastPaperRef[] = [
           'inequality-and-poverty',
         ],
       },
-      {
+      { inMockScope: false,
         q: '2a(viii)',
         marks: 1,
         command: 'Identify',
@@ -853,7 +853,7 @@ export const pastPapers: PastPaperRef[] = [
           'inequality-and-poverty',
         ],
       },
-      {
+      { inMockScope: true,
         q: '2b',
         marks: 10,
         command: 'Recommend',
@@ -884,7 +884,7 @@ export const pastPapers: PastPaperRef[] = [
     minutes: 75,
     marks: 25,
     items: [
-      {
+      { inMockScope: false,
         q: '1a',
         marks: 10,
         command: 'Explain',
@@ -893,7 +893,7 @@ export const pastPapers: PastPaperRef[] = [
           'competitive-market-equilibrium',
         ],
       },
-      {
+      { inMockScope: false,
         q: '1b',
         marks: 15,
         command: 'Discuss',
@@ -902,7 +902,7 @@ export const pastPapers: PastPaperRef[] = [
           'monopoly-and-natural-monopoly',
         ],
       },
-      {
+      { inMockScope: true,
         q: '2a',
         marks: 10,
         command: 'Explain',
@@ -911,7 +911,7 @@ export const pastPapers: PastPaperRef[] = [
           'ad-as-model-and-business-cycle',
         ],
       },
-      {
+      { inMockScope: true,
         q: '2b',
         marks: 15,
         command: 'Evaluate',
@@ -920,7 +920,7 @@ export const pastPapers: PastPaperRef[] = [
           'ad-as-model-and-business-cycle',
         ],
       },
-      {
+      { inMockScope: false,
         q: '3a',
         marks: 10,
         command: 'Explain',
@@ -929,7 +929,7 @@ export const pastPapers: PastPaperRef[] = [
           'barriers-to-growth-and-development',
         ],
       },
-      {
+      { inMockScope: false,
         q: '3b',
         marks: 15,
         command: 'Discuss',
@@ -964,7 +964,7 @@ export const pastPapers: PastPaperRef[] = [
     minutes: 75,
     marks: 25,
     items: [
-      {
+      { inMockScope: false,
         q: '1a',
         marks: 10,
         command: 'Explain',
@@ -973,7 +973,7 @@ export const pastPapers: PastPaperRef[] = [
           'demand',
         ],
       },
-      {
+      { inMockScope: false,
         q: '1b',
         marks: 15,
         command: 'Discuss',
@@ -982,7 +982,7 @@ export const pastPapers: PastPaperRef[] = [
           'economic-models',
         ],
       },
-      {
+      { inMockScope: true,
         q: '2a',
         marks: 10,
         command: 'Explain',
@@ -991,7 +991,7 @@ export const pastPapers: PastPaperRef[] = [
           'inequality-and-poverty',
         ],
       },
-      {
+      { inMockScope: true,
         q: '2b',
         marks: 15,
         command: 'Discuss',
@@ -1000,7 +1000,7 @@ export const pastPapers: PastPaperRef[] = [
           'ad-as-model-and-business-cycle',
         ],
       },
-      {
+      { inMockScope: false,
         q: '3a',
         marks: 10,
         command: 'Explain',
@@ -1010,7 +1010,7 @@ export const pastPapers: PastPaperRef[] = [
           'elasticity-of-supply',
         ],
       },
-      {
+      { inMockScope: false,
         q: '3b',
         marks: 15,
         command: 'Evaluate',
@@ -1044,7 +1044,7 @@ export const pastPapers: PastPaperRef[] = [
     minutes: 105,
     marks: 40,
     items: [
-      {
+      { inMockScope: false,
         q: '1a(i)',
         marks: 2,
         command: 'List',
@@ -1052,7 +1052,7 @@ export const pastPapers: PastPaperRef[] = [
           'policies-for-growth-and-development',
         ],
       },
-      {
+      { inMockScope: false,
         q: '1a(ii)',
         marks: 2,
         command: 'Define',
@@ -1060,7 +1060,7 @@ export const pastPapers: PastPaperRef[] = [
           'balance-of-payments',
         ],
       },
-      {
+      { inMockScope: false,
         q: '1b(i)',
         marks: 2,
         command: 'Calculate',
@@ -1069,7 +1069,7 @@ export const pastPapers: PastPaperRef[] = [
           'measuring-development',
         ],
       },
-      {
+      { inMockScope: true,
         q: '1b(ii)',
         marks: 3,
         command: 'Sketch',
@@ -1077,7 +1077,7 @@ export const pastPapers: PastPaperRef[] = [
           'government-taxes-subsidies-price-controls',
         ],
       },
-      {
+      { inMockScope: true,
         q: '1c',
         marks: 4,
         command: 'Explain',
@@ -1086,7 +1086,7 @@ export const pastPapers: PastPaperRef[] = [
           'fiscal-policy',
         ],
       },
-      {
+      { inMockScope: true,
         q: '1d',
         marks: 4,
         command: 'Explain',
@@ -1096,7 +1096,7 @@ export const pastPapers: PastPaperRef[] = [
           'demand',
         ],
       },
-      {
+      { inMockScope: false,
         q: '1e',
         marks: 4,
         command: 'Explain',
@@ -1105,7 +1105,7 @@ export const pastPapers: PastPaperRef[] = [
           'balance-of-payments',
         ],
       },
-      {
+      { inMockScope: false,
         q: '1f',
         marks: 4,
         command: 'Explain',
@@ -1114,7 +1114,7 @@ export const pastPapers: PastPaperRef[] = [
           'inequality-and-poverty',
         ],
       },
-      {
+      { inMockScope: false,
         q: '1g',
         marks: 15,
         command: 'Discuss',
@@ -1123,7 +1123,7 @@ export const pastPapers: PastPaperRef[] = [
           'economic-integration',
         ],
       },
-      {
+      { inMockScope: true,
         q: '2a(i)',
         marks: 2,
         command: 'Define',
@@ -1131,7 +1131,7 @@ export const pastPapers: PastPaperRef[] = [
           'critique-maximizing-behaviour',
         ],
       },
-      {
+      { inMockScope: true,
         q: '2a(ii)',
         marks: 2,
         command: 'Define',
@@ -1139,7 +1139,7 @@ export const pastPapers: PastPaperRef[] = [
           'common-pool-resources',
         ],
       },
-      {
+      { inMockScope: true,
         q: '2b(i)',
         marks: 2,
         command: 'Calculate',
@@ -1147,7 +1147,7 @@ export const pastPapers: PastPaperRef[] = [
           'measuring-economic-activity',
         ],
       },
-      {
+      { inMockScope: false,
         q: '2b(ii)',
         marks: 3,
         command: 'Sketch',
@@ -1156,7 +1156,7 @@ export const pastPapers: PastPaperRef[] = [
           'balance-of-payments',
         ],
       },
-      {
+      { inMockScope: true,
         q: '2c',
         marks: 4,
         command: 'Explain',
@@ -1164,7 +1164,7 @@ export const pastPapers: PastPaperRef[] = [
           'government-taxes-subsidies-price-controls',
         ],
       },
-      {
+      { inMockScope: false,
         q: '2d',
         marks: 4,
         command: 'Explain',
@@ -1173,7 +1173,7 @@ export const pastPapers: PastPaperRef[] = [
           'price-elasticity-of-demand',
         ],
       },
-      {
+      { inMockScope: false,
         q: '2e',
         marks: 4,
         command: 'Explain',
@@ -1181,7 +1181,7 @@ export const pastPapers: PastPaperRef[] = [
           'trade-protection',
         ],
       },
-      {
+      { inMockScope: true,
         q: '2f',
         marks: 4,
         command: 'Explain',
@@ -1189,7 +1189,7 @@ export const pastPapers: PastPaperRef[] = [
           'inequality-and-poverty',
         ],
       },
-      {
+      { inMockScope: false,
         q: '2g',
         marks: 15,
         command: 'Discuss',
@@ -1220,7 +1220,7 @@ export const pastPapers: PastPaperRef[] = [
     minutes: 60,
     marks: 28,
     items: [
-      {
+      { inMockScope: true,
         q: '1a(i)',
         marks: 2,
         command: 'Calculate',
@@ -1228,7 +1228,7 @@ export const pastPapers: PastPaperRef[] = [
           'price-elasticity-of-demand',
         ],
       },
-      {
+      { inMockScope: true,
         q: '1a(ii)',
         marks: 2,
         command: 'Calculate',
@@ -1236,7 +1236,7 @@ export const pastPapers: PastPaperRef[] = [
           'competitive-market-equilibrium',
         ],
       },
-      {
+      { inMockScope: true,
         q: '1a(iii)',
         marks: 2,
         command: 'Calculate',
@@ -1244,7 +1244,7 @@ export const pastPapers: PastPaperRef[] = [
           'government-taxes-subsidies-price-controls',
         ],
       },
-      {
+      { inMockScope: true,
         q: '1a(iv)',
         marks: 4,
         command: 'Explain',
@@ -1252,7 +1252,7 @@ export const pastPapers: PastPaperRef[] = [
           'price-elasticity-of-demand',
         ],
       },
-      {
+      { inMockScope: false,
         q: '1a(v)',
         marks: 2,
         command: 'Define',
@@ -1261,7 +1261,7 @@ export const pastPapers: PastPaperRef[] = [
           'oligopoly-and-monopolistic-competition',
         ],
       },
-      {
+      { inMockScope: false,
         q: '1a(vi)',
         marks: 4,
         command: 'Explain',
@@ -1270,7 +1270,7 @@ export const pastPapers: PastPaperRef[] = [
           'equity-and-market-failure',
         ],
       },
-      {
+      { inMockScope: false,
         q: '1a(vii)',
         marks: 2,
         command: 'Calculate',
@@ -1278,7 +1278,7 @@ export const pastPapers: PastPaperRef[] = [
           'monopoly-and-natural-monopoly',
         ],
       },
-      {
+      { inMockScope: false,
         q: '1b',
         marks: 10,
         command: 'Recommend',
@@ -1309,7 +1309,7 @@ export const pastPapers: PastPaperRef[] = [
     minutes: 60,
     marks: 30,
     items: [
-      {
+      { inMockScope: true,
         q: '2a(i)',
         marks: 2,
         command: 'Calculate',
@@ -1317,7 +1317,7 @@ export const pastPapers: PastPaperRef[] = [
           'macroeconomic-objectives',
         ],
       },
-      {
+      { inMockScope: true,
         q: '2a(ii)',
         marks: 2,
         command: 'Calculate',
@@ -1325,7 +1325,7 @@ export const pastPapers: PastPaperRef[] = [
           'measuring-economic-activity',
         ],
       },
-      {
+      { inMockScope: false,
         q: '2a(iii)',
         marks: 2,
         command: 'Calculate',
@@ -1334,7 +1334,7 @@ export const pastPapers: PastPaperRef[] = [
           'measuring-development',
         ],
       },
-      {
+      { inMockScope: false,
         q: '2a(iv)',
         marks: 2,
         command: 'Calculate',
@@ -1342,7 +1342,7 @@ export const pastPapers: PastPaperRef[] = [
           'exchange-rates',
         ],
       },
-      {
+      { inMockScope: false,
         q: '2a(v)',
         marks: 2,
         command: 'Define',
@@ -1350,7 +1350,7 @@ export const pastPapers: PastPaperRef[] = [
           'exchange-rates',
         ],
       },
-      {
+      { inMockScope: false,
         q: '2a(vi)',
         marks: 4,
         command: 'Explain',
@@ -1358,7 +1358,7 @@ export const pastPapers: PastPaperRef[] = [
           'exchange-rates',
         ],
       },
-      {
+      { inMockScope: false,
         q: '2a(vii)',
         marks: 2,
         command: 'Calculate',
@@ -1366,7 +1366,7 @@ export const pastPapers: PastPaperRef[] = [
           'exchange-rates',
         ],
       },
-      {
+      { inMockScope: false,
         q: '2a(viii)',
         marks: 4,
         command: 'Explain',
@@ -1376,7 +1376,7 @@ export const pastPapers: PastPaperRef[] = [
           'macroeconomic-objectives',
         ],
       },
-      {
+      { inMockScope: false,
         q: '2b',
         marks: 10,
         command: 'Recommend',
@@ -1407,7 +1407,7 @@ export const pastPapers: PastPaperRef[] = [
     minutes: 75,
     marks: 25,
     items: [
-      {
+      { inMockScope: false,
         q: '1a',
         marks: 10,
         command: 'Explain',
@@ -1415,7 +1415,7 @@ export const pastPapers: PastPaperRef[] = [
           'price-elasticity-of-demand',
         ],
       },
-      {
+      { inMockScope: false,
         q: '1b',
         marks: 15,
         command: 'Discuss',
@@ -1425,7 +1425,7 @@ export const pastPapers: PastPaperRef[] = [
           'government-taxes-subsidies-price-controls',
         ],
       },
-      {
+      { inMockScope: true,
         q: '2a',
         marks: 10,
         command: 'Explain',
@@ -1434,7 +1434,7 @@ export const pastPapers: PastPaperRef[] = [
           'measuring-economic-activity',
         ],
       },
-      {
+      { inMockScope: false,
         q: '2b',
         marks: 15,
         command: 'Discuss',
@@ -1443,7 +1443,7 @@ export const pastPapers: PastPaperRef[] = [
           'measuring-development',
         ],
       },
-      {
+      { inMockScope: false,
         q: '3a',
         marks: 10,
         command: 'Explain',
@@ -1451,7 +1451,7 @@ export const pastPapers: PastPaperRef[] = [
           'benefits-of-trade',
         ],
       },
-      {
+      { inMockScope: false,
         q: '3b',
         marks: 15,
         command: 'Discuss',
@@ -1486,7 +1486,7 @@ export const pastPapers: PastPaperRef[] = [
     minutes: 75,
     marks: 25,
     items: [
-      {
+      { inMockScope: false,
         q: '1a',
         marks: 10,
         command: 'Explain',
@@ -1495,7 +1495,7 @@ export const pastPapers: PastPaperRef[] = [
           'government-taxes-subsidies-price-controls',
         ],
       },
-      {
+      { inMockScope: false,
         q: '1b',
         marks: 15,
         command: 'Discuss',
@@ -1504,7 +1504,7 @@ export const pastPapers: PastPaperRef[] = [
           'externalities',
         ],
       },
-      {
+      { inMockScope: true,
         q: '2a',
         marks: 10,
         command: 'Explain',
@@ -1513,7 +1513,7 @@ export const pastPapers: PastPaperRef[] = [
           'measuring-economic-activity',
         ],
       },
-      {
+      { inMockScope: true,
         q: '2b',
         marks: 15,
         command: 'Examine',
@@ -1522,7 +1522,7 @@ export const pastPapers: PastPaperRef[] = [
           'ad-as-model-and-business-cycle',
         ],
       },
-      {
+      { inMockScope: false,
         q: '3a',
         marks: 10,
         command: 'Explain',
@@ -1530,7 +1530,7 @@ export const pastPapers: PastPaperRef[] = [
           'exchange-rates',
         ],
       },
-      {
+      { inMockScope: false,
         q: '3b',
         marks: 15,
         command: 'Discuss',
@@ -1565,7 +1565,7 @@ export const pastPapers: PastPaperRef[] = [
     minutes: 105,
     marks: 40,
     items: [
-      {
+      { inMockScope: false,
         q: '1a(i)',
         marks: 2,
         command: 'Define',
@@ -1574,7 +1574,7 @@ export const pastPapers: PastPaperRef[] = [
           'trade-protection',
         ],
       },
-      {
+      { inMockScope: false,
         q: '1a(ii)',
         marks: 2,
         command: 'List',
@@ -1582,7 +1582,7 @@ export const pastPapers: PastPaperRef[] = [
           'measuring-development',
         ],
       },
-      {
+      { inMockScope: true,
         q: '1b(i)',
         marks: 3,
         command: 'Calculate',
@@ -1590,7 +1590,7 @@ export const pastPapers: PastPaperRef[] = [
           'multiplier',
         ],
       },
-      {
+      { inMockScope: false,
         q: '1b(ii)',
         marks: 2,
         command: 'Sketch',
@@ -1598,7 +1598,7 @@ export const pastPapers: PastPaperRef[] = [
           'monopoly-and-natural-monopoly',
         ],
       },
-      {
+      { inMockScope: true,
         q: '1c',
         marks: 4,
         command: 'Explain',
@@ -1606,7 +1606,7 @@ export const pastPapers: PastPaperRef[] = [
           'inequality-and-poverty',
         ],
       },
-      {
+      { inMockScope: true,
         q: '1d',
         marks: 4,
         command: 'Explain',
@@ -1614,7 +1614,7 @@ export const pastPapers: PastPaperRef[] = [
           'government-taxes-subsidies-price-controls',
         ],
       },
-      {
+      { inMockScope: false,
         q: '1e',
         marks: 4,
         command: 'Explain',
@@ -1623,7 +1623,7 @@ export const pastPapers: PastPaperRef[] = [
           'balance-of-payments',
         ],
       },
-      {
+      { inMockScope: true,
         q: '1f',
         marks: 4,
         command: 'Explain',
@@ -1631,7 +1631,7 @@ export const pastPapers: PastPaperRef[] = [
           'externalities',
         ],
       },
-      {
+      { inMockScope: false,
         q: '1g',
         marks: 15,
         command: 'Evaluate',
@@ -1640,7 +1640,7 @@ export const pastPapers: PastPaperRef[] = [
           'sustainable-development',
         ],
       },
-      {
+      { inMockScope: false,
         q: '2a(i)',
         marks: 2,
         command: 'Define',
@@ -1648,7 +1648,7 @@ export const pastPapers: PastPaperRef[] = [
           'barriers-to-growth-and-development',
         ],
       },
-      {
+      { inMockScope: true,
         q: '2a(ii)',
         marks: 2,
         command: 'Define',
@@ -1656,7 +1656,7 @@ export const pastPapers: PastPaperRef[] = [
           'asymmetric-information',
         ],
       },
-      {
+      { inMockScope: false,
         q: '2b(i)',
         marks: 3,
         command: 'Calculate',
@@ -1665,7 +1665,7 @@ export const pastPapers: PastPaperRef[] = [
           'measuring-development',
         ],
       },
-      {
+      { inMockScope: true,
         q: '2b(ii)',
         marks: 2,
         command: 'Sketch',
@@ -1673,7 +1673,7 @@ export const pastPapers: PastPaperRef[] = [
           'ad-as-model-and-business-cycle',
         ],
       },
-      {
+      { inMockScope: false,
         q: '2c',
         marks: 4,
         command: 'Explain',
@@ -1682,7 +1682,7 @@ export const pastPapers: PastPaperRef[] = [
           'benefits-of-trade',
         ],
       },
-      {
+      { inMockScope: true,
         q: '2d',
         marks: 4,
         command: 'Explain',
@@ -1691,7 +1691,7 @@ export const pastPapers: PastPaperRef[] = [
           'equity-and-market-failure',
         ],
       },
-      {
+      { inMockScope: true,
         q: '2e',
         marks: 4,
         command: 'Explain',
@@ -1699,7 +1699,7 @@ export const pastPapers: PastPaperRef[] = [
           'externalities',
         ],
       },
-      {
+      { inMockScope: false,
         q: '2f',
         marks: 4,
         command: 'Explain',
@@ -1708,7 +1708,7 @@ export const pastPapers: PastPaperRef[] = [
           'policies-for-growth-and-development',
         ],
       },
-      {
+      { inMockScope: false,
         q: '2g',
         marks: 15,
         command: 'Evaluate',
@@ -1739,7 +1739,7 @@ export const pastPapers: PastPaperRef[] = [
     minutes: 60,
     marks: 30,
     items: [
-      {
+      { inMockScope: true,
         q: '1a(i)',
         marks: 2,
         command: 'Define',
@@ -1747,7 +1747,7 @@ export const pastPapers: PastPaperRef[] = [
           'common-pool-resources',
         ],
       },
-      {
+      { inMockScope: true,
         q: '1a(ii)',
         marks: 4,
         command: 'Explain',
@@ -1756,7 +1756,7 @@ export const pastPapers: PastPaperRef[] = [
           'externalities',
         ],
       },
-      {
+      { inMockScope: true,
         q: '1a(iii)',
         marks: 3,
         command: 'Calculate',
@@ -1764,7 +1764,7 @@ export const pastPapers: PastPaperRef[] = [
           'price-elasticity-of-demand',
         ],
       },
-      {
+      { inMockScope: true,
         q: '1a(iv)',
         marks: 2,
         command: 'Calculate',
@@ -1772,7 +1772,7 @@ export const pastPapers: PastPaperRef[] = [
           'income-and-cross-elasticity',
         ],
       },
-      {
+      { inMockScope: true,
         q: '1a(v)',
         marks: 2,
         command: 'Calculate',
@@ -1780,7 +1780,7 @@ export const pastPapers: PastPaperRef[] = [
           'government-taxes-subsidies-price-controls',
         ],
       },
-      {
+      { inMockScope: true,
         q: '1a(vi)',
         marks: 2,
         command: 'Explain',
@@ -1789,7 +1789,7 @@ export const pastPapers: PastPaperRef[] = [
           'inequality-and-poverty',
         ],
       },
-      {
+      { inMockScope: true,
         q: '1a(vii)',
         marks: 1,
         command: 'State',
@@ -1797,7 +1797,7 @@ export const pastPapers: PastPaperRef[] = [
           'common-pool-resources',
         ],
       },
-      {
+      { inMockScope: true,
         q: '1a(viii)',
         marks: 4,
         command: 'Explain',
@@ -1805,7 +1805,7 @@ export const pastPapers: PastPaperRef[] = [
           'common-pool-resources',
         ],
       },
-      {
+      { inMockScope: true,
         q: '1b',
         marks: 10,
         command: 'Recommend',
@@ -1836,7 +1836,7 @@ export const pastPapers: PastPaperRef[] = [
     minutes: 60,
     marks: 30,
     items: [
-      {
+      { inMockScope: false,
         q: '2a(i)',
         marks: 3,
         command: 'Distinguish',
@@ -1844,7 +1844,7 @@ export const pastPapers: PastPaperRef[] = [
           'economic-integration',
         ],
       },
-      {
+      { inMockScope: false,
         q: '2a(ii)',
         marks: 1,
         command: 'Outline',
@@ -1852,7 +1852,7 @@ export const pastPapers: PastPaperRef[] = [
           'economic-integration',
         ],
       },
-      {
+      { inMockScope: true,
         q: '2a(iii)',
         marks: 1,
         command: 'Calculate',
@@ -1860,7 +1860,7 @@ export const pastPapers: PastPaperRef[] = [
           'macroeconomic-objectives',
         ],
       },
-      {
+      { inMockScope: true,
         q: '2a(iv)',
         marks: 1,
         command: 'Calculate',
@@ -1868,7 +1868,7 @@ export const pastPapers: PastPaperRef[] = [
           'macroeconomic-objectives',
         ],
       },
-      {
+      { inMockScope: true,
         q: '2a(v)',
         marks: 2,
         command: 'Calculate',
@@ -1876,7 +1876,7 @@ export const pastPapers: PastPaperRef[] = [
           'macroeconomic-objectives',
         ],
       },
-      {
+      { inMockScope: true,
         q: '2a(vi)',
         marks: 1,
         command: 'Calculate',
@@ -1885,7 +1885,7 @@ export const pastPapers: PastPaperRef[] = [
           'macroeconomic-objectives',
         ],
       },
-      {
+      { inMockScope: true,
         q: '2a(vii)',
         marks: 4,
         command: 'Explain',
@@ -1893,7 +1893,7 @@ export const pastPapers: PastPaperRef[] = [
           'macroeconomic-objectives',
         ],
       },
-      {
+      { inMockScope: false,
         q: '2a(viii)',
         marks: 1,
         command: 'Calculate',
@@ -1901,7 +1901,7 @@ export const pastPapers: PastPaperRef[] = [
           'exchange-rates',
         ],
       },
-      {
+      { inMockScope: true,
         q: '2a(ix)',
         marks: 2,
         command: 'Define',
@@ -1909,7 +1909,7 @@ export const pastPapers: PastPaperRef[] = [
           'fiscal-policy',
         ],
       },
-      {
+      { inMockScope: false,
         q: '2a(x)',
         marks: 4,
         command: 'Explain',
@@ -1918,7 +1918,7 @@ export const pastPapers: PastPaperRef[] = [
           'ad-as-model-and-business-cycle',
         ],
       },
-      {
+      { inMockScope: false,
         q: '2b',
         marks: 10,
         command: 'Recommend',
@@ -1950,7 +1950,7 @@ export const pastPapers: PastPaperRef[] = [
     minutes: 75,
     marks: 25,
     items: [
-      {
+      { inMockScope: false,
         q: '1a',
         marks: 10,
         command: 'Explain',
@@ -1958,7 +1958,7 @@ export const pastPapers: PastPaperRef[] = [
           'competitive-market-equilibrium',
         ],
       },
-      {
+      { inMockScope: false,
         q: '1b',
         marks: 15,
         command: 'Evaluate',
@@ -1966,7 +1966,7 @@ export const pastPapers: PastPaperRef[] = [
           'critique-maximizing-behaviour',
         ],
       },
-      {
+      { inMockScope: true,
         q: '2a',
         marks: 10,
         command: 'Explain',
@@ -1976,7 +1976,7 @@ export const pastPapers: PastPaperRef[] = [
           'ad-as-model-and-business-cycle',
         ],
       },
-      {
+      { inMockScope: true,
         q: '2b',
         marks: 15,
         command: 'Evaluate',
@@ -1985,7 +1985,7 @@ export const pastPapers: PastPaperRef[] = [
           'ad-as-model-and-business-cycle',
         ],
       },
-      {
+      { inMockScope: false,
         q: '3a',
         marks: 10,
         command: 'Explain',
@@ -1995,7 +1995,7 @@ export const pastPapers: PastPaperRef[] = [
           'common-pool-resources',
         ],
       },
-      {
+      { inMockScope: false,
         q: '3b',
         marks: 15,
         command: 'Discuss',
@@ -2030,7 +2030,7 @@ export const pastPapers: PastPaperRef[] = [
     minutes: 75,
     marks: 25,
     items: [
-      {
+      { inMockScope: false,
         q: '1a',
         marks: 10,
         command: 'Explain',
@@ -2038,7 +2038,7 @@ export const pastPapers: PastPaperRef[] = [
           'oligopoly-and-monopolistic-competition',
         ],
       },
-      {
+      { inMockScope: false,
         q: '1b',
         marks: 15,
         command: 'Evaluate',
@@ -2047,7 +2047,7 @@ export const pastPapers: PastPaperRef[] = [
           'oligopoly-and-monopolistic-competition',
         ],
       },
-      {
+      { inMockScope: true,
         q: '2a',
         marks: 10,
         command: 'Explain',
@@ -2056,7 +2056,7 @@ export const pastPapers: PastPaperRef[] = [
           'ad-as-model-and-business-cycle',
         ],
       },
-      {
+      { inMockScope: true,
         q: '2b',
         marks: 15,
         command: 'Evaluate',
@@ -2065,7 +2065,7 @@ export const pastPapers: PastPaperRef[] = [
           'macroeconomic-objectives',
         ],
       },
-      {
+      { inMockScope: false,
         q: '3a',
         marks: 10,
         command: 'Explain',
@@ -2074,7 +2074,7 @@ export const pastPapers: PastPaperRef[] = [
           'barriers-to-growth-and-development',
         ],
       },
-      {
+      { inMockScope: false,
         q: '3b',
         marks: 15,
         command: 'Discuss',
@@ -2109,7 +2109,7 @@ export const pastPapers: PastPaperRef[] = [
     minutes: 105,
     marks: 40,
     items: [
-      {
+      { inMockScope: true,
         q: '1a(i)',
         marks: 2,
         command: 'Define',
@@ -2117,7 +2117,7 @@ export const pastPapers: PastPaperRef[] = [
           'ad-as-model-and-business-cycle',
         ],
       },
-      {
+      { inMockScope: false,
         q: '1a(ii)',
         marks: 2,
         command: 'Define',
@@ -2125,7 +2125,7 @@ export const pastPapers: PastPaperRef[] = [
           'balance-of-payments',
         ],
       },
-      {
+      { inMockScope: true,
         q: '1b(i)',
         marks: 3,
         command: 'Calculate',
@@ -2133,7 +2133,7 @@ export const pastPapers: PastPaperRef[] = [
           'price-elasticity-of-demand',
         ],
       },
-      {
+      { inMockScope: false,
         q: '1b(ii)',
         marks: 2,
         command: 'Calculate',
@@ -2141,7 +2141,7 @@ export const pastPapers: PastPaperRef[] = [
           'balance-of-payments',
         ],
       },
-      {
+      { inMockScope: true,
         q: '1c',
         marks: 4,
         command: 'Explain',
@@ -2150,7 +2150,7 @@ export const pastPapers: PastPaperRef[] = [
           'monetary-policy',
         ],
       },
-      {
+      { inMockScope: false,
         q: '1d',
         marks: 4,
         command: 'Explain',
@@ -2158,7 +2158,7 @@ export const pastPapers: PastPaperRef[] = [
           'exchange-rates',
         ],
       },
-      {
+      { inMockScope: false,
         q: '1e',
         marks: 4,
         command: 'Explain',
@@ -2167,7 +2167,7 @@ export const pastPapers: PastPaperRef[] = [
           'trade-protection',
         ],
       },
-      {
+      { inMockScope: true,
         q: '1f',
         marks: 4,
         command: 'Explain',
@@ -2176,7 +2176,7 @@ export const pastPapers: PastPaperRef[] = [
           'government-taxes-subsidies-price-controls',
         ],
       },
-      {
+      { inMockScope: false,
         q: '1g',
         marks: 15,
         command: 'Discuss',
@@ -2186,7 +2186,7 @@ export const pastPapers: PastPaperRef[] = [
           'macroeconomic-objectives',
         ],
       },
-      {
+      { inMockScope: false,
         q: '2a(i)',
         marks: 2,
         command: 'Define',
@@ -2194,7 +2194,7 @@ export const pastPapers: PastPaperRef[] = [
           'balance-of-payments',
         ],
       },
-      {
+      { inMockScope: true,
         q: '2a(ii)',
         marks: 2,
         command: 'Define',
@@ -2202,7 +2202,7 @@ export const pastPapers: PastPaperRef[] = [
           'fiscal-policy',
         ],
       },
-      {
+      { inMockScope: true,
         q: '2b(i)',
         marks: 2,
         command: 'Calculate',
@@ -2210,7 +2210,7 @@ export const pastPapers: PastPaperRef[] = [
           'measuring-economic-activity',
         ],
       },
-      {
+      { inMockScope: true,
         q: '2b(ii)',
         marks: 1,
         command: 'Calculate',
@@ -2218,7 +2218,7 @@ export const pastPapers: PastPaperRef[] = [
           'measuring-economic-activity',
         ],
       },
-      {
+      { inMockScope: true,
         q: '2b(iii)',
         marks: 2,
         command: 'Calculate',
@@ -2226,7 +2226,7 @@ export const pastPapers: PastPaperRef[] = [
           'income-and-cross-elasticity',
         ],
       },
-      {
+      { inMockScope: true,
         q: '2c',
         marks: 4,
         command: 'Explain',
@@ -2234,7 +2234,7 @@ export const pastPapers: PastPaperRef[] = [
           'ad-as-model-and-business-cycle',
         ],
       },
-      {
+      { inMockScope: false,
         q: '2d',
         marks: 4,
         command: 'Explain',
@@ -2243,7 +2243,7 @@ export const pastPapers: PastPaperRef[] = [
           'government-taxes-subsidies-price-controls',
         ],
       },
-      {
+      { inMockScope: true,
         q: '2e',
         marks: 4,
         command: 'Explain',
@@ -2252,7 +2252,7 @@ export const pastPapers: PastPaperRef[] = [
           'competitive-market-equilibrium',
         ],
       },
-      {
+      { inMockScope: false,
         q: '2f',
         marks: 4,
         command: 'Explain',
@@ -2261,7 +2261,7 @@ export const pastPapers: PastPaperRef[] = [
           'policies-for-growth-and-development',
         ],
       },
-      {
+      { inMockScope: false,
         q: '2g',
         marks: 15,
         command: 'Evaluate',
@@ -2297,7 +2297,7 @@ export const pastPapers: PastPaperRef[] = [
     minutes: 105,
     marks: 40,
     items: [
-      {
+      { inMockScope: true,
         q: '1a(i)',
         marks: 2,
         command: 'Define',
@@ -2305,7 +2305,7 @@ export const pastPapers: PastPaperRef[] = [
           'macroeconomic-objectives',
         ],
       },
-      {
+      { inMockScope: false,
         q: '1a(ii)',
         marks: 2,
         command: 'Define',
@@ -2313,7 +2313,7 @@ export const pastPapers: PastPaperRef[] = [
           'balance-of-payments',
         ],
       },
-      {
+      { inMockScope: true,
         q: '1b(i)',
         marks: 3,
         command: 'Calculate',
@@ -2321,7 +2321,7 @@ export const pastPapers: PastPaperRef[] = [
           'price-elasticity-of-demand',
         ],
       },
-      {
+      { inMockScope: false,
         q: '1b(ii)',
         marks: 2,
         command: 'Calculate',
@@ -2329,7 +2329,7 @@ export const pastPapers: PastPaperRef[] = [
           'balance-of-payments',
         ],
       },
-      {
+      { inMockScope: true,
         q: '1c',
         marks: 4,
         command: 'Explain',
@@ -2338,7 +2338,7 @@ export const pastPapers: PastPaperRef[] = [
           'supply-side-policies',
         ],
       },
-      {
+      { inMockScope: false,
         q: '1d',
         marks: 4,
         command: 'Explain',
@@ -2346,7 +2346,7 @@ export const pastPapers: PastPaperRef[] = [
           'exchange-rates',
         ],
       },
-      {
+      { inMockScope: false,
         q: '1e',
         marks: 4,
         command: 'Explain',
@@ -2355,7 +2355,7 @@ export const pastPapers: PastPaperRef[] = [
           'trade-protection',
         ],
       },
-      {
+      { inMockScope: true,
         q: '1f',
         marks: 4,
         command: 'Explain',
@@ -2364,7 +2364,7 @@ export const pastPapers: PastPaperRef[] = [
           'government-taxes-subsidies-price-controls',
         ],
       },
-      {
+      { inMockScope: false,
         q: '1g',
         marks: 15,
         command: 'Discuss',
@@ -2374,7 +2374,7 @@ export const pastPapers: PastPaperRef[] = [
           'macroeconomic-objectives',
         ],
       },
-      {
+      { inMockScope: true,
         q: '2a(i)',
         marks: 2,
         command: 'Define',
@@ -2382,7 +2382,7 @@ export const pastPapers: PastPaperRef[] = [
           'inequality-and-poverty',
         ],
       },
-      {
+      { inMockScope: false,
         q: '2a(ii)',
         marks: 2,
         command: 'Define',
@@ -2390,7 +2390,7 @@ export const pastPapers: PastPaperRef[] = [
           'exchange-rates',
         ],
       },
-      {
+      { inMockScope: true,
         q: '2b(i)',
         marks: 2,
         command: 'Calculate',
@@ -2398,7 +2398,7 @@ export const pastPapers: PastPaperRef[] = [
           'measuring-economic-activity',
         ],
       },
-      {
+      { inMockScope: true,
         q: '2b(ii)',
         marks: 2,
         command: 'Calculate',
@@ -2406,7 +2406,7 @@ export const pastPapers: PastPaperRef[] = [
           'income-and-cross-elasticity',
         ],
       },
-      {
+      { inMockScope: true,
         q: '2b(iii)',
         marks: 1,
         command: 'Identify',
@@ -2414,7 +2414,7 @@ export const pastPapers: PastPaperRef[] = [
           'income-and-cross-elasticity',
         ],
       },
-      {
+      { inMockScope: true,
         q: '2c',
         marks: 4,
         command: 'Explain',
@@ -2422,7 +2422,7 @@ export const pastPapers: PastPaperRef[] = [
           'ad-as-model-and-business-cycle',
         ],
       },
-      {
+      { inMockScope: false,
         q: '2d',
         marks: 4,
         command: 'Explain',
@@ -2430,7 +2430,7 @@ export const pastPapers: PastPaperRef[] = [
           'trade-protection',
         ],
       },
-      {
+      { inMockScope: false,
         q: '2e',
         marks: 4,
         command: 'Explain',
@@ -2439,7 +2439,7 @@ export const pastPapers: PastPaperRef[] = [
           'trade-protection',
         ],
       },
-      {
+      { inMockScope: true,
         q: '2f',
         marks: 4,
         command: 'Explain',
@@ -2448,7 +2448,7 @@ export const pastPapers: PastPaperRef[] = [
           'competitive-market-equilibrium',
         ],
       },
-      {
+      { inMockScope: false,
         q: '2g',
         marks: 15,
         command: 'Evaluate',
@@ -2483,7 +2483,7 @@ export const pastPapers: PastPaperRef[] = [
     minutes: 60,
     marks: 30,
     items: [
-      {
+      { inMockScope: false,
         q: '1a(i)',
         marks: 2,
         command: 'Calculate',
@@ -2491,7 +2491,7 @@ export const pastPapers: PastPaperRef[] = [
           'balance-of-payments',
         ],
       },
-      {
+      { inMockScope: false,
         q: '1a(ii)',
         marks: 2,
         command: 'Calculate',
@@ -2499,7 +2499,7 @@ export const pastPapers: PastPaperRef[] = [
           'balance-of-payments',
         ],
       },
-      {
+      { inMockScope: true,
         q: '1a(iii)',
         marks: 2,
         command: 'Calculate',
@@ -2507,7 +2507,7 @@ export const pastPapers: PastPaperRef[] = [
           'price-elasticity-of-demand',
         ],
       },
-      {
+      { inMockScope: true,
         q: '1a(iv)',
         marks: 2,
         command: 'Calculate',
@@ -2515,7 +2515,7 @@ export const pastPapers: PastPaperRef[] = [
           'price-elasticity-of-demand',
         ],
       },
-      {
+      { inMockScope: false,
         q: '1a(v)',
         marks: 2,
         command: 'Calculate',
@@ -2524,7 +2524,7 @@ export const pastPapers: PastPaperRef[] = [
           'benefits-of-trade',
         ],
       },
-      {
+      { inMockScope: false,
         q: '1a(vi)',
         marks: 4,
         command: 'Explain',
@@ -2533,7 +2533,7 @@ export const pastPapers: PastPaperRef[] = [
           'government-taxes-subsidies-price-controls',
         ],
       },
-      {
+      { inMockScope: true,
         q: '1a(vii)',
         marks: 2,
         command: 'Define',
@@ -2541,7 +2541,7 @@ export const pastPapers: PastPaperRef[] = [
           'common-pool-resources',
         ],
       },
-      {
+      { inMockScope: true,
         q: '1a(viii)',
         marks: 4,
         command: 'Explain',
@@ -2549,7 +2549,7 @@ export const pastPapers: PastPaperRef[] = [
           'externalities',
         ],
       },
-      {
+      { inMockScope: true,
         q: '1b',
         marks: 10,
         command: 'Recommend',
@@ -2584,7 +2584,7 @@ export const pastPapers: PastPaperRef[] = [
     minutes: 60,
     marks: 30,
     items: [
-      {
+      { inMockScope: true,
         q: '2a(i)',
         marks: 2,
         command: 'Calculate',
@@ -2592,7 +2592,7 @@ export const pastPapers: PastPaperRef[] = [
           'measuring-economic-activity',
         ],
       },
-      {
+      { inMockScope: true,
         q: '2a(ii)',
         marks: 2,
         command: 'Calculate',
@@ -2600,7 +2600,7 @@ export const pastPapers: PastPaperRef[] = [
           'macroeconomic-objectives',
         ],
       },
-      {
+      { inMockScope: false,
         q: '2a(iii)',
         marks: 2,
         command: 'Outline',
@@ -2609,7 +2609,7 @@ export const pastPapers: PastPaperRef[] = [
           'measuring-development',
         ],
       },
-      {
+      { inMockScope: false,
         q: '2a(iv)',
         marks: 4,
         command: 'Explain',
@@ -2619,7 +2619,7 @@ export const pastPapers: PastPaperRef[] = [
           'inequality-and-poverty',
         ],
       },
-      {
+      { inMockScope: true,
         q: '2a(v)',
         marks: 2,
         command: 'Outline',
@@ -2627,7 +2627,7 @@ export const pastPapers: PastPaperRef[] = [
           'monetary-policy',
         ],
       },
-      {
+      { inMockScope: false,
         q: '2a(vi)',
         marks: 4,
         command: 'Explain',
@@ -2635,7 +2635,7 @@ export const pastPapers: PastPaperRef[] = [
           'exchange-rates',
         ],
       },
-      {
+      { inMockScope: false,
         q: '2a(vii)',
         marks: 2,
         command: 'Calculate',
@@ -2643,7 +2643,7 @@ export const pastPapers: PastPaperRef[] = [
           'exchange-rates',
         ],
       },
-      {
+      { inMockScope: true,
         q: '2a(viii)',
         marks: 2,
         command: 'Calculate',
@@ -2651,7 +2651,7 @@ export const pastPapers: PastPaperRef[] = [
           'government-taxes-subsidies-price-controls',
         ],
       },
-      {
+      { inMockScope: true,
         q: '2b',
         marks: 10,
         command: 'Recommend',
@@ -2686,7 +2686,7 @@ export const pastPapers: PastPaperRef[] = [
     minutes: 75,
     marks: 25,
     items: [
-      {
+      { inMockScope: false,
         q: '1a',
         marks: 10,
         command: 'Explain',
@@ -2695,7 +2695,7 @@ export const pastPapers: PastPaperRef[] = [
           'oligopoly-and-monopolistic-competition',
         ],
       },
-      {
+      { inMockScope: false,
         q: '1b',
         marks: 15,
         command: 'Evaluate',
@@ -2703,7 +2703,7 @@ export const pastPapers: PastPaperRef[] = [
           'critique-maximizing-behaviour',
         ],
       },
-      {
+      { inMockScope: true,
         q: '2a',
         marks: 10,
         command: 'Explain',
@@ -2712,7 +2712,7 @@ export const pastPapers: PastPaperRef[] = [
           'macroeconomic-objectives',
         ],
       },
-      {
+      { inMockScope: true,
         q: '2b',
         marks: 15,
         command: 'Discuss',
@@ -2721,7 +2721,7 @@ export const pastPapers: PastPaperRef[] = [
           'ad-as-model-and-business-cycle',
         ],
       },
-      {
+      { inMockScope: false,
         q: '3a',
         marks: 10,
         command: 'Explain',
@@ -2730,7 +2730,7 @@ export const pastPapers: PastPaperRef[] = [
           'balance-of-payments',
         ],
       },
-      {
+      { inMockScope: false,
         q: '3b',
         marks: 15,
         command: 'Discuss',
@@ -2765,7 +2765,7 @@ export const pastPapers: PastPaperRef[] = [
     minutes: 75,
     marks: 25,
     items: [
-      {
+      { inMockScope: false,
         q: '1a',
         marks: 10,
         command: 'Explain',
@@ -2773,7 +2773,7 @@ export const pastPapers: PastPaperRef[] = [
           'externalities',
         ],
       },
-      {
+      { inMockScope: false,
         q: '1b',
         marks: 15,
         command: 'Evaluate',
@@ -2783,7 +2783,7 @@ export const pastPapers: PastPaperRef[] = [
           'government-taxes-subsidies-price-controls',
         ],
       },
-      {
+      { inMockScope: true,
         q: '2a',
         marks: 10,
         command: 'Explain',
@@ -2791,7 +2791,7 @@ export const pastPapers: PastPaperRef[] = [
           'macroeconomic-objectives',
         ],
       },
-      {
+      { inMockScope: false,
         q: '2b',
         marks: 15,
         command: 'Discuss',
@@ -2800,7 +2800,7 @@ export const pastPapers: PastPaperRef[] = [
           'macroeconomic-objectives',
         ],
       },
-      {
+      { inMockScope: false,
         q: '3a',
         marks: 10,
         command: 'Explain',
@@ -2809,7 +2809,7 @@ export const pastPapers: PastPaperRef[] = [
           'balance-of-payments',
         ],
       },
-      {
+      { inMockScope: false,
         q: '3b',
         marks: 15,
         command: 'Discuss',
@@ -2843,7 +2843,7 @@ export const pastPapers: PastPaperRef[] = [
     minutes: 105,
     marks: 40,
     items: [
-      {
+      { inMockScope: true,
         q: '1a(i)',
         marks: 2,
         command: 'Define',
@@ -2851,7 +2851,7 @@ export const pastPapers: PastPaperRef[] = [
           'monetary-policy',
         ],
       },
-      {
+      { inMockScope: false,
         q: '1a(ii)',
         marks: 2,
         command: 'Define',
@@ -2859,7 +2859,7 @@ export const pastPapers: PastPaperRef[] = [
           'balance-of-payments',
         ],
       },
-      {
+      { inMockScope: true,
         q: '1b(i)',
         marks: 3,
         command: 'Calculate',
@@ -2867,7 +2867,7 @@ export const pastPapers: PastPaperRef[] = [
           'measuring-economic-activity',
         ],
       },
-      {
+      { inMockScope: true,
         q: '1b(ii)',
         marks: 2,
         command: 'Sketch',
@@ -2876,7 +2876,7 @@ export const pastPapers: PastPaperRef[] = [
           'ad-as-model-and-business-cycle',
         ],
       },
-      {
+      { inMockScope: false,
         q: '1c',
         marks: 4,
         command: 'Explain',
@@ -2885,7 +2885,7 @@ export const pastPapers: PastPaperRef[] = [
           'exchange-rates',
         ],
       },
-      {
+      { inMockScope: false,
         q: '1d',
         marks: 4,
         command: 'Explain',
@@ -2894,7 +2894,7 @@ export const pastPapers: PastPaperRef[] = [
           'benefits-of-trade',
         ],
       },
-      {
+      { inMockScope: true,
         q: '1e',
         marks: 4,
         command: 'Explain',
@@ -2902,7 +2902,7 @@ export const pastPapers: PastPaperRef[] = [
           'externalities',
         ],
       },
-      {
+      { inMockScope: true,
         q: '1f',
         marks: 4,
         command: 'Explain',
@@ -2911,7 +2911,7 @@ export const pastPapers: PastPaperRef[] = [
           'inequality-and-poverty',
         ],
       },
-      {
+      { inMockScope: false,
         q: '1g',
         marks: 15,
         command: 'Discuss',
@@ -2921,7 +2921,7 @@ export const pastPapers: PastPaperRef[] = [
           'policies-for-growth-and-development',
         ],
       },
-      {
+      { inMockScope: true,
         q: '2a(i)',
         marks: 2,
         command: 'Define',
@@ -2929,7 +2929,7 @@ export const pastPapers: PastPaperRef[] = [
           'fiscal-policy',
         ],
       },
-      {
+      { inMockScope: true,
         q: '2a(ii)',
         marks: 2,
         command: 'Define',
@@ -2937,7 +2937,7 @@ export const pastPapers: PastPaperRef[] = [
           'externalities',
         ],
       },
-      {
+      { inMockScope: true,
         q: '2b(i)',
         marks: 2,
         command: 'Calculate',
@@ -2945,7 +2945,7 @@ export const pastPapers: PastPaperRef[] = [
           'measuring-economic-activity',
         ],
       },
-      {
+      { inMockScope: true,
         q: '2b(ii)',
         marks: 1,
         command: 'Calculate',
@@ -2953,7 +2953,7 @@ export const pastPapers: PastPaperRef[] = [
           'measuring-economic-activity',
         ],
       },
-      {
+      { inMockScope: true,
         q: '2b(iii)',
         marks: 2,
         command: 'Sketch',
@@ -2961,7 +2961,7 @@ export const pastPapers: PastPaperRef[] = [
           'ad-as-model-and-business-cycle',
         ],
       },
-      {
+      { inMockScope: true,
         q: '2c',
         marks: 4,
         command: 'Explain',
@@ -2970,7 +2970,7 @@ export const pastPapers: PastPaperRef[] = [
           'ad-as-model-and-business-cycle',
         ],
       },
-      {
+      { inMockScope: true,
         q: '2d',
         marks: 4,
         command: 'Explain',
@@ -2978,7 +2978,7 @@ export const pastPapers: PastPaperRef[] = [
           'government-taxes-subsidies-price-controls',
         ],
       },
-      {
+      { inMockScope: false,
         q: '2e',
         marks: 4,
         command: 'Explain',
@@ -2987,7 +2987,7 @@ export const pastPapers: PastPaperRef[] = [
           'trade-protection',
         ],
       },
-      {
+      { inMockScope: false,
         q: '2f',
         marks: 4,
         command: 'Explain',
@@ -2996,7 +2996,7 @@ export const pastPapers: PastPaperRef[] = [
           'measuring-development',
         ],
       },
-      {
+      { inMockScope: true,
         q: '2g',
         marks: 15,
         command: 'Evaluate',
@@ -3032,7 +3032,7 @@ export const pastPapers: PastPaperRef[] = [
     minutes: 60,
     marks: 30,
     items: [
-      {
+      { inMockScope: false,
         q: '1a(i)',
         marks: 2,
         command: 'Define',
@@ -3040,7 +3040,7 @@ export const pastPapers: PastPaperRef[] = [
           'balance-of-payments',
         ],
       },
-      {
+      { inMockScope: false,
         q: '1a(ii)',
         marks: 2,
         command: 'Calculate',
@@ -3048,7 +3048,7 @@ export const pastPapers: PastPaperRef[] = [
           'balance-of-payments',
         ],
       },
-      {
+      { inMockScope: false,
         q: '1a(iii)',
         marks: 4,
         command: 'Explain',
@@ -3056,7 +3056,7 @@ export const pastPapers: PastPaperRef[] = [
           'exchange-rates',
         ],
       },
-      {
+      { inMockScope: false,
         q: '1a(iv)',
         marks: 1,
         command: 'Describe',
@@ -3064,7 +3064,7 @@ export const pastPapers: PastPaperRef[] = [
           'exchange-rates',
         ],
       },
-      {
+      { inMockScope: false,
         q: '1a(v)',
         marks: 3,
         command: 'Calculate',
@@ -3072,7 +3072,7 @@ export const pastPapers: PastPaperRef[] = [
           'exchange-rates',
         ],
       },
-      {
+      { inMockScope: true,
         q: '1a(vi)',
         marks: 1,
         command: 'Determine',
@@ -3081,7 +3081,7 @@ export const pastPapers: PastPaperRef[] = [
           'supply',
         ],
       },
-      {
+      { inMockScope: false,
         q: '1a(vii)',
         marks: 3,
         command: 'Calculate',
@@ -3090,7 +3090,7 @@ export const pastPapers: PastPaperRef[] = [
           'price-elasticity-of-demand',
         ],
       },
-      {
+      { inMockScope: false,
         q: '1a(viii)',
         marks: 4,
         command: 'Explain',
@@ -3099,7 +3099,7 @@ export const pastPapers: PastPaperRef[] = [
           'barriers-to-growth-and-development',
         ],
       },
-      {
+      { inMockScope: false,
         q: '1b',
         marks: 10,
         command: 'Recommend',
@@ -3135,7 +3135,7 @@ export const pastPapers: PastPaperRef[] = [
     minutes: 60,
     marks: 30,
     items: [
-      {
+      { inMockScope: false,
         q: '2a(i)',
         marks: 1,
         command: 'Identify',
@@ -3143,7 +3143,7 @@ export const pastPapers: PastPaperRef[] = [
           'monopoly-and-natural-monopoly',
         ],
       },
-      {
+      { inMockScope: false,
         q: '2a(ii)',
         marks: 1,
         command: 'Identify',
@@ -3151,7 +3151,7 @@ export const pastPapers: PastPaperRef[] = [
           'monopoly-and-natural-monopoly',
         ],
       },
-      {
+      { inMockScope: false,
         q: '2a(iii)',
         marks: 2,
         command: 'Outline',
@@ -3159,7 +3159,7 @@ export const pastPapers: PastPaperRef[] = [
           'monopoly-and-natural-monopoly',
         ],
       },
-      {
+      { inMockScope: true,
         q: '2a(iv)',
         marks: 4,
         command: 'Explain',
@@ -3167,7 +3167,7 @@ export const pastPapers: PastPaperRef[] = [
           'price-elasticity-of-demand',
         ],
       },
-      {
+      { inMockScope: true,
         q: '2a(v)',
         marks: 1,
         command: 'Identify',
@@ -3175,7 +3175,7 @@ export const pastPapers: PastPaperRef[] = [
           'government-taxes-subsidies-price-controls',
         ],
       },
-      {
+      { inMockScope: true,
         q: '2a(vi)',
         marks: 2,
         command: 'Calculate',
@@ -3184,7 +3184,7 @@ export const pastPapers: PastPaperRef[] = [
           'government-taxes-subsidies-price-controls',
         ],
       },
-      {
+      { inMockScope: true,
         q: '2a(vii)',
         marks: 2,
         command: 'Calculate',
@@ -3193,7 +3193,7 @@ export const pastPapers: PastPaperRef[] = [
           'government-taxes-subsidies-price-controls',
         ],
       },
-      {
+      { inMockScope: true,
         q: '2a(viii)',
         marks: 1,
         command: 'Calculate',
@@ -3201,7 +3201,7 @@ export const pastPapers: PastPaperRef[] = [
           'multiplier',
         ],
       },
-      {
+      { inMockScope: true,
         q: '2a(ix)',
         marks: 4,
         command: 'Explain',
@@ -3209,7 +3209,7 @@ export const pastPapers: PastPaperRef[] = [
           'fiscal-policy',
         ],
       },
-      {
+      { inMockScope: true,
         q: '2a(x)',
         marks: 2,
         command: 'Define',
@@ -3217,7 +3217,7 @@ export const pastPapers: PastPaperRef[] = [
           'critique-maximizing-behaviour',
         ],
       },
-      {
+      { inMockScope: true,
         q: '2b',
         marks: 10,
         command: 'Recommend',
@@ -3252,7 +3252,7 @@ export const pastPapers: PastPaperRef[] = [
     minutes: 75,
     marks: 25,
     items: [
-      {
+      { inMockScope: false,
         q: '1a',
         marks: 10,
         command: 'Explain',
@@ -3260,7 +3260,7 @@ export const pastPapers: PastPaperRef[] = [
           'price-elasticity-of-demand',
         ],
       },
-      {
+      { inMockScope: false,
         q: '1b',
         marks: 15,
         command: 'Discuss',
@@ -3269,7 +3269,7 @@ export const pastPapers: PastPaperRef[] = [
           'government-taxes-subsidies-price-controls',
         ],
       },
-      {
+      { inMockScope: true,
         q: '2a',
         marks: 10,
         command: 'Explain',
@@ -3278,7 +3278,7 @@ export const pastPapers: PastPaperRef[] = [
           'ad-as-model-and-business-cycle',
         ],
       },
-      {
+      { inMockScope: true,
         q: '2b',
         marks: 15,
         command: 'Evaluate',
@@ -3287,7 +3287,7 @@ export const pastPapers: PastPaperRef[] = [
           'macroeconomic-objectives',
         ],
       },
-      {
+      { inMockScope: false,
         q: '3a',
         marks: 10,
         command: 'Explain',
@@ -3295,7 +3295,7 @@ export const pastPapers: PastPaperRef[] = [
           'exchange-rates',
         ],
       },
-      {
+      { inMockScope: false,
         q: '3b',
         marks: 15,
         command: 'Discuss',
@@ -3330,7 +3330,7 @@ export const pastPapers: PastPaperRef[] = [
     minutes: 75,
     marks: 25,
     items: [
-      {
+      { inMockScope: false,
         q: '1a',
         marks: 10,
         command: 'Explain',
@@ -3339,7 +3339,7 @@ export const pastPapers: PastPaperRef[] = [
           'demand',
         ],
       },
-      {
+      { inMockScope: false,
         q: '1b',
         marks: 15,
         command: 'Evaluate',
@@ -3348,7 +3348,7 @@ export const pastPapers: PastPaperRef[] = [
           'government-taxes-subsidies-price-controls',
         ],
       },
-      {
+      { inMockScope: false,
         q: '2a',
         marks: 10,
         command: 'Explain',
@@ -3357,7 +3357,7 @@ export const pastPapers: PastPaperRef[] = [
           'balance-of-payments',
         ],
       },
-      {
+      { inMockScope: true,
         q: '2b',
         marks: 15,
         command: 'Discuss',
@@ -3366,7 +3366,7 @@ export const pastPapers: PastPaperRef[] = [
           'macroeconomic-objectives',
         ],
       },
-      {
+      { inMockScope: false,
         q: '3a',
         marks: 10,
         command: 'Explain',
@@ -3374,7 +3374,7 @@ export const pastPapers: PastPaperRef[] = [
           'trade-protection',
         ],
       },
-      {
+      { inMockScope: false,
         q: '3b',
         marks: 15,
         command: 'Evaluate',
@@ -3409,7 +3409,7 @@ export const pastPapers: PastPaperRef[] = [
     minutes: 75,
     marks: 25,
     items: [
-      {
+      { inMockScope: false,
         q: '1a',
         marks: 10,
         command: 'Explain',
@@ -3417,7 +3417,7 @@ export const pastPapers: PastPaperRef[] = [
           'elasticity-of-supply',
         ],
       },
-      {
+      { inMockScope: false,
         q: '1b',
         marks: 15,
         command: 'Discuss',
@@ -3426,7 +3426,7 @@ export const pastPapers: PastPaperRef[] = [
           'competitive-market-equilibrium',
         ],
       },
-      {
+      { inMockScope: true,
         q: '2a',
         marks: 10,
         command: 'Explain',
@@ -3434,7 +3434,7 @@ export const pastPapers: PastPaperRef[] = [
           'inequality-and-poverty',
         ],
       },
-      {
+      { inMockScope: false,
         q: '2b',
         marks: 15,
         command: 'Evaluate',
@@ -3443,7 +3443,7 @@ export const pastPapers: PastPaperRef[] = [
           'government-taxes-subsidies-price-controls',
         ],
       },
-      {
+      { inMockScope: false,
         q: '3a',
         marks: 10,
         command: 'Explain',
@@ -3452,7 +3452,7 @@ export const pastPapers: PastPaperRef[] = [
           'exchange-rates',
         ],
       },
-      {
+      { inMockScope: false,
         q: '3b',
         marks: 15,
         command: 'Evaluate',
@@ -3487,7 +3487,7 @@ export const pastPapers: PastPaperRef[] = [
     minutes: 105,
     marks: 40,
     items: [
-      {
+      { inMockScope: true,
         q: '1a(i)',
         marks: 2,
         command: 'Define',
@@ -3495,7 +3495,7 @@ export const pastPapers: PastPaperRef[] = [
           'macroeconomic-objectives',
         ],
       },
-      {
+      { inMockScope: false,
         q: '1a(ii)',
         marks: 2,
         command: 'Define',
@@ -3503,7 +3503,7 @@ export const pastPapers: PastPaperRef[] = [
           'policies-for-growth-and-development',
         ],
       },
-      {
+      { inMockScope: true,
         q: '1b(i)',
         marks: 2,
         command: 'Calculate',
@@ -3511,7 +3511,7 @@ export const pastPapers: PastPaperRef[] = [
           'elasticity-of-supply',
         ],
       },
-      {
+      { inMockScope: true,
         q: '1b(ii)',
         marks: 1,
         command: 'Calculate',
@@ -3519,7 +3519,7 @@ export const pastPapers: PastPaperRef[] = [
           'supply',
         ],
       },
-      {
+      { inMockScope: true,
         q: '1b(iii)',
         marks: 2,
         command: 'Sketch',
@@ -3529,7 +3529,7 @@ export const pastPapers: PastPaperRef[] = [
           'supply',
         ],
       },
-      {
+      { inMockScope: false,
         q: '1c',
         marks: 4,
         command: 'Explain',
@@ -3537,7 +3537,7 @@ export const pastPapers: PastPaperRef[] = [
           'trade-protection',
         ],
       },
-      {
+      { inMockScope: false,
         q: '1d',
         marks: 4,
         command: 'Explain',
@@ -3546,7 +3546,7 @@ export const pastPapers: PastPaperRef[] = [
           'monetary-policy',
         ],
       },
-      {
+      { inMockScope: false,
         q: '1e',
         marks: 4,
         command: 'Explain',
@@ -3555,7 +3555,7 @@ export const pastPapers: PastPaperRef[] = [
           'barriers-to-growth-and-development',
         ],
       },
-      {
+      { inMockScope: false,
         q: '1f',
         marks: 4,
         command: 'Explain',
@@ -3564,7 +3564,7 @@ export const pastPapers: PastPaperRef[] = [
           'measuring-development',
         ],
       },
-      {
+      { inMockScope: false,
         q: '1g',
         marks: 15,
         command: 'Discuss',
@@ -3573,7 +3573,7 @@ export const pastPapers: PastPaperRef[] = [
           'externalities',
         ],
       },
-      {
+      { inMockScope: true,
         q: '2a(i)',
         marks: 2,
         command: 'Define',
@@ -3581,7 +3581,7 @@ export const pastPapers: PastPaperRef[] = [
           'macroeconomic-objectives',
         ],
       },
-      {
+      { inMockScope: true,
         q: '2a(ii)',
         marks: 2,
         command: 'Define',
@@ -3589,7 +3589,7 @@ export const pastPapers: PastPaperRef[] = [
           'what-is-economics',
         ],
       },
-      {
+      { inMockScope: true,
         q: '2b(i)',
         marks: 2,
         command: 'Calculate',
@@ -3597,7 +3597,7 @@ export const pastPapers: PastPaperRef[] = [
           'measuring-economic-activity',
         ],
       },
-      {
+      { inMockScope: false,
         q: '2b(ii)',
         marks: 1,
         command: 'Calculate',
@@ -3606,7 +3606,7 @@ export const pastPapers: PastPaperRef[] = [
           'measuring-development',
         ],
       },
-      {
+      { inMockScope: true,
         q: '2b(iii)',
         marks: 2,
         command: 'Calculate',
@@ -3614,7 +3614,7 @@ export const pastPapers: PastPaperRef[] = [
           'measuring-economic-activity',
         ],
       },
-      {
+      { inMockScope: false,
         q: '2c',
         marks: 4,
         command: 'Explain',
@@ -3623,7 +3623,7 @@ export const pastPapers: PastPaperRef[] = [
           'benefits-of-trade',
         ],
       },
-      {
+      { inMockScope: true,
         q: '2d',
         marks: 4,
         command: 'Explain',
@@ -3632,7 +3632,7 @@ export const pastPapers: PastPaperRef[] = [
           'competitive-market-equilibrium',
         ],
       },
-      {
+      { inMockScope: false,
         q: '2e',
         marks: 4,
         command: 'Explain',
@@ -3641,7 +3641,7 @@ export const pastPapers: PastPaperRef[] = [
           'balance-of-payments',
         ],
       },
-      {
+      { inMockScope: true,
         q: '2f',
         marks: 4,
         command: 'Explain',
@@ -3650,7 +3650,7 @@ export const pastPapers: PastPaperRef[] = [
           'government-taxes-subsidies-price-controls',
         ],
       },
-      {
+      { inMockScope: false,
         q: '2g',
         marks: 15,
         command: 'Evaluate',
@@ -3686,7 +3686,7 @@ export const pastPapers: PastPaperRef[] = [
     minutes: 105,
     marks: 40,
     items: [
-      {
+      { inMockScope: true,
         q: '1a(i)',
         marks: 2,
         command: 'Define',
@@ -3694,7 +3694,7 @@ export const pastPapers: PastPaperRef[] = [
           'government-taxes-subsidies-price-controls',
         ],
       },
-      {
+      { inMockScope: true,
         q: '1a(ii)',
         marks: 2,
         command: 'Define',
@@ -3703,7 +3703,7 @@ export const pastPapers: PastPaperRef[] = [
           'government-taxes-subsidies-price-controls',
         ],
       },
-      {
+      { inMockScope: false,
         q: '1b(i)',
         marks: 1,
         command: 'Calculate',
@@ -3711,7 +3711,7 @@ export const pastPapers: PastPaperRef[] = [
           'balance-of-payments',
         ],
       },
-      {
+      { inMockScope: false,
         q: '1b(ii)',
         marks: 2,
         command: 'Calculate',
@@ -3719,7 +3719,7 @@ export const pastPapers: PastPaperRef[] = [
           'exchange-rates',
         ],
       },
-      {
+      { inMockScope: true,
         q: '1b(iii)',
         marks: 2,
         command: 'Sketch',
@@ -3728,7 +3728,7 @@ export const pastPapers: PastPaperRef[] = [
           'what-is-economics',
         ],
       },
-      {
+      { inMockScope: false,
         q: '1c',
         marks: 4,
         command: 'Explain',
@@ -3737,7 +3737,7 @@ export const pastPapers: PastPaperRef[] = [
           'benefits-of-trade',
         ],
       },
-      {
+      { inMockScope: true,
         q: '1d',
         marks: 4,
         command: 'Explain',
@@ -3746,7 +3746,7 @@ export const pastPapers: PastPaperRef[] = [
           'competitive-market-equilibrium',
         ],
       },
-      {
+      { inMockScope: true,
         q: '1e',
         marks: 4,
         command: 'Explain',
@@ -3755,7 +3755,7 @@ export const pastPapers: PastPaperRef[] = [
           'equity-and-market-failure',
         ],
       },
-      {
+      { inMockScope: false,
         q: '1f',
         marks: 4,
         command: 'Explain',
@@ -3764,7 +3764,7 @@ export const pastPapers: PastPaperRef[] = [
           'balance-of-payments',
         ],
       },
-      {
+      { inMockScope: false,
         q: '1g',
         marks: 15,
         command: 'Discuss',
@@ -3773,7 +3773,7 @@ export const pastPapers: PastPaperRef[] = [
           'measuring-development',
         ],
       },
-      {
+      { inMockScope: false,
         q: '2a(i)',
         marks: 2,
         command: 'Define',
@@ -3781,7 +3781,7 @@ export const pastPapers: PastPaperRef[] = [
           'barriers-to-growth-and-development',
         ],
       },
-      {
+      { inMockScope: false,
         q: '2a(ii)',
         marks: 2,
         command: 'Define',
@@ -3789,7 +3789,7 @@ export const pastPapers: PastPaperRef[] = [
           'policies-for-growth-and-development',
         ],
       },
-      {
+      { inMockScope: true,
         q: '2b(i)',
         marks: 2,
         command: 'Calculate',
@@ -3797,7 +3797,7 @@ export const pastPapers: PastPaperRef[] = [
           'measuring-economic-activity',
         ],
       },
-      {
+      { inMockScope: false,
         q: '2b(ii)',
         marks: 1,
         command: 'Calculate',
@@ -3806,7 +3806,7 @@ export const pastPapers: PastPaperRef[] = [
           'measuring-development',
         ],
       },
-      {
+      { inMockScope: false,
         q: '2b(iii)',
         marks: 2,
         command: 'Calculate',
@@ -3814,7 +3814,7 @@ export const pastPapers: PastPaperRef[] = [
           'exchange-rates',
         ],
       },
-      {
+      { inMockScope: false,
         q: '2c',
         marks: 4,
         command: 'Explain',
@@ -3823,7 +3823,7 @@ export const pastPapers: PastPaperRef[] = [
           'benefits-of-trade',
         ],
       },
-      {
+      { inMockScope: true,
         q: '2d',
         marks: 4,
         command: 'Explain',
@@ -3832,7 +3832,7 @@ export const pastPapers: PastPaperRef[] = [
           'competitive-market-equilibrium',
         ],
       },
-      {
+      { inMockScope: false,
         q: '2e',
         marks: 4,
         command: 'Explain',
@@ -3841,7 +3841,7 @@ export const pastPapers: PastPaperRef[] = [
           'balance-of-payments',
         ],
       },
-      {
+      { inMockScope: true,
         q: '2f',
         marks: 4,
         command: 'Explain',
@@ -3850,7 +3850,7 @@ export const pastPapers: PastPaperRef[] = [
           'government-taxes-subsidies-price-controls',
         ],
       },
-      {
+      { inMockScope: false,
         q: '2g',
         marks: 15,
         command: 'Evaluate',
@@ -3886,7 +3886,7 @@ export const pastPapers: PastPaperRef[] = [
     minutes: 105,
     marks: 40,
     items: [
-      {
+      { inMockScope: false,
         q: '1a(i)',
         marks: 2,
         command: 'Define',
@@ -3894,7 +3894,7 @@ export const pastPapers: PastPaperRef[] = [
           'trade-protection',
         ],
       },
-      {
+      { inMockScope: false,
         q: '1a(ii)',
         marks: 2,
         command: 'List',
@@ -3902,7 +3902,7 @@ export const pastPapers: PastPaperRef[] = [
           'measuring-development',
         ],
       },
-      {
+      { inMockScope: false,
         q: '1b(i)',
         marks: 1,
         command: 'Calculate',
@@ -3910,7 +3910,7 @@ export const pastPapers: PastPaperRef[] = [
           'balance-of-payments',
         ],
       },
-      {
+      { inMockScope: false,
         q: '1b(ii)',
         marks: 2,
         command: 'Calculate',
@@ -3918,7 +3918,7 @@ export const pastPapers: PastPaperRef[] = [
           'balance-of-payments',
         ],
       },
-      {
+      { inMockScope: true,
         q: '1b(iii)',
         marks: 2,
         command: 'Sketch',
@@ -3927,7 +3927,7 @@ export const pastPapers: PastPaperRef[] = [
           'competitive-market-equilibrium',
         ],
       },
-      {
+      { inMockScope: true,
         q: '1c',
         marks: 4,
         command: 'Explain',
@@ -3936,7 +3936,7 @@ export const pastPapers: PastPaperRef[] = [
           'monetary-policy',
         ],
       },
-      {
+      { inMockScope: false,
         q: '1d',
         marks: 4,
         command: 'Explain',
@@ -3945,7 +3945,7 @@ export const pastPapers: PastPaperRef[] = [
           'policies-for-growth-and-development',
         ],
       },
-      {
+      { inMockScope: true,
         q: '1e',
         marks: 4,
         command: 'Explain',
@@ -3954,7 +3954,7 @@ export const pastPapers: PastPaperRef[] = [
           'government-taxes-subsidies-price-controls',
         ],
       },
-      {
+      { inMockScope: false,
         q: '1f',
         marks: 4,
         command: 'Explain',
@@ -3963,7 +3963,7 @@ export const pastPapers: PastPaperRef[] = [
           'balance-of-payments',
         ],
       },
-      {
+      { inMockScope: false,
         q: '1g',
         marks: 15,
         command: 'Discuss',
@@ -3972,7 +3972,7 @@ export const pastPapers: PastPaperRef[] = [
           'inequality-and-poverty',
         ],
       },
-      {
+      { inMockScope: false,
         q: '2a(i)',
         marks: 2,
         command: 'Define',
@@ -3980,7 +3980,7 @@ export const pastPapers: PastPaperRef[] = [
           'balance-of-payments',
         ],
       },
-      {
+      { inMockScope: true,
         q: '2a(ii)',
         marks: 2,
         command: 'Define',
@@ -3988,7 +3988,7 @@ export const pastPapers: PastPaperRef[] = [
           'what-is-economics',
         ],
       },
-      {
+      { inMockScope: true,
         q: '2b(i)',
         marks: 2,
         command: 'Calculate',
@@ -3996,7 +3996,7 @@ export const pastPapers: PastPaperRef[] = [
           'measuring-economic-activity',
         ],
       },
-      {
+      { inMockScope: false,
         q: '2b(ii)',
         marks: 1,
         command: 'Calculate',
@@ -4005,7 +4005,7 @@ export const pastPapers: PastPaperRef[] = [
           'measuring-development',
         ],
       },
-      {
+      { inMockScope: false,
         q: '2b(iii)',
         marks: 2,
         command: 'Calculate',
@@ -4013,7 +4013,7 @@ export const pastPapers: PastPaperRef[] = [
           'exchange-rates',
         ],
       },
-      {
+      { inMockScope: false,
         q: '2c',
         marks: 4,
         command: 'Explain',
@@ -4022,7 +4022,7 @@ export const pastPapers: PastPaperRef[] = [
           'barriers-to-growth-and-development',
         ],
       },
-      {
+      { inMockScope: true,
         q: '2d',
         marks: 4,
         command: 'Explain',
@@ -4031,7 +4031,7 @@ export const pastPapers: PastPaperRef[] = [
           'competitive-market-equilibrium',
         ],
       },
-      {
+      { inMockScope: false,
         q: '2e',
         marks: 4,
         command: 'Explain',
@@ -4040,7 +4040,7 @@ export const pastPapers: PastPaperRef[] = [
           'monetary-policy',
         ],
       },
-      {
+      { inMockScope: true,
         q: '2f',
         marks: 4,
         command: 'Explain',
@@ -4049,7 +4049,7 @@ export const pastPapers: PastPaperRef[] = [
           'government-taxes-subsidies-price-controls',
         ],
       },
-      {
+      { inMockScope: false,
         q: '2g',
         marks: 15,
         command: 'Evaluate',
@@ -4085,7 +4085,7 @@ export const pastPapers: PastPaperRef[] = [
     minutes: 60,
     marks: 30,
     items: [
-      {
+      { inMockScope: true,
         q: '1a(i)',
         marks: 2,
         command: 'Calculate',
@@ -4093,7 +4093,7 @@ export const pastPapers: PastPaperRef[] = [
           'competitive-market-equilibrium',
         ],
       },
-      {
+      { inMockScope: true,
         q: '1a(ii)',
         marks: 4,
         command: 'Explain',
@@ -4101,7 +4101,7 @@ export const pastPapers: PastPaperRef[] = [
           'externalities',
         ],
       },
-      {
+      { inMockScope: true,
         q: '1a(iii)',
         marks: 2,
         command: 'Define',
@@ -4109,7 +4109,7 @@ export const pastPapers: PastPaperRef[] = [
           'critique-maximizing-behaviour',
         ],
       },
-      {
+      { inMockScope: false,
         q: '1a(iv)',
         marks: 2,
         command: 'Sketch',
@@ -4117,7 +4117,7 @@ export const pastPapers: PastPaperRef[] = [
           'monopoly-and-natural-monopoly',
         ],
       },
-      {
+      { inMockScope: false,
         q: '1a(v)',
         marks: 2,
         command: 'Calculate',
@@ -4125,7 +4125,7 @@ export const pastPapers: PastPaperRef[] = [
           'monopoly-and-natural-monopoly',
         ],
       },
-      {
+      { inMockScope: false,
         q: '1a(vi)',
         marks: 2,
         command: 'Calculate',
@@ -4133,7 +4133,7 @@ export const pastPapers: PastPaperRef[] = [
           'monopoly-and-natural-monopoly',
         ],
       },
-      {
+      { inMockScope: false,
         q: '1a(vii)',
         marks: 2,
         command: 'Calculate',
@@ -4141,7 +4141,7 @@ export const pastPapers: PastPaperRef[] = [
           'monopoly-and-natural-monopoly',
         ],
       },
-      {
+      { inMockScope: true,
         q: '1a(viii)',
         marks: 4,
         command: 'Explain',
@@ -4149,7 +4149,7 @@ export const pastPapers: PastPaperRef[] = [
           'critique-maximizing-behaviour',
         ],
       },
-      {
+      { inMockScope: true,
         q: '1b',
         marks: 10,
         command: 'Recommend',
@@ -4184,7 +4184,7 @@ export const pastPapers: PastPaperRef[] = [
     minutes: 60,
     marks: 30,
     items: [
-      {
+      { inMockScope: true,
         q: '2a(i)',
         marks: 2,
         command: 'Outline',
@@ -4192,7 +4192,7 @@ export const pastPapers: PastPaperRef[] = [
           'macroeconomic-objectives',
         ],
       },
-      {
+      { inMockScope: true,
         q: '2a(ii)',
         marks: 1,
         command: 'Draw',
@@ -4200,7 +4200,7 @@ export const pastPapers: PastPaperRef[] = [
           'macroeconomic-objectives',
         ],
       },
-      {
+      { inMockScope: true,
         q: '2a(iii)',
         marks: 2,
         command: 'Calculate',
@@ -4208,7 +4208,7 @@ export const pastPapers: PastPaperRef[] = [
           'macroeconomic-objectives',
         ],
       },
-      {
+      { inMockScope: true,
         q: '2a(iv)',
         marks: 1,
         command: 'Calculate',
@@ -4216,7 +4216,7 @@ export const pastPapers: PastPaperRef[] = [
           'macroeconomic-objectives',
         ],
       },
-      {
+      { inMockScope: true,
         q: '2a(v)',
         marks: 2,
         command: 'Calculate',
@@ -4224,7 +4224,7 @@ export const pastPapers: PastPaperRef[] = [
           'macroeconomic-objectives',
         ],
       },
-      {
+      { inMockScope: true,
         q: '2a(vi)',
         marks: 4,
         command: 'Explain',
@@ -4232,7 +4232,7 @@ export const pastPapers: PastPaperRef[] = [
           'macroeconomic-objectives',
         ],
       },
-      {
+      { inMockScope: false,
         q: '2a(vii)',
         marks: 1,
         command: 'Identify',
@@ -4240,7 +4240,7 @@ export const pastPapers: PastPaperRef[] = [
           'oligopoly-and-monopolistic-competition',
         ],
       },
-      {
+      { inMockScope: false,
         q: '2a(viii)',
         marks: 2,
         command: 'Show',
@@ -4248,7 +4248,7 @@ export const pastPapers: PastPaperRef[] = [
           'oligopoly-and-monopolistic-competition',
         ],
       },
-      {
+      { inMockScope: true,
         q: '2a(ix)',
         marks: 1,
         command: 'Calculate',
@@ -4256,7 +4256,7 @@ export const pastPapers: PastPaperRef[] = [
           'monetary-policy',
         ],
       },
-      {
+      { inMockScope: true,
         q: '2a(x)',
         marks: 4,
         command: 'Explain',
@@ -4264,7 +4264,7 @@ export const pastPapers: PastPaperRef[] = [
           'monetary-policy',
         ],
       },
-      {
+      { inMockScope: true,
         q: '2b',
         marks: 10,
         command: 'Recommend',
@@ -4299,7 +4299,7 @@ export const pastPapers: PastPaperRef[] = [
     minutes: 75,
     marks: 25,
     items: [
-      {
+      { inMockScope: false,
         q: '1a',
         marks: 10,
         command: 'Explain',
@@ -4307,7 +4307,7 @@ export const pastPapers: PastPaperRef[] = [
           'monopoly-and-natural-monopoly',
         ],
       },
-      {
+      { inMockScope: false,
         q: '1b',
         marks: 15,
         command: 'Discuss',
@@ -4316,7 +4316,7 @@ export const pastPapers: PastPaperRef[] = [
           'oligopoly-and-monopolistic-competition',
         ],
       },
-      {
+      { inMockScope: true,
         q: '2a',
         marks: 10,
         command: 'Explain',
@@ -4325,7 +4325,7 @@ export const pastPapers: PastPaperRef[] = [
           'inequality-and-poverty',
         ],
       },
-      {
+      { inMockScope: true,
         q: '2b',
         marks: 15,
         command: 'Discuss',
@@ -4335,7 +4335,7 @@ export const pastPapers: PastPaperRef[] = [
           'macroeconomic-objectives',
         ],
       },
-      {
+      { inMockScope: false,
         q: '3a',
         marks: 10,
         command: 'Explain',
@@ -4343,7 +4343,7 @@ export const pastPapers: PastPaperRef[] = [
           'barriers-to-growth-and-development',
         ],
       },
-      {
+      { inMockScope: false,
         q: '3b',
         marks: 15,
         command: 'Discuss',
@@ -4379,7 +4379,7 @@ export const pastPapers: PastPaperRef[] = [
     minutes: 75,
     marks: 25,
     items: [
-      {
+      { inMockScope: false,
         q: '1a',
         marks: 10,
         command: 'Explain',
@@ -4387,7 +4387,7 @@ export const pastPapers: PastPaperRef[] = [
           'oligopoly-and-monopolistic-competition',
         ],
       },
-      {
+      { inMockScope: false,
         q: '1b',
         marks: 15,
         command: 'Evaluate',
@@ -4397,7 +4397,7 @@ export const pastPapers: PastPaperRef[] = [
           'government-taxes-subsidies-price-controls',
         ],
       },
-      {
+      { inMockScope: true,
         q: '2a',
         marks: 10,
         command: 'Explain',
@@ -4406,7 +4406,7 @@ export const pastPapers: PastPaperRef[] = [
           'fiscal-policy',
         ],
       },
-      {
+      { inMockScope: true,
         q: '2b',
         marks: 15,
         command: 'Discuss',
@@ -4416,7 +4416,7 @@ export const pastPapers: PastPaperRef[] = [
           'supply-side-policies',
         ],
       },
-      {
+      { inMockScope: false,
         q: '3a',
         marks: 10,
         command: 'Explain',
@@ -4425,7 +4425,7 @@ export const pastPapers: PastPaperRef[] = [
           'barriers-to-growth-and-development',
         ],
       },
-      {
+      { inMockScope: false,
         q: '3b',
         marks: 15,
         command: 'Discuss',
@@ -4460,7 +4460,7 @@ export const pastPapers: PastPaperRef[] = [
     minutes: 105,
     marks: 40,
     items: [
-      {
+      { inMockScope: true,
         q: '1a(i)',
         marks: 2,
         command: 'Define',
@@ -4468,7 +4468,7 @@ export const pastPapers: PastPaperRef[] = [
           'inequality-and-poverty',
         ],
       },
-      {
+      { inMockScope: false,
         q: '1a(ii)',
         marks: 2,
         command: 'Define',
@@ -4476,7 +4476,7 @@ export const pastPapers: PastPaperRef[] = [
           'exchange-rates',
         ],
       },
-      {
+      { inMockScope: false,
         q: '1b(i)',
         marks: 2,
         command: 'Calculate',
@@ -4484,7 +4484,7 @@ export const pastPapers: PastPaperRef[] = [
           'exchange-rates',
         ],
       },
-      {
+      { inMockScope: true,
         q: '1b(ii)',
         marks: 3,
         command: 'Sketch',
@@ -4492,7 +4492,7 @@ export const pastPapers: PastPaperRef[] = [
           'ad-as-model-and-business-cycle',
         ],
       },
-      {
+      { inMockScope: true,
         q: '1c',
         marks: 4,
         command: 'Explain',
@@ -4501,7 +4501,7 @@ export const pastPapers: PastPaperRef[] = [
           'competitive-market-equilibrium',
         ],
       },
-      {
+      { inMockScope: false,
         q: '1d',
         marks: 4,
         command: 'Explain',
@@ -4509,7 +4509,7 @@ export const pastPapers: PastPaperRef[] = [
           'exchange-rates',
         ],
       },
-      {
+      { inMockScope: false,
         q: '1e',
         marks: 4,
         command: 'Explain',
@@ -4518,7 +4518,7 @@ export const pastPapers: PastPaperRef[] = [
           'policies-for-growth-and-development',
         ],
       },
-      {
+      { inMockScope: false,
         q: '1f',
         marks: 4,
         command: 'Explain',
@@ -4527,7 +4527,7 @@ export const pastPapers: PastPaperRef[] = [
           'measuring-development',
         ],
       },
-      {
+      { inMockScope: false,
         q: '1g',
         marks: 15,
         command: 'Evaluate',
@@ -4536,7 +4536,7 @@ export const pastPapers: PastPaperRef[] = [
           'policies-for-growth-and-development',
         ],
       },
-      {
+      { inMockScope: false,
         q: '2a(i)',
         marks: 2,
         command: 'Define',
@@ -4544,7 +4544,7 @@ export const pastPapers: PastPaperRef[] = [
           'exchange-rates',
         ],
       },
-      {
+      { inMockScope: false,
         q: '2a(ii)',
         marks: 2,
         command: 'Define',
@@ -4552,7 +4552,7 @@ export const pastPapers: PastPaperRef[] = [
           'barriers-to-growth-and-development',
         ],
       },
-      {
+      { inMockScope: true,
         q: '2b(i)',
         marks: 2,
         command: 'Calculate',
@@ -4560,7 +4560,7 @@ export const pastPapers: PastPaperRef[] = [
           'income-and-cross-elasticity',
         ],
       },
-      {
+      { inMockScope: false,
         q: '2b(ii)',
         marks: 1,
         command: 'Calculate',
@@ -4569,7 +4569,7 @@ export const pastPapers: PastPaperRef[] = [
           'measuring-development',
         ],
       },
-      {
+      { inMockScope: true,
         q: '2b(iii)',
         marks: 2,
         command: 'Sketch',
@@ -4577,7 +4577,7 @@ export const pastPapers: PastPaperRef[] = [
           'externalities',
         ],
       },
-      {
+      { inMockScope: true,
         q: '2c',
         marks: 4,
         command: 'Explain',
@@ -4586,7 +4586,7 @@ export const pastPapers: PastPaperRef[] = [
           'competitive-market-equilibrium',
         ],
       },
-      {
+      { inMockScope: false,
         q: '2d',
         marks: 4,
         command: 'Explain',
@@ -4595,7 +4595,7 @@ export const pastPapers: PastPaperRef[] = [
           'exchange-rates',
         ],
       },
-      {
+      { inMockScope: false,
         q: '2e',
         marks: 4,
         command: 'Explain',
@@ -4604,7 +4604,7 @@ export const pastPapers: PastPaperRef[] = [
           'barriers-to-growth-and-development',
         ],
       },
-      {
+      { inMockScope: false,
         q: '2f',
         marks: 4,
         command: 'Explain',
@@ -4612,7 +4612,7 @@ export const pastPapers: PastPaperRef[] = [
           'trade-protection',
         ],
       },
-      {
+      { inMockScope: false,
         q: '2g',
         marks: 15,
         command: 'Discuss',
@@ -4647,7 +4647,7 @@ export const pastPapers: PastPaperRef[] = [
     minutes: 105,
     marks: 40,
     items: [
-      {
+      { inMockScope: false,
         q: '1a(i)',
         marks: 2,
         command: 'Define',
@@ -4655,7 +4655,7 @@ export const pastPapers: PastPaperRef[] = [
           'balance-of-payments',
         ],
       },
-      {
+      { inMockScope: true,
         q: '1a(ii)',
         marks: 2,
         command: 'Define',
@@ -4663,7 +4663,7 @@ export const pastPapers: PastPaperRef[] = [
           'macroeconomic-objectives',
         ],
       },
-      {
+      { inMockScope: true,
         q: '1b(i)',
         marks: 2,
         command: 'Calculate',
@@ -4671,7 +4671,7 @@ export const pastPapers: PastPaperRef[] = [
           'measuring-economic-activity',
         ],
       },
-      {
+      { inMockScope: true,
         q: '1b(ii)',
         marks: 1,
         command: 'Determine',
@@ -4680,7 +4680,7 @@ export const pastPapers: PastPaperRef[] = [
           'macroeconomic-objectives',
         ],
       },
-      {
+      { inMockScope: true,
         q: '1b(iii)',
         marks: 2,
         command: 'Sketch',
@@ -4689,7 +4689,7 @@ export const pastPapers: PastPaperRef[] = [
           'fiscal-policy',
         ],
       },
-      {
+      { inMockScope: true,
         q: '1c',
         marks: 4,
         command: 'Explain',
@@ -4698,7 +4698,7 @@ export const pastPapers: PastPaperRef[] = [
           'ad-as-model-and-business-cycle',
         ],
       },
-      {
+      { inMockScope: true,
         q: '1d',
         marks: 4,
         command: 'Explain',
@@ -4707,7 +4707,7 @@ export const pastPapers: PastPaperRef[] = [
           'competitive-market-equilibrium',
         ],
       },
-      {
+      { inMockScope: false,
         q: '1e',
         marks: 4,
         command: 'Explain',
@@ -4715,7 +4715,7 @@ export const pastPapers: PastPaperRef[] = [
           'trade-protection',
         ],
       },
-      {
+      { inMockScope: false,
         q: '1f',
         marks: 4,
         command: 'Explain',
@@ -4724,7 +4724,7 @@ export const pastPapers: PastPaperRef[] = [
           'barriers-to-growth-and-development',
         ],
       },
-      {
+      { inMockScope: false,
         q: '1g',
         marks: 15,
         command: 'Discuss',
@@ -4733,7 +4733,7 @@ export const pastPapers: PastPaperRef[] = [
           'ad-as-model-and-business-cycle',
         ],
       },
-      {
+      { inMockScope: true,
         q: '2a(i)',
         marks: 2,
         command: 'Define',
@@ -4741,7 +4741,7 @@ export const pastPapers: PastPaperRef[] = [
           'price-elasticity-of-demand',
         ],
       },
-      {
+      { inMockScope: false,
         q: '2a(ii)',
         marks: 2,
         command: 'Define',
@@ -4749,7 +4749,7 @@ export const pastPapers: PastPaperRef[] = [
           'balance-of-payments',
         ],
       },
-      {
+      { inMockScope: true,
         q: '2b(i)',
         marks: 2,
         command: 'Calculate',
@@ -4757,7 +4757,7 @@ export const pastPapers: PastPaperRef[] = [
           'price-elasticity-of-demand',
         ],
       },
-      {
+      { inMockScope: true,
         q: '2b(ii)',
         marks: 1,
         command: 'Determine',
@@ -4765,7 +4765,7 @@ export const pastPapers: PastPaperRef[] = [
           'price-elasticity-of-demand',
         ],
       },
-      {
+      { inMockScope: false,
         q: '2b(iii)',
         marks: 2,
         command: 'Sketch',
@@ -4774,7 +4774,7 @@ export const pastPapers: PastPaperRef[] = [
           'policies-for-growth-and-development',
         ],
       },
-      {
+      { inMockScope: false,
         q: '2c',
         marks: 4,
         command: 'Explain',
@@ -4782,7 +4782,7 @@ export const pastPapers: PastPaperRef[] = [
           'exchange-rates',
         ],
       },
-      {
+      { inMockScope: false,
         q: '2d',
         marks: 4,
         command: 'Explain',
@@ -4791,7 +4791,7 @@ export const pastPapers: PastPaperRef[] = [
           'barriers-to-growth-and-development',
         ],
       },
-      {
+      { inMockScope: true,
         q: '2e',
         marks: 4,
         command: 'Explain',
@@ -4800,7 +4800,7 @@ export const pastPapers: PastPaperRef[] = [
           'government-taxes-subsidies-price-controls',
         ],
       },
-      {
+      { inMockScope: true,
         q: '2f',
         marks: 4,
         command: 'Explain',
@@ -4809,7 +4809,7 @@ export const pastPapers: PastPaperRef[] = [
           'ad-as-model-and-business-cycle',
         ],
       },
-      {
+      { inMockScope: false,
         q: '2g',
         marks: 15,
         command: 'Evaluate',
@@ -4845,7 +4845,7 @@ export const pastPapers: PastPaperRef[] = [
     minutes: 60,
     marks: 30,
     items: [
-      {
+      { inMockScope: true,
         q: '1a(i)',
         marks: 1,
         command: 'Calculate',
@@ -4853,7 +4853,7 @@ export const pastPapers: PastPaperRef[] = [
           'measuring-economic-activity',
         ],
       },
-      {
+      { inMockScope: true,
         q: '1a(ii)',
         marks: 1,
         command: 'Calculate',
@@ -4861,7 +4861,7 @@ export const pastPapers: PastPaperRef[] = [
           'monetary-policy',
         ],
       },
-      {
+      { inMockScope: true,
         q: '1a(iii)',
         marks: 4,
         command: 'Explain',
@@ -4869,7 +4869,7 @@ export const pastPapers: PastPaperRef[] = [
           'monetary-policy',
         ],
       },
-      {
+      { inMockScope: true,
         q: '1a(iv)',
         marks: 2,
         command: 'Outline',
@@ -4877,7 +4877,7 @@ export const pastPapers: PastPaperRef[] = [
           'monetary-policy',
         ],
       },
-      {
+      { inMockScope: true,
         q: '1a(v)',
         marks: 2,
         command: 'Sketch',
@@ -4885,7 +4885,7 @@ export const pastPapers: PastPaperRef[] = [
           'monetary-policy',
         ],
       },
-      {
+      { inMockScope: false,
         q: '1a(vi)',
         marks: 1,
         command: 'Calculate',
@@ -4893,7 +4893,7 @@ export const pastPapers: PastPaperRef[] = [
           'balance-of-payments',
         ],
       },
-      {
+      { inMockScope: false,
         q: '1a(vii)',
         marks: 3,
         command: 'Calculate',
@@ -4901,7 +4901,7 @@ export const pastPapers: PastPaperRef[] = [
           'balance-of-payments',
         ],
       },
-      {
+      { inMockScope: false,
         q: '1a(viii)',
         marks: 2,
         command: 'Calculate',
@@ -4909,7 +4909,7 @@ export const pastPapers: PastPaperRef[] = [
           'exchange-rates',
         ],
       },
-      {
+      { inMockScope: false,
         q: '1a(ix)',
         marks: 4,
         command: 'Explain',
@@ -4918,7 +4918,7 @@ export const pastPapers: PastPaperRef[] = [
           'exchange-rates',
         ],
       },
-      {
+      { inMockScope: false,
         q: '1b',
         marks: 10,
         command: 'Recommend',
@@ -4954,7 +4954,7 @@ export const pastPapers: PastPaperRef[] = [
     minutes: 60,
     marks: 30,
     items: [
-      {
+      { inMockScope: false,
         q: '2a(i)',
         marks: 2,
         command: 'Determine',
@@ -4962,7 +4962,7 @@ export const pastPapers: PastPaperRef[] = [
           'benefits-of-trade',
         ],
       },
-      {
+      { inMockScope: false,
         q: '2a(ii)',
         marks: 2,
         command: 'Sketch',
@@ -4970,7 +4970,7 @@ export const pastPapers: PastPaperRef[] = [
           'benefits-of-trade',
         ],
       },
-      {
+      { inMockScope: false,
         q: '2a(iii)',
         marks: 4,
         command: 'Explain',
@@ -4979,7 +4979,7 @@ export const pastPapers: PastPaperRef[] = [
           'arguments-for-and-against-trade-control',
         ],
       },
-      {
+      { inMockScope: false,
         q: '2a(iv)',
         marks: 2,
         command: 'Outline',
@@ -4987,7 +4987,7 @@ export const pastPapers: PastPaperRef[] = [
           'monopoly-and-natural-monopoly',
         ],
       },
-      {
+      { inMockScope: false,
         q: '2a(v)',
         marks: 1,
         command: 'Calculate',
@@ -4995,7 +4995,7 @@ export const pastPapers: PastPaperRef[] = [
           'monopoly-and-natural-monopoly',
         ],
       },
-      {
+      { inMockScope: false,
         q: '2a(vi)',
         marks: 1,
         command: 'Calculate',
@@ -5003,7 +5003,7 @@ export const pastPapers: PastPaperRef[] = [
           'monopoly-and-natural-monopoly',
         ],
       },
-      {
+      { inMockScope: true,
         q: '2a(vii)',
         marks: 1,
         command: 'Identify',
@@ -5012,7 +5012,7 @@ export const pastPapers: PastPaperRef[] = [
           'equity-and-market-failure',
         ],
       },
-      {
+      { inMockScope: true,
         q: '2a(viii)',
         marks: 2,
         command: 'Construct',
@@ -5020,7 +5020,7 @@ export const pastPapers: PastPaperRef[] = [
           'inequality-and-poverty',
         ],
       },
-      {
+      { inMockScope: true,
         q: '2a(ix)',
         marks: 4,
         command: 'Explain',
@@ -5028,7 +5028,7 @@ export const pastPapers: PastPaperRef[] = [
           'inequality-and-poverty',
         ],
       },
-      {
+      { inMockScope: true,
         q: '2a(x)',
         marks: 1,
         command: 'Calculate',
@@ -5036,7 +5036,7 @@ export const pastPapers: PastPaperRef[] = [
           'government-taxes-subsidies-price-controls',
         ],
       },
-      {
+      { inMockScope: true,
         q: '2b',
         marks: 10,
         command: 'Recommend',

@@ -27,20 +27,20 @@ export const terms: Term[] = [
     id: 'gross-national-income',
     term: { en: 'gross national income (GNI)', ru: 'валовой национальный доход, ВНД (gross national income, GNI)' },
     def: {
-      en: 'Total income of residents of a nation, wherever it is earned. It equals GDP plus net income from abroad.',
-      ru: 'Весь доход резидентов страны, где бы он ни был заработан. Равен ВВП плюс чистый доход, полученный из-за границы.',
+      en: 'The gross primary income received by residents of a nation: GDP plus primary income received from abroad minus primary income paid abroad. Primary income includes compensation of employees and property income; a personal transfer is a different flow.',
+      ru: 'Валовые первичные доходы резидентов страны: ВВП плюс первичные доходы, полученные из-за рубежа, минус первичные доходы, выплаченные за рубеж. К ним относятся оплата труда и доходы от собственности; личный денежный перевод — другой поток.',
     },
     example: {
-      en: 'A country with GDP of USD 30000 million and net income from abroad of USD 1500 million has a GNI of USD 31500 million.',
-      ru: 'У страны ВВП 30000 млн USD и чистый доход из-за границы 1500 млн USD, поэтому ВНД составляет 31500 млн USD.',
+      en: 'A country with GDP of USD 30000 million and net primary income from abroad of USD 1500 million has a GNI of USD 31500 million.',
+      ru: 'У страны ВВП 30000 млн USD и чистые первичные доходы из-за рубежа 1500 млн USD, поэтому ВНД составляет 31500 млн USD.',
     },
     pitfall: {
-      en: 'GDP counts output produced inside the borders; GNI counts income earned by residents, so the two can differ.',
-      ru: 'ВВП учитывает выпуск внутри границ страны, а ВНД — доход резидентов, поэтому эти показатели могут различаться.',
+      en: 'Residency, not citizenship or the act of sending money home, determines whose primary income it is. A migrant resident abroad sending a personal transfer to family does not by that transfer alone add to the origin country’s GNI.',
+      ru: 'Важна резидентность, а не гражданство или сам факт отправки денег домой. Личный перевод семье от мигранта — резидента другой страны сам по себе не увеличивает ВНД страны происхождения.',
     },
     syllabus: '4.8',
     papers: ['P1', 'P2', 'P3'],
-    src: { kind: 'textbook', title: book, locator: 'ch. 8.2, p. 253' },
+    src: { kind: 'web', title: 'United Nations et al., System of National Accounts 2008', url: 'https://unstats.un.org/unsd/nationalaccount/docs/SNA2008.pdf', locator: 'Printed pp.34–35, §§2.143–2.145: primary income versus current transfers' },
   },
   {
     id: 'gni-per-capita',

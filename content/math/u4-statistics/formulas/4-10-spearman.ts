@@ -13,8 +13,8 @@ export const formulas: Formula[] = [
       ru: 'Разность $d_i$ — это расстояние между двумя рангами объекта i, n — число объектов. Применяйте её только тогда, когда никакие ранги не совпадают.',
     },
     when: {
-      en: 'Ranked data with no ties, for example two judges ordering the same items.',
-      ru: 'Ранговые данные без совпадающих рангов, например порядок одних и тех же объектов у двух экспертов.',
+      en: 'For n>1 and ranked data with no ties, for example two judges ordering the same items.',
+      ru: 'При n>1: ранговые данные без совпадающих рангов, например порядок одних и тех же объектов у двух экспертов.',
     },
     syllabus: '4.10',
     inBooklet: false,
@@ -35,8 +35,8 @@ export const formulas: Formula[] = [
       ru: 'R_i и S_i — ранги объекта i по двум величинам, $\\bar{R}$ и $\\bar{S}$ — средние ранги.',
     },
     when: {
-      en: 'Ties are present (give tied values the average of their ranks), or to see why r_s behaves like Pearson\'s r.',
-      ru: 'Есть совпадающие значения (им присваивают среднее из их рангов) или нужно понять, почему r_s ведёт себя как коэффициент Пирсона.',
+      en: 'Both rank variables need nonzero variance; all-equal ranks make the coefficient undefined. Ties are present (give tied values the average of their ranks), or to see why r_s behaves like Pearson\'s r.',
+      ru: 'Дисперсии обоих наборов рангов должны быть ненулевыми; при всех одинаковых рангах коэффициент не определён. Есть совпадающие значения (им присваивают среднее из их рангов) или нужно понять, почему r_s ведёт себя как коэффициент Пирсона.',
     },
     syllabus: '4.10',
     inBooklet: false,

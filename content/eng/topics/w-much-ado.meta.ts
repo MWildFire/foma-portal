@@ -20,6 +20,7 @@ const topic: TopicMeta = {
   termIds: ['theme', 'motif', 'dramatic-irony', 'foil', 'juxtaposition', 'stage-directions', 'comedy', 'setting'],
   questionIds: ['w-much-ado-1', 'w-much-ado-2', 'w-much-ado-3'],
   sources: [
+    { kind: 'web', title: 'David and Ben Crystal, Shakespeare’s Words: Much Ado 1.3.25, canker = wild rose (glossary in context)', url: 'https://www.shakespeareswords.com/Public/Play.aspx?WorkId=23&Act=1&Scene=3' },
     { kind: 'web', title: 'Folger Shakespeare: Much Ado About Nothing (act.scene.line)', url: 'https://www.folger.edu/explore/shakespeares-works/much-ado-about-nothing/read/' },
     { kind: 'web', title: 'Folger Shakespeare: Much Ado About Nothing, introduction', url: 'https://www.folger.edu/explore/shakespeares-works/much-ado-about-nothing/' },
   ],

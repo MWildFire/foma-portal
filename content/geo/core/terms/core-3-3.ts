@@ -10,8 +10,8 @@ export const terms: Term[] = [
     id: 'core-resource-stewardship',
     term: { en: 'resource stewardship', ru: 'бережное управление ресурсами (resource stewardship)' },
     def: {
-      en: 'Managing a resource sustainably so that present and future generations can keep using it: use stays within the renewal or supply capacity of the resource, and the ecosystem that supplies it is protected.',
-      ru: 'Устойчивое управление ресурсом, при котором нынешнее и будущие поколения смогут продолжать им пользоваться: использование остаётся в пределах способности ресурса восстанавливаться или возобновляться, а экосистема, которая его даёт, защищена.',
+      en: 'Managing resources with present and future needs in view. For renewable resources, limit use with regard to replenishment and ecosystem needs. For non-renewable resources, reduce depletion and damage through efficient use, reuse, recycling and substitution; extraction does not make the geological stock renew.',
+      ru: 'Управление ресурсами с учётом нынешних и будущих потребностей. Для возобновляемых ресурсов изъятие ограничивают с учётом пополнения и потребностей экосистем. Для невозобновляемых снижают истощение и ущерб через эффективное использование, повторное применение, переработку и замещение; добыча не делает геологический запас возобновляемым.',
     },
     syllabus: 'core-3.3',
     papers: ['P2'],
@@ -54,8 +54,8 @@ export const terms: Term[] = [
     papers: ['P2'],
     src,
     pitfall: {
-      en: 'A quota only protects a resource if the total it divides is at or below the sustainable yield.',
-      ru: 'Квота защищает ресурс, только если делимый общий объём не превышает устойчивый объём изъятия.',
+      en: 'For a renewable stock, a quota must be compatible with replenishment and enforced; setting one is not proof of conservation. For a non-renewable mineral, sustainable yield is not the appropriate benchmark, and an export quota need not cap extraction.',
+      ru: 'Для возобновляемого запаса квота должна учитывать пополнение и соблюдаться; её наличие не доказывает сохранение ресурса. Для невозобновляемого минерального сырья устойчивый объём изъятия — неподходящий ориентир, а экспортная квота не обязательно ограничивает добычу.',
     },
   },
   {
@@ -88,8 +88,8 @@ export const terms: Term[] = [
     id: 'core-water-pricing',
     term: { en: 'water pricing', ru: 'ценообразование на воду (water pricing)' },
     def: {
-      en: 'Charging for water in a way that reflects its scarcity and the cost of supplying it, for example through volumetric or increasing block tariffs, so that users have a reason to use less.',
-      ru: 'Установление платы за воду, которая отражает её дефицит и стоимость подачи, например по объёму или по прогрессивным блочным тарифам, чтобы у пользователей была причина использовать меньше.',
+      en: 'Setting charges for water, for example by volume or through increasing block tariffs. Prices can help cover supply costs and encourage conservation, but do not necessarily reflect scarcity or guarantee a fall in use.',
+      ru: 'Установление платы за воду, например по объёму или по прогрессивным блочным тарифам. Цена может помогать покрывать затраты подачи и стимулировать экономию, но не обязательно отражает дефицит или гарантирует сокращение потребления.',
     },
     syllabus: 'core-3.3',
     papers: ['P2'],
@@ -117,8 +117,8 @@ export const terms: Term[] = [
     papers: ['P2'],
     src,
     pitfall: {
-      en: 'A high recycling rate does not reduce total waste; reducing and reusing come before recycling.',
-      ru: 'Высокий уровень переработки не уменьшает общий объём отходов: сокращение и повторное использование важнее переработки.',
+      en: 'A high recycling percentage alone does not show that less waste was generated: the total can rise while the percentage improves. Distinguish waste prevention, recycling and final disposal.',
+      ru: 'Сам по себе высокий процент переработки не доказывает уменьшения образования отходов: общий объём может расти вместе с долей переработки. Различай предотвращение отходов, переработку и окончательное удаление.',
     },
   },
   {
@@ -190,5 +190,29 @@ export const terms: Term[] = [
     syllabus: 'core-3.3',
     papers: ['P2'],
     src,
+  },
+  {
+    id: "core-sustainable-development-goals",
+    term: {
+      en: "Sustainable Development Goals (SDGs)",
+      ru: "Цели устойчивого развития (ЦУР)"
+    },
+    def: {
+      en: "The UN’s 17 goals adopted in 2015 under the 2030 Agenda, with targets and indicators linking social development and environmental sustainability.",
+      ru: "17 целей ООН, принятых в 2015 году в Повестке до 2030 года; задачи и показатели связывают социальное развитие с экологической устойчивостью."
+    },
+    syllabus: "core-3.3",
+    papers: [
+      "P2"
+    ],
+    src: {
+      kind: "web",
+      title: "UN, SDG 6: target 6.1 and indicator 6.1.1",
+      url: "https://sdgs.un.org/goals/goal6"
+    },
+    pitfall: {
+      en: "A goal, target and indicator are different levels. SDG 6.1.1 measures safely managed drinking-water service access, not sustainable withdrawal or automatic enforcement.",
+      ru: "Цель, задача и показатель — разные уровни. Показатель 6.1.1 измеряет доступ к безопасно организованному питьевому водоснабжению, а не устойчивость водозабора или исполнение обязательств."
+    }
   },
 ];

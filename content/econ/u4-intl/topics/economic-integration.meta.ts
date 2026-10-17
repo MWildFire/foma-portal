@@ -5,11 +5,11 @@ const topic: TopicMeta = {
   subject: 'econ',
   code: '4.4',
   title: { en: 'Economic integration', ru: 'Экономическая интеграция' },
-  papers: ['P1', 'P2', 'P3'],
+  papers: ['P2', 'P3'],
   order: 43,
   minutes: 40,
   priority: 2,
-  inMockScope: 'unknown',
+  inMockScope: 'no',
   outcomes: [
     { en: 'I can distinguish a free trade area, a customs union, a common market and an economic union', ru: 'Могу различать зону свободной торговли, таможенный союз, общий рынок и экономический союз' },
     { en: 'I can define trade creation and trade diversion and give an example of each', ru: 'Могу дать определение торговому созданию и торговому отклонению и привести пример каждого' },

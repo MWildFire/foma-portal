@@ -1,9 +1,10 @@
+import ReadableDiagram from '../readable-diagram';
 import { useState } from 'react';
 import type { Lang } from '../../contract/types';
 
 // A simplified energy balance, not a forecast. Pre-industrial CO₂ is rounded to 280 ppm; the 1750 value is about 278 ppm
 // (NOAA composite 277.6 ppm).
-// Forcing: ΔF = 5.35 × ln(C ÷ C₀) W/m², the standard simplified expression.
+// Forcing: ΔF = 5.35 × ln(C ÷ C₀) W/m², the legacy Myhre (1998) approximation, not the updated AR6 effective forcing expression.
 // Warming: ΔT = S × log₂(C ÷ C₀), with a climate sensitivity S = 3 °C per doubling of CO₂ (IPCC AR6 best estimate;
 // likely range 2.5–4 °C). It is the equilibrium value for CO₂ alone, before ocean lag and other forcings.
 // The albedo here is the planetary albedo of the whole Earth (clouds, atmosphere and surface together), about 0.30 (IPCC AR6 WG1, ch. 7, fig. 7.2).
@@ -43,37 +44,33 @@ export default function GreenhouseEffect({ lang }: { lang: Lang }) {
           <input type="range" min={0.2} max={0.4} step={0.01} value={albedo} onChange={event => setAlbedo(Number(event.target.value))} style={{ width: '100%' }} />
         </label>
       </div>
-      <svg role="img" aria-label={title} viewBox="0 0 400 190" width="100%" style={{ maxWidth: 520, display: 'block', marginTop: 16 }}>
+      <ReadableDiagram lang={lang}><svg role="img" aria-label={title} viewBox="0 0 600 240" width="100%" style={{ maxWidth: 780, display: 'block', marginTop: 16 }}>
         <defs>
           <marker id="greenhouse-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" markerUnits="userSpaceOnUse" orient="auto">
             <path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor" />
           </marker>
         </defs>
-        {/* sunlight in; part reflected back to space, part absorbed by the surface */}
-        <line x1={200} y1={4} x2={200} y2={52} stroke="currentColor" strokeWidth={2} markerEnd="url(#greenhouse-arrow)" />
-        <text x={208} y={14} fontSize="11" fill="currentColor">{ru ? 'входящая солнечная' : 'incoming sunlight'}</text>
-        <text x={208} y={27} fontSize="11" fill="currentColor">{`${num(SOLAR, 0)} ${unitFlux}`}</text>
-        <line x1={110} y1={52} x2={110} y2={4} stroke="currentColor" strokeWidth={2} markerEnd="url(#greenhouse-arrow)" />
-        <text x={104} y={28} fontSize="11" textAnchor="end" fill="currentColor">{`${ru ? 'отражено' : 'reflected'} ${num(reflected, 0)}`}</text>
-        <line x1={300} y1={52} x2={300} y2={150} stroke="currentColor" strokeWidth={2} markerEnd="url(#greenhouse-arrow)" />
-        <text x={308} y={112} fontSize="11" fill="currentColor">{`${ru ? 'поглощено' : 'absorbed'} ${num(absorbed, 0)}`}</text>
-        {/* the greenhouse layer: it takes up longwave radiation from the surface and sends part of it back down */}
-        <rect x={20} y={64} width={360} height={22} fill="currentColor" opacity={0.12} />
-        <text x={28} y={79} fontSize="11" fill="currentColor">{ru ? 'парниковый слой (CO₂, водяной пар, метан)' : 'greenhouse layer (CO₂, water vapour, methane)'}</text>
-        {/* longwave out to space balances the absorbed sunlight at equilibrium */}
-        <line x1={340} y1={62} x2={340} y2={4} stroke="currentColor" strokeWidth={2} markerEnd="url(#greenhouse-arrow)" />
-        <text x={332} y={44} fontSize="11" textAnchor="end" fill="currentColor">{ru ? 'уходящее длинноволновое' : 'outgoing longwave'}</text>
-        {/* the surface emits longwave radiation upwards */}
-        <line x1={60} y1={150} x2={60} y2={86} stroke="currentColor" strokeWidth={2} markerEnd="url(#greenhouse-arrow)" />
-        <text x={66} y={122} fontSize="10" fill="currentColor">{ru ? 'излучение поверхности' : 'surface longwave'}</text>
-        {/* back radiation: its width grows with the CO₂ forcing */}
-        <line x1={170} y1={86} x2={170} y2={150} stroke="currentColor" strokeWidth={backWidth} markerEnd="url(#greenhouse-arrow)" />
-        <text x={178} y={112} fontSize="10" fill="currentColor">{ru ? 'возврат излучения' : 'back radiation'}</text>
-        <text x={178} y={126} fontSize="10" fill="currentColor">{`ΔF ${num(forcing, 2)} ${unitFlux}`}</text>
-        {/* the surface */}
-        <rect x={20} y={150} width={360} height={18} fill="currentColor" opacity={0.25} />
-        <text x={28} y={163} fontSize="11" fill="currentColor">{ru ? 'поверхность Земли' : 'Earth’s surface'}</text>
-      </svg>
+        {/* Separate annotation lanes keep EN/RU labels clear of arrows. */}
+        <line x1={300} y1={10} x2={300} y2={70} stroke="currentColor" strokeWidth={2} markerEnd="url(#greenhouse-arrow)" />
+        <text x={310} y={24} fontSize="11" fill="currentColor">{ru ? 'входящая солнечная' : 'incoming sunlight'}</text>
+        <text x={310} y={40} fontSize="11" fill="currentColor">{`${num(SOLAR, 0)} ${unitFlux}`}</text>
+        <line x1={80} y1={70} x2={80} y2={10} stroke="currentColor" strokeWidth={2} markerEnd="url(#greenhouse-arrow)" />
+        <text x={90} y={36} fontSize="11" fill="currentColor">{`${ru ? 'отражено' : 'reflected'} ${num(reflected, 0)}`}</text>
+        <line x1={490} y1={70} x2={490} y2={210} stroke="currentColor" strokeWidth={2} markerEnd="url(#greenhouse-arrow)" />
+        <text x={498} y={185} fontSize="11" fill="currentColor">{`${ru ? 'поглощено' : 'absorbed'} ${num(absorbed, 0)}`}</text>
+        <rect x={20} y={80} width={560} height={24} fill="currentColor" opacity={0.12} />
+        <text x={28} y={97} fontSize="11" fill="currentColor">{ru ? 'парниковый слой (CO₂, водяной пар, метан)' : 'greenhouse layer (CO₂, water vapour, methane)'}</text>
+        <line x1={550} y1={78} x2={550} y2={10} stroke="currentColor" strokeWidth={2} markerEnd="url(#greenhouse-arrow)" />
+        <text x={540} y={58} fontSize="11" textAnchor="end" fill="currentColor">{ru ? 'уходящее длинноволновое' : 'outgoing longwave'}</text>
+        <line x1={80} y1={210} x2={80} y2={104} stroke="currentColor" strokeWidth={2} markerEnd="url(#greenhouse-arrow)" />
+        <text x={90} y={145} fontSize="11" fill="currentColor">{ru ? 'излучение' : 'surface'}</text>
+        <text x={90} y={161} fontSize="11" fill="currentColor">{ru ? 'поверхности' : 'longwave'}</text>
+        <line x1={275} y1={104} x2={275} y2={210} stroke="currentColor" strokeWidth={backWidth} markerEnd="url(#greenhouse-arrow)" />
+        <text x={285} y={145} fontSize="11" fill="currentColor">{ru ? 'обратное излучение' : 'back radiation'}</text>
+        <text x={285} y={161} fontSize="11" fill="currentColor">{ru ? 'стрелка условная' : 'qualitative arrow'}</text>
+        <rect x={20} y={210} width={560} height={20} fill="currentColor" opacity={0.25} />
+        <text x={28} y={225} fontSize="11" fill="currentColor">{ru ? 'поверхность Земли' : 'Earth’s surface'}</text>
+      </svg></ReadableDiagram>
       <ul style={{ marginTop: 12, paddingLeft: 18 }}>
         <li>
           {ru ? 'Радиационное воздействие CO₂: ΔF = 5,35 × ln(' : 'Radiative forcing of CO₂: ΔF = 5.35 × ln('}
@@ -84,7 +81,7 @@ export default function GreenhouseEffect({ lang }: { lang: Lang }) {
           {co2} ÷ {C0}) = <strong>{num(warming, 1)} °C</strong>
         </li>
         <li>
-          {ru ? 'Поглощённая солнечная энергия: (1 − ' : 'Absorbed sunlight: (1 − '}
+          {ru ? 'Поглощено всей системой Земли: (1 − ' : 'Sunlight absorbed by the whole Earth system: (1 − '}
           {num(albedo, 2)}) × 340 = <strong>{num(absorbed, 0)} {unitFlux}</strong>
           {ru ? '. Изменение альбедо на 0,01 меняет поглощение примерно на 3,4 Вт/м².' : '. A change of 0.01 in albedo changes absorbed energy by about 3.4 W/m².'}
         </li>
@@ -100,10 +97,15 @@ export default function GreenhouseEffect({ lang }: { lang: Lang }) {
           ? 'водяной пар усиливает потепление (+); таяние льда открывает тёмную поверхность и усиливает поглощение (+); облака в целом усиливают потепление (AR6, высокая уверенность), но дают самую большую неопределённость; таяние мерзлоты выделяет метан и CO₂ (+); ослабление поглотителей углерода оставляет больше CO₂ в воздухе (+).'
           : 'water vapour amplifies warming (+); melting ice exposes darker surfaces that absorb more sunlight (+); clouds amplify warming on balance (AR6, high confidence) but carry the largest uncertainty; thawing permafrost releases methane and CO₂ (+); weaker carbon sinks leave more CO₂ in the air (+).'}
       </p>
+      <p style={{ fontSize: 13 }}>
+        {ru ? 'Для ΔF использовано приближение Майре (1998) 5,35 ln(C/C₀), а не обновлённая формула эффективного воздействия AR6. ' : 'ΔF uses the legacy Myhre (1998) approximation 5.35 ln(C/C₀), rather than the updated AR6 effective-forcing expression. '}
+        <a href="https://19january2017snapshot.epa.gov/climatechange/epas-response-public-comments-volume-3-attribution-observed-climate-change_.html" target="_blank" rel="noreferrer">{ru ? 'EPA, ответ 3-42' : 'EPA, response 3-42'}</a>{'; '}
+        <a href="https://www.ipcc.ch/report/ar6/wg1/chapter/chapter-7/" target="_blank" rel="noreferrer">{ru ? 'AR6, с. 926, 934 и 944' : 'AR6, pp. 926, 934 and 944'}</a>.
+      </p>
       <p style={{ fontSize: 13, opacity: 0.8 }}>
         {ru
-          ? 'Модель упрощённая. Доиндустриальная концентрация CO₂ округлена до 280 ppm (около 278 ppm в 1750 г. по данным NOAA). Источник: IPCC AR6 WG1 (2021): климатическая чувствительность, наилучшая оценка 3 °C, вероятный диапазон 2,5–4 °C.'
-          : 'The model is simplified. Pre-industrial CO₂ is rounded to 280 ppm (about 278 ppm in 1750 by NOAA). Source: IPCC AR6 WG1 (2021): climate sensitivity best estimate 3 °C, likely range 2.5–4 °C.'}
+          ? 'Это две отдельные упрощённые зависимости: ползунок альбедо меняет поглощение солнечной энергии, но не включён в показанное потепление от CO₂. ΔF — изменение радиационного баланса, а не величина обратного излучения поверхности; ширина стрелки качественная. Поглощение рассчитано для атмосферы и поверхности вместе. Доиндустриальная концентрация CO₂ округлена до 280 ppm (около 278 ppm в 1750 г. по данным NOAA). Источник: IPCC AR6 WG1 (2021): климатическая чувствительность, наилучшая оценка 3 °C, вероятный диапазон 2,5–4 °C.'
+          : 'These are two separate simplified relationships: albedo changes absorbed sunlight but is not included in the displayed CO₂-only warming. ΔF is a radiative-balance change, not the surface back-radiation flux; arrow width is qualitative. Solar absorption is for atmosphere and surface together. Pre-industrial CO₂ is rounded to 280 ppm (about 278 ppm in 1750 by NOAA). Source: IPCC AR6 WG1 (2021): climate sensitivity best estimate 3 °C, likely range 2.5–4 °C.'}
       </p>
     </div>
   );

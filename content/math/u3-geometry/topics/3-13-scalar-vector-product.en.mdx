@@ -4,7 +4,7 @@ The scalar product turns two vectors into one number that measures how far they 
 
 ## Explanation
 
-For vectors $\mathbf{v}$ and $\mathbf{w}$ with angle $\theta$ between them, the <Term id="scalar-product"/> (scalar product) is
+For nonzero vectors $\mathbf{v}$ and $\mathbf{w}$ with angle $\theta$ between them, the <Term id="scalar-product"/> (scalar product) is
 
 $$
 \mathbf{v}\cdot\mathbf{w} = |\mathbf{v}|\,|\mathbf{w}|\cos\theta
@@ -20,7 +20,7 @@ $$
 
 <Formula id="scalar-product-components"/>
 
-Two non-zero vectors are perpendicular exactly when their scalar product is zero. A positive scalar product means an acute angle; a negative one means an obtuse angle.
+Two non-zero vectors are perpendicular exactly when their scalar product is zero. A positive scalar product means $0^\circ\le\theta<90^\circ$; a negative one means $90^\circ<\theta\le180^\circ$, including same/opposite directions at the endpoints.
 
 For two lines with direction vectors $\mathbf{b}_1$ and $\mathbf{b}_2$, the <Term id="acute-angle-between-lines"/> (acute angle between two lines) uses the absolute value of the scalar product, so that the cosine is never negative:
 
@@ -28,7 +28,7 @@ $$
 \cos\varphi = \frac{|\mathbf{b}_1\cdot\mathbf{b}_2|}{|\mathbf{b}_1|\,|\mathbf{b}_2|}
 $$
 
-The <Term id="vector-product"/> (vector product) $\mathbf{v}\times\mathbf{w}$ is a vector perpendicular to both $\mathbf{v}$ and $\mathbf{w}$. Its magnitude is
+The <Term id="vector-product"/> (vector product) $\mathbf{v}\times\mathbf{w}$ is a vector perpendicular to both $\mathbf{v}$ and $\mathbf{w}$. For nonparallel vectors in three dimensions, its direction follows the right-hand rule in a right-handed orthonormal coordinate system. Parallel vectors (or a zero factor) give the zero vector, with no direction. Its magnitude is
 
 $$
 |\mathbf{v}\times\mathbf{w}| = |\mathbf{v}|\,|\mathbf{w}|\sin\theta
@@ -58,17 +58,17 @@ Vectors $\mathbf{v} = (3, 0, 4)$ and $\mathbf{w} = (1, 2, 2)$.
 <Step>Vector product: $\mathbf{v}\times\mathbf{w} = (-8, -2, 6)$, so $|\mathbf{v}\times\mathbf{w}| = \sqrt{104} = 10.2$, which is the area of the parallelogram (to 1 decimal place).</Step>
 </Steps>
 
-<Reveal title="Why is the vector product a vector, not a number?">It has a direction as well as a size. It points perpendicular to the plane of $\mathbf{v}$ and $\mathbf{w}$, and it reverses if the order of the vectors is swapped.</Reveal>
+<Reveal title="Why is the vector product a vector, not a number?">For nonparallel factors it has a direction normal to their plane, selected by the right-hand rule. Reversing the order reverses this direction. If the product is zero, it has no direction.</Reveal>
 
 ## Visual
 
 <Sim id="math.vector-lab"/>
 
-Set $\mathbf{a}$ and $\mathbf{b}$ with the sliders and watch the angle, the scalar product and the sum change together. The scalar product is zero when the arrows are at right angles, negative when the angle is obtuse, and largest when they point the same way. The lab also shows the area of the parallelogram spanned by $\mathbf{a}$ and $\mathbf{b}$, which is $|\mathbf{a}\times\mathbf{b}|$ for vectors in the plane.
+Set $\mathbf{a}$ and $\mathbf{b}$ with the sliders and watch the angle, the scalar product and the sum change together. The scalar product is zero when the arrows are at right angles, negative when the angle is obtuse, and, for fixed magnitudes, largest when the nonzero vectors point the same way. The lab also shows the area of the parallelogram spanned by $\mathbf{a}$ and $\mathbf{b}$, which is $|\mathbf{a}\times\mathbf{b}|$ for vectors in the plane.
 
 ## How it is examined
 
-Find questions give marks for the scalar product, for the substitution into the cosine formula and for the angle to the required accuracy. The acute angle between two lines needs the absolute value, so the answer is never obtuse. Show that questions often test perpendicularity, which means a scalar product of zero. Hence questions about area use your vector product result, with a half for a triangle.
+Show the component products and the substitution into the angle or area formula. Check that both vectors are nonzero before dividing by their magnitudes. Use the absolute dot product for the smaller angle between lines, and halve the parallelogram area for a triangle. Exact marks depend on the task.
 
 <Callout kind="exam">Write the scalar product in component form first, then divide by the two magnitudes. Check that the answer is in degrees when the question asks for degrees, and round only at the end.</Callout>
 
@@ -76,7 +76,7 @@ Find questions give marks for the scalar product, for the substitution into the 
 
 <Callout kind="mistake">Taking the area of triangle $OAB$ as $|\overrightarrow{OA}\times\overrightarrow{OB}|$. The triangle is half of the parallelogram: $\tfrac{1}{2}|\overrightarrow{OA}\times\overrightarrow{OB}|$.</Callout>
 
-- Giving the obtuse angle as the answer for two lines. Use $|\mathbf{b}_1\cdot\mathbf{b}_2|$ so that the cosine is positive.
+- Giving the obtuse angle as the answer for two lines. Use $|\mathbf{b}_1\cdot\mathbf{b}_2|$ so that the cosine is nonnegative (zero for perpendicular lines).
 - Leaving the GDC in radian mode when the answer is required in degrees.
 - Assuming the vector product is commutative. Swapping the order gives $\mathbf{w}\times\mathbf{v} = -(\mathbf{v}\times\mathbf{w})$, so the components change sign.
 

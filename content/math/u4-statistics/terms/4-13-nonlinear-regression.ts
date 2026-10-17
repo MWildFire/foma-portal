@@ -24,8 +24,8 @@ export const terms: Term[] = [
       ru: 'остаток регрессии (residual)',
     },
     def: {
-      en: 'The difference between an observed value and the value predicted by the model, $y_i - \\hat{y}_i$. On a scatter diagram it is the vertical distance from a point to the curve.',
-      ru: 'Разность между наблюдаемым значением и значением, предсказанным моделью: $y_i - \\hat{y}_i$. На диаграмме рассеяния это вертикальное расстояние от точки до кривой.',
+      en: 'The difference between an observed value and the value predicted by the model, $y_i - \\hat{y}_i$. On a scatter diagram its magnitude is the vertical distance from a point to the curve; the residual itself is signed.',
+      ru: 'Разность между наблюдаемым значением и значением, предсказанным моделью: $y_i - \\hat{y}_i$. На диаграмме рассеяния его модуль — вертикальное расстояние от точки до кривой; сам остаток имеет знак.',
     },
     syllabus: '4.13',
     papers: ['P1', 'P2', 'P3'],
@@ -42,15 +42,15 @@ export const terms: Term[] = [
       ru: 'коэффициент детерминации R² (coefficient of determination R²)',
     },
     def: {
-      en: 'The proportion of the variation in $y$ that the model explains: $R^2 = 1 - \\dfrac{\\text{SSR}}{\\text{SST}}$. Values closer to 1 mean a better fit.',
-      ru: 'Доля вариации $y$, которую объясняет модель: $R^2 = 1 - \\dfrac{\\text{SSR}}{\\text{SST}}$. Значения ближе к 1 означают лучшее соответствие.',
+      en: 'A fit score defined by $R^2 = 1 - \\dfrac{\\text{SSR}}{\\text{SST}}$. For ordinary linear least squares with an intercept it is the accounted-for fraction of variation. For nonconstant y, values closer to 1 mean a better fit on the same data and response scale; arbitrary predictors can give negative R².',
+      ru: 'Показатель соответствия, определяемый как $R^2 = 1 - \\dfrac{\\text{SSR}}{\\text{SST}}$. В обычной линейной регрессии по методу наименьших квадратов со свободным членом это объяснённая доля вариации. При непостоянных y значения ближе к 1 означают лучшее соответствие на тех же данных и в той же шкале отклика; для произвольного прогноза R² может быть отрицательным.',
     },
     syllabus: '4.13',
     papers: ['P1', 'P2', 'P3'],
     src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 6.2, p. 248' },
     pitfall: {
-      en: 'A model with more parameters, such as a quadratic instead of a line, always fits the same data at least as well, so a higher R² alone cannot settle the choice.',
-      ru: 'Модель с большим числом параметров, например квадратичная вместо прямой, на тех же данных подходит не хуже, поэтому один только больший R² не решает выбор модели.',
+      en: 'For nested least-squares models on the same data, adding parameters cannot worsen the minimum squared-residual fit, so a higher R² alone cannot settle the choice.',
+      ru: 'Если одна модель — частный случай другой, дополнительные параметры при подгонке методом наименьших квадратов к тем же данным не увеличивают минимальную сумму квадратов остатков, поэтому один только больший R² не решает выбор модели.',
     },
   },
 ];

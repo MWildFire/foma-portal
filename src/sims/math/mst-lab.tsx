@@ -1,3 +1,4 @@
+import ReadableDiagram from '../readable-diagram';
 import { useState } from 'react';
 import type { Lang } from '../../contract/types';
 
@@ -111,14 +112,14 @@ export default function MstLab({ lang }: { lang: Lang }) {
           </button>
         ))}
       </div>
-      <svg viewBox="0 0 320 230" width="100%" style={{ maxWidth: 320 }} role="img" aria-label={t.label}>
+      <ReadableDiagram lang={lang}><svg viewBox="0 0 320 230" width="100%" style={{ maxWidth: 320 }} role="img" aria-label={t.label}>
         {EDGES.map(([u, v, w]) => {
           const [x1, y1] = POS[u];
           const [x2, y2] = POS[v];
           return (
             <g key={u + v}>
               <line x1={x1} y1={y1} x2={x2} y2={y2} {...edgeStyle(u, v)} />
-              <text x={(x1 + x2) / 2} y={(y1 + y2) / 2 - 5} textAnchor="middle" fontSize={12} fill="#333">{w}</text>
+              <text x={(x1 + x2) / 2} y={(y1 + y2) / 2 - 5} textAnchor="middle" fontSize={12} fill="currentColor">{w}</text>
             </g>
           );
         })}
@@ -128,7 +129,7 @@ export default function MstLab({ lang }: { lang: Lang }) {
             <text x={POS[x][0]} y={POS[x][1] + 4} textAnchor="middle" fontSize={13} fontWeight={600} fill="#222">{x}</text>
           </g>
         ))}
-      </svg>
+      </svg></ReadableDiagram>
       <label style={{ display: 'block', marginTop: 8 }}>
         {t.shown}: {count} / {steps.length}
         <input type="range" min={0} max={steps.length} step={1} value={count} onChange={event => setCount(Number(event.target.value))} style={{ width: '100%' }} />

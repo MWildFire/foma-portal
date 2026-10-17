@@ -2,6 +2,7 @@ import type { ComponentProps } from 'react';
 import { safeLinkTarget } from '../../lib/topic-markdown';
 import { ContentLink } from '../content/ContentLink';
 import { useBodyT, useTopicContext } from './context';
+import { MathRegion } from '../content/MathRegion';
 
 // Plain Markdown elements of the MDX body, mapped to components that carry the reading styles (mdx.css).
 
@@ -39,4 +40,10 @@ export function Anchor({ href, children }: ComponentProps<'a'>) {
   const target = href ? safeLinkTarget(href) : null;
   if (!target) return <>{children}</>;
   return <ContentLink href={target} lang={ctx?.contentLang}>{children}</ContentLink>;
+}
+
+// Rehype KaTeX emits spans. Display formulas get the same accessible scroll box as Tex.
+export function Span(props: ComponentProps<'span'>) {
+  if (!props.className?.split(/\s+/).includes('katex-display')) return <span {...props} />;
+  return <MathRegion><span {...props} /></MathRegion>;
 }

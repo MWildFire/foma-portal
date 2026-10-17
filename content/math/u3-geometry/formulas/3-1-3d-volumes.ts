@@ -10,8 +10,8 @@ export const formulas: Formula[] = [
       ru: 'Длина отрезка AB, где A имеет координаты (x1, y1, z1), а B имеет координаты (x2, y2, z2).',
     },
     when: {
-      en: 'Two positions are given by coordinates in a three-dimensional model.',
-      ru: 'Два положения заданы координатами в трёхмерной модели.',
+      en: 'Use perpendicular Cartesian axes with the same length unit on each axis. Two positions are given by coordinates in a three-dimensional model.',
+      ru: 'Используй перпендикулярные декартовы оси с одной единицей длины по всем осям. Два положения заданы координатами в трёхмерной модели.',
     },
     syllabus: '3.1',
     inBooklet: true,
@@ -35,8 +35,8 @@ export const formulas: Formula[] = [
     syllabus: '3.1',
     inBooklet: true,
     example: {
-      en: 'Square base of side 6 and height 4: V = (1/3) x 36 x 4 = 48.',
-      ru: 'Квадратное основание со стороной 6 и высота 4: V = (1/3) × 36 × 4 = 48.',
+      en: 'Square base of side 6 and height 4: V = (1/3) x 36 x 4 = 48 cubic units.',
+      ru: 'Квадратное основание со стороной 6 и высота 4: V = (1/3) × 36 × 4 = 48 кубических единиц.',
     },
   },
   {

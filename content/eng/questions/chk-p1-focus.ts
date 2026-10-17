@@ -16,12 +16,12 @@ export const questions: Question[] = [
       ru: `Перепишите предложение так, чтобы оно отвечало направляющему вопросу: «${guidingQuestion}» Предложение: «The carriage has six seats, and Lena sits in the one by the window.»`,
     },
     markscheme: {
-      en: '1 mark: the rewrite makes a claim about the setting (what the seats or the window show), not a description of what Lena does. 1 mark: it answers the guiding question directly and names an effect on the reader, here isolation.',
-      ru: '1 балл: в переписанном предложении есть утверждение об обстановке (что показывают места или окно), а не описание действий Лены. 1 балл: оно прямо отвечает на направляющий вопрос и называет эффект для читателя — одиночество.',
+      en: '1 mark: makes an interpretive claim about the supplied window placement rather than merely retelling it. 1 mark: links that detail to possible isolation without inventing empty seats, free choice or a conversation. Credit a response that explicitly limits the inference: this sentence alone does not prove social isolation.',
+      ru: '1 балл: предложена интерпретация места у окна, а не только пересказ. 1 балл: эта деталь связана с возможным одиночеством без выдуманных пустых мест, свободного выбора или разговора. Засчитывайте и ответ с явной оговоркой: одно это предложение не доказывает социальной изоляции.',
     },
     model: {
-      en: 'With six seats to choose from, Lena takes the one by the window, and the setting turns that choice into a picture of her isolation: she is apart from the room before anyone speaks to her.',
-      ru: 'Из шести мест Лена выбирает место у окна, и обстановка превращает этот выбор в картину её одиночества: она отделена от комнаты, прежде чем кто-либо к ней обратится.',
+      en: 'Placing Lena by the window can direct attention towards a boundary between her and the world outside the carriage, suggesting possible separation. This detail alone does not show that the other seats are empty or that she chooses isolation.',
+      ru: 'Место Лены у окна выделяет границу между ней и миром за пределами вагона; это может поддерживать прочтение отдалённости. Но одна эта деталь не доказывает, что остальные места пусты или что Лена сама выбирает одиночество.',
     },
     origin: 'original',
     minutes: 4,

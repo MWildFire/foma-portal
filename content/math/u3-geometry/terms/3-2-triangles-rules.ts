@@ -6,8 +6,8 @@ export const terms: Term[] = [
     id: 'sine-rule-triangle',
     term: { en: 'sine rule', ru: 'теорема синусов (sine rule)' },
     def: {
-      en: 'In a triangle with no right angle, dividing each side by the sine of its opposite angle gives a constant value, the same for every side.',
-      ru: 'В треугольнике без прямого угла деление каждой стороны на синус противолежащего угла даёт постоянную величину, одинаковую для каждой стороны.',
+      en: 'In any nondegenerate triangle, dividing each side by the sine of its opposite angle gives a constant value, the same for every side.',
+      ru: 'В любом невырожденном треугольнике деление каждой стороны на синус противолежащего угла даёт постоянную величину, одинаковую для каждой стороны.',
     },
     syllabus: '3.2',
     papers: ['P1', 'P2', 'P3'],

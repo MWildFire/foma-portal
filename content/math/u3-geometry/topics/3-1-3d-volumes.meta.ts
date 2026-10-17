@@ -26,7 +26,7 @@ const topic: TopicMeta = {
   ],
   termIds: ['distance-between-points-3d', 'right-pyramid', 'right-cone', 'angle-between-line-and-plane'],
   formulaIds: ['distance-3d-points', 'pyramid-volume', 'cone-volume', 'sphere-volume'],
-  questionIds: ['q-3-1-01', 'q-3-1-02', 'q-3-1-03'],
+  questionIds: ['q-3-1-01', 'q-3-1-02', 'q-3-1-03', 'r06-pyramid'],
   sources: [
     {
       kind: 'web',

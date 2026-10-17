@@ -20,6 +20,7 @@ const topic: TopicMeta = {
     { en: 'I can use passer un examen and réussir correctly, without mixing them up', ru: 'Могу правильно использовать passer un examen и réussir и не путать их' },
   ],
   termIds: [
+    'v-school-003', 'v-school-004', 'v-school-005',
     'v-t2-001', 'v-t2-002', 'v-t2-003', 'v-t2-004', 'v-t2-005', 'v-t2-006', 'v-t2-007', 'v-t2-008', 'v-t2-009', 'v-t2-010',
     'v-t2-011', 'v-t2-012', 'v-t2-013', 'v-t2-014', 'v-t2-015', 'v-t2-016', 'v-t2-017', 'v-t2-018', 'v-t2-019', 'v-t2-020',
     'v-t2-021', 'v-t2-022', 'v-t2-023', 'v-t2-024', 'v-t2-025', 'v-t2-026', 'v-t2-027', 'v-t2-028', 'v-t2-029', 'v-t2-030',

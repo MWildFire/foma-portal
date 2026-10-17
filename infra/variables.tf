@@ -18,7 +18,7 @@ variable "domain_name" {
 variable "github_oidc_sub_prefix" {
   description = "Prefix of the GitHub OIDC sub claim for this repository (immutable format with owner and repo ids). Only its main branch may assume the deploy role."
   type        = string
-  default     = "repo:MWildFire@28848477/foma-portal@1416563569"
+  default     = "repo:MWildFire@28848477/foma-portal@1420984463"
 }
 
 variable "custom_domain_enabled" {

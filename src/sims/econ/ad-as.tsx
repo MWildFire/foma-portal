@@ -19,7 +19,7 @@ const sras1Old: CurveSpec = { id: 'sras1', points: SRAS1, tone: 'muted', dashed:
 const sras2: CurveSpec = { id: 'sras2', points: SRAS2, tone: 'supply', label: { en: 'SRAS2', ru: 'SRAS2' } };
 const lras: CurveSpec = { id: 'lras', points: [[6, 0], [6, 11]], tone: 'ink', label: { en: 'LRAS', ru: 'LRAS' } };
 // Drawn from the right end to the left end, so the label sits at the left end of the flat part.
-const keynes: CurveSpec = { id: 'keynes', points: [[6, 7], [0, 7]], tone: 'alt', dashed: true, label: { en: 'Keynes AS', ru: 'Кейнс AS' } };
+const keynes: CurveSpec = { id: 'keynes', points: [[6, 7], [0, 7]], tone: 'alt', dashed: true, label: { en: 'Flat AS segment', ru: 'Плоский участок AS' } };
 
 const e0: MarkSpec = { id: 'e0', at: [6, 7], tone: 'ink', label: { en: 'E0', ru: 'E0' }, dx: -20, dy: 31 };
 const e0Muted: MarkSpec = { id: 'e0', at: [6, 7], tone: 'muted', label: { en: 'E0', ru: 'E0' }, dx: -20, dy: 31 };
@@ -38,8 +38,8 @@ const steps: Step[] = [
   {
     title: { en: 'Initial equilibrium', ru: 'Исходное равновесие' },
     text: {
-      en: 'E0 (Y 6, PL 7) lies on the vertical LRAS, so the economy is at full employment. Keynesian AS is flat when there is spare capacity; SRAS slopes up in the short run.',
-      ru: 'Точка E0 (Y 6, PL 7) лежит на вертикальной LRAS: экономика работает при полной занятости. Кейнсианская кривая AS горизонтальна при наличии свободных мощностей; краткосрочная SRAS растёт вверх.',
+      en: 'E0 (Y 6, PL 7) lies on the vertical LRAS, so the economy is at full employment. The dashed horizontal line illustrates only the flat, deep-slack segment of a Keynesian AS curve, not the full three-segment curve. The rising SRAS and vertical LRAS describe the separate neo-classical adjustment shown next.',
+      ru: 'Точка E0 (Y 6, PL 7) лежит на вертикальной LRAS: экономика работает при полной занятости. Горизонтальный пунктир иллюстрирует лишь плоский участок кейнсианской AS при большой недозагрузке, а не всю трёхчастную кривую. Восходящая SRAS и вертикальная LRAS относятся к отдельно показанной далее неоклассической корректировке.',
     },
     graph: {
       ...axes,
@@ -85,8 +85,8 @@ const steps: Step[] = [
   {
     title: { en: 'Complete picture', ru: 'Полная картина' },
     text: {
-      en: 'The path runs from E0 to E1 (boom) and then to E2 (long run). Keynesian AS applies only below full employment, and output ends at its potential, Y 6, with the price level raised from 7 to 9.',
-      ru: 'Путь идёт от E0 к E1 (подъём) и затем к E2 (долгосрочный период). Кейнсианская кривая AS действует только ниже полной занятости, а выпуск возвращается к потенциальному Y 6, при этом уровень цен поднят с 7 до 9.',
+      en: 'The path runs from E0 to E1 (boom) and then to E2 (long run). In this neo-classical example, output returns to potential Y 6 and the price level rises from 7 to 9. The Keynesian AS model also has rising and capacity-limit segments; it does not apply only below full employment. Do not combine the alternative models into one automatic adjustment rule.',
+      ru: 'Путь идёт от E0 к E1 (подъём) и затем к E2 (долгосрочный период). В этом неоклассическом примере выпуск возвращается к потенциальному Y 6, а уровень цен растёт с 7 до 9. У кейнсианской AS есть также восходящий участок и предел мощностей; модель не ограничена выпуском ниже полной занятости. Не соединяйте альтернативные модели в одно правило автоматического приспособления.',
     },
     graph: {
       ...axes,

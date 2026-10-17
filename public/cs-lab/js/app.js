@@ -5,6 +5,22 @@
 
   // ---- Theme colors (read from CSS variables so canvas/SVG match light/dark) ----
   const Theme = {
+    // Choose opaque label ink after compositing translucent fills against their real panel.
+    rgb(color) {
+      if (color.startsWith('#')) { const h=color.slice(1); const v=h.length===3?h.split('').map(c=>c+c).join(''):h; return [0,2,4].map(i=>parseInt(v.slice(i,i+2),16)); }
+      return (color.match(/[\d.]+/g)||[]).slice(0,3).map(Number);
+    },
+    luminance(rgb) { const c=rgb.map(v=>{v/=255;return v<=0.04045?v/12.92:Math.pow((v+0.055)/1.055,2.4);});return c[0]*0.2126+c[1]*0.7152+c[2]*0.0722; },
+    ink(fill, opacity=1, background=this.surface) {
+      const f=this.rgb(fill), b=this.rgb(background);
+      if(f.length!==3||b.length!==3)return this.text;
+      const l=this.luminance(f.map((v,i)=>v*opacity+b[i]*(1-opacity)));
+      return (l+0.05)/0.05 >= 1.05/(l+0.05) ? '#000000' : '#ffffff';
+    },
+    readable(color, background=this.surface) {
+      const a=this.luminance(this.rgb(color)), b=this.luminance(this.rgb(background));
+      return (Math.max(a,b)+0.05)/(Math.min(a,b)+0.05)>=4.5 ? color : this.text;
+    },
     refresh() {
       const cs = getComputedStyle(root);
       const get = (name, fallback) => (cs.getPropertyValue(name).trim() || fallback);
@@ -117,4 +133,22 @@
     getTheme,
     setTheme,
   };
+})();
+
+// Give wide interactive diagrams a keyboard scroll target and an honest visible hint.
+(function () {
+  function labelFrames() {
+    const ru = document.documentElement.dataset.lang === 'ru';
+    document.querySelectorAll('.sim-canvas-wrap').forEach(frame => {
+      frame.tabIndex = 0;
+      frame.setAttribute('role', 'region');
+      frame.setAttribute('aria-label', ru ? 'Интерактивная схема' : 'Interactive diagram');
+      const wide = frame.scrollWidth > frame.clientWidth + 1;
+      if (wide) frame.dataset.scrollHint = ru ? 'Прокрутите схему вправо ↔' : 'Scroll the diagram sideways ↔';
+      else delete frame.dataset.scrollHint;
+    });
+  }
+  window.addEventListener('load', labelFrames);
+  window.addEventListener('resize', labelFrames);
+  document.addEventListener('langchange', labelFrames);
 })();

@@ -1,3 +1,4 @@
+import ReadableDiagram from '../readable-diagram';
 import { useState } from 'react';
 import type { Lang } from '../../contract/types';
 
@@ -165,7 +166,7 @@ export default function OptAHydrographSim({ lang }: { lang: Lang }) {
         </p>
       ) : null}
 
-      <svg
+      <ReadableDiagram lang={lang}><svg
         viewBox="0 0 320 200"
         width="100%"
         role="img"
@@ -207,7 +208,7 @@ export default function OptAHydrographSim({ lang }: { lang: Lang }) {
         <text x={11} y={(TOP + BOTTOM) / 2} fontSize="10" textAnchor="middle" transform={`rotate(-90 11 ${(TOP + BOTTOM) / 2})`} fill="currentColor">
           {ru ? 'Расход (м³/с)' : 'Discharge (m³/s)'}
         </text>
-      </svg>
+      </svg></ReadableDiagram>
 
       <p style={{ margin: '6px 0 0', fontSize: 13, lineHeight: 1.5 }}>
         {ru
@@ -247,8 +248,8 @@ export default function OptAHydrographSim({ lang }: { lang: Lang }) {
       {basin.runoff === 0 ? (
         <p style={{ margin: '6px 0 0', fontSize: 13, fontWeight: 600 }}>
           {ru
-            ? 'Сток с вашего бассейна нулевой: почва впитывает весь ливень, поэтому гидрограф плоский.'
-            : 'No runoff from your basin: the soil takes in the whole storm, so the hydrograph is flat.'}
+            ? 'Расчётный прямой сток нулевой: осадки не превысили начальные потери модели (перехват, задержание и инфильтрацию). Остаётся постоянный базисный сток.'
+            : 'Modelled direct runoff is zero: rainfall did not exceed the initial abstraction (interception, surface retention and infiltration). The assumed constant base flow remains.'}
         </p>
       ) : null}
 

@@ -52,7 +52,7 @@ const TARGETS: { id: string; phrase: string; technique: Technique; explain: Reco
     technique: 'repetition',
     explain: {
       en: 'The repeated "see" turns the failure of sight into an echo. The poem ends on the verb of seeing, which the speaker can no longer use.',
-      ru: 'Повтор «see» превращает отказ зрения в эхо. Стихотворение заканчивается глаголом «видеть», которым говорящая уже не может воспользоваться.',
+      ru: 'Повтор «see» превращает отказ зрения в эхо. Стихотворение заканчивается глаголом «видеть», которым говорящий уже не может воспользоваться; пол голоса текст не указывает.',
     },
   },
 ];
@@ -61,7 +61,7 @@ const LABELS = {
   en: {
     title: 'Annotate the extract',
     intro: 'Four techniques are hidden in this poem. Click a highlighted phrase, then choose the technique.',
-    source: 'Emily Dickinson, "I heard a fly buzz when I died" (public domain)',
+    source: 'Emily Dickinson, Poems, Third Series (1896), XLVI “Dying”, Gutenberg 12242 (public domain)',
     choose: 'Which technique is in',
     correct: 'Correct.',
     wrong: 'Not quite.',
@@ -73,7 +73,7 @@ const LABELS = {
   ru: {
     title: 'Аннотируйте отрывок',
     intro: 'В этом стихотворении спрятаны четыре приёма. Нажмите на выделенную фразу, затем выберите приём.',
-    source: 'Эмили Дикинсон, «I heard a fly buzz when I died» (общественное достояние)',
+    source: 'Эмили Дикинсон, Poems, Third Series (1896), XLVI «Dying», Gutenberg 12242 (общественное достояние)',
     choose: 'Какой приём в фразе',
     correct: 'Верно.',
     wrong: 'Не совсем.',

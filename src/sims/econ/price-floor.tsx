@@ -56,8 +56,8 @@ const steps: Step[] = [
   {
     title: { en: 'Minimum price of 9', ru: 'Минимальная цена 9' },
     text: {
-      en: 'A minimum price (price floor) of 9 is set above the equilibrium price of 6. Buyers may not pay less than 9, so the price stays at 9.',
-      ru: 'Установлена минимальная цена (price floor) 9, выше равновесной цены 6. Покупатели не могут платить меньше 9, поэтому цена остаётся на уровне 9.',
+      en: 'A minimum price (price floor) of 9 is set above the equilibrium price of 6. Legal transactions may not be below 9; this diagram assumes enforcement and trading at the floor.',
+      ru: 'Установлена минимальная цена (price floor) 9, выше равновесной цены 6. Законные сделки не должны проходить ниже 9; диаграмма предполагает соблюдение ограничения и торговлю по нижней границе.',
     },
     graph: {
       ...axes,
@@ -82,8 +82,8 @@ const steps: Step[] = [
   {
     title: { en: 'No purchase: deadweight loss 18', ru: 'Без выкупа: чистые потери 18' },
     text: {
-      en: 'If the government does not buy the surplus, only 6 units are traded, so the trades between Q 6 and Q 12 are lost. The red triangle is the deadweight loss (DWL): 1/2 x 6 x 6 = 18.',
-      ru: 'Если государство не выкупает излишек, продаётся только 6 единиц, поэтому сделки между Q 6 и Q 12 теряются. Красный треугольник — это чистые потери (DWL): 1/2 x 6 x 6 = 18.',
+      en: 'If the government does not buy the surplus, only 6 units are traded, so the trades between Q 6 and Q 12 are lost. Assuming only the six lowest-cost units are produced and sold, the lost-surplus triangle is 1/2 x 6 x 6 = 18. Unsold production costs or inefficient seller rationing would add losses.',
+      ru: 'Если государство не выкупает излишек, продаётся только 6 единиц, поэтому сделки между Q 6 и Q 12 теряются. Если произведены и проданы лишь шесть единиц с наименьшими издержками, треугольник утраченного излишка равен 1/2 x 6 x 6 = 18. Затраты на непроданную продукцию или неэффективный отбор продавцов добавили бы потери.',
     },
     graph: {
       ...axes,
@@ -110,8 +110,8 @@ const steps: Step[] = [
   {
     title: { en: 'Welfare loss with the purchase (complete picture)', ru: 'Чистые потери при выкупе (полная картина)' },
     text: {
-      en: 'With the purchase producers sell 18 units at 9 and the government pays 108 for the 12 it buys. Consumer plus producer surplus rises only by f, the green triangle: 1/2 x 12 x 3 = 18. The welfare loss is the rest of the rectangle (red): 108 - 18 = 90.',
-      ru: 'При выкупе производители продают 18 единиц по цене 9, а государство платит 108 за выкупленные 12. Сумма излишков потребителей и производителей растёт лишь на f — зелёный треугольник: 1/2 x 12 x 3 = 18. Чистые потери (welfare loss) — остальная часть прямоугольника (красная область): 108 - 18 = 90.',
+      en: 'With the purchase producers sell 18 units at 9 and the government pays 108 for the 12 it buys. Consumer plus producer surplus rises only by f, the green triangle: 1/2 x 12 x 3 = 18. If the government-bought surplus has no consumption/use value, and extra storage or disposal costs are ignored, the welfare loss is 108 − 18 = 90. Useful public distribution would change this welfare calculation.',
+      ru: 'При выкупе производители продают 18 единиц по цене 9, а государство платит 108 за выкупленные 12. Сумма излишков потребителей и производителей растёт лишь на f — зелёный треугольник: 1/2 x 12 x 3 = 18. Если выкупленный государством излишек не имеет ценности использования, а дополнительные расходы на хранение или утилизацию не учтены, потери равны 108 − 18 = 90. Полезное общественное распределение изменило бы этот расчёт.',
     },
     graph: {
       ...axes,

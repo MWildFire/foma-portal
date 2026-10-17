@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import L from 'leaflet';
 import { MapContainer, Marker, Popup, TileLayer, useMap } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
@@ -29,6 +29,7 @@ function Fit({ cases }: { cases: MappableCase[] }) {
 }
 
 export default function CaseMapView({ cases, lang, label }: { cases: MappableCase[]; lang: Lang; label: string }) {
+  const [tileFailed, setTileFailed] = useState(false);
   return (
     <div role="region" aria-label={label}>
       {/* No zoom animation. Leaflet ends a zoom animation in a 250 ms timer; a quick switch of the text language removes
@@ -43,6 +44,7 @@ export default function CaseMapView({ cases, lang, label }: { cases: MappableCas
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://tile.openstreetmap.org/{z}/{x}/{y}.png"
+          eventHandlers={{ tileerror: () => setTileFailed(true) }}
         />
         <Fit cases={cases} />
         {cases.map(item => (
@@ -55,6 +57,7 @@ export default function CaseMapView({ cases, lang, label }: { cases: MappableCas
           </Marker>
         ))}
       </MapContainer>
+      {tileFailed ? <p className="foma-note" role="status">{lang === 'ru' ? 'Часть картографической подложки не загрузилась. Названия и места кейсов приведены в списке ниже.' : 'Some map tiles could not load. Case names and locations remain available in the list below.'}</p> : null}
     </div>
   );
 }

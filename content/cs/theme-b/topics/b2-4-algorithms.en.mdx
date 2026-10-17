@@ -94,7 +94,7 @@ Then open the binary search view and watch the low, high and middle markers move
 
 <Sim id="cs.binary-search"/>
 
-The Big O view shows how operations grow with n, so you can see why $O(n^2)$ falls behind $O(\log n)$ quickly.
+The Big O view compares representative growth functions, not measured running times. Read the vertical scale before comparing heights: a linear scale uses equal gaps for equal increases, while a logarithmic scale uses equal gaps for equal ratios. A low linear range keeps $O(1)$ and $O(\log n)$ visible; faster-growing curves can continue above the frame. On a logarithmic scale, zero cannot be plotted (for example, $\log_2 1 = 0$). A curve clipped at the top has not stopped growing. Use the value table to compare the actual numbers.
 
 <Sim id="cs.big-o"/>
 

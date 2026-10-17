@@ -10,6 +10,7 @@ const LORENZ = fn(p => (p * p) / 100, 0, 100, 40);
 const ticks = (values: number[]): TickSpec[] => values.map(value => ({ value, label: { en: String(value), ru: String(value) } }));
 
 const axes = {
+  square: true,
   xMax: 100,
   yMax: 100,
   xLabel: { en: 'Cumulative % of population', ru: 'Накопленный % населения' },
@@ -26,8 +27,8 @@ const areaB: AreaSpec = { id: 'area-b', points: [...LORENZ, [100, 0]], tone: 'de
 const equalityMark: MarkSpec = { id: 'equality', at: [40, 40], tone: 'muted', label: { en: 'Equality', ru: 'Равенство' }, dx: -62, dy: -12 };
 const lorenzMark: MarkSpec = { id: 'lorenz', at: [60, 36], tone: 'demand', label: { en: 'Lorenz curve', ru: 'Кривая Лоренца' }, dx: 6, dy: 16 };
 const p50Mark: MarkSpec = { id: 'p50', at: [50, 25], tone: 'demand', label: { en: '50%: 25%', ru: '50%: 25%' }, dx: 6, dy: 16 };
-const markA: MarkSpec = { id: 'A', at: [50, 38], tone: 'alt', label: { en: 'A', ru: 'A' } };
-const markB: MarkSpec = { id: 'B', at: [80, 15], tone: 'demand', label: { en: 'B', ru: 'B' } };
+const markA: MarkSpec = { id: 'A', dot: false, at: [50, 38], tone: 'alt', label: { en: 'A', ru: 'A' } };
+const markB: MarkSpec = { id: 'B', dot: false, at: [80, 15], tone: 'demand', label: { en: 'B', ru: 'B' } };
 
 const steps: Step[] = [
   {
@@ -59,10 +60,22 @@ const steps: Step[] = [
     },
   },
   {
+    title: { en: 'Plotting quintiles', ru: 'Построение по квинтилям' },
+    text: {
+      en: 'For this illustrative curve, the five income shares from poorest to richest quintile are 4, 12, 20, 28, 36 percent (total 100%). Plot cumulative shares instead: (20, 4), (40, 16), (60, 36), (80, 64), (100, 100), starting at (0, 0). The smooth curve shown is y = x²/100; straight segments through only the quintile points give an approximation, not exactly the same Gini.',
+      ru: 'В этой условной модели доли дохода пяти квинтилей от беднейшего к богатейшему: 4, 12, 20, 28, 36 процентов (сумма 100%). На график наносят накопленные доли: (20; 4), (40; 16), (60; 36), (80; 64), (100; 100), начиная с (0; 0). Здесь показана гладкая кривая y = x²/100; отрезки только через квинтильные точки дают приближение, а не точно такой же коэффициент Джини.',
+    },
+    graph: {
+      ...axes,
+      curves: [equality, lorenz],
+      marks: [20, 40, 60, 80, 100].map((p, i) => ({ id: `q${i + 1}`, at: [p, p * p / 100] as [number, number], tone: 'demand' as const })),
+    },
+  },
+  {
     title: { en: 'Areas A and B', ru: 'Площади A и B' },
     text: {
-      en: 'Area A lies between the line of equality and the Lorenz curve: the bigger A, the more unequal the income. Area B lies under the Lorenz curve. A + B is the triangle under the line of equality: 100 x 100 / 2 = 5000, so A = 1667 and B = 3333.',
-      ru: 'Площадь A лежит между линией равенства и кривой Лоренца: чем больше A, тем неравномернее доходы. Площадь B лежит под кривой Лоренца. A + B — треугольник под линией равенства: 100 x 100 / 2 = 5000, поэтому A = 1667 и B = 3333.',
+      en: 'Area A lies between the line of equality and the Lorenz curve: the bigger A, the more unequal the income. Area B lies under the Lorenz curve. A + B is the triangle under the line of equality: 100 x 100 / 2 = 5000, so for the smooth illustrative curve A ≈ 1667 and B ≈ 3333 (rounded).',
+      ru: 'Площадь A лежит между линией равенства и кривой Лоренца: чем больше A, тем неравномернее доходы. Площадь B лежит под кривой Лоренца. A + B — треугольник под линией равенства: 100 x 100 / 2 = 5000, поэтому для гладкой учебной кривой A ≈ 1667 и B ≈ 3333 (округлённо).',
     },
     graph: {
       ...axes,
@@ -74,8 +87,8 @@ const steps: Step[] = [
   {
     title: { en: 'Gini coefficient', ru: 'Коэффициент Джини (Gini coefficient)' },
     text: {
-      en: 'G = A / (A + B) = 1667 / 5000 = 0.33. G is 0 when income is perfectly equal and 1 when one person has all the income.',
-      ru: 'G = A / (A + B) = 1667 / 5000 = 0.33. G равен 0 при полном равенстве доходов и 1, когда весь доход принадлежит одному человеку.',
+      en: 'G = A / (A + B) ≈ 1667 / 5000 ≈ 0.33. G is 0 at perfect equality and approaches 1 at extreme concentration. For a finite sample of N people, the uncorrected Gini with one person receiving everything is (N−1)/N; some statistics normalise that maximum to 1.',
+      ru: 'G = A / (A + B) ≈ 1667 / 5000 ≈ 0,33. G равен 0 при полном равенстве и приближается к 1 при предельной концентрации. Для конечной выборки из N человек неисправленный коэффициент, когда всё получает один человек, равен (N−1)/N; некоторые статистики нормируют этот максимум к 1.',
     },
     graph: {
       ...axes,

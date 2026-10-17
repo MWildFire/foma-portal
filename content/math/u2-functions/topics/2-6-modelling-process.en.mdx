@@ -8,7 +8,7 @@ A <Term id="mathematical-model"/> is a simplified description of a real situatio
 
 A <Term id="least-squares-fit"/> chooses the parameters that make the sum of the squared residuals as small as possible: <Formula id="model-least-squares-sum"/> Technology does this for linear, quadratic and exponential regression. For an exponential model it applies least squares to the logarithms of the values.
 
-A <Term id="model-residual"/> is the observed value minus the predicted value. <Formula id="model-residual-formula"/> Residuals should look random around zero. A curved or growing pattern in the residuals means the shape of the model is wrong, even when the coefficients look sensible.
+A <Term id="model-residual"/> is the observed value minus the predicted value. <Formula id="model-residual-formula"/> Residuals should look random around zero. A systematic curve suggests a missing trend or unsuitable mean function. Increasing spread can instead indicate changing variability. These are reasons to investigate assumptions, not automatic proof of one particular cause.
 
 <Callout kind="define">Residual: the observed value minus the value the model predicts. It is positive when the model underestimates the observation.</Callout>
 
@@ -23,22 +23,22 @@ Judge the model by asking whether its predictions are reasonable in the context,
 The monthly average highs in Dubai from March to October are illustrative, rounded values, not official statistics. Let $t$ be the month number, with January as $t = 1$, so March is $t = 3$ and October is $t = 10$. The temperatures in °C, from March to October, are 28.7, 33.4, 38.1, 40.8, 41.9, 42.1, 39.8 and 35.9.
 
 <Steps>
-<Step>Choose and fit: the eight points rise to one peak in the summer and fall again, so a parabola is the natural shape. A quadratic regression gives $a = -0.766$, $b = 11.1$ and $c = 1.85$, so $T(t) = -0.766t^2 + 11.1t + 1.85$.</Step>
-<Step>Use the model: the peak is at $t = 7.24$, around late July to early August, with a predicted high of $42.03$ °C. For June ($t = 6$) the model gives $40.85$ °C, close to the observed $40.8$ °C.</Step>
-<Step>Judge: every residual lies between $-0.6$ and $0.6$ °C, so the fit is good from March to October. But for January ($t = 1$) the model gives $12.18$ °C, far below any January high in Dubai. The model should not be used outside March to October.</Step>
+<Step>Choose and fit: the eight points rise to one peak in the summer and fall again, so a parabola is the natural shape. A least-squares quadratic has exact coefficients $a=-429/560$, $b=2663/240$, $c=3113/1680$. They are approximately $-0.766$, $11.1$ and $1.85$; use the unrounded coefficients for all following calculations.</Step>
+<Step>Use the model: the peak is at $t = 7.24$, between the sample positions for July and August; precise observation dates have not been supplied, with a predicted high of $42.03$ °C. For June ($t = 6$) the model gives $40.85$ °C, close to the observed $40.8$ °C.</Step>
+<Step>Judge: the eight residuals range from approximately $-0.579$ to $0.509$ °C, with root-mean-square residual about $0.341$ °C. This quantifies in-sample fit; it does not validate unseen months. At January’s input ($t=1$), the extrapolation gives $12.18$ °C, but no January observation is supplied here to test it. Seek additional data before relying on that prediction.</Step>
 </Steps>
 
-<Reveal title="Would a different model describe the whole year?">A parabola is symmetrical, so it cannot follow the cooler months. A year-long cycle is better described by the sinusoidal model from the standard models topic, and data from several years would test any model further.</Reveal>
+<Reveal title="Would a different model describe the whole year?">A downward-opening parabola is not periodic and eventually predicts unbounded negative values if extended indefinitely. A sinusoid with a twelve-month period is a candidate for repeated annual behaviour, but it also needs fitting and validation against additional observations; its shape alone does not prove it is better.</Reveal>
 
 ## Visual
 
-Plot the eight points. They form a single hump: they rise from March to a peak around July and August, then fall again in September and October. A straight line would miss the hump, while a parabola follows it closely. Extend the parabola to January and it drops far too low, which is the visual version of the judgement step.
+Plot the eight points. They form a single hump: they rise from March to a peak around July and August, then fall again in September and October. A straight line would miss the hump, while a parabola follows it closely. Extending the parabola to January gives an unvalidated prediction. Its failure to repeat annually is a structural limitation for long-term seasonal use.
 
 <Callout kind="tip">Plot the data before you fit anything. If the points do not look like the curve you fitted, a good-looking coefficient is not evidence that the model is right.</Callout>
 
 ## How it is examined
 
-Modelling questions give a mark for choosing a model with a reason (R1), for the parameters to the accuracy stated (A1), for the prediction (A1), and for a judgement that refers to the context and the limitations (R1). A judgement needs a specific reason: "the model predicts a negative count" earns the mark, while "the model is not very good" does not.
+Explain the chosen model, report parameters at the requested accuracy, show the prediction and evaluate a specific limitation. For example, an impossible negative count is a concrete objection; a vague assertion that the model is poor does not explain a limitation. Exact marks depend on the question.
 
 <Callout kind="exam">Say which model you chose and why, give the parameters to the accuracy asked, then judge the result in the context of the problem.</Callout>
 

@@ -199,4 +199,52 @@ export const terms: Term[] = [
     papers: ['P2'],
     src,
   },
+  {
+    id: "core-embedded-water",
+    term: {
+      en: "embedded (virtual) water",
+      ru: "вода, затраченная на производство (embedded water)"
+    },
+    def: {
+      en: "Water used along a product’s production chain, which connects consumption in one place to water use in another; it need not remain physically inside the finished good.",
+      ru: "Вода, затраченная по производственной цепочке товара: покупка в одном месте связана с использованием воды в другом. Эта вода не обязательно физически содержится в готовой вещи."
+    },
+    syllabus: "core-3.1",
+    papers: [
+      "P2"
+    ],
+    src: {
+      kind: "web",
+      title: "Water Footprint Network, cotton; Mekonnen and Hoekstra (2010/2011)",
+      url: "https://tools.waterfootprint.org/product-gallery/details.php?product=16"
+    },
+    pitfall: {
+      en: "Distinguish rainwater, consumed surface/groundwater and a calculated pollution-dilution component. A total footprint is not an equal volume of local freshwater withdrawal.",
+      ru: "Различайте дождевую воду, израсходованную поверхностную/подземную воду и расчётное разбавление загрязнений. Общий след не равен такому же местному забору пресной воды."
+    }
+  },
+  {
+    id: "core-new-middle-class",
+    term: {
+      en: "new middle class",
+      ru: "новый средний класс (new middle class)"
+    },
+    def: {
+      en: "Households gaining relatively secure purchasing power beyond basic needs, often in emerging economies. Any numerical estimate needs a stated income or consumption threshold and PPP basis.",
+      ru: "Домохозяйства, приобретающие относительно устойчивую покупательную способность сверх базовых нужд, часто в развивающихся экономиках. Для численной оценки нужны порог дохода или потребления и основа ППС."
+    },
+    syllabus: "core-3.1",
+    papers: [
+      "P2"
+    ],
+    src: {
+      kind: "web",
+      title: "Kharas (2010), OECD Development Centre Working Paper 285",
+      url: "https://www.oecd.org/en/publications/the-emerging-middle-class-in-developing-countries_5kmmp8lncrns-en.html"
+    },
+    pitfall: {
+      en: "No single global definition applies. Crossing an extreme-poverty line does not prove middle-class security, and a middle-income country is not a household class.",
+      ru: "Единого мирового определения нет. Выход из крайней бедности не доказывает устойчивого положения среднего класса; группа стран по доходу не является классом домохозяйств."
+    }
+  },
 ];

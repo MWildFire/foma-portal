@@ -1,5 +1,5 @@
 import type { L, Lang } from '../../contract/types';
-import { StepFrame, type StepText } from './_lib/graph';
+import { GraphViewport, StepFrame, type StepText } from './_lib/graph';
 
 // Balance of payments, USD bn, illustrative. Every entry is a net receipt of foreign currency: plus = money in, minus = money out.
 // Current account: goods -50, services +20, primary income +10, secondary income -5, so -25 (a deficit).
@@ -10,7 +10,7 @@ import { StepFrame, type StepText } from './_lib/graph';
 type Tone = 'gain' | 'loss' | 'policy' | 'ink';
 
 // part: the last stretch of the bar, drawn in its own colour (the official reserves inside the financial account).
-// note: a short text left of the zero line, in the colour of the part.
+// note: readable foreground text left of the zero line; the reserve segment retains its own colour.
 interface Row { label: L; value: number; tone: Tone; bold?: boolean; part?: { value: number; tone: Tone }; note?: L }
 
 const ROWS: Row[] = [
@@ -34,7 +34,7 @@ const ROWS: Row[] = [
 // How many rows are shown at each step (rows are drawn in this order, from the top).
 const SHOWN = [2, 5, 7, 8];
 
-const COLOUR: Record<Tone, string> = { gain: '#22c55e', loss: '#ef4444', policy: '#a855f7', ink: 'currentColor' };
+const COLOUR: Record<Tone, string> = { gain: '#16a34a', loss: '#ef4444', policy: '#a855f7', ink: 'currentColor' };
 const TOP = 14;
 const ROW_H = 22;
 const LABEL_X = 4;
@@ -54,7 +54,7 @@ const fmt = (value: number): string => (value > 0 ? '+' + value : value < 0 ? '�
 function chart(index: number, lang: Lang) {
   const shown = SHOWN[index];
   return (
-    <svg
+    <GraphViewport lang={lang}><svg
       role="img"
       aria-label={lang === 'en' ? 'Bar chart of the balance of payments accounts' : 'Столбчатая диаграмма счетов платёжного баланса'}
       viewBox={`0 0 360 ${HEIGHT}`}
@@ -69,16 +69,16 @@ function chart(index: number, lang: Lang) {
         const width = Math.abs(row.value) * SCALE;
         const part = row.part;
         return (
-          <g key={i} opacity={active ? 1 : 0.3}>
+          <g key={i} opacity={active ? 1 : 0.75}>
             <text x={LABEL_X} y={y + 15} fontSize={11} fontWeight={row.bold ? 600 : 400} fill="currentColor">{row.label[lang]}</text>
             {active && width > 0 && <rect x={x} y={y + 4} width={width} height={14} fill={COLOUR[row.tone]} />}
             {active && part && <rect x={ZERO_X + (row.value - part.value) * SCALE} y={y + 4} width={part.value * SCALE} height={14} fill={COLOUR[part.tone]} />}
-            {active && row.note && <text x={ZERO_X - 6} y={y + NOTE_DY} textAnchor="end" fontSize={11} fill={COLOUR[part ? part.tone : 'ink']}>{row.note[lang]}</text>}
+            {active && row.note && <text x={ZERO_X - 6} y={y + NOTE_DY} textAnchor="end" fontSize={11} fill="currentColor">{row.note[lang]}</text>}
             {active && <text x={VALUE_X} y={y + 15} textAnchor="end" fontSize={11} fontWeight={600} fill="currentColor">{fmt(row.value)}</text>}
           </g>
         );
       })}
-    </svg>
+    </svg></GraphViewport>
   );
 }
 

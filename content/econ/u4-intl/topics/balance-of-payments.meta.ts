@@ -5,11 +5,11 @@ const topic: TopicMeta = {
   subject: 'econ',
   code: '4.6',
   title: { en: 'Balance of payments', ru: 'Платёжный баланс' },
-  papers: ['P1', 'P2', 'P3'],
+  papers: ['P2', 'P3'],
   order: 45,
   minutes: 55,
   priority: 1,
-  inMockScope: 'unknown',
+  inMockScope: 'no',
   outcomes: [
     { en: 'I can name the current, capital and financial accounts and their main items', ru: 'Могу назвать счёт текущих операций, счёт капитала и финансовый счёт и их основные статьи' },
     { en: 'I can calculate the current account balance, the terms of trade index and its percentage change', ru: 'Могу рассчитать сальдо счёта текущих операций, индекс условий торговли и его процентное изменение' },

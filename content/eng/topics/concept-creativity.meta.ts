@@ -18,7 +18,7 @@ const topic: TopicMeta = {
   ],
   termIds: ['defamiliarisation', 'literary-device', 'allusion', 'motif', 'symbol', 'paradox', 'oxymoron'],
   questionIds: ['chk-concept-creativity-1', 'chk-concept-creativity-2'],
-  sources: [{ kind: 'own', title: 'Own wording' }],
+  sources: [{ kind: 'web', title: 'В. Шкловский, Искусство как приём, в О теории прозы (1983), с.10–12,14–15 / PDF11–13,15–16: образы, автоматизация, остранение; проверенный первичный текст', url: 'https://imwerden.de/pdf/shklovsky_o_teorii_prozy_1983__ocr.pdf' }, { kind: 'web', title: 'Ю. М. Лотман, Структура художественного текста, гл.9: текст и культурные коды, ожидание и традиция; раздел от с.269 в издании Об искусстве (1998), фактически прочитанные начальные подразделы', url: 'https://ruthenia.ru/lotman/papers/sht/9.html' }, { kind: 'web', title: 'IB Language A: literature guide, first assessment 2026, PDF34–35 / printed28–29: seven concepts, actual text read through the official examiner link', url: 'https://xmltwo.ibo.org/publications/EAD/2026_EN/GR1/GR1-A-Lit_EN_24.pdf' }, { kind: 'own', title: 'Own wording' }],
 };
 
 export default topic;

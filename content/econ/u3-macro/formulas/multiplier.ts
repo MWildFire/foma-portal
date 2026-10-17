@@ -29,8 +29,8 @@ export const formulas: Formula[] = [
       ru: 'Изменение национального дохода на единицу изменения инъекций; MPS, MPT и MPM — предельные склонности к сбережению, налогообложению и импорту.',
     },
     when: {
-      en: 'An open economy with taxes and imports, or any economy where withdrawals leave the circular flow.',
-      ru: 'Открытая экономика с налогами и импортом или любая экономика, где изъятия выводят деньги из кругового потока.',
+      en: 'A fixed-price model with spare capacity, constant marginal leakages and autonomous injection; MPS+MPT+MPM>0. Measure all three propensities against the same marginal income. Capacity constraints, price changes and crowding out limit the realised response.',
+      ru: 'Модель с неизменными ценами, свободными мощностями, постоянными предельными утечками и автономной инъекцией; MPS+MPT+MPM>0. Все три склонности считай относительно одного прироста дохода. Ограничения мощностей, рост цен и вытеснение ограничивают фактический отклик.',
     },
     syllabus: '3.2',
     units: 'number of times',
@@ -48,8 +48,8 @@ export const formulas: Formula[] = [
       ru: 'Изменение национального дохода на единицу изменения инъекций, когда весь дополнительный доход либо потребляется, либо сберегается.',
     },
     when: {
-      en: 'A closed economy with no taxes, where the MPC is given.',
-      ru: 'В закрытой экономике без налогов, когда дан MPC.',
+      en: 'A fixed-price closed-economy model with no taxes, spare capacity and constant 0≤MPC<1.',
+      ru: 'Модель закрытой экономики без налогов, с постоянными ценами, свободными мощностями и постоянной 0≤MPC<1.',
     },
     syllabus: '3.2',
     units: 'number of times',

@@ -17,7 +17,7 @@ const topic: TopicMeta = {
     { en: 'I can evaluate the limits of monetary policy, such as time lags and the liquidity trap', ru: 'Могу оценивать пределы монетарной политики, такие как лаги и ловушка ликвидности' },
     { en: 'I can calculate the percentage change in the policy interest rate', ru: 'Могу рассчитать процентное изменение ключевой ставки' },
   ],
-  termIds: [
+  termIds: ['real-interest-rate', 'nominal-interest-rate', 'money-supply', 'interest-rate', 'minimum-reserve-requirement', 'commercial-bank',
     'monetary-policy',
     'central-bank',
     'inflation',
@@ -36,10 +36,9 @@ const topic: TopicMeta = {
     'econ-monetary-policy-01',
     'econ-monetary-policy-02',
     'econ-monetary-policy-03',
-    'econ-monetary-policy-04',
-  ],
-  caseIds: ['case-russia-key-rate-2022', 'case-eurozone-ecb-rates-2022'],
-  sources: [{ kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 3.5' }],
+    'econ-monetary-policy-04',  'r06-econ-19', 'r06-econ-20'],
+  caseIds: ['case-russia-key-rate-2022', 'case-eurozone-ecb-rates-2022', 'r06-uk-2023-policy'],
+  sources: [{ kind: 'web', title: 'Bank of England — Money creation in the modern economy (2014)', url: 'https://www.bankofengland.co.uk/-/media/boe/files/quarterly-bulletin/2014/money-creation-in-the-modern-economy.pdf', locator: 'Printed pp.20–21: interest-rate implementation and reserves versus broad money; pp.14–16: loans create deposits' }, { kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 3.5' }],
 };
 
 export default topic;

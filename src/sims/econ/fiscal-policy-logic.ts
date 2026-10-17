@@ -10,12 +10,12 @@ export const MULTIPLIER = 1 / (1 - MPC);
 
 // SRAS slopes up over its whole length: P = Y - 1.
 export const srasPrice = (y: number): number => y - 1;
-// AD1: P = 15 - Y. The rise in G shifts AD right by 2 (AD2, the first round); the multiplier makes the total shift 2 x 2 = 4 (AD3).
+// AD1: P = 15 - Y. AD2 is a comparison shift of 2, not a claimed chronological first round. With fixed-price k = 2, ΔG = 2 gives the full AD3 shift of 4; rising SRAS reduces realised ΔY to 2.
 export const ad1Price = (y: number): number => 15 - y;
 export const ad2Price = (y: number): number => 17 - y;
 export const ad3Price = (y: number): number => 19 - y;
 
-// Equilibria: A = AD1 and SRAS (below potential output), C = AD2 and SRAS (first round), B = AD3 and SRAS, on LRAS.
+// Equilibria: A = AD1 and SRAS (below potential output), C = AD2 and SRAS (comparison), B = AD3 and SRAS, on LRAS.
 export const pointA: Point = [8, 7];
 export const pointC: Point = [9, 8];
 export const pointB: Point = [10, 9];

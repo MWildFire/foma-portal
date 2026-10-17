@@ -10,8 +10,8 @@ export const formulas: Formula[] = [
       ru: 'Стандартизованная разность между выборочным средним и гипотетическим средним μ0; число степеней свободы n − 1.',
     },
     when: {
-      en: 'One-sample test of H0: mu = mu0 for a normal population with unknown variance.',
-      ru: 'Одновыборочный тест H0: μ = μ0 для нормальной совокупности с неизвестной дисперсией.',
+      en: 'Requires independent observations, n>1 and s>0. One-sample test of H0: mu = mu0 for a normal population with unknown variance.',
+      ru: 'Требуются независимые наблюдения, n>1 и s>0. Одновыборочный тест H0: μ = μ0 для нормальной совокупности с неизвестной дисперсией.',
     },
     syllabus: '4.18',
     inBooklet: false,
@@ -29,8 +29,8 @@ export const formulas: Formula[] = [
       ru: 'Статистика для H0: ρ = 0 по выборочному коэффициенту корреляции r из n пар; число степеней свободы n − 2.',
     },
     when: {
-      en: 'Testing whether the population correlation is zero, for bivariate normal data.',
-      ru: 'Проверка, равен ли нулю коэффициент корреляции генеральной совокупности, для двумерно нормальных данных.',
+      en: 'Use independent paired observations, n>2 and |r|<1 for this finite formula. Testing whether the population correlation is zero, for bivariate normal data.',
+      ru: 'Нужны независимые парные наблюдения, n>2 и |r|<1 для этой конечной формулы. Проверка, равен ли нулю коэффициент корреляции генеральной совокупности, для двумерно нормальных данных.',
     },
     syllabus: '4.18',
     inBooklet: false,
@@ -44,8 +44,8 @@ export const formulas: Formula[] = [
     tex: 'T=X_{1}+X_{2}+\\cdots+X_{n}\\sim\\text{Po}(n\\,m_{0})\\quad\\text{under } H_{0}: m=m_{0}',
     name: { en: 'Total of n Poisson counts under H0', ru: 'Сумма n подсчётов Пуассона при H0 (Total of n Poisson counts under H0)' },
     meaning: {
-      en: 'For independent counts X1 to Xn, each with mean m0 under H0, the total T is Poisson with mean n m0.',
-      ru: 'Для независимых подсчётов X1, …, Xn, каждый со средним m0 при H0, их сумма T имеет распределение Пуассона со средним n m0.',
+      en: 'For independent Poisson counts X1 to Xn, each with mean m0 under H0, the total T is Poisson with mean n m0.',
+      ru: 'Для независимых пуассоновских подсчётов X1, …, Xn, каждый со средним m0 при H0, их сумма T имеет распределение Пуассона со средним n m0.',
     },
     when: {
       en: 'Testing a Poisson mean with several independent intervals of equal length.',

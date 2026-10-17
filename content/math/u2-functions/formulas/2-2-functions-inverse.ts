@@ -10,8 +10,8 @@ export const formulas: Formula[] = [
       ru: 'Применение f, а затем обратной функции возвращает исходный вход x, для любого x из области определения f.',
     },
     when: {
-      en: 'Checking an inverse, or undoing a function step by step.',
-      ru: 'Проверка обратной функции или отмена действия функции по шагам.',
+      en: 'Requires f to be one-to-one on its stated domain. Checking an inverse, or undoing a function step by step.',
+      ru: 'Требуется взаимная однозначность f на указанной области определения. Проверка обратной функции или отмена действия функции по шагам.',
     },
     syllabus: '2.2',
     inBooklet: false,

@@ -32,8 +32,8 @@ const topic: TopicMeta = {
   ],
   formulaIds: ['budget-balance', 'multiplier'],
   sims: ['econ.fiscal-policy'],
-  questionIds: ['econ-fiscal-policy-01', 'econ-fiscal-policy-02', 'econ-fiscal-policy-03', 'econ-fiscal-policy-04'],
-  caseIds: ['case-uae-corporate-tax-2023', 'case-russia-vat-2019'],
+  questionIds: ['econ-fiscal-policy-01', 'econ-fiscal-policy-02', 'econ-fiscal-policy-03', 'econ-fiscal-policy-04', 'r06-econ-16', 'r06-econ-21'],
+  caseIds: ['case-uae-corporate-tax-2023', 'case-russia-vat-2019', 'r06-uk-2023-policy'],
   sources: [{ kind: 'ib-guide', title: 'IB DP Economics subject guide (2020)', locator: 'section 3.6' }],
 };
 

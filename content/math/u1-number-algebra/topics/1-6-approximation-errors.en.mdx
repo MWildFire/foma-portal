@@ -4,13 +4,15 @@ Every rounded number stands for a range of exact values. Good answers keep track
 
 ## Explanation
 
-A number given to a set number of <Term id="significant-figures"/> is rounded. Significant figures are counted from the first non-zero digit, so the two leading zeros of 0.0047 are not significant. Decimal places count only the digits after the point.
+Treat a measurement reported to a stated number of <Term id="significant-figures"/> as rounded unless the value is explicitly exact. Significant figures are counted from the first non-zero digit, so the zeros before 4 in 0.0047 are not significant. Decimal places count only the digits after the point.
 
-A value $a$ rounded to $d$ decimal places comes from an exact value $x$ within half a unit of the last decimal place. The ends of this range are the <Term id="bounds-of-rounded-value"/>:
+A value $a$ rounded to $d$ decimal places comes from an exact value $x$ within half a unit of the last decimal place. For the nonnegative measurements here, use nearest rounding with midpoint ties upwards: the lower endpoint is included and the upper is excluded. Other tie conventions may change endpoint inclusion. The ends are the <Term id="bounds-of-rounded-value"/>:
 
 <Formula id="rounding-bounds"/>
 
-When measured values are combined, the bounds of the result come from the bounds of the inputs. A product or an area is largest when every factor takes its upper bound and smallest when every factor takes its lower bound. For a quotient, the largest value uses the upper bound of the top and the lower bound of the bottom.
+Intersect this interval with any stated physical constraints. For example, a nonnegative mass reported as 0.0 kg has $0\le x<0.05$ kg, not a possible negative mass.
+
+When measured values are combined, the bounds of the result come from the bounds of the inputs. For positive independent inputs, product bounds use both lower or both upper endpoints, and quotient bounds use opposite endpoints; the denominator must stay positive. An excluded upper endpoint gives a supremum, not an attained maximum. With negative inputs, test the signs and endpoint combinations: for $x\in[-3,-2]$ and $y\in[4,5]$, the product ranges from $-15$ to $-8$, not from multiplying only both lower and both upper values. If a denominator interval contains zero, the quotient may be undefined or unbounded.
 
 The <Term id="percentage-error"/> compares an approximate value with the exact value, as a percentage of the exact value:
 
@@ -18,7 +20,7 @@ The <Term id="percentage-error"/> compares an approximate value with the exact v
 
 <Callout kind="tip">Estimate first by rounding each value to one significant figure. If the full calculation is far from the estimate, check your working before you round the answer.</Callout>
 
-<Callout kind="gdc">On a Calculator page, type each calculation in one line, for example `abs(3.6-3.75)/3.75*100` for the percentage error, and round only the final answer with `round(x,2)`, which counts decimal places, not significant figures. The Display Digits setting in `Home → Settings → Document Settings` has no significant-figures option, so round to significant figures yourself. To reuse a result at full precision, scroll to it in the history with the arrow keys and press `enter`.</Callout>
+<Callout kind="gdc">On a Calculator page, type each calculation in one line, for example `abs(3.6-3.75)/3.75*100` for the percentage error, and round only the final answer with `round(x,2)`, which counts decimal places, not significant figures. Display Digits controls the display; keep guard digits and apply the question’s final rounding rule. To reuse a result at full precision, scroll to it in the history with the arrow keys and press `enter`.</Callout>
 
 ## Worked example
 
@@ -26,11 +28,11 @@ A rectangular plot is 12.4 m long and 8.6 m wide, each correct to 1 decimal plac
 
 <Steps>
 <Step>Length: half a unit of the first decimal place is 0.05, so the bounds are $12.4 - 0.05 = 12.35$ and $12.4 + 0.05 = 12.45$. The length $L$ satisfies $12.35 \le L < 12.45$.</Step>
-<Step>Width: the bounds are 8.55 and 8.65. The largest area uses both upper bounds, $12.45 \times 8.65 = 107.69$, and the smallest uses both lower bounds, $12.35 \times 8.55 = 105.59$ (both to 2 decimal places).</Step>
+<Step>Width: the bounds are 8.55 and 8.65. The exact area bounds are $12.35\times8.55=105.5925$ and $12.45\times8.65=107.6925$, so $105.5925\le A<107.6925$ square metres. The upper bound is not attained. If a containing interval to two decimal places is required, round outwards: $105.59\le A<107.70$, not $A<107.69$.</Step>
 <Step>Percentage error when 3.6 is used for the true value 3.75: $\dfrac{|3.6 - 3.75|}{3.75} \times 100 = 4.00\%$ (to 2 decimal places).</Step>
 </Steps>
 
-<Reveal title="Why the modulus sign?">Errors can be above or below the exact value. The modulus sign makes the difference positive either way, so a percentage error is never negative.</Reveal>
+<Reveal title="Why the modulus sign?">Errors can be above or below the exact value. The absolute convention used here makes the error magnitude nonnegative, including zero for an exact match. The booklet also displays a signed relative-error form: preserve a sign when that is requested. An exact value of zero does not define a relative percentage error.</Reveal>
 
 ## Visual
 
@@ -40,7 +42,7 @@ The rounded value can be drawn as a short interval on a number line. The exact v
 
 ## How it is examined
 
-Write down and Find questions give a mark for each correct bound and an accuracy mark for the number of decimal places or significant figures asked for. Estimate questions reward a sensible rounding to one significant figure and a clear comparison. Comment questions need a conclusion based on the bounds, not a repeat of a calculated value.
+Check the actual allocation: there is no universal mark for each bound or for its decimal places. Preserve exact bounds or round outwards when a containing interval is required. Estimate questions reward a sensible rounding to one significant figure and a clear comparison. Comment questions need a conclusion based on the bounds, not a repeat of a calculated value.
 
 <Callout kind="exam">Keep full accuracy in the working and round only the final answer, unless the question asks you to round an intermediate step.</Callout>
 
@@ -62,9 +64,9 @@ Write down and Find questions give a mark for each correct bound and an accuracy
 
 ## Summary
 
-- A value $a$ rounded to $d$ decimal places has the bounds $a - \frac{1}{2} \times 10^{-d}$ and $a + \frac{1}{2} \times 10^{-d}$; the lower bound is included and the upper bound is not.
+- A value $a$ rounded to $d$ decimal places has the bounds $a - \frac{1}{2} \times 10^{-d}$ and $a + \frac{1}{2} \times 10^{-d}$; for the nonnegative midpoint-up convention, the lower bound is included and the upper is not.
 - Significant figures are counted from the first non-zero digit, so leading zeros never count.
-- The largest product uses every upper bound, and the smallest uses every lower bound.
-- For a quotient, use the upper bound of the top and the lower bound of the bottom for the largest value.
-- A percentage error is the difference from the exact value, divided by the exact value, times 100.
+- For positive independent factors, the product endpoints come from both lower or both upper inputs; excluded endpoints need not be attained.
+- For positive inputs and a denominator bounded away from zero, an upper quotient bound uses the upper numerator and lower denominator.
+- Absolute percentage error is the absolute difference divided by the absolute nonzero exact value, times 100%; distinguish the booklet’s signed convention.
 - Estimate by rounding each value to one significant figure, and round only the final answer.

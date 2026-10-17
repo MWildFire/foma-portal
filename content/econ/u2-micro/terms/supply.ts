@@ -86,8 +86,8 @@ export const terms: Term[] = [
     id: 'cost-of-production',
     term: { en: 'cost of production', ru: 'издержки производства (cost of production)' },
     def: {
-      en: 'The total expense of the inputs (factors of production) used to make a good, namely land, labour, capital and entrepreneurship; higher costs reduce supply at each price.',
-      ru: 'Совокупные расходы на факторы производства (factors of production): землю, труд, капитал и предпринимательскую способность; рост издержек уменьшает предложение при каждой цене.',
+      en: 'The total expense of the inputs (factors of production) used to make a good, namely land, labour, capital and entrepreneurship; a rise in the costs of additional output reduces supply, other things equal. A cost increase that does not change marginal production incentives need not shift short-run supply.',
+      ru: 'Совокупные расходы на факторы производства (factors of production): землю, труд, капитал и предпринимательскую способность; рост затрат на дополнительный выпуск уменьшает предложение при прочих равных. Рост затрат, не меняющий предельных стимулов производства, не обязан сдвигать краткосрочное предложение.',
     },
     example: {
       en: 'When the price of flour rises from AED 2 to AED 3 per kilogram, the cost of making a loaf rises, so bakeries supply fewer loaves at each price.',
@@ -113,8 +113,8 @@ export const terms: Term[] = [
       ru: 'Когда цена ячменя растёт с 1,50 до 2,00 AED за килограмм, фермеры переводят землю с пшеницы на ячмень, и предложение пшеницы падает.',
     },
     pitfall: {
-      en: 'Substitutes in production are not substitute goods in demand: wheat and barley are linked through supply, not through what buyers choose.',
-      ru: 'Субституты в производстве — не то же самое, что заменители в спросе: пшеница и ячмень связаны через предложение, а не через выбор покупателей.',
+      en: 'Substitution in production concerns competing uses of inputs; substitution in consumption concerns buyers switching goods. The same pair can have both relationships; specify the mechanism in the question.',
+      ru: 'Замещение в производстве касается конкурирующих способов использовать ресурсы, а замещение в потреблении — переключения покупателей между товарами. Одна пара может иметь обе связи; укажи механизм из задания.',
     },
     syllabus: '2.2',
     papers: ['P1', 'P2', 'P3'],

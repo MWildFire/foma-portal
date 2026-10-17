@@ -18,9 +18,9 @@ $$
 
 <Formula id="pythagorean-identity"/>
 
-The point $P$ lies in one of four quadrants, and that fixes the sign of each ratio. <Term id="quadrant-sign-rule"/> In quadrant I all three ratios are positive; in II only sine; in III only tangent; in IV only cosine.
+Away from the axes, point $P$ lies in one of four quadrants, which fixes each sign. On an axis, read zero sine/cosine values directly from the coordinates. <Term id="quadrant-sign-rule"/> In quadrant I all three ratios are positive; in II only sine; in III only tangent; in IV only cosine.
 
-The tangent is the ratio of the two coordinates, so it is undefined when $\cos\theta = 0$, that is at $90^\circ$ and $270^\circ$:
+The tangent is the ratio of the two coordinates, so it is undefined when $\cos\theta = 0$, that is at $90^\circ+180^\circ k$ for integer $k$ (including $90^\circ$ and $270^\circ$ in one turn):
 
 $$
 \tan\theta = \frac{\sin\theta}{\cos\theta}
@@ -32,14 +32,14 @@ Reflecting $P$ in the $y$-axis gives the angle $180^\circ - \theta$ with the sam
 
 <Formula id="sine-rule-ambiguous-case"/>
 
-To solve a trigonometric equation in an interval, sketch both sides as functions of $x$ and find their intersection points inside the interval. For a value between $-1$ and $1$, sine or cosine takes that value twice in each full period, so an interval often holds several solutions.
+To solve on a stated interval, use identities and a graph to locate and check all solutions, including endpoints and tangencies, not just crossings. For $-1<c<1$, $\sin x=c$ and $\cos x=c$ each have two solutions in a half-open full period; for $c=1$ or $c=-1$ there is one. A closed interval can include both equivalent endpoints: $\sin x=0$ on $[0^\circ,360^\circ]$ has three listed solutions, $0^\circ$, $180^\circ$ and $360^\circ$.
 
 <Callout kind="gdc">Open Home → Graphs, enter both sides with Menu → Graph Entry/Edit → Function, and set the interval in Menu → Window / Zoom → Window Settings. Set Graphing Angle in Menu → Settings to match the interval. Find each crossing with Menu → Analyze Graph → Intersection, setting the lower and upper bounds around that crossing.</Callout>
 
 ## Worked example
 
 <Steps>
-<Step>Point at $\theta = 120^\circ$: on the unit circle, $\cos 120^\circ = -0.500$ and $\sin 120^\circ = 0.866$ (to 3 decimal places). So $\tan 120^\circ = \dfrac{0.866}{-0.500} = -1.732$ (to 3 decimal places).</Step>
+<Step>Point at $\theta = 120^\circ$: on the unit circle, $\cos120^\circ=-1/2$ and $\sin120^\circ=\sqrt3/2\approx0.866$. Hence $\tan120^\circ=-\sqrt3\approx-1.732$ (3 decimal places), without rounding an intermediate ratio.</Step>
 <Step>Given $\cos\theta = 0.6$ with $\theta$ in quadrant IV, $\sin^2\theta = 1 - 0.36 = 0.64$. Sine is negative in quadrant IV, so $\sin\theta = -0.800$ (to 3 decimal places).</Step>
 <Step>Triangle with $a = 8$ cm, $b = 10$ cm and $A = 40^\circ$: $\sin B = \dfrac{10 \sin 40^\circ}{8} = 0.803$ (to 3 decimal places). So $B = 53.5^\circ$ or $B = 126.5^\circ$ (to 1 decimal place). Both are possible, because $40^\circ + 53.5^\circ < 180^\circ$ and $40^\circ + 126.5^\circ < 180^\circ$.</Step>
 </Steps>
@@ -52,9 +52,11 @@ To solve a trigonometric equation in an interval, sketch both sides as functions
 
 Move the slider through the four quadrants. The signs of $\cos\theta$, $\sin\theta$ and $\tan\theta$ change exactly where the table says, and the tangent becomes undefined at $90^\circ$ and $270^\circ$.
 
+The tangent is $\tan\theta=\sin\theta/\cos\theta$, so its magnitude can exceed 1 (Oxford AI HL, ch. 8.2, pp. 344–347). For example, $120^\circ=2\pi/3$ radians gives $\tan\theta=-\sqrt{3}\approx-1.732$. If the tangent segment extends beyond the frame, the lab clips the segment and displays “off frame”; the numerical value is still valid. This differs from an undefined tangent, where $\cos\theta=0$.
+
 ## How it is examined
 
-Find, Solve and Show that questions in this topic give marks for the method and for every solution. For an equation in an interval, list each solution inside the interval and check its quadrant before choosing a sign. In the ambiguous case, the reasoning mark needs a written check that each angle gives a valid triangle, so state it.
+List every solution in the stated interval, checking endpoints, quadrants and any domain restriction. In an ambiguous triangle case, test both candidate angles and the positivity of the remaining angle. Exact marks depend on the task.
 
 <Callout kind="exam">Solve on the interval the question names, not on a default range. Give each solution to the accuracy asked, and say whether a second triangle is possible.</Callout>
 
@@ -73,6 +75,8 @@ Find, Solve and Show that questions in this topic give marks for the method and 
 <Question id="q-3-8-02"/>
 
 <Question id="q-3-8-03"/>
+
+<Question id="r06-unit-circle"/>
 
 ## Summary
 

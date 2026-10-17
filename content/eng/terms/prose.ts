@@ -24,8 +24,8 @@ export const terms: Term[] = [
     id: 'first-person-narration',
     term: { en: 'first-person narration', ru: 'повествование от первого лица (first-person narration)' },
     def: {
-      en: 'Narration by a narrator who uses "I" and takes part in the events or observes them. The reader knows only what this narrator sees, knows or infers.',
-      ru: 'Повествование от лица рассказчика, который говорит «я» и участвует в событиях или наблюдает за ними. Читатель знает только то, что видит, знает или может понять этот рассказчик.',
+      en: 'Narration by a narrator who uses "I" or "we" and takes part in the events or observes them. The account is filtered through this voice, but a reader may infer more than the narrator recognises.',
+      ru: 'Повествование от лица рассказчика, который говорит «я» или «мы» и участвует в событиях или наблюдает за ними. Рассказ дан через этот голос, но читатель может понять больше, чем осознаёт сам рассказчик.',
     },
     syllabus: 'F.PRO',
     papers: ['P1', 'P2'],
@@ -73,8 +73,8 @@ export const terms: Term[] = [
     id: 'unreliable-narrator',
     term: { en: 'unreliable narrator', ru: 'ненадёжный рассказчик (unreliable narrator)' },
     def: {
-      en: 'A narrator whose version of events the reader cannot fully trust. The narrator may be biased, mistaken, deceptive or limited in knowledge, so the reader must read between the lines.',
-      ru: 'Рассказчик, чьей версии событий читатель не может полностью доверять. Он может быть предвзятым, ошибаться, обманывать или быть ограниченным в знании, поэтому читателю приходится читать между строк.',
+      en: 'A narrator whose account or evaluation is given reason to be doubted by the work. Bias, mistake or deception may contribute; limited knowledge alone does not establish unreliability.',
+      ru: 'Рассказчик, в чьих сообщениях или оценках произведение даёт основания сомневаться. Возможны предвзятость, ошибка или обман; сама ограниченность знания не доказывает ненадёжности.',
     },
     syllabus: 'F.PRO',
     papers: ['P1', 'P2'],
@@ -100,7 +100,7 @@ export const terms: Term[] = [
     src: { kind: 'own', title: 'Own wording' },
     example: {
       en: 'Through the eyes of Tom, the new teacher looked tired and oddly small.',
-      ru: 'Глазами Тома новая учительница выглядела усталой и странно маленькой.',
+      ru: 'Тому новая учительница казалась усталой и необычно маленькой.',
     },
   },
   {
@@ -141,8 +141,8 @@ export const terms: Term[] = [
     id: 'interior-monologue',
     term: { en: 'interior monologue', ru: 'внутренний монолог (interior monologue)' },
     def: {
-      en: 'A technique that shows the private thoughts of a character in a fairly ordered form, as if the character were speaking silently to himself or herself.',
-      ru: 'Приём, при котором личные мысли персонажа передаются в относительно упорядоченной форме, как будто персонаж молча говорит сам с собой.',
+      en: 'Representation of a character’s unspoken inner speech, as if thinking in their own words. It can be ordered or fragmentary.',
+      ru: 'Передача непроизнесённой внутренней речи персонажа, словно его собственных мыслей словами. Она может быть упорядоченной или обрывочной.',
     },
     syllabus: 'F.PRO',
     papers: ['P1', 'P2'],
@@ -152,8 +152,8 @@ export const terms: Term[] = [
       ru: 'Завтра нужно позвонить в банк, потому что карта почти пуста, а больше в этом доме этим никто не займётся.',
     },
     pitfall: {
-      en: 'Interior monologue is not the same as stream of consciousness. The first is usually more ordered, while the second is looser and more associative.',
-      ru: 'Внутренний монолог — не то же самое, что поток сознания: первый обычно более упорядочен, а второй свободнее и ассоциативнее.',
+      en: 'Interior monologue and stream of consciousness overlap in usage: associative inner speech can contribute to a stream of consciousness. A narrator’s summary of someone’s thoughts is not automatically direct interior monologue.',
+      ru: 'Внутренний монолог и поток сознания могут пересекаться: ассоциативная внутренняя речь способна участвовать в передаче потока сознания. Пересказ мыслей рассказчиком не становится автоматически прямым внутренним монологом.',
     },
   },
   {
@@ -269,8 +269,8 @@ export const terms: Term[] = [
     id: 'exposition',
     term: { en: 'exposition', ru: 'экспозиция (exposition)' },
     def: {
-      en: 'The opening part of a story, which gives background on the characters, setting and situation and introduces the conflict.',
-      ru: 'Начальная часть истории, в которой даётся предыстория, представляются персонажи, место действия и обстоятельства и намечается конфликт.',
+      en: 'Background information about characters, setting and situation, often at the opening but sometimes delayed or distributed through the work.',
+      ru: 'Исходные сведения о персонажах, месте действия и обстоятельствах; часто даны в начале, но могут быть отложены или распределены по произведению.',
     },
     syllabus: 'F.PRO',
     papers: ['P1', 'P2'],
@@ -295,8 +295,8 @@ export const terms: Term[] = [
       ru: 'На мосту братья наконец кричат правду, и ничто в семье уже не может остаться прежним.',
     },
     pitfall: {
-      en: 'The climax is the turning point, not the ending. The denouement comes after it.',
-      ru: 'Кульминация — это поворотный момент, а не финал. Развязка идёт после неё.',
+      en: 'Distinguish the point of greatest tension from the ending; they can coincide, and some works omit a separate resolution.',
+      ru: 'Различайте высшее напряжение и финал: они могут совпасть, а отдельной развязки в некоторых произведениях нет.',
     },
   },
   {
@@ -361,10 +361,10 @@ export const terms: Term[] = [
   },
   {
     id: 'pathetic-fallacy',
-    term: { en: 'pathetic fallacy', ru: 'патетическая фаллация (pathetic fallacy)' },
+    term: { en: 'pathetic fallacy', ru: 'эмоциональное олицетворение природы (pathetic fallacy)' },
     def: {
-      en: 'The attribution of human feelings to nature, especially to the weather, so that the landscape seems to reflect the mood of a character.',
-      ru: 'Приписывание природе человеческих чувств, особенно погоде, так что пейзаж как будто отражает настроение персонажа.',
+      en: 'The attribution of human feelings to nature, especially to the weather, often projecting a speaker’s or character’s emotional state.',
+      ru: 'Приписывание природе человеческих чувств, особенно погоде, часто как проекция эмоционального состояния говорящего или персонажа.',
     },
     syllabus: 'F.PRO',
     papers: ['P1', 'P2'],
@@ -374,8 +374,8 @@ export const terms: Term[] = [
       ru: 'Небо над похоронами плакало всё утро, будто и оно тоже кого-то потеряло.',
     },
     pitfall: {
-      en: 'Not every description of weather is pathetic fallacy. The term needs nature that clearly reflects the feeling of a character.',
-      ru: 'Не всякое описание погоды — это пафетическая фаллация: нужна природа, которая явно отражает чувство персонажа.',
+      en: 'Not every description of weather is pathetic fallacy. Look for an attribution of human feeling to nature, not just matching or contrasting weather.',
+      ru: 'Не всякое описание погоды — это эмоциональное олицетворение природы: ищите приписывание природе человеческого чувства, а не просто подходящую или контрастную погоду.',
     },
   },
   {

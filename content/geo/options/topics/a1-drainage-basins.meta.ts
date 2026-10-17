@@ -68,7 +68,8 @@ const topic: TopicMeta = {
   questionIds: ['a1-sq1', 'a1-sq2', 'a1-sq3', 'a1-eq1', 'a1-eq2'],
   caseIds: ['a-rhine-basin', 'a-mekong-basin', 'a-amazon-basin', 'a-uae-wadi-floods-2024'],
   sources: [
-    { kind: 'ib-guide', title: 'Geography guide (2017), Option A: Freshwater', locator: 'A.1' },
+    {"kind": "web", "title": "Quan et al., Sand-mining-driven reduction in Tonle Sap Lake’s critical flood pulse, Nature Sustainability 8 (2025), 1455–1466", "url": "https://doi.org/10.1038/s41893-025-01677-8", "locator": "p. 1455, abstract and introduction: seasonal flow, 1998–2018 medium-flow estimate and sediment drivers"},
+    { kind: 'ib-guide', title: 'Geography guide (2017), Option A: Freshwater', locator: 'A.1, p. 28' },
     { kind: 'thinkib', title: 'Option A: Drainage Basin Hydrology and Geomorphology (page 43413)', locator: 'The Water Budget; River Processes; Upper, Middle and Lower Course Landforms' },
   ],
   links: [

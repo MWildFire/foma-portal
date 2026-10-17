@@ -148,6 +148,16 @@ const inOrder = (html, first, second) => html.indexOf(first) !== -1 && html.inde
 
 // ---- practice
 
+test('practice results count only questions in the selected mock scope',async()=>{
+ const p=pack();p.topics[1].inMockScope='no';
+ const state={questions:{'geo/q1':{rating:'right',at:'2026-10-14'},'geo/q2':{rating:'wrong',at:'2026-10-14'}}};
+ const html=await view('PracticeView',{pack:p},'/s/geo/practice',{state});
+ assert.match(html,/<dt>Questions<\/dt><dd>2<\/dd>/);
+ assert.match(html,/<dt>Right<\/dt><dd>1<\/dd>/);
+ assert.match(html,/<dt>Wrong<\/dt><dd>0<\/dd>/);
+ assert.match(html,/<dt>Not rated yet<\/dt><dd>1<\/dd>/);
+});
+
 test('practice, example subject: the questions are shown and the markscheme is hidden', async () => {
   const html = await page('PracticePage', '/s/:subject/practice', '/s/_example/practice');
   assert.ok(example.questions.length > 0, 'the example subject has questions');
@@ -236,12 +246,12 @@ test('practice, timed mode: ?set= opens the set with its questions in order, tim
   assert.match(html, /Leave timed mode/);
 });
 
-test('practice, timed mode: extra time adds 25% and says so', async () => {
+test('practice, timed mode: legacy flag does not change printed minutes', async () => {
   const state = { version: 3, settings: { accessArrangements: { extraTime: true } } };
   const html = await view('PracticeView', { pack: pack() }, '/s/geo/practice?set=set-a', { state });
-  assert.match(html, /56:00/); // the school table: 45 minutes is 56 with extra time
-  assert.match(html, /Extra time is on: 45 min \+ 25% \(\+11 min\) = 56 min/);
-  assert.ok(!html.includes('45:00'));
+  assert.match(html, /45:00/); // the school table: 45 minutes is 56 with extra time
+  assert.doesNotMatch(html, /Extra time/);
+  assert.ok(!html.includes('56:00'));
 });
 
 test('practice, timed mode: a set that does not exist is reported, and the normal list stays', async () => {
@@ -304,13 +314,13 @@ test('practice in Russian', async () => {
   const html = await view('PracticeView', { pack: pack() }, '/s/geo/practice?set=set-a', { lang: 'ru', state });
   assert.match(html, /Практика/);
   assert.match(html, /Условие q4/);
-  assert.match(html, /Дополнительное время включено/);
-  assert.match(html, /56:00/);
+  assert.doesNotMatch(html, /Дополнительное время/);
+  assert.match(html, /45:00/);
 });
 
 test('practice, timed mode: an essay paper reminds the student to type the answer, in both languages', async () => {
   const html = await view('PracticeView', { pack: pack() }, '/s/geo/practice?set=set-a');
-  assert.match(html, /Practise typing your answer: in the exam you type \(access arrangement: typing\)\. No extra time\./);
+  assert.match(html, /Practise typing your answer: in the exam you type \(access arrangement: typing\)\./);
   const ru = await view('PracticeView', { pack: pack() }, '/s/geo/practice?set=set-a', { lang: 'ru' });
   assert.match(ru, /Тренируйся печатать ответ: на экзамене ты печатаешь/);
 });
@@ -577,4 +587,13 @@ test('report in Russian is written in Russian, with Russian topic titles', async
 test('report page: the real subjects draw without a crash', async () => {
   const html = await page('ReportPage', '/report', '/report');
   assert.match(html, /Progress report/);
+});
+
+test('formulas: outside-booklet URL filter excludes both booklet and unflagged formulas',async()=>{
+ const html=await view('FormulasView',{pack:pack()},'/s/geo/formulas?booklet=0');
+ assert.ok(html.includes('Formula f2'));
+ assert.ok(!html.includes('Formula f1') && !html.includes('Formula f3'));
+ assert.match(html,/Showing 1 of 3 formulas/);
+ const empty=await view('FormulasView',{pack:pack({formulas:[formula('f1',true)]})},'/s/geo/formulas?booklet=0');
+ assert.match(empty,/No formulas match these filters/);
 });

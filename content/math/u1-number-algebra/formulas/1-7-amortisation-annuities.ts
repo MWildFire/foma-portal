@@ -10,8 +10,8 @@ export const formulas: Formula[] = [
       ru: '$M$ — равный платёж за период, который погашает кредит $PV$ за $N$ периодов при ставке $i$ за период.',
     },
     when: {
-      en: 'Finding the equal instalment for a loan, with $i = \\frac{r}{100k}$ and $N = kn$.',
-      ru: 'Поиск равного платежа по кредиту при $i = \\frac{r}{100k}$ и $N = kn$.',
+      en: 'For equal end-of-period payments, constant $i>0$, positive integer $N$ and no additional charges or cash flows; at zero interest use $M=PV/N$. Finding the equal instalment for a loan, with $i = \\frac{r}{100k}$ and $N = kn$.',
+      ru: 'Для равных платежей в конце периодов, постоянной ставки $i>0$, целого $N>0$, без других комиссий и денежных потоков; при нулевой ставке $M=PV/N$. Поиск равного платежа по кредиту при $i = \\frac{r}{100k}$ и $N = kn$.',
     },
     syllabus: '1.7',
     inBooklet: false,
@@ -29,8 +29,8 @@ export const formulas: Formula[] = [
       ru: '$FV$ — стоимость через $N$ периодов при равных взносах $M$ в конце каждого периода и ставке $i$ за период.',
     },
     when: {
-      en: 'A savings plan with equal deposits made at the end of each period.',
-      ru: 'Накопительный план с равными взносами в конце каждого периода.',
+      en: 'Equal end-of-period deposits, constant $i>0$, positive integer $N$. At zero interest use $FV=MN$.',
+      ru: 'Равные взносы в конце периодов, постоянная ставка $i>0$, целое $N>0$. При нулевой ставке $FV=MN$.',
     },
     syllabus: '1.7',
     inBooklet: false,
@@ -48,14 +48,14 @@ export const formulas: Formula[] = [
       ru: '$B_j$ — остаток долга после $j$ равных платежей $M$ по кредиту $PV$ при ставке $i$ за период.',
     },
     when: {
-      en: 'Finding the balance part-way through the term, without writing out the whole amortisation table.',
-      ru: 'Поиск остатка долга в середине срока без построения полной таблицы погашения.',
+      en: 'For constant $i>0$ and end-of-period payments; at zero interest use $B_j=PV-jM$. Finding the balance part-way through the term, without writing out the whole amortisation table.',
+      ru: 'При постоянной ставке $i>0$ и платежах в конце периодов; при нулевой ставке $B_j=PV-jM$. Поиск остатка долга в середине срока без построения полной таблицы погашения.',
     },
     syllabus: '1.7',
     inBooklet: false,
     example: {
-      en: 'With PV = 60000, i = 6/1200, M = 1159.97 and j = 24: B24 = 38129.33, to 2 decimal places.',
-      ru: 'При PV = 60000, i = 6/1200, M = 1159,97 и j = 24: B24 = 38129,33 с точностью до 2 знаков.',
+      en: 'With PV = 60000, i = 6/1200 and j = 24, retain the unrounded payment M = PV*i/(1-(1+i)^(-60)): B24 = 38129.33 to 2 decimal places. Using an actual rounded payment of 1159.97 instead gives 38129.28.',
+      ru: 'При PV = 60000, i = 6/1200 и j = 24 сохраняем неокруглённый платёж M = PV*i/(1-(1+i)^(-60)): B24 = 38129,33 с точностью до 2 знаков. Если фактически платить округлённые 1159,97, остаток будет 38129,28.',
     },
   },
 ];

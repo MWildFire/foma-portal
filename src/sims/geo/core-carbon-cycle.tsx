@@ -1,3 +1,4 @@
+import ReadableDiagram from '../readable-diagram';
 import { useState } from 'react';
 import type { CSSProperties } from 'react';
 import type { Lang } from '../../contract/types';
@@ -61,10 +62,10 @@ export default function CarbonCycle({ lang }: { lang: Lang }) {
       </div>
       {/* on a phone the diagram scrolls sideways instead of shrinking its labels below readable size */}
       <div style={{ overflowX: 'auto' }}>
-      <svg role="img" aria-label={title} viewBox="0 0 640 490" width="100%" style={{ maxWidth: 640, minWidth: 560, display: 'block' }}>
+      <ReadableDiagram lang={lang}><svg role="img" aria-label={title} viewBox="0 0 640 490" width="100%" style={{ maxWidth: 640, minWidth: 560, display: 'block' }}>
         <defs>
           <marker id="cc-arrow-natural" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
-            <path d="M0,0 L10,5 L0,10 z" fill="#555555" />
+            <path d="M0,0 L10,5 L0,10 z" fill="currentColor" />
           </marker>
           <marker id="cc-arrow-human" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
             <path d="M0,0 L10,5 L0,10 z" fill="#c2410c" />
@@ -98,15 +99,15 @@ export default function CarbonCycle({ lang }: { lang: Lang }) {
         )}
 
         {/* Natural gross exchange, 1750 values: photosynthesis and respiration on land, gross exchange with the ocean */}
-        <line x1={250} y1={198} x2={250} y2={262} stroke="#555555" strokeWidth={2} markerEnd="url(#cc-arrow-natural)" />
-        <line x1={286} y1={262} x2={286} y2={198} stroke="#555555" strokeWidth={2} markerEnd="url(#cc-arrow-natural)" />
-        <line x1={372} y1={198} x2={372} y2={262} stroke="#555555" strokeWidth={2} markerEnd="url(#cc-arrow-natural)" />
-        <line x1={402} y1={262} x2={402} y2={198} stroke="#555555" strokeWidth={2} markerEnd="url(#cc-arrow-natural)" />
-        <text x={244} y={214} textAnchor="end" fontSize={11} fill="#374151">{`${t('photosynthesis', 'фотосинтез')} ${FLUX_1750.photosynthesis}`}</text>
-        <text x={292} y={232} fontSize={10} fill="#374151">{t('respiration', 'дыхание,')}</text>
-        <text x={292} y={244} fontSize={10} fill="#374151">{`${t('and fire', 'и пожары')} ${FLUX_1750.respiration}`}</text>
-        <text x={366} y={214} textAnchor="end" fontSize={10} fill="#374151">{`${t('to ocean', 'в океан')} ${dec(FLUX_1750.oceanUptake)}`}</text>
-        <text x={408} y={236} fontSize={11} fill="#374151">{`${t('from ocean', 'из океана')} ${dec(FLUX_1750.oceanRelease)}`}</text>
+        <line x1={250} y1={198} x2={250} y2={262} stroke="currentColor" strokeWidth={2} markerEnd="url(#cc-arrow-natural)" />
+        <line x1={286} y1={262} x2={286} y2={198} stroke="currentColor" strokeWidth={2} markerEnd="url(#cc-arrow-natural)" />
+        <line x1={372} y1={198} x2={372} y2={262} stroke="currentColor" strokeWidth={2} markerEnd="url(#cc-arrow-natural)" />
+        <line x1={402} y1={262} x2={402} y2={198} stroke="currentColor" strokeWidth={2} markerEnd="url(#cc-arrow-natural)" />
+        <text x={244} y={214} textAnchor="end" fontSize={11} fill="currentColor">{`${t('photosynthesis', 'фотосинтез')} ${FLUX_1750.photosynthesis}`}</text>
+        <text x={292} y={232} fontSize={10} fill="currentColor">{t('respiration', 'дыхание,')}</text>
+        <text x={292} y={244} fontSize={10} fill="currentColor">{`${t('and fire', 'и пожары')} ${FLUX_1750.respiration}`}</text>
+        <text x={366} y={214} textAnchor="end" fontSize={10} fill="currentColor">{`${t('to ocean', 'в океан')} ${dec(FLUX_1750.oceanUptake)}`}</text>
+        <text x={408} y={236} fontSize={11} fill="currentColor">{`${t('from ocean', 'из океана')} ${dec(FLUX_1750.oceanRelease)}`}</text>
         {present && (
           <g>
             <line x1={212} y1={198} x2={212} y2={262} stroke="#c2410c" strokeWidth={2} markerEnd="url(#cc-arrow-human)" />
@@ -139,7 +140,7 @@ export default function CarbonCycle({ lang }: { lang: Lang }) {
           <text x={384} y={426} fontSize={12} fontWeight="bold" fill="#b4480c">{`${t('Ocean sink', 'Поглощение океаном')}: ${dec(S_OCEAN)}`}</text>
         )}
 
-        <line x1={10} y1={480} x2={34} y2={480} stroke="#555555" strokeWidth={2} />
+        <line x1={10} y1={480} x2={34} y2={480} stroke="currentColor" strokeWidth={2} />
         <text x={40} y={484} fontSize={11} fill="currentColor">{t('natural exchange (gross)', 'естественный обмен (валовой)')}</text>
         {present && (
           <g>
@@ -147,7 +148,7 @@ export default function CarbonCycle({ lang }: { lang: Lang }) {
             <text x={360} y={484} fontSize={11} fill="currentColor">{t('human emissions and sinks, present', 'антропогенные потоки, настоящее время')}</text>
           </g>
         )}
-      </svg>
+      </svg></ReadableDiagram>
       </div>
 
       <ul style={{ marginTop: 12, paddingLeft: 18 }}>

@@ -29,8 +29,8 @@ export const formulas: Formula[] = [
       ru: 'Если у отрезка угловой коэффициент m, у серединного перпендикуляра он равен минус 1/m, где m = (y2 - y1)/(x2 - x1).',
     },
     when: {
-      en: 'The segment is not horizontal, so m is not zero. A horizontal segment has a vertical bisector, and a vertical segment has a horizontal one.',
-      ru: 'Отрезок не горизонтален, так что m не равно нулю. Горизонтальный отрезок имеет вертикальный серединный перпендикуляр, а вертикальный — горизонтальный.',
+      en: 'The reciprocal-gradient formula requires a segment that is neither horizontal nor vertical. The segment is not horizontal, so m is not zero. A horizontal segment has a vertical bisector, and a vertical segment has a horizontal one.',
+      ru: 'Формула через обратный угловой коэффициент требует отрезка, который не горизонтален и не вертикален. Отрезок не горизонтален, так что m не равно нулю. Горизонтальный отрезок имеет вертикальный серединный перпендикуляр, а вертикальный — горизонтальный.',
     },
     syllabus: '3.5',
     inBooklet: false,
@@ -48,8 +48,8 @@ export const formulas: Formula[] = [
       ru: 'Каждая точка (x; y) серединного перпендикуляра отрезка от (x1; y1) до (x2; y2) удовлетворяет этому уравнению. Оно получается из равенства расстояний до концов отрезка.',
     },
     when: {
-      en: 'Any segment, including horizontal and vertical ones, because it never divides by a gradient.',
-      ru: 'Любой отрезок, в том числе горизонтальный и вертикальный, потому что здесь не делят на угловой коэффициент.',
+      en: 'The endpoints must be distinct. Any segment, including horizontal and vertical ones, because it never divides by a gradient.',
+      ru: 'Концы отрезка должны быть различны. Любой отрезок, в том числе горизонтальный и вертикальный, потому что здесь не делят на угловой коэффициент.',
     },
     syllabus: '3.5',
     inBooklet: false,

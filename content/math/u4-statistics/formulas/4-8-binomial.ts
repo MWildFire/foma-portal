@@ -48,8 +48,8 @@ export const formulas: Formula[] = [
       ru: 'Вероятность не менее k успехов равна единице минус вероятность не более k − 1 успехов.',
     },
     when: {
-      en: 'The question asks for "at least" or "more than", and the GDC cdf accumulates from zero.',
-      ru: 'В вопросе спрашивают «не менее» или «больше», а cdf на калькуляторе накапливается от нуля.',
+      en: 'For an integer threshold k, “at least k” uses 1−P(X≤k−1); “more than k” uses 1−P(X≤k). The binomial GDC cdf accumulates from zero.',
+      ru: 'Для целого k выражение «не менее k» означает 1−P(X≤k−1), а «больше k» — 1−P(X≤k). Биномиальная cdf на калькуляторе накапливается от нуля.',
     },
     syllabus: '4.8',
     inBooklet: false,

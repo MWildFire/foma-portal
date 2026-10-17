@@ -4,7 +4,7 @@ const topic: TopicMeta = {
   id: '3-4-arcs-sectors',
   subject: 'math',
   code: '3.4',
-  title: { en: 'Arcs and sectors of a circle', ru: 'Дуги и сектора окружности (Arcs and sectors of a circle)' },
+  title: { en: 'Arcs and sectors of a circle', ru: 'Дуги и сектора круга (Arcs and sectors of a circle)' },
   papers: ['P1', 'P2', 'P3'],
   order: 29,
   minutes: 30,

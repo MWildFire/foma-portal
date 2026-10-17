@@ -28,16 +28,16 @@ export const terms: Term[] = [
     papers: ['P1', 'P2', 'P3'],
     src: { kind: 'textbook', title: BOOK_TITLE, locator: 'ch. 4.1, p. 151' },
     pitfall: {
-      en: 'A square root needs a non-negative expression, and a time or a count cannot be negative.',
-      ru: 'Под знаком квадратного корня должно стоять неотрицательное выражение, а время или количество не могут быть отрицательными.',
+      en: 'For a real square root, the radicand must be nonnegative. Counts of individual objects are nonnegative integers. Elapsed time from the stated start is nonnegative, while a signed time coordinate can be negative.',
+      ru: 'Для действительного квадратного корня подкоренное выражение неотрицательно. Количество отдельных предметов — неотрицательное целое; время от указанного начала неотрицательно, но временная координата может быть отрицательной.',
     },
   },
   {
     id: 'inverse-function-reflection',
     term: { en: 'inverse function', ru: 'обратная функция (inverse function)' },
     def: {
-      en: 'The function $f^{-1}$ that reverses $f$: if $f(b) = a$, then $f^{-1}(a) = b$. Its graph is the reflection of the graph of $f$ in the line $y = x$.',
-      ru: 'Функция $f^{-1}$, которая обращает $f$: если $f(b) = a$, то $f^{-1}(a) = b$. Её график — отражение графика $f$ в прямой $y = x$.',
+      en: 'The function $f^{-1}$ from the range of a one-to-one $f$ back to its domain: if $f(b) = a$, then $f^{-1}(a) = b$. Its graph is the reflection of the graph of $f$ in the line $y = x$.',
+      ru: 'Функция $f^{-1}$ из области значений взаимно однозначной $f$ в её область определения: если $f(b) = a$, то $f^{-1}(a) = b$. Её график — отражение графика $f$ в прямой $y = x$.',
     },
     syllabus: '2.2',
     papers: ['P1', 'P2', 'P3'],

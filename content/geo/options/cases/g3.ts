@@ -13,12 +13,12 @@ export const cases: CaseStudy[] = [
     lat: 19.076,
     lng: 72.8777,
     facts: {
-      en: 'On 26 July 2005 Mumbai recorded 944.2 mm of rain in 24 hours. A 2017 AIKTC project report on Mumbai rainfall, using 20 years of daily data from the Colaba and Santacruz rain gauges, gives this day as the maximum in that record.',
-      ru: '26 июля 2005 года в Мумбаи выпало 944,2 мм осадков за 24 часа. По отчёту проекта AIKTC (2017), который использует 20 лет ежедневных данных станций Colaba и Santacruz, этот день — максимум за весь ряд.',
+      en: 'For 26–27 July 2005, the India Meteorological Department’s map records 944.2 mm at Santacruz, 493 mm at Dharavi and 73.4 mm at Colaba (MAUSAM, 57(3), 2006, p. 565, Figure 14 and section 12.1). The 24-hour Santacruz total was recorded on the morning of 27 July. These are station measurements, not uniform rainfall throughout Mumbai, and rainfall alone does not measure flood depth, household loss or recovery.',
+      ru: 'На карте Метеорологического департамента Индии за 26–27 июля 2005 года указаны 944,2 мм в Santacruz, 493 мм в Дхарави и 73,4 мм в Colaba (MAUSAM, 57(3), 2006, с. 565, рис. 14 и раздел 12.1). Суточный итог Santacruz зафиксирован утром 27 июля. Это станционные измерения, а не одинаковые осадки во всём Мумбаи; сами осадки не измеряют глубину затопления, потери семей и восстановление.',
     },
     usedFor: ['g3-urban-stress'],
     src: [
-      { kind: 'web', title: 'Design and management of urban storm water drainage system in coastal cities (AIKTC project report, April 2017; 20 years of daily rainfall at Colaba and Santacruz)', url: 'https://aiktc.ndl.gov.in/items/9b4755b8-91cd-4f85-830f-d6d91e6d246e' },
+      { kind: 'web', title: 'India Meteorological Department, Weather in India: Monsoon season 2005, MAUSAM 57(3), 2006', url: 'https://mausamjournal.imd.gov.in/index.php/MAUSAM/article/download/495/398/1596', locator: 'p. 565, Figure 14 and section 12.1; PDF p. 39' },
     ],
   },
   {
