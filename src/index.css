@@ -94,6 +94,12 @@ a {
     --tone-slate-fg: #3f4652 !important;
   }
 
+  .foma-sim :is(button, input, select, textarea) {
+    color: var(--color-fg) !important;
+    background: #ffffff !important;
+  }
+  .foma-sim [aria-pressed="true"] { font-weight: 700; }
+
   html, body { overflow: visible !important; }
   .foma-figure__frame, .foma-sim, .foma-math-region,
   .foma-sim [style*="overflow"] { overflow: visible !important; }
