@@ -13,4 +13,3 @@ export function classifyPhasePortrait(a10: number, b10: number, c10: number, d10
   if (ti === 0) return 'centre';
   return ti < 0 ? 'stable-spiral' : 'unstable-spiral';
 }
-
