@@ -100,8 +100,8 @@ export const questions: Question[] = [
   "marks": 4,
   "command": "Calculate",
   "prompt": {
-    "en": "UN 2025 reporting gives safely managed drinking-water coverage of68% in2015 and74% in 2024;2.1billion people still lacked the service in 2024. Calculate the change in percentage points and relative percent,and explain one reason this does not prove SDG6.1 has been achieved or water abstraction is sustainable.",
-    "ru": "Отчётность ООН2025 даёт охват безопасно организованным питьевым водоснабжением68% в2015 и74% в 2024 году;2,1млрд человек в 2024 году услуги ещё не имели. Рассчитай изменение в процентных пунктах и в относительных процентах. Объясни,почему это не доказывает достижения задачи ЦУР 6.1 или устойчивости водозабора."
+    "en": "UN 2025 reporting gives safely managed drinking-water coverage of68% in2015 and74% in 2024;2.1billion people still lacked the service in 2024. Calculate the change in percentage points and relative percent. Explain both (i) why the coverage figures do not establish that SDG6.1 has been achieved and (ii) why a drinking-water service indicator alone does not establish sustainable water abstraction.",
+    "ru": "Отчётность ООН2025 даёт охват безопасно организованным питьевым водоснабжением68% в2015 и74% в 2024 году;2,1млрд человек в 2024 году услуги ещё не имели. Рассчитай изменение в процентных пунктах и в относительных процентах. Объясни оба ограничения: (i) почему данные об охвате не доказывают достижения задачи ЦУР 6.1 и (ii) почему один лишь показатель услуги питьевого водоснабжения не доказывает устойчивости водозабора."
   },
   "markscheme": {
     "en": "1:74−68=6percentagepoints.1:(6/68)×100≈8.8% relative increase.1:coverage remains below universal access and2.1billion remain unserved;inequality/affordability/reliability matter.1:indicator 6.1.1 measures a service,not the water-stress ratio6.4.2;source protection/environmental flows need separate evidence. This original exercise uses the same2025 reporting vintage for both dates,not mixed revisions.",
