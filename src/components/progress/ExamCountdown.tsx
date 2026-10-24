@@ -46,15 +46,17 @@ export function ExamCountdown({ next, lang, infos, headingLevel = 'h2' }: Props)
       {next.start !== exam.start && (
         <p className={`text-sm ${MUTED}`}>{t('countdown.separateRoom', { time: next.start, hall: exam.start })}</p>
       )}
-      <p className="text-sm">{t('countdown.room', { room: exam.room })}</p>
-      <p
+      <p className="text-sm">{t('countdown.room', { room: exam.room === 'SpHal2' ? t('mainHall') : exam.room })}</p>
+      {exam.startConfirmed === false ? (
+        <p role="note" className="mt-3 text-sm font-medium">{t('provisionalStart')}</p>
+      ) : <p
         role="timer"
         aria-label={`${running ? t('countdown.untilEnd') : t('countdown.untilStart')}: ${remaining}`}
         className="mt-3 flex flex-wrap items-baseline gap-x-2"
       >
         <span className="text-3xl font-semibold tabular-nums">{remaining}</span>
         <span className={`text-sm ${MUTED}`}>{running ? t('countdown.untilEnd') : t('countdown.untilStart')}</span>
-      </p>
+      </p>}
     </section>
   );
 }

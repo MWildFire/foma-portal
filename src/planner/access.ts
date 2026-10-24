@@ -1,7 +1,7 @@
 // Room selection preserves the school start times.
 export type ExamRoom = 'ACC2' | 'SpHal2' | 'unknown';
 export const EXAM_ROOMS: readonly ExamRoom[] = ['ACC2', 'SpHal2', 'unknown'];
-export const DEFAULT_ROOM: ExamRoom = 'unknown';
+export const DEFAULT_ROOM: ExamRoom = 'SpHal2';
 
 export interface AccessChoice {
   room: ExamRoom;
@@ -10,12 +10,10 @@ export interface AccessChoice {
 
 export const isExamRoom = (value: unknown): value is ExamRoom => (EXAM_ROOMS as readonly unknown[]).includes(value);
 
-// What the settings hold. A stored `room` wins; without one (settings saved before the room existed) a stored
-// `separateRoom: true` still means ACC2, and anything else means "unknown".
-export function accessChoiceOf(stored?: { separateRoom?: unknown; room?: unknown } | null): AccessChoice {
-  const raw: { separateRoom?: unknown; room?: unknown } = stored ?? {};
-  const room: ExamRoom = isExamRoom(raw.room) ? raw.room : raw.separateRoom === true ? 'ACC2' : DEFAULT_ROOM;
-  return { room, separateRoom: room === 'ACC2' };
+// The student confirmed Main Hall for every mock on 24 Oct 2026. This personal
+// schedule takes precedence over legacy browser choices without rewriting progress.
+export function accessChoiceOf(_stored?: { separateRoom?: unknown; room?: unknown } | null): AccessChoice {
+  return { room: 'SpHal2', separateRoom: false };
 }
 
 // [redacted]'s only access arrangement is typing ([redacted], 14 Oct 2026). The papers with long typed answers (essays) get a

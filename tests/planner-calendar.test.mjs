@@ -15,7 +15,7 @@ test('exam calendar is parsed from data/exams.json and sorted by date and start'
   const keys = exams.papers.map(p => `${p.date} ${p.start}`);
   assert.deepEqual(keys, [...keys].sort());
   const mathP1 = exams.papers.find(p => p.id === 'math-p1');
-  assert.equal(mathP1.room, 'ACC2'); // the room stays exactly as written in the file
+  assert.equal(mathP1.room, 'SpHal2'); // the room stays exactly as written in the file
   assert.equal(exams.papers.find(p => p.id === 'fr-p2l').part, 'listening');
   assert.equal(exams.timezone, 'Asia/Dubai');
 });
@@ -38,7 +38,7 @@ test('exams are looked up by day, and the eve of an exam is the day before it', 
 });
 
 test('schedule has typing and no legacy duration table',()=>{
- assert.deepEqual(exams.access,{room:'tbd',typing:true});
+ assert.deepEqual(exams.access,{room:'SpHal2',typing:true});
  assert.equal(exams.accessMinutes,undefined);
 });
 

@@ -1,3 +1,4 @@
+import { accessChoiceOf } from '../planner/access';
 import { PreparationReadiness } from '../components/planner/PreparationReadiness';
 import { CircleCheck, Info } from 'lucide-react';
 import { useMemo } from 'react';
@@ -44,7 +45,7 @@ function TodayBody({ plan, state, update, today, lang }: PlanReady) {
   const { t: tp } = useTranslation('planner');
   usePageTitle(tc('nav.today'), tc('brand'));
   useScrollToTop();
-  const { separateRoom } = state.settings.accessArrangements;
+  const { separateRoom } = accessChoiceOf(state.settings.accessArrangements);
   const { next } = useExamCountdown(separateRoom);
   const timer = useStudyTimer();
   const infos = useMemo(() => subjectInfos(lang), [lang]);

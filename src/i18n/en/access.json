@@ -9,9 +9,10 @@
     },
     "summary": {
       "ACC2": "room ACC2",
-      "SpHal2": "room SpHal2",
+      "SpHal2": "All exams: Main Hall (SpHal2)",
       "unknown": "room not confirmed yet"
-    }
+    },
+    "confirmed": "Room confirmed by the student on 24 October. Typing does not change the room or add time. Maths AI HL P1 starts provisionally at 08:00; confirm its Main Hall start."
   },
   "acc2": {
     "heading": "ACC2 start times",

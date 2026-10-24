@@ -17,6 +17,7 @@ export interface ExamPaper {
   title: string;
   date: string;                   // YYYY-MM-DD, Dubai
   start: string;                  // HH:MM, Dubai, main hall
+  startConfirmed?: boolean;      // false when only a provisional reference start is available
   acc2Start?: string;             // start in the access-arrangements room
   minutes: number;
   room: string;                   // kept exactly as written in the file
