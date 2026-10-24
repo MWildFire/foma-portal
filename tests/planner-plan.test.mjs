@@ -10,11 +10,11 @@ test('four subjects every calendar day; previous dates never become preparation 
   if(date>'2026-11-05')assert.equal(p.days.length,0);
  }
 });
-test('selected confirmed final-paper start bounds preparation; end bounds terminal state',()=>{
+test('confirmed Main Hall final-paper start bounds preparation even with stale ACC2 settings',()=>{
  for(const separate of [false,true]){
   const state=emptyState();state.settings.accessArrangements.separateRoom=separate;
   const input={today:'2026-11-05',exams,quotas,subjects:makeSubjects(),state};
-  const start=separate?'08:00':'08:15', end=separate?'10:00':'10:15';
+  const start='08:15', end='10:15';
   const before=buildPlan({...input,now:dubaiEpoch(input.today,start)-60000}).days[0];assert.equal(before.budget.clockLimit,1);assert.equal(before.budget.deficit,239);
   const during=buildPlan({...input,now:dubaiEpoch(input.today,start)}).days[0];assert.equal(during.budget.available,0);assert.equal(during.budget.runningExam,true);assert.equal(during.budget.status,'conflict');
   assert.equal(buildPlan({...input,now:dubaiEpoch(input.today,end)-1}).days[0].blocks.length,4);

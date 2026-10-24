@@ -129,7 +129,7 @@ export function ExamsPage() {
                     <p className="m-0 tabular-nums">
                       <span className="whitespace-nowrap">
                         <span className="text-lg font-semibold">{ranges.sitting.range}</span>{' '}
-                        <span className={`text-sm ${MUTED}`}>{t('printedTime')}</span>
+                        <span className={`text-sm ${MUTED}`}>{exam.startConfirmed === false ? t('unconfirmedStart') : t('printedTime')}</span>
                       </span>
                     </p>
                     {finished && (
@@ -155,7 +155,7 @@ export function ExamsPage() {
                     <dt className={MUTED}>{t('fields.duration')}</dt>
                     <dd className="m-0">{formatMinutes(tp, exam.minutes)}</dd>
                     <dt className={MUTED}>{t('fields.room')}</dt>
-                    <dd className="m-0 break-words">{room === 'unknown' ? exam.room : hallOf(exam, room)}</dd>
+                    <dd className="m-0 break-words">{hallOf(exam, room) === 'SpHal2' ? t('mainHall') : hallOf(exam, room)}</dd>
                     {separateRoom && (
                       <>
                         <dt className={MUTED}>{t('fields.separateRoom')}</dt>

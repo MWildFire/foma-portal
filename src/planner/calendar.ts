@@ -37,6 +37,7 @@ function examOf(raw: unknown, defaultRoom: string): ExamPaper | null {
   };
   if (typeof raw.part === 'string') exam.part = raw.part;
   if (typeof raw.acc2Start === 'string' && parseClock(raw.acc2Start) !== null) exam.acc2Start = raw.acc2Start;
+  if (typeof raw.startConfirmed === 'boolean') exam.startConfirmed = raw.startConfirmed;
   if (typeof raw.note === 'string') exam.note = raw.note;
   if (typeof raw.noteRu === 'string') exam.noteRu = raw.noteRu;
   return exam;

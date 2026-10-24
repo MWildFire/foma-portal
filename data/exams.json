@@ -3,9 +3,9 @@
   "source": "G12 Mock Examination Schedule, student version (printout photographed 13 Oct 2026)",
   "timezone": "Asia/Dubai",
   "defaultRoom": "SpHal2",
-  "note": "General printed starts are reference times. Personal room is unconfirmed. Only source-matched ACC2 alternatives are retained. Typing only; printed durations, no additional time.",
+  "note": "All exams are in Main Hall (SpHal2), confirmed by the student on 24 Oct 2026. Typing only; printed durations, no additional time. Maths AI HL P1 has no main-hall row in the photographed schedule: 08:00 remains a provisional reference, pending confirmation.",
   "access": {
-    "room": "tbd",
+    "room": "SpHal2",
     "typing": true
   },
   "papers": [
@@ -18,9 +18,10 @@
       "start": "08:00",
       "acc2Start": "08:00",
       "minutes": 120,
-      "room": "ACC2",
-      "note": "On the printout Maths AI HL P1 appears only in ACC2 at 08:00 (no SpHal2 row). Confirm the room with the school.",
-      "noteRu": "В распечатке математика AI HL P1 стоит только в ACC2 в 08:00 (строки для SpHal2 нет). Зал уточнить у школы."
+      "room": "SpHal2",
+      "note": "Main Hall confirmed. Start time to confirm: the printout lists Maths AI HL P1 only in ACC2 at 08:00. 08:00 is kept provisionally; no Main Hall start is printed. Check the personal timetable before 26 October.",
+      "noteRu": "Зал Main Hall подтверждён. Начало нужно уточнить: в распечатке Maths AI HL P1 указан только в ACC2 на 08:00. Пока сохранено 08:00; время Main Hall в исходнике отсутствует. Проверь личное расписание до 26 октября.",
+      "startConfirmed": false
     },
     {
       "id": "geo-p1",

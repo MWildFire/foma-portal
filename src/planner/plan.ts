@@ -1,5 +1,6 @@
 // Four concrete daily activities. Workload, quota and the remaining clock window are separate:
 // a missing/insufficient budget is a conflict, never permission to overflow or drop a subject.
+import { accessChoiceOf } from './access.ts';
 import { DAILY_PREPARATION, DAILY_SUBJECTS } from '../../data/daily-preparation.ts';
 import { eveExams, examEndMs, examStartMs, examsOn, lastExamDate, lastExamOverall } from './calendar.ts';
 import { addDays, dubaiEpoch, weekdayOf } from './dates.ts';
@@ -10,7 +11,7 @@ export function buildPlan(input: PlannerInput): Plan {
   const { today, state, exams, quotas } = input;
   const firstDate = DAILY_PREPARATION[0].date;
   const lastDate = lastExamOverall(exams) ?? DAILY_PREPARATION.at(-1)!.date;
-  const separate = state.settings.accessArrangements.separateRoom;
+  const { separateRoom: separate } = accessChoiceOf(state.settings.accessArrangements);
   const finalEnd = exams.papers.length ? Math.max(...exams.papers.map(exam => examEndMs(exam, exams, separate))) : Infinity;
   const finished = today > lastDate || (input.now ?? dubaiEpoch(today)) >= finalEnd;
   const days: PlanDay[] = [];

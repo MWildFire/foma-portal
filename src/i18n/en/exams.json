@@ -1,6 +1,6 @@
 {
   "intro": "Mock exams: {{n}} papers from {{from}} to {{to}}.",
-  "timesNote": "Times are Dubai time (UTC+4) for the main hall, as printed in the school's mock schedule.",
+  "timesNote": "All exams: Main Hall (SpHal2), Dubai time (UTC+4). Maths AI HL P1: start time still to confirm.",
   "today": "Today",
   "dubaiTime": "Dubai time",
   "empty": "The exam calendar is empty.",
@@ -15,8 +15,8 @@
   },
   "access": {
     "title": "Access arrangements",
-    "change": "Change in Settings",
-    "typing": "Your access arrangement is typing: you type your answers on the computer."
+    "change": "Exam arrangements in Settings",
+    "typing": "You type your answers on the computer; exam durations are standard, with no additional time."
   },
   "status": {
     "finished": "Finished",
@@ -32,5 +32,8 @@
   "separateStart": "ACC2, starts at {{time}}",
   "noSeparateStart": "no separate start time in the schedule",
   "printedTime": "Printed time",
-  "paperGuide": "Paper guide"
+  "paperGuide": "Paper guide",
+  "mainHall": "Main Hall (SpHal2)",
+  "unconfirmedStart": "Start time to confirm",
+  "provisionalStart": "The Main Hall start for Maths AI HL P1 still needs confirmation. 08:00 is a provisional reference from the ACC2 row; check your personal timetable before 26 October."
 }

@@ -11,7 +11,7 @@ test('before the first exam the countdown points at it and counts down to its st
   assert.equal(next.exam.id, 'math-p1');
   assert.equal(next.phase, 'upcoming');
   assert.equal(next.remainingMs, at('2026-10-26', '08:00') - at('2026-10-13', '15:00'));
-  assert.equal(next.exam.room, 'ACC2');
+  assert.equal(next.exam.room, 'SpHal2');
 });
 
 test('during a sitting the exam is running and the countdown is to its end', () => {

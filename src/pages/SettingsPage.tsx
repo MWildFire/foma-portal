@@ -1,8 +1,7 @@
 import { AlertCircle, CircleCheck, ClipboardCopy, RotateCcw, Upload } from 'lucide-react';
 import { useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
 import { useTranslation } from 'react-i18next';
-import { formatMinutes, paperLabel } from '../components/planner/labels';
-import { subjectInfo, subjectInfos } from '../components/planner/subjects';
+import { formatMinutes } from '../components/planner/labels';
 import { usePageTitle, useScrollToTop } from '../components/planner/usePageTitle';
 import { usePlan, type PlanReady } from '../components/planner/usePlan';
 import { PageLoading } from '../components/layout/PageLoading';
@@ -11,11 +10,8 @@ import { LanguageToggle } from '../components/ui/LanguageToggle';
 import type { Lang } from '../contract/types';
 import { UPDATE_EVENT, WEEKDAYS, type GlobalState, type Weekday } from '../lib/storage';
 import { applyProgress, collectProgress, encodeProgress } from '../lib/transfer';
-import { EXAM_ROOMS, accessChoiceOf } from '../planner/access';
-import { setDailyLoad, setExamRoom } from '../planner/actions';
-import { examStartClock } from '../planner/calendar';
-import { EXAMS } from '../planner/data';
-import { capitalize, formatDate, formatInstant, weekdayName } from '../planner/format';
+import { setDailyLoad } from '../planner/actions';
+import { capitalize, formatInstant, weekdayName } from '../planner/format';
 import { DEFAULT_DAILY_LOAD, parseLoadInput } from '../planner/loads';
 import { checkImport, progressKeys } from '../planner/progress-code';
 
@@ -54,54 +50,14 @@ function Success({ children }: { children: ReactNode }) {
 // Access arrangements
 // ---------------------------------------------------------------------------------------------
 
-function AccessSection({ state, update }: { state: GlobalState; update: Update }) {
-  const { t, i18n } = useTranslation('settings');
+function AccessSection() {
+  const { t } = useTranslation('settings');
   const { t: ta } = useTranslation('access');
-  const { t: tp } = useTranslation('planner');
-  const lang: Lang = i18n.language.startsWith('ru') ? 'ru' : 'en';
-  const { room } = accessChoiceOf(state.settings.accessArrangements);
-  const infos = useMemo(() => subjectInfos(lang), [lang]);
   return (
     <Section id="settings-access" title={t('access.title')}>
       <p className={`mt-1 text-sm ${MUTED}`}>{t('access.intro')}</p>
-
-
-      <fieldset className="mt-3 min-w-0 border-0 p-0">
-        <legend className="font-medium">{ta('room.label')}</legend>
-        <p className={`mt-1 text-sm ${MUTED}`}>{ta('room.hint')}</p>
-        <div className="mt-1 space-y-1">
-          {EXAM_ROOMS.map(option => (
-            <label key={option} className="flex min-h-[44px] cursor-pointer items-center gap-3 py-2">
-              <input
-                type="radio"
-                name="exam-room"
-                value={option}
-                checked={room === option}
-                onChange={() => update(current => setExamRoom(current, option))}
-                className="h-5 w-5 shrink-0 accent-[var(--color-accent)]"
-              />
-              <span>{ta(`room.options.${option}`)}</span>
-            </label>
-          ))}
-        </div>
-      </fieldset>
-
-      {room === 'ACC2' && (
-        <div className="mt-4">
-          <h3 className="text-sm font-semibold">{ta('acc2.heading')}</h3>
-          <p className={`mt-1 text-sm ${MUTED}`}>{ta('acc2.intro')}</p>
-          <ul className="m-0 mt-2 list-none space-y-1 p-0 text-sm">
-            {EXAMS.papers.map(exam => (
-              <li key={exam.id} className="flex flex-wrap justify-between gap-x-3">
-                <span className="min-w-0 break-words">
-                  {formatDate(exam.date, lang, 'day')}, {subjectInfo(infos, exam.subject).name}, {paperLabel(tp, exam.paper, exam.part)}
-                </span>
-                <span className="font-medium tabular-nums">{examStartClock(exam, true)}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
+      <p className="mt-3 font-medium">{ta('room.summary.SpHal2')}</p>
+      <p className={`mt-1 text-sm ${MUTED}`}>{ta('room.confirmed')}</p>
     </Section>
   );
 }
@@ -448,7 +404,7 @@ function SettingsBody({ plan, state, update, lang }: PlanReady) {
         </div>
       </Section>
 
-      <AccessSection state={state} update={update} />
+      <AccessSection />
       <LoadSection state={state} update={update} lang={lang} planned={planned} />
       <TransferSection state={state} lang={lang} />
     </section>
